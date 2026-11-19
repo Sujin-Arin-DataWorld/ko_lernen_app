@@ -1,0 +1,1642 @@
+{
+  "schemaVersion": 1,
+  "status": "authored_candidate_not_runtime",
+  "record_type": "inherited_detailed_with_integration_overlay",
+  "unit_id": "A1.1-05",
+  "band": "A1.1",
+  "title": {
+    "ko": "내 것과 함께 있는 사람",
+    "en": "Whose is it?",
+    "de": "Wem gehört das?"
+  },
+  "goal": {
+    "ko": "물건의 주인을 확인하고 함께 있는 사람을 말한다",
+    "en": "Check who owns an object and say who is with you.",
+    "de": "Kläre, wem ein Gegenstand gehört, und sage, wer bei dir ist."
+  },
+  "prerequisites": [
+    "A1.1-02",
+    "A1.1-03"
+  ],
+  "base_manuscript": {
+    "path": "docs/learning/ildu-season1-content-20261030/manuscripts/a1-1-v35/05_A1.1-05.md",
+    "sha256": "6c9e565eaf98d8b9005a2abb5243a969765168a114b65f8d7bfa1d9d75306410",
+    "inheritance": "full dialogue, teaching, P/I/R items, answer criteria, help and feedback retained verbatim; overlay is additive"
+  },
+  "source_contract": {
+    "id": "A1.1-05",
+    "title": "내 것과 함께 있는 사람",
+    "can_do": "물건의 주인을 확인하고 함께 있는 사람을 말한다",
+    "lexis": "제,누구,친구,책,같이",
+    "model": "이거 누구 거예요? / 친구하고 같이 있어요.",
+    "teach": "소유 관계와 명사 연결을 다른 작은 활동으로 분리; 과·와는 읽기 대조부터",
+    "practice": "주인이 다르게 표시된 가방표 비교; 동행자와 물건을 혼동하지 않기",
+    "transfer": "다른 인물의 물건을 돌려주기 전에 주인에게 확인",
+    "prerequisites": "A1.1-02,A1.1-03",
+    "review_in": "A2.1-02,B1.2-01",
+    "grammar_rows": "6,7,8,9"
+  },
+  "inherited_content": {
+    "items": [
+      {
+        "item_id": "A1.1-05-P01",
+        "unit_id": "A1.1-05",
+        "phase": "P",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "소유자 이름표=수진. 수진이 들고 있지만 주인은 이름표로 확인해요. 임시 역할 이름표는 소개 연습과 별개예요.",
+          "en": "Owner tag: 수진. Sujin carries the bag; check the owner tag. Temporary role tags are separate from introduction cards.",
+          "de": "Besitzschild: 수진. Sujin trägt die Tasche; prüfe das Besitzschild. Vorübergehende Rollenschilder gehören nicht zu den Vorstellungskarten."
+        },
+        "prompt": {
+          "ko": "누구의 가방인지 의를 써서 말해 봐요. 다른 자연스러운 답도 의미를 확인해요.",
+          "en": "Try saying whose bag it is using 의. Other natural replies are checked for meaning too.",
+          "de": "Versuche mit 의 zu sagen, wem die Tasche gehört. Andere natürliche Antworten werden ebenfalls nach ihrer Bedeutung beurteilt."
+        },
+        "model_or_answer": "수진의 가방이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "수진",
+            "sense_ko": "이미 만난 친구 수진; 새 등장 인물 아님"
+          },
+          {
+            "form": "의",
+            "sense_ko": "누구의 소유인지 연결하는 조사"
+          },
+          {
+            "form": "가방이에요",
+            "sense_ko": "가방이라고 정체를 말하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "들고 있는 손보다 소유자 이름표를 확인해요.",
+            "en": "Check the owner tag rather than the hand holding the bag.",
+            "de": "Achte auf das Besitzschild statt auf die Hand, die die Tasche hält."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "수진의 가방이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "들고 있다는 사실만으로 주인을 정하지 않아요. 이름표의 소유 관계를 다시 봐요.",
+          "en": "Carrying the bag does not establish ownership. Check the relationship on the owner tag.",
+          "de": "Wer die Tasche trägt, muss sie nicht besitzen. Prüfe den Besitz auf dem Schild."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept owner의 가방이에요; owner 거예요 or owner 가방이에요 achieves ownership but 의 not observed. Do not prefer literal 의 over natural Korean in open communication.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-05-R01",
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-P02",
+        "unit_id": "A1.1-05",
+        "phase": "P",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "주인이 확인되지 않은 가방. 건네기 전에 상대에게 확인해야 해요.",
+          "en": "A bag whose owner is unknown. Ask before handing it over.",
+          "de": "Eine Tasche mit unbekannter Besitzerin oder unbekanntem Besitzer. Frage vor dem Überreichen nach."
+        },
+        "prompt": {
+          "ko": "상대에게 주인을 물어요.",
+          "en": "Ask who owns it.",
+          "de": "Frage, wem sie gehört."
+        },
+        "model_or_answer": "이거 누구 거예요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "이거",
+            "sense_ko": "화자 가까운 대상의 지시"
+          },
+          {
+            "form": "누구 거예요?",
+            "sense_ko": "물건의 소유자를 묻는 전체 표현"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구인지가 아니라 누구의 물건인지 물어요.",
+            "en": "Ask whose object it is.",
+            "de": "Frage, wem der Gegenstand gehört."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "이거 누구 거예요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "누구예요?만으로는 사람 소개를 묻는 말이 될 수 있어요. 물건의 주인을 확인해요.",
+          "en": "누구예요? alone can ask someone’s identity. Make the ownership question clear.",
+          "de": "누구예요? allein kann nach einer Person fragen. Stelle klar, dass du nach dem Besitz fragst."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 이거 누구 거예요? / 누구 가방이에요? / 누구의 가방이에요?. Choosing translated question records function recognition only. Wait for actual owner reply before return action.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-05-R02",
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-P03",
+        "unit_id": "A1.1-05",
+        "phase": "P",
+        "objective_id": "A1.1-05.formal-pair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-formal-pair"
+        ],
+        "context": {
+          "ko": "읽기용 짧은 목록: 책과 모자. 뜻·소리는 이미 시범에서 익혔어요.",
+          "en": "Short reading list: 책과 모자. Meanings and sounds were introduced in the model.",
+          "de": "Kurze Leseliste: 책과 모자. Bedeutung und Klang wurden zuvor eingeführt."
+        },
+        "prompt": {
+          "ko": "목록의 두 물건을 골라요. 말로 만들 필요는 없어요.",
+          "en": "Choose the two objects on the list. You do not need to produce the phrase.",
+          "de": "Wähle die zwei Gegenstände auf der Liste. Du musst den Ausdruck nicht selbst bilden."
+        },
+        "model_or_answer": "책+모자",
+        "choices": [
+          "책+모자",
+          "책+가방"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "책",
+            "sense_ko": "읽는 책"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "과/와",
+            "sense_ko": "두 명사를 나란히 잇는 이해용 연결"
+          }
+        ],
+        "required_grammar_functions": [
+          "과/와: receptive noun coordination"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "text-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "과·와가 두 물건을 이어 줘요.",
+            "en": "과 and 와 join the two objects.",
+            "de": "과 und 와 verbinden die beiden Gegenstände."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "책+모자",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이번 목록에는 가방이 없어요. 읽은 두 낱말을 따로 확인해요.",
+          "en": "There is no bag in this list. Check the two written words separately.",
+          "de": "In dieser Liste steht keine Tasche. Prüfe die zwei geschriebenen Wörter einzeln."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Receptive pair recognition only; no spoken 과/와 gate. Reading route prepared separately, ORAL-START alone does not imply literacy. Audio-supported alternative logs listening not reading.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-05-R03",
+        "leak_keys": [
+          "formal-pair",
+          "과/와: receptive noun coordination"
+        ],
+        "delay_policy": null,
+        "choice_labels": [
+          {
+            "ko": "책+모자",
+            "en": "book + hat",
+            "de": "Buch + Hut"
+          },
+          {
+            "ko": "책+가방",
+            "en": "book + bag",
+            "de": "Buch + Tasche"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-05-P04",
+        "unit_id": "A1.1-05",
+        "phase": "P",
+        "objective_id": "A1.1-05.companion",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-companion"
+        ],
+        "context": {
+          "ko": "화자는 수진 옆에 있어요. 수진은 친구예요. 물건 소유자는 지금 묻지 않아요.",
+          "en": "The speaker is beside Sujin, a friend. Object ownership is not being asked about.",
+          "de": "Die sprechende Person steht neben Sujin, einer befreundeten Person. Nach Besitz wird hier nicht gefragt."
+        },
+        "prompt": {
+          "ko": "함께 있는 사람을 이랑·랑으로 말해 봐요.",
+          "en": "Try naming your companion using 이랑 or 랑.",
+          "de": "Versuche, deine Begleitung mit 이랑 oder 랑 zu nennen."
+        },
+        "model_or_answer": "수진이랑 같이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "수진",
+            "sense_ko": "이미 만난 친구 수진; 새 등장 인물 아님"
+          },
+          {
+            "form": "친구",
+            "sense_ko": "친구 관계인 사람; 성별·연애 추정 없음"
+          },
+          {
+            "form": "이랑/랑",
+            "sense_ko": "동행하는 사람을 연결하는 구어형"
+          },
+          {
+            "form": "같이 있어요",
+            "sense_ko": "같은 자리에 함께 있는 상태"
+          }
+        ],
+        "required_grammar_functions": [
+          "이랑/랑: accompaniment"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구와 함께인지 생각해요.",
+            "en": "Think about who is with you.",
+            "de": "Überlege, wer bei dir ist."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "수진이랑 같이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "가방의 주인과 동행자는 다른 정보예요. 이번에는 옆에 있는 사람을 말해요.",
+          "en": "Ownership and companionship are different facts. Name the person beside you here.",
+          "de": "Besitz und Begleitung sind verschiedene Angaben. Nenne hier die Person neben dir."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 수진이랑/친구랑 같이 있어요. 하고 or 와 gives correct companionship but requested 이랑/랑 unobserved. No language-goal failure merely for a valid connector.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-05-R04",
+        "leak_keys": [
+          "companion",
+          "이랑/랑: accompaniment"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-P05",
+        "unit_id": "A1.1-05",
+        "phase": "P",
+        "objective_id": "A1.1-05.companion",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-companion"
+        ],
+        "context": {
+          "ko": "다른 차례예요. 여전히 수진과 함께 있지만 이번에는 하고 표현을 연습해요.",
+          "en": "A separate turn: you are still with Sujin, now practising 하고.",
+          "de": "Eine neue Runde: Du bist weiter mit Sujin zusammen und übst jetzt 하고."
+        },
+        "prompt": {
+          "ko": "함께 있는 사람을 하고로 말해 봐요.",
+          "en": "Try naming your companion with 하고.",
+          "de": "Versuche, deine Begleitung mit 하고 zu nennen."
+        },
+        "model_or_answer": "수진하고 같이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "수진하고",
+            "sense_ko": "수진을 동행자로 연결하는 구어형"
+          },
+          {
+            "form": "같이 있어요",
+            "sense_ko": "같은 자리에 함께 있는 상태"
+          }
+        ],
+        "required_grammar_functions": [
+          "하고: spoken noun connection"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "하고 뒤에 같이 있어요를 이어요.",
+            "en": "Follow 하고 with 같이 있어요.",
+            "de": "Verbinde 하고 mit 같이 있어요."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "수진하고 같이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "다른 연결 말로도 뜻이 통할 수 있어요. 하고를 썼는지만 별도로 확인해요.",
+          "en": "Another connector may communicate the same meaning. We check use of 하고 separately.",
+          "de": "Eine andere Verbindung kann dieselbe Bedeutung ausdrücken. Die Verwendung von 하고 wird getrennt geprüft."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "All appropriate companion connectors achieve communication; observe 하고 only in this guided form attempt. It is not independent novel communication after immediately preceding model/help.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-05-R05",
+        "leak_keys": [
+          "companion",
+          "하고: spoken noun connection"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-P06",
+        "unit_id": "A1.1-05",
+        "phase": "P",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "이번 역할에서는 소유자 이름표가 내 카드와 같아요. 손에 든 다른 가방은 수진 것이에요.",
+          "en": "In this role, one owner tag matches your card. Another bag you are holding belongs to Sujin.",
+          "de": "In dieser Rolle stimmt ein Besitzschild mit deiner Karte überein. Eine andere Tasche in deiner Hand gehört Sujin."
+        },
+        "prompt": {
+          "ko": "내 것인 가방을 골라 제로 말해요.",
+          "en": "Choose the bag you own and describe it using 제.",
+          "de": "Wähle deine Tasche und verwende 제."
+        },
+        "model_or_answer": "제 가방이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "제",
+            "sense_ko": "나의 공손한 소유 표현"
+          },
+          {
+            "form": "가방이에요",
+            "sense_ko": "가방이라고 정체를 말하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "model-following",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "내 카드와 같은 소유자 표를 찾아요.",
+            "en": "Find the owner tag matching your card.",
+            "de": "Finde das Besitzschild, das zu deiner Karte passt."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "제 가방이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "손에 들고 있다는 것보다 누구 것인지가 기준이에요.",
+          "en": "Ownership matters more than who is holding it.",
+          "de": "Entscheidend ist der Besitz, nicht wer die Tasche hält."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 제 가방이에요 / 제 거예요 / natural my-possession reply. Ownership must match role tag, not assumed real private profile.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "model-following only",
+        "later_probe_id": "A1.1-05-R06",
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-I01",
+        "unit_id": "A1.1-05",
+        "phase": "I",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "소유자 이름표=하린. 수진이 들고 있지만 주인은 이름표로 확인해요. 임시 역할 이름표는 소개 연습과 별개예요.",
+          "en": "Owner tag: 하린. Sujin carries the bag; check the owner tag. Temporary role tags are separate from introduction cards.",
+          "de": "Besitzschild: 하린. Sujin trägt die Tasche; prüfe das Besitzschild. Vorübergehende Rollenschilder gehören nicht zu den Vorstellungskarten."
+        },
+        "prompt": {
+          "ko": "누구의 가방인지 의를 써서 말해 봐요. 다른 자연스러운 답도 의미를 확인해요.",
+          "en": "Try saying whose bag it is using 의. Other natural replies are checked for meaning too.",
+          "de": "Versuche mit 의 zu sagen, wem die Tasche gehört. Andere natürliche Antworten werden ebenfalls nach ihrer Bedeutung beurteilt."
+        },
+        "model_or_answer": "하린의 가방이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "하린",
+            "sense_ko": "임시 역할 이름, 받침으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "의",
+            "sense_ko": "누구의 소유인지 연결하는 조사"
+          },
+          {
+            "form": "가방이에요",
+            "sense_ko": "가방이라고 정체를 말하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "들고 있는 손보다 소유자 이름표를 확인해요.",
+            "en": "Check the owner tag rather than the hand holding the bag.",
+            "de": "Achte auf das Besitzschild statt auf die Hand, die die Tasche hält."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "하린의 가방이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "들고 있다는 사실만으로 주인을 정하지 않아요. 이름표의 소유 관계를 다시 봐요.",
+          "en": "Carrying the bag does not establish ownership. Check the relationship on the owner tag.",
+          "de": "Wer die Tasche trägt, muss sie nicht besitzen. Prüfe den Besitz auf dem Schild."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept owner의 가방이에요; owner 거예요 or owner 가방이에요 achieves ownership but 의 not observed. Do not prefer literal 의 over natural Korean in open communication.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-05-R01",
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-I02",
+        "unit_id": "A1.1-05",
+        "phase": "I",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "주인이 확인되지 않은 가방. 건네기 전에 상대에게 확인해야 해요.",
+          "en": "A bag whose owner is unknown. Ask before handing it over.",
+          "de": "Eine Tasche mit unbekannter Besitzerin oder unbekanntem Besitzer. Frage vor dem Überreichen nach."
+        },
+        "prompt": {
+          "ko": "상대에게 주인을 물어요.",
+          "en": "Ask who owns it.",
+          "de": "Frage, wem sie gehört."
+        },
+        "model_or_answer": "이거 누구 거예요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "이거",
+            "sense_ko": "화자 가까운 대상의 지시"
+          },
+          {
+            "form": "누구 거예요?",
+            "sense_ko": "물건의 소유자를 묻는 전체 표현"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구인지가 아니라 누구의 물건인지 물어요.",
+            "en": "Ask whose object it is.",
+            "de": "Frage, wem der Gegenstand gehört."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "이거 누구 거예요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "누구예요?만으로는 사람 소개를 묻는 말이 될 수 있어요. 물건의 주인을 확인해요.",
+          "en": "누구예요? alone can ask someone’s identity. Make the ownership question clear.",
+          "de": "누구예요? allein kann nach einer Person fragen. Stelle klar, dass du nach dem Besitz fragst."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 이거 누구 거예요? / 누구 가방이에요? / 누구의 가방이에요?. Choosing translated question records function recognition only. Wait for actual owner reply before return action.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-05-R02",
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-I03",
+        "unit_id": "A1.1-05",
+        "phase": "I",
+        "objective_id": "A1.1-05.formal-pair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-formal-pair"
+        ],
+        "context": {
+          "ko": "읽기용 짧은 목록: 모자와 책. 뜻·소리는 이미 시범에서 익혔어요.",
+          "en": "Short reading list: 모자와 책. Meanings and sounds were introduced in the model.",
+          "de": "Kurze Leseliste: 모자와 책. Bedeutung und Klang wurden zuvor eingeführt."
+        },
+        "prompt": {
+          "ko": "목록의 두 물건을 골라요. 말로 만들 필요는 없어요.",
+          "en": "Choose the two objects on the list. You do not need to produce the phrase.",
+          "de": "Wähle die zwei Gegenstände auf der Liste. Du musst den Ausdruck nicht selbst bilden."
+        },
+        "model_or_answer": "책+모자",
+        "choices": [
+          "책+모자",
+          "책+가방"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "책",
+            "sense_ko": "읽는 책"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "과/와",
+            "sense_ko": "두 명사를 나란히 잇는 이해용 연결"
+          }
+        ],
+        "required_grammar_functions": [
+          "과/와: receptive noun coordination"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "text-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "과·와가 두 물건을 이어 줘요.",
+            "en": "과 and 와 join the two objects.",
+            "de": "과 und 와 verbinden die beiden Gegenstände."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "책+모자",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이번 목록에는 가방이 없어요. 읽은 두 낱말을 따로 확인해요.",
+          "en": "There is no bag in this list. Check the two written words separately.",
+          "de": "In dieser Liste steht keine Tasche. Prüfe die zwei geschriebenen Wörter einzeln."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Receptive pair recognition only; no spoken 과/와 gate. Reading route prepared separately, ORAL-START alone does not imply literacy. Audio-supported alternative logs listening not reading.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "reading recognition only; no listening or speech credit",
+        "later_probe_id": "A1.1-05-R03",
+        "leak_keys": [
+          "formal-pair",
+          "과/와: receptive noun coordination"
+        ],
+        "delay_policy": null,
+        "choice_labels": [
+          {
+            "ko": "책+모자",
+            "en": "book + hat",
+            "de": "Buch + Hut"
+          },
+          {
+            "ko": "책+가방",
+            "en": "book + bag",
+            "de": "Buch + Tasche"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-05-I04",
+        "unit_id": "A1.1-05",
+        "phase": "I",
+        "objective_id": "A1.1-05.companion",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-companion"
+        ],
+        "context": {
+          "ko": "화자는 수진 옆에 있어요. 수진은 친구예요. 물건 소유자는 지금 묻지 않아요.",
+          "en": "The speaker is beside Sujin, a friend. Object ownership is not being asked about.",
+          "de": "Die sprechende Person steht neben Sujin, einer befreundeten Person. Nach Besitz wird hier nicht gefragt."
+        },
+        "prompt": {
+          "ko": "함께 있는 사람을 이랑·랑으로 말해 봐요.",
+          "en": "Try naming your companion using 이랑 or 랑.",
+          "de": "Versuche, deine Begleitung mit 이랑 oder 랑 zu nennen."
+        },
+        "model_or_answer": "친구랑 같이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "수진",
+            "sense_ko": "이미 만난 친구 수진; 새 등장 인물 아님"
+          },
+          {
+            "form": "친구",
+            "sense_ko": "친구 관계인 사람; 성별·연애 추정 없음"
+          },
+          {
+            "form": "이랑/랑",
+            "sense_ko": "동행하는 사람을 연결하는 구어형"
+          },
+          {
+            "form": "같이 있어요",
+            "sense_ko": "같은 자리에 함께 있는 상태"
+          }
+        ],
+        "required_grammar_functions": [
+          "이랑/랑: accompaniment"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구와 함께인지 생각해요.",
+            "en": "Think about who is with you.",
+            "de": "Überlege, wer bei dir ist."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "친구랑 같이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "가방의 주인과 동행자는 다른 정보예요. 이번에는 옆에 있는 사람을 말해요.",
+          "en": "Ownership and companionship are different facts. Name the person beside you here.",
+          "de": "Besitz und Begleitung sind verschiedene Angaben. Nenne hier die Person neben dir."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 수진이랑/친구랑 같이 있어요. 하고 or 와 gives correct companionship but requested 이랑/랑 unobserved. No language-goal failure merely for a valid connector.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-05-R04",
+        "leak_keys": [
+          "companion",
+          "이랑/랑: accompaniment"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-I05",
+        "unit_id": "A1.1-05",
+        "phase": "I",
+        "objective_id": "A1.1-05.companion",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-companion"
+        ],
+        "context": {
+          "ko": "다른 차례예요. 여전히 수진과 함께 있지만 이번에는 하고 표현을 연습해요.",
+          "en": "A separate turn: you are still with Sujin, now practising 하고.",
+          "de": "Eine neue Runde: Du bist weiter mit Sujin zusammen und übst jetzt 하고."
+        },
+        "prompt": {
+          "ko": "함께 있는 사람을 하고로 말해 봐요.",
+          "en": "Try naming your companion with 하고.",
+          "de": "Versuche, deine Begleitung mit 하고 zu nennen."
+        },
+        "model_or_answer": "수진하고 같이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "수진하고",
+            "sense_ko": "수진을 동행자로 연결하는 구어형"
+          },
+          {
+            "form": "같이 있어요",
+            "sense_ko": "같은 자리에 함께 있는 상태"
+          }
+        ],
+        "required_grammar_functions": [
+          "하고: spoken noun connection"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "하고 뒤에 같이 있어요를 이어요.",
+            "en": "Follow 하고 with 같이 있어요.",
+            "de": "Verbinde 하고 mit 같이 있어요."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "수진하고 같이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "다른 연결 말로도 뜻이 통할 수 있어요. 하고를 썼는지만 별도로 확인해요.",
+          "en": "Another connector may communicate the same meaning. We check use of 하고 separately.",
+          "de": "Eine andere Verbindung kann dieselbe Bedeutung ausdrücken. Die Verwendung von 하고 wird getrennt geprüft."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "All appropriate companion connectors achieve communication; observe 하고 only in this guided form attempt. It is not independent novel communication after immediately preceding model/help.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-05-R05",
+        "leak_keys": [
+          "companion",
+          "하고: spoken noun connection"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-I06",
+        "unit_id": "A1.1-05",
+        "phase": "I",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "이번 역할에서는 소유자 이름표가 내 카드와 같아요. 손에 든 다른 가방은 수진 것이에요.",
+          "en": "In this role, one owner tag matches your card. Another bag you are holding belongs to Sujin.",
+          "de": "In dieser Rolle stimmt ein Besitzschild mit deiner Karte überein. Eine andere Tasche in deiner Hand gehört Sujin."
+        },
+        "prompt": {
+          "ko": "내 것인 가방을 골라 제로 말해요.",
+          "en": "Choose the bag you own and describe it using 제.",
+          "de": "Wähle deine Tasche und verwende 제."
+        },
+        "model_or_answer": "제 가방이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "제",
+            "sense_ko": "나의 공손한 소유 표현"
+          },
+          {
+            "form": "가방이에요",
+            "sense_ko": "가방이라고 정체를 말하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "내 카드와 같은 소유자 표를 찾아요.",
+            "en": "Find the owner tag matching your card.",
+            "de": "Finde das Besitzschild, das zu deiner Karte passt."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "제 가방이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "손에 들고 있다는 것보다 누구 것인지가 기준이에요.",
+          "en": "Ownership matters more than who is holding it.",
+          "de": "Entscheidend ist der Besitz, nicht wer die Tasche hält."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 제 가방이에요 / 제 거예요 / natural my-possession reply. Ownership must match role tag, not assumed real private profile.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-05-R06",
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-R01",
+        "unit_id": "A1.1-05",
+        "phase": "R",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "소유자 이름표=민수. 수진이 들고 있지만 주인은 이름표로 확인해요. 임시 역할 이름표는 소개 연습과 별개예요.",
+          "en": "Owner tag: 민수. Sujin carries the bag; check the owner tag. Temporary role tags are separate from introduction cards.",
+          "de": "Besitzschild: 민수. Sujin trägt die Tasche; prüfe das Besitzschild. Vorübergehende Rollenschilder gehören nicht zu den Vorstellungskarten."
+        },
+        "prompt": {
+          "ko": "누구의 가방인지 상대에게 알려요.",
+          "en": "Tell your partner whose bag it is.",
+          "de": "Sage der anderen Person, wem die Tasche gehört."
+        },
+        "model_or_answer": "민수의 가방이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "민수",
+            "sense_ko": "임시 역할 이름, 모음으로 끝나는 감수용 한글 표기"
+          },
+          {
+            "form": "의",
+            "sense_ko": "누구의 소유인지 연결하는 조사"
+          },
+          {
+            "form": "가방이에요",
+            "sense_ko": "가방이라고 정체를 말하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "들고 있는 손보다 소유자 이름표를 확인해요.",
+            "en": "Check the owner tag rather than the hand holding the bag.",
+            "de": "Achte auf das Besitzschild statt auf die Hand, die die Tasche hält."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "민수의 가방이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "들고 있다는 사실만으로 주인을 정하지 않아요. 이름표의 소유 관계를 다시 봐요.",
+          "en": "Carrying the bag does not establish ownership. Check the relationship on the owner tag.",
+          "de": "Wer die Tasche trägt, muss sie nicht besitzen. Prüfe den Besitz auf dem Schild."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept owner의 가방이에요; owner 거예요 or owner 가방이에요 achieves ownership but 의 not observed. Do not prefer literal 의 over natural Korean in open communication.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-R02",
+        "unit_id": "A1.1-05",
+        "phase": "R",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "주인이 확인되지 않은 가방. 건네기 전에 상대에게 확인해야 해요.",
+          "en": "A bag whose owner is unknown. Ask before handing it over.",
+          "de": "Eine Tasche mit unbekannter Besitzerin oder unbekanntem Besitzer. Frage vor dem Überreichen nach."
+        },
+        "prompt": {
+          "ko": "상대에게 주인을 물어요.",
+          "en": "Ask who owns it.",
+          "de": "Frage, wem sie gehört."
+        },
+        "model_or_answer": "이거 누구 거예요?",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "이거",
+            "sense_ko": "화자 가까운 대상의 지시"
+          },
+          {
+            "form": "누구 거예요?",
+            "sense_ko": "물건의 소유자를 묻는 전체 표현"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구인지가 아니라 누구의 물건인지 물어요.",
+            "en": "Ask whose object it is.",
+            "de": "Frage, wem der Gegenstand gehört."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "이거 누구 거예요?",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "누구예요?만으로는 사람 소개를 묻는 말이 될 수 있어요. 물건의 주인을 확인해요.",
+          "en": "누구예요? alone can ask someone’s identity. Make the ownership question clear.",
+          "de": "누구예요? allein kann nach einer Person fragen. Stelle klar, dass du nach dem Besitz fragst."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 이거 누구 거예요? / 누구 가방이에요? / 누구의 가방이에요?. Choosing translated question records function recognition only. Wait for actual owner reply before return action.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-R03",
+        "unit_id": "A1.1-05",
+        "phase": "R",
+        "objective_id": "A1.1-05.formal-pair",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-formal-pair"
+        ],
+        "context": {
+          "ko": "읽기용 짧은 목록: 책과 모자. 뜻·소리는 이미 시범에서 익혔어요.",
+          "en": "Short reading list: 책과 모자. Meanings and sounds were introduced in the model.",
+          "de": "Kurze Leseliste: 책과 모자. Bedeutung und Klang wurden zuvor eingeführt."
+        },
+        "prompt": {
+          "ko": "목록의 두 물건을 골라요. 말로 만들 필요는 없어요.",
+          "en": "Choose the two objects on the list. You do not need to produce the phrase.",
+          "de": "Wähle die zwei Gegenstände auf der Liste. Du musst den Ausdruck nicht selbst bilden."
+        },
+        "model_or_answer": "책+모자",
+        "choices": [
+          "책+모자",
+          "책+가방"
+        ],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "책",
+            "sense_ko": "읽는 책"
+          },
+          {
+            "form": "모자",
+            "sense_ko": "머리에 쓰는 물건"
+          },
+          {
+            "form": "가방",
+            "sense_ko": "물건을 넣어 가지고 다니는 가방"
+          },
+          {
+            "form": "과/와",
+            "sense_ko": "두 명사를 나란히 잇는 이해용 연결"
+          }
+        ],
+        "required_grammar_functions": [
+          "과/와: receptive noun coordination"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "text-to-selection",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "과·와가 두 물건을 이어 줘요.",
+            "en": "과 and 와 join the two objects.",
+            "de": "과 und 와 verbinden die beiden Gegenstände."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "책+모자",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이번 목록에는 가방이 없어요. 읽은 두 낱말을 따로 확인해요.",
+          "en": "There is no bag in this list. Check the two written words separately.",
+          "de": "In dieser Liste steht keine Tasche. Prüfe die zwei geschriebenen Wörter einzeln."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Receptive pair recognition only; no spoken 과/와 gate. Reading route prepared separately, ORAL-START alone does not imply literacy. Audio-supported alternative logs listening not reading.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "reading recognition only; no listening or speech credit",
+        "later_probe_id": null,
+        "leak_keys": [
+          "formal-pair",
+          "과/와: receptive noun coordination"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": [
+          {
+            "ko": "책+모자",
+            "en": "book + hat",
+            "de": "Buch + Hut"
+          },
+          {
+            "ko": "책+가방",
+            "en": "book + bag",
+            "de": "Buch + Tasche"
+          }
+        ]
+      },
+      {
+        "item_id": "A1.1-05-R04",
+        "unit_id": "A1.1-05",
+        "phase": "R",
+        "objective_id": "A1.1-05.companion",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-companion"
+        ],
+        "context": {
+          "ko": "화자는 수진 옆에 있어요. 수진은 친구예요. 물건 소유자는 지금 묻지 않아요.",
+          "en": "The speaker is beside Sujin, a friend. Object ownership is not being asked about.",
+          "de": "Die sprechende Person steht neben Sujin, einer befreundeten Person. Nach Besitz wird hier nicht gefragt."
+        },
+        "prompt": {
+          "ko": "누구와 함께 있는지 알려요.",
+          "en": "Say who is with you.",
+          "de": "Sage, wer bei dir ist."
+        },
+        "model_or_answer": "수진이랑 같이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "수진",
+            "sense_ko": "이미 만난 친구 수진; 새 등장 인물 아님"
+          },
+          {
+            "form": "친구",
+            "sense_ko": "친구 관계인 사람; 성별·연애 추정 없음"
+          },
+          {
+            "form": "이랑/랑",
+            "sense_ko": "동행하는 사람을 연결하는 구어형"
+          },
+          {
+            "form": "같이 있어요",
+            "sense_ko": "같은 자리에 함께 있는 상태"
+          }
+        ],
+        "required_grammar_functions": [
+          "이랑/랑: accompaniment"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "누구와 함께인지 생각해요.",
+            "en": "Think about who is with you.",
+            "de": "Überlege, wer bei dir ist."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "수진이랑 같이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "가방의 주인과 동행자는 다른 정보예요. 이번에는 옆에 있는 사람을 말해요.",
+          "en": "Ownership and companionship are different facts. Name the person beside you here.",
+          "de": "Besitz und Begleitung sind verschiedene Angaben. Nenne hier die Person neben dir."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 수진이랑/친구랑 같이 있어요. 하고 or 와 gives correct companionship but requested 이랑/랑 unobserved. No language-goal failure merely for a valid connector.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "companion",
+          "이랑/랑: accompaniment"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-R05",
+        "unit_id": "A1.1-05",
+        "phase": "R",
+        "objective_id": "A1.1-05.companion",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-companion"
+        ],
+        "context": {
+          "ko": "다른 차례예요. 여전히 수진과 함께 있지만 이번에는 하고 표현을 연습해요.",
+          "en": "A separate turn: you are still with Sujin, now practising 하고.",
+          "de": "Eine neue Runde: Du bist weiter mit Sujin zusammen und übst jetzt 하고."
+        },
+        "prompt": {
+          "ko": "다른 차례에서 함께 있는 사람을 다시 알려요.",
+          "en": "In another turn, say who is with you again.",
+          "de": "Sage in einer weiteren Runde noch einmal, wer bei dir ist."
+        },
+        "model_or_answer": "수진하고 같이 있어요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "수진하고",
+            "sense_ko": "수진을 동행자로 연결하는 구어형"
+          },
+          {
+            "form": "같이 있어요",
+            "sense_ko": "같은 자리에 함께 있는 상태"
+          }
+        ],
+        "required_grammar_functions": [
+          "하고: spoken noun connection"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "하고 뒤에 같이 있어요를 이어요.",
+            "en": "Follow 하고 with 같이 있어요.",
+            "de": "Verbinde 하고 mit 같이 있어요."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "수진하고 같이 있어요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "다른 연결 말로도 뜻이 통할 수 있어요. 하고를 썼는지만 별도로 확인해요.",
+          "en": "Another connector may communicate the same meaning. We check use of 하고 separately.",
+          "de": "Eine andere Verbindung kann dieselbe Bedeutung ausdrücken. Die Verwendung von 하고 wird getrennt geprüft."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "All appropriate companion connectors achieve communication; observe 하고 only in this guided form attempt. It is not independent novel communication after immediately preceding model/help.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "companion",
+          "하고: spoken noun connection"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-R06",
+        "unit_id": "A1.1-05",
+        "phase": "R",
+        "objective_id": "A1.1-05.owner",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-05-T-owner"
+        ],
+        "context": {
+          "ko": "이번 역할에서는 소유자 이름표가 내 카드와 같아요. 손에 든 다른 가방은 수진 것이에요.",
+          "en": "In this role, one owner tag matches your card. Another bag you are holding belongs to Sujin.",
+          "de": "In dieser Rolle stimmt ein Besitzschild mit deiner Karte überein. Eine andere Tasche in deiner Hand gehört Sujin."
+        },
+        "prompt": {
+          "ko": "내 것인 가방을 골라 누구 것인지 알려요.",
+          "en": "Choose the bag you own and say whose it is.",
+          "de": "Wähle deine Tasche und sage, wem sie gehört."
+        },
+        "model_or_answer": "제 가방이에요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "제",
+            "sense_ko": "나의 공손한 소유 표현"
+          },
+          {
+            "form": "가방이에요",
+            "sense_ko": "가방이라고 정체를 말하는 배운 형태"
+          }
+        ],
+        "required_grammar_functions": [
+          "의: possession"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "내 카드와 같은 소유자 표를 찾아요.",
+            "en": "Find the owner tag matching your card.",
+            "de": "Finde das Besitzschild, das zu deiner Karte passt."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "제 가방이에요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "손에 들고 있다는 것보다 누구 것인지가 기준이에요.",
+          "en": "Ownership matters more than who is holding it.",
+          "de": "Entscheidend ist der Besitz, nicht wer die Tasche hält."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Accept 제 가방이에요 / 제 거예요 / natural my-possession reply. Ownership must match role tag, not assumed real private profile.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "owner",
+          "의: possession"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-I07",
+        "unit_id": "A1.1-05",
+        "phase": "I",
+        "objective_id": "A1.1-05.intro-recall",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-02-T-topic"
+        ],
+        "context": {
+          "ko": "물건 반환 뒤 새 연습 카드의 동행자가 소개해 달라고 해요. 카드 출신=한국, 언어=영어.",
+          "en": "After returning the bag, a companion from a new practice card asks for an introduction using its stated origin and language.",
+          "de": "Nach der Rückgabe bittet die Begleitung auf einer neuen Übungskarte um eine Vorstellung mit der angegebenen Herkunft und Sprache."
+        },
+        "prompt": {
+          "ko": "공개해도 되는 카드 정보 두 가지를 한 문장씩 소개해요.",
+          "en": "Introduce two shareable card facts, one sentence at a time.",
+          "de": "Stelle zwei Angaben der Übungskarte in einzelnen Sätzen vor."
+        },
+        "model_or_answer": "저는 한국 사람이에요. 저는 영어 해요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "한국",
+            "sense_ko": "소개 카드의 나라 한국"
+          },
+          {
+            "form": "영어",
+            "sense_ko": "언어 영어"
+          },
+          {
+            "form": "저는",
+            "sense_ko": "이번 소개에서 나를 화제로 여는 배운 형태"
+          },
+          {
+            "form": "사람이에요",
+            "sense_ko": "나라 이름 뒤에서 그 출신인 사람이라고 소개하는 덩어리"
+          },
+          {
+            "form": "해요",
+            "sense_ko": "한국어/영어 뒤에서 그 언어를 사용한다는 학습 덩어리"
+          }
+        ],
+        "required_grammar_functions": [
+          "은/는: introduction topic"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "실제 나의 정보가 아니라 이 카드의 정보예요.",
+            "en": "Use this card’s facts, not your real personal information.",
+            "de": "Verwende die Angaben dieser Karte statt deiner echten persönlichen Daten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "저는 한국 사람이에요. 저는 영어 해요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이전 소개 카드와 설정이 달라요. 이번 카드의 정보를 다시 확인해요.",
+          "en": "This card differs from previous introduction cards. Check this card’s facts again.",
+          "de": "Diese Karte unterscheidet sich von früheren Vorstellungskarten. Prüfe ihre Angaben noch einmal."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Concrete A1.1-02 recall in designated05destination. Card permission applies to fictional data; declining real disclosure is never wrong. Different scene/facts; not fresh retention if02just practised.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": "A1.1-05-R07",
+        "leak_keys": [
+          "intro-recall",
+          "은/는: introduction topic"
+        ],
+        "delay_policy": null,
+        "choice_labels": []
+      },
+      {
+        "item_id": "A1.1-05-R07",
+        "unit_id": "A1.1-05",
+        "phase": "R",
+        "objective_id": "A1.1-05.intro-recall",
+        "content_revision": "a11-v35-manuscript-1.0",
+        "taught_by": [
+          "A1.1-02-T-topic"
+        ],
+        "context": {
+          "ko": "물건 반환 뒤 새 연습 카드의 동행자가 소개해 달라고 해요. 카드 출신=독일, 언어=영어.",
+          "en": "After returning the bag, a companion from a new practice card asks for an introduction using its stated origin and language.",
+          "de": "Nach der Rückgabe bittet die Begleitung auf einer neuen Übungskarte um eine Vorstellung mit der angegebenen Herkunft und Sprache."
+        },
+        "prompt": {
+          "ko": "공개해도 되는 카드 정보 두 가지를 한 문장씩 소개해요.",
+          "en": "Introduce two shareable card facts, one sentence at a time.",
+          "de": "Stelle zwei Angaben der Übungskarte in einzelnen Sätzen vor."
+        },
+        "model_or_answer": "저는 독일 사람이에요. 저는 영어 해요.",
+        "choices": [],
+        "required_symbols": [],
+        "required_words_and_senses": [
+          {
+            "form": "독일",
+            "sense_ko": "소개 카드의 나라 독일; 이름에서 추정하지 않음"
+          },
+          {
+            "form": "영어",
+            "sense_ko": "언어 영어"
+          },
+          {
+            "form": "저는",
+            "sense_ko": "이번 소개에서 나를 화제로 여는 배운 형태"
+          },
+          {
+            "form": "사람이에요",
+            "sense_ko": "나라 이름 뒤에서 그 출신인 사람이라고 소개하는 덩어리"
+          },
+          {
+            "form": "해요",
+            "sense_ko": "한국어/영어 뒤에서 그 언어를 사용한다는 학습 덩어리"
+          }
+        ],
+        "required_grammar_functions": [
+          "은/는: introduction topic"
+        ],
+        "required_control": "ORAL-START: choose explanation language; demonstrate play, reply and optional help before task",
+        "modality": "open-speech-or-meaning-first-reconstruction",
+        "relationship": "known house companions; gatekeeper roleplay; polite Korean to elder characters",
+        "help_policy": {
+          "level1": {
+            "ko": "실제 나의 정보가 아니라 이 카드의 정보예요.",
+            "en": "Use this card’s facts, not your real personal information.",
+            "de": "Verwende die Angaben dieser Karte statt deiner echten persönlichen Daten."
+          },
+          "level2": {
+            "ko": "같은 상황의 시범을 듣고 함께 해요.",
+            "en": "Listen to a model for this situation and try with support.",
+            "de": "Hör dir ein Beispiel für diese Situation an und probiere es mit Hilfe."
+          },
+          "model_reveal": "저는 독일 사람이에요. 저는 영어 해요.",
+          "effect": "same-audio replay logged; translation/form/model/first-syllable support changes target independence; retry remains same item"
+        },
+        "wrong_feedback": {
+          "ko": "이전 소개 카드와 설정이 달라요. 이번 카드의 정보를 다시 확인해요.",
+          "en": "This card differs from previous introduction cards. Check this card’s facts again.",
+          "de": "Diese Karte unterscheidet sich von früheren Vorstellungskarten. Prüfe ihre Angaben noch einmal."
+        },
+        "accepted_response_policy": {
+          "model_is_not_only_answer": true,
+          "rule": "Concrete A1.1-02 recall in designated05destination. Card permission applies to fictional data; declining real disclosure is never wrong. Different scene/facts; not fresh retention if02just practised.",
+          "target_observation": "Observe only the listed grammar function; an alternative grammatical form can achieve communication without demonstrating this target."
+        },
+        "evidence_scope": "open response: practice/portfolio; independent axes only with qualified evaluator and raw evidence",
+        "later_probe_id": null,
+        "leak_keys": [
+          "intro-recall",
+          "은/는: introduction topic"
+        ],
+        "delay_policy": "R: propose at least24h after last relevant exposure, report actual elapsed time; exposure in any unit carries over; later same-target R is not fresh cold recall",
+        "choice_labels": []
+      }
+    ]
+  },
+  "responses": {
+    "assisted": {
+      "ko": "도움을 받아 이 활동을 함께 마쳤어요. 다른 예는 준비되면 해 봐요.",
+      "en": "You completed this activity with support. Try another example when you are ready.",
+      "de": "Du hast diese Aufgabe mit Hilfe abgeschlossen. Probiere ein weiteres Beispiel, wenn du bereit bist."
+    },
+    "independent": {
+      "ko": "이 예는 시범 없이 확인했어요. 다른 날 새로운 상황에서도 다시 해 봐요.",
+      "en": "You checked this example without a model. Try it in a new setting another day.",
+      "de": "Du hast dieses Beispiel ohne Vorlage bearbeitet. Probiere es an einem anderen Tag in einer neuen Situation."
+    },
+    "audio_unavailable": {
+      "ko": "지금은 소리를 재생할 수 없어요. 글과 그림으로 계속하거나 나중에 다시 들어요.",
+      "en": "Audio is unavailable right now. Continue with text and pictures, or listen later.",
+      "de": "Der Ton ist gerade nicht verfügbar. Mach mit Text und Bildern weiter oder höre später noch einmal zu."
+    },
+    "pause": {
+      "ko": "여기서 잠시 쉬어도 괜찮아요. 돌아오면 같은 차례에서 이어가요.",
+      "en": "You can take a break here. When you return, continue from the same turn.",
+      "de": "Du kannst hier eine Pause machen. Wenn du zurückkommst, geht es an derselben Stelle weiter."
+    },
+    "resume": {
+      "ko": "돌아왔네요. 놓아 둔 답과 도움 상태를 확인하고 이어가요.",
+      "en": "Welcome back. Check your previous response and any help you used, then continue.",
+      "de": "Willkommen zurück. Sieh dir deine bisherige Antwort und die verwendete Hilfe an und mach dann weiter."
+    },
+    "save_failed": {
+      "ko": "아직 저장을 확인하지 못했어요. 지금 답은 유지한 채 다시 시도해요.",
+      "en": "Saving has not been confirmed yet. Keep your response and try again.",
+      "de": "Das Speichern ist noch nicht bestätigt. Deine Antwort bleibt stehen; versuche es erneut."
+    },
+    "revisit": {
+      "ko": "이미 본 장면이에요. 다시 보아도 보상이나 공정이 중복 생성되지 않아요.",
+      "en": "You have seen this scene before. Replaying it does not grant another reward or construction step.",
+      "de": "Du kennst diese Szene bereits. Beim erneuten Ansehen erhältst du keine weitere Belohnung und keinen zusätzlichen Bauabschnitt."
+    }
+  },
+  "response_conditions": {
+    "assisted": "only after supported task is resolved",
+    "independent": "only if the eligible item met its criteria without model/hint; not all modalities",
+    "resume": "only after original state is actually restored",
+    "revisit": "existing reward owner remains authoritative"
+  },
+  "story": {
+    "lq_id": "LQ-05",
+    "anchor": "중문간채 중간",
+    "spoiler_guard": "Use only revealed facts. First book has no completed Sarangchae; first 집 remains practice draft until original readiness is confirmed."
+  },
+  "review": {
+    "delay": "next_day",
+    "no_story_lock": true,
+    "original_review_scope": "existing manuscript reviews and same-byte source; not human/native/device approval"
+  }
+}
