@@ -59,7 +59,7 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
         pod_install_index = next(
             index
             for index, command in enumerate(commands)
-            if command.startswith("if pod install;")
+            if command.startswith("if install_patched_pods;")
         )
 
         self.assertLess(
@@ -99,7 +99,7 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
             'while [ "${POD_INSTALL_ATTEMPT}" -le "${POD_INSTALL_MAX_ATTEMPTS}" ]; do',
             self.post_clone,
         )
-        self.assertIn("if pod install; then", self.post_clone)
+        self.assertIn("if install_patched_pods; then", self.post_clone)
         self.assertIn(
             'if [ "${POD_INSTALL_ATTEMPT}" -eq "${POD_INSTALL_MAX_ATTEMPTS}" ]; then',
             self.post_clone,
@@ -109,6 +109,16 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
             self.post_clone,
         )
         self.assertIn('sleep "${POD_INSTALL_RETRY_DELAY}"', self.post_clone)
+
+    def test_security_migration_verifies_resolved_native_sdk_before_rive(self):
+        self.assertIn('FLUTTER_VERSION="3.47.8"', self.post_clone)
+        self.assertIn(
+            "pod update Firebase FirebaseFirestore firebase_core cloud_firestore firebase_auth "
+            "firebase_analytics firebase_app_check --repo-update", self.post_clone,
+        )
+        guard = "python3 tool/verify_firebase_security_patch.py --ios-lock"
+        self.assertLess(self.post_clone.index("if install_patched_pods;"), self.post_clone.index(guard))
+        self.assertLess(self.post_clone.index(guard), self.post_clone.index("dart run rive_native:setup"))
 
 
 if __name__ == "__main__":
