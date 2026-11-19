@@ -42,5 +42,13 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+    # FirebaseSessions (pod default iOS 15.0) imports PromisesSwift, whose
+    # minimum is iOS 15.5. Raise every pod to the app's own 15.5 floor so the
+    # patched FlutterFire release builds for device and simulator.
+    target.build_configurations.each do |config|
+      if config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f < 15.5
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.5'
+      end
+    end
   end
 end
