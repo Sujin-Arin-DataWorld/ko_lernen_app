@@ -398,7 +398,7 @@ void main() {
     });
 
     test('the canonical core contains no legacy Diktat seed', () {
-      expect(scenarios, hasLength(186));
+      expect(scenarios, hasLength(219));
       expect(coreScenarios, hasLength(177));
       expect(themeParkScenarios, hasLength(6));
       expect(coreDiktatQuests, isEmpty);

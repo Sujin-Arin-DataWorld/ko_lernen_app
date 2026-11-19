@@ -2641,9 +2641,9 @@
     {
       "id": "cloze_a1_0088",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 갔어요.",
+      "sentenceKo": "＿＿＿ 가 본 적 있어요.",
       "answer": "거기",
-      "fullKo": "거기 갔어요.",
+      "fullKo": "거기 가 본 적 있어요.",
       "de": "Da war ich schon mal.",
       "en": "I've been there before.",
       "distractors": [
@@ -5416,15 +5416,15 @@
     {
       "id": "cloze_b2_0108",
       "level": "b2",
-      "sentenceKo": "사전의 ＿＿＿ 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
-      "answer": "용례를",
-      "fullKo": "사전의 용례를 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
-      "de": "An den Verwendungsbeispielen im Wörterbuch erkennt man, in welchen Situationen dieser Ausdruck gebraucht wird.",
-      "en": "Dictionary usage examples show the situations in which this expression is used.",
+      "sentenceKo": "사전의 ＿＿＿ 보면 이 표현을 언제 쓰는지 알 수 있어요.",
+      "answer": "사용 예를",
+      "fullKo": "사전의 사용 예를 보면 이 표현을 언제 쓰는지 알 수 있어요.",
+      "de": "An den Verwendungsbeispielen im Wörterbuch sieht man, wann dieser Ausdruck verwendet wird.",
+      "en": "Dictionary usage examples show when this expression is used.",
       "distractors": [
         "말투를",
-        "기준을",
-        "대조를"
+        "표지를",
+        "크기를"
       ],
       "topic": "Sprache & Gesellschaft"
     },
@@ -17275,15 +17275,15 @@
     {
       "id": "cloze_a2_0259",
       "level": "b1",
-      "sentenceKo": "인기 부스는 오전에 ＿＿＿ 시작해요.",
-      "answer": "줄서다",
-      "fullKo": "인기 부스는 오전에 줄서다 시작해요.",
-      "de": "Am beliebten Stand beginnt man schon am Vormittag anstehen.",
-      "en": "At the popular booth people start to queue in the morning.",
+      "sentenceKo": "인기 부스에서는 오전부터 사람들이 ＿＿＿.",
+      "answer": "줄서요",
+      "fullKo": "인기 부스에서는 오전부터 사람들이 줄서요.",
+      "de": "An beliebten Ständen stehen schon am Vormittag viele Leute an.",
+      "en": "At popular booths, lots of people queue from the morning.",
       "distractors": [
-        "찾아가다",
-        "습하다",
-        "습득하다"
+        "습해요",
+        "녹아요",
+        "식어요"
       ],
       "topic": "Feststand"
     },

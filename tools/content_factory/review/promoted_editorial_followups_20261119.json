@@ -415,6 +415,56 @@
     },
     {
       "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_b2_0108",
+      "before": {
+        "id": "cloze_b2_0108",
+        "level": "b2",
+        "sentenceKo": "사전의 ＿＿＿ 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
+        "answer": "용례를",
+        "fullKo": "사전의 용례를 보면 이 표현이 어떤 상황에서 쓰이는지 알 수 있어요.",
+        "de": "An den Verwendungsbeispielen im Wörterbuch erkennt man, in welchen Situationen dieser Ausdruck gebraucht wird.",
+        "en": "Dictionary usage examples show the situations in which this expression is used.",
+        "distractors": [
+          "말투를",
+          "기준을",
+          "대조를"
+        ],
+        "topic": "Sprache & Gesellschaft"
+      },
+      "after": {
+        "id": "cloze_b2_0108",
+        "level": "b2",
+        "sentenceKo": "사전의 ＿＿＿ 보면 이 표현을 언제 쓰는지 알 수 있어요.",
+        "answer": "사용 예를",
+        "fullKo": "사전의 사용 예를 보면 이 표현을 언제 쓰는지 알 수 있어요.",
+        "de": "An den Verwendungsbeispielen im Wörterbuch sieht man, wann dieser Ausdruck verwendet wird.",
+        "en": "Dictionary usage examples show when this expression is used.",
+        "distractors": [
+          "말투를",
+          "표지를",
+          "크기를"
+        ],
+        "topic": "Sprache & Gesellschaft"
+      },
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "983c04c63c73da0eedaded6884251142d7dba9b270ac189f4fe9a6ff7dee6d2f",
+      "afterSha256": "960fcea115aec4cda1ee033c10a1cd2d15e866770234701b14df9e4d63e3f276",
+      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Global localization and level reconciliation copy edits merged with PRs #449/#450; model review only, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_03_manifest.json",
       "kind": "satz",
       "id": "satz_b2_0079",
       "before": {
@@ -1177,129 +1227,6 @@
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": "01c3c102736bcd40450e05cd172465c98ccff2a366d2ee9229ef710fab5f2144",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Global localization and level reconciliation copy edits merged with PRs #449/#450; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
-      "kind": "satz",
-      "id": "satz_a1_0107",
-      "before": {
-        "id": "satz_a1_0107",
-        "level": "a1",
-        "targetKo": "국물을 소리 안 나게 떠먹으려고 애썼어요.",
-        "promptDe": "Ich gab mir Mühe, die Brühe geräuschlos zu löffeln.",
-        "promptEn": "I tried hard to spoon the broth without making noise.",
-        "distractors": [
-          "짧은",
-          "찌는"
-        ],
-        "vocabKo": "국물"
-      },
-      "after": {
-        "id": "satz_a1_0107",
-        "level": "a1",
-        "targetKo": "국물이 맛있어요.",
-        "promptDe": "Die Brühe schmeckt gut.",
-        "promptEn": "The broth tastes good.",
-        "distractors": [
-          "짧은",
-          "찌는"
-        ],
-        "vocabKo": "국물"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn",
-        "targetKo"
-      ],
-      "beforeSha256": "40e69dd2da329cea45ca925f11806b342123ba6592e77aa04147b4649318bec7",
-      "afterSha256": "3ed9dc5b111d8a413f795fec51c629a93cf11cdb9d678e576fed9588ec41d2db",
-      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": "7794a7576aaba4e82f0040af1217a26509cbc7566dd3f0320c1a5d983ec21d71",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Global localization and level reconciliation copy edits merged with PRs #449/#450; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
-      "kind": "satz",
-      "id": "satz_a1_0108",
-      "before": {
-        "id": "satz_a1_0108",
-        "level": "a1",
-        "targetKo": "젓가락질이 서툴러서 콩나물을 놓쳤어요.",
-        "promptDe": "Meine Stäbchen waren ungeschickt, und die Sojasprossen rutschten weg.",
-        "promptEn": "My chopstick skills were clumsy, and the bean sprouts slipped away.",
-        "distractors": [
-          "빨개졌어요",
-          "사양하다가"
-        ],
-        "vocabKo": "젓가락질"
-      },
-      "after": {
-        "id": "satz_a1_0108",
-        "level": "a1",
-        "targetKo": "젓가락질을 연습해요.",
-        "promptDe": "Ich übe, mit Stäbchen zu essen.",
-        "promptEn": "I'm practicing using chopsticks.",
-        "distractors": [
-          "빨개졌어요",
-          "사양하다가"
-        ],
-        "vocabKo": "젓가락질"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn",
-        "targetKo"
-      ],
-      "beforeSha256": "bf1b1c57b51fb8bf60c4d1a19dfd3af257ab89a8a0ee21c7f035416e7d8beaa4",
-      "afterSha256": "7648ccd23fa809633530348f2d035e7fadf5bfc4c97941e633322875abc0f146",
-      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": "a1d18bf3b42d3bad32b46a316ebedf81fe5f03e17bf0c89d6a3a98bd3c22114f",
-      "normalization": "Existing exact promotion and relevel comparison projection",
-      "reason": "Global localization and level reconciliation copy edits merged with PRs #449/#450; model review only, original human gates retained"
-    },
-    {
-      "manifest": "tools/content_factory/drafts/batch_07_partner_family_manifest.json",
-      "kind": "satz",
-      "id": "satz_a1_0123",
-      "before": {
-        "id": "satz_a1_0123",
-        "level": "a1",
-        "targetKo": "설빔으로 한복 대신 단정한 니트를 골랐어요.",
-        "promptDe": "Als Neujahrskleidung wählte ich statt Hanbok einen schlichten Pullover.",
-        "promptEn": "For New Year clothes I chose a neat sweater instead of hanbok.",
-        "distractors": [
-          "저는",
-          "적었어요"
-        ],
-        "vocabKo": "설빔"
-      },
-      "after": {
-        "id": "satz_a1_0123",
-        "level": "a1",
-        "targetKo": "설빔이 예뻐요.",
-        "promptDe": "Die Neujahrskleidung ist schön.",
-        "promptEn": "The New Year clothes are pretty.",
-        "distractors": [
-          "저는",
-          "적었어요"
-        ],
-        "vocabKo": "설빔"
-      },
-      "fields": [
-        "promptDe",
-        "promptEn",
-        "targetKo"
-      ],
-      "beforeSha256": "d1534665beee38a6495435ba526f30ef9af248e316194b1ac28656b2411e9acf",
-      "afterSha256": "55dc956ae27de108d453473326b505991aeeaeb74195849ecf52fba876d8cd65",
-      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
-      "sourceGitPath": "assets/data/satz_sentences.json",
-      "predecessorSuccessorSha256": "7ab940511ef8d50a2ab7fe21b108400ecce22f19117c9a9ca3124465b8074810",
       "normalization": "Existing exact promotion and relevel comparison projection",
       "reason": "Global localization and level reconciliation copy edits merged with PRs #449/#450; model review only, original human gates retained"
     },
@@ -3006,6 +2933,56 @@
       ],
       "beforeSha256": "172b34f280a33ccef2d0771516c346037696fddadd13cc27de7434faf7c94538",
       "afterSha256": "29b70295e047125ef3e78d95642b2cc9369abe67b922476b4878c6d19b85550c",
+      "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
+      "sourceGitPath": "assets/data/cloze.json",
+      "predecessorSuccessorSha256": null,
+      "normalization": "Existing exact promotion and relevel comparison projection",
+      "reason": "Global localization and level reconciliation copy edits merged with PRs #449/#450; model review only, original human gates retained"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_09_4x_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a2_0259",
+      "before": {
+        "id": "cloze_a2_0259",
+        "level": "a2",
+        "sentenceKo": "인기 부스는 오전에 ＿＿＿ 시작해요.",
+        "answer": "줄서다",
+        "fullKo": "인기 부스는 오전에 줄서다 시작해요.",
+        "de": "Am beliebten Stand beginnt man schon am Vormittag anstehen.",
+        "en": "At the popular booth people start to queue in the morning.",
+        "distractors": [
+          "찾아가다",
+          "습하다",
+          "습득하다"
+        ],
+        "topic": "Feststand"
+      },
+      "after": {
+        "id": "cloze_a2_0259",
+        "level": "a2",
+        "sentenceKo": "인기 부스에서는 오전부터 사람들이 ＿＿＿.",
+        "answer": "줄서요",
+        "fullKo": "인기 부스에서는 오전부터 사람들이 줄서요.",
+        "de": "An beliebten Ständen stehen schon am Vormittag viele Leute an.",
+        "en": "At popular booths, lots of people queue from the morning.",
+        "distractors": [
+          "습해요",
+          "녹아요",
+          "식어요"
+        ],
+        "topic": "Feststand"
+      },
+      "fields": [
+        "answer",
+        "de",
+        "distractors",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "b135c1fcd7a5d57e950f2ac45ae07b1ea7bec7e583ed71b8cf2e978aa4f32f2e",
+      "afterSha256": "dafa99e98d8b88796bb848d47cf45cf14e781f15072b3f8aa7bd17b0ffda8ff5",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/cloze.json",
       "predecessorSuccessorSha256": null,
