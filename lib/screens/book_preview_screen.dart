@@ -260,14 +260,21 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                     children: [
                       Expanded(child: analyze),
                       const SizedBox(width: Spacing.sm),
-                      IconButton(
-                        tooltip: t.bookPreviewRetake,
-                        constraints: const BoxConstraints(
-                          minWidth: 48,
-                          minHeight: 48,
+                      Semantics(
+                        label: t.bookPreviewRetake,
+                        button: true,
+                        enabled: true,
+                        onTap: () => Navigator.of(context).maybePop(),
+                        excludeSemantics: true,
+                        child: IconButton(
+                          tooltip: t.bookPreviewRetake,
+                          constraints: const BoxConstraints(
+                            minWidth: 48,
+                            minHeight: 48,
+                          ),
+                          icon: const Icon(Icons.replay_outlined),
+                          onPressed: () => Navigator.of(context).maybePop(),
                         ),
-                        icon: const Icon(Icons.replay_outlined),
-                        onPressed: () => Navigator.of(context).maybePop(),
                       ),
                     ],
                   )
