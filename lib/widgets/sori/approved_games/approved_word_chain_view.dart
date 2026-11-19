@@ -7,8 +7,10 @@ import '../intro_tokens.dart';
 import '../sheet.dart';
 import '../study_frame.dart';
 import '../text_field.dart';
+import '../tokens.dart';
 import '../tts_speed_control.dart';
 import 'approved_game_material.dart';
+import 'approved_game_metrics.dart';
 
 const _jadeContactShadow = BoxShadow(
   color: Color(0x48291404),
@@ -40,7 +42,11 @@ class ApprovedWordChainFrame extends StatelessWidget {
     leadingVisual: const Center(
       child: RotatedBox(
         quarterTurns: 2,
-        child: SizedBox(width: 18, height: 28, child: GameArtwork('back')),
+        child: SizedBox(
+          width: ApprovedGameMetrics.chainBackArtWidth,
+          height: ApprovedGameMetrics.chainBackArtHeight,
+          child: GameArtwork('back'),
+        ),
       ),
     ),
     surfaceBuilder: (close, home) => ColoredBox(
@@ -629,7 +635,7 @@ class _ApprovedWordChainViewState extends State<ApprovedWordChainView> {
                         ),
                       ),
                     ),
-                    const SizedBox(width: 10),
+                    const SizedBox(width: Spacing.control),
                     SizedBox(
                       width: 84,
                       child: ApprovedArtButton(
@@ -1036,7 +1042,7 @@ void showWordChainSpeedSheet(BuildContext context) {
   showSoriSheet<void>(
     context: context,
     builder: (_) => const Padding(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(Spacing.content),
       child: TtsSpeedControl(
         mode: TtsSpeedControlMode.row,
         minInteractiveHeight: 48,

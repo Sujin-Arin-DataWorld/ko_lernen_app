@@ -1,3 +1,4 @@
+import '../widgets/sori/approved_games/approved_game_metrics.dart';
 import '../widgets/sori/intro_tokens.dart';
 import '../models/practice_history.dart';
 import '../models/silben_practice.dart';
@@ -388,7 +389,10 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       child: SoriPressable(
         onTap: onTap,
         child: Container(
-          margin: const EdgeInsets.only(top: 13, bottom: 3),
+          margin: const EdgeInsets.only(
+            top: ApprovedGameMetrics.silbenPillTop,
+            bottom: Spacing.micro,
+          ),
           padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
           constraints: BoxConstraints(minWidth: width, minHeight: 32),
           decoration: BoxDecoration(
@@ -398,7 +402,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               colors: [Color(0xfffff6df), Color(0xffebc18b)],
             ),
             border: Border.all(color: const Color(0xffcaa162)),
-            borderRadius: BorderRadius.circular(11),
+            borderRadius: BorderRadius.circular(SoriRadius.ctrl),
           ),
           child: Center(widthFactor: 1, heightFactor: 1, child: child),
         ),
@@ -908,7 +912,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               padding: padding,
               child: Row(
                 children: [
-                  const SizedBox(width: 22),
+                  const SizedBox(width: ApprovedGameMetrics.silbenHintLead),
                   Expanded(
                     child: Text(
                       actionLabel,
@@ -1265,16 +1269,18 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 17),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: ApprovedGameMetrics.silbenClueInset,
+                          ),
                           child: KeyedSubtree(
                             key: _cluesKey,
                             child: _clues(p, s),
                           ),
                         ),
                       ],
-                      const SizedBox(height: 1),
+                      const SizedBox(height: ApprovedGameMetrics.silbenBoardGap),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 7),
+                        padding: const EdgeInsets.symmetric(horizontal: Spacing.tight),
                         child: _puzzleBoard(p, s, dense: dense),
                       ),
                       if (!_solved) ...[
@@ -1283,7 +1289,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                           child: Text(t.silbenPoolTitle, style: silbenType(23)),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 18),
+                          padding: const EdgeInsets.symmetric(horizontal: Spacing.comfortable),
                           child: KeyedSubtree(
                             key: _poolKey,
                             child: _tilePool(p, dense: dense),
@@ -1291,7 +1297,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                         ),
                         const SizedBox(height: 12),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 14),
+                          padding: const EdgeInsets.symmetric(horizontal: Spacing.inset),
                           child: _helpPanel(t),
                         ),
                       ] else ...[
@@ -1338,7 +1344,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                       _puzzleBoard(puzzle, surfaces, dense: true, paged: true),
                     ] else ...[
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: Spacing.control),
                         child: Text(
                           t.silbenPlaceInstruction,
                           style: silbenType(16),
@@ -1346,7 +1352,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                       ),
                       _puzzleBoard(puzzle, surfaces, dense: true, paged: true),
                       Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: Spacing.control),
                         child: Text(t.silbenPoolTitle, style: silbenType(17)),
                       ),
                       Padding(
@@ -1356,13 +1362,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                       ),
                       Padding(
                         key: _cluesKey,
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: Spacing.control),
                         child: _clues(puzzle, surfaces),
                       ),
                       if (showHint)
                         Padding(
                           key: _hintPageKey,
-                          padding: const EdgeInsets.symmetric(horizontal: 7),
+                          padding: const EdgeInsets.symmetric(horizontal: Spacing.tight),
                           child: PracticeMotionSurface(
                             key: ValueKey(_hintPageRequest),
                             enter: true,
@@ -1376,7 +1382,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               ),
               if (!_solved)
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 7),
+                  padding: const EdgeInsets.symmetric(horizontal: Spacing.tight),
                   child: _hintAction(t, paged: true),
                 ),
             ],
@@ -1468,7 +1474,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 : inActiveWord
                 ? SoriColors.info.withValues(alpha: 0.06)
                 : s.surfaceAlt,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(ApprovedGameMetrics.silbenCellRadius),
             boxShadow: const [
               BoxShadow(
                 color: Color(0x4a341703),
@@ -1512,7 +1518,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
             child: IgnorePointer(
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(11),
+                  borderRadius: BorderRadius.circular(SoriRadius.ctrl),
                   border: Border.all(color: const Color(0xff3bcc9c), width: 3),
                 ),
               ),
@@ -1668,7 +1674,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                       height: height,
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(ApprovedGameMetrics.silbenCellRadius),
                           image: const DecorationImage(
                             image: AssetImage(silbenTileAsset),
                             fit: BoxFit.fill,
@@ -1682,7 +1688,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                           ],
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(bottom: 3),
+                          padding: const EdgeInsets.only(bottom: Spacing.micro),
                           child: Center(
                             child: ApprovedGameText(
                               p.pool[i],
@@ -1786,12 +1792,15 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           haptic: null,
           onTap: done ? null : onTap,
           child: Padding(
-            padding: const EdgeInsets.only(top: 3, bottom: 4),
+            padding: const EdgeInsets.only(top: Spacing.micro, bottom: Spacing.xs),
             child: AnimatedContainer(
               key: ValueKey('silben-clue-surface-$declaredIndex'),
               duration: SoriMotion.respect(context, SoriMotion.fast),
               constraints: const BoxConstraints(minHeight: 41),
-              padding: const EdgeInsets.symmetric(horizontal: 17, vertical: 3),
+              padding: const EdgeInsets.symmetric(
+                horizontal: ApprovedGameMetrics.silbenClueInset,
+                vertical: Spacing.micro,
+              ),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
@@ -1820,7 +1829,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SilbenNumber(declaredIndex + 1),
-                  const SizedBox(width: 14),
+                  const SizedBox(width: Spacing.inset),
                   Icon(
                     done
                         ? Icons.check_circle_outline_rounded
@@ -1830,7 +1839,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     size: 18,
                     color: done ? SoriColors.success : const Color(0xff4a2c14),
                   ),
-                  const SizedBox(width: 9),
+                  const SizedBox(width: ApprovedGameMetrics.silbenClueIconGap),
                   Flexible(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,

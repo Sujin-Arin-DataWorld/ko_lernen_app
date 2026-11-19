@@ -56,7 +56,7 @@ class SoriChromeRow extends StatelessWidget {
     if (filterControl case final filter?) {
       return Row(
         mainAxisSize: MainAxisSize.min,
-        children: [filter, const SizedBox(width: 6), trailing!],
+        children: [filter, const SizedBox(width: Spacing.compact), trailing!],
       );
     }
     return SizedBox(

@@ -16,6 +16,7 @@ import '../study_frame.dart';
 import '../tokens.dart';
 import '../tts_speed_control.dart';
 import '../viewport_pages.dart';
+import 'approved_game_metrics.dart';
 
 part 'approved_game_material_data.dart';
 
@@ -293,7 +294,9 @@ class ApprovedMaterial extends StatelessWidget {
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     color: const Color.fromRGBO(82, 79, 66, .19),
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(
+                      ApprovedGameMetrics.materialShadowRadius,
+                    ),
                   ),
                 ),
               ),
@@ -450,7 +453,7 @@ class _ApprovedArtButtonState extends State<ApprovedArtButton> {
                       0,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(13),
+                      borderRadius: BorderRadius.circular(ApprovedGameMetrics.artButtonRadius),
                       boxShadow: widget.castShadow
                           ? [
                               if (contactShadow != null)
@@ -478,7 +481,7 @@ class _ApprovedArtButtonState extends State<ApprovedArtButton> {
                             child: IgnorePointer(
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(13),
+                                  borderRadius: BorderRadius.circular(ApprovedGameMetrics.artButtonRadius),
                                   border: Border.all(
                                     color: widget.wrong
                                         ? const Color(0xff9b3f2f)
@@ -605,7 +608,7 @@ class ApprovedSpeedControl extends StatelessWidget {
             showSoriSheet<void>(
               context: context,
               builder: (context) => const Padding(
-                padding: EdgeInsets.all(20),
+                padding: EdgeInsets.all(Spacing.content),
                 child: TtsSpeedControl(
                   mode: TtsSpeedControlMode.row,
                   minInteractiveHeight: 48,
@@ -693,7 +696,11 @@ class ApprovedGameHeader extends StatelessWidget {
     },
     icon: Transform.translate(
       offset: const Offset(3, 4),
-      child: const SizedBox(width: 28, height: 28, child: GameArtwork('gear')),
+      child: const SizedBox(
+        width: ApprovedGameMetrics.gearArt,
+        height: ApprovedGameMetrics.gearArt,
+        child: GameArtwork('gear'),
+      ),
     ),
   );
 
@@ -857,7 +864,11 @@ class ApprovedGameFrame extends StatelessWidget {
           offset: const Offset(-2, 2.5),
           child: const RotatedBox(
             quarterTurns: 2,
-            child: SizedBox(width: 12, height: 19, child: GameArtwork('back')),
+            child: SizedBox(
+              width: ApprovedGameMetrics.frameBackArtWidth,
+              height: ApprovedGameMetrics.frameBackArtHeight,
+              child: GameArtwork('back'),
+            ),
           ),
         ),
       ),

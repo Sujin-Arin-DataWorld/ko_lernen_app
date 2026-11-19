@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../intro_tokens.dart';
+import '../tokens.dart';
 import 'approved_game_material.dart';
 
 /// A stable slot in the two independently shuffled matching columns.
@@ -330,7 +331,7 @@ class ApprovedMatchingView extends StatelessWidget {
                       children: [
                         const ApprovedMaterial('counter'),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: Spacing.control),
                           child: Center(
                             child: ApprovedGameText(
                               counter,

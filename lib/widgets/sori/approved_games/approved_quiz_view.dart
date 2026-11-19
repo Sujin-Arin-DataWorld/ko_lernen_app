@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import '../intro_tokens.dart';
+import '../tokens.dart';
 import 'approved_game_material.dart';
 
 /// The approved quiz presentation. All learning state belongs to the caller.
@@ -483,7 +484,7 @@ class ApprovedQuizView extends StatelessWidget {
           : ValueKey('approved-quiz-choice-$correctIndex'),
       sections: [
         Padding(
-          padding: const EdgeInsets.only(top: 8, bottom: 10),
+          padding: const EdgeInsets.only(top: Spacing.sm, bottom: Spacing.control),
           child: Stack(
             children: [
               const Positioned.fill(child: ApprovedMaterial('jadeControl')),

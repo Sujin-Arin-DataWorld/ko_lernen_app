@@ -5,6 +5,7 @@ import '../../../l10n/generated/app_localizations.dart';
 import '../../practice_dokkaebi_help.dart';
 import '../tokens.dart';
 import 'approved_game_material.dart';
+import 'approved_game_metrics.dart';
 
 const _silbenFont = 'SilbenPlex';
 const silbenInk = Color(0xff10251d);
@@ -56,7 +57,7 @@ class SilbenHeader extends StatelessWidget {
                 height: 20,
                 child: GameArtwork('cloud', fit: BoxFit.contain),
               ),
-              SizedBox(width: 3),
+              SizedBox(width: Spacing.micro),
               ApprovedGameText(
                 'HANGUL SORI',
                 size: 13,
@@ -168,11 +169,11 @@ class SilbenBackFace extends StatelessWidget {
         width: 44,
         height: 40,
         foregroundDecoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(ApprovedGameMetrics.silbenBackFaceRadius),
           border: Border.all(color: const Color(0xffdcb774), width: 1.4),
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(ApprovedGameMetrics.silbenBackFaceRadius),
           boxShadow: const [
             BoxShadow(
               color: Color(0x6e221004),
