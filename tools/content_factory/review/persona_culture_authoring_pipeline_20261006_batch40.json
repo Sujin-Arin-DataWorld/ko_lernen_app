@@ -1,6 +1,8 @@
 {
   "schemaVersion": 1,
   "status": "REVIEW_ONLY_PIPELINE_PASS",
+  "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
+  "dialogueAuthoringContractRequiredForFuturePersonaDialogue": true,
   "manifest": "tools/content_factory/drafts/batch_40_persona_culture_manifest.json",
   "batch": "40",
   "scenarioCount": 5,
@@ -14,6 +16,7 @@
   "authoringBrief": {
     "path": "tools/content_factory/drafts/persona_culture_authoring_brief_20261006_batch40.json",
     "sceneCount": 5,
+    "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
     "relationChecks": [
       {
         "scenarioId": "a2_dongsun_christian_maehwa_gift",
@@ -73,8 +76,8 @@
   "integrationPreviewInventory": {
     "vocab": 2968,
     "grammar": 264,
-    "scenario": 201,
-    "scenarioQuest": 624,
+    "scenario": 224,
+    "scenarioQuest": 693,
     "smalltalk": 590,
     "cloze": 2365,
     "satz": 2885,

@@ -356189,12 +356189,6 @@
   ],
   "unparsedDraftSources": [
     {
-      "sourcePath": "tools/content_factory/drafts/README.md",
-      "approvalState": "draft_or_review_artifact",
-      "trackingStatus": "file_level_explicit_unmapped",
-      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
-    },
-    {
       "sourcePath": "tools/content_factory/drafts/batch19_grammar.csv",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
@@ -356646,6 +356640,12 @@
     },
     {
       "sourcePath": "tools/content_factory/drafts/productive_assessments.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/README.md",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"

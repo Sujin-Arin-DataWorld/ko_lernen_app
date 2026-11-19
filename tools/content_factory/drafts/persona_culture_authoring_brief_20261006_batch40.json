@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "status": "review_only",
   "purpose": "Batch 40 contract: social-language culture and everyday culture must emerge from real tasks before glossary explanation.",
+  "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
   "scenes": [
     {
       "scenarioId": "b1_jun_coding_club_speech_switch",
