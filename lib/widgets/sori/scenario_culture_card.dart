@@ -11,6 +11,7 @@ import 'cultural_help.dart';
 import 'mascot.dart';
 import 'mascot_preference.dart';
 import 'motion.dart';
+import 'pressable.dart';
 import 'tokens.dart';
 
 typedef ScenarioCultureEntriesLoader =
@@ -290,10 +291,10 @@ class _ScenarioCultureTermRow extends StatelessWidget {
     return Semantics(
       button: true,
       label: semanticsLabel,
+      onTap: () => showCulturalTermSheet(context, entry),
       excludeSemantics: true,
-      child: InkWell(
+      child: SoriPressable(
         key: Key('scenario_culture_term_${entry.termId}'),
-        borderRadius: SoriRadius.brSm,
         onTap: () => showCulturalTermSheet(context, entry),
         child: ConstrainedBox(
           constraints: const BoxConstraints(minHeight: 56),

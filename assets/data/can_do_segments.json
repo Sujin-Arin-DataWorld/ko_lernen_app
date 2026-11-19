@@ -1992,7 +1992,7 @@
     {
       "id": "cluster_a2_plans_with_friend_v1",
       "level": "a2",
-      "revision": 12,
+      "revision": 13,
       "sourceSeedIds": [
         "seed_scenario_plans_with_friend_v1",
         "seed_grammar_grammar_a2_gentle_question_v1",
@@ -2038,7 +2038,9 @@
         "seed_grammar_grammar_a2_tentative_intention_v1",
         "seed_scenario_a2_jun_game_time_change_v1",
         "seed_scenario_a2_minho_weekend_cooking_plan_v1",
-        "seed_scenario_a2_lena_hyuna_heatwave_plan_v1"
+        "seed_scenario_a2_lena_hyuna_heatwave_plan_v1",
+        "seed_scenario_a2_andrea_minho_bojagi_housewarming_v1",
+        "seed_scenario_a2_lena_maya_buchae_gift_choice_v1"
       ],
       "contentReferences": [
         {
@@ -2220,6 +2222,14 @@
         {
           "kind": "scenario",
           "id": "a2_lena_hyuna_heatwave_plan"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_andrea_minho_bojagi_housewarming"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_lena_maya_buchae_gift_choice"
         }
       ]
     },
@@ -4117,7 +4127,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 21,
+      "revision": 22,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_work_v1",
         "seed_vocab_pack_b1_work_career_1_v1",
@@ -4168,7 +4178,8 @@
         "seed_cloze_cloze_a2_0054_v1",
         "seed_scenario_b1_dongsun_maya_price_notice_v1",
         "seed_scenario_b1_dongsun_sujin_repair_price_v1",
-        "seed_scenario_b1_maya_daniel_ai_campaign_cut_v1"
+        "seed_scenario_b1_maya_daniel_ai_campaign_cut_v1",
+        "seed_scenario_b1_minho_christian_hanok_cafe_meeting_v1"
       ],
       "contentReferences": [
         {
@@ -4370,6 +4381,10 @@
         {
           "kind": "scenario",
           "id": "b1_maya_daniel_ai_campaign_cut"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_minho_christian_hanok_cafe_meeting"
         }
       ]
     },
@@ -5327,7 +5342,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 16,
+      "revision": 17,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
         "seed_vocab_pack_b2_education_v1",
@@ -5443,7 +5458,9 @@
         "seed_scenario_b2_hyuna_daniel_gyeongju_after_apec_v1",
         "seed_scenario_b2_hyuna_sujin_gyeongju_fieldnotes_v1",
         "seed_scenario_b2_maya_daniel_tradition_reinterpretation_v1",
-        "seed_scenario_b2_sujin_minho_shorter_hours_tradeoff_v1"
+        "seed_scenario_b2_sujin_minho_shorter_hours_tradeoff_v1",
+        "seed_scenario_b2_hyuna_daniel_nongak_festival_filming_v1",
+        "seed_scenario_b2_maya_daniel_pansori_promo_clip_v1"
       ],
       "contentReferences": [
         {
@@ -5905,6 +5922,14 @@
         {
           "kind": "scenario",
           "id": "b2_sujin_minho_shorter_hours_tradeoff"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hyuna_daniel_nongak_festival_filming"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_maya_daniel_pansori_promo_clip"
         }
       ]
     },

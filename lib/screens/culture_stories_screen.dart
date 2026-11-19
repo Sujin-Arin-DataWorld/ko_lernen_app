@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/cultural_glossary.dart';
 import '../services/culture_discovery_service.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/empty_state.dart';
@@ -76,9 +77,14 @@ class _CultureStoriesScreenState extends State<CultureStoriesScreen> {
           if (!snapshot.hasData) {
             return ListView(
               padding: padding,
-              children: const [
-                SizedBox(height: Spacing.xxl),
-                Center(child: CircularProgressIndicator()),
+              children: [
+                const SizedBox(height: Spacing.xxl),
+                Center(
+                  child: SoriLoadingIndicator(
+                    color: Theme.of(context).colorScheme.primary,
+                    strokeWidth: 4,
+                  ),
+                ),
               ],
             );
           }

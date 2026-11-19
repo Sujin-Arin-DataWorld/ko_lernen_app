@@ -14,10 +14,10 @@
     "mappedCoverageStatusDerivedFromNativeUsageRegistry": true
   },
   "summary": {
-    "trackedItemCount": 19776,
-    "mappedItemCount": 17244,
-    "explicitUnmappedItemCount": 2532,
-    "unparsedDraftSourceCount": 70,
+    "trackedItemCount": 19859,
+    "mappedItemCount": 17290,
+    "explicitUnmappedItemCount": 2569,
+    "unparsedDraftSourceCount": 79,
     "byKind": {
       "canonical_scenario_brief": {
         "total": 120,
@@ -30,14 +30,14 @@
         "explicitUnmapped": 559
       },
       "culture_story_arc": {
-        "total": 3,
-        "mapped": 0,
-        "explicitUnmapped": 3
+        "total": 5,
+        "mapped": 1,
+        "explicitUnmapped": 4
       },
       "listening": {
-        "total": 199,
-        "mapped": 153,
-        "explicitUnmapped": 46
+        "total": 214,
+        "mapped": 159,
+        "explicitUnmapped": 55
       },
       "living_korea_scene": {
         "total": 23,
@@ -50,14 +50,14 @@
         "explicitUnmapped": 623
       },
       "scenario": {
-        "total": 859,
-        "mapped": 459,
-        "explicitUnmapped": 400
+        "total": 920,
+        "mapped": 497,
+        "explicitUnmapped": 423
       },
       "scenario_culture_link": {
-        "total": 5,
-        "mapped": 2,
-        "explicitUnmapped": 3
+        "total": 10,
+        "mapped": 3,
+        "explicitUnmapped": 7
       },
       "smalltalk": {
         "total": 618,
@@ -72,33 +72,33 @@
     },
     "mappedCountsByCanonicalTopic": {
       "personal_identification": 250,
-      "family_relationships": 3070,
-      "house_home": 807,
-      "neighbourhood_environment": 365,
+      "family_relationships": 3082,
+      "house_home": 809,
+      "neighbourhood_environment": 367,
       "daily_life_routines": 1117,
-      "numbers_time_dates": 707,
+      "numbers_time_dates": 709,
       "food_drink": 583,
-      "shopping_consumption": 472,
+      "shopping_consumption": 478,
       "transport_wayfinding": 362,
       "travel_accommodation": 174,
       "health_body": 411,
       "free_time_hobbies_sport": 466,
-      "media_entertainment_culture_pop": 341,
-      "education_study": 770,
-      "work_career": 1110,
+      "media_entertainment_culture_pop": 343,
+      "education_study": 774,
+      "work_career": 1114,
       "services_public_admin": 489,
       "communication_phone_digital": 318,
       "weather_nature_climate": 385,
       "feelings_character": 632,
-      "social_etiquette_customs": 485,
+      "social_etiquette_customs": 487,
       "language_learning_communication_repair": 209,
-      "money_finance_contracts": 313,
-      "technology_digital_ai": 441,
+      "money_finance_contracts": 317,
+      "technology_digital_ai": 445,
       "environment_sustainability": 152,
       "society_current_affairs": 590,
       "politics_law_institutions": 844,
       "economy_business_labour": 56,
-      "science_research_evidence": 466,
+      "science_research_evidence": 468,
       "arts_literature_history": 326,
       "ethics_philosophy_abstract": 502,
       "professional_specialised_fields": 14,
@@ -2071,6 +2071,151 @@
     },
     {
       "kind": "scenario",
+      "itemId": "a2_andrea_minho_bojagi_housewarming",
+      "sourcePath": "assets/data/scenarios_a2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 3,
+        "runnerUpScore": 0,
+        "hits": {
+          "family_relationships": [
+            "context:친구"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_lena_maya_buchae_gift_choice",
+      "sourcePath": "assets/data/scenarios_a2.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "family_relationships": 3,
+          "shopping_consumption": 2
+        },
+        "hits": {
+          "family_relationships": [
+            "context:친구"
+          ],
+          "shopping_consumption": [
+            "pack:buy"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_jun_minho_class_phone_rule",
+      "sourcePath": "assets/data/scenarios_a2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "education_study",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 15,
+        "runnerUpScore": 5,
+        "hits": {
+          "education_study": [
+            "title:수업",
+            "context:학교",
+            "pack:school",
+            "pack:class",
+            "pack:study"
+          ],
+          "communication_phone_digital": [
+            "context:전화",
+            "pack:phone"
+          ],
+          "work_career": [
+            "pack:work"
+          ],
+          "science_research_evidence": [
+            "pack:study"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_dongsun_christian_suspicious_delivery_text",
+      "sourcePath": "assets/data/scenarios_a2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "shopping_consumption",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 6,
+        "hits": {
+          "shopping_consumption": [
+            "title:택배",
+            "pack:delivery"
+          ],
+          "communication_phone_digital": [
+            "title:문자"
+          ],
+          "technology_digital_ai": [
+            "pack:app"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_lena_hyuna_heatwave_plan",
+      "sourcePath": "assets/data/scenarios_a2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "numbers_time_dates",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 6,
+        "hits": {
+          "daily_life_routines": [
+            "context:아침",
+            "context:주말"
+          ],
+          "numbers_time_dates": [
+            "title:시간",
+            "pack:time"
+          ],
+          "weather_nature_climate": [
+            "title:폭염"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
       "itemId": "shared_document_old_version",
       "sourcePath": "assets/data/scenarios_b1.json",
       "approvalState": "live",
@@ -3067,6 +3212,408 @@
           ],
           "neighbourhood_environment": [
             "pack:neighbor"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_minho_christian_hanok_cafe_meeting",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "food_drink": 8,
+          "work_career": 9
+        },
+        "hits": {
+          "food_drink": [
+            "title:카페",
+            "pack:cafe"
+          ],
+          "work_career": [
+            "context:직원",
+            "pack:work",
+            "pack:team",
+            "pack:meeting"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_maya_daniel_ai_campaign_cut",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "technology_digital_ai",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 4,
+        "hits": {
+          "media_entertainment_culture_pop": [
+            "context:영상"
+          ],
+          "technology_digital_ai": [
+            "title:ai",
+            "pack:ai"
+          ],
+          "work_career": [
+            "pack:work",
+            "pack:team"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_sujin_christian_asset_provenance_check",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "media_entertainment_culture_pop": 3,
+          "family_relationships": 2
+        },
+        "hits": {
+          "media_entertainment_culture_pop": [
+            "context:영상"
+          ],
+          "family_relationships": [
+            "pack:partner"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_jun_andrea_phone_house_rules",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "house_home",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 5,
+        "hits": {
+          "house_home": [
+            "title:집에서",
+            "pack:house"
+          ],
+          "education_study": [
+            "context:학교",
+            "pack:school"
+          ],
+          "family_relationships": [
+            "pack:partner"
+          ],
+          "communication_phone_digital": [
+            "pack:phone"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_jun_christian_phone_study_habit",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "education_study",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 16,
+        "runnerUpScore": 2,
+        "hits": {
+          "education_study": [
+            "context:수업",
+            "context:학교",
+            "title:공부",
+            "pack:class",
+            "pack:study"
+          ],
+          "communication_phone_digital": [
+            "pack:phone"
+          ],
+          "science_research_evidence": [
+            "pack:study"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_christian_sujin_suspicious_text_followup",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "shopping_consumption": 5,
+          "communication_phone_digital": 6,
+          "family_relationships": 2
+        },
+        "hits": {
+          "shopping_consumption": [
+            "context:택배",
+            "pack:delivery"
+          ],
+          "communication_phone_digital": [
+            "title:문자"
+          ],
+          "family_relationships": [
+            "pack:partner"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_sujin_byeongcheol_family_verification_rule",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 10,
+        "runnerUpScore": 6,
+        "hits": {
+          "family_relationships": [
+            "title:가족",
+            "pack:partner",
+            "pack:family"
+          ],
+          "communication_phone_digital": [
+            "context:연락",
+            "context:문자"
+          ],
+          "money_finance_contracts": [
+            "pack:money"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_andrea_minho_friday_schedule",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 7,
+        "runnerUpScore": 5,
+        "hits": {
+          "family_relationships": [
+            "context:가족",
+            "pack:partner",
+            "pack:family"
+          ],
+          "numbers_time_dates": [
+            "context:시간"
+          ],
+          "work_career": [
+            "context:회사",
+            "pack:work"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_andrea_minho_family_calendar",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 10,
+        "runnerUpScore": 3,
+        "hits": {
+          "family_relationships": [
+            "title:가족",
+            "pack:partner",
+            "pack:family"
+          ],
+          "work_career": [
+            "context:업무"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_dongsun_sujin_repair_price",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "money_finance_contracts",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 5,
+        "hits": {
+          "numbers_time_dates": [
+            "context:시간",
+            "pack:time"
+          ],
+          "money_finance_contracts": [
+            "title:가격",
+            "pack:price"
+          ],
+          "house_home": [
+            "pack:repair"
+          ],
+          "work_career": [
+            "pack:work"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_dongsun_maya_price_notice",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "money_finance_contracts",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 4,
+        "hits": {
+          "money_finance_contracts": [
+            "title:가격",
+            "pack:price"
+          ],
+          "work_career": [
+            "pack:work",
+            "pack:team"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_lena_hyuna_crowded_weekend",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "neighbourhood_environment": 9,
+          "numbers_time_dates": 8,
+          "society_current_affairs": 3,
+          "free_time_hobbies_sport": 2
+        },
+        "hits": {
+          "neighbourhood_environment": [
+            "title:동네",
+            "context:주민"
+          ],
+          "numbers_time_dates": [
+            "title:시간",
+            "pack:time"
+          ],
+          "society_current_affairs": [
+            "context:주민"
+          ],
+          "free_time_hobbies_sport": [
+            "pack:weekend"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_lena_maya_beyond_music",
+      "sourcePath": "assets/data/scenarios_b1.json",
+      "approvalState": "live",
+      "canonicalTopicId": "media_entertainment_culture_pop",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 10,
+        "runnerUpScore": 3,
+        "hits": {
+          "travel_accommodation": [
+            "context:여행"
+          ],
+          "media_entertainment_culture_pop": [
+            "title:음악",
+            "pack:fandom",
+            "pack:music"
           ]
         }
       },
@@ -4107,6 +4654,318 @@
         "hits": {
           "science_research_evidence": [
             "pack:evidence"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_maya_daniel_pansori_promo_clip",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "society_current_affairs": 3,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "society_current_affairs": [
+            "context:참여"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_daniel_nongak_festival_filming",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "politics_law_institutions": 3,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "politics_law_institutions": [
+            "context:심사"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_daniel_sujin_ai_asset_handoff",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "technology_digital_ai",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 7,
+        "runnerUpScore": 2,
+        "hits": {
+          "technology_digital_ai": [
+            "context:ai",
+            "pack:ai",
+            "pack:app"
+          ],
+          "work_career": [
+            "pack:meeting"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_sujin_minho_shorter_hours_tradeoff",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "work_career",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 11,
+        "runnerUpScore": 6,
+        "hits": {
+          "numbers_time_dates": [
+            "title:시간"
+          ],
+          "work_career": [
+            "context:회의",
+            "context:업무",
+            "context:인수인계",
+            "pack:meeting"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_andrea_work_family_choices",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "science_research_evidence",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 6,
+        "runnerUpScore": 2,
+        "hits": {
+          "science_research_evidence": [
+            "title:통계"
+          ],
+          "family_relationships": [
+            "pack:family"
+          ],
+          "work_career": [
+            "pack:work"
+          ],
+          "society_current_affairs": [
+            "pack:public"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_daniel_resident_flow_filming",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": "neighbourhood_environment",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 9,
+        "runnerUpScore": 6,
+        "hits": {
+          "neighbourhood_environment": [
+            "context:골목",
+            "title:주민"
+          ],
+          "numbers_time_dates": [
+            "context:시간"
+          ],
+          "society_current_affairs": [
+            "title:주민"
+          ],
+          "politics_law_institutions": [
+            "context:법을"
+          ],
+          "travel_accommodation": [
+            "pack:travel"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_maya_daniel_tradition_reinterpretation",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "media_entertainment_culture_pop": 3,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "media_entertainment_culture_pop": [
+            "context:영상"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_daniel_gyeongju_after_apec",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "top_topic_score_tie",
+      "mappingEvidence": {
+        "reason": "top_topic_score_tie",
+        "scores": {
+          "services_public_admin": 2,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "services_public_admin": [
+            "pack:document"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "top_topic_score_tie"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_sujin_gyeongju_fieldnotes",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "arts_literature_history": 3,
+          "science_research_evidence": 4,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "arts_literature_history": [
+            "context:역사"
+          ],
+          "science_research_evidence": [
+            "pack:research",
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_byeongcheol_sujin_heat_electricity",
+      "sourcePath": "assets/data/scenarios_b2.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "family_relationships": 2
+        },
+        "hits": {
+          "family_relationships": [
+            "pack:partner"
           ]
         }
       },
@@ -10577,6 +11436,131 @@
     {
       "kind": "listening",
       "itemId": "listening.b2.b2_daniel_hyuna_hanji_filming_scope",
+      "sourcePath": "assets/data/listening_lessons.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "science_research_evidence": 2
+        },
+        "hits": {
+          "science_research_evidence": [
+            "pack:evidence"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.a2.a2_andrea_minho_bojagi_housewarming",
+      "sourcePath": "assets/data/listening_lessons.json",
+      "approvalState": "live",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "source_scenario_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "source_scenario_topic_inheritance",
+        "contentIds": [
+          "a2_andrea_minho_bojagi_housewarming"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b1.b1_minho_christian_hanok_cafe_meeting",
+      "sourcePath": "assets/data/listening_lessons.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "food_drink": 8,
+          "work_career": 7
+        },
+        "hits": {
+          "food_drink": [
+            "title:카페",
+            "pack:cafe"
+          ],
+          "work_career": [
+            "context:직원",
+            "pack:team",
+            "pack:meeting"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.a2.a2_lena_maya_buchae_gift_choice",
+      "sourcePath": "assets/data/listening_lessons.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "family_relationships": 3,
+          "shopping_consumption": 2
+        },
+        "hits": {
+          "family_relationships": [
+            "context:친구"
+          ],
+          "shopping_consumption": [
+            "pack:buy"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b2.b2_maya_daniel_pansori_promo_clip",
+      "sourcePath": "assets/data/listening_lessons.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "science_research_evidence": 2
+        },
+        "hits": {
+          "science_research_evidence": [
+            "pack:evidence"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b2.b2_hyuna_daniel_nongak_festival_filming",
       "sourcePath": "assets/data/listening_lessons.json",
       "approvalState": "live",
       "canonicalTopicId": null,
@@ -44028,20 +45012,24 @@
       "secondaryCanonicalTopicIds": [],
       "subtopicId": null,
       "registerLane": "pedagogical_or_mixed",
-      "mappingMethod": "topic_score_margin_too_small",
+      "mappingMethod": "top_topic_score_tie",
       "mappingEvidence": {
-        "reason": "topic_score_margin_too_small",
+        "reason": "top_topic_score_tie",
         "scores": {
+          "services_public_admin": 2,
           "communication_phone_digital": 2
         },
         "hits": {
+          "services_public_admin": [
+            "pack:service"
+          ],
           "communication_phone_digital": [
             "pack:phone"
           ]
         }
       },
       "researchCoverageStatus": "manual_topic_review_required",
-      "unmappedReason": "topic_score_margin_too_small"
+      "unmappedReason": "top_topic_score_tie"
     },
     {
       "kind": "vocab",
@@ -83831,10 +84819,13 @@
       "mappingEvidence": {
         "reason": "weighted_taxonomy_keyword_match",
         "score": 6,
-        "runnerUpScore": 0,
+        "runnerUpScore": 2,
         "hits": {
           "communication_phone_digital": [
             "title:전화"
+          ],
+          "services_public_admin": [
+            "pack:service"
           ]
         }
       },
@@ -84218,13 +85209,20 @@
       "secondaryCanonicalTopicIds": [],
       "subtopicId": null,
       "registerLane": "pedagogical_or_mixed",
-      "mappingMethod": "no_taxonomy_alias_or_keyword_match",
+      "mappingMethod": "topic_score_margin_too_small",
       "mappingEvidence": {
-        "reason": "no_taxonomy_alias_or_keyword_match",
-        "hits": {}
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "language_learning_communication_repair": 2
+        },
+        "hits": {
+          "language_learning_communication_repair": [
+            "pack:repeat"
+          ]
+        }
       },
       "researchCoverageStatus": "manual_topic_review_required",
-      "unmappedReason": "no_taxonomy_alias_or_keyword_match"
+      "unmappedReason": "topic_score_margin_too_small"
     },
     {
       "kind": "cloze",
@@ -122623,10 +123621,13 @@
       "mappingEvidence": {
         "reason": "weighted_taxonomy_keyword_match",
         "score": 6,
-        "runnerUpScore": 0,
+        "runnerUpScore": 2,
         "hits": {
           "communication_phone_digital": [
             "title:전화"
+          ],
+          "services_public_admin": [
+            "pack:service"
           ]
         }
       },
@@ -122966,13 +123967,20 @@
       "secondaryCanonicalTopicIds": [],
       "subtopicId": null,
       "registerLane": "pedagogical_or_mixed",
-      "mappingMethod": "no_taxonomy_alias_or_keyword_match",
+      "mappingMethod": "topic_score_margin_too_small",
       "mappingEvidence": {
-        "reason": "no_taxonomy_alias_or_keyword_match",
-        "hits": {}
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "language_learning_communication_repair": 2
+        },
+        "hits": {
+          "language_learning_communication_repair": [
+            "pack:repeat"
+          ]
+        }
       },
       "researchCoverageStatus": "manual_topic_review_required",
-      "unmappedReason": "no_taxonomy_alias_or_keyword_match"
+      "unmappedReason": "topic_score_margin_too_small"
     },
     {
       "kind": "satz",
@@ -157364,6 +158372,106 @@
       "unmappedReason": "linked_scenario_has_no_confident_topic"
     },
     {
+      "kind": "scenario_culture_link",
+      "itemId": "a2_andrea_minho_bojagi_housewarming",
+      "sourcePath": "assets/data/scenario_culture_links.json",
+      "approvalState": "live",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "cultural_reference",
+      "mappingMethod": "linked_scenario_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "linked_scenario_topic_inheritance",
+        "scenarioId": "a2_andrea_minho_bojagi_housewarming",
+        "termIds": [
+          "bojagi"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario_culture_link",
+      "itemId": "b1_minho_christian_hanok_cafe_meeting",
+      "sourcePath": "assets/data/scenario_culture_links.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "cultural_reference",
+      "mappingMethod": "linked_scenario_has_no_confident_topic",
+      "mappingEvidence": {
+        "reason": "linked_scenario_has_no_confident_topic",
+        "scenarioId": "b1_minho_christian_hanok_cafe_meeting",
+        "termIds": [
+          "hanok",
+          "madang"
+        ]
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "linked_scenario_has_no_confident_topic"
+    },
+    {
+      "kind": "scenario_culture_link",
+      "itemId": "a2_lena_maya_buchae_gift_choice",
+      "sourcePath": "assets/data/scenario_culture_links.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "cultural_reference",
+      "mappingMethod": "linked_scenario_has_no_confident_topic",
+      "mappingEvidence": {
+        "reason": "linked_scenario_has_no_confident_topic",
+        "scenarioId": "a2_lena_maya_buchae_gift_choice",
+        "termIds": [
+          "buchae"
+        ]
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "linked_scenario_has_no_confident_topic"
+    },
+    {
+      "kind": "scenario_culture_link",
+      "itemId": "b2_maya_daniel_pansori_promo_clip",
+      "sourcePath": "assets/data/scenario_culture_links.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "cultural_reference",
+      "mappingMethod": "linked_scenario_has_no_confident_topic",
+      "mappingEvidence": {
+        "reason": "linked_scenario_has_no_confident_topic",
+        "scenarioId": "b2_maya_daniel_pansori_promo_clip",
+        "termIds": [
+          "pansori"
+        ]
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "linked_scenario_has_no_confident_topic"
+    },
+    {
+      "kind": "scenario_culture_link",
+      "itemId": "b2_hyuna_daniel_nongak_festival_filming",
+      "sourcePath": "assets/data/scenario_culture_links.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "cultural_reference",
+      "mappingMethod": "linked_scenario_has_no_confident_topic",
+      "mappingEvidence": {
+        "reason": "linked_scenario_has_no_confident_topic",
+        "scenarioId": "b2_hyuna_daniel_nongak_festival_filming",
+        "termIds": [
+          "nongak"
+        ]
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "linked_scenario_has_no_confident_topic"
+    },
+    {
       "kind": "culture_story_arc",
       "itemId": "found_around_nammun",
       "sourcePath": "assets/data/culture_story_arcs.json",
@@ -157436,6 +158544,50 @@
           "b1_byeongcheol_hwaseong_memory_check",
           "a2_jun_hwaseong_school_slide",
           "c1_maya_hyuna_daniel_talchum_shortform"
+        ]
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "culture_arc_spans_multiple_or_unmapped_topics"
+    },
+    {
+      "kind": "culture_story_arc",
+      "itemId": "culture_in_everyday_use",
+      "sourcePath": "assets/data/culture_story_arcs.json",
+      "approvalState": "live",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "cultural_reference",
+      "mappingMethod": "all_arc_steps_share_one_topic",
+      "mappingEvidence": {
+        "reason": "all_arc_steps_share_one_topic",
+        "candidateTopics": [
+          "family_relationships"
+        ],
+        "scenarioIds": [
+          "a2_andrea_minho_bojagi_housewarming",
+          "b1_minho_christian_hanok_cafe_meeting",
+          "a2_lena_maya_buchae_gift_choice"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "culture_story_arc",
+      "itemId": "performance_first_encounter",
+      "sourcePath": "assets/data/culture_story_arcs.json",
+      "approvalState": "live",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "cultural_reference",
+      "mappingMethod": "culture_arc_spans_multiple_or_unmapped_topics",
+      "mappingEvidence": {
+        "reason": "culture_arc_spans_multiple_or_unmapped_topics",
+        "candidateTopics": [],
+        "scenarioIds": [
+          "b2_maya_daniel_pansori_promo_clip",
+          "b2_hyuna_daniel_nongak_festival_filming"
         ]
       },
       "researchCoverageStatus": "manual_topic_review_required",
@@ -220788,6 +221940,719 @@
     },
     {
       "kind": "scenario",
+      "itemId": "b1_maya_daniel_ai_campaign_cut",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "technology_digital_ai",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 4,
+        "hits": {
+          "media_entertainment_culture_pop": [
+            "context:영상"
+          ],
+          "technology_digital_ai": [
+            "title:ai",
+            "pack:ai"
+          ],
+          "work_career": [
+            "pack:work",
+            "pack:team"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_daniel_sujin_ai_asset_handoff",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "technology_digital_ai",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 7,
+        "runnerUpScore": 2,
+        "hits": {
+          "technology_digital_ai": [
+            "context:ai",
+            "pack:ai",
+            "pack:app"
+          ],
+          "work_career": [
+            "pack:meeting"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_sujin_christian_asset_provenance_check",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "media_entertainment_culture_pop": 3,
+          "family_relationships": 2
+        },
+        "hits": {
+          "media_entertainment_culture_pop": [
+            "context:영상"
+          ],
+          "family_relationships": [
+            "pack:partner"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_jun_minho_class_phone_rule",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "education_study",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 15,
+        "runnerUpScore": 5,
+        "hits": {
+          "education_study": [
+            "title:수업",
+            "context:학교",
+            "pack:school",
+            "pack:class",
+            "pack:study"
+          ],
+          "communication_phone_digital": [
+            "context:전화",
+            "pack:phone"
+          ],
+          "work_career": [
+            "pack:work"
+          ],
+          "science_research_evidence": [
+            "pack:study"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_jun_andrea_phone_house_rules",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "house_home",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 5,
+        "hits": {
+          "house_home": [
+            "title:집에서",
+            "pack:house"
+          ],
+          "education_study": [
+            "context:학교",
+            "pack:school"
+          ],
+          "family_relationships": [
+            "pack:partner"
+          ],
+          "communication_phone_digital": [
+            "pack:phone"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_jun_christian_phone_study_habit",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "education_study",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 16,
+        "runnerUpScore": 2,
+        "hits": {
+          "education_study": [
+            "context:수업",
+            "context:학교",
+            "title:공부",
+            "pack:class",
+            "pack:study"
+          ],
+          "communication_phone_digital": [
+            "pack:phone"
+          ],
+          "science_research_evidence": [
+            "pack:study"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_dongsun_christian_suspicious_delivery_text",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "shopping_consumption",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 6,
+        "hits": {
+          "shopping_consumption": [
+            "title:택배",
+            "pack:delivery"
+          ],
+          "communication_phone_digital": [
+            "title:문자"
+          ],
+          "technology_digital_ai": [
+            "pack:app"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_christian_sujin_suspicious_text_followup",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "shopping_consumption": 5,
+          "communication_phone_digital": 6,
+          "family_relationships": 2
+        },
+        "hits": {
+          "shopping_consumption": [
+            "context:택배",
+            "pack:delivery"
+          ],
+          "communication_phone_digital": [
+            "title:문자"
+          ],
+          "family_relationships": [
+            "pack:partner"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_sujin_byeongcheol_family_verification_rule",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 10,
+        "runnerUpScore": 6,
+        "hits": {
+          "family_relationships": [
+            "title:가족",
+            "pack:partner",
+            "pack:family"
+          ],
+          "communication_phone_digital": [
+            "context:연락",
+            "context:문자"
+          ],
+          "money_finance_contracts": [
+            "pack:money"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_andrea_minho_friday_schedule",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 7,
+        "runnerUpScore": 5,
+        "hits": {
+          "family_relationships": [
+            "context:가족",
+            "pack:partner",
+            "pack:family"
+          ],
+          "numbers_time_dates": [
+            "context:시간"
+          ],
+          "work_career": [
+            "context:회사",
+            "pack:work"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_sujin_minho_shorter_hours_tradeoff",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "work_career",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 11,
+        "runnerUpScore": 6,
+        "hits": {
+          "numbers_time_dates": [
+            "title:시간"
+          ],
+          "work_career": [
+            "context:회의",
+            "context:업무",
+            "context:인수인계",
+            "pack:meeting"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_andrea_work_family_choices",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "science_research_evidence",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 6,
+        "runnerUpScore": 2,
+        "hits": {
+          "science_research_evidence": [
+            "title:통계"
+          ],
+          "family_relationships": [
+            "pack:family"
+          ],
+          "work_career": [
+            "pack:work"
+          ],
+          "society_current_affairs": [
+            "pack:public"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_andrea_minho_family_calendar",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 10,
+        "runnerUpScore": 3,
+        "hits": {
+          "family_relationships": [
+            "title:가족",
+            "pack:partner",
+            "pack:family"
+          ],
+          "work_career": [
+            "context:업무"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_dongsun_sujin_repair_price",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "money_finance_contracts",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 5,
+        "hits": {
+          "numbers_time_dates": [
+            "context:시간",
+            "pack:time"
+          ],
+          "money_finance_contracts": [
+            "title:가격",
+            "pack:price"
+          ],
+          "house_home": [
+            "pack:repair"
+          ],
+          "work_career": [
+            "pack:work"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_dongsun_maya_price_notice",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "money_finance_contracts",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 4,
+        "hits": {
+          "money_finance_contracts": [
+            "title:가격",
+            "pack:price"
+          ],
+          "work_career": [
+            "pack:work",
+            "pack:team"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_lena_hyuna_crowded_weekend",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "neighbourhood_environment": 9,
+          "numbers_time_dates": 8,
+          "society_current_affairs": 3,
+          "free_time_hobbies_sport": 2
+        },
+        "hits": {
+          "neighbourhood_environment": [
+            "title:동네",
+            "context:주민"
+          ],
+          "numbers_time_dates": [
+            "title:시간",
+            "pack:time"
+          ],
+          "society_current_affairs": [
+            "context:주민"
+          ],
+          "free_time_hobbies_sport": [
+            "pack:weekend"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_daniel_resident_flow_filming",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "neighbourhood_environment",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 9,
+        "runnerUpScore": 6,
+        "hits": {
+          "neighbourhood_environment": [
+            "context:골목",
+            "title:주민"
+          ],
+          "numbers_time_dates": [
+            "context:시간"
+          ],
+          "society_current_affairs": [
+            "title:주민"
+          ],
+          "politics_law_institutions": [
+            "context:법을"
+          ],
+          "travel_accommodation": [
+            "pack:travel"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_lena_maya_beyond_music",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "media_entertainment_culture_pop",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 10,
+        "runnerUpScore": 3,
+        "hits": {
+          "travel_accommodation": [
+            "context:여행"
+          ],
+          "media_entertainment_culture_pop": [
+            "title:음악",
+            "pack:fandom",
+            "pack:music"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_maya_daniel_tradition_reinterpretation",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "media_entertainment_culture_pop": 3,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "media_entertainment_culture_pop": [
+            "context:영상"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_daniel_gyeongju_after_apec",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "top_topic_score_tie",
+      "mappingEvidence": {
+        "reason": "top_topic_score_tie",
+        "scores": {
+          "services_public_admin": 2,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "services_public_admin": [
+            "pack:document"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "top_topic_score_tie"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_sujin_gyeongju_fieldnotes",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "arts_literature_history": 3,
+          "science_research_evidence": 4,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "arts_literature_history": [
+            "context:역사"
+          ],
+          "science_research_evidence": [
+            "pack:research",
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_lena_hyuna_heatwave_plan",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "numbers_time_dates",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 6,
+        "hits": {
+          "daily_life_routines": [
+            "context:아침",
+            "context:주말"
+          ],
+          "numbers_time_dates": [
+            "title:시간",
+            "pack:time"
+          ],
+          "weather_nature_climate": [
+            "title:폭염"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_byeongcheol_sujin_heat_electricity",
+      "sourcePath": "tools/content_factory/drafts/living_korea_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "family_relationships": 2
+        },
+        "hits": {
+          "family_relationships": [
+            "pack:partner"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
       "itemId": "a2_minho_weekend_cooking_plan",
       "sourcePath": "tools/content_factory/drafts/persona_a2_scenarios_20261003.json",
       "approvalState": "draft_or_review_artifact",
@@ -221029,6 +222894,302 @@
       },
       "researchCoverageStatus": "manual_topic_review_required",
       "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_andrea_minho_bojagi_housewarming",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 3,
+        "runnerUpScore": 0,
+        "hits": {
+          "family_relationships": [
+            "context:친구"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_minho_christian_hanok_cafe_meeting",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "food_drink": 8,
+          "work_career": 9
+        },
+        "hits": {
+          "food_drink": [
+            "title:카페",
+            "pack:cafe"
+          ],
+          "work_career": [
+            "context:직원",
+            "pack:work",
+            "pack:team",
+            "pack:meeting"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_lena_maya_buchae_gift_choice",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "everyday_casual",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "family_relationships": 3,
+          "shopping_consumption": 2
+        },
+        "hits": {
+          "family_relationships": [
+            "context:친구"
+          ],
+          "shopping_consumption": [
+            "pack:buy"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_maya_daniel_pansori_promo_clip",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "society_current_affairs": 3,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "society_current_affairs": [
+            "context:참여"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b2_hyuna_daniel_nongak_festival_filming",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "politics_law_institutions": 3,
+          "science_research_evidence": 2,
+          "professional_specialised_fields": 2
+        },
+        "hits": {
+          "politics_law_institutions": [
+            "context:심사"
+          ],
+          "science_research_evidence": [
+            "pack:evidence"
+          ],
+          "professional_specialised_fields": [
+            "pack:professional"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_jun_coding_club_speech_switch",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "social_etiquette_customs",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 9,
+        "runnerUpScore": 6,
+        "hits": {
+          "personal_identification": [
+            "context:처음 만나"
+          ],
+          "social_etiquette_customs": [
+            "context:호칭",
+            "title:말투"
+          ],
+          "language_learning_communication_repair": [
+            "title:말투"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_minho_coworker_hoesik_leave_early",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "work_career",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "mixed_or_unspecified",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 5,
+        "runnerUpScore": 3,
+        "hits": {
+          "numbers_time_dates": [
+            "context:시간"
+          ],
+          "work_career": [
+            "context:동료",
+            "pack:team"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "a2_dongsun_christian_maehwa_gift",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "shopping_consumption",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 7,
+        "runnerUpScore": 3,
+        "hits": {
+          "shopping_consumption": [
+            "context:가게",
+            "pack:shop",
+            "pack:buy"
+          ],
+          "social_etiquette_customs": [
+            "context:생일"
+          ],
+          "money_finance_contracts": [
+            "context:가격"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_dongsun_customer_maedeup_repair",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "shopping_consumption",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "weighted_taxonomy_keyword_match",
+      "mappingEvidence": {
+        "reason": "weighted_taxonomy_keyword_match",
+        "score": 8,
+        "runnerUpScore": 3,
+        "hits": {
+          "shopping_consumption": [
+            "context:가게",
+            "context:물건",
+            "pack:shop"
+          ],
+          "professional_specialised_fields": [
+            "context:전문"
+          ],
+          "house_home": [
+            "pack:repair"
+          ],
+          "work_career": [
+            "pack:work"
+          ]
+        }
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "scenario",
+      "itemId": "b1_byeongcheol_hyuna_daecheong_rest",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_scenarios_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "relationship_or_service",
+      "mappingMethod": "top_topic_score_tie",
+      "mappingEvidence": {
+        "reason": "top_topic_score_tie",
+        "scores": {
+          "house_home": 3,
+          "arts_literature_history": 3,
+          "neighbourhood_environment": 2
+        },
+        "hits": {
+          "house_home": [
+            "context:집을"
+          ],
+          "arts_literature_history": [
+            "context:역사"
+          ],
+          "neighbourhood_environment": [
+            "pack:neighbor"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "top_topic_score_tie"
     },
     {
       "kind": "scenario",
@@ -352278,6 +354439,235 @@
       "unmappedReason": "topic_score_margin_too_small"
     },
     {
+      "kind": "listening",
+      "itemId": "listening.a2.a2_andrea_minho_bojagi_housewarming",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "source_scenario_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "source_scenario_topic_inheritance",
+        "contentIds": [
+          "a2_andrea_minho_bojagi_housewarming"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b1.b1_minho_christian_hanok_cafe_meeting",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "food_drink": 8,
+          "work_career": 7
+        },
+        "hits": {
+          "food_drink": [
+            "title:카페",
+            "pack:cafe"
+          ],
+          "work_career": [
+            "context:직원",
+            "pack:team",
+            "pack:meeting"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.a2.a2_lena_maya_buchae_gift_choice",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "family_relationships": 3,
+          "shopping_consumption": 2
+        },
+        "hits": {
+          "family_relationships": [
+            "context:친구"
+          ],
+          "shopping_consumption": [
+            "pack:buy"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b2.b2_maya_daniel_pansori_promo_clip",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "science_research_evidence": 2
+        },
+        "hits": {
+          "science_research_evidence": [
+            "pack:evidence"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b2.b2_hyuna_daniel_nongak_festival_filming",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "topic_score_margin_too_small",
+      "mappingEvidence": {
+        "reason": "topic_score_margin_too_small",
+        "scores": {
+          "science_research_evidence": 2
+        },
+        "hits": {
+          "science_research_evidence": [
+            "pack:evidence"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "topic_score_margin_too_small"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b1.b1_jun_coding_club_speech_switch",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "social_etiquette_customs",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "source_scenario_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "source_scenario_topic_inheritance",
+        "contentIds": [
+          "b1_jun_coding_club_speech_switch"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b1.b1_minho_coworker_hoesik_leave_early",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "work_career",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "source_scenario_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "source_scenario_topic_inheritance",
+        "contentIds": [
+          "b1_minho_coworker_hoesik_leave_early"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.a2.a2_dongsun_christian_maehwa_gift",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "shopping_consumption",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "source_scenario_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "source_scenario_topic_inheritance",
+        "contentIds": [
+          "a2_dongsun_christian_maehwa_gift"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b1.b1_dongsun_customer_maedeup_repair",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "shopping_consumption",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "source_scenario_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "source_scenario_topic_inheritance",
+        "contentIds": [
+          "b1_dongsun_customer_maedeup_repair"
+        ]
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "listening",
+      "itemId": "listening.b1.b1_byeongcheol_hyuna_daecheong_rest",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_listening_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": null,
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "top_topic_score_tie",
+      "mappingEvidence": {
+        "reason": "top_topic_score_tie",
+        "scores": {
+          "house_home": 3,
+          "arts_literature_history": 3,
+          "neighbourhood_environment": 2
+        },
+        "hits": {
+          "house_home": [
+            "context:집을"
+          ],
+          "arts_literature_history": [
+            "context:역사"
+          ],
+          "neighbourhood_environment": [
+            "pack:neighbor"
+          ]
+        }
+      },
+      "researchCoverageStatus": "manual_topic_review_required",
+      "unmappedReason": "top_topic_score_tie"
+    },
+    {
       "kind": "smalltalk",
       "itemId": "smalltalk_a1_0091",
       "sourcePath": "tools/content_factory/drafts/theme_park_date_smalltalk_v1.json",
@@ -353799,6 +356189,12 @@
   ],
   "unparsedDraftSources": [
     {
+      "sourcePath": "tools/content_factory/drafts/README.md",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
       "sourcePath": "tools/content_factory/drafts/batch19_grammar.csv",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
@@ -354081,6 +356477,24 @@
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
     },
     {
+      "sourcePath": "tools/content_factory/drafts/batch_39_living_korea_manifest.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/batch_39_persona_culture_manifest.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/batch_40_persona_culture_manifest.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
       "sourcePath": "tools/content_factory/drafts/c4_batch01_grammar_b1_b2.csv",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
@@ -354183,7 +356597,31 @@
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
     },
     {
+      "sourcePath": "tools/content_factory/drafts/persona_culture_authoring_brief_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/persona_culture_authoring_brief_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
       "sourcePath": "tools/content_factory/drafts/persona_culture_links_20261005.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/persona_culture_links_20261006.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/persona_culture_links_20261006_batch40.json",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
@@ -354195,13 +356633,19 @@
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
     },
     {
-      "sourcePath": "tools/content_factory/drafts/productive_assessments.json",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_story_arcs_20261006.json",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
     },
     {
-      "sourcePath": "tools/content_factory/drafts/README.md",
+      "sourcePath": "tools/content_factory/drafts/persona_culture_story_arcs_20261006_batch40.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/productive_assessments.json",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
