@@ -4848,7 +4848,7 @@
         {
           "speaker": "user",
           "ko": "지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.",
-          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+          "de": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Wird diese Untersuchung auch von meiner Versicherung übernommen? Das möchte ich gern klären.",
           "en": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check."
         },
         {
@@ -4866,8 +4866,8 @@
         {
           "speaker": "clerk",
           "ko": "필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
-          "de": "Ich prüfe die erforderlichen Unterlagen und die Einreichungsmethode und erkläre sie Ihnen dann.",
-          "en": "I'll check the required documents and how to submit them, then explain it to you."
+          "de": "Ich prüfe, welche Unterlagen Sie brauchen und wie Sie sie einreichen können, und gebe Ihnen dann Bescheid.",
+          "en": "I'll check which documents you need and how to submit them, then let you know."
         },
         {
           "speaker": "user",
@@ -4913,7 +4913,7 @@
           "id": "quest_b1_w10_insurance_translate",
           "type": "uebersetzen",
           "data": {
-            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.",
+            "promptDe": "Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Wird diese Untersuchung auch von meiner Versicherung übernommen? Das möchte ich gern klären.",
             "promptEn": "I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check.",
             "options": [
               {

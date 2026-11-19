@@ -659,7 +659,7 @@ def build() -> dict[str, Any]:
     parsed_draft_names = {path.name for path in LIVING_KOREA_PATHS}
     draft_paths = [
         path
-        for path in sorted(DRAFT_DIR.glob("*"))
+        for path in sorted(DRAFT_DIR.glob("*"), key=lambda item: item.name)
         if path.is_file()
         and path.suffix.lower() in {".json", ".csv", ".md"}
         and path.name not in parsed_draft_names

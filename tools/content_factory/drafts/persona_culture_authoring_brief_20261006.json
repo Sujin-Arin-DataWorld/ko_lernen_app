@@ -2,6 +2,7 @@
   "schemaVersion": 1,
   "status": "review_only",
   "purpose": "Batch 39 pre-script contract: reuse existing glossary entries through real tasks and existing persona relationships.",
+  "dialogueAuthoringContract": "tools/content_factory/canonical_scenarios/dialogue_authoring_contract_20261006.json",
   "scenes": [
     {
       "scenarioId": "a2_andrea_minho_bojagi_housewarming",
