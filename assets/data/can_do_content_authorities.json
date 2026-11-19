@@ -1914,6 +1914,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_andrea_minho_bojagi_housewarming_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_byeongcheol_walk_break_v1",
       "level": "a2"
     },
@@ -1923,6 +1927,10 @@
     },
     {
       "id": "seed_scenario_a2_jun_hwaseong_school_slide_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_lena_maya_buchae_gift_choice_v1",
       "level": "a2"
     },
     {
@@ -3079,6 +3087,10 @@
     },
     {
       "id": "seed_scenario_b1_dongsun_norigae_shop_post_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_minho_christian_hanok_cafe_meeting_v1",
       "level": "b1"
     },
     {
@@ -4355,6 +4367,14 @@
     },
     {
       "id": "seed_scenario_b2_daniel_hyuna_hanji_filming_scope_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hyuna_daniel_nongak_festival_filming_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_maya_daniel_pansori_promo_clip_v1",
       "level": "b2"
     },
     {
@@ -13171,6 +13191,13 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_andrea_minho_bojagi_housewarming",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_andrea_minho_bojagi_housewarming_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_byeongcheol_walk_break",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_byeongcheol_walk_break_v1",
@@ -13189,6 +13216,13 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_jun_hwaseong_school_slide_v1",
       "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_lena_maya_buchae_gift_choice",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_lena_maya_buchae_gift_choice_v1",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "kind": "scenario",
@@ -15211,6 +15245,13 @@
       "id": "b1_dongsun_norigae_shop_post",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_dongsun_norigae_shop_post_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_minho_christian_hanok_cafe_meeting",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_minho_christian_hanok_cafe_meeting_v1",
       "courseUnitId": "b1_03_work_softening"
     },
     {
@@ -17445,6 +17486,20 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_daniel_hyuna_hanji_filming_scope_v1",
       "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hyuna_daniel_nongak_festival_filming",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hyuna_daniel_nongak_festival_filming_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_maya_daniel_pansori_promo_clip",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_maya_daniel_pansori_promo_clip_v1",
+      "courseUnitId": "b2_02_professional_opinion"
     },
     {
       "kind": "scenario",
@@ -28694,7 +28749,7 @@
       "vocabPack": 254,
       "grammar": 264,
       "smalltalk": 590,
-      "scenario": 192,
+      "scenario": 197,
       "cloze": 847,
       "satz": 540,
       "project": 8

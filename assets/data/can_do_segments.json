@@ -1992,7 +1992,7 @@
     {
       "id": "cluster_a2_plans_with_friend_v1",
       "level": "a2",
-      "revision": 11,
+      "revision": 12,
       "sourceSeedIds": [
         "seed_scenario_plans_with_friend_v1",
         "seed_grammar_grammar_a2_gentle_question_v1",
@@ -2037,7 +2037,9 @@
         "seed_grammar_grammar_b1_decision_v1",
         "seed_grammar_grammar_a2_tentative_intention_v1",
         "seed_scenario_a2_jun_game_time_change_v1",
-        "seed_scenario_a2_minho_weekend_cooking_plan_v1"
+        "seed_scenario_a2_minho_weekend_cooking_plan_v1",
+        "seed_scenario_a2_andrea_minho_bojagi_housewarming_v1",
+        "seed_scenario_a2_lena_maya_buchae_gift_choice_v1"
       ],
       "contentReferences": [
         {
@@ -2215,6 +2217,14 @@
         {
           "kind": "scenario",
           "id": "a2_minho_weekend_cooking_plan"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_andrea_minho_bojagi_housewarming"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_lena_maya_buchae_gift_choice"
         }
       ]
     },
@@ -4092,7 +4102,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 20,
+      "revision": 21,
       "sourceSeedIds": [
         "seed_vocab_pack_b1_work_v1",
         "seed_vocab_pack_b1_work_career_1_v1",
@@ -4140,7 +4150,8 @@
         "seed_cloze_cloze_b1_0079_v1",
         "seed_scenario_b1_team_briefing_revised_schedule_2026_v1",
         "seed_scenario_b1_dongsun_norigae_shop_post_v1",
-        "seed_cloze_cloze_a2_0054_v1"
+        "seed_cloze_cloze_a2_0054_v1",
+        "seed_scenario_b1_minho_christian_hanok_cafe_meeting_v1"
       ],
       "contentReferences": [
         {
@@ -4330,6 +4341,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a2_0054"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_minho_christian_hanok_cafe_meeting"
         }
       ]
     },
@@ -5252,7 +5267,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 15,
+      "revision": 16,
       "sourceSeedIds": [
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
         "seed_vocab_pack_b2_education_v1",
@@ -5363,7 +5378,9 @@
         "seed_cloze_cloze_b2_0116_v1",
         "seed_cloze_cloze_b2_0124_v1",
         "seed_scenario_b2_meeting_hold_for_evidence_2026_v1",
-        "seed_grammar_grammar_b1_more_more_v1"
+        "seed_grammar_grammar_b1_more_more_v1",
+        "seed_scenario_b2_hyuna_daniel_nongak_festival_filming_v1",
+        "seed_scenario_b2_maya_daniel_pansori_promo_clip_v1"
       ],
       "contentReferences": [
         {
@@ -5805,6 +5822,14 @@
         {
           "kind": "grammar",
           "id": "grammar_b1_more_more"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_hyuna_daniel_nongak_festival_filming"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_maya_daniel_pansori_promo_clip"
         }
       ]
     },

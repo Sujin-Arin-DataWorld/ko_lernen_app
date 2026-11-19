@@ -224,7 +224,11 @@ def verify_successor(row: dict[str, Any], change: dict[str, Any],
         return False
     if fingerprint(row) != entry['afterSha256']:
         raise ValueError(f"{row['id']}: live copy does not match editorial revision ledger")
-    parent, key = text_field(entry['before'], change['field'])
+    field = change['field']
+    if '.' in field:
+        parent, key = text_field(entry['before'], field)
+    else:
+        parent, key = entry['before'], field
     if parent[key] != change['after']:
         raise ValueError(f"{row['id']}: editorial predecessor does not match historical overlay")
     return True
@@ -245,9 +249,14 @@ def revise_authored_phrase(phrase: dict[str, Any]) -> dict[str, Any]:
             if key in phrase and phrase[key] != entry['before'].get(key):
                 raise ValueError(f"{phrase.get('id')}: authored copy cannot change routing identity")
         for field in entry['fields']:
+            if '.' not in field:
+                # The original ledger records entire reviewed fields, including
+                # reply objects introduced by the revision.
+                phrase[field] = copy.deepcopy(entry['after'][field])
+                continue
             parent, key = text_field(phrase, field)
             after_parent, after_key = text_field(entry['after'], field)
-            parent[key] = copy.deepcopy(after_parent[after_key])
+            parent[key] = after_parent[after_key]
     return phrase
 
 
