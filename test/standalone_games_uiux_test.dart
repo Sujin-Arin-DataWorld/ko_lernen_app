@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -21,9 +22,10 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_games/approved_game_material.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
+import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
@@ -402,8 +404,12 @@ void main() {
 
           expect(game.ready, findsOneWidget, reason: game.name);
           expect(find.byType(SoriStudyFrame), findsOneWidget);
+          // Approved game surfaces replace the chrome home action with the
+          // shared game navigation; legacy surfaces keep SoriHomeAction.
           expect(
-            find.byType(SoriHomeAction),
+            find.byWidgetPredicate(
+              (w) => w is SoriHomeAction || w is ApprovedGameNavigation,
+            ),
             findsOneWidget,
             reason: game.name,
           );
@@ -422,8 +428,10 @@ void main() {
           // §B2(2026-09-03): every SoriStudyFrame screen now shares the same
           // frame-owned close (X) icon — the per-screen arrow-back/close
           // split this used to check is gone.
+          // Approved game surfaces draw their own close artwork; the
+          // frame-owned SoriCloseAction remains the single close control.
           expect(
-            find.byIcon(Icons.close_rounded),
+            find.byType(SoriCloseAction),
             findsOneWidget,
             reason: game.name,
           );
@@ -720,7 +728,7 @@ void main() {
         );
       }
       if (key != 'assets/data/kkeunmari_pool.json') {
-        return null;
+        return _diskAsset(key);
       }
       poolReads += 1;
       final raw = poolReads == 1
@@ -778,7 +786,7 @@ void main() {
         return _assetManifest;
       }
       if (key != 'assets/data/silben_puzzles.json') {
-        return null;
+        return _diskAsset(key);
       }
       puzzleReads += 1;
       final raw = puzzleReads == 1
@@ -904,7 +912,8 @@ void main() {
       textScale: 1.3,
     );
     // The initial clue is meaning only. The new sentence belongs to requested help.
-    final clue = find.bySemanticsLabel('Ghana');
+    // The approved clue list reads number, direction and meaning together.
+    final clue = find.bySemanticsLabel(RegExp(r'^1\. Waagerecht\. Ghana$'));
     await _pumpUntil(tester, clue);
     _expectButton(tester, clue);
     expect(find.text('Ich fahre nach Ghana.'), findsNothing);
@@ -1178,7 +1187,7 @@ Finder _soriButton(String label) => find.byWidgetPredicate(
 );
 
 SoriHomeEscape _homeEscape(WidgetTester tester) =>
-    tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
+    tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame)).homeEscape;
 
 void _expectLiveRegion(WidgetTester tester, String label) {
   final finder = _liveRegionWidget(label);
@@ -1237,4 +1246,12 @@ void _expectSelectedDisabledChoice(
   expect(data.flagsCollection.isSelected, ui.Tristate.isTrue);
   expect(data.hasAction(ui.SemanticsAction.tap), isFalse);
   expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
+}
+
+/// Approved game artwork still loads from disk while a test overrides one
+/// data asset; everything else that is not on disk stays unavailable.
+ByteData? _diskAsset(String key) {
+  final file = File(key);
+  if (!key.startsWith('assets/') || !file.existsSync()) return null;
+  return ByteData.sublistView(file.readAsBytesSync());
 }
