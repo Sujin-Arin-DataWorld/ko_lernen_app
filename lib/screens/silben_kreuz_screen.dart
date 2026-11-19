@@ -1,3 +1,4 @@
+import '../widgets/sori/intro_tokens.dart';
 import '../models/practice_history.dart';
 import '../models/silben_practice.dart';
 import '../services/practice_history_store.dart';
@@ -37,7 +38,6 @@ import '../widgets/sori/approved_games/approved_silben_art.dart';
 import '../widgets/sori/approved_games/approved_word_chain_view.dart'
     show showWordChainSpeedSheet;
 import '../widgets/sori/route_observer.dart';
-import '../services/tts_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_result_recovery.dart';
 import '../widgets/sori/level_filter_bar.dart';
@@ -355,7 +355,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Widget _speedControl(AppL10n t) => ValueListenableBuilder<double>(
-    valueListenable: TtsService.speedNotifier,
+    valueListenable: SoriSpeech.speed,
     builder: (context, speed, _) {
       final formatted = speed
           .toStringAsFixed(2)
@@ -1488,7 +1488,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               ? Text(
                   syllable,
                   style: TextStyle(
-                    fontFamily: 'MaruBuriOTF',
+                    fontFamily: IntroFonts.koreanDisplay,
                     fontSize: size.height * .46,
                     fontWeight: FontWeight.w700,
                     color: SoriColors.success,

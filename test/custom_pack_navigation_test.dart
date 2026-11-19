@@ -21,6 +21,7 @@ import 'package:ko_lernen_app/widgets/sori/approved_games/approved_game_material
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/image_navigation_bar.dart';
 
+import 'support/sori_speech_stubs.dart';
 import 'support/real_fonts.dart';
 
 // The Karten candidates titled Meine Wörter map to /custom_pack/play, not
@@ -53,6 +54,7 @@ void main() {
     await DataLoader.loadVocab();
   });
   setUp(() async {
+    stubSoriSpeech();
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_tut_cpPlay': true,

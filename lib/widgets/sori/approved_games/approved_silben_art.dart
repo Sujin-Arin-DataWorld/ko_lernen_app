@@ -5,6 +5,7 @@ import '../../../l10n/generated/app_localizations.dart';
 import '../../practice_dokkaebi_help.dart';
 import 'approved_game_material.dart';
 
+const _silbenFont = 'SilbenPlex';
 const silbenInk = Color(0xff10251d);
 const silbenTileAsset =
     'assets/illustrations/concept_c/spiele_preview/silben_tile.png';
@@ -14,7 +15,7 @@ const silbenFlowerAsset =
     'assets/illustrations/einleitung_generated/intro-plum-branch.png';
 
 TextStyle silbenType(double size, {Color color = silbenInk}) => TextStyle(
-  fontFamily: 'SilbenPlex',
+  fontFamily: _silbenFont,
   fontWeight: FontWeight.w700,
   fontSize: size,
   height: 1.13,

@@ -33,7 +33,7 @@ void main() {
         await loadSoriRealFonts(materialIcons: true);
         for (final entry in {
           'Lora': ['assets/fonts/Lora/Lora-Variable.ttf'],
-          'MaruBuriOTF': [
+          'MaruBuri': [
             'assets/fonts/MaruBuri/MaruBuri-Regular.otf',
             'assets/fonts/MaruBuri/MaruBuri-SemiBold.otf',
             'assets/fonts/MaruBuri/MaruBuri-Bold.otf',

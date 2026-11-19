@@ -1,3 +1,4 @@
+import '../intro_tokens.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -796,7 +797,7 @@ TextStyle _style(
   bool korean = false,
   FontWeight weight = FontWeight.w700,
 }) => TextStyle(
-  fontFamily: korean ? 'MaruBuriOTF' : 'Lora',
+  fontFamily: korean ? IntroFonts.koreanDisplay : IntroFonts.serif,
   fontSize: size,
   height: line / size,
   fontWeight: weight,
@@ -835,7 +836,7 @@ Size _measure(
 );
 
 const _promptStrut = StrutStyle(
-  fontFamily: 'Lora',
+  fontFamily: IntroFonts.serif,
   fontSize: 26,
   height: 38 / 26,
   forceStrutHeight: true,

@@ -1,3 +1,4 @@
+import '../intro_tokens.dart';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -820,7 +821,7 @@ TextPainter _measure(
     text: TextSpan(
       text: text,
       style: TextStyle(
-        fontFamily: korean ? 'MaruBuriOTF' : 'Lora',
+        fontFamily: korean ? IntroFonts.koreanDisplay : IntroFonts.serif,
         fontWeight: korean ? FontWeight.w700 : FontWeight.w600,
         fontSize: size,
         height: height,

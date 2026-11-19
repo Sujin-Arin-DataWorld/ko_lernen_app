@@ -18,7 +18,6 @@ import '../services/analytics_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
-import '../services/tts_service.dart';
 import '../widgets/sori/approved_games/approved_game_material.dart';
 import '../widgets/sori/approved_games/approved_word_chain_view.dart';
 import '../widgets/sori/badge.dart';
@@ -883,7 +882,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
         onLeave: _retireStudy,
         confirmWhen: _remaining > 0,
         contentBuilder: (context, close) => ValueListenableBuilder<double>(
-          valueListenable: TtsService.speedNotifier,
+          valueListenable: SoriSpeech.speed,
           builder: (context, speed, _) =>
               ValueListenableBuilder<CompanionPreference>(
                 valueListenable: MascotPreference.preference,

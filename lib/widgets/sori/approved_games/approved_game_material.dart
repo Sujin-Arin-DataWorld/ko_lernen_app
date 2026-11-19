@@ -1,3 +1,4 @@
+import '../intro_tokens.dart';
 import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui' as ui;
@@ -8,7 +9,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../l10n/generated/app_localizations.dart';
 import '../../../screens/sori_stage/sori_stage_shell.dart';
-import '../../../services/tts_service.dart';
+import '../../../motion/transitions.dart';
+import '../speakable.dart';
 import '../sheet.dart';
 import '../study_frame.dart';
 import '../tokens.dart';
@@ -327,7 +329,7 @@ class ApprovedGameText extends StatelessWidget {
     text,
     textAlign: align,
     style: TextStyle(
-      fontFamily: korean ? 'MaruBuriOTF' : 'Lora',
+      fontFamily: korean ? IntroFonts.koreanDisplay : IntroFonts.serif,
       fontSize: size,
       fontWeight: weight,
       height: height,
@@ -586,7 +588,7 @@ class ApprovedSpeedControl extends StatelessWidget {
   final double faceHeight, fontSize;
   @override
   Widget build(BuildContext context) => ValueListenableBuilder<double>(
-    valueListenable: TtsService.speedNotifier,
+    valueListenable: SoriSpeech.speed,
     builder: (context, speed, _) {
       final text =
           '${speed.toStringAsFixed(2).replaceFirst(RegExp(r'0+$'), '').replaceFirst(RegExp(r'\.$'), '')}×';
@@ -654,7 +656,7 @@ double approvedGameHeaderHeight(
     text: TextSpan(
       text: title,
       style: TextStyle(
-        fontFamily: 'Lora',
+        fontFamily: IntroFonts.serif,
         fontSize: titleSize,
         height: 1.14,
         letterSpacing: 0,
@@ -686,7 +688,7 @@ class ApprovedGameHeader extends StatelessWidget {
     tooltip: AppL10n.of(context).navSettings,
     padding: EdgeInsets.zero,
     onPressed: () {
-      unawaited(TtsService.stop());
+      unawaited(SoriSpeech.stop());
       unawaited(Navigator.of(context).pushNamed('/settings'));
     },
     icon: Transform.translate(
@@ -901,11 +903,11 @@ void openApprovedGameTab(BuildContext context, int index) {
   if (index == 2) {
     return;
   }
-  unawaited(TtsService.stop());
+  unawaited(SoriSpeech.stop());
   unawaited(
-    Navigator.of(context).push(
-      MaterialPageRoute<void>(builder: (_) => _GameTabVisit(index: index)),
-    ),
+    Navigator.of(
+      context,
+    ).push(SoriTransitions.page<void>((_) => _GameTabVisit(index: index))),
   );
 }
 

@@ -190,6 +190,7 @@ flutter:
     - assets/fonts/Chubbo/FFL.txt
     - assets/fonts/Supreme/FFL.txt
     - assets/fonts/Belgrano/OFL.txt
+    - assets/fonts/IBMPlexSans/OFL.txt
     - assets/fonts/EncodeSansCondensed/OFL.txt
     # Preserve retired companion originals on disk without shipping them.
     # Existing reward particles still use these two independent illustrations.
@@ -286,14 +287,6 @@ flutter:
     - family: Manrope
       fonts:
         - asset: design_assets/fonts/Manrope/Manrope-Variable.ttf
-    - family: MaruBuriOTF
-      fonts:
-        - asset: assets/fonts/MaruBuri/MaruBuri-Regular.otf
-          weight: 400
-        - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
-          weight: 600
-        - asset: assets/fonts/MaruBuri/MaruBuri-Bold.otf
-          weight: 700
     - family: Chubbo
       fonts:
         - asset: assets/fonts/Chubbo/Chubbo-Bold.otf
@@ -338,6 +331,8 @@ flutter:
           weight: 400
         - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
           weight: 600
+        - asset: assets/fonts/MaruBuri/MaruBuri-Bold.otf
+          weight: 700
     - family: Paperlogy
       fonts:
         - asset: assets/fonts/Paperlogy/Paperlogy-Regular.ttf
