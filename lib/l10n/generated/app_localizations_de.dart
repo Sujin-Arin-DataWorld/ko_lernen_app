@@ -12020,13 +12020,6 @@ class AppL10nDe extends AppL10n {
   String get atelierAutoOn => 'Auto weiter: An';
 
   @override
-  String get atelierChartHint =>
-      '19 Konsonanten · Im Feld nach oben oder unten wischen.';
-
-  @override
-  String get atelierDemo => 'Strichfolge zeigen';
-
-  @override
   String get atelierDemoShort => 'Vormachen';
 
   @override
@@ -12036,9 +12029,6 @@ class AppL10nDe extends AppL10n {
   String get atelierDemoNext => 'Nächster Strich';
 
   @override
-  String get atelierDemoPhase => 'Schau zu';
-
-  @override
   String get atelierDemoRestart => 'Neu vorführen';
 
   @override
@@ -12046,16 +12036,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get atelierDiscover => 'Silben entdecken';
-
-  @override
-  String get atelierDonePhase => 'Geschafft';
-
-  @override
-  String get atelierFeedHint =>
-      'Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.';
-
-  @override
-  String get atelierFinish => 'Übung abschließen';
 
   @override
   String get atelierFlipHint => 'Tippen zum Umdrehen';
@@ -12068,9 +12048,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get atelierNotYet => 'Nicht gewusst';
-
-  @override
-  String get atelierPracticePhase => 'Du bist dran';
 
   @override
   String get atelierRandom => 'Zufällige Karte';
@@ -12090,9 +12067,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get atelierStructure => 'Silbenaufbau';
-
-  @override
-  String get atelierSubtitle => 'Zeichen · Klang · Handschrift';
 
   @override
   String get atelierUseInChart => 'In der Silbentafel auswählen';
