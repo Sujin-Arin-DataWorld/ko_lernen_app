@@ -21,25 +21,23 @@ def main():
 
     listed=[]
     for item in m["files"]:
+        relative = Path(item["path"])
+        assert not relative.is_absolute() and ".." not in relative.parts, item["path"]
         p=ROOT/item["path"]
         assert p.exists(), p
         assert sha256(p)==item["sha256"], item["path"]
         assert p.stat().st_size==item["bytes"], item["path"]
         listed.append(item["path"])
+        # The historical source SHA is provenance. Squash/rebase merges and
+        # shallow clones need not contain that object: current bytes are the gate.
+        # Check HEAD and index separately so a restored worktree cannot hide an
+        # unreviewed committed or staged change.
+        for revision in ("HEAD:" + item["path"], ":" + item["path"]):
+            blob = subprocess.check_output(["git", "-C", str(ROOT), "show", revision])
+            assert hashlib.sha256(blob).hexdigest() == item["sha256"], (item["path"], revision)
+            assert len(blob) == item["bytes"], (item["path"], revision)
 
     source=m["sourceCommit"]
-    subprocess.check_call(
-        ["git","-C",str(ROOT),"merge-base","--is-ancestor",source,"HEAD"],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-    changed=subprocess.check_output(
-        ["git","-C",str(ROOT),"diff","--name-only",f"{source}..HEAD","--",*listed],
-        text=True,
-        encoding="utf-8",
-        errors="replace",
-    ).strip().splitlines()
-    assert not changed, f"Reviewed files changed after snapshot: {changed}"
 
     decisions=PACKET/"REVIEW_DECISIONS.json"
     assert decisions.exists()
