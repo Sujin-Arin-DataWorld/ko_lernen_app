@@ -21,12 +21,15 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- N시에: time point
-- 아니에요: correction/negation
+- **N시에** — A particle with official dictionary senses including place, time, and destination/direction. Each unit teaches only the relevant sense.
+  *Official sources: KRDIC_E: 한국어기초사전: 에 (국립국어원)*
+- **아니에요** — 아니다 negates a fact or statement; the unit uses the polite form 아니에요.
+  *Official sources: KRDIC_ANIDA: 한국어기초사전: 아니다 (국립국어원)*
 
 ## Formulaic production
 
-- N시 어때요?: 오후 한 시 어때요? — high-value time-proposal chunk; broader 어때요? uses expand later
+- **N시 어때요?** — 오후 한 시 어때요?  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
 
 These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 

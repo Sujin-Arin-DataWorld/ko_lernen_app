@@ -57,9 +57,9 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **은/는** — established topic / contrast
-- **이/가** — subject/focus in identification/existence
-- **에 있다** — location/existence
+- **은/는** — A particle that can mark contrast, the topic of a sentence, or emphasis.
+- **이/가** — A particle marking the subject/agent in a state, situation or action; it also has uses with 되다 and 아니다.
+- **에 있다** — A particle with official dictionary senses including place, time, and destination/direction. Each unit teaches only the relevant sense. For this unit, 있다 is used in its official dictionary location/existence sense, with the pattern 1이 2에 있다.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 

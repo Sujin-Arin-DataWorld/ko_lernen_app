@@ -55,9 +55,9 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **은/는** — aktive Form dieser Einheit
-- **이에요/예요** — aktive Form dieser Einheit
-- **N에서 왔어요** — aktive Form dieser Einheit
+- **은/는** — Eine Partikel, die unter anderem Kontrast, das Satzthema oder Hervorhebung markieren kann.
+- **이에요/예요** — 이다 wird im amtlichen Wörterbuch als prädikative Partikel beschrieben, die Eigenschaft oder Kategorie des Subjektreferenten bestimmt und flektiert.
+- **N에서 왔어요** — Eine Partikel, die u. a. den Ort einer Handlung, einen Ausgangspunkt oder eine Quelle markieren kann.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
@@ -65,7 +65,7 @@ Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation 
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
-- **-(으)셨어요** — zunächst im Kontext erkennen
+- **-(으)셨어요** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 

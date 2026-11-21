@@ -27,15 +27,27 @@
   "productiveGrammar": [
     {
       "form": "-아/어 주세요",
-      "function": "repeat/slow request"
+      "function": "repeat/slow request",
+      "grammarRefs": [
+        "G_REQUEST_AEO_JUSEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "무슨 N",
-      "function": "meaning question, chunk-first"
+      "function": "meaning question, chunk-first",
+      "grammarRefs": [
+        "G_MUSEUN"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "아니에요",
-      "function": "correct information"
+      "function": "correct information",
+      "grammarRefs": [
+        "G_ANIDA"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "formulaicProduction": [],
@@ -43,30 +55,46 @@
     {
       "form": "-는데요",
       "source": "bakery_queue",
-      "reason": "natural interpersonal softening but above productive target for this unit"
+      "reason": "natural interpersonal softening but above productive target for this unit",
+      "grammarRefs": [
+        "G_NDEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "계신지",
       "source": "bakery_queue",
-      "reason": "honorific embedded form; recognition/context only"
+      "reason": "honorific embedded form; recognition/context only",
+      "grammarRefs": [
+        "G_GYESIDA",
+        "G_NJI"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "몰랐어요",
       "source": "bakery_queue",
-      "reason": "past explanation; not target grammar here"
+      "reason": "past explanation; not target grammar here",
+      "chunkOnlyNoGrammarExplanation": true
     },
     {
       "form": "-ㄹ게요",
       "source": "bakery_queue",
-      "reason": "promise/next action; recognition only"
+      "reason": "promise/next action; recognition only",
+      "grammarRefs": [
+        "G_INTENTION_LGEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "뭐라고요?",
-      "reason": "intonation-sensitive and can sound surprised/challenging; recognition first"
+      "reason": "intonation-sensitive and can sound surprised/challenging; recognition first",
+      "chunkOnlyNoGrammarExplanation": true
     },
     {
       "form": "제가 잘 이해한 게 맞아요?",
-      "reason": "useful confirmation phrase but structurally dense for 1A; recognition/optional extension only"
+      "reason": "useful confirmation phrase but structurally dense for 1A; recognition/optional extension only",
+      "chunkOnlyNoGrammarExplanation": true
     }
   ],
   "surfacePolicy": {

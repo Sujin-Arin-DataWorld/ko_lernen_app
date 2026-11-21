@@ -21,9 +21,12 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- 은/는: established topic / contrast
-- 이/가: subject/focus in identification/existence
-- 에 있다: location/existence
+- **은/는** — A particle that can mark contrast, the topic of a sentence, or emphasis.
+  *Official sources: KRDIC_EUN: 한국어기초사전: 은 (국립국어원)*
+- **이/가** — A particle marking the subject/agent in a state, situation or action; it also has uses with 되다 and 아니다.
+  *Official sources: KRDIC_I: 한국어기초사전: 이 (조사) (국립국어원)*
+- **에 있다** — A particle with official dictionary senses including place, time, and destination/direction. Each unit teaches only the relevant sense. For this unit, 있다 is used in its official dictionary location/existence sense, with the pattern 1이 2에 있다.
+  *Official sources: KRDIC_E: 한국어기초사전: 에 (국립국어원); KRDIC_ITDA: 한국어기초사전: 있다 (국립국어원)*
 
 ## Formulaic production
 

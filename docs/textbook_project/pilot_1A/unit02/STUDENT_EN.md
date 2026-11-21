@@ -55,9 +55,9 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **은/는** — set personal topic
-- **이에요/예요** — identify self
-- **N에서 왔어요** — origin/source
+- **은/는** — A particle that can mark contrast, the topic of a sentence, or emphasis.
+- **이에요/예요** — 이다 is an official dictionary predicative particle that identifies an attribute or category of the subject referent and conjugates.
+- **N에서 왔어요** — A particle that can mark the place of an action, a starting point, or a source.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
@@ -65,7 +65,7 @@ The goal is not to memorize labels. Use the forms to solve the scene.
 
 ## 3. Understand first — do not overlearn yet
 
-- **-(으)셨어요** — authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here
+- **-(으)셨어요** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 

@@ -86,7 +86,9 @@
 **채소를 먹어요.**  
 **커피를 마셔요.**
 
-`을/를`은 동작이 향하는 대상을 표시할 때 많이 써요.
+### 공식 문법 설명 — 을/를
+
+국립국어원 **한국어기초사전**은 **을/를**을 동작이 직접적으로 영향을 미치는 대상을 나타내는 목적격 조사로 설명합니다.
 
 - 받침 있음 → **을**
   - 밥**을**
@@ -95,21 +97,17 @@
   - 커피**를**
   - 고기**를**
 
-그런데 서비스 주문에서는:
+**공식 문법 근거: G_OBJECT_EULREUL**
 
-**떡볶이 하나 주세요.**
-
-처럼 `을/를`을 쓰지 않는 짧은 주문도 아주 자연스러워요.
-
-### 두 문장은 역할이 달라요
+단원 예문을 비교해 보세요.
 
 **저는 떡볶이를 먹어요.**  
-→ 내가 무엇을 먹는지 설명해요.
+→ 떡볶이를 먹는다는 내용을 말합니다.
 
 **떡볶이 하나 주세요.**  
-→ 지금 주문해요.
+→ 이 단원에서 하나의 완성된 주문 표현으로 배웁니다.
 
-한국어를 배울 때 “항상 조사를 넣어야 한다”보다 **상황과 문장 기능**을 같이 보는 이유예요.
+이 비교만으로 **조사 생략에 대한 일반 규칙을 만들지 않습니다.** 조사 생략 여부와 조건은 별도 공식 근거가 확인된 범위에서만 다룹니다.
 
 ---
 
@@ -174,71 +172,51 @@ Is it very spicy? / Ist es sehr scharf?
 
 ---
 
-## English-speaker note
+## 공식 문법 설명 — 주세요
 
-Korean `주세요` does not have one fixed English translation.
+국립국어원 **세종한국어 1 교원용 지침서**는 **-(으)세요**를 명령이나 요청을 나타내는 표현으로 제시합니다. 해당 지침서에는 **사과를 주세요**가 예문으로 제시되고, 활용표에는 **주다 → 주세요**가 제시되어 있습니다.
 
-Depending on the situation, natural English may be:
+따라서 이 단원에서 **주세요**는 **주다를 바탕으로 한 요청 표현**으로 설명합니다.
+
+**공식 문법 근거: G_SERVICE_JUSEYO**
+
+## English localization note — 문법 정의가 아님
+
+카페·식당의 주문 상황에서 **아메리카노 한 잔 주세요**는 영어로 상황에 따라 다음과 같이 자연스럽게 옮길 수 있습니다.
 
 - **Can I get an Americano, please?**
 - **Can I have an Americano, please?**
 - **I'll have an Americano, please.**
+- 형태 관계를 보여 주는 가까운 풀이: **Please give me an Americano.**
 
-Avoid learning:
+이 영어 표현들은 **번역·현지화 선택지**이며, **주세요의 한국어 문법 정의가 아닙니다.**
 
-> 주세요 = Give me...
+## German localization note — 문법 정의가 아님
 
-as the default rule.
-
-“Give me...” can be grammatically possible but may sound too command-like in ordinary service situations.
-
-### Counter trap
-
-English often says:
-
-> two coffees
-
-without a classifier system comparable to Korean.
-
-Korean asks you to notice **what is being counted**:
-
-**커피 한 잔**
-
-Learn these as useful chunks first.
-
----
-
-## Hinweis für Deutschsprachige
-
-`주세요` hat ebenfalls **keine einzige feste deutsche Übersetzung**.
-
-Natürliche Möglichkeiten sind zum Beispiel:
+독일어 주문 상황에서는 예를 들어:
 
 - **Ich hätte gern einen Americano.**
 - **Einmal einen Americano, bitte.**
 - **Ich nehme einen Americano.**
+- 형태 관계에 가까운 풀이: **Bitte geben Sie mir einen Americano.**
 
-Nicht als starre Regel lernen:
+처럼 옮길 수 있습니다.
 
-> 주세요 = ich bekomme / ich kriege
+이 역시 상황별 **번역·현지화**이며 한국어 문법 정의와 분리합니다.
 
-Solche Formen können vorkommen, aber ihre Höflichkeitswirkung wird unterschiedlich wahrgenommen.
+### Counter note
 
-### Zähleinheiten
+이 단원에서는 수량 표현을 일반화해서 설명하기보다 실제 주문에 필요한 다음 청크부터 배웁니다.
 
-Deutsch:
+- **하나**
+- **한 잔**
+- **두 잔**
 
-> zwei Kaffee / zwei Tassen Kaffee
+예:
 
-Koreanisch:
+**커피 한 잔**
 
-**커피 두 잔**
-
-Lerne zuerst häufige feste Verbindungen:
-
-**한 잔 / 두 잔 / 하나**
-
-statt sofort eine lange Tabelle aller Zähleinheiten auswendig zu lernen.
+수량 단위 전체 체계와 결합 제약은 추후 공식 사전·교재 근거에 따라 단계적으로 확장합니다.
 
 ---
 

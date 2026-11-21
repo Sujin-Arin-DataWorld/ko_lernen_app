@@ -27,12 +27,20 @@
     {
       "form": "N시에",
       "function": "time point",
-      "appAnchor": "grammar_a1_direction_time_particle"
+      "appAnchor": "grammar_a1_direction_time_particle",
+      "grammarRefs": [
+        "G_E_LOCATION_TIME_DESTINATION"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "아니에요",
       "function": "correction/negation",
-      "appAnchor": "grammar_a1_copula_negation"
+      "appAnchor": "grammar_a1_copula_negation",
+      "grammarRefs": [
+        "G_ANIDA"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "formulaicProduction": [
@@ -41,7 +49,8 @@
       "examples": [
         "오후 한 시 어때요?"
       ],
-      "reason": "high-value time-proposal chunk; broader 어때요? uses expand later"
+      "reason": "high-value time-proposal chunk; broader 어때요? uses expand later",
+      "chunkOnlyNoGrammarExplanation": true
     }
   ],
   "recognitionOnly": [],

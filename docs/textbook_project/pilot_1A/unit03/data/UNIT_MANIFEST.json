@@ -29,17 +29,30 @@
     {
       "form": "은/는",
       "function": "established topic / contrast",
-      "appAnchor": "grammar_a1_topic_particle"
+      "appAnchor": "grammar_a1_topic_particle",
+      "grammarRefs": [
+        "G_TOPIC_EUNNEUN"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "이/가",
       "function": "subject/focus in identification/existence",
-      "appAnchor": "grammar_a1_subject_particle"
+      "appAnchor": "grammar_a1_subject_particle",
+      "grammarRefs": [
+        "G_SUBJECT_IGA"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "에 있다",
       "function": "location/existence",
-      "appAnchor": "grammar_a1_direction_time_particle"
+      "appAnchor": "grammar_a1_direction_time_particle",
+      "grammarRefs": [
+        "G_E_LOCATION_TIME_DESTINATION",
+        "G_EXIST_ITDA"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "formulaicProduction": [],

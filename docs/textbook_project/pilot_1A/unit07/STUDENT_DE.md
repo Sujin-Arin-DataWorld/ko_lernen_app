@@ -59,24 +59,28 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **(으)로** — aktive Form dieser Einheit
-- **있어요** — aktive Form dieser Einheit
+- **(으)로** — Eine Partikel mit amtlich beschriebenen Bedeutungen u. a. für Richtung, Weg, Mittel/Werkzeug und Methode. Die Lektion behandelt nur die jeweils relevante Bedeutung.
+- **있어요** — In dieser Einheit wird 있다 in der amtlich beschriebenen Orts-/Existenzbedeutung mit dem Muster 1이 2에 있다 behandelt.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
 ### Nützliche feste Chunks für die aktive Produktion
 
-- **-세요?** — jetzt als festen Chunk benutzen: 카톡 하세요?
-- **-(으)ㄹ까요?** — jetzt als festen Chunk benutzen: 카카오톡으로 연락할까요?
-- **-ㄹ게요** — jetzt als festen Chunk benutzen: 제가 카톡 보낼게요 / 도착하면 연락할게요
-- **-(으)ㄹ 것 같아요** — jetzt als festen Chunk benutzen: 10분 정도 늦을 것 같아요
+- **카톡 하세요?** — 카톡 하세요?  
+  Fester Lern-Chunk in dieser Einheit; hier wird daraus keine allgemeine Grammatikregel abgeleitet.
+- **-(으)ㄹ까요?** — 카카오톡으로 연락할까요?
+  Offiziell belegte Funktion: Es hat eine amtlich beschriebene Verwendung zum Erfragen der Meinung bzw. für Vorschläge; daneben gibt es eine eigene Vermutungsfrage-Verwendung.
+- **-ㄹ게요** — 제가 카톡 보낼게요 / 도착하면 연락할게요
+  Offiziell belegte Funktion: Eine vor allem gesprochene Ausdrucksform, mit der der Sprecher dem Hörer eine Handlung verspricht oder seine Absicht dazu mitteilt.
+- **-(으)ㄹ 것 같아요** — 10분 정도 늦을 것 같아요
+  Offiziell belegte Funktion: Ein offizieller NIKL-Leitfaden beschreibt 것 같다 als Ausdruck einer Vermutung und auch als Möglichkeit, Meinung oder Gefühl weniger kategorisch auszudrücken.
 
 Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
 
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
-- **-(으)실래요?** — zunächst im Kontext erkennen
+- **-(으)실래요?** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 

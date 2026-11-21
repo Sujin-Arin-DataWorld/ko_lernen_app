@@ -55,21 +55,22 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **에** — destination/location
-- **-아/어 주세요** — request stop/direction
+- **에** — A particle with official dictionary senses including place, time, and destination/direction. Each unit teaches only the relevant sense.
+- **-아/어 주세요** — An expression used to make a polite request for someone to perform an action.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
 ### Useful formulaic production
 
-- **어디서 갈아타요?** — use now as a fixed chunk: 어디서 갈아타요?
+- **어디서 갈아타요?** — 어디서 갈아타요?  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
 
 Use these chunks now; study the full grammar later.
 
 
 ## 3. Understand first — do not overlearn yet
 
-- **맞으시죠?** — driver service-side confirmation; learner understands without productive analysis
+- **맞으시죠?** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 

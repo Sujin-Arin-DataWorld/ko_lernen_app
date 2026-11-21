@@ -56,9 +56,9 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **-아/어 주세요** — aktive Form dieser Einheit
-- **무슨 N** — aktive Form dieser Einheit
-- **아니에요** — aktive Form dieser Einheit
+- **-아/어 주세요** — Eine Ausdrucksform, mit der man höflich darum bittet, dass die andere Person eine Handlung ausführt.
+- **무슨 N** — 무슨 ist ein Determinierer, mit dem nach etwas gefragt wird, das nicht sicher oder nicht genau bekannt ist.
+- **아니에요** — 아니다 verneint einen Sachverhalt oder Inhalt; in der Einheit wird die höfliche Form 아니에요 verwendet.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
@@ -66,12 +66,12 @@ Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation 
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
-- **-는데요** — zunächst im Kontext erkennen
-- **계신지** — zunächst im Kontext erkennen
-- **몰랐어요** — zunächst im Kontext erkennen
-- **-ㄹ게요** — zunächst im Kontext erkennen
-- **뭐라고요?** — zunächst im Kontext erkennen
-- **제가 잘 이해한 게 맞아요?** — zunächst im Kontext erkennen
+- **-는데요** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
+- **계신지** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
+- **몰랐어요** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
+- **-ㄹ게요** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
+- **뭐라고요?** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
+- **제가 잘 이해한 게 맞아요?** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 

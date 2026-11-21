@@ -84,18 +84,14 @@ Einen Kaffee, bitte.
 **차 한 잔 주세요.**  
 Einen Tee, bitte.
 
-### Wichtig
+### Mengen-Chunks dieser Einheit
 
-Im Koreanischen werden Mengen häufig zusammen mit **Zähleinheiten** ausgedrückt.
+In dieser Einheit lernst du zunächst zwei nützliche Bestell-Chunks:
 
-Für den Anfang brauchst du keine lange Tabelle.
+- **하나**
+- **한 잔**
 
-Lerne zuerst diese Chunks:
-
-- 하나
-- 한 잔
-
-Das System wird später erweitert.
+Lerne sie innerhalb der vollständigen Bestellmuster oben. Das umfassendere koreanische System der Zähleinheiten wird später nur dort erweitert, wo die entsprechenden offiziellen Wörterbuch-/Lehrquellen verknüpft sind.
 
 ---
 
@@ -112,7 +108,9 @@ Ich esse Gemüse.
 **커피를 마셔요.**  
 Ich trinke Kaffee.
 
-Das Objekt wird häufig mit **을/를** markiert.
+### Offizieller Grammatikhinweis — 을/를
+
+Das **Korean Basic Dictionary** des National Institute of Korean Language beschreibt **을/를** als Objektpartikel für ein Objekt, das unmittelbar von einer Handlung betroffen ist.
 
 - nach einem Endkonsonanten → **을**
   - 밥을
@@ -121,31 +119,17 @@ Das Objekt wird häufig mit **을/를** markiert.
   - 커피를
   - 고기를
 
-In einer knappen Bestellung ist aber:
+**Offizielle Grammatikreferenz: G_OBJECT_EULREUL**
 
-**떡볶이 하나 주세요.**
-
-ganz natürlich — ohne 을/를.
-
-### Warum?
-
-Die Sätze haben unterschiedliche Funktionen.
+Vergleiche die Beispiele dieser Einheit:
 
 **저는 떡볶이를 먹어요.**  
-Du beschreibst, was du isst.
+Ich esse Tteokbokki.
 
 **떡볶이 하나 주세요.**  
-Du bestellst jetzt.
+Einmal Tteokbokki, bitte.
 
-Lerne deshalb nicht:
-
-> „Partikeln kann man einfach weglassen.“
-
-und auch nicht:
-
-> „Nach jedem Nomen muss immer eine Partikel stehen.“
-
-Entscheidend sind **Situation und Satzfunktion**.
+Diese Einheit lernt **떡볶이 하나 주세요** als vollständiges Bestellmuster. Aus diesem Vergleich wird **keine allgemeine Regel zur Auslassung von Partikeln** abgeleitet.
 
 ---
 
@@ -218,37 +202,36 @@ Das ist nützlich zum Erkennen, aber **kein Pflichtwort für A1**.
 
 ---
 
-## Hinweis für Deutschsprachige: 주세요 ist keine feste Übersetzung
+## Offizieller Grammatikhinweis — 주세요
 
-Es gibt **keine einzige deutsche Standardübersetzung** für 주세요.
+Der offizielle **Sejong Korean 1 Lehrerleitfaden** des National Institute of Korean Language behandelt **-(으)세요** als Form für Aufforderung oder Bitte. Als Beispiel wird **사과를 주세요** genannt; in der Flexionstabelle steht **주다 → 주세요**.
 
-Natürliche Möglichkeiten:
+In dieser Einheit wird **주세요** deshalb als **Bitte-/Aufforderungsform auf der Grundlage von 주다** behandelt.
+
+**Offizielle Grammatikreferenz: G_SERVICE_JUSEYO**
+
+### Lokalisierungshinweis — keine Grammatikdefinition
+
+In einem Café oder Restaurant kann **아메리카노 한 잔 주세요** je nach deutscher Formulierung zum Beispiel so wiedergegeben werden:
 
 - **Ich hätte gern einen Americano.**
 - **Einmal einen Americano, bitte.**
 - **Ich nehme einen Americano.**
+- näher an der koreanischen Form: **Bitte geben Sie mir einen Americano.**
 
-Lerne nicht als starre Regel:
+Diese deutschen Formulierungen sind **Übersetzungs-/Lokalisierungsentscheidungen** für die jeweilige Situation. Sie sind nicht die grammatische Definition von **주세요**.
 
-> 주세요 = ich bekomme / ich kriege
+### Mengen-Lokalisierung — keine Grammatikdefinition
 
-Solche Formen kommen vor, aber ihre Wirkung wird unterschiedlich beurteilt.
+Für diese Einheit verbindest du den koreanischen Chunk:
 
-### Falle bei Zähleinheiten
+**커피 한 잔**
 
-Deutsch kann im Bestellkontext sagen:
+mit der Bedeutung, die du beim Bestellen brauchst, zum Beispiel:
 
-> zwei Kaffee
+**ein Kaffee / eine Tasse Kaffee**
 
-Koreanisch verwendet typischerweise eine passende Zähleinheit:
-
-**커피 두 잔**
-
-Für A1 reichen zunächst feste Chunks:
-
-- 한 잔
-- 두 잔
-- 하나
+Die deutsche Formulierung ist eine Übersetzungsentscheidung. Aus diesem Vergleich wird keine allgemeine Definition des koreanischen Zähleinheitensystems abgeleitet.
 
 ---
 

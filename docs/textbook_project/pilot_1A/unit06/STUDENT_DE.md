@@ -55,21 +55,22 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **에** — aktive Form dieser Einheit
-- **-아/어 주세요** — aktive Form dieser Einheit
+- **에** — Eine Partikel mit amtlich beschriebenen Bedeutungen u. a. für Ort, Zeit und Ziel/Richtung. Pro Einheit wird nur die relevante Bedeutung behandelt.
+- **-아/어 주세요** — Eine Ausdrucksform, mit der man höflich darum bittet, dass die andere Person eine Handlung ausführt.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
 ### Nützliche feste Chunks für die aktive Produktion
 
-- **어디서 갈아타요?** — jetzt als festen Chunk benutzen: 어디서 갈아타요?
+- **어디서 갈아타요?** — 어디서 갈아타요?  
+  Fester Lern-Chunk in dieser Einheit; hier wird daraus keine allgemeine Grammatikregel abgeleitet.
 
 Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
 
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
-- **맞으시죠?** — zunächst im Kontext erkennen
+- **맞으시죠?** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 

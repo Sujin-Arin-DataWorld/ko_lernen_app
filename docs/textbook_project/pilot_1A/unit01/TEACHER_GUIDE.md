@@ -21,19 +21,20 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- -아/어 주세요: polite request
+- **-아/어 주세요** — An expression used to make a polite request for someone to perform an action.
+  *Official sources: NIKL_2010_VISITING_KOREAN: 2010년 다문화 가정 자녀 대상 한국어 방문 학습 자료 개발 제작 사업 (국립국어원)*
 
 ## Formulaic production
 
-- 감사합니다: 감사합니다 — high-frequency fixed thanks formula; does not imply productive control of 합니다체
+- **감사합니다** — 감사합니다  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
 
 These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 
-- 이에요/예요: appears naturally in the airport response; active copula work begins in Unit 02
-- -(으)시-: subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker
-- 합니다체 어미 전반: full formal-style morphology is deferred; fixed greetings may still be used as chunks
+- **이에요/예요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **-(으)시-** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 ## Teaching order
 

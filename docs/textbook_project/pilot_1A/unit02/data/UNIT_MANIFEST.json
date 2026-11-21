@@ -29,24 +29,40 @@
     {
       "form": "은/는",
       "function": "set personal topic",
-      "appAnchor": "grammar_a1_topic_particle"
+      "appAnchor": "grammar_a1_topic_particle",
+      "grammarRefs": [
+        "G_TOPIC_EUNNEUN"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "이에요/예요",
       "function": "identify self",
-      "appAnchor": "grammar_a1_copula_polite"
+      "appAnchor": "grammar_a1_copula_polite",
+      "grammarRefs": [
+        "G_COPULA_IDA"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "N에서 왔어요",
       "function": "origin/source",
-      "mode": "lexical-frame"
+      "mode": "lexical-frame",
+      "grammarRefs": [
+        "G_ESEO"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "formulaicProduction": [],
   "recognitionOnly": [
     {
       "form": "-(으)셨어요",
-      "reason": "authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here"
+      "reason": "authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here",
+      "grammarRefs": [
+        "G_SUBJECT_HONORIFIC_SI"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "surfacePolicy": {

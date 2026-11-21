@@ -58,6 +58,10 @@ Every materialized 1A unit package must contain:
 
 ## Hard rules
 
+- **Grammar definitions/functions/constraints use official NIKL/Korean Basic Dictionary sources only.**
+- Native-usage research (news/blog/review/Reddit/community) may support wording/register, never grammar definition.
+- EN/DE translation/localization notes are separate from Korean grammar definitions.
+- If no official grammar basis is verified, keep the item as a fixed chunk/recognition item and do not generalize a rule.
 - Dialogue occurrence does not automatically become productive grammar.
 - A1 explanations are written in learner L1, not advanced Korean.
 - Romanization is absent after Hangul Zero except exceptional teacher-side note.

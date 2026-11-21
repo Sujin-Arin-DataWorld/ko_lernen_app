@@ -59,24 +59,28 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **(으)로** — channel/means, e.g. 카카오톡으로
-- **있어요** — presence/contact resource
+- **(으)로** — A particle with official senses including direction, route, means/tool and method. The lesson selects only the relevant sense.
+- **있어요** — For this unit, 있다 is used in its official dictionary location/existence sense, with the pattern 1이 2에 있다.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
 ### Useful formulaic production
 
-- **-세요?** — use now as a fixed chunk: 카톡 하세요?
-- **-(으)ㄹ까요?** — use now as a fixed chunk: 카카오톡으로 연락할까요?
-- **-ㄹ게요** — use now as a fixed chunk: 제가 카톡 보낼게요 / 도착하면 연락할게요
-- **-(으)ㄹ 것 같아요** — use now as a fixed chunk: 10분 정도 늦을 것 같아요
+- **카톡 하세요?** — 카톡 하세요?  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
+- **-(으)ㄹ까요?** — 카카오톡으로 연락할까요?
+  Officially sourced function: It has an official use for asking the listener's opinion or making a proposal; it also has a separate conjectural-question use.
+- **-ㄹ게요** — 제가 카톡 보낼게요 / 도착하면 연락할게요
+  Officially sourced function: An expression, mainly spoken, in which the speaker promises or signals an intention to do an action to the listener.
+- **-(으)ㄹ 것 같아요** — 10분 정도 늦을 것 같아요
+  Officially sourced function: An official NIKL teacher guide presents 것 같다 as expressing the speaker's conjecture and also as a way to state an opinion or feeling less categorically.
 
 Use these chunks now; study the full grammar later.
 
 
 ## 3. Understand first — do not overlearn yet
 
-- **-(으)실래요?** — polite invitation/request form may be heard in contact exchange; not required learner production in 1A
+- **-(으)실래요?** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 

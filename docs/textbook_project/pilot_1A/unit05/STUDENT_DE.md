@@ -56,14 +56,15 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **N시에** — aktive Form dieser Einheit
-- **아니에요** — aktive Form dieser Einheit
+- **N시에** — Eine Partikel mit amtlich beschriebenen Bedeutungen u. a. für Ort, Zeit und Ziel/Richtung. Pro Einheit wird nur die relevante Bedeutung behandelt.
+- **아니에요** — 아니다 verneint einen Sachverhalt oder Inhalt; in der Einheit wird die höfliche Form 아니에요 verwendet.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
 ### Nützliche feste Chunks für die aktive Produktion
 
-- **N시 어때요?** — jetzt als festen Chunk benutzen: 오후 한 시 어때요?
+- **N시 어때요?** — 오후 한 시 어때요?  
+  Fester Lern-Chunk in dieser Einheit; hier wird daraus keine allgemeine Grammatikregel abgeleitet.
 
 Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
 

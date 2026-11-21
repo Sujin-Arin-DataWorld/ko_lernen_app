@@ -27,12 +27,20 @@
   "productiveGrammar": [
     {
       "form": "에",
-      "function": "destination/location"
+      "function": "destination/location",
+      "grammarRefs": [
+        "G_E_LOCATION_TIME_DESTINATION"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "-아/어 주세요",
       "function": "request stop/direction",
-      "appAnchor": "grammar_a1_polite_request"
+      "appAnchor": "grammar_a1_polite_request",
+      "grammarRefs": [
+        "G_REQUEST_AEO_JUSEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "formulaicProduction": [
@@ -41,13 +49,15 @@
       "examples": [
         "어디서 갈아타요?"
       ],
-      "reason": "high-value transfer question; full 에서 contrast is recycled later"
+      "reason": "high-value transfer question; full 에서 contrast is recycled later",
+      "chunkOnlyNoGrammarExplanation": true
     }
   ],
   "recognitionOnly": [
     {
       "form": "맞으시죠?",
-      "reason": "driver service-side confirmation; learner understands without productive analysis"
+      "reason": "driver service-side confirmation; learner understands without productive analysis",
+      "chunkOnlyNoGrammarExplanation": true
     }
   ],
   "surfacePolicy": {

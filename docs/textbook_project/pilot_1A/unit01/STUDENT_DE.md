@@ -56,22 +56,22 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **-아/어 주세요** — aktive Form dieser Einheit
+- **-아/어 주세요** — Eine Ausdrucksform, mit der man höflich darum bittet, dass die andere Person eine Handlung ausführt.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
 ### Nützliche feste Chunks für die aktive Produktion
 
-- **감사합니다** — jetzt als festen Chunk benutzen: 감사합니다
+- **감사합니다** — 감사합니다  
+  Fester Lern-Chunk in dieser Einheit; hier wird daraus keine allgemeine Grammatikregel abgeleitet.
 
 Diese Chunks darfst du jetzt benutzen; die vollständige Grammatik kommt später.
 
 
 ## 3. Zuerst verstehen — noch nicht überlernen
 
-- **이에요/예요** — zunächst im Kontext erkennen
-- **-(으)시-** — zunächst im Kontext erkennen
-- **합니다체 어미 전반** — zunächst im Kontext erkennen
+- **이에요/예요** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
+- **-(으)시-** — Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet.
 
 Authentischer Input kann Formen enthalten, die noch über deinem aktiven Produktionsziel liegen. Verstehen ist hier genug.
 

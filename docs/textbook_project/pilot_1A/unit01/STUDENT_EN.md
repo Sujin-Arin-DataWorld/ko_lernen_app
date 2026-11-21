@@ -56,22 +56,22 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **-아/어 주세요** — polite request
+- **-아/어 주세요** — An expression used to make a polite request for someone to perform an action.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
 ### Useful formulaic production
 
-- **감사합니다** — use now as a fixed chunk: 감사합니다
+- **감사합니다** — 감사합니다  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
 
 Use these chunks now; study the full grammar later.
 
 
 ## 3. Understand first — do not overlearn yet
 
-- **이에요/예요** — appears naturally in the airport response; active copula work begins in Unit 02
-- **-(으)시-** — subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker
-- **합니다체 어미 전반** — full formal-style morphology is deferred; fixed greetings may still be used as chunks
+- **이에요/예요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **-(으)시-** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 

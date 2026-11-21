@@ -41,7 +41,6 @@ The following may appear in authentic input but are not all active targets yet:
 
 - 이에요/예요
 - -(으)시-
-- 합니다체 어미 전반
 
 For each, write only:
 1. who might say it;

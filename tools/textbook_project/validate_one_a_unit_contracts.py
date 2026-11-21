@@ -88,7 +88,7 @@ def main():
                 assert example in u["coreChunks"], (uid, "formulaic example not in core", example)
 
     contact = next(x for x in units if x["unitId"]=="a1_07_contact_address")
-    assert {"-세요?","-(으)ㄹ까요?","-ㄹ게요","-(으)ㄹ 것 같아요"} == {
+    assert {"카톡 하세요?","-(으)ㄹ까요?","-ㄹ게요","-(으)ㄹ 것 같아요"} == {
         x["form"] for x in contact.get("formulaicProduction", [])
     }
     assert {x["form"] for x in contact["recognitionOnly"]} == {"-(으)실래요?"}

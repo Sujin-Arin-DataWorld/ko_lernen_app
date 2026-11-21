@@ -40,7 +40,6 @@ Diese Formen können im authentischen Input vorkommen:
 
 - 이에요/예요
 - -(으)시-
-- 합니다체 어미 전반
 
 Notiere zu jeder Form:
 1. wer sie sagt;

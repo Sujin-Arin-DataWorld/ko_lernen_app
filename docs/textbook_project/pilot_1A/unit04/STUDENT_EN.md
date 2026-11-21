@@ -84,18 +84,14 @@ One coffee, please.
 **차 한 잔 주세요.**  
 One tea, please.
 
-### Important
+### Quantity chunks for this unit
 
-Korean often uses a counting unit.
+This unit starts with two high-value ordering chunks:
 
-For now, do **not** memorize a giant counter chart.
+- **하나**
+- **한 잔**
 
-Learn these as useful chunks:
-
-- 하나
-- 한 잔
-
-You will expand the system later.
+Learn them inside the complete order patterns above. The broader Korean counter system will be expanded later only where the relevant official dictionary/teaching sources are attached.
 
 ---
 
@@ -112,7 +108,9 @@ I eat vegetables.
 **커피를 마셔요.**  
 I drink coffee.
 
-The object is often marked with **을/를**.
+### Official grammar note — 을/를
+
+The National Institute of Korean Language’s Korean Basic Dictionary defines **을/를** as an object particle marking an object directly affected by an action.
 
 - after a consonant → **을**
   - 밥을
@@ -121,31 +119,17 @@ The object is often marked with **을/를**.
   - 커피를
   - 고기를
 
-But in a compact service order:
+**Official grammar ref: G_OBJECT_EULREUL**
 
-**떡볶이 하나 주세요.**
-
-the noun can appear naturally without 을/를.
-
-### Why?
-
-These two sentences do different jobs:
+Compare the unit examples:
 
 **저는 떡볶이를 먹어요.**  
-You are describing what you eat.
+I eat tteokbokki.
 
 **떡볶이 하나 주세요.**  
-You are ordering right now.
+One tteokbokki, please.
 
-So do not learn either of these bad rules:
-
-> “Particles are optional.”
-
-or
-
-> “Every noun must always have a particle.”
-
-Learn the **scene + sentence function**.
+This unit teaches **떡볶이 하나 주세요** as a complete service-request pattern. It does **not** derive a general particle-omission rule from this comparison.
 
 ---
 
@@ -218,36 +202,35 @@ It is useful recognition material, but it is **not required beginner production*
 
 ---
 
-## English-speaker trap: 주세요 is not “Give me...”
+## Official grammar note — 주세요
 
-There is no single fixed English translation for 주세요.
+The National Institute of Korean Language’s **Sejong Korean 1 Teacher’s Guide** teaches **-(으)세요** as a form used for a command or request. Its examples include **사과를 주세요**, and its conjugation table shows **주다 → 주세요**.
 
-Natural service equivalents include:
+In this unit, **주세요** is therefore taught as a **request form built from 주다**.
+
+**Official grammar ref: G_SERVICE_JUSEYO**
+
+### Localization note — not a grammar definition
+
+In a café or restaurant, natural English renderings of a sentence such as **아메리카노 한 잔 주세요** can include:
 
 - **Can I get an Americano, please?**
 - **Can I have an Americano, please?**
 - **I'll have an Americano, please.**
 
-Do not memorize:
+A close compositional gloss such as **“Please give me …”** helps show the relationship to **주다**, while the lines above show common context-appropriate English service wording. These English choices are **translations/localization**, not the grammatical definition of **주세요**.
 
-> 주세요 = Give me...
+### Quantity localization note — not a grammar definition
 
-“Give me...” is possible English, but it can sound too command-like as a default service formula.
+For this unit, connect the Korean chunk:
 
-### Counter trap
+**커피 한 잔**
 
-English may simply say:
+with the meaning needed in an order, for example:
 
-> two coffees
+**one coffee / one cup of coffee**
 
-Korean often asks you to notice **what kind of thing is being counted**.
-
-For drinks:
-
-**커피 한 잔**  
-one cup/glass of coffee
-
-Start with chunks. Do not try to master every counter at once.
+The English wording is a translation choice. This page does not use that comparison to define the entire Korean counter system.
 
 ---
 

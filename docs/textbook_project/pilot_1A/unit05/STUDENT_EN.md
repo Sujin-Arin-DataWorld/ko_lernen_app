@@ -56,14 +56,15 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **N시에** — time point
-- **아니에요** — correction/negation
+- **N시에** — A particle with official dictionary senses including place, time, and destination/direction. Each unit teaches only the relevant sense.
+- **아니에요** — 아니다 negates a fact or statement; the unit uses the polite form 아니에요.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
 ### Useful formulaic production
 
-- **N시 어때요?** — use now as a fixed chunk: 오후 한 시 어때요?
+- **N시 어때요?** — 오후 한 시 어때요?  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
 
 Use these chunks now; study the full grammar later.
 

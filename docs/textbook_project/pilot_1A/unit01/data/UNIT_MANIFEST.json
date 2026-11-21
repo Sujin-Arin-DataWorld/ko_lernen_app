@@ -28,7 +28,11 @@
     {
       "form": "-아/어 주세요",
       "function": "polite request",
-      "mode": "chunk-first"
+      "mode": "chunk-first",
+      "grammarRefs": [
+        "G_REQUEST_AEO_JUSEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "formulaicProduction": [
@@ -37,21 +41,26 @@
       "examples": [
         "감사합니다"
       ],
-      "reason": "high-frequency fixed thanks formula; does not imply productive control of 합니다체"
+      "reason": "high-frequency fixed thanks formula; does not imply productive control of 합니다체",
+      "chunkOnlyNoGrammarExplanation": true
     }
   ],
   "recognitionOnly": [
     {
       "form": "이에요/예요",
-      "reason": "appears naturally in the airport response; active copula work begins in Unit 02"
+      "reason": "appears naturally in the airport response; active copula work begins in Unit 02",
+      "grammarRefs": [
+        "G_COPULA_IDA"
+      ],
+      "grammarSourcePolicy": "official_only"
     },
     {
       "form": "-(으)시-",
-      "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker"
-    },
-    {
-      "form": "합니다체 어미 전반",
-      "reason": "full formal-style morphology is deferred; fixed greetings may still be used as chunks"
+      "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker",
+      "grammarRefs": [
+        "G_SUBJECT_HONORIFIC_SI"
+      ],
+      "grammarSourcePolicy": "official_only"
     }
   ],
   "surfacePolicy": {

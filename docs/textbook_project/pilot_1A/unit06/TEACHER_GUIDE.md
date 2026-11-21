@@ -21,18 +21,21 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- 에: destination/location
-- -아/어 주세요: request stop/direction
+- **에** — A particle with official dictionary senses including place, time, and destination/direction. Each unit teaches only the relevant sense.
+  *Official sources: KRDIC_E: 한국어기초사전: 에 (국립국어원)*
+- **-아/어 주세요** — An expression used to make a polite request for someone to perform an action.
+  *Official sources: NIKL_2010_VISITING_KOREAN: 2010년 다문화 가정 자녀 대상 한국어 방문 학습 자료 개발 제작 사업 (국립국어원)*
 
 ## Formulaic production
 
-- 어디서 갈아타요?: 어디서 갈아타요? — high-value transfer question; full 에서 contrast is recycled later
+- **어디서 갈아타요?** — 어디서 갈아타요?  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
 
 These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 
-- 맞으시죠?: driver service-side confirmation; learner understands without productive analysis
+- **맞으시죠?** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 ## Teaching order
 

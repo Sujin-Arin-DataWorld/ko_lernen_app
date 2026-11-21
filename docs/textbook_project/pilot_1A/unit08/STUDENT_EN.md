@@ -56,9 +56,9 @@ These are the productive chunks for this unit.
 
 ### Productive grammar
 
-- **-아/어 주세요** — repeat/slow request
-- **무슨 N** — meaning question, chunk-first
-- **아니에요** — correct information
+- **-아/어 주세요** — An expression used to make a polite request for someone to perform an action.
+- **무슨 N** — 무슨 is a determiner used to ask about something the speaker is unsure of or does not know exactly.
+- **아니에요** — 아니다 negates a fact or statement; the unit uses the polite form 아니에요.
 
 The goal is not to memorize labels. Use the forms to solve the scene.
 
@@ -66,12 +66,12 @@ The goal is not to memorize labels. Use the forms to solve the scene.
 
 ## 3. Understand first — do not overlearn yet
 
-- **-는데요** — natural interpersonal softening but above productive target for this unit
-- **계신지** — honorific embedded form; recognition/context only
-- **몰랐어요** — past explanation; not target grammar here
-- **-ㄹ게요** — promise/next action; recognition only
-- **뭐라고요?** — intonation-sensitive and can sound surprised/challenging; recognition first
-- **제가 잘 이해한 게 맞아요?** — useful confirmation phrase but structurally dense for 1A; recognition/optional extension only
+- **-는데요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **계신지** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **몰랐어요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **-ㄹ게요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **뭐라고요?** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **제가 잘 이해한 게 맞아요?** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
 

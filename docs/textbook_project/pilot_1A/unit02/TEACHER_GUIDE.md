@@ -21,9 +21,12 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- 은/는: set personal topic
-- 이에요/예요: identify self
-- N에서 왔어요: origin/source
+- **은/는** — A particle that can mark contrast, the topic of a sentence, or emphasis.
+  *Official sources: KRDIC_EUN: 한국어기초사전: 은 (국립국어원)*
+- **이에요/예요** — 이다 is an official dictionary predicative particle that identifies an attribute or category of the subject referent and conjugates.
+  *Official sources: KRDIC_IDA: 한국어기초사전: 이다 (국립국어원)*
+- **N에서 왔어요** — A particle that can mark the place of an action, a starting point, or a source.
+  *Official sources: KRDIC_ESEO: 한국어기초사전: 에서 (국립국어원)*
 
 ## Formulaic production
 
@@ -33,7 +36,7 @@ These are learner-usable chunks whose full grammar analysis is intentionally def
 
 ## Recognition/context only
 
-- -(으)셨어요: authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here
+- **-(으)셨어요** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 ## Teaching order
 

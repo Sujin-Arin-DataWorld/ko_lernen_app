@@ -21,21 +21,30 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- (으)로: channel/means, e.g. 카카오톡으로
-- 있어요: presence/contact resource
+- **(으)로** — A particle with official senses including direction, route, means/tool and method. The lesson selects only the relevant sense.
+  *Official sources: KRDIC_EURO: 한국어기초사전: 으로 (국립국어원)*
+- **있어요** — For this unit, 있다 is used in its official dictionary location/existence sense, with the pattern 1이 2에 있다.
+  *Official sources: KRDIC_ITDA: 한국어기초사전: 있다 (국립국어원)*
 
 ## Formulaic production
 
-- -세요?: 카톡 하세요? — fixed polite contact-channel question; honorific morphology is not generalized here
-- -(으)ㄹ까요?: 카카오톡으로 연락할까요? — high-value proposal chunk; learner may produce the chunk before full grammar analysis
-- -ㄹ게요: 제가 카톡 보낼게요 / 도착하면 연락할게요 — high-value promise/intention chunks for messaging; full paradigm deferred
-- -(으)ㄹ 것 같아요: 10분 정도 늦을 것 같아요 — useful delay-notice chunk; broader inference/probability grammar deferred
+- **카톡 하세요?** — 카톡 하세요?  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
+- **-(으)ㄹ까요?** — 카카오톡으로 연락할까요?
+  Officially sourced function: It has an official use for asking the listener's opinion or making a proposal; it also has a separate conjectural-question use.
+  *Official sources: KRDIC_LKKAYO: 한국어기초사전: -ㄹ까요/-을까요 (국립국어원)*
+- **-ㄹ게요** — 제가 카톡 보낼게요 / 도착하면 연락할게요
+  Officially sourced function: An expression, mainly spoken, in which the speaker promises or signals an intention to do an action to the listener.
+  *Official sources: KRDIC_LGEYO: 한국어기초사전: -ㄹ게요 (국립국어원)*
+- **-(으)ㄹ 것 같아요** — 10분 정도 늦을 것 같아요
+  Officially sourced function: An official NIKL teacher guide presents 것 같다 as expressing the speaker's conjecture and also as a way to state an opinion or feeling less categorically.
+  *Official sources: NIKL_INTERMEDIATE_GEOT_GATDA: 중급 한국어 1 교원용 지침서: 것 같다 (국립국어원)*
 
 These are learner-usable chunks whose full grammar analysis is intentionally deferred.
 
 ## Recognition/context only
 
-- -(으)실래요?: polite invitation/request form may be heard in contact exchange; not required learner production in 1A
+- **-(으)실래요?** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 ## Teaching order
 

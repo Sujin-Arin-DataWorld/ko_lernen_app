@@ -40,7 +40,6 @@ These forms may appear in authentic input:
 
 - 이에요/예요
 - -(으)시-
-- 합니다체 어미 전반
 
 For each form, write:
 1. who says it;

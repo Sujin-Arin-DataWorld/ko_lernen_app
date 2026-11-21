@@ -9,7 +9,8 @@
     "docs/textbook_project/HANGUL_ZERO_ONBOARDING_20261006.md",
     "docs/textbook_project/A1_LEARNER_ERROR_MATRIX_EN_DE_20261006.md",
     "docs/textbook_project/ONE_A_NATIVE_USAGE_READINESS_20261006.md",
-    "docs/textbook_project/data/TEXTBOOK_SOURCE_POOL_ALLOCATION_RESOLVED_1A_6B.csv"
+    "docs/textbook_project/data/TEXTBOOK_SOURCE_POOL_ALLOCATION_RESOLVED_1A_6B.csv",
+    "docs/textbook_project/data/ONE_A_OFFICIAL_GRAMMAR_REGISTRY_20261006.json"
   ],
   "globalRules": {
     "productiveRegister": "해요체 중심",
@@ -19,7 +20,8 @@
     "localizationRule": "EN/DE authored independently from Korean intent + native evidence",
     "audioRule": "displaySurface != spokenSurface != performanceCue; TTS remains Jin-owned",
     "assessmentRule": "recognition alone cannot pass; each unit ends with retrieval/interaction task",
-    "recyclingRule": "new language must recur in later units with delayed retrieval"
+    "recyclingRule": "new language must recur in later units with delayed retrieval",
+    "grammarSourcePolicy": "grammar definitions/functions/constraints use official NIKL/Korean Basic Dictionary sources only; usage corpus and localization are separate evidence layers"
   },
   "units": [
     {
@@ -63,21 +65,29 @@
         {
           "form": "-아/어 주세요",
           "function": "polite request",
-          "mode": "chunk-first"
+          "mode": "chunk-first",
+          "grammarRefs": [
+            "G_REQUEST_AEO_JUSEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [
         {
           "form": "이에요/예요",
-          "reason": "appears naturally in the airport response; active copula work begins in Unit 02"
+          "reason": "appears naturally in the airport response; active copula work begins in Unit 02",
+          "grammarRefs": [
+            "G_COPULA_IDA"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "-(으)시-",
-          "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker"
-        },
-        {
-          "form": "합니다체 어미 전반",
-          "reason": "full formal-style morphology is deferred; fixed greetings may still be used as chunks"
+          "reason": "subject honorification appears in authentic service speech; do not teach as generic extra-politeness marker",
+          "grammarRefs": [
+            "G_SUBJECT_HONORIFIC_SI"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "coreChunks": [
@@ -94,7 +104,8 @@
           "examples": [
             "감사합니다"
           ],
-          "reason": "high-frequency fixed thanks formula; does not imply productive control of 합니다체"
+          "reason": "high-frequency fixed thanks formula; does not imply productive control of 합니다체",
+          "chunkOnlyNoGrammarExplanation": true
         }
       ],
       "pronunciation": [
@@ -189,23 +200,39 @@
         {
           "form": "은/는",
           "function": "set personal topic",
-          "appAnchor": "grammar_a1_topic_particle"
+          "appAnchor": "grammar_a1_topic_particle",
+          "grammarRefs": [
+            "G_TOPIC_EUNNEUN"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "이에요/예요",
           "function": "identify self",
-          "appAnchor": "grammar_a1_copula_polite"
+          "appAnchor": "grammar_a1_copula_polite",
+          "grammarRefs": [
+            "G_COPULA_IDA"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "N에서 왔어요",
           "function": "origin/source",
-          "mode": "lexical-frame"
+          "mode": "lexical-frame",
+          "grammarRefs": [
+            "G_ESEO"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [
         {
           "form": "-(으)셨어요",
-          "reason": "authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here"
+          "reason": "authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here",
+          "grammarRefs": [
+            "G_SUBJECT_HONORIFIC_SI"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "coreChunks": [
@@ -308,17 +335,30 @@
         {
           "form": "은/는",
           "function": "established topic / contrast",
-          "appAnchor": "grammar_a1_topic_particle"
+          "appAnchor": "grammar_a1_topic_particle",
+          "grammarRefs": [
+            "G_TOPIC_EUNNEUN"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "이/가",
           "function": "subject/focus in identification/existence",
-          "appAnchor": "grammar_a1_subject_particle"
+          "appAnchor": "grammar_a1_subject_particle",
+          "grammarRefs": [
+            "G_SUBJECT_IGA"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "에 있다",
           "function": "location/existence",
-          "appAnchor": "grammar_a1_direction_time_particle"
+          "appAnchor": "grammar_a1_direction_time_particle",
+          "grammarRefs": [
+            "G_E_LOCATION_TIME_DESTINATION",
+            "G_EXIST_ITDA"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [],
@@ -428,27 +468,44 @@
         {
           "form": "을/를",
           "function": "object marking",
-          "appAnchor": "grammar_a1_object_particle"
+          "appAnchor": "grammar_a1_object_particle",
+          "grammarRefs": [
+            "G_OBJECT_EULREUL"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "N 주세요",
           "function": "service request",
-          "appAnchor": "grammar_a1_service_request"
+          "appAnchor": "grammar_a1_service_request",
+          "grammarRefs": [
+            "G_SERVICE_JUSEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "안 + adjective/verb",
           "function": "simple negation/selection",
-          "appAnchor": "grammar_a1_short_negation"
+          "appAnchor": "grammar_a1_short_negation",
+          "grammarRefs": [
+            "G_SHORT_NEGATION_AN"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [
         {
           "form": "-(으)시겠어요?",
-          "reason": "staff-side service question for comprehension"
+          "reason": "staff-side service question for comprehension",
+          "chunkOnlyNoGrammarExplanation": true
         },
         {
           "form": "-ㄹ게요",
-          "reason": "staff response; learner need not produce as target yet"
+          "reason": "staff response; learner need not produce as target yet",
+          "grammarRefs": [
+            "G_INTENTION_LGEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "coreChunks": [
@@ -557,12 +614,20 @@
         {
           "form": "N시에",
           "function": "time point",
-          "appAnchor": "grammar_a1_direction_time_particle"
+          "appAnchor": "grammar_a1_direction_time_particle",
+          "grammarRefs": [
+            "G_E_LOCATION_TIME_DESTINATION"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "아니에요",
           "function": "correction/negation",
-          "appAnchor": "grammar_a1_copula_negation"
+          "appAnchor": "grammar_a1_copula_negation",
+          "grammarRefs": [
+            "G_ANIDA"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [],
@@ -580,7 +645,8 @@
           "examples": [
             "오후 한 시 어때요?"
           ],
-          "reason": "high-value time-proposal chunk; broader 어때요? uses expand later"
+          "reason": "high-value time-proposal chunk; broader 어때요? uses expand later",
+          "chunkOnlyNoGrammarExplanation": true
         }
       ],
       "pronunciation": [
@@ -673,18 +739,27 @@
       "productiveGrammar": [
         {
           "form": "에",
-          "function": "destination/location"
+          "function": "destination/location",
+          "grammarRefs": [
+            "G_E_LOCATION_TIME_DESTINATION"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "-아/어 주세요",
           "function": "request stop/direction",
-          "appAnchor": "grammar_a1_polite_request"
+          "appAnchor": "grammar_a1_polite_request",
+          "grammarRefs": [
+            "G_REQUEST_AEO_JUSEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [
         {
           "form": "맞으시죠?",
-          "reason": "driver service-side confirmation; learner understands without productive analysis"
+          "reason": "driver service-side confirmation; learner understands without productive analysis",
+          "chunkOnlyNoGrammarExplanation": true
         }
       ],
       "formulaicProduction": [
@@ -693,7 +768,8 @@
           "examples": [
             "어디서 갈아타요?"
           ],
-          "reason": "high-value transfer question; full 에서 contrast is recycled later"
+          "reason": "high-value transfer question; full 에서 contrast is recycled later",
+          "chunkOnlyNoGrammarExplanation": true
         }
       ],
       "coreChunks": [
@@ -801,17 +877,26 @@
       "productiveGrammar": [
         {
           "form": "(으)로",
-          "function": "channel/means, e.g. 카카오톡으로"
+          "function": "channel/means, e.g. 카카오톡으로",
+          "grammarRefs": [
+            "G_EURO"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "있어요",
-          "function": "presence/contact resource"
+          "function": "presence/contact resource",
+          "grammarRefs": [
+            "G_EXIST_ITDA"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [
         {
           "form": "-(으)실래요?",
-          "reason": "polite invitation/request form may be heard in contact exchange; not required learner production in 1A"
+          "reason": "polite invitation/request form may be heard in contact exchange; not required learner production in 1A",
+          "chunkOnlyNoGrammarExplanation": true
         }
       ],
       "coreChunks": [
@@ -823,18 +908,23 @@
       ],
       "formulaicProduction": [
         {
-          "form": "-세요?",
+          "form": "카톡 하세요?",
           "examples": [
             "카톡 하세요?"
           ],
-          "reason": "fixed polite contact-channel question; honorific morphology is not generalized here"
+          "reason": "fixed learner-use chunk; no generalized -세요? grammar rule is introduced here",
+          "chunkOnlyNoGrammarExplanation": true
         },
         {
           "form": "-(으)ㄹ까요?",
           "examples": [
             "카카오톡으로 연락할까요?"
           ],
-          "reason": "high-value proposal chunk; learner may produce the chunk before full grammar analysis"
+          "reason": "high-value proposal chunk; learner may produce the chunk before full grammar analysis",
+          "grammarRefs": [
+            "G_PROPOSAL_LKKAYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "-ㄹ게요",
@@ -842,14 +932,22 @@
             "제가 카톡 보낼게요",
             "도착하면 연락할게요"
           ],
-          "reason": "high-value promise/intention chunks for messaging; full paradigm deferred"
+          "reason": "high-value promise/intention chunks for messaging; full paradigm deferred",
+          "grammarRefs": [
+            "G_INTENTION_LGEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "-(으)ㄹ 것 같아요",
           "examples": [
             "10분 정도 늦을 것 같아요"
           ],
-          "reason": "useful delay-notice chunk; broader inference/probability grammar deferred"
+          "reason": "useful delay-notice chunk; broader inference/probability grammar deferred",
+          "grammarRefs": [
+            "G_CONJECTURE_GEOT_GATDA"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "pronunciation": [
@@ -952,45 +1050,73 @@
       "productiveGrammar": [
         {
           "form": "-아/어 주세요",
-          "function": "repeat/slow request"
+          "function": "repeat/slow request",
+          "grammarRefs": [
+            "G_REQUEST_AEO_JUSEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "무슨 N",
-          "function": "meaning question, chunk-first"
+          "function": "meaning question, chunk-first",
+          "grammarRefs": [
+            "G_MUSEUN"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "아니에요",
-          "function": "correct information"
+          "function": "correct information",
+          "grammarRefs": [
+            "G_ANIDA"
+          ],
+          "grammarSourcePolicy": "official_only"
         }
       ],
       "recognitionOnly": [
         {
           "form": "-는데요",
           "source": "bakery_queue",
-          "reason": "natural interpersonal softening but above productive target for this unit"
+          "reason": "natural interpersonal softening but above productive target for this unit",
+          "grammarRefs": [
+            "G_NDEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "계신지",
           "source": "bakery_queue",
-          "reason": "honorific embedded form; recognition/context only"
+          "reason": "honorific embedded form; recognition/context only",
+          "grammarRefs": [
+            "G_GYESIDA",
+            "G_NJI"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "몰랐어요",
           "source": "bakery_queue",
-          "reason": "past explanation; not target grammar here"
+          "reason": "past explanation; not target grammar here",
+          "chunkOnlyNoGrammarExplanation": true
         },
         {
           "form": "-ㄹ게요",
           "source": "bakery_queue",
-          "reason": "promise/next action; recognition only"
+          "reason": "promise/next action; recognition only",
+          "grammarRefs": [
+            "G_INTENTION_LGEYO"
+          ],
+          "grammarSourcePolicy": "official_only"
         },
         {
           "form": "뭐라고요?",
-          "reason": "intonation-sensitive and can sound surprised/challenging; recognition first"
+          "reason": "intonation-sensitive and can sound surprised/challenging; recognition first",
+          "chunkOnlyNoGrammarExplanation": true
         },
         {
           "form": "제가 잘 이해한 게 맞아요?",
-          "reason": "useful confirmation phrase but structurally dense for 1A; recognition/optional extension only"
+          "reason": "useful confirmation phrase but structurally dense for 1A; recognition/optional extension only",
+          "chunkOnlyNoGrammarExplanation": true
         }
       ],
       "coreChunks": [

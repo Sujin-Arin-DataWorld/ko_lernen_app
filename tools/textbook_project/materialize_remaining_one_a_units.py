@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CONTRACTS = ROOT / "docs" / "textbook_project" / "data" / "ONE_A_UNIT_CONTRACTS_20261006.json"
 ERRORS = ROOT / "docs" / "textbook_project" / "data" / "A1_LEARNER_ERROR_MATRIX_EN_DE_20261006.json"
 LEARNER_META = ROOT / "docs" / "textbook_project" / "data" / "ONE_A_LEARNER_FACING_META_EN_DE_20261006.json"
+OFFICIAL_GRAMMAR = ROOT / "docs" / "textbook_project" / "data" / "ONE_A_OFFICIAL_GRAMMAR_REGISTRY_20261006.json"
 SCENARIOS = ROOT / "assets" / "data" / "scenarios_a1.json"
 OUT_ROOT = ROOT / "docs" / "textbook_project" / "pilot_1A"
 
@@ -90,6 +91,79 @@ def risk_block(ids, lookup, lang):
             lines.append(f"### {rid}\n\n**Risk:** {r['risk']}\n\n**Teaching response:** {r['pedagogy']}")
     return "\n\n".join(lines)
 
+def official_grammar_lines(items, lang, registry, show_refs=False):
+    out=[]
+    entries=registry["grammarEntries"]
+    sources=registry["officialSources"]
+    for item in items:
+        refs=item.get("grammarRefs",[])
+        if not refs:
+            raise AssertionError(f"Grammar item lacks official refs: {item}")
+        explanations=[]
+        source_ids=[]
+        for ref in refs:
+            g=entries[ref]
+            text=g["explanationEn"] if lang=="en" else g["explanationDe"]
+            explanations.append(text)
+            source_ids.extend(g["sourceIds"])
+        line=f"- **{item['form']}** — {' '.join(explanations)}"
+        if show_refs:
+            source_titles=[]
+            for sid in dict.fromkeys(source_ids):
+                src=sources[sid]
+                source_titles.append(f"{sid}: {src['title']} ({src['publisher']})")
+            line += "\n  *Official sources: " + "; ".join(source_titles) + "*"
+        out.append(line)
+    return "\n".join(out)
+
+def formulaic_lines(items, lang, registry, show_refs=False):
+    out=[]
+    entries=registry["grammarEntries"]
+    sources=registry["officialSources"]
+    for item in items:
+        examples=" / ".join(item.get("examples",[]))
+        refs=item.get("grammarRefs",[])
+        if refs:
+            explanations=[]
+            for ref in refs:
+                g=entries[ref]
+                explanations.append(g["explanationEn"] if lang=="en" else g["explanationDe"])
+            if lang=="en":
+                note=f"Officially sourced function: {' '.join(explanations)}"
+            else:
+                note=f"Offiziell belegte Funktion: {' '.join(explanations)}"
+            line=f"- **{item['form']}** — {examples}\n  {note}"
+            if show_refs:
+                source_ids=[]
+                for ref in refs:
+                    source_ids.extend(entries[ref]["sourceIds"])
+                source_titles=[
+                    f"{sid}: {sources[sid]['title']} ({sources[sid]['publisher']})"
+                    for sid in dict.fromkeys(source_ids)
+                ]
+                line += "\n  *Official sources: " + "; ".join(source_titles) + "*"
+            out.append(line)
+        else:
+            assert item.get("chunkOnlyNoGrammarExplanation") is True
+            note=(
+                "Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here."
+                if lang=="en" else
+                "Fester Lern-Chunk in dieser Einheit; hier wird daraus keine allgemeine Grammatikregel abgeleitet."
+            )
+            out.append(f"- **{item['form']}** — {examples}  \n  {note}")
+    return "\n".join(out)
+
+def recognition_lines(items, lang):
+    out=[]
+    for item in items:
+        note=(
+            "Recognize this in context; this unit does not teach a generalized production rule for it."
+            if lang=="en" else
+            "Im Kontext erkennen; in dieser Einheit wird daraus keine allgemeine aktive Grammatikregel abgeleitet."
+        )
+        out.append(f"- **{item['form']}** — {note}")
+    return "\n".join(out)
+
 def dialogue_md(dialogue, lang):
     key={"en":"en","de":"de"}[lang]
     out=[]
@@ -114,7 +188,7 @@ def audio_dialogue(dialogue):
         })
     return result
 
-def render_student(u, scenario, lang, err_lookup, learner_meta):
+def render_student(u, scenario, lang, err_lookup, learner_meta, grammar_registry):
     is_en=lang=="en"
     meta=learner_meta[u["unitId"]][lang]
     title=u["titleEn"] if is_en else u["titleDe"]
@@ -132,33 +206,15 @@ def render_student(u, scenario, lang, err_lookup, learner_meta):
     can_do="\n".join(f"- {x}" for x in meta["canDo"])
     prod="\n".join(f"- **{x}**" for x in u["coreChunks"])
     formulaic_items=u.get("formulaicProduction",[])
+    rec=recognition_lines(u.get("recognitionOnly",[]),lang)
+    if not rec:
+        rec=("- No extra recognition-only form in this unit."
+             if is_en else "- Keine zusätzliche reine Erkennungsform in dieser Einheit.")
+    grammar=official_grammar_lines(u["productiveGrammar"],lang,grammar_registry)
+    formulaic=formulaic_lines(formulaic_items,lang,grammar_registry)
     if is_en:
-        rec="\n".join(
-            f"- **{x['form']}** — {x['reason']}"
-            for x in u.get("recognitionOnly",[])
-        ) or "- No extra recognition-only form in this unit."
-        grammar="\n".join(
-            f"- **{x['form']}** — {x['function']}"
-            for x in u["productiveGrammar"]
-        )
-        formulaic="\n".join(
-            f"- **{x['form']}** — use now as a fixed chunk: " + " / ".join(x.get("examples",[]))
-            for x in formulaic_items
-        )
         pron="\n".join(f"- {x}" for x in u["pronunciation"])
     else:
-        rec="\n".join(
-            f"- **{x['form']}** — zunächst im Kontext erkennen"
-            for x in u.get("recognitionOnly",[])
-        ) or "- Keine zusätzliche reine Erkennungsform in dieser Einheit."
-        grammar="\n".join(
-            f"- **{x['form']}** — aktive Form dieser Einheit"
-            for x in u["productiveGrammar"]
-        )
-        formulaic="\n".join(
-            f"- **{x['form']}** — jetzt als festen Chunk benutzen: " + " / ".join(x.get("examples",[]))
-            for x in formulaic_items
-        )
         pron="\n".join(f"- {x}" for x in u["coreChunks"][:3])
     prag="\n".join(f"- {x}" for x in meta["pragmatics"])
     culture="\n".join(f"- {x}" for x in meta["culture"])
@@ -616,15 +672,12 @@ Ich kann die kommunikative Aufgabe lösen:
 **Erfolgskriterium:** {meta['success']}
 """
 
-def render_teacher(u, err_lookup):
+def render_teacher(u, err_lookup, grammar_registry):
     enrisks="\n".join(f"- **{rid}**: {err_lookup[rid]['risk']}" for rid in u.get("enLearnerRisks",[])) or "- none"
     derisks="\n".join(f"- **{rid}**: {err_lookup[rid]['risk']}" for rid in u.get("deLearnerRisks",[])) or "- none"
-    prod="\n".join(f"- {x['form']}: {x['function']}" for x in u["productiveGrammar"])
-    formulaic="\n".join(
-        f"- {x['form']}: {' / '.join(x.get('examples',[]))} — {x['reason']}"
-        for x in u.get("formulaicProduction",[])
-    ) or "- none"
-    rec="\n".join(f"- {x['form']}: {x['reason']}" for x in u.get("recognitionOnly",[])) or "- none"
+    prod=official_grammar_lines(u["productiveGrammar"],"en",grammar_registry,show_refs=True)
+    formulaic=formulaic_lines(u.get("formulaicProduction",[]),"en",grammar_registry,show_refs=True) or "- none"
+    rec=recognition_lines(u.get("recognitionOnly",[]),"en") or "- none"
     return f"""# Teacher Guide — Korean 1A Unit {u['order']:02d}
 # {u['titleKo']}
 
@@ -725,6 +778,7 @@ def main():
     contracts=load_json(CONTRACTS)
     errors=load_json(ERRORS)
     learner_meta=load_json(LEARNER_META)["units"]
+    grammar_registry=load_json(OFFICIAL_GRAMMAR)
     scenarios=load_json(SCENARIOS)["scenarios"]
     scen_by_id={x["id"]:x for x in scenarios}
     err_lookup={x["id"]:x for lang in ("en","de") for x in errors[lang]}
@@ -791,12 +845,12 @@ def main():
             json.dumps(audio,ensure_ascii=False,indent=2)+"\n",
             encoding="utf-8"
         )
-        (folder/"STUDENT_EN.md").write_text(render_student(u,scenario,"en",err_lookup,learner_meta),encoding="utf-8")
-        (folder/"STUDENT_DE.md").write_text(render_student(u,scenario,"de",err_lookup,learner_meta),encoding="utf-8")
+        (folder/"STUDENT_EN.md").write_text(render_student(u,scenario,"en",err_lookup,learner_meta,grammar_registry),encoding="utf-8")
+        (folder/"STUDENT_DE.md").write_text(render_student(u,scenario,"de",err_lookup,learner_meta,grammar_registry),encoding="utf-8")
         (folder/"WORKBOOK.md").write_text(render_workbook(u),encoding="utf-8")
         (folder/"WORKBOOK_EN.md").write_text(render_workbook_localized(u,"en",learner_meta),encoding="utf-8")
         (folder/"WORKBOOK_DE.md").write_text(render_workbook_localized(u,"de",learner_meta),encoding="utf-8")
-        (folder/"TEACHER_GUIDE.md").write_text(render_teacher(u,err_lookup),encoding="utf-8")
+        (folder/"TEACHER_GUIDE.md").write_text(render_teacher(u,err_lookup,grammar_registry),encoding="utf-8")
         made.append(u["unitId"])
 
     print(json.dumps({"materialized":len(made),"units":made},ensure_ascii=False))

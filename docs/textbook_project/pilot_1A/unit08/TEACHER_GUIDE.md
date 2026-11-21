@@ -21,9 +21,12 @@ Status: DRAFT_MATERIALIZED
 
 ## Productive language
 
-- -아/어 주세요: repeat/slow request
-- 무슨 N: meaning question, chunk-first
-- 아니에요: correct information
+- **-아/어 주세요** — An expression used to make a polite request for someone to perform an action.
+  *Official sources: NIKL_2010_VISITING_KOREAN: 2010년 다문화 가정 자녀 대상 한국어 방문 학습 자료 개발 제작 사업 (국립국어원)*
+- **무슨 N** — 무슨 is a determiner used to ask about something the speaker is unsure of or does not know exactly.
+  *Official sources: KRDIC_MUSEUN: 한국어기초사전: 무슨 (국립국어원)*
+- **아니에요** — 아니다 negates a fact or statement; the unit uses the polite form 아니에요.
+  *Official sources: KRDIC_ANIDA: 한국어기초사전: 아니다 (국립국어원)*
 
 ## Formulaic production
 
@@ -33,12 +36,12 @@ These are learner-usable chunks whose full grammar analysis is intentionally def
 
 ## Recognition/context only
 
-- -는데요: natural interpersonal softening but above productive target for this unit
-- 계신지: honorific embedded form; recognition/context only
-- 몰랐어요: past explanation; not target grammar here
-- -ㄹ게요: promise/next action; recognition only
-- 뭐라고요?: intonation-sensitive and can sound surprised/challenging; recognition first
-- 제가 잘 이해한 게 맞아요?: useful confirmation phrase but structurally dense for 1A; recognition/optional extension only
+- **-는데요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **계신지** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **몰랐어요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **-ㄹ게요** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **뭐라고요?** — Recognize this in context; this unit does not teach a generalized production rule for it.
+- **제가 잘 이해한 게 맞아요?** — Recognize this in context; this unit does not teach a generalized production rule for it.
 
 ## Teaching order
 

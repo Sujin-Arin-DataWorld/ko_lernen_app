@@ -57,9 +57,9 @@ Diese Chunks gehören zur aktiven Produktion dieser Einheit.
 
 ### Produktive Grammatik
 
-- **은/는** — aktive Form dieser Einheit
-- **이/가** — aktive Form dieser Einheit
-- **에 있다** — aktive Form dieser Einheit
+- **은/는** — Eine Partikel, die unter anderem Kontrast, das Satzthema oder Hervorhebung markieren kann.
+- **이/가** — Eine Partikel, die das Subjekt bzw. den Handlungsträger markiert; sie hat außerdem Verwendungen mit 되다 und 아니다.
+- **에 있다** — Eine Partikel mit amtlich beschriebenen Bedeutungen u. a. für Ort, Zeit und Ziel/Richtung. Pro Einheit wird nur die relevante Bedeutung behandelt. In dieser Einheit wird 있다 in der amtlich beschriebenen Orts-/Existenzbedeutung mit dem Muster 1이 2에 있다 behandelt.
 
 Die Bezeichnungen sind nicht das Lernziel. Benutze die Formen, um die Situation zu lösen.
 
