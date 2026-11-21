@@ -3,7 +3,7 @@
   "date": "2026-10-06",
   "unitId": "a1_04_order_request_object",
   "status": "READY_FOR_HUMAN_REVIEW",
-  "sourceCommit": "240d4e663db9f8681b478b58a082fa87ae6e9815",
+  "sourceCommit": "77213b570cdd5f7e1196f413249d77964c8c7a86",
   "files": [
     {
       "path": "docs/textbook_project/pilot_1A/unit04/STUDENT_MASTER.md",

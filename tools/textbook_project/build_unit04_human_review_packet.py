@@ -51,7 +51,7 @@ def main():
         "rule":"If any listed file hash changes, regenerate this manifest before relying on previous human decisions."
     }
     out=PACKET/"MANIFEST.json"
-    out.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+    out.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+"\n",encoding="utf-8",newline="\n")
     print(json.dumps({"files":len(FILES),"commit":commit[:12],"status":manifest["status"]}))
 
 if __name__=="__main__":
