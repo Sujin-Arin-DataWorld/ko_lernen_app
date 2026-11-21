@@ -3,22 +3,22 @@
   "date": "2026-10-06",
   "unitId": "a1_04_order_request_object",
   "status": "READY_FOR_HUMAN_REVIEW",
-  "sourceCommit": "3df150a080014a87899db5bf4a03e8f612684b1e",
+  "sourceCommit": "240d4e663db9f8681b478b58a082fa87ae6e9815",
   "files": [
     {
       "path": "docs/textbook_project/pilot_1A/unit04/STUDENT_MASTER.md",
-      "sha256": "104756480e899bf06d67b71ea11d0759d01ca051ca3ac039ae83a3e55b44c401",
-      "bytes": 7987
+      "sha256": "35d4fcf4e90fc453ae7a9aa2559832e076759e172e7a42c2ac24340e7edbc19f",
+      "bytes": 8594
     },
     {
       "path": "docs/textbook_project/pilot_1A/unit04/STUDENT_EN.md",
-      "sha256": "b9d8dd1a96162ab7b46481c6b6e3d76b9f86e8cde28614b60bbdc5a5ee413c4d",
-      "bytes": 6756
+      "sha256": "bbff1e84c70a010de49bd3d0ffa329edb62bd2938059db2ec9b93dbabb448ab6",
+      "bytes": 7590
     },
     {
       "path": "docs/textbook_project/pilot_1A/unit04/STUDENT_DE.md",
-      "sha256": "3177cebf6bbe34b3c94029b999170212e491a0f95bcc22672292fe1b92527f45",
-      "bytes": 7179
+      "sha256": "87aefe9ac6e1d1e4227c747c6c1938d5708a84207a21a255846e7da0537ee0ed",
+      "bytes": 8171
     },
     {
       "path": "docs/textbook_project/pilot_1A/unit04/WORKBOOK_EN.md",
@@ -47,8 +47,8 @@
     },
     {
       "path": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
-      "sha256": "6ce4b6dbe37affa3cbe8c63c6b29c646a9f29bc8a76bf29346508e88a4e3aebf",
-      "bytes": 35341
+      "sha256": "1be919df0bec3ab6f9fdd3d87590c630d282f1089d75d1960b1d534ba385b747",
+      "bytes": 39484
     },
     {
       "path": "docs/textbook_project/production/UNIT04_ANSWER_KEY_SEED_20261006.json",
@@ -57,8 +57,8 @@
     },
     {
       "path": "docs/textbook_project/production/ONE_A_ANSWER_KEY_REGISTRY_20261006.json",
-      "sha256": "d57d695d67d31a9b4a4a4f70602397e43a83bde69a6f750dd8cff60a8b43c612",
-      "bytes": 245044
+      "sha256": "fded4a636be21d0bb9e5802124e096fcc58d12293ab85d946416c3b95faa0ad0",
+      "bytes": 238382
     },
     {
       "path": "docs/textbook_project/A1_LEARNER_ERROR_MATRIX_EN_DE_20261006.md",

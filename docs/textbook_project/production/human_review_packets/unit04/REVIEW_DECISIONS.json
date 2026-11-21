@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "unitId": "a1_04_order_request_object",
   "snapshot": {
-    "sourceCommit": "3df150a080014a87899db5bf4a03e8f612684b1e",
-    "manifestSha256": "d38e156ea528998e99cd85067aa745875b7dbddd62d2fd37db01dcfc6dcf655b"
+    "sourceCommit": "240d4e663db9f8681b478b58a082fa87ae6e9815",
+    "manifestSha256": "5ee9e283698aad192ed2dc44c7011e36f10f474a9f1d317c6b4dd90a1dde7339"
   },
   "status": "OPEN",
   "allowedDecisions": [

@@ -49,15 +49,15 @@ def main():
     text=(BASE/"STUDENT_MASTER.md").read_text(encoding="utf-8-sig")
     en=(BASE/"STUDENT_EN.md").read_text(encoding="utf-8-sig")
     de=(BASE/"STUDENT_DE.md").read_text(encoding="utf-8-sig")
-    assert "Give me" in text
+    assert "Please give me" in text
     assert "Ich hätte gern" in text
     assert "Living Korean" in text
     assert "romanization" not in text.lower()
     assert "떡볶이 하나 주세요." in text
     assert "Can I get an Americano" in en
-    assert "Give me" in en
+    assert "Please give me" in en
     assert "Ich hätte gern einen Americano" in de
-    assert "ich bekomme" in de.lower()
+    assert "Bitte geben Sie mir" in de
     assert "떡볶이 하나 주세요." in en and "떡볶이 하나 주세요." in de
 
     audio_lines=[
