@@ -162,7 +162,7 @@ void main() {
         reason: c.letter,
       );
       if (c.letter != vowels.last.letter) {
-        await _tap(tester, find.widgetWithText(CAtelierButton, '›'));
+        await _tap(tester, find.byKey(const Key('hangul-writing-next')));
       }
     }
     expect(count, 98);

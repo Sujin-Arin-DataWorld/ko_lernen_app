@@ -12027,6 +12027,9 @@ class AppL10nDe extends AppL10n {
   String get atelierDemo => 'Strichfolge zeigen';
 
   @override
+  String get atelierDemoShort => 'Vormachen';
+
+  @override
   String get atelierDemoEnd => 'Vorführung beenden';
 
   @override

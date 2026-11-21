@@ -1035,6 +1035,21 @@ class _WriteTabState extends State<_WriteTab>
         context,
         t.hangulCheckModeLabel,
         (dialogContext, box) => [
+          // Auto-advance moved here from the action rows (2026-11-21 mockup).
+          CAtelierButton(
+            key: const Key('hangul-auto-advance'),
+            label: _auto ? t.atelierAutoOn : t.atelierAutoOff,
+            face: _auto ? CAtelierFace.jade : CAtelierFace.quiet,
+            selected: _auto,
+            fontSize: CAtelierType.actionLabel,
+            bold: true,
+            radius: CAtelierType.actionRadius,
+            onTap: () {
+              _toggleAuto();
+              Navigator.pop(dialogContext);
+            },
+          ),
+          const SizedBox(height: Spacing.md),
           ..._atelierTextSections(dialogContext, box, t.hangulRulesBody),
           const SizedBox(height: Spacing.md),
           for (final item in [

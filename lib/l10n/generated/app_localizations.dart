@@ -20424,6 +20424,12 @@ abstract class AppL10n {
   /// **'Strichfolge zeigen'**
   String get atelierDemo;
 
+  /// No description provided for @atelierDemoShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Vormachen'**
+  String get atelierDemoShort;
+
   /// No description provided for @atelierDemoEnd.
   ///
   /// In de, this message translates to:

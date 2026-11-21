@@ -31,7 +31,12 @@ class SoriLearningStageNavigation extends StatelessWidget {
     this.canLeave,
     this.enabled = true,
     this.onDestinationSelected,
+    this.rail = false,
   });
+
+  /// A pushed study screen on a landscape phone has no shell rail behind it;
+  /// `true` renders the destinations as that rail instead of hiding them.
+  final bool rail;
   final bool woodenSurface;
   final bool expandedArtwork;
   final SoriLearningNavStyle? learningStyle;
@@ -46,16 +51,14 @@ class SoriLearningStageNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (SoriAdaptiveNavigation.usesRailForWidth(
+    final usesRail = SoriAdaptiveNavigation.usesRailForWidth(
       MediaQuery.sizeOf(context).width,
-    )) {
+    );
+    if (usesRail && !rail) {
       return const SizedBox.shrink();
     }
     final t = AppL10n.of(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SoriAdaptiveNavigation(
+    final navigation = SoriAdaptiveNavigation(
           selectedIndex: 1,
           expandedArtwork: expandedArtwork,
           learningStyle: learningStyle,
@@ -109,8 +112,10 @@ class SoriLearningStageNavigation extends StatelessWidget {
               imageAsset: ApprovedChromeAssets.gye,
             ),
           ],
-        ),
-      ],
-    );
+        );
+    if (usesRail) {
+      return navigation;
+    }
+    return Column(mainAxisSize: MainAxisSize.min, children: [navigation]);
   }
 }

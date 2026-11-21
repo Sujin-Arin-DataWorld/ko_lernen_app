@@ -5551,6 +5551,7 @@
   "atelierAutoOn": "Auto advance: On",
   "atelierChartHint": "Tap to listen. All 19 consonants are available below.",
   "atelierDemo": "Demonstrate",
+  "atelierDemoShort": "Show me",
   "atelierDemoEnd": "Finish demonstration",
   "atelierDemoNext": "Next stroke",
   "atelierDemoPhase": "Demonstration",

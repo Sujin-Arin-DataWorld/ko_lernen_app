@@ -11971,6 +11971,9 @@ class AppL10nEn extends AppL10n {
   String get atelierDemo => 'Demonstrate';
 
   @override
+  String get atelierDemoShort => 'Show me';
+
+  @override
   String get atelierDemoEnd => 'Finish demonstration';
 
   @override
