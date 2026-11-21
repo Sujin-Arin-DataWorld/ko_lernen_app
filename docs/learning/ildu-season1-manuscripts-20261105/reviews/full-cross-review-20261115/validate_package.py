@@ -41,7 +41,9 @@ def slug(value):
 
 def scope_violations(base_ref):
     base_sha = git("rev-parse", "--verify", "--end-of-options", base_ref + "^{commit}").decode().strip()
-    changes = git("diff", base_sha, "--name-only", "-z").decode().split("\0")
+    changes = git("diff", "--no-renames", "--name-only", "-z", base_sha, "HEAD").decode().split("\0")
+    changes += git("diff", "--no-renames", "--cached", "--name-only", "-z", "HEAD").decode().split("\0")
+    changes += git("diff", "--no-renames", "--name-only", "-z").decode().split("\0")
     changes += git("ls-files", "--others", "--exclude-standard", "-z").decode().split("\0")
     allowed_prefix = "docs/learning/ildu-season1-manuscripts-20261105/"
     plan = "docs/superpowers/plans/2026-11-15-season1-manuscript-cross-review.md"

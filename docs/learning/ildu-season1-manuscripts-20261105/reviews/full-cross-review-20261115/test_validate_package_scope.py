@@ -48,6 +48,19 @@ class RecoveryScopeTests(unittest.TestCase):
         base = self.git('rev-parse', 'HEAD').strip()
         self.assertEqual(validation.scope_violations(base), [])
 
+    def test_rejects_runtime_renamed_into_document_directory(self):
+        destination = self.repo / 'docs/learning/ildu-season1-manuscripts-20261105/moved.md'
+        destination.parent.mkdir(parents=True)
+        self.git('mv', 'app.dart', str(destination.relative_to(self.repo)))
+        self.assertEqual(validation.scope_violations(self.base), ['app.dart'])
+
+    def test_rejects_staged_runtime_change_hidden_by_worktree_bytes(self):
+        source = self.repo / 'app.dart'
+        source.write_text('staged runtime change\n')
+        self.git('add', 'app.dart')
+        source.write_text('before\n')
+        self.assertEqual(validation.scope_violations(self.base), ['app.dart'])
+
 
 if __name__ == '__main__':
     unittest.main()
