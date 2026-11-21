@@ -39,7 +39,16 @@ def slug(value):
     return re.sub(r"[^\w\- ]", "", value).replace(" ", "-")
 
 
-def validate(require_reviews=False):
+def scope_violations(base_ref):
+    base_sha = git("rev-parse", "--verify", "--end-of-options", base_ref + "^{commit}").decode().strip()
+    changes = git("diff", base_sha, "--name-only", "-z").decode().split("\0")
+    changes += git("ls-files", "--others", "--exclude-standard", "-z").decode().split("\0")
+    allowed_prefix = "docs/learning/ildu-season1-manuscripts-20261105/"
+    plan = "docs/superpowers/plans/2026-11-15-season1-manuscript-cross-review.md"
+    return sorted({name for name in changes if name and not name.startswith(allowed_prefix) and name != plan})
+
+
+def validate(require_reviews=False, base_ref="3594a000b0ee3c255ed50890efa34c05c1c38d0c"):
     mapping = read_json(BOOK / "sources/LEVEL_STORY_100.json")
     units = mapping["units"]
     ids = [u["unit_id"] for u in units]
@@ -180,14 +189,12 @@ def validate(require_reviews=False):
     unresolved = [key for key in required_findings if decisions.get(key, {}).get("state") != "closed_after_independent_review"]
     if require_reviews and unresolved:
         problems.append({"kind": "required_findings_unresolved", "ids": unresolved})
-    changes = git("diff", "3594a000b0ee3c255ed50890efa34c05c1c38d0c", "--name-only").decode().splitlines()
-    changes += git("ls-files", "--others", "--exclude-standard").decode().splitlines()
-    allowed_prefix = "docs/learning/ildu-season1-manuscripts-20261105/"
-    plan = "docs/superpowers/plans/2026-11-15-season1-manuscript-cross-review.md"
-    forbidden = [name for name in changes if not name.startswith(allowed_prefix) and name != plan]
+    forbidden = scope_violations(base_ref)
     if forbidden:
         problems.append({"kind": "outside_document_scope", "paths": forbidden})
     result = {"checkedUtc": datetime.now(timezone.utc).isoformat(), "mode": "final" if require_reviews else "structure_and_progress", "units": len(paths), "bands": band_counts, "canonicalQuotesPreserved": len(quotes), "tableRowsChecked": table_rows, "localLinksChecked": link_count, "sourceHashChecks": 4, "problems": problems, "warnings": warnings, "reviewCoverage": coverage, "commonReviewCoverage": common_coverage, "requiredFindings": len(required_findings), "unresolvedRequiredFindings": unresolved, "finalSha256": hashes, "humanReviewComplete": False, "actualAudioVerified": False, "synthesisPerformed": False, "appModifiedByThisTask": False, "limitations": "Mechanical integrity only; semantic evidence is in the three independent role reports. No runtime, audio or student validation."}
+    result["scopeBaseRef"] = base_ref
+    result["scopeBaseCommit"] = git("rev-parse", "--verify", "--end-of-options", base_ref + "^{commit}").decode().strip()
     output = HERE / ("FINAL_VALIDATION.json" if require_reviews else "STRUCTURE_AND_PROGRESS.json")
     temporary = output.with_suffix(".json.tmp")
     temporary.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="")
@@ -200,5 +207,7 @@ def validate(require_reviews=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--require-reviews", action="store_true")
+    parser.add_argument("--base-ref", default="3594a000b0ee3c255ed50890efa34c05c1c38d0c",
+                        help="Git base for checking document-only changes; use origin/main after recovery.")
     options = parser.parse_args()
-    raise SystemExit(0 if validate(options.require_reviews) else 1)
+    raise SystemExit(0 if validate(options.require_reviews, options.base_ref) else 1)

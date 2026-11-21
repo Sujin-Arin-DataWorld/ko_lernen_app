@@ -1,5 +1,5 @@
 {
-  "checkedUtc": "2026-11-15T09:06:18.037609+00:00",
+  "checkedUtc": "2026-11-21T16:44:27.475316+00:00",
   "mode": "final",
   "units": 100,
   "bands": {
@@ -4971,5 +4971,7 @@
   "actualAudioVerified": false,
   "synthesisPerformed": false,
   "appModifiedByThisTask": false,
-  "limitations": "Mechanical integrity only; semantic evidence is in the three independent role reports. No runtime, audio or student validation."
+  "limitations": "Mechanical integrity only; semantic evidence is in the three independent role reports. No runtime, audio or student validation.",
+  "scopeBaseRef": "origin/main",
+  "scopeBaseCommit": "afc57a7b995bb731adebb9ef0994b286ae104c9a"
 }
