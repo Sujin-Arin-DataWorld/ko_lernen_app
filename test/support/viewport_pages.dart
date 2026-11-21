@@ -38,3 +38,29 @@ Future<void> showViewportSection(
   }
   expect(target.hitTestable(), findsOneWidget);
 }
+
+/// Brings [target] on screen whichever body the current route uses: paged
+/// screens (`SoriViewportPages`) turn to the page holding it, scrolling
+/// screens scroll the first [Scrollable] by [delta] until it is built.
+Future<void> revealForTap(
+  WidgetTester tester,
+  Finder target, {
+  double delta = 180,
+}) async {
+  await tester.pump();
+  if (target.hitTestable().evaluate().isNotEmpty) {
+    return;
+  }
+  final paged = find
+      .byKey(const ValueKey('sori-viewport-page'))
+      .evaluate()
+      .isNotEmpty;
+  final scrollable = find.byType(Scrollable);
+  if (paged || scrollable.evaluate().isEmpty) {
+    await showViewportSection(tester, target);
+    return;
+  }
+  await tester.scrollUntilVisible(target, delta, scrollable: scrollable.first);
+  await tester.ensureVisible(target);
+  await tester.pump();
+}

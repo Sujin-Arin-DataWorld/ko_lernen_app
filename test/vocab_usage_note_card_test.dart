@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 
 import 'support/sori_speech_stubs.dart';
+import 'support/viewport_pages.dart';
 
 /// C9-T0: card-back "쓰임" section (`_UsageNoteExpander` in
 /// vocab_pack_screen.dart). Private classes cannot be imported directly, so
@@ -127,6 +128,9 @@ Widget _app(Widget home, {Locale locale = const Locale('de')}) {
 }
 
 Future<void> _flipToBack(WidgetTester tester) async {
+  // At large text sizes the study screen is split into viewport pages and an
+  // off-page card has its animations paused; bring the card into view first.
+  await showViewportSection(tester, find.byType(FlipCard));
   tester.widget<FlipCard>(find.byType(FlipCard)).onTap!();
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 400));

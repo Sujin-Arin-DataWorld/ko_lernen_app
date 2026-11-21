@@ -610,6 +610,10 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                     ? null
                     : ValueKey('course-section-$currentMission'),
                 targetRevision: _targetRevision,
+                // W10 T-V3 (Jin D-4): the collapsed path is a few cards and
+                // one toggle, so on tall viewports it is centred instead of
+                // clustering at the top. The expanded trail fills its pages.
+                centerContent: !showTrail,
                 sections: [
                   ...courseSections,
                   if (showTrail) ...[
