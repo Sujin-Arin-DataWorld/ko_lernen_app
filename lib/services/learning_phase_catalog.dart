@@ -20,6 +20,19 @@ String learningPhaseScenarioId(CourseUnit unit) {
   return ids.single.substring('scenario:'.length);
 }
 
+/// Editorial grouping of a Phase's existing tasks; never locks or gates.
+class LearningPhaseStep {
+  const LearningPhaseStep({
+    required this.id,
+    required this.title,
+    required this.taskIds,
+  });
+
+  final String id;
+  final CurriculumText title;
+  final List<String> taskIds;
+}
+
 /// Related practice is not a new completion or placement authority.
 class LearningPhase {
   const LearningPhase({
@@ -33,6 +46,7 @@ class LearningPhase {
     this.illustrationAsset,
     this.taskIds = const [],
     this.taskCoverage = 'related_practice_only',
+    this.steps = const [],
   });
 
   final String id;
@@ -45,6 +59,9 @@ class LearningPhase {
   final String? illustrationAsset;
   final List<String> taskIds;
   final String taskCoverage;
+
+  /// Empty for a Phase shown as one flat list.
+  final List<LearningPhaseStep> steps;
 }
 
 class LearningPhaseCatalog {
@@ -134,6 +151,40 @@ class LearningPhaseCatalog {
               (taskIds.isEmpty ? 'related_practice_only' : 'partial')) {
         throw FormatException('Invalid Phase task coverage for $id');
       }
+      final steps = <LearningPhaseStep>[];
+      final stepIds = <String>{};
+      final stepTaskIds = <String>[];
+      // Steps only exist alongside v2 task IDs; v1 stays readable without them.
+      for (final rawStep
+          in v2 ? (row['steps'] as List?) ?? const [] : const []) {
+        final stepRow = rawStep as Map<String, dynamic>;
+        final stepId = stepRow['id'] as String;
+        final ids = (stepRow['taskIds'] as List).cast<String>();
+        final title = CurriculumText.fromJson(
+          stepRow['title'] as Map<String, dynamic>,
+        );
+        if (!stepIds.add(stepId) ||
+            !stepId.startsWith('$id.') ||
+            ids.isEmpty ||
+            [title.ko, title.en, title.de].any((s) => s.trim().isEmpty)) {
+          throw FormatException('Invalid Phase step for $id');
+        }
+        stepTaskIds.addAll(ids);
+        steps.add(
+          LearningPhaseStep(
+            id: stepId,
+            title: title,
+            taskIds: List.unmodifiable(ids),
+          ),
+        );
+      }
+      // Every Phase task belongs to exactly one step, or the Phase has none.
+      if (steps.isNotEmpty &&
+          (stepTaskIds.length != taskIds.length ||
+              stepTaskIds.toSet().length != stepTaskIds.length ||
+              !stepTaskIds.toSet().containsAll(taskIds))) {
+        throw FormatException('Phase steps must cover each task once for $id');
+      }
       final illustrationAsset = row['illustrationAsset'] as String?;
       if (illustrationAsset != null &&
           illustrationAsset != '$illustrationRoot${id.toLowerCase()}.webp') {
@@ -172,6 +223,7 @@ class LearningPhaseCatalog {
           illustrationAsset: illustrationAsset,
           taskIds: List.unmodifiable(taskIds),
           taskCoverage: taskCoverage,
+          steps: List.unmodifiable(steps),
         ),
       );
     }

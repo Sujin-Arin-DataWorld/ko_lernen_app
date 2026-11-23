@@ -19,8 +19,38 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = Path("tools/content_factory/cefr_matrix/phases.json")
 BINDINGS = Path("tools/content_factory/cefr_matrix/runtime_bindings.json")
+STEPS = Path("tools/content_factory/cefr_matrix/phase_steps.json")
 OUTPUT = Path("assets/data/learning_phases.json")
 LEVEL_COUNTS = {"A1": 4, "A2": 4, "B1": 5, "B2": 5, "C1": 6, "C2": 6}
+
+
+def apply_steps(output: list, source: dict) -> None:
+    """Attach ordered steps; every phase task must sit in exactly one step."""
+    by_id = {p["id"]: p for p in output}
+    seen_phases = set()
+    for entry in source["phases"]:
+        pid = entry["phaseId"]
+        if pid not in by_id or pid in seen_phases:
+            raise ValueError(f"{pid}: unknown or repeated phase in phase_steps")
+        seen_phases.add(pid)
+        phase = by_id[pid]
+        steps, flat, step_ids = [], [], set()
+        for step in entry["steps"]:
+            if step["id"] in step_ids or not step["id"].startswith(f"{pid}."):
+                raise ValueError(f"{pid}: bad or duplicate step id {step['id']}")
+            step_ids.add(step["id"])
+            if any(not step["title"].get(lang, "").strip() for lang in ("ko", "de", "en")):
+                raise ValueError(f"{step['id']}: incomplete localized title")
+            ids = [f"{pid}:{t}" for t in step["tasks"]]
+            if not ids:
+                raise ValueError(f"{step['id']}: empty step")
+            steps.append({"id": step["id"], "title": step["title"], "taskIds": ids})
+            flat += ids
+        if len(flat) != len(set(flat)):
+            raise ValueError(f"{pid}: a task appears in more than one step")
+        if set(flat) != set(phase["taskIds"]):
+            raise ValueError(f"{pid}: steps must cover exactly the phase tasks")
+        phase["steps"] = steps
 
 
 def build(root: Path = ROOT) -> dict:
@@ -82,6 +112,13 @@ def build(root: Path = ROOT) -> dict:
         for phase in output:
             phase["taskIds"] = [t["id"] for t in tasks["tasks"] if t["phaseId"] == phase["id"]]
             phase["taskCoverage"] = "partial" if phase["taskIds"] else "related_practice_only"
+    steps_path = root / STEPS
+    steps_hash = None
+    if tasks is not None and steps_path.is_file():
+        apply_steps(output, read(STEPS))
+        steps_hash = hashlib.sha256(
+            steps_path.read_bytes().replace(b"\r\n", b"\n")
+        ).hexdigest()
     result = {
         "schemaVersion": 2 if tasks is not None else 1,
         "sourceSha256": hashlib.sha256((root / SOURCE).read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
@@ -90,6 +127,8 @@ def build(root: Path = ROOT) -> dict:
     }
     if tasks is not None:
         result["phaseTaskSourceSha256"] = build_phase_tasks.fingerprint(tasks)
+    if steps_hash is not None:
+        result["stepsSourceSha256"] = steps_hash
     return result
 
 

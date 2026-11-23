@@ -109,4 +109,40 @@ void main() {
       },
     );
   }
+
+  test('KP01 steps parse in order and cover every task exactly once', () async {
+    final phases = await LearningPhaseCatalog.load();
+    final kp01 = phases.first;
+    expect(kp01.steps.map((s) => s.id), [
+      'KP01.1',
+      'KP01.2',
+      'KP01.3',
+      'KP01.4',
+    ]);
+    expect(
+      kp01.steps.expand((s) => s.taskIds).toList()..sort(),
+      [...kp01.taskIds]..sort(),
+    );
+    expect(phases.skip(1).every((p) => p.steps.isEmpty), isTrue);
+  });
+
+  test('steps that miss, duplicate or invent a task are rejected', () async {
+    final raw = jsonDecode(
+      await File(LearningPhaseCatalog.assetPath).readAsString(),
+    ) as Map<String, dynamic>;
+    final curriculum = await CurriculumCatalog.load();
+    for (final mutate in <void Function(List<dynamic>)>[
+      (steps) => (steps[0]['taskIds'] as List).removeLast(),
+      (steps) => (steps[1]['taskIds'] as List).add(steps[0]['taskIds'][0]),
+      (steps) => (steps[0]['taskIds'] as List)[0] = 'KP01:missing',
+      (steps) => steps[0]['title']['de'] = '',
+    ]) {
+      final copy = jsonDecode(jsonEncode(raw)) as Map<String, dynamic>;
+      mutate(copy['phases'][0]['steps'] as List);
+      expect(
+        () => LearningPhaseCatalog.parse(copy, curriculum.courseUnits),
+        throwsFormatException,
+      );
+    }
+  });
 }
