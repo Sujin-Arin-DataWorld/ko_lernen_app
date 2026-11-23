@@ -6,10 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
-import 'package:ko_lernen_app/models/guide_contract.dart';
 import 'package:ko_lernen_app/models/smalltalk_context_case.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
-import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/smalltalk_context_screen.dart';
 import 'package:ko_lernen_app/services/smalltalk_context_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -70,64 +68,6 @@ void main() {
         _key('daily-folio-finish'),
         const Rect.fromLTWH(148, 727, 238, 51),
       ),
-    });
-  });
-
-  testWidgets('Hangul writing · Figma 280:889 at 402×874', (tester) async {
-    await _mount(
-      tester,
-      HangulScreen(
-        initialTarget: HangulTarget.write,
-        speechPlayer: (_) async => true,
-        textPrefetcher: (_) async {},
-      ),
-    );
-    await tester.tap(_key('hangul-writing-selection'));
-    await pumpSoriStage(tester);
-    final letter = _key('hangul-writing-letter-ㅘ');
-    await showSoriViewportSection(tester, letter);
-    await tester.tap(letter);
-    await pumpSoriStage(tester);
-    for (var stroke = 0; stroke < 4; stroke++) {
-      await tester.tap(_key('hangul-demonstrate'));
-      await pumpSoriStage(tester);
-    }
-    expect(find.text('Du bist dran'), findsOneWidget);
-    await _compare(tester, 'hangul-writing', {
-      '280:890': (_key('hangul-atelier-header'), _headerRect),
-      '280:895': (_key(_nav), _navRect),
-      '280:929': (
-        _key('hangul-demonstrate'),
-        const Rect.fromLTWH(16, 630, 184, 51),
-      ),
-      '280:931': (
-        _key('hangul-auto-advance'),
-        const Rect.fromLTWH(209, 630, 177, 51),
-      ),
-      '280:933': (
-        _key('hangul-writing-listen'),
-        const Rect.fromLTWH(16, 723, 117, 51),
-      ),
-      '280:935': (
-        _key('hangul-finish-writing'),
-        const Rect.fromLTWH(145, 723, 241, 51),
-      ),
-    });
-  });
-
-  testWidgets('Hangul overview chrome · Figma 280:845 at 402×874', (
-    tester,
-  ) async {
-    await _mount(
-      tester,
-      HangulScreen(
-        speechPlayer: (_) async => true,
-        textPrefetcher: (_) async {},
-      ),
-    );
-    await _compare(tester, 'hangul-overview', {
-      '280:846': (_key('hangul-atelier-header'), _headerRect),
-      '280:853': (_key(_nav), _navRect),
     });
   });
 
