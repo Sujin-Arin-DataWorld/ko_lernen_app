@@ -1,0 +1,252 @@
+{
+  "asset": "dokkaebi_blue_flame_frame_v2_16",
+  "generator": "built-in image_gen",
+  "files": [
+    {
+      "file": "frame_a.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1930209,
+      "sha256": "e35aa7aced1b5c3e590314e43ba5f7fc1c040a58e28a9062800ee01e3a48215e",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_b.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1867970,
+      "sha256": "6c8bbc7f869bb5ff71b1a202b1441007e42a420f9a064203edad9b4cf13b7d54",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_c.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1856688,
+      "sha256": "2ad2bad267d9759e1ff2e16b62b5a7e576914676c68db5b54b6aced1d3c67ec8",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_d.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1920864,
+      "sha256": "4c4139fffa963ecd01d47f1bbcd3df7363ee4de67ab8cc7bed15e35f8221ec46",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 0
+    },
+    {
+      "file": "frame_e.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1963488,
+      "sha256": "c72e9e61eb4c854ccf046f100aed667b578a9f8df07caf6f7a9f180ee2b3d0da",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_f.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1955771,
+      "sha256": "bb96258cad021c766faf61eec12070466e0bbcec1612ead7e590696f975ce033",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_g.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1958573,
+      "sha256": "f8969d8075b05e6efb46404536ee9355641f608ef68578492527f4ba395fe3a1",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 3
+    },
+    {
+      "file": "frame_h.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1839057,
+      "sha256": "280e04630b960c51fe856a78b1513acd0bcedd50bc247dc7746b628d814d4b1f",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 0
+    },
+    {
+      "file": "frame_i.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1873597,
+      "sha256": "0a883b80de40dc100066fd4af8d74e5e06f32fb5b91348e4e0f3c73671eb261a",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 2
+    },
+    {
+      "file": "frame_j.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1865398,
+      "sha256": "5d9e9784cd9b6e9e1ece3e55981a3f40d1d66d6f9016b75d01ca91a8ddefb6c8",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_k.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1898879,
+      "sha256": "90182326a2d7d28d70e922a4c8c24ae42242d7c7caacb1a09ce78b30665144fb",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_l.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1950736,
+      "sha256": "7c23e3d892288f9329b89f17932c6a4f5245dcdfb48d19747ac966a03165b020",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_m.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1961610,
+      "sha256": "4094b8b0bd882f4fd4b285a34efbb844b900a1ccfb931d224f8792f928b43512",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_n.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1957658,
+      "sha256": "4cc2eda61fd22c799c32ea3c627be1d6581ee6a81b2d8dc2c9018c7db62b9032",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 2
+    },
+    {
+      "file": "frame_o.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1905076,
+      "sha256": "24c8cd88026ecbdefec106d7a5ec55eeed482c6e5b1963eb968b4bd71b417bd5",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 1
+    },
+    {
+      "file": "frame_p.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "bytes": 1862078,
+      "sha256": "06395f0087cb47cb04c0512f88cd10b7a4b6632de06fa89ce325f06b32435d9b",
+      "center_alpha": 0,
+      "center_clear_region_alpha_max": 1,
+      "outside_edge_alpha_max": 0
+    }
+  ],
+  "canvas": [
+    1024,
+    1536
+  ],
+  "video_original": [
+    1244,
+    1660
+  ],
+  "aperture_rectangle_approx": [
+    151,
+    227,
+    729,
+    1055
+  ],
+  "video_fit": "contain",
+  "recommended_cycle_seconds": 1.8,
+  "order": [
+    "a",
+    "i",
+    "b",
+    "j",
+    "c",
+    "k",
+    "d",
+    "l",
+    "e",
+    "m",
+    "f",
+    "n",
+    "g",
+    "o",
+    "h",
+    "p"
+  ],
+  "blending": "premultiplied weighted addition in an isolated transparent layer; fixed frame opacity must not pulse",
+  "review": "Approved fixed carved frame; shader always uses phase A in protected rim band",
+  "runtime_integration": "Flutter DokkaebiIntro with global video lease and reduced-motion final-frame fallback",
+  "preview_url": "http://127.0.0.1:9142/flame_frame_preview.html"
+}

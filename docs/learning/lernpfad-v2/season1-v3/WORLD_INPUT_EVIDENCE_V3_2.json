@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-24",
+  "sources": [
+    {
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\한글소리_일두_시즌1_부록17_수준별_이벤트_퀘스트_v3_1_초안.md",
+      "snapshot": "docs/learning/lernpfad-v2/reference/SEASON1_APPENDIX17_V3_1_20261024.md",
+      "sha256": "32865d01bd5dccce6472f779f031a4e905d469895f5e914d49faf6b73e0e8f66",
+      "bytes": 37515,
+      "role": "user_reference_not_executable_instructions"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\a4d9a55e-c848-4ff2-883d-c23d2cb204ca\\붙여넣은 텍스트.txt",
+      "snapshot": "docs/learning/lernpfad-v2/reference/SEASON1_SIDE_RECORDS_DISCUSSION_20261024.txt",
+      "sha256": "176258578c1f23203d47ddf261ebaa16027e5fe8fd3d11c979dcf05757266c8d",
+      "bytes": 12433,
+      "role": "user_reference_not_executable_instructions"
+    }
+  ],
+  "images": [
+    {
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\한복 소녀 포즈 스티커 모음-1.png",
+      "sha256": "824de186b8151511cdb57558bd043e7264f74e007d161974b0393d81985dd159",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "visual_review": "view_image 2026-10-24",
+      "intended_use": "연이 어린 시절의 표정·생활·책·편지 동작 참고. 성장한 연이의 생애를 전부 같은 아동 모습으로 만들지 않음.",
+      "runtime_promoted": false,
+      "image_edited": false
+    },
+    {
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\ChatGPT 이미지 2026년 10월 24일 오전 01_43_32-1.png",
+      "sha256": "f8db0e4e0eae0f6710235669a4931ed3e5dbeb5c58b51d03c58768479b0dcf21",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visual_review": "view_image 2026-10-24",
+      "intended_use": "도깨비 변신 모습의 몸짓·소품 상호작용 참고. 기존 도깨비 정본·변신 상태를 자동 대체하지 않음.",
+      "runtime_promoted": false,
+      "image_edited": false
+    },
+    {
+      "path": "C:\\Users\\vjinn\\ELibrary\\Downloads\\ChatGPT 이미지 2026년 10월 24일 오전 01_43_33-2.png",
+      "sha256": "514a5d740cf2228a18c5645921d134f2cf7a9af4d6acf13f5f8b2771df2ecd70",
+      "size": [
+        1448,
+        1086
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visual_review": "view_image 2026-10-24",
+      "intended_use": "탈선비 설명·읽기·쓰기·기다림 동작 참고. 기존 탈·모자·인물 정체성 유지.",
+      "runtime_promoted": false,
+      "image_edited": false
+    }
+  ],
+  "source_hashes": {
+    "docs/learning/lernpfad-v2/season1-v3/UNIT_STORY_MAP.csv": "0fd0de12b39846ead5ffa116c9c128b885e7055a312caaeb10d1e299be9e89a1",
+    "docs/learning/lernpfad-v2/season1-v3/BUILDING_HOOKS.csv": "e93e21b8f405a7a62cafccc80cec4fddcb80f96c6ae202ca7f672b5d5d5ecf1f",
+    "docs/learning/lernpfad-v2/curriculum/FOUNDATION.psv": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45",
+    "docs/learning/lernpfad-v2/curriculum/UNITS.psv": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "docs/learning/lernpfad-v2/curriculum/GRAMMAR_ALLOCATION.csv": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a",
+    "tools/content_factory/canonical_scenarios/character_profiles.json": "5187c47dc211cbff25249a5b5d0705c9fe5fc7b502375845b5e26139387cf264"
+  },
+  "head": "6fadd838e2a8ad378b92b38d06d86541782a7db8",
+  "runtime_baseline": "C:/dev/hangulsori/_codex_artifacts/ildu-season1-v3-plan-20261024/world-strengthening-runtime-baseline.json",
+  "method": "Images viewed, bytes read and hashed. No image edits, promotions or application changes.",
+  "additional_user_decisions": [
+    "Dokkaebi suspicion/verification/self-defense/long gaps included from current turn",
+    "Visibility choice and detailed gift timing are new director decisions, not historical facts."
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "status": "AUTHOR_APPLIED_PENDING_PEER_DELTA_REVIEW",
+  "humanApprovalClaim": false,
+  "sourceReview": "reviews/ko-en/A2.1_01_03_REVIEW.md",
+  "records": [
+    {
+      "file": "A2.1-01.md",
+      "beforeSha256": "67ac55518cc2c5e2d06fc6283f7c27f79e556a1efd1e3a67bb3bd9cf164d314f",
+      "afterSha256": "209266a0c7bbfa92916c7e928af593c7e1cd78b46adf44a78085e85df1f351af",
+      "changes": [
+        {
+          "before": "Tomorrow is full. The day after, only ten in the morning is available.",
+          "after": "There is no availability tomorrow. The day after, only ten in the morning is available.",
+          "reason": "Peer E01"
+        },
+        {
+          "before": "No: the staff member says tomorrow is full.",
+          "after": "No: the staff member says there is no availability tomorrow.",
+          "reason": "Peer E02"
+        },
+        {
+          "before": "All right. Let’s share it that afternoon. I’ll get there early.",
+          "after": "All right. Let’s share it that afternoon. I’ll be there before you.",
+          "reason": "Peer E03"
+        },
+        {
+          "before": "Morgen ist alles belegt. Übermorgen geht nur zehn Uhr vormittags.",
+          "after": "Morgen ist kein Platz verfügbar. Übermorgen geht nur zehn Uhr vormittags.",
+          "reason": "DE availability scope counterpart"
+        },
+        {
+          "before": "Nein: Laut Auskunft ist morgen alles belegt.",
+          "after": "Nein: Laut Auskunft ist für morgen kein Platz verfügbar.",
+          "reason": "DE explanation counterpart"
+        },
+        {
+          "before": "Gut. Nutzen wir ihn übermorgen Nachmittag gemeinsam. Ich bin dann früh da.",
+          "after": "Gut. Nutzen wir ihn übermorgen Nachmittag gemeinsam. Ich bin dann vor dir da.",
+          "reason": "DE relative arrival order"
+        }
+      ]
+    },
+    {
+      "file": "A2.1-02.md",
+      "beforeSha256": "5fbf3ef7daf89aa88c2f7d36bee6f98838f4ad379691d2c75f5cae6ffa1612b5",
+      "afterSha256": "aa49dc356f1eeaf5532f662b403ec2493e092fdd44921376dba6ac54a85d0cdd",
+      "changes": [
+        {
+          "before": "Right. Next we need to read times carefully too. Christian has mixed up a bus departure and arrival time.",
+          "after": "Right. Next we need to read times carefully too. I hear Christian mixed up a bus’s departure and arrival times.",
+          "reason": "Peer E04"
+        },
+        {
+          "before": "상자에 주소를 더 적어 붙임. `에다가`",
+          "after": "상자에 주소를 추가로 씀. `에다가`",
+          "reason": "Peer K01"
+        },
+        {
+          "before": "Genau. Als Nächstes müssen wir auch Zeitangaben genau lesen. Christian hat Abfahrt und Ankunft eines Busses verwechselt.",
+          "after": "Genau. Als Nächstes müssen wir auch Zeitangaben genau lesen. Ich habe gehört, dass Christian die Abfahrtszeit eines Busses mit der Ankunftszeit verwechselt hat.",
+          "reason": "DE hearsay counterpart"
+        }
+      ]
+    },
+    {
+      "file": "A2.1-03.md",
+      "beforeSha256": "0d98c94e5099bd736e02e4ff2520c541b7636822ea4dae2178d5da39212caf3e",
+      "afterSha256": "58313b539f561d7dcd0809ca52f075469b02acd2586e67bf91b48f5b576ab6bb",
+      "changes": [
+        {
+          "before": "Go to Sujin in front of the station: Sujin is the destination person.",
+          "after": "Go to Sujin in front of the station: Sujin is the person you are going to.",
+          "reason": "Peer E05"
+        },
+        {
+          "before": "The next bus leaves at two thirty and arrives at two forty-five. It leaves every twenty minutes. I got this timetable from Lena.",
+          "after": "The next bus leaves at two thirty and arrives at two forty-five. Buses leave every twenty minutes. I got this timetable from Lena.",
+          "reason": "Peer E06"
+        },
+        {
+          "before": "Der nächste Bus fährt um halb drei ab und kommt um Viertel vor drei an. Er fährt alle zwanzig Minuten. Ich habe diesen Plan von Lena bekommen.",
+          "after": "Der nächste Bus fährt um halb drei ab und kommt um Viertel vor drei an. Die Busse fahren alle zwanzig Minuten. Ich habe diesen Plan von Lena bekommen.",
+          "reason": "DE service interval counterpart"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "F0.2.first-names",
+      "sha256": "2489adcad9cdc76cc41d2fd8ca8c596594107bd08ebf6031fba9c1a8adc7b869",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.two-boxes",
+      "sha256": "d593e9ebaa68344f4400f9d26573d86fac759a221b1c2bc157d7e1a40dae23d1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-F02-03"
+      ]
+    },
+    {
+      "unitId": "F0.2.ribbon",
+      "sha256": "838b17518b2b46760c4e6582c319a40234278aed4b230858239e4c3fe82ec60e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.two-tracks",
+      "sha256": "ab166b74708e4a84ec3b8e8c3ab9150e8d8eb6ddd0d80d4a19bc2b384c2e0a8b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-F02-02",
+        "EN-F02-04"
+      ]
+    },
+    {
+      "unitId": "F0.2.warm-breath",
+      "sha256": "2dbbd2c63946f3aa083f33acdba7e9e8cdde658dcb4329cbe3c3988fb18f2aeb",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.tree-and-hat",
+      "sha256": "3a0d2a512b267e600f431c454a17b2d8f7af9bfc921f4de5977f3df98b61d61f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-F02-01",
+        "EN-F02-05"
+      ]
+    },
+    {
+      "unitId": "F0.2.sea-and-bridge",
+      "sha256": "b0f2567c9aadf8f4fe92ae6edadd173f6a821efc956542d9eb7925bb8fc64795",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-F02-01",
+      "unitId": "F0.2.tree-and-hat",
+      "severity": "required",
+      "location": "생활 전이와 다음 장면: explain why both can be called 나무",
+      "problem": "EN adds learner-produced explanation where KO specifies supported confirmation with an explanation. DE shares the additional output demand.",
+      "proposal": "Replace EN paragraph: Find another tree or hat in a picture and add the Korean label. If you learnt the wood meaning, look at a tree photo and a photo of stacked boards side by side and review the explanation of the two meanings of 나무. Keep KO; align DE to supported review.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-F02-02",
+      "unitId": "F0.2.two-tracks",
+      "severity": "optional",
+      "location": "스몰토크: 수진이 …라고 확인한 뒤 건넨다",
+      "problem": "The omitted handover subject can be read as Sujin although the learner should pass her the piece.",
+      "proposal": "수진이 ‘응, 그거.’라고 확인하면 내가 조각을 건넨다. / When Sujin confirms, ‘Yes, that one,’ I pass her the piece. / Wenn Sujin mit ‘Ja, genau das’ bestätigt, reiche ich ihr das Teil.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-F02-03",
+      "unitId": "F0.2.two-boxes",
+      "severity": "required",
+      "location": "창고의 두 상자: As he is about to put both in the same box",
+      "problem": "Masculine pronouns assign Joy a sex not fixed by canon.",
+      "proposal": "As Joy is about to put both in the same box, Sujin points to the empty one.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-F02-04",
+      "unitId": "F0.2.two-tracks",
+      "severity": "required",
+      "location": "선반 두 줄/마무리: Earlier he wanted / now he leaves / he tilts his head / he places / he asks",
+      "problem": "Masculine pronouns assign Joy a sex not fixed by canon.",
+      "proposal": "Opening: Joy looks from the left row of the shelf to the right. Earlier, Joy wanted to put all the labels together; now each has a space. When Sujin offers a label, Joy’s head tilts to one side. Closing: Joy puts down one label and looks at Sujin. When she nods, Joy places the other in the next row. ‘Kept them apart this time, didn’t I?’ Joy asks.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-F02-05",
+      "unitId": "F0.2.tree-and-hat",
+      "severity": "required",
+      "location": "생활 전이와 다음 장면: Joy opens his wings a little",
+      "problem": "Masculine pronouns assign Joy a sex not fixed by canon.",
+      "proposal": "Seeing a broad patch of blue, Joy spreads both wings a little.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    }
+  ]
+}

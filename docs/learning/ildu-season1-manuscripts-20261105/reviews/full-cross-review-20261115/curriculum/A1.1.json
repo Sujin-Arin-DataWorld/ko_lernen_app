@@ -1,0 +1,102 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A1.1-01",
+      "sha256": "c0d8decedb50dbca3e9ffc0e00b06adb4bb258f34fbf701eca76ba13f5fd35b1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.1-02",
+      "sha256": "d07f102df60b06ca81a5d5abc265b69aeb18acb84fc83ac04c7a4dcb97e8f6b7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A11-01"
+      ]
+    },
+    {
+      "unitId": "A1.1-03",
+      "sha256": "ba848d65ceaa010bd28a51bc9569995b88d9e778db3161bc3993ace1dd962f45",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A11-02"
+      ]
+    },
+    {
+      "unitId": "A1.1-04",
+      "sha256": "c3a31ade3b47cb11e9938394c619948234847b682c8bda8dabaefaad097bd88a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.1-05",
+      "sha256": "f443e52e0d529a134cea928643fc49874e4d838edee0a4b768bd2db691c932a7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.1-06",
+      "sha256": "e9a372b201990af34514e59af75da77939c078517379129bfe9eb9d91b94e94e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A11-03"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-A11-01",
+      "unitId": "A1.1-02",
+      "severity": "required",
+      "location": "스몰토크·새 확인·전이 / 이어 B 역할에서 이름과 언어를 소개해요",
+      "problem": "The exact unit can-do includes introducing and asking for chosen personal information. Every learner turn introduces or answers. The script's 한국어 해요? does not elicit a learner question.",
+      "proposal": "Append a learner question turn before its hidden key: KO ‘이번에는 A 역할의 상대가 영어를 쓰는지 알고 싶어요. 배운 말로 묻고 답을 기다리세요.’ EN ‘Now find out whether role A speaks English. Ask using the language you have learned and wait for an answer.’ DE ‘Finde nun heraus, ob Rolle A Englisch spricht. Frage mit den gelernten Ausdrücken und warte auf die Antwort.’ Facilitator-only after attempt: accept 영어 해요?; partner A replies 네, 영어 해요. Accept another natural polite question without requiring the later -세요 form. Real personal disclosure remains optional.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A11-02",
+      "unitId": "A1.1-03",
+      "severity": "required",
+      "location": "새 자료와 생활 전이 / 추가 질문 저기 가방이 있어요?의 답은 네, 있어요",
+      "problem": "The can-do requires asking about presence. In the new task the partner asks and the learner only answers/states. The supplied additional question is also to be answered. The optional location question does not elicit an existence question.",
+      "proposal": "Replace the additional-question instruction with KO ‘이번에는 내가 묻는 차례예요. B에 가방이 있는지 상대에게 묻고 답을 들어요.’ EN ‘Now it is your turn to ask. Ask your partner whether there is a bag in B and listen to the answer.’ DE ‘Nun fragst du. Frage dein Gegenüber, ob in B eine Tasche ist, und höre die Antwort.’ Facilitator-only key after attempt: 저기 가방이 있어요? → 네, 있어요. Natural omission of 저기 is allowed when B is clear.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A11-03",
+      "unitId": "A1.1-06",
+      "severity": "required",
+      "location": "독립 확인과 전이 / 가능한 답 아니요, 제 가방이 아니에요. 이거 주세요",
+      "problem": "The section claims independent performance while the immediately following trilingual row supplies every response without concealment instructions. Reading that row cannot establish independent correction/addition/restriction.",
+      "proposal": "Before the new layout add KO ‘독립 확인에서는 앞의 시범·단어 예문과 아래 진행자 답안을 가려요. 새 배열·역할 정보만 보고 차례로 답해요. 도움을 열면 도움받은 수행으로 기록해요.’ EN ‘For the independent check, hide the earlier models, vocabulary examples and facilitator answers below. Respond in turn using only the new layout and role information. If help is opened, record a supported attempt.’ DE ‘Decke für die selbstständige Aufgabe die bisherigen Vorbilder, Wortschatzbeispiele und die folgenden Lösungen für die Begleitung ab. Antworte der Reihe nach nur anhand der neuen Anordnung und Rollenangaben. Mit geöffneter Hilfe zählt der Versuch als gestützt.’ Move possible answers to a facilitator-only subsection revealed after the attempt; retain natural variants and partner exchange/reconfirmation.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

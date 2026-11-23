@@ -1,0 +1,72 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B1.1-01",
+      "sha256": "a378bb5c418c3c1f031d28ef89f760cb9298944a0609ea11e7cc755bf0123363",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-02",
+      "sha256": "263a79f425d13e25103d6e327be52cd5a6085445a03397e8477fb0bb64b77021",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-03",
+      "sha256": "f59c5b79cc072cec6d5cc6132acc1f223af91986a3a2314f07ad99db54d5ef07",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-04",
+      "sha256": "882e7a3a4b51568f2355c7c8879237f58e3242597bb20dc4ca5f48ae69d597f5",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-05",
+      "sha256": "c1a6e1ec7f5da08f8637d296a01f350202c719d1e6a355e57e929b6619177151",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-06",
+      "sha256": "b2c20667875948cee8847a3a0071fa5bf66629291c9c0b801967c46165abce39",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-B11-01"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-B11-01",
+      "unitId": "B1.1-06",
+      "severity": "required",
+      "location": "조건 표현 추가 확인 / -으려면과 -어야로 출발 마감 시각 ... 출발해야 해요",
+      "problem": "GRAMMAR_ALLOCATION row140 targets the connective necessary condition -어야 leading to a result. The purported new-form response ‘출발해야 해요’ is the previously learned obligation -어야 하다 (A2.1-04,row45). It communicates correctly but does not demonstrate the new connective; the actual condition→result form appears only in the teaching model.",
+      "proposal": "Keep the valid -으려면 answer. Split the check into two short turns: KO ‘① -으려면으로 만남을 위한 출발 시각을 말해요. ② 같은 사실을 -어야 뒤에 가능한 결과를 이어서 말해요.’ EN ‘First use -으려면 to state when to leave for the meeting. Then express the same facts using -어야 followed by the result that becomes possible.’ DE ‘Nenne zuerst mit -으려면 die nötige Abfahrtszeit. Drücke danach dieselben Angaben mit -어야 und dem dadurch möglichen Ergebnis aus.’ Hidden second possible answer ‘늦어도 열한 시 이십 분에는 출발해야 열두 시에 역에 도착할 수 있어요.’ / ‘I need to leave by eleven twenty at the latest to be able to reach the station at noon.’ / ‘Nur wenn ich spätestens um elf Uhr zwanzig losfahre, kann ich um zwölf am Bahnhof sein.’ Treat the original 출발해야 해요 as valid planning, not as evidence of the distinct new connective. Keep answer-concealment instructions and the 40-minute fixed role condition.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

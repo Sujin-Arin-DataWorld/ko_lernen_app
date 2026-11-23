@@ -1,0 +1,79 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "documents": [
+    {
+      "file": "AUTHORING_BRIEF.md",
+      "sha256": "b321d41d863af894359976ccc777771353155c77f9d705b1c241737172efe8d3",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "file": "TERM_AND_TRANSLATION_NOTES.md",
+      "sha256": "40ba90f7925841bb5eb024cd86fb7207a8d4469983e0db9d31b2505e448f4993",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "file": "SERIES_EDITORIAL_MAP.md",
+      "sha256": "20749b99a4e1338422afda776993d22b6a397260224f47a78bd44b6ecb920f8f",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "file": "READER_INTRODUCTION.md",
+      "sha256": "67ba967437d70cf63fb62b435f2fa4169c008cac29435b2f90cc239a3fe78884",
+      "fullTextRead": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-COMMON-01"
+      ]
+    },
+    {
+      "file": "CURRICULUM_REUSE_NOTES.md",
+      "sha256": "04c40a8d268fe7caee5783f4add4703f50a80be35bd390610ba7c63467eab55d",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "file": "README.md",
+      "sha256": "6631f3556014fcfec696363f9c6f55d1b1b74a671822f22c4b1b6971ef21f149",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "CUR-COMMON-02"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-COMMON-01",
+      "unitId": "READER_INTRODUCTION.md",
+      "severity": "required",
+      "location": "KO 4th paragraph / corresponding EN and DE: '시범을 따라 해 본 뒤 다른 자료로 혼자 확인하고'",
+      "problem": "The introduction presents a new material/model section as an independent check by default, but multiple manuscripts print complete three-language answers next to it, and some upper tasks are explicitly model-supported. A learner can otherwise read a model and record that attempt as independent evidence. The introduction needs the same help/independent distinction required by AUTHORING_BRIEF, rather than treating the procedure itself as evidence of mastery.",
+      "proposal": "Replace the two procedural sentences with KO: '시범을 따라 해 보고 새 자료로 연습합니다. 독립 확인으로 표시된 과제는 모든 언어의 모범답과 해설을 가린 뒤 문제와 자료만 보고 풀어 봅니다. 답이나 도움을 본 시도는 지원 연습으로 남깁니다. 마지막에는 배운 말을 써서 장면을 이어 갑니다.' EN: 'Try the model with support, then practise with new material. For tasks marked as independent checks, hide model answers and explanations in every language and work from the prompt and materials alone. Record attempts made after viewing answers or help as supported practice. Finally, use what you have learned to continue the scene.' DE: 'Probiere das Muster mit Hilfe aus und übe danach mit neuem Material. Bei ausdrücklich als selbstständige Überprüfung gekennzeichneten Aufgaben deckst du Musterantworten und Erklärungen in allen Sprachen ab und arbeitest nur mit Aufgabe und Material. Wenn du zuvor Antworten oder Hilfe angesehen hast, gilt der Versuch als unterstützte Übung. Zum Schluss führst du die Szene mit dem Gelernten weiter.' This does not certify every existing task as an independent check or replace the localized separation fixes.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-COMMON-02",
+      "unitId": "README.md",
+      "severity": "optional",
+      "location": "review links and paragraphs dated November 14–15",
+      "problem": "The recorded historical review scope is useful, but a completed whole100 review would be undiscoverable here unless the newly saved report index and its exact scope are linked. Do not replace the old paragraph with an unsupported assertion of current100 PASS while corrections are ongoing.",
+      "proposal": "After the final SHA audit, append a link to the new full-cross-review result, stating the actual full-text count, changed-file rereview count and remaining failures. Until that point use '11월 15일 전체 100단원 교차 검토를 진행 중입니다. 현재 범위와 남은 교정은 reviews/full-cross-review-20261115/의 기록을 따릅니다.' Preserve the separate actual-listening, human-review and learner-trial limitations.",
+      "affectedLanguages": [
+        "KO"
+      ]
+    }
+  ]
+}

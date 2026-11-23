@@ -13,6 +13,7 @@ import 'practice_magic.dart';
 import 'practice_motion.dart';
 import 'sori/button.dart';
 import 'sori/card.dart';
+import 'sori/dokkaebi_intro.dart';
 import 'sori/external_link.dart';
 import 'sori/pressable.dart';
 import 'sori/tiger_video.dart';
@@ -38,6 +39,7 @@ class _PracticeDokkaebiIntroductionState
   _Topic _topic = _Topic.learning;
   int _request = 1, _spark = 0;
   int _swingCount = 0;
+  bool _showIntroduction = true;
   bool _play = false, _shown = false, _fireWord = false, _roof = false;
   bool _magical = false;
   bool _details = false;
@@ -59,6 +61,7 @@ class _PracticeDokkaebiIntroductionState
     if (_topic == topic) return;
     setState(() {
       _topic = topic;
+      _showIntroduction = false;
       _request++;
       _shown = _play = _roof = false;
       _magical = false;
@@ -71,6 +74,7 @@ class _PracticeDokkaebiIntroductionState
     setState(() {
       _request++;
       _swingCount++;
+      _showIntroduction = false;
       _shown = _play = false;
     });
     final request = _request;
@@ -197,13 +201,16 @@ class _PracticeDokkaebiIntroductionState
     final heroWidth = beside
         ? math.min(stageWidth, size.width - Spacing.xl * 2 - 108)
         : stageWidth;
-    final introductionStage = Center(
+    Widget introductionStage(double viewportHeight) => Center(
       child: PracticeViewportGate(
         requireFullVisibility: true,
         child: SizedBox(
           key: _stageAnchor,
           width: heroWidth,
-          height: heroWidth / PracticeDokkaebiCanvas.aspectRatio,
+          height: math.min(
+            heroWidth / PracticeDokkaebiCanvas.aspectRatio,
+            math.max(0.0, viewportHeight - Spacing.sm),
+          ),
           child: _IntroductionStage(
             spark: _spark,
             fireLabel: t.practiceDokkaebiFireAction,
@@ -213,7 +220,14 @@ class _PracticeDokkaebiIntroductionState
             }),
             child: AnimatedSwitcher(
               duration: _duration(context, const Duration(milliseconds: 150)),
-              child: !_shown
+              child: _showIntroduction
+                  ? Center(
+                      key: ValueKey('dokkaebi-intro-$_request'),
+                      child: DokkaebiIntro(
+                        staticOnly: !TigerStageVideo.videoReady,
+                      ),
+                    )
+                  : !_shown
                   ? PracticeDokkaebiRestingArt(
                       key: ValueKey(
                         _magical ? PracticeDokkaebiPose.magical : pose,
@@ -247,232 +261,239 @@ class _PracticeDokkaebiIntroductionState
         child: Column(
           children: [
             Expanded(
-              child: SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(
-                  horizontalPadding,
-                  Spacing.sm,
-                  horizontalPadding,
-                  Spacing.xl,
-                ),
-                child: Center(
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 480),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Semantics(
-                                    header: true,
-                                    // l10n: exempt — Korean cultural name taught in every UI locale.
-                                    child: Text(
-                                      '도깨비',
-                                      style: text.cultureTitle,
-                                    ),
-                                  ),
-                                  const SizedBox(height: Spacing.xs),
-                                  Text(
-                                    t.practiceDokkaebiAbout,
-                                    style: text.bodySmall,
-                                  ),
-                                ],
-                              ),
-                            ),
-                            if (canPlay && !_magical)
-                              _GestureAction(
-                                label: t.practiceDokkaebiGesture,
-                                onTap: _showSwing,
-                              ),
-                          ],
-                        ),
-                        const SizedBox(height: Spacing.sm),
-                        if (beside)
+              child: LayoutBuilder(
+                builder: (context, viewport) => SingleChildScrollView(
+                  padding: EdgeInsets.fromLTRB(
+                    horizontalPadding,
+                    Spacing.sm,
+                    horizontalPadding,
+                    Spacing.xl,
+                  ),
+                  child: Center(
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 480),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
                           Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Expanded(child: introductionStage),
-                              const SizedBox(width: Spacing.sm),
-                              SizedBox(
-                                width: 100,
-                                child: _topics(t, scale, compact: true),
-                              ),
-                            ],
-                          )
-                        else
-                          introductionStage,
-                        if (_fireWord) ...[
-                          const SizedBox(height: Spacing.md),
-                          Semantics(
-                            liveRegion: true,
-                            child: Text(
-                              t.practiceDokkaebiFireWord,
-                              key: const ValueKey('dokkaebi-fire-word'),
-                              textAlign: TextAlign.center,
-                              style: text.body,
-                            ),
-                          ),
-                        ],
-                        if (!beside) ...[
-                          const SizedBox(height: Spacing.sm),
-                          _topics(t, scale),
-                        ],
-                        const SizedBox(height: Spacing.md),
-                        _sizeTransition(
-                          context,
-                          PracticeMotionSurface(
-                            interactive: false,
-                            child: PracticeMagicFrame(
-                              pulse: _spark,
-                              child: SoriCard(
-                                key: const ValueKey('dokkaebi-explanation'),
-                                padding: const EdgeInsets.all(Spacing.lg),
-                                child: Semantics(
-                                  liveRegion: true,
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.stretch,
-                                    children: [
-                                      Text(title, style: text.h3),
-                                      const SizedBox(height: Spacing.sm),
-                                      Text(body, style: text.body),
-                                      Semantics(
-                                        expanded: _details,
-                                        child: SoriButton.ghost(
-                                          key: const ValueKey(
-                                            'dokkaebi-details',
-                                          ),
-                                          label: t.catalogDetails,
-                                          trailingIcon: _details
-                                              ? Icons.expand_less_rounded
-                                              : Icons.expand_more_rounded,
-                                          onTap: () => setState(
-                                            () => _details = !_details,
-                                          ),
-                                        ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Semantics(
+                                      header: true,
+                                      // l10n: exempt — Korean cultural name taught in every UI locale.
+                                      child: Text(
+                                        '도깨비',
+                                        style: text.cultureTitle,
                                       ),
-                                      if (_details &&
-                                          _topic == _Topic.tales) ...[
-                                        const SizedBox(height: Spacing.lg),
-                                        Text(
-                                          t.practiceDokkaebiFormNote,
-                                          style: text.caption,
-                                        ),
-                                        const SizedBox(height: Spacing.md),
-                                        PracticeRaisedAction(
-                                          child: SoriButton.outlined(
-                                            key: const ValueKey(
-                                              'dokkaebi-form-toggle',
-                                            ),
-                                            label: _magical
-                                                ? t.practiceDokkaebiFormReturn
-                                                : t.practiceDokkaebiFormAction,
-                                            fullWidth: true,
-                                            onTap: () {
-                                              setState(() {
-                                                _magical = !_magical;
-                                                _shown = _play = false;
-                                                _request++;
-                                                _spark++;
-                                              });
-                                              final anchor =
-                                                  _stageAnchor.currentContext;
-                                              if (anchor != null) {
-                                                Scrollable.ensureVisible(
-                                                  anchor,
-                                                  alignment: .1,
-                                                  duration: _duration(
-                                                    context,
-                                                    SoriMotion.medium,
-                                                  ),
-                                                );
-                                              }
-                                            },
-                                          ),
-                                        ),
-                                      ],
-                                      if (_details &&
-                                          _topic == _Topic.learning) ...[
-                                        const SizedBox(height: Spacing.lg),
-                                        Text(
-                                          t.practiceDokkaebiLearningNote,
-                                          style: text.bodySmall,
-                                        ),
-                                        const SizedBox(height: Spacing.md),
-                                        Text(
-                                          t.practiceDokkaebiAppStory,
-                                          style: text.caption,
-                                        ),
-                                      ] else if (_details) ...[
-                                        const SizedBox(height: Spacing.lg),
-                                        SoriButton.ghost(
-                                          label:
-                                              t.practiceDokkaebiFolkloreSource,
-                                          trailingIcon:
-                                              Icons.open_in_new_rounded,
-                                          onTap: () => openExternalUrl(
-                                            context,
-                                            _topic == _Topic.tales
-                                                ? 'https://encykorea.aks.ac.kr/Article/E0015531'
-                                                : 'https://encykorea.aks.ac.kr/Article/E0015527',
-                                          ),
-                                        ),
-                                      ],
-                                      if (_details &&
-                                          _topic == _Topic.home) ...[
-                                        const SizedBox(height: Spacing.md),
+                                    ),
+                                    const SizedBox(height: Spacing.xs),
+                                    Text(
+                                      t.practiceDokkaebiAbout,
+                                      style: text.bodySmall,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              if (canPlay && !_magical)
+                                _GestureAction(
+                                  label: t.practiceDokkaebiGesture,
+                                  onTap: _showSwing,
+                                ),
+                            ],
+                          ),
+                          const SizedBox(height: Spacing.sm),
+                          if (beside)
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Expanded(
+                                  child: introductionStage(viewport.maxHeight),
+                                ),
+                                const SizedBox(width: Spacing.sm),
+                                SizedBox(
+                                  width: 100,
+                                  child: _topics(t, scale, compact: true),
+                                ),
+                              ],
+                            )
+                          else
+                            introductionStage(viewport.maxHeight),
+                          if (_fireWord) ...[
+                            const SizedBox(height: Spacing.md),
+                            Semantics(
+                              liveRegion: true,
+                              child: Text(
+                                t.practiceDokkaebiFireWord,
+                                key: const ValueKey('dokkaebi-fire-word'),
+                                textAlign: TextAlign.center,
+                                style: text.body,
+                              ),
+                            ),
+                          ],
+                          if (!beside) ...[
+                            const SizedBox(height: Spacing.sm),
+                            _topics(t, scale),
+                          ],
+                          const SizedBox(height: Spacing.md),
+                          _sizeTransition(
+                            context,
+                            PracticeMotionSurface(
+                              interactive: false,
+                              child: PracticeMagicFrame(
+                                pulse: _spark,
+                                child: SoriCard(
+                                  key: const ValueKey('dokkaebi-explanation'),
+                                  padding: const EdgeInsets.all(Spacing.lg),
+                                  child: Semantics(
+                                    liveRegion: true,
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        Text(title, style: text.h3),
+                                        const SizedBox(height: Spacing.sm),
+                                        Text(body, style: text.body),
                                         Semantics(
-                                          expanded: _roof,
-                                          child: PracticeRaisedAction(
-                                            child: SoriButton.outlined(
-                                              key: const ValueKey(
-                                                'dokkaebi-roof-toggle',
-                                              ),
-                                              label:
-                                                  t.practiceDokkaebiRoofAction,
-                                              trailingIcon: _roof
-                                                  ? Icons.expand_less_rounded
-                                                  : Icons.expand_more_rounded,
-                                              fullWidth: true,
-                                              onTap: () => setState(
-                                                () => _roof = !_roof,
-                                              ),
+                                          expanded: _details,
+                                          child: SoriButton.ghost(
+                                            key: const ValueKey(
+                                              'dokkaebi-details',
+                                            ),
+                                            label: t.catalogDetails,
+                                            trailingIcon: _details
+                                                ? Icons.expand_less_rounded
+                                                : Icons.expand_more_rounded,
+                                            onTap: () => setState(
+                                              () => _details = !_details,
                                             ),
                                           ),
                                         ),
-                                        if (_roof) ...[
+                                        if (_details &&
+                                            _topic == _Topic.tales) ...[
                                           const SizedBox(height: Spacing.lg),
-                                          // l10n: exempt — Korean artifact name taught in every UI locale.
-                                          Text('귀면와', style: text.cultureTitle),
-                                          const SizedBox(height: Spacing.sm),
                                           Text(
-                                            t.practiceDokkaebiRoofBody,
-                                            style: text.body,
+                                            t.practiceDokkaebiFormNote,
+                                            style: text.caption,
                                           ),
                                           const SizedBox(height: Spacing.md),
+                                          PracticeRaisedAction(
+                                            child: SoriButton.outlined(
+                                              key: const ValueKey(
+                                                'dokkaebi-form-toggle',
+                                              ),
+                                              label: _magical
+                                                  ? t.practiceDokkaebiFormReturn
+                                                  : t.practiceDokkaebiFormAction,
+                                              fullWidth: true,
+                                              onTap: () {
+                                                setState(() {
+                                                  _magical = !_magical;
+                                                  _shown = _play = false;
+                                                  _request++;
+                                                  _spark++;
+                                                });
+                                                final anchor =
+                                                    _stageAnchor.currentContext;
+                                                if (anchor != null) {
+                                                  Scrollable.ensureVisible(
+                                                    anchor,
+                                                    alignment: .1,
+                                                    duration: _duration(
+                                                      context,
+                                                      SoriMotion.medium,
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                            ),
+                                          ),
+                                        ],
+                                        if (_details &&
+                                            _topic == _Topic.learning) ...[
+                                          const SizedBox(height: Spacing.lg),
+                                          Text(
+                                            t.practiceDokkaebiLearningNote,
+                                            style: text.bodySmall,
+                                          ),
+                                          const SizedBox(height: Spacing.md),
+                                          Text(
+                                            t.practiceDokkaebiAppStory,
+                                            style: text.caption,
+                                          ),
+                                        ] else if (_details) ...[
+                                          const SizedBox(height: Spacing.lg),
                                           SoriButton.ghost(
-                                            label:
-                                                t.practiceDokkaebiMuseumSource,
+                                            label: t
+                                                .practiceDokkaebiFolkloreSource,
                                             trailingIcon:
                                                 Icons.open_in_new_rounded,
                                             onTap: () => openExternalUrl(
                                               context,
-                                              'https://www.museum.go.kr/site/main/relic/search/view?relicId=1478',
+                                              _topic == _Topic.tales
+                                                  ? 'https://encykorea.aks.ac.kr/Article/E0015531'
+                                                  : 'https://encykorea.aks.ac.kr/Article/E0015527',
                                             ),
                                           ),
                                         ],
+                                        if (_details &&
+                                            _topic == _Topic.home) ...[
+                                          const SizedBox(height: Spacing.md),
+                                          Semantics(
+                                            expanded: _roof,
+                                            child: PracticeRaisedAction(
+                                              child: SoriButton.outlined(
+                                                key: const ValueKey(
+                                                  'dokkaebi-roof-toggle',
+                                                ),
+                                                label: t
+                                                    .practiceDokkaebiRoofAction,
+                                                trailingIcon: _roof
+                                                    ? Icons.expand_less_rounded
+                                                    : Icons.expand_more_rounded,
+                                                fullWidth: true,
+                                                onTap: () => setState(
+                                                  () => _roof = !_roof,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          if (_roof) ...[
+                                            const SizedBox(height: Spacing.lg),
+                                            // l10n: exempt — Korean artifact name taught in every UI locale.
+                                            Text(
+                                              '귀면와',
+                                              style: text.cultureTitle,
+                                            ),
+                                            const SizedBox(height: Spacing.sm),
+                                            Text(
+                                              t.practiceDokkaebiRoofBody,
+                                              style: text.body,
+                                            ),
+                                            const SizedBox(height: Spacing.md),
+                                            SoriButton.ghost(
+                                              label: t
+                                                  .practiceDokkaebiMuseumSource,
+                                              trailingIcon:
+                                                  Icons.open_in_new_rounded,
+                                              onTap: () => openExternalUrl(
+                                                context,
+                                                'https://www.museum.go.kr/site/main/relic/search/view?relicId=1478',
+                                              ),
+                                            ),
+                                          ],
+                                        ],
                                       ],
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

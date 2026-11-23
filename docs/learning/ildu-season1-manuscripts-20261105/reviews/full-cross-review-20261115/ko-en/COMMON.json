@@ -1,0 +1,12 @@
+{
+  "role":"ko-en","model":"gpt-6-astra","effort":"max",
+  "documents":[
+    {"file":"AUTHORING_BRIEF.md","sha256":"b321d41d863af894359976ccc777771353155c77f9d705b1c241737172efe8d3","fullTextRead":true,"tasksSolvedAsText":null,"verdict":"PASS","findingIds":[]},
+    {"file":"TERM_AND_TRANSLATION_NOTES.md","sha256":"40ba90f7925841bb5eb024cd86fb7207a8d4469983e0db9d31b2505e448f4993","fullTextRead":true,"tasksSolvedAsText":null,"verdict":"PASS","findingIds":[]},
+    {"file":"SERIES_EDITORIAL_MAP.md","sha256":"20749b99a4e1338422afda776993d22b6a397260224f47a78bd44b6ecb920f8f","fullTextRead":true,"tasksSolvedAsText":null,"verdict":"PASS","findingIds":[]},
+    {"file":"READER_INTRODUCTION.md","sha256":"67ba967437d70cf63fb62b435f2fa4169c008cac29435b2f90cc239a3fe78884","fullTextRead":true,"tasksSolvedAsText":null,"verdict":"PASS","findingIds":[]},
+    {"file":"CURRICULUM_REUSE_NOTES.md","sha256":"04c40a8d268fe7caee5783f4add4703f50a80be35bd390610ba7c63467eab55d","fullTextRead":true,"tasksSolvedAsText":null,"verdict":"PASS","findingIds":["EN-COM-01"]},
+    {"file":"README.md","sha256":"6631f3556014fcfec696363f9c6f55d1b1b74a671822f22c4b1b6971ef21f149","fullTextRead":true,"tasksSolvedAsText":null,"verdict":"PASS","findingIds":[]}
+  ],
+  "findings":[{"id":"EN-COM-01","unitId":"COMMON","severity":"optional","location":"CURRICULUM_REUSE_NOTES.md row 188: 진행·반복·완료의 네 축","problem":"Three categories are named but the note says four; this typo is inherited from the source allocation.","proposal":"진행·반복·완료·결과 상태를 구별할 때 진행을 사실 보고에서 분리한다.","affectedLanguages":["KO"]}]
+}

@@ -1,0 +1,98 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A2.1-01",
+      "sha256": "209266a0c7bbfa92916c7e928af593c7e1cd78b46adf44a78085e85df1f351af",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A2.1-02",
+      "sha256": "aa49dc356f1eeaf5532f662b403ec2493e092fdd44921376dba6ac54a85d0cdd",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-A21-01"
+      ]
+    },
+    {
+      "unitId": "A2.1-03",
+      "sha256": "3de74e41d279b2f7dec71357c99dfe6c352d30a26ea775eec84c25a8c51bc71f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-A21-02"
+      ]
+    },
+    {
+      "unitId": "A2.1-04",
+      "sha256": "41317dcea06078ddeb0c4c6f344ceb6e62dd5ab297a480711a9e5b17f678e322",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-A21-03"
+      ]
+    },
+    {
+      "unitId": "A2.1-05",
+      "sha256": "3bd4f1cbeca8e0f8917ea5a10c3fa48744cf6ab67e4a7fbeae819bb3e5003871",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A2.1-06",
+      "sha256": "bb932913296da1b14b091ef94412fe50d315383550e5104233f32037b60c32e9",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-A21-01",
+      "unitId": "A2.1-02",
+      "severity": "required",
+      "location": "고택 introduction EN: ‘Joy straightens his own little hat’; ‘do not replace his hat’",
+      "problem": "Two masculine possessives assign Joy a gender not specified in the Korean or canon.",
+      "proposal": "Beside the resting place, Joy adjusts the little hat and points to a large practice hat. These teaching props do not replace Joy’s own hat or any old object in the story.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-A21-02",
+      "unitId": "A2.1-03",
+      "severity": "required",
+      "location": "반복되는 때와 정보를 준 사람: ‘지원 연습: 15:00·15:20·15:40에 출발해요. 민호가 표를 줬어요. 두 정보를 말해요.’; 새 시간표로 독립 확인: Korean-only ‘과제’ paragraph",
+      "problem": "The support prompt and independent task directions are provided only in Korean. English translates the model answers but does not tell an English-supported learner what to produce before revealing them, including the required second source form.",
+      "proposal": "After the supported-practice prompt add: ‘Supported practice: Departures are at 15:00, 15:20 and 15:40. Minho gave you the timetable. State both the interval and who gave it to you.’ After the independent 과제 paragraph add: ‘Task: State the next departure and arrival. Use 마다 for the interval and 한테서 for the person who gave you the timetable. Then name the same source again using 에게서.’ Keep both directions outside any hidden answer block.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-A21-03",
+      "unitId": "A2.1-04",
+      "severity": "required",
+      "location": "고택 introduction: ‘몰래 곶감을 먹은 뒤’; EN ‘dried persimmons’; DE ‘getrocknete Kakis’",
+      "problem": "The scene changes the canonical food. LEVEL_STORY_100 A2.1-04 and STORY_V3_5.md lines 238 and 555 both specify 홍시, not dried persimmons (곶감). The canonical bookmark quotation itself matches line 555.",
+      "proposal": "KO opening: ‘도깨비는 몰래 홍시를 먹은 뒤 배가 불편해졌지만 큰소리부터 내요.’ EN opening: ‘Dokkaebi has a stomachache after secretly eating ripe persimmons.’ DE food phrase: replace ‘getrocknete Kakis’ with ‘weiche, reife Kakis’. Keep the rest of the scene’s help request and place rules.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

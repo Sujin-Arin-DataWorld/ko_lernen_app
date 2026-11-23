@@ -1,0 +1,1167 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "F0.2.first-names",
+      "solutions": "지원 조립 나=ㄴ+ㅏ(좌/우), 너=ㄴ+ㅓ(좌/우), 마=ㅁ+ㅏ(좌/우), 모=ㅁ+ㅗ(위/아래). 새 소리 선택의 대본상 답은 니→B, 무→A이다. 이름 반복 확인은 Christian이며 자신의 이름을 두 번 말한 발화가 근거다. 독립 I1의 ㅣ/ㄴ은 니(ㄴ 왼쪽), I2의 ㅜ/ㅁ은 무(ㅁ 위쪽)로 구성한다. 모든 언어 답과 앞 모델/소리 선택 및 뒤 상자 활동을 가린 상태에서 푸는 지시가 이제 있다. 상자 위치를 바꿔도 니/무는 소리표이며 물건의 이름이 아니다. 스몰토크는 선택한 별칭을 가리키거나 ‘Ich möchte es vorerst ohne Namen machen’으로 거절할 수 있다. 실제 음성을 듣지 않았으므로 소리 답은 대본에 근거한 텍스트 풀이이며 청취 성취가 아니다.",
+      "review": "원래 DE-F02-01 해결: learner table has pieces only; facilitator answers and sound-label transfer are explicitly hidden until both attempts. Prior exposure is disclosed, so independent reconstruction is not first-time decoding. Full text and every task reread/solved; DE du with known Christian–Sujin is coherent.",
+      "sha256": "e9b96c43ea7419a7928cadf0211e74b731e586ef9623be384edb0f980d250b74",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-F02-01"
+      ]
+    },
+    {
+      "unitId": "F0.2.tree-and-hat",
+      "solutions": "그림 설명 기준 A1/A2/C=살아 있는 나무→나무, B1=챙 모자/Hut, B2=뜨개 모자/Mütze, D=새 모자→모자. 지원 답 순서 나무, 모자, A2, B2. 다른 그림 확인 답 C→나무, 표기 없는 모자 대본→D, 나무 읽기→A2, D다시→모자(이미 노출된 D 재확인). 목재 보충 E는 나무의 별도 재료 뜻이며 무/나를 모델 순서 나무로 정렬; ‘재료’를 찾으면 E, 살아 있는 A1과 E 모두 나무이므로 무조건 하나만 고르지 않는다. 현대 대본 요청은 A 모자이며 전달 후 고마워요/감사합니다. 다른 나무사진은 나무, 다른 모자사진은 모자 표를 붙인다. 목재를 배웠을 때 나무/목재 사진과 설명을 함께 다시 읽는 지원 복습이며 두 뜻의 이유를 스스로 설명할 산출 과제가 아니다. 실제 그림/음성 파일을 검증한 것은 아니다.",
+      "review": "Parent-requested EN-F02-01 follow-up resolved in DE: transfer now asks to read the explanation again, matching Korean supported review instead of requiring a novice explanation. Hut/Mütze breadth, new/reused picture distinction, supported phrase usage and missing-media limits are preserved.",
+      "sha256": "fd628358357d569257e75525b2d485d535b17b57c98148720d621a567da5df3a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "F0.2.two-boxes",
+      "solutions": "지원 조립 가=ㄱ+ㅏ, 고=ㄱ+ㅗ, 다=ㄷ+ㅏ, 도=ㄷ+ㅗ; ㅏ는 오른쪽, ㅗ는 아래. 소리 선택 대본 I1 구=A(구/두/고), I2 디=C(기/도/디). 모형 없는 I3 ㅜ/ㄱ=구(ㄱ위), I4 ㅣ/ㄷ=디(ㄷ왼쪽)이며 앞에서 본 표기 재구성이다. 뜻 보충 구/도 순서를 도구로 바꾸고 도구 그림은 A 망치/집게; 빈 종이 B는 아님. Christian은 ‘다시 보여 주세요’라 했으므로 다시 보려는가=네. 스몰토크 네면 같은모델 재제시, 아니요면 다음활동; 두선택 모두맞음. 전이 위치교환뒤에도 구/디를 식별하고 ㄱ+ㅜ→구, ㄷ+ㅣ→디; 다른 도구사진에는 도구를 놓는다. 실제 시간간격/오디오 없이 듣기나 다음날 유지 성공으로 세지 않는다.",
+      "review": "Complete corrected text reread. DE now explicitly permits building only when audio is absent and defers listening. Sound labels remain distinct from tool meaning; yes/no role choices preserve learner agency. No further required issue.",
+      "sha256": "3ba06846963b0af2c31f195595e91f359048b478f84e6a1ea6087906ab806135",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "F0.2.two-tracks",
+      "solutions": "지원 사=ㅅ+ㅏ, 소=ㅅ+ㅗ, 자=ㅈ+ㅏ, 조=ㅈ+ㅗ. 소리 대본 수→B(소/수/주), 지→A(지/시/조). 조립 ㅜ/ㅅ→수(ㅅ위), ㅣ/ㅈ→지(ㅈ왼쪽). 이야기에서 이미 수·지를 보았으므로 처음노출검사로 계산하지 않는다. Christian의 첫행동은 A 대상확인(이거요?/같은조각가리킴); 확인후 전달, 수진의감사. 스몰토크는 대상을알면 여기있어요, 불분명하면 이거요?→응그거→전달 모두가능. 책상다른위치에서도 수/지를 고르고 다음방문 모형전 ㅅ+ㅜ→수,ㅈ+ㅣ→지; 간격미확인 유지성취없음. 실제audio는없고 제시대본으로만 정답을도출했다.",
+      "review": "Full text and all tasks reread/solved. Added DE assembly instruction and unavailable-recording path are clear. First exposure versus reconstruction and pointing versus actual speech remain explicitly separated. German familiar du is consistent.",
+      "sha256": "40f5036c15627daa621e06cc9194edccecc71c1f1c38cfa1c5de70202fd580a4",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "F0.3.air-one",
+      "solutions": "ㅋ 활동 P1 ㅏ/ㅋ→카(좌우), P2 카표본→카, I1 쿠의 보기 구/카/쿠→C, I2 ㅜ/ㅋ→쿠(ㅋ위). ㅌ 활동 P3 ㅏ/ㅌ→타, P4 타표본→타, I3 티의 타/티/디→B, I4 ㅣ/ㅌ→티(ㅌ왼쪽). 조립은 직전표기를본 재확인이다. 대본에서 Christian은 휴식에동의하나커피제안에는 ‘지금은괜찮아요’로거절하므로B/Nein; 평소취향은알수없다. 스몰토크 카·타중다시들을표를가리키고다시말해주세요,또는괜찮아요로재생거절모두적절. 전이 ㅋ/ㅜ→쿠,ㅌ/ㅣ→티; 종이움직임·소리크기·바람세기만으로정답판정하지않는다. 실제음성을듣지않았으므로텍스트의표본지정으로만답했다.",
+      "review": "Full current text reread. Revised German listening question explicitly asks whether the coffee offer was accepted now, matching the Korean intended polarity and current-context refusal. No new translation, register or scope issue.",
+      "sha256": "344ea709700d6ffdfa0b86a5848ad12bdbc83f72fe7142352c65bc2012ddf104",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "F0.3.firm-one",
+      "solutions": "ㄲ 지원 ㅏ/ㄲ→까,까표본→까; 꾸보기 A꾸/B구/C까→A,ㄲ/ㅜ→꾸(ㄲ위). ㄸ 지원 ㅏ/ㄸ→따,따표본→따; 띠보기 A디/B따/C띠→C,ㅣ/ㄸ→띠(ㄸ왼쪽). ㄲ/ㄸ은첫자리하나를차지하고목소리크기/힘을정답기준으로삼지않는다. 현대대본순서=같은까소리재생→Christian감사→휴식; 먼저하는일A. 추가된재생동작/까표본이청자질문의실제근거가된다. 스몰토크네면까다시재생,잠깐쉴까요면휴식;둘다참여가능. 새책갈피조립답꾸·띠,헷갈리면그음절만가리키며다시읽어달라요청한다. 실제재생/발음검증은없다.",
+      "review": "Whole text and all textual tasks reread. The corrected dialogue now contains the promised replay before the break, so the sequence question and key agree. German remains natural and learner du is consistent.",
+      "sha256": "0f8f6792ba949da55675519f283accd9804c575764184f4520957aee92519736",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "F0.3.firm-two",
+      "solutions": "ㅃ지원ㅏ/ㅃ→빠,새뿌소리A부/B빠/C뿌→C,ㅜ/ㅃ→뿌. ㅆ지원ㅏ/ㅆ→싸,새쑤소리A싸/B쑤/C수→B,ㅜ/ㅆ→쑤. ㅉ지원ㅏ/ㅉ→짜,새찌소리A찌/B지/C짜→A,ㅣ/ㅉ→찌. 뿌·쑤의ㅜ는아래,찌의ㅣ는오른쪽. ㅆ+ㅣ→씨=식물종자;이름뒤씨와다른뜻. 대본은첫사진만뒤집음→첫사진내림→둘째뒤집음이실제로있으므로보기방식B한장씩. 스몰토크다음사진네또는잠깐휴식모두가능. 전이A는갈라진씨껍질+씨+싹이보여씨표를놓고B빈화분은아님;선택조립뿌/쑤/찌중하나(예ㅉ+ㅣ→찌). 그림설명과대본텍스트만검토하여실제이미지/청취성공은주장하지않는다.",
+      "review": "Full corrected text reread. Both photo turns are now observable in the script; the transfer picture explicitly retains a visible seed and coat, making 씨 identification defensible. German accurately preserves this evidence and optional pacing.",
+      "sha256": "b6e2146b2f82c09c9a13108e191489dbda2bc8ec4dc4b9fe1c254d14ba827ce2",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "F0.3.near-vowels",
+      "solutions": "개조립ㄱ+ㅐ,모음선택ㅏ/ㅐ→ㅐ. 새매모음ㅐ,ㅁ+ㅐ→매. 네조립ㄴ+ㅔ,모음ㅐ/ㅔ→ㅔ. 새세모음ㅔ,ㅅ+ㅔ→세. 모두자음왼쪽/모음오른쪽이고매뜻/세숫자뜻은안묻는다. 대본사진대상A개:수진이개라고말하고개표를가리킴;청각ㅐ/ㅔ차이시험이아니다. 스몰토크잘보이면네,아직어려우면다시보여주세요→같은표가까이제공. 전이새흰개B에개표,나무C는아님;다른글꼴매에서ㅐ,세에서ㅔ를찾는다. 소리가같게들려도표기를합치지않으며실제음성은검증하지않았다.",
+      "review": "Complete final text and every text task reread/solved. German now explicitly says the numerical use of 세 will be taught later, matching Korean rather than an ambiguous future-generalization phrase. Visual task and sound discrimination remain correctly separated.",
+      "sha256": "a8a94842c6804457e936eee41d231d0f4c3ab875b532a6fe132f39a4fc59dce9",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "F0.4.first-input",
+      "solutions": "입력방법연습ㅇ+ㅏ→아. 첫새건물사진의기학습낱말=집;모델없으면회상,필요시집/ㅈㅣㅂ도움후완성은지원,조각선택은자판입력과구별. 지원복사나무/모자;준비오타모사에서모유지+사→자. 숨김새사진의진행자설명A바다/B다리에따라A=바다,B=다리;자료이미지가없으므로실제시각회상은아님. 별도오타짐→집은ㅁ받침을ㅂ으로바꾸는재노출교정. 현대대본바뀐것B사→자이며모형을보고고쳤으므로지원사용=네. 스몰토크같이보기/먼저혼자시도둘다가능. 전이용새보고메모줄에나무를적고검토했으며이미표기를본텍스트연습으로분류한다. 실제앱자판/필기/자유작문/보관동작성공은주장하지않는다. 준비집은초안→실제사랑채완공/준비확인→등불대사→동일낱말작성→보관성공확인→탈선비반응순서이며미확인시초안유지,추가쪽지생성없음.",
+      "review": "DE-F04-01 resolved with plain prerequisites for the Sarangchae scene. New first-attempt materials, supported typo correction and recalled/copied/piece-built input are clearly separated. Complete current manuscript reread; all textual tasks solved, with no runtime completion claim.",
+      "sha256": "ae9103bd75d924e31251b49fc4c18cc481a0ada641daebe98c84f9ef39dfb4ae",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-F04-01"
+      ]
+    },
+    {
+      "unitId": "F0.4.last-vowel",
+      "solutions": "ㅢ의아래ㅡ와오른쪽ㅣ부분을찾고ㅇ+ㅢ→의. 희모음은ㅢ(ㅣ아님),ㅎ+ㅢ→희;늬모음ㅢ,ㄴ+ㅢ→늬. 선택복습왜/웨를고르면왜=ㅇ+ㅙ(ㅗ+ㅐ),웨=ㅇ+ㅞ(ㅜ+ㅔ),각모형획을비교하고예를들어웨재조립;얘/예선택시ㅒ/ㅖ차이. 의자뜻=앉는의자,전체낱말소리는별도확인대상이지모든ㅢ소리일률추론아님. 대본Christian쓴것A의자,먼저허가요청→수진수락→이동/착석. 스몰토크못들으면다시말해주세요,허용이면네괜찮아요,사용중이면미안해요지금써요→다른의자찾기. 전이등받이없는의자A에의자,식탁B아님;새글꼴늬의첫자음ㄴ/모음ㅢ. 실제음가/의자녹음은청취하지않았다.",
+      "review": "Full final text and tasks reread. Optional original ownership wording is now the precise Besitzpartikel 의, avoiding an overly broad claim about every possessive expression. The request grammar remains receptive/supportive at foundation level; no new issue.",
+      "sha256": "23c024e610906bc4fd23b8af0fa227262e3d5132e12f46ffa9997f6ad0ddaa51",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-F04-02"
+      ]
+    },
+    {
+      "unitId": "F0.4.space-and-place",
+      "solutions": "지원카드모자/주세요→모자 주세요,물/주세요→물 주세요,이/집→이 집;기존집쪽지와다른연습판이다. 물뜻은물이든잔대비빈잔으로지지. 대본요청/받은것=물,추가모자는아니요괜찮아요로거절하여받지않음. 새A띄어쓴것=2물 주세요(선택후입력),새B모형없는기억요청=모자 주세요;모자를 주세요도자연스러운허용답. 스몰토크요청한물건이맞으면감사합니다,다르면가리키며다시요청. 전이텍스트메모‘물 주세요’에대응하는물건은물이며모자전달은불일치;별도메모를쓰는것으로고택보관쪽지를덮어쓰지않는다. 오디오/사진/실물전달은수행하지않고대본과사진설명에근거해풀었다.",
+      "review": "Whole corrected manuscript reread. Learner and facilitator sections now explicitly hide all prior models/answers and distinguish selection from unprompted reconstruction. The full listening key is available in German and includes actual receipt/refusal. No remaining required issue.",
+      "sha256": "5742678618bae951f342c9edd354f53f22cf00e7a222ef22ef75d11d5f21840f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "A1.1-02",
+      "solutions": "은/는형태:민수는(모음끝),하린은(받침끝),저는자기소개화제. 지원민수카드→민수는 한국 사람이에요. 영어 해요. 하린두정보선택예저는 하린이에요. 한국어 해요. 격식질문이름이 무엇입니까?는이름을묻고하린이에요/하린입니다동일이름·격식차이,생산필수아님. 대본하린=독일/한국어,민수=영어(카드설정이지배우실제국적아님). 스몰토크네한국어해요/조금해요/지금은이름만말할게요모두적절. 새A유나발화에빠진것나라독일,추측하여추가하지않음;B소개저는 준이에요. 한국어 해요. 추가새질문A언어확인영어 해요?→네 영어 해요→확인언어영어;미학습높임형강요없음. 전이2문장저는 준이에요. 한국어 해요→상대가준/한국어만되말하며공개하지않은정보를추가하지않는다.",
+      "review": "DE-A11-01 fixed: Sujin holds Joy back, not an abstract Vermutung. Added productive question has trilingual instructions, model hiding, response and confirmation. All text tasks independently re-solved; du/Sie follows friendly role-play versus formal recognition examples.",
+      "sha256": "8f34fb725b910541d77bce38dcf1523859c0eb37d98ab8aca63119f8ddbb9ce0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A11-01"
+      ]
+    },
+    {
+      "unitId": "A1.1-03",
+      "solutions": "모음끝모자+가,받침끝가방+이. 열린A모자있음/가방없음;지원B가방만있어‘아니요 모자가 없어요. 가방이 있어요.’ 위치A화자옆=여기,B건너편=저기,화자이동시기준재확인. 대본모자수진가까이,확인선반가방없음;수진여기와Christian저기는같은곳. 새A책/B모자·가방에서A의화자답‘여기 모자가 없어요. 저기 모자가 있어요. 여기 책이 있어요.’ 추가학습자질문B‘저기 가방이 있어요?’→‘네 있어요’→B가방가리킴. B를가리키면가방이있어요?도가능. 스몰토크찾았으면네고마워요/못찾으면어디에있어요. 전이가상사진책이내앞/모자건너편이면‘여기 책이 있어요’에상대가책을가리키는것으로대응;확인안한닫힌공간의부재는주장하지않는다.",
+      "review": "DE-A11-02 fixed by Hinter dem Tuch hat noch niemand nachgesehen. Newly added question production is supported by a clear supplied layout and is correctly labelled confirmation of known information. Whole text/task re-solve PASS.",
+      "sha256": "d50a3110c1b6c46dec64f99612f86f5f9a0951cc2b268502397a0d9f3b50a026",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A11-02"
+      ]
+    },
+    {
+      "unitId": "A1.1-05",
+      "solutions": "소유수진의책=수진입장제책,Christian의가방=Christian입장제가방. 동행친구+나→친구랑 같이 있어요/친구하고 같이 있어요;수진하고/수진이랑가능. 읽기책과모자/모자와책은책+모자동일두대상,과받침뒤/와모음뒤. 대본책수진,가방Christian,Christian동행Hyuna이며Hyuna가책주인이라고말하지않음;책을수진에게전달하고감사하여반환확인. 새Yuna역할은Jun에게준 씨 거예요?확인→제 가방이에요→준은 수진하고 같이 있어요(수진이랑가능). 스몰토크모르면잘모르겠어요후소유확인전임의양도안함. 전이용가상소유표수진모자/준책에서메시지‘수진 씨의 모자예요. 준 씨의 책이에요.’를작성하고각당사자확인후돌려주는역할절차;실제소유/반환이나새보물설정아님.",
+      "review": "Full current text reread and all tasks solved. Explicit supported 잘 모르겠어요 remains optional comprehension/interaction support, not a hidden novel grammar demand. Possession, companion and return confirmation remain distinct in German. No further issue.",
+      "sha256": "863d464b5758898b5e23e22f81f71fcf7680cace631d4a729d267a505a8c7b0f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "A1.1-06",
+      "solutions": "지원잘못받은B가방은제 가방이 아니에요,맞는A가리키며이거예요/이거주세요. 둘다모자소유시저도 모자가 있어요,둘다가방카드면저도 가방이 있어요. 물·차중물만→물만 주세요;모자·우산중우산만→우산만 주세요. 대본Christian소유모자,최종받은것모자만;가방다른주인,물거절. 독립B거절/A요청‘아니요 제 가방이 아니에요. 이거 주세요’;C자기모자추가‘저도 모자가 있어요’;차만필요‘차만 주세요’. 스몰토크맞으면네맞아요고마워요,틀리면아니요이거예요→물건교체후재확인. 전이Jun카드이름틀리게불린상황‘아니요 준이에요. 물만 주세요.’ 부재없어요와소유정정아니에요를혼동하지않고제거아니에요등자연스러운생략도소통답으로인정한다.",
+      "review": "Entire corrected text reread. All-language answer hiding and Korean target-form models now match the independent role sequence. Natural alternatives remain acceptable separately from target-form evidence. German meaning and register PASS.",
+      "sha256": "c560db41938522ca76eefab96d7652872ff0ef37e20eb79bb3e7ebd182b9c187",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "A1.2-01",
+      "solutions": "시지원4:00=네시;분지원2:20=두시이십분;14–15시=오후두시부터세시까지예요. 3:15=세시십오분과3:50=세시오십분구분. 가상오늘5/12의내일=5/13오월십삼일. 대본합의5/13 15–16시오후이며세시재요청후시간/날짜확인. 독립가능14–15시에서A14:20–15:00선택,B15:30–16:00불가. 답‘내일 오후 두 시 이십 분부터 세 시까지예요.’ 상대14:50은‘두 시 오십 분이 아니에요. 두 시 이십 분이에요.’로정정. 스몰토크가능좋아요,불가능그시간에는못와요(뜻지원),못들은숫자다시말해주세요. 전이새가상날짜5/14 13–14시‘오월 십사일 오후 한 시부터 두 시까지예요’로표시하고되읽기에서같은날짜/오후/시작/끝임을확인한다. 실제약속이나녹음재생은없다.",
+      "review": "Whole final manuscript and all tasks re-solved. New schedule is separated from hidden model answers in every language. Numeric systems, available range, corrected 20 versus 50 minutes and afternoon scope are consistent. No new issue.",
+      "sha256": "83b7187c7734314b02057a9eedaad551ae05799adcba615bf9cb6a510ffac429",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "A1.2-02",
+      "solutions": "지원도서관이동‘도서관에 가요’,그앞기다림‘도서관 앞에서 기다려요’;버스카드‘버스로 가요’,오른쪽화살표‘오른쪽으로 가요’. 원지도X북향오른쪽=동쪽카페,남향오른쪽=서쪽정류장. Hyuna카페에서와요/Sujin정류장에서가요는같은이동의기준점차이. 대본수단버스,대기카페앞,오른쪽판단전보는방향확인(북). 새지도X북향의동쪽도서관은오른쪽이맞음;목적지도서관에가요,대기장소도서관앞에서기다려요. 스몰토크어느쪽이에요/다시말해주세요→여기맞아요. 전이는새지도의서쪽다리를찾고X와다리사이대기점을‘다리앞’으로상호정의하여다리앞에서만나요라고한다. 지도위쪽방위와물체위에놓인물리관계는다르다. 실제이동/현장지도는검증하지않았다.",
+      "review": "Full text reread after answer hiding changes. German preserves orientation, destination versus action location and transport/direction uses. The new map is solvable without old answers; friendly Sujin–Hyuna du remains explicit in authoring context. PASS.",
+      "sha256": "4eff585534c8fd674d0d42e9ba1ac1ff0a9aae1fd546100e3a02a186d93c7e0b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "A1.2-03",
+      "solutions": "전체 재수정본 재독 후 풀이: 시간 연결 어제 밥을 먹었어요 / 오늘 쉬어요; 두 행동 책을 읽고 쉬었어요; 선택하지 않음 안 읽었어요·읽지 않았어요, 책 부재의 불가능 못 읽었어요·읽지 못했어요; 지원 사진을 보지 않았어요 / 사진을 보지 못했어요 / 사진을 보고 있어요. 듣기: 어제 밥 먹고 쉬기, 책은 집에 있어서 못 읽음, 지금 가져와 읽는 중. 새 주말 기록: 사진을 보고 차를 마셨어요. 책은 안 읽었어요. 책은 읽지 않았어요. 지금 밥을 먹고 있어요. 두 부정 모두 동일한 자발적 비독서 사실이며 불가능을 만들지 않음. 새 사진 부재 상황: 어제 사진을 못 봤어요 / 어제 사진을 보지 못했어요, 두 형식 모두 각각 산출. 전이는 역할 기록 활용: 어제 사진을 보고 차를 마셨어요. 지금 밥을 먹고 있어요. 실제 경험이나 음성 청취를 주장하지 않음. FINAL_FIXES_4 재풀이도 새 기록 사진을 보고 차를 마셨어요 / 책은 안 읽었어요 / 책은 읽지 않았어요 / 지금 밥을 먹고 있어요, 새 불가능 과제 어제 사진을 못 봤어요 / 어제 사진을 보지 못했어요로 동일 사실을 보존했다.",
+      "review": "FINAL_FIXES_4 전체를 다시 읽고 다섯 지원 활동, 듣기 세 질문, 새 주말 기록과 별도 사진 부재 과제를 모두 재풀이했다. 새 자료에서 안 읽었어요와 읽지 않았어요를 각각 요구하고 같은 의미를 유지한다. 별도 새 자료의 못 봤어요와 보지 못했어요도 모두 생산한다. DE 복수 주어의 bedeuten 교정 확인, 현재 활성 지적 없음.",
+      "sha256": "9c0b77d5ba66da1574ef12effb0564797ecc0deac780fedff2d7bb64feb3028e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A12-01",
+        "EN-FINAL-01",
+        "DE-FINAL-A123-01"
+      ],
+      "reviewHistory": [
+        {
+          "sha256": "2f298e525ec8618f83038f10e23f4e279b40ea2ddfb9485f178c671931f214ed",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "PASS",
+          "solutions": "지원어제먹기=어제밥을먹었어요,책읽기→휴식=책을읽고쉬었어요. 선택안읽음A=안읽었어요/읽지않았어요;책없어불가능B=못읽었어요/읽지못했어요. 사진고의미열람=사진을보지않았어요,고장불가능=사진을보지못했어요. 현재사진보기=사진을보고있어요. 대본어제밥먹고쉼/책집에두어못읽음/지금책읽는중,사진은나중계획. 새기록‘사진을 보고 차를 마셨어요. 책은 안 읽었어요(읽지 않았어요). 지금 밥을 먹고 있어요.’ 책있어쉬기선택이므로못으로바꾸지않음. 추가새사진두고옴과제의두형식‘어제 사진을 못 봤어요. 어제 사진을 보지 못했어요.’ 동의. 스몰토크역할어제쉬었어요→그래요?,실제로같은경험카드있을때만저도요. 전이가상2문장‘어제 책을 읽고 쉬었어요. 지금 사진을 보고 있어요.’ 실제자기경험을만들어주장하지않는다.",
+          "review": "Full corrected manuscript and every task re-solved. Optional DE phrasing about today's actions is now idiomatic. Added new-context 못/-지 못하다 production supplies missing actual performance coverage while preserving inability versus voluntary non-action. No new issue."
+        },
+        {
+          "sha256": "a5de6f94c01bc7907e0a0656daa7d4665ea22cf44b4787f1ade1e4e89d1ebfee",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-A123-01"
+          ],
+          "solutions": "전체 재수정본 재독 후 풀이: 시간 연결 어제 밥을 먹었어요 / 오늘 쉬어요; 두 행동 책을 읽고 쉬었어요; 선택하지 않음 안 읽었어요·읽지 않았어요, 책 부재의 불가능 못 읽었어요·읽지 못했어요; 지원 사진을 보지 않았어요 / 사진을 보지 못했어요 / 사진을 보고 있어요. 듣기: 어제 밥 먹고 쉬기, 책은 집에 있어서 못 읽음, 지금 가져와 읽는 중. 새 주말 기록: 사진을 보고 차를 마셨어요. 책은 안 읽었어요. 책은 읽지 않았어요. 지금 밥을 먹고 있어요. 두 부정 모두 동일한 자발적 비독서 사실이며 불가능을 만들지 않음. 새 사진 부재 상황: 어제 사진을 못 봤어요 / 어제 사진을 보지 못했어요, 두 형식 모두 각각 산출. 전이는 역할 기록 활용: 어제 사진을 보고 차를 마셨어요. 지금 밥을 먹고 있어요. 실제 경험이나 음성 청취를 주장하지 않음.",
+          "review": "새 지시가 같은 사실의 안/-지 않다 두 형식을 모두 요구하며 row20 누락이 해결됨. 독일어 동일 의미 설명에 새로 들어간 sowohl ... als auch 주어의 동사 bedeutet를 bedeuten으로 고칠 필요가 있어 DE-FINAL-A123-01로 남김."
+        }
+      ]
+    },
+    {
+      "unitId": "A1.2-04",
+      "sha256": "12e6b91970d0d05d530b685c1deaab3f04d0960f5bab2df8ef677c15eb9855c0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "지원3물병=물 세 병 주세요,한병2천원두병=4천원/사천원,Christian수신한병=크리스티안 씨한테 한 병 주세요. 하나둘셋넷→한두세네단위앞형식,사람세명/모자네개/물두병구분. 대본2병/4000원/Hyuna,주문자Sujin과수신자다르며실제건넴+감사있음. 새가격1천원×3병=3천원;틀린2병/Sujin메모를‘두 병이 아니에요. 세 병 주세요. 크리스티안 씨한테 주세요. 삼천 원이에요.’로각각정정. 스몰토크추가필요네한병더주세요/아니요괜찮아요후변경수량재확인. 전이그림3명/물2병/모자1개→세명,두병,한개;역할상Sujin에게‘수진 씨한테 물 두 병 주세요’뒤수신자/2병확인. 현대Hyuna수신과고택Sujin수신은별개주문이며가상가격실거래아님.",
+      "review": "Complete manuscript reread. Hidden answer section separates new quantity/recipient correction from models. German preserves all numeric systems, total and recipient/orderer distinction. No new issue.",
+      "resolvedFindingIds": []
+    },
+    {
+      "unitId": "A1.2-05",
+      "sha256": "8b7dce39ffa569ee6604f9f55d7b79e810593e9e71ef3c6265c8ccbdf28d0723",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "교정후전문을처음부터다시읽고모든과제를재풀이했다. 지원희망한국어를배우고싶어요;가능사진을찍을수있어요/종이에쓸수없어요;이동사진을보러카페에가요;준비책을읽으려고책을준비해요. 대본처음희망종이에쓰기/종이없어서불가/밖에서사진찍기선택/수진카메라준비·Christian가방가져오기,촬영완료아님. 새독립선택사진을 찍고 싶어요. 지금 사진을 찍을 수 없어요. 책을 읽을 수 있어요. A이동카드답책을 읽으러 가요. B별도새자리종이있음/글씨쓰기준비카드답글씨를 쓰려고 종이를 준비해요. B는앞지원책준비복사가아닌쓰기/종이의새적용이며옛대본종이없음과명시적으로다른장소다. 두기능을각각답해야하므로OR누락해결. 스몰토크사진초대좋아요/책읽고싶어요/지금쉬고싶어요모두가능. 전이새장소의책읽기·사진보기가능/카메라없음에서사진희망과장비제약을따로말하고읽기선택,장비유무로시설허가를단정하지않는다.",
+      "review": "FINAL_FIXES_1 correction fully reread, not just compared as a diff. The two separate new cards now require -으러 and -으려고 independently, with paper availability and the new location explicit. German instructions and models preserve both functions and are natural. DE-FINAL-A125-01 resolved; current exact hash PASS.",
+      "resolvedFindingIds": [
+        "DE-FINAL-A125-01"
+      ],
+      "reviewHistory": [
+        {
+          "sha256": "bcdbd3c3fc07d6be854232a82dd5aeb2fda60d741ae157a85f5048bb630d13b6",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-A125-01"
+          ]
+        }
+      ]
+    },
+    {
+      "unitId": "A1.2-06",
+      "sha256": "f371c6fe5299d12193f0027e3fe8e4640cebb053c6c6f8c1fe7b52c7fb269cbb",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "묶음A지원비가와서집에서쉬었어요/늦으니까카페에서만날까요;새비기록비가와서집에서책을읽었어요,새제안비가오니까도서관에서만날까요. B지원도서관이공원보다가까워요/도서관이가깝지만세시에만갈수있어요/세시에가능하고요장소는도서관이에요;새공원100m카페400m→공원이카페보다가까워요,공원이가깝지만비가와요,두시에가능하고요장소는카페예요. C지원만나기전에밥먹어요/밥먹은후만나요,제가먼저연락하겠어요/버스로갈거예요;의지선택은연락,날씨겠은추측. 만납시다는함께만나자는수용제안. 새C출발하기전에차를마셔요/만난후에책을읽어요/제가먼저연락하겠어요. 추가어두운구름아직비없음카드의실제추측생산비가오겠어요,관측사실이나확정예보아님. 대본비때문변경→오늘16시카페,Hyuna먼저감,Sujin출발전연락,만남후사진;16시에만가능을이후전체가능으로확대안함. 통합새충돌내일14시공원→비/공통15–16시도서관: ‘비가 오니까 내일 세 시에 도서관에서 만날까요? 저는 세 시부터 네 시까지 가능해요.’→상대내일세시도서관확인→‘출발하기 전에 연락하겠어요. 만난 후에 책을 봐요.’ 스몰토크미정이면확인하고연락할게요로보류. 전이가상내일카페15시를도서관15시로장소만수정후양쪽메모일치확인;실제사람확답이나audio수행은아님.",
+      "review": "Final full text read across the original output plus an explicit tail reread after tool truncation. All functional subgroups and the new actual -겠- weather prediction were solved. German order/time/certainty and supported versus independent directions are consistent. PASS."
+    },
+    {
+      "unitId": "A2.1-01",
+      "sha256": "1f98eb4ffec270b660d4e4e82b9a3f735f99b3abef6ae81143b63d00fdea6310",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A21-01"
+      ],
+      "solutions": "고택임시표오늘Dokkaebi1명만/내일이용불가/모레오후2자리,공유상대확인전이름미기입;마지막모레오후공유제안→Dokkaebi동의→자기이름기입으로약속성립. 지원금요일자리있으면예약하고싶어요,날짜를바꾸거나예약을취소할수있어요;명사선택목요일이나토요일,합의일요일오전가기로했어요. 현대대본내일자리없음,모레오전10시로변경,바꿔주세요는요청이고직원변경했어요에서완료확인;확인문자전송은약속상태. 스몰토크커피승낙전확인문자보거나오늘시간없어다음에마시자거절모두가능. 독립오전가능조건에맞는일요일선택:1일요일 오전에 자리가 있으면 바꾸고 싶어요.2일요일이나 월요일(일요일오전/월요일오후차이를유지).3직접 가거나 전화로 물어볼 수 있어요.4직원확인후일요일 오전 열한 시로 바꾸기로 했어요. 금요일/월요일오후불가·토요일마감. 전이가상화요일14시예약을수요일오전으로요청:수요일오전자리있나요→9시/10시대안→10시선택→직원수요일10시변경확인→수요일오전열시맞죠되말하기. 실외예약전송/실제음성검증은없다.",
+      "review": "Whole current text reread (the prior combined output was truncated, so the complete manuscript was explicitly read again alone). DE-A21-01 resolved: all four independent production prompts now have German task instructions, not just translated answers. Wish/option/agreement, formal service Sie, friendly du and respectful asymmetric story address remain coherent."
+    },
+    {
+      "unitId": "A2.1-02",
+      "sha256": "82dcbd7c7f8ed07a6eb15ab07df99b81c60e1b159abafc0d156e1193e39295b3",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "ROOT-FINAL-A212-01"
+      ],
+      "solutions": "FIXES_5 전체 재독·재풀이: 파란 모자 소유자미확인 그대로, 초록 연습모자 수진에게묻고교환, 큰것0작은것2;Joy정본모자별개. 지원 파란 펜밖에 없어요. 하나 빌려 줘. 듣기 크기가커서교환/작은색검정만/큰가방직원상자. 새자료 컵이 두 개밖에 없어요 / 이 쟁반도 사진 속 쟁반처럼 흰색이에요 / 명단을 읽는 사람이 민호 씨예요 / 작은 쟁반을 주세요 / 상자에다가 이름을 써 주세요. 여섯기능모두재생산(에다가+도움한문장), 소유/재고미확인시먼저질문. 전이모의 이 가방은 너무 커요. 작은 가방으로 바꿔 주세요, 실제권리나방문주장안함.",
+      "review": "전체 FIXES_5 수정본 재독. Joy den eigenen kleinen Hut 및 Joys eigenen Hut가 소유 관계를 정확히 유지하면서 불필요한 성별 추정을 제거한다. Er/ meiner는 대화에서 남성명사 Hut를 가리키므로 유지가 맞다. 직원 Sie/친구 du, 모델 가림, 6생산 기능과 번역 모두 재확인.",
+      "reviewHistory": [
+        {
+          "sha256": "fd0cdc4dd76a49aab1a57190f319a91d7fc4320fb51d4b4493b1200b1a111db7",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "PASS",
+          "solutions": "고택파란모자주인미확인그대로두기,초록연습모자Sujin소유확인후만교환,큰재고0/작은2. Joy모자처럼작다는같은성질이지동일물건/주인아님. 지원파란펜2개만→파란 펜밖에 없어요. 하나 빌려 줘. 각6모델의뜻확인밖에부정·처럼비교·달아주세요도움·읽는사람행동·가벼운가방성질·상자에다가주소위치추가. 매장대본문제크기너무큼(고장아님),작은가방색검정만,큰가방직원상자에놓음;오늘규칙미사용/영수증조건후직원교환완료확인. 스몰토크마음에들지확신없으면아직잘모르겠어요조금써봐야겠어요가능. 새행사컵이 두 개밖에 없어요;이 쟁반도 사진 속 쟁반처럼 흰색이에요;명단을 읽는 사람이 민호 씨예요;작은 쟁반을 주세요;상자에다가 이름을 써 주세요. 전이가상손전등작동불가‘이 손전등은 불이 안 켜져요. 다른 손전등으로 바꿔 주세요.’ 소유/재고미확인시먼저문의,에만써도소통정답이며목표형연습별도. 실제거래/물건교환/법률판단은아님.",
+          "review": "Entire current manuscript reread. Updated familiar traveller–Sujin wording and explicit relationship support the plain request; unknown shop staff retain Sie. Both tray colours are now supplied, so the comparison task is grounded. All six textual production targets solved; PASS."
+        }
+      ]
+    },
+    {
+      "unitId": "A2.1-03",
+      "sha256": "2f5100d700871a4a4620359c324e6045595a282146a3c45f95d6c8e467dcbe57",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A21-02"
+      ],
+      "solutions": "오전표현재09:10이므로09시출발은놓침,다음10시출발/10:20약국앞도착,표의출발간격1시간. 지원전시13/13:30/14→삼십분마다시작,15/15:20/15:40→이십분마다출발,전달자Minho→민호씨에게서표받음(작성자는불명). 수용역앞수진에게로의대상Sujin,역에서부터도서관까지출발역. 대본Sujin은표를건넨사람만확인/작성자는모름,10:20은예정도착/출발10시,재연락조건시간다시바뀔때. 스몰토크함께앉거나잠깐걷고출발전돌아오기둘다가능. 숫자새준비40사십/45사십오/1:45한시사십오분. 독립현재14:15→다음14:30출발14:45도착,간격20분;‘두 시 반에 출발하고 두 시 사십오 분에 도착해요. 이십 분마다 출발해요. 레나한테서 받았어요. 레나에게서 받았어요.’ 수용새대상Minho/출발도서관. 전이두문장‘두 시 사십오 분에 도착할 것 같아요. 시간이 바뀌면 다시 연락할게요’는가상표에근거한역할답;실제운행이불명이라면확인하고다시연락할게요로한정한다.",
+      "review": "Full final text reread. DE-A21-02 fixed: supported interval/giver instructions and all independent production/recognition prompts are translated. New 40/45 support prevents untaught number production from masquerading as the grammar test. Formal Christian–Minho Sie versus friendly Sujin du remains explicit."
+    },
+    {
+      "unitId": "A2.1-04",
+      "sha256": "1b6dd7c5b419d749a43f4db7c304acd48df0afa402e40582d528cc1317594d70",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "고택안내쉼자리휴식허가,이안내판앞촬영금지,뒤연습구역들어가기전Sujin에게문의의무. 지원열람실‘안에서 음료를 마시지 마세요. 입구에서 가방을 맡겨야 해요.’ -어도돼요허가와-어야해요/-어야돼요의무는별개,-어보세요시도제안은완료보고아님. 공식기다리십시오의대기는입구,생산은안묻음. 현대대본Minho착석허가(의무아님),통로확보의무/가방의자아래,사진가능은밖이용시간안내만. 내부안내촬영은금지,도움앞창구. 스몰토크아직힘들면더쉬고싶어요도가능. 독립공방‘대기실에서 쉬어도 돼요. 작업실에서 음식을 먹지 마세요. 작업 전에 앞치마를 입어야 해요. 이 스위치를 한번 눌러 보세요.’ 기다릴곳안내데스크. 추가도움요청앞치마입기어려움에‘도움이 필요해요’또는지원받은도와주세요→직원네도와드릴게요→도움;미학습돕다활용평가안함. 전이노트북써도돼요?허가시감사합니다여기서쓸게요,다른자리권고시알겠어요어느자리로가면돼요로범위확인. 실제시설규칙/의료처치/음성평가는아니다.",
+      "review": "Entire final manuscript and tasks reread. Added apron help turn now actually elicits the unit's help request with an appropriate staff response; recognition-only formal sign remains nonproductive. DE has natural Sie for staff and Christian–Minho, du for the learner/friend task. PASS."
+    },
+    {
+      "unitId": "A2.1-05",
+      "sha256": "c88b2a67f2410eaf896da19708db87d7d05fb7f21ac10ba5414f61560bb4cec8",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "지원: 어제 받은 자료 / 내일 읽을 자료. 사진 목록 A=민호가 어제 보낸 입구 안내, B=수진이 지금 확인하며 아직 안 보낸 문 옆 안내, C=크리스티안이 내일 보낼 방 배치 사진. 듣기 1 A, 2 촬영자는 알 수 없고 민호가 보냈다는 사실만 확인, 3 글씨가 보이게 한 장 인쇄하며 다른 사진은 그대로 둠. 새 포스터 과제: 레나가 어제 만든 포스터예요 / 내일 붙일 포스터예요 / 현아가 종이를 자르는 것을 봤어요 / 포스터 붙이기 / 방문객들이 찾을 수 있게 입구에 화살표를 붙였어요. 만든의 ㄹ 탈락 사전 지원을 확인했고 새 포스터 예로 과거/계획·관찰/목록·목적의 다섯 기능을 각각 풀었다. 생활 전이 모의: 어제 준비한 종이예요. 내일 글씨를 쓸 종이예요. 잘 보이게 책상 위에 놓았어요. 실제로 하지 않은 준비나 인쇄를 완료했다고 주장하지 않음.",
+      "review": "전체 수정본을 정확한 SHA로 읽음. 민호와 수진의 과거 직장 관계·상호 Sie, 크리스티안과 du가 명시되어 일치한다. 새 문법 만든은 수행 전에 제공되며 도움 재열기 분류가 정합적이다. 독립 과제의 독일어 지시와 다섯 목표/정답이 일치한다."
+    },
+    {
+      "unitId": "A2.1-06",
+      "sha256": "a3bb877dab6b07d1a6046bca55cfaad2bbcdcd5af8c37f2c917ceaf21981350c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A21-03",
+        "DE-A21-04"
+      ],
+      "solutions": "지원: 선생님이 안내를 읽으세요(오는/읽는 사람은 선생님, 듣는 사람 크리스티안/레나는 별개). 친구에게 선생님께 드릴 거야: 께의 받는 사람=선생님. 공지 세 줄: 기다리는 주체 선생님 / 강의실 이미 2층 즉 erstes Obergeschoss로 변경 / 들어가기 전에 명단 확인 지시. 듣기: 2층에는 선생님, 직원의 전달 약속만 있고 선생님의 수령은 아직 확인되지 않음, 레나는 자기 이름에 이름을 사용. 새 역할: 선생님이 표를 확인하세요(또는 친한 수진에게 확인하셔). 직원에게 이 편지를 선생님께 전해 주세요. 듣는 사람은 바뀌어도 높이는 제3자는 두 번 모두 선생님. 새 공지: 담당 선생님이 자료 확인 / 모임 시각 이미 3시로 변경 / 입장 전 이름 적기. 생활 전이 모의: 친구 이것 좀 봐 줘, 직원 이것 좀 봐 주세요; 후자는 상대의 행동에 시가 있으며 요로 듣는 상대에게 공손함을 별도로 확인. 마지막 고택의 사진 수령 확정은 앞의 현대 직원 전달 약속과 혼동하지 않음.",
+      "review": "전체 수정본 재독. 도입부의 Aufforderung은 이제 -(으)ㄹ 것만 한정하고 께서/-음에 잘못 적용하지 않는다. 말씀 예문의 mir angehört 문법도 수정됨. TalSunbi와 학습자의 비대칭 Sie/du를 장면 관계가 설명하며 직원과 상호 Sie, 친구와 du가 일치한다. 독립 새 공지 번역은 답 전 별도 도움으로 숨김."
+    },
+    {
+      "unitId": "A2.2-02",
+      "sha256": "5b2e3d01882d5684bb19b178725d99a6709bc5859a7f78ad1880fe32e83a8381",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "순서 카드: 이야기하면서 걷기 동시, 멈춘 뒤 사진 보기, 사진 보다가 제목으로 시선 이동, 다음 사진으로는 안 넘김. 지원: 물을 마시면서 창밖을 봐요 / 편지를 쓰다가 문을 열었어요. 듣기: 음악 듣기와 책 옮기기 동시; 음악이 분실 원인이라는 근거 없음; 열쇠는 책 밑에서 찾았고 현재 현관 작은 상자에 둠. 새 과제: 물을 마시면서 안내문을 읽었어요. 안내문을 읽다가 전화가 왔어요(통화한 사실을 함께 반영해 전화를 받았어요도 가능). 원래 방을 쓸 수 없어서 마당에서 안내를 듣게 됐어요. 다른 사람이 가져갔다는 사실은 없고 자기 가방에서 찾았음. 전이는 실제 개인 경험을 주장하지 않는 모의: 음악을 들으면서 글을 읽었어요 / 글을 읽다가 문을 열었어요. 변화가 없다면 추가하지 않음.",
+      "review": "전체 수정본 재독. 세 생산 기능과 새 예, 답 가림, 도움 분류가 일치하며 독일어의 Gleichzeitigkeit/Unterbrechung/Veränderung이 무근거 인과로 확대되지 않는다. 이웃의 du와 이야기 공개 조건 및 우회 시작점이 일관됨."
+    },
+    {
+      "unitId": "A2.2-03",
+      "sha256": "f4bbed7c9b45d5a4f66736de0f41f57ff707b4d70129cc85a859b3406c551b69",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A22-01"
+      ],
+      "solutions": "지원: 내일 수업이 있는데 몇 시에 시작해요? / 표가 매진됐기 때문에 못 갔어요 / 빈 의자가 많네요. 수용: 쉬고 싶으시군요는 표현한 휴식 바람을 새로 이해; 멋있는데요!는 뒤 이유를 요구하지 않는 감탄 종결. 듣기: 표는 있었고 버스를 놓쳐 지각 후 공연 중 입장이 안 됨; 토요일 참석 미정; 마야는 지금 이야기만 하고 들어주길 원함. 새 과제: (친구) 내일 발표가 있는데 어떤 도움이 필요해요? (현아) 파일이 열리지 않기 때문에 걱정돼요. (친구 복귀) 오류가 뜨네요. 다른 파일은 열려요? 파일이 안 열리는 기술적 원인은 모르며 마지막 질문 답도 없음. 전이는 제공된 고민으로 모의 응답만 구성하며 실제 상대에게 묻거나 응답을 받았다고 하지 않음. 도깨비의 침묵 원인/책임자는 추정하지 않음.",
+      "review": "전체 수정본을 읽고 역할 전환 안내가 걱정돼요의 1인칭 문제를 해결함을 확인. 세 생산 기능과 두 수용 기능이 분리되고 독일어도 구별한다. 의도적으로 성급한 질문 예문의 Sie schweigen ... nicht leiden können가 자연스럽게 수정되었고 장면 내 Sie/du 관계가 유지됨."
+    },
+    {
+      "unitId": "A2.2-04",
+      "sha256": "837666d6729825c86443092270921c9ec2731bd2b12ed42f2e1952c09466cfa0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-FINAL-A224-01"
+      ],
+      "solutions": "지원 여섯 기능: 오늘 여섯 시까지 주소를 확인할게요 / 차 마실래요, 물 마실래요? / 집에서 쉴까 봐요 / 오늘 약속이 있고 내일 시험도 있어요 / 세 시에는 수업이 있어서 어려워요. 다섯 시는 어때요? / 초대는 고맙지만 오늘은 어려워요. 듣기: 레나가 약속한 것은 내일 정오까지 확인 후 연락뿐; 일요일 15시는 크리스티안만 가능, 레나는 미확인; 다른 전시 생각은 예약이 아님. 새 역할 여섯 기능: 금요일에는 수업이 있고 집에도 늦게 와요 / 수업이 있어서 여섯 시는 어려워요 / 같이 걷고 싶지만 토요일 일정은 아직 몰라요 / 비가 오면 집에서 쉴까 봐요 / 내일 열 시까지 확인하고 연락할게요 / 그때 시간을 정할래요? 짧은 답장은 이유+실행 가능한 연락 약속+선택 질문으로 축약; 토요일 참석이나 우천 휴식을 확정하지 않음. 생활 전이는 모의로 확정=금요일 수업·20시 귀가, 미정=토요일·우천휴식, 내 할 일=내일10시까지 확인연락. 재수정본 독립 재풀이도 여섯 표현 모두 각각 생산: 금요일 수업이 있고 늦게 와요 / 수업이 있어서 여섯 시는 어려워요 / 걷고 싶지만 토요일은 아직 몰라요 / 비가 오면 집에서 쉴까 봐요 / 내일 열 시까지 연락할게요 / 그때 정할래요? 답안은 이 응답 후 열도록 수정됨.",
+      "review": "FINAL_FIXES_3 수정본 전체를 다시 읽고 지원 6개·듣기 3개·새 역할 6개·축약 답장/생활 전이를 재풀이했다. 새 역할 자료 앞의 모든 언어 모델 가림 안내와 도움 재열기 지원 분류, 숨긴 모범 조각으로 DE-FINAL-A224-01 해결. 새 자료의 실제 약속은 내일10시 확인연락이며 토요일 참석/우천휴식은 여전히 미정이다.",
+      "reviewHistory": [
+        {
+          "sha256": "357d834cba7fbcf3eb7af4286de9a1a64ca104ce0e512c2e78a7202361b692a9",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-A224-01"
+          ],
+          "solutions": "지원 여섯 기능: 오늘 여섯 시까지 주소를 확인할게요 / 차 마실래요, 물 마실래요? / 집에서 쉴까 봐요 / 오늘 약속이 있고 내일 시험도 있어요 / 세 시에는 수업이 있어서 어려워요. 다섯 시는 어때요? / 초대는 고맙지만 오늘은 어려워요. 듣기: 레나가 약속한 것은 내일 정오까지 확인 후 연락뿐; 일요일 15시는 크리스티안만 가능, 레나는 미확인; 다른 전시 생각은 예약이 아님. 새 역할 여섯 기능: 금요일에는 수업이 있고 집에도 늦게 와요 / 수업이 있어서 여섯 시는 어려워요 / 같이 걷고 싶지만 토요일 일정은 아직 몰라요 / 비가 오면 집에서 쉴까 봐요 / 내일 열 시까지 확인하고 연락할게요 / 그때 시간을 정할래요? 짧은 답장은 이유+실행 가능한 연락 약속+선택 질문으로 축약; 토요일 참석이나 우천 휴식을 확정하지 않음. 생활 전이는 모의로 확정=금요일 수업·20시 귀가, 미정=토요일·우천휴식, 내 할 일=내일10시까지 확인연락.",
+          "review": "전체 수정본과 모든 기능을 다시 풀었고 독일어/du 및 예정·약속 구별은 정합적이다. 다만 새 과제 정답이 즉시 보이고 독립/도움 수행 분리 안내가 없어 DE-FINAL-A224-01을 새로 남김."
+        }
+      ]
+    },
+    {
+      "unitId": "A2.2-05",
+      "sha256": "6d262434b34a17962fcc1467afc18a4ff02dce24aaf35a54e6fdf11825769293",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-A22-02"
+      ],
+      "solutions": "지원 그림: 창문을 열고 있어요는 손으로 여는 진행, 창문이 열려 있어요는 결과 상태. 사람이 그림에 없다고 건물이 비었다고 확정하지 않음. 듣기: 문 닫힘·불 켜짐 관찰; 직원은 의자 정리 중이라고만 했고 문 닫은 원인은 설명하지 않음; 들어오세요에서 사용 허락 확인. 도서관 지원 새 자료: 문이 열려 있어요 / 안내판이 걸려 있어요 / 지금 비어 있는 것 같아요 / 이 방을 사용해도 돼요? 독립 카드 B: 문이 닫혀 있어요 / 창문이 열려 있어요 / 아무도 없는 것 같아요 / 안에 누구 계세요?(또는 지금 들어가도 돼요?). 아무도 없다는 추측·사용 가능 여부는 미확인, 열린 창문/문을 허락으로 바꾸지 않음. 스몰토크 두 응답과 전이 질문 준비를 모의로 확인했으며 실제 방문·허락은 주장하지 않음.",
+      "review": "전체 수정본 재독. 도서관 사례를 지원으로 풀고 새로운 카페 카드 B를 독립으로 재풀이하는 분리가 명시됐다. 상태/추정의 독일어 번역과 질문이 일치하며 물 요청은 bevor wir anfangen으로 자연스럽게 교정되었다. 친구 du·직원 Sie 및 E06 장면 조건을 유지한다."
+    },
+    {
+      "unitId": "A2.2-06",
+      "sha256": "dd339eb1bfea4a780c74028b2fffb3dbd1bab5ac76e86c027ad3cf28480f1abb",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "지원: 내일 열한 시에 만나지요? 그때 책을 돌려줄게요. 열쇠/다른 출입구 없음 모델은 관리인이 올 때까지 기다릴 수밖에 없어요, 선택 가능하면 강제 없음 표현을 피함. 듣기: 레나가 자기 이름표 확인, 빌린 것이 아니라 실수로 가져간 우산, 크리스티안 자신의 우산 위치는 미확인이고 전화 예정. 새 가방 자료: 제 가방이 아니에요. 확인하지 않고 가져와서 미안해요. 다섯 시 반에 카페로 가져갈게요. 여섯 시까지 계시지요? 17:30<18:00이므로 오늘 직접 반환 가능, 내일까지 기다릴 수밖에 없다는 말은 틀림. 추가 거절: 미안해요. 제 가방이 아니어서 빌려줄 수 없어요. 오늘 마야 씨에게 돌려줘야 해요. 별도 새 접수 사례는 현장 오늘종료·전화/온라인불가·다음내일이므로 내일까지 기다릴 수밖에 없어요. 전이는 모의 책을 레나에게 내일11시 직접 돌려줄게요로 누가/언제/방법을 말하되 약속과 완료를 분리.",
+      "review": "전체 수정본 재독. 실수 반출과 정당한 대여, 소유 확인과 반환 약속을 독일어가 정확히 구별한다. 새 거절 기능 및 실제 대안 없는 별도 사례에서 -을 수밖에 없다를 생산할 수 있으며 모든 답은 숨김. 친구 du와 -(으)시-/요의 한국어 관계를 기계적으로 Sie로 바꾸지 않음."
+    },
+    {
+      "unitId": "B1.1-02",
+      "sha256": "dd6c26de06bee390e4214191994d8a98431e501656fa8a0b4154dafb1c68b97d",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B11-01"
+      ],
+      "solutions": "지원 버스는 타지 않았으므로 버스를 타려다가 지하철을 탔어요, 탔다가가 아님. 여덟 모델의 기능은 진행 전환/의도변경/후발견/다른곳으로 가져가 사용/즉시후속/완료기준/다음단계/구어연결로 구별. 듣기: 어제 발견은 봉투, 사진은 오늘 개봉 뒤 확인; 전화가 사진 분실 원인이라는 말 없음; 포장 전 맞는 사진 확인. 새16시 사건: 상자를 열었더니 빨간 끈이 있었어요 / 끈을 꺼내자마자 초인종이 울렸어요 / 상자를 묶으려다가 손님을 맞이했어요 / 물은 손님을 안내한 다음에 주었어요? 마지막은 미기록이라 질문 유지. 네 별개 새 장면: 일기를 쓰다가 문을 열었어요 / 도서관에서 자료를 빌려다가 발표를 준비했어요 / 책을 분류하고 나니 빈 선반이 보였어요 / 과일을 씻어 가지고 접시에 담았어요. 전이는 모의 세 사건에만 시간 순서 부여하며 벨이 끈 발견 원인이었다고 하지 않음. 스몰토크는 같이먹기/모임에서먹기 모두 가능하며 상대 주문 확정 아님.",
+      "review": "전체 수정본 재독. 여덟 형태의 새 사례 산출을 각각 확인했다. 계획된 것은 Kiste 자체가 아니라 묶는 행위이므로 obwohl sie das vorhatte 교정이 정확하다. 독일어 친구 du와 시간자료/인과 미확정 범위가 유지됨."
+    },
+    {
+      "unitId": "B1.1-03",
+      "sha256": "a3d96cb2d988f645784148e9dfdfa81f63de96af79081bf004f561cbed9f50c4",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B11-02"
+      ],
+      "solutions": "지원: 봉투를 준비해 두었어요 / 봉투가 책상 위에 놓여 있어요로 준비와 현재 위치 구별. 듣기: 못 받은 전화 이유는 마야의 정리, 젖은 종이 이유는 다니엘 물병 누수; 사진은 별도 확인해 마른 봉투 안에서 무사; 종이는 말라가는 중이지 완전 건조 아님. 새 수첩: 물컵이 넘어져 표지가 젖음, 내부·누가넘겼는지는 미확인, 안을 확인하고 마른 책상에서 말린 뒤 내일사용전 재확인. 여덟 독립 문형: 발표를 준비하느라고 전화를 못 받았어요 / 버스표를 잃어버리고 말았어요 / 서랍을 모두 확인한 결과 표는 없었어요 / 회의실 조명을 켜 놓았어요 / 내일 나눠 주려고 안내문을 복사해 두었어요 / 빵 반죽이 조금씩 부풀어 가요 / 세 달 동안 매일 연습해 왔어요 / 등을 바꾸니 방이 밝아졌어요. 생활 전이 모의: 내일 쓸 종이를 준비해 두었어요. 종이가 책상 위에 놓여 있어요. 옛 꽃씨 발신인과 현대 연습 씨앗의 마른 상태는 관계없는 별도 정보.",
+      "review": "전체 수정본 재독. 창가 선반이 Regals am Fenster와 shelf by the window로 정확히 수정되어 새 독립 자료의 물체가 보존된다. 8개 생산 형태를 별개 사례로 모두 풀었고 지원 상태형과 행위/결과 유지 구분도 맞는다. 씨앗 손상 범위·행위자·역사 발신인 추정을 추가하지 않음."
+    },
+    {
+      "unitId": "B1.1-05",
+      "sha256": "062ae0348ae160d4c7a886b3373728eed71b383d9e84cb2acd4dd7d74a891aed",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B11-03",
+        "DE-FINAL-B115-01"
+      ],
+      "solutions": "지원: 찾기 쉽도록 큰 카드에 적을까요? 붙이지 않고 옆에 놓을게요. 듣기: 지금 레나 상자만 이름표, 색뿐 아니라 내용 큰글씨 제안, 현아 사진 완료는 아직 아님. 새 책 도움: 책이 무겁지요? 제가 옆 테이블까지 옮겨 드릴까요, 아니면 잠깐 들어 드릴까요? 통로에는 놓지 않을게요. 가방 열기 원치 않음은 유지하고 선택 전에 행동 완료로 바꾸지 않음. 별개 기능: 손을 편하게 쓰실 수 있도록 책을 들어 드릴까요? / 책을 안전하게 놓기 위해 옆 테이블을 쓸까요? / 통로에 책을 놓으면 안 돼요 / 모두에게 편한 방법이면 좋겠어요. -게 하다 새 두 장면: 진행자가 보조 담당자에게 의자 세 개를 옮기게 했어요=시킴, 진행자가 참가자를 앉게 했어요=상황상 허용. 생활 전이 모의는 필요/원치않는행동 각1확인→두제안→선택대기, 거절하면 알겠습니다. 필요하시면 말씀해 주세요. FIXES_5의 전체 텍스트를 재독한 뒤 다시: 필요=무거운책3권, 원치않음=가방열기, 두도움제안=테이블까지옮겨드릴까요/잠깐들어드릴까요. 손을 편하게 쓰실 수 있도록 들어 드릴까요 / 안전하게 놓기 위해 테이블을 쓸까요 / 통로에 놓으면 안 돼요 / 모두에게 편한 방법이면 좋겠어요 / 담당자에게 의자 세 개를 옮기게 했어요(시킴) / 참가자를 앉게 했어요(허용). 지원/듣기답도 재확인: 큰카드옆놓기, 레나상자만·큰내용글씨·사진완료미확인.",
+      "review": "FIXES_5 전문 재독·모든 텍스트 과제 재풀이. 섹션 시작의 전언어 전체 답 가림/지원 분류, 첫 모델 details, 기능표 질문-답 분리 및 새 -게 하다 답 details가 모두 정합적이다. 독일어와 관계·허용 범위 보존. 최종지적 해결.",
+      "reviewHistory": [
+        {
+          "sha256": "c6f882a6549600aef508dc89bf6089f84f4fe4fe8c70e3f4f8181cbd7643460f",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-B115-01"
+          ],
+          "solutions": "지원: 찾기 쉽도록 큰 카드에 적을까요? 붙이지 않고 옆에 놓을게요. 듣기: 지금 레나 상자만 이름표, 색뿐 아니라 내용 큰글씨 제안, 현아 사진 완료는 아직 아님. 새 책 도움: 책이 무겁지요? 제가 옆 테이블까지 옮겨 드릴까요, 아니면 잠깐 들어 드릴까요? 통로에는 놓지 않을게요. 가방 열기 원치 않음은 유지하고 선택 전에 행동 완료로 바꾸지 않음. 별개 기능: 손을 편하게 쓰실 수 있도록 책을 들어 드릴까요? / 책을 안전하게 놓기 위해 옆 테이블을 쓸까요? / 통로에 책을 놓으면 안 돼요 / 모두에게 편한 방법이면 좋겠어요. -게 하다 새 두 장면: 진행자가 보조 담당자에게 의자 세 개를 옮기게 했어요=시킴, 진행자가 참가자를 앉게 했어요=상황상 허용. 생활 전이 모의는 필요/원치않는행동 각1확인→두제안→선택대기, 거절하면 알겠습니다. 필요하시면 말씀해 주세요.",
+          "review": "전체 수정본 재독 및 6개 문형의 각 새 예 풀이. Angaben auf große Karten 교정과 친구 반말/du·새 성인 Sie, 도움/권한/허락 구별은 정확하다. 첫 새 -어 드리다 제안의 모델 노출을 가리는 안내 범위를 앞세워야 하므로 final 지적을 남김."
+        }
+      ]
+    },
+    {
+      "unitId": "B1.1-06",
+      "sha256": "2f0e761d4c3319bb2799d122c52a033eaaf3524d8a85b519b5220362925e78c9",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-FINAL-B116-01"
+      ],
+      "solutions": "지원19시 시작·20분준비→18:40까지 시작해야 함. 듣기: 마야 확인은 오늘16:45카페;16:10출발+10분=16:20버스출발과 같아 여유없음; 반환완료/출발아님. 새책 자료18:00+40분=18:40>18:30, 오늘 직접만남불가·보관함불가; 내일12시 가능 회신에 맞춰 반환약속 및 오늘가방에 넣어두어야겠어요 결심. 별도확정카드: 내일 열두 시에 만나려면 늦어도 열한 시 이십 분에 출발해야 해요; 늦어도 열한 시 이십 분에는 출발해야 열두 시에 역에 도착할 수 있어요. 후자는 조건 -어야 뒤 결과절로 의무 -어야 해요와 구별. 새공방: 비만 아니면 걸어가고 싶어요 / 예약번호를 보여 줘야지 들어갈 수 있어요 / 제가 번호를 확인할 테니 다음 버스 시각을 봐 주세요 / 버스 시각을 알게 되거든 알려 주세요. 실제 전이는 모의 목표/조건/자기할일/상대확인으로만 작성하며 실제 교통·날씨·반환 완료 주장 없음. FIXES_5 전문 재독 후 재계산: 준비18:40/듣기16:45만남·16:10출발여유0·반환미완료; 새18:00+40=18:40로오늘18:30전불가, 내일12시반환+오늘챙겨두어야겠어요; 내일12-40분=11:20최종출발, 출발해야 도착할 수 있어요 결과절별도생산; 비만 아니면 걸어가고 싶어요 / 번호를 보여 줘야지 들어갈 수 있어요 / 제가 번호를 확인할 테니 버스 시각을 봐 주세요 / 시각을 알게 되거든 알려 주세요.",
+      "review": "FIXES_5 전체 텍스트 재독·지원/듣기/세 새 카드/전이 재풀이. 시작 전언어 전체 답 가림과 지원 분류가 첫 결심부터 뒤 공방 4형태까지 적용되고 각 모델 details가 분리되어 수정 적절하다. 독일어 조건/확인/자기 결심과 상대 약속 범위도 맞음.",
+      "reviewHistory": [
+        {
+          "sha256": "b25ef4a012f9cd9d0f033732af93cb1090bd548fd47ae52b532db356877d7a81",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-B116-01"
+          ],
+          "solutions": "지원19시 시작·20분준비→18:40까지 시작해야 함. 듣기: 마야 확인은 오늘16:45카페;16:10출발+10분=16:20버스출발과 같아 여유없음; 반환완료/출발아님. 새책 자료18:00+40분=18:40>18:30, 오늘 직접만남불가·보관함불가; 내일12시 가능 회신에 맞춰 반환약속 및 오늘가방에 넣어두어야겠어요 결심. 별도확정카드: 내일 열두 시에 만나려면 늦어도 열한 시 이십 분에 출발해야 해요; 늦어도 열한 시 이십 분에는 출발해야 열두 시에 역에 도착할 수 있어요. 후자는 조건 -어야 뒤 결과절로 의무 -어야 해요와 구별. 새공방: 비만 아니면 걸어가고 싶어요 / 예약번호를 보여 줘야지 들어갈 수 있어요 / 제가 번호를 확인할 테니 다음 버스 시각을 봐 주세요 / 버스 시각을 알게 되거든 알려 주세요. 실제 전이는 모의 목표/조건/자기할일/상대확인으로만 작성하며 실제 교통·날씨·반환 완료 주장 없음.",
+          "review": "전체 수정본 재독. 7개 문형 의미와 추가 -어야 결과 연결, 시간계산, Sie/du는 정합적이다. 첫 결심 및 두 번째 공방 과제의 모델 가림 범위를 전면 안내할 필요가 있어 final 지적."
+        }
+      ]
+    },
+    {
+      "unitId": "B1.2-01",
+      "sha256": "09fd34d5f55166110eb2932d775483488fecb72c547e80139018b742229f886b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B12-01",
+        "DE-FINAL-B121-01"
+      ],
+      "solutions": "지원 마야가 저에게 사진을 보내라고 했어요. 아직 보내지는 않았어요. 듣기: 마야 도착 목격이 아닌 음성메모 계획 수신; 사진두장 가져올 사람 크리스티안; 레나18:30수락은 미확인. 새 현아→레나 메시지를 다니엘에게: 현아 씨가 레나 씨에게 보낸 메시지를 읽었어요. 내일 열 시에 도서관에 간다고 했어요. 다니엘 씨가 언제 올 수 있냐고 물었어요. 입구에서 만나자고 했어요. 레나 씨에게 지도 한 장을 가져오라고 했어요. 나머지 새 다섯 카드: 현아 씨가 ‘문은 아홉 시에 열어요’라고 했어요 / 다니엘은 목이 마르다고 물을 마셨어요 / 자리가 없다거나 시간이 안 맞는다는 답장이 왔어요 / 마야가 저보고 창문을 닫으라고 했어요. 아직 닫지는 않았어요 / 안내팀으로부터 새 지도를 받았습니다. 직접 인용은 원문 동일, 이유는 발화자 진술, 보고 부탁대상은 나, 수령만 완료임. 전이는 제공된 모의메모로만 출처/부탁받는사람/완료여부 보존.",
+      "review": "FIXES_6 전문을 다시 읽고 지원 사진 요청, 듣기 세 문항, 첫 새 메시지 네 발화와 추가 다섯 카드, 전이를 모두 재풀이했다. 첫 새 절 안내가 이전 시범과 모든 언어 답안을 포괄하고 통합 모델을 숨겨 독립/지원 수행을 구별한다. 내일10시 도서관 계획·다니엘 가능시간 질문·입구 공동제안·레나 한지도 요청 역할을 보존. mir/sich 교정도 유지됨.",
+      "reviewHistory": [
+        {
+          "sha256": "04d3994464647937796588f4704359ce13e6d96b2abe00c0ceb64c61964ac421",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-B121-01"
+          ],
+          "solutions": "지원 마야가 저에게 사진을 보내라고 했어요. 아직 보내지는 않았어요. 듣기: 마야 도착 목격이 아닌 음성메모 계획 수신; 사진두장 가져올 사람 크리스티안; 레나18:30수락은 미확인. 새 현아→레나 메시지를 다니엘에게: 현아 씨가 레나 씨에게 보낸 메시지를 읽었어요. 내일 열 시에 도서관에 간다고 했어요. 다니엘 씨가 언제 올 수 있냐고 물었어요. 입구에서 만나자고 했어요. 레나 씨에게 지도 한 장을 가져오라고 했어요. 나머지 새 다섯 카드: 현아 씨가 ‘문은 아홉 시에 열어요’라고 했어요 / 다니엘은 목이 마르다고 물을 마셨어요 / 자리가 없다거나 시간이 안 맞는다는 답장이 왔어요 / 마야가 저보고 창문을 닫으라고 했어요. 아직 닫지는 않았어요 / 안내팀으로부터 새 지도를 받았습니다. 직접 인용은 원문 동일, 이유는 발화자 진술, 보고 부탁대상은 나, 수령만 완료임. 전이는 제공된 모의메모로만 출처/부탁받는사람/완료여부 보존.",
+          "review": "전체 수정본 재독. 대여 방향은 mir/sich가 추가되어 빌린 수진으로 명확하고 9개 기능과 독일어 자연성도 맞다. 첫 통합 새 과제 4기능의 답 가림이 뒤 추가카드 지시 범위 밖이라 final 지적을 남김."
+        }
+      ]
+    },
+    {
+      "unitId": "B1.2-03",
+      "sha256": "b19a01961b14b01b933d53f35987b0b22cad7d6a8841224f2b075b6d6df7b791",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-FINAL-B123-01"
+      ],
+      "solutions": "지원 A/B는70cm검정같고 손잡이재질A나무/B플라스틱: A는 B만큼 길고 색도 같지만 손잡이 재료는 달라요. 듣기: A/B함께촬영이 두 물건 근거, 길이 같고 빨간수선A만, A는민호후보이지 소유확정아님. 새사진: 크기·손잡이색비교; B는A확대뿐이므로A/B한자료군,C별도촬영; 서로다른물건확정전 두촬영사이 손잡이교체여부질문. 추가산출: 물건이 많아진 만큼 시간이 더 필요해요 / 안내에 적힌 대로 하나씩 확인해요 / 학생이고 직원이고 같은 절차를 따라 주세요. 같은담당자·같은절차·2→8조건이라 시간이더든다는설명허용. 추가비교: A의 가방은 C의 가방만큼 커요 / 손잡이가 고리같이 생겼어요 / 레나와 마야가 같이 사진을 봐요. 같이의유사/공동 두용법별개. 전이는제공모의가방으로 크기+손잡이색을기준으로하고복사본을독립자료로세지않음.",
+      "review": "FIXES_6 전체를 재독하고 지원 A/B길이/재질, 듣기 두물체/수선후보, 새 사진A-B한군/C별도·손잡이교체질문, 비례/기준/포함 세문장과 크기/유사/공동 세문장을 다시 풀었다. 첫 새절 안내가 모든 언어 모든 답에 적용되어 마지막 비교·같이 예까지 가린 후 산출하도록 명확하다. 지원모델 노출은 지원활동으로 유지하며 소유/독립자료 해석과 자연스러운 독일어도 보존됨.",
+      "reviewHistory": [
+        {
+          "sha256": "7d51137600dd90361b1339f9335b60e642e846d7fdd1b62006ce542be9eeae83",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-B123-01"
+          ],
+          "solutions": "지원 A/B는70cm검정같고 손잡이재질A나무/B플라스틱: A는 B만큼 길고 색도 같지만 손잡이 재료는 달라요. 듣기: A/B함께촬영이 두 물건 근거, 길이 같고 빨간수선A만, A는민호후보이지 소유확정아님. 새사진: 크기·손잡이색비교; B는A확대뿐이므로A/B한자료군,C별도촬영; 서로다른물건확정전 두촬영사이 손잡이교체여부질문. 추가산출: 물건이 많아진 만큼 시간이 더 필요해요 / 안내에 적힌 대로 하나씩 확인해요 / 학생이고 직원이고 같은 절차를 따라 주세요. 같은담당자·같은절차·2→8조건이라 시간이더든다는설명허용. 추가비교: A의 가방은 C의 가방만큼 커요 / 손잡이가 고리같이 생겼어요 / 레나와 마야가 같이 사진을 봐요. 같이의유사/공동 두용법별개. 전이는제공모의가방으로 크기+손잡이색을기준으로하고복사본을독립자료로세지않음.",
+          "review": "전체 수정본 재독. 수량 비례 조건 및 남은 만큼/같이 기능은 새 사례로 실제 생산 가능하고 독일어 역할·자료 독립성도 정확하다. 다만 전체 새 과제 중 일부 모델만 가림 지시가 있어 final 지적."
+        }
+      ]
+    },
+    {
+      "unitId": "B1.2-04",
+      "sha256": "74826b90f3e426b68f3db39aa59021c2962b63423213a2b274a9751ab6cddf1a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B12-02",
+        "DE-FINAL-B124-01"
+      ],
+      "solutions": "지원: 입구가 잘 보이기는 해요. 자료를 입구에 두는 대신 안쪽에 두고 위치만 안내하면 어떨까요? 듣기: 입구회피는현재빗물관찰, 안쪽단점은입구화살표보완, 모임중뚜껑열고끝난뒤닫음. 새선택: B가 찾기 쉽기는 하지만 A가 조용한 편이에요. 읽는 시간에 대해 생각하면 A가 좋겠어요. 입구에 앉는 대신에 A의 위치 안내를 붙여요. 반면추가: A는 조용한 반면 입구에서 멀어요. 격식안내: 모임 장소는 입구에서 멀리 있으나 조용합니다. 의자: 편해 보여요. 편해 보여도 실제로 불편하니 다른 의자를 쓸게요. 여덟형태모두각각산출했으며사진상외관과실제착석확인을나눔. 생활전이는이모의자리선택으로실제강점B찾기쉬움인정→A조용함선택→위치안내보완, 실제방문이나직접착석주장없음.",
+      "review": "FIXES_6 전문 재독·모든 활동 재풀이. 지원 입구 장점 인정/안쪽+안내, 듣기 실제빗물·화살표·끝난뒤뚜껑, 새 A/B 선택의 8형태를 다시 산출했다. 새절 첫 전언어 답 가림 안내가 안내문과 반면 예, 의자 추가까지 포괄하며 본인 산출 후 확인하도록 바뀌었다. 독일어 Schublade/Unterlagen 교정 및 외관과 실제 편안함 구분 유지.",
+      "reviewHistory": [
+        {
+          "sha256": "f1852bf639698f1adc724ce2364b15d157de46c060596b1d07a88fad6bcf8c1b",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-B124-01"
+          ],
+          "solutions": "지원: 입구가 잘 보이기는 해요. 자료를 입구에 두는 대신 안쪽에 두고 위치만 안내하면 어떨까요? 듣기: 입구회피는현재빗물관찰, 안쪽단점은입구화살표보완, 모임중뚜껑열고끝난뒤닫음. 새선택: B가 찾기 쉽기는 하지만 A가 조용한 편이에요. 읽는 시간에 대해 생각하면 A가 좋겠어요. 입구에 앉는 대신에 A의 위치 안내를 붙여요. 반면추가: A는 조용한 반면 입구에서 멀어요. 격식안내: 모임 장소는 입구에서 멀리 있으나 조용합니다. 의자: 편해 보여요. 편해 보여도 실제로 불편하니 다른 의자를 쓸게요. 여덟형태모두각각산출했으며사진상외관과실제착석확인을나눔. 생활전이는이모의자리선택으로실제강점B찾기쉬움인정→A조용함선택→위치안내보완, 실제방문이나직접착석주장없음.",
+          "review": "전체 수정본 재독. Die Schublade ist trocken, aber die Unterlagen ...로 대명사/물체 혼동이 해결되었으며 격식 -으나와 대화형 차이, 친구 du가 맞다. 새생산8형태 중 가림 안내는 반면만 특정하므로 전체 범위 확장이 필요함."
+        }
+      ]
+    },
+    {
+      "unitId": "B1.2-06",
+      "sha256": "ccba13da7edea451a455df847474eed27f505e1e3b13727eaaa8101d3e07f6f6",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B12-03",
+        "DE-FINAL-B126-01"
+      ],
+      "solutions": "시범수정: 레나는 우산입구둠을 보고했고 사진+확대는1군, 같은우산확정아님, 현아미수령진술→완료반환입증아님;손잡이특징/놓은시각확인. 듣기: 과장주장반환완료, 사진만으로동일우산/소유자수령확인불가, 함께찾고확인결과보고. 새조사: A마야진술/B다니엘진술/C-D동일사진/E담당자진술=4자료군. 마야→다니엘에게맡김(마야보고), 다니엘→데스크에놓음·직원직접전달안함(다니엘보고), 담당자수령미확인. C제목불명파란책과실제전시책동일성도미확인. 촬영자에게제목/식별점별도확인요청하고현재보관위치및직원수령을질문. 반박 ‘사진둘이면확실’에는 전체와크롭은동일원본1군으로독립증거증가아님;4군도4목격이아님. 전이모의로보관인에게맡김/책상놓음/최종수령을구별. E08middle분산보관만공개하고익명발신인/보호동기/마지막편지는확정하지않음.",
+      "review": "FIXES_6 전체 재독 후 시범의 과장된 반환 결론 수정, 듣기 세 문항, 새 조사 4자료군/보고경로/불확실성/다음행동 및 사진둘 반박을 모두 다시 풀었다. 첫 새절 안내가 이전 시범·전언어 답을 포함하고 통합 모델은 details 안에 있어 수행 분류가 명확하다. 현아의 진술은 weiterhin nicht belegt로 정확하며 네 자료군을 네 독립목격으로 승격하지 않음.",
+      "reviewHistory": [
+        {
+          "sha256": "78ea0758a036e5842a7569845e29790952a554b8907480f3f403163e1a6a8c07",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "NEEDS_FIX",
+          "findingIds": [
+            "DE-FINAL-B126-01"
+          ],
+          "solutions": "시범수정: 레나는 우산입구둠을 보고했고 사진+확대는1군, 같은우산확정아님, 현아미수령진술→완료반환입증아님;손잡이특징/놓은시각확인. 듣기: 과장주장반환완료, 사진만으로동일우산/소유자수령확인불가, 함께찾고확인결과보고. 새조사: A마야진술/B다니엘진술/C-D동일사진/E담당자진술=4자료군. 마야→다니엘에게맡김(마야보고), 다니엘→데스크에놓음·직원직접전달안함(다니엘보고), 담당자수령미확인. C제목불명파란책과실제전시책동일성도미확인. 촬영자에게제목/식별점별도확인요청하고현재보관위치및직원수령을질문. 반박 ‘사진둘이면확실’에는 전체와크롭은동일원본1군으로독립증거증가아님;4군도4목격이아님. 전이모의로보관인에게맡김/책상놓음/최종수령을구별. E08middle분산보관만공개하고익명발신인/보호동기/마지막편지는확정하지않음.",
+          "review": "전체 수정본 재독. 독일어의 eine abgeschlossene Rückgabe ist daher nicht belegt는 현아 진술로부터 불필요한 확정 결론을 만들지 않아 수정 적절하다. 통합 새 과제의 답 가림/지원 분류 안내가 없어 final 지적."
+        }
+      ]
+    },
+    {
+      "unitId": "B1.1-01",
+      "sha256": "3a894afde776f9dcd85c7c01970e58443bc30893b3a2c373a8bac499b0a0ec6f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "ROOT-FINAL-B111-01"
+      ],
+      "solutions": "지원 다섯 변형: 매일 읽던 책 / 길이 조용하던데요 / 여기는 카페였었어요 / 주소를 찾는 중이에요 / 현아는 옛길을 걷고 싶어 해요. -던은 현재중단을자동확정하지않고 -었었-는무조건먼과거아님. 듣기: 현아현재WG, 어제/오늘둘다공사중, 레나는개점뒤현아와방문희망. 새민호자료: 민호 씨가 매주 걷던 곳이에요 / 지금은 다리를 보수하는 중이에요 / 민호 씨는 공사가 끝나면 다시 건너고 싶어 해요 / 지금도 매주 오세요? 역할전환 민호: 예전에는 이 근처에서 살았었어요. 지금은 다른 동네에 살아요. 오늘 와 보니 다리 공사 중이던데요. 2023옛거주+매토요일과2024이주후현재는구별하되현재매주방문은질문. 전이는개인경험을꾸미지않고가상다른장소예: 예전에는 이 동네에서 살았었어요. 지금은 다른 동네에 살아요. 오늘 보니 가게를 고치는 중이던데요; 제3자바람은직접발화자료가있을때만전달.",
+      "review": "FIXES_6 새 추가 수정 단원 전체를 읽고 5개 기능/역할 전환/모든 질문을 다시 풀었다. 첫 새절 전체 언어 모델 가림과 지원 분류가 역할전환까지 포괄한다. 이웃du와 민호에게Sie, 과거 반복/현재 습관 미확정 및 E07 익명 발신인 범위가 보존된다."
+    },
+    {
+      "unitId": "B1.1-04",
+      "sha256": "10eda0dd3606e32d0eb3082e614215cb7c179c3bb54153569bfd2e89bf479c6c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "ROOT-FINAL-B114-01"
+      ],
+      "solutions": "지원 친한 동의친구 같이 차 마시자 / 처음이웃 같이 차 마실까요? 첫대화호칭언니는레나질문후현아동의, 어색하면존댓말복귀, 새이웃까지합의자동확대안됨. 새모임: 네, 존댓말로 할게요. 차 드실래요? 오랜친구 우리 같이 앉자. 별개친구카드: 나 먼저 들어간다 / 너도 들어가니? / 너도 이 책을 아는구나 / 지민아, 여기 봐. 유리야, 여기 봐 / 저는요, 창가에 앉을게요. -니편안함은지민이명시했고이름받침지민→아/유리→야를구분. 전이준비질문: 어떤 호칭이 편하세요? 또는 우리 말 편하게 해도 돼요? 답을설득하거나실제상대동의받았다고주장하지않음.",
+      "review": "FIXES_6 전체 수정본 재독 및 모든 텍스트 활동을 풀이함. 독일어 du 이미 사용해도 한국어 말투는 별도 합의이며 이를 설명하는 본문과 각 역할 번역이 일치한다. 낯선성인 Sie 예시도 따로 표시됨. 첫 새절 전체 답 가림/지원 분류가 이후 5행까지 적용되고 실제 생산6기능이 모두 새상황에 있음."
+    },
+    {
+      "unitId": "B1.2-02",
+      "sha256": "690283f9c62dfab65d0755ea436d1e0f7c5929eb5e73674adcfe2d59d1b407c3",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "ROOT-FINAL-B122-01",
+        "CUR-FINAL-B122-01"
+      ],
+      "solutions": "지원: ‘책’ 표지로 내용 추정, 미측정 무게는 무거울 텐데일 뿐 확인 사실 아님. 듣기: 최초 확인은 젖은 바닥; 청소는 직원이 직접 닦았다고 확인; 바깥 비의 유무는 미확인. 친구 du·직원 Sie를 구분. 스몰토크 다른 원인을 함께 살피자는 응답은 자책을 강요하지 않는다. 새 카페: 불 켜짐·잠시 자리 비움 표지는 사실, 직원이 잠깐 나간 모양이라는 설명은 추측, 돌아오는 시각을 질문한다. 선택 1 산출: 저는 조금 기다릴게요. 지금은 여유가 있거든요(연습 역할의 본인 사정). 선택 2도 목표형 유지: 저는 먼저 갈게요. 다음 약속에 늦고 싶지 않거든요(이 사정의 역할을 택할 때). 새 과제가 어느 선택이든 -거든요 이유를 필수로 요구함을 확인. 3추측: 직원이 잠깐 나갔나 봐요 / 나갔는가 봐요 / 나간 모양이에요; 확률 숫자 없음. 공유 근거/이유: 우리 같은 표지를 봤잖아요. 돌아올 시각은 모르니 먼저 확인해 봐요. 친구는20분 뒤 약속·15분 이동이라 최대5분 전후밖에 없고: 기다릴 시간이 많지 않을 텐데 먼저 가도 돼요. 새 생활 예: 휴대전화가 꺼져 배터리가 다 됐나 싶지만 기기 오류도 가능하니 충전 표시와 재시작 반응을 확인한다(가상 예).",
+      "review": "FIXES_7 현재 전문 전체를 다시 읽고 모든 지원/새 과제를 재풀이했다. 기다리기·먼저 가기 선택 모두 -거든요로 이유를 산출하도록 고쳐 CUR-FINAL-B122-01 해결. 앞선 FIXES_6의 모든 언어 답/이전 모델 가림과 지원 분류도 유지. 알려지지 않은 직원 귀환 시각과 자신의 선택 사정 구분, fixed probability 금지, 7가지 목표 기능 모두 확인.",
+      "reviewHistory": [
+        {
+          "unitId": "B1.2-02",
+          "sha256": "8afad508f6ce4cc860022cd3ec2b7cadec5e256b34739dc848d01971683d7557",
+          "fullTextRead": true,
+          "tasksSolvedAsText": true,
+          "verdict": "PASS",
+          "findingIds": [],
+          "resolvedFindingIds": [
+            "ROOT-FINAL-B122-01"
+          ],
+          "solutions": "지원: 책이 들어 있는 모양이에요. 무거울 텐데 제가 도와드릴까요? 내용/무게는겉표시기반추정. 듣기처음확정은젖은바닥, 직원자기청소행동발화로청소확인, 비가전혀안왔다는결론불가. 새카페: 불이켜짐/잠시자리비움표시/의자정돈중두사실제시; 직원이잠깐나간모양이에요; 언제돌아오세요? 기다릴수있는모의조건이면 아직시간이있거든요, 시간이없으면기다리지않아도됨. 새3형태 각각 직원이 잠깐 나갔나 봐요 / 나갔는가 봐요 / 나간 모양이에요. -잖아요/-으니: 우리 같은 표지를 봤잖아요. 돌아올 시각은 모르니 먼저 확인해 봐요. 친구20분후약속/15분이동=기다릴여유최대5분, 기다릴 시간이 많지 않을 텐데 먼저 가도 돼요. 전이모의 젖은바닥→비/청소 두가능성+직원질문, 확신숫자나외부날씨실제확인은주장하지않음.",
+          "review": "FIXES_6 전체를 읽고 7개 생산형 및 모든 질문을 풀이했다. 첫 새절 답 가림이 세 추가 과제 예문도 포괄하고 지원 수행과 구분된다. 친구du/직원Sie, 추측형의 고정확률 부정, 조건 -거든 대 배경 -거든요, started와middle 공개 범위 구별이 일관됨."
+        }
+      ]
+    },
+    {
+      "unitId": "B1.2-05",
+      "sha256": "5f3b34ab416132081fd67100f55a1a8cfbbcfbc52d4bc441a2704fa28b6c6d35",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "ROOT-FINAL-B125-01"
+      ],
+      "solutions": "지원 ‘책이 도서관에 맡겨졌어요’는보관장소만알려주므로저자미상, 누가 쓴 책인가요? 듣기다니엘은새파일받음·게시안했다고말함, 수진은전달만알려짐/사진선정미확인, 게시담당에게사진과설명일치확인요청. 새안내 현아씨는상자를보관했어요; 새전시장소는어디인가요? 자료를옮긴분은누구인가요? 참가자에게안내할담당은누구인가요? 능동 레나 씨가 상자를 현아 씨에게 맡겼어요 / 피동 상자가 현아 씨에게 맡겨졌어요, 후자는맡긴레나생략·현아소유권아님. 추가확인답뒤 다니엘 씨가 자료를 옮겼어요 / 마야 씨가 참가자에게 알려요 / 자료가 옮겨졌어요에는실행자다니엘생략. 작성/이동/통보/보관역할을합치지않고생략을‘아무도안함’으로바꾸지않음. 전이는이모의공지에목적지·실행자·수신자질문남김.",
+      "review": "FIXES_6 전체 수정본 재독 및 지원/듣기/새 역할·능피동 변형·추가 비교·전이 풀이. 독일어 active/passive/intransitive의 표현과 역할 범위가 정확하며 프로젝트동료 du가 앞 친분과 양립한다. 새절 전언어 답 가림/지원 분류가 모든 하위활동에 적용되고 실제 수탁과 저자·소유자를 구별한다."
+    },
+    {
+      "unitId": "B2.1-01",
+      "sha256": "a3587f10bee3d8638802a3c12acd7cfef0333c2cb96757db3a95765ca66d757f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B21-01"
+      ],
+      "solutions": "자료 A는120회 중복방문 포함, B는80명 익명번호별1회로 같은4월의 다른지표. 지원정의/질문: 방문자수란중복을뺀사람수, 같은사람들을셌는지확인; 새① 시청자 수란 서로 다른 시청자의 수예요. 재생 횟수에 반복 재생도 포함되는지 확인해야 해요. ②지원20명→20회; 새 금요일에 비하여 토요일 대여는15회 늘었어요. 중복을 세는지에 따라 토요일45회와25명처럼 집계 수가 달라져요. ③지원 날짜기록/번호확인구별; 새 담당자는 주문을 적으며 결제 여부를 확인해요. 음료며 수량이며 가격이며 빠진 항목을 살펴봐요. ④지원담당자=역할/번호대조=방법; 새 행사 자원봉사자로서 예약 확인을 맡았어요. 예약 번호를 대조함으로써 중복 신청을 찾았어요. ⑤지원공통찾기/대상길과쪽; 새 지도가 이동 경로를 안내하듯이 조리 순서표는 요리의 진행 순서를 안내해요. ⑥새 표에서는 이용자가 많을수록 평균 대기가 길어요(10/20/30명,2/4/6분);직원수미기록이라인과단정불가. 듣기120회→명오독, 전월자료/만족도없음, 4월120회·80명/중복방식만제목에남김. 독립선택B:6월40/100=40%,7월30/50=60%의등록전체대초대집단다름;A분모,C분자오류. 전이3문장: 60%는 강좌 수,40%는 수강생 수가 기준입니다. 강좌의 과반이 온라인이어도 온라인 수강생80/200명은 과반이 아닙니다. 다음 안내에서는 비율마다 기준 집단과 집계 기간을 확인하겠습니다. 실제듣기/홍보전송아님.",
+      "review": "전체 텍스트 재독. 첫 출력에서 잘린 ⑥와 듣기 전체를 별도로 다시 읽어 누락을 보완했다. DE 비율 예문의 bevor du einen Anteil interpretierst 교정 정확. 여섯 묶음의10기능 새생산을 모두 수행했고 선택이해와말하기평가, 지원/독립, 출처의단위·분모·인과를 분리한다."
+    },
+    {
+      "unitId": "B2.1-02",
+      "sha256": "aa1f0879ee10ba2e09ad9fbc5b9d715d7040c57bc260f7eda3247fb7e7c3cb80",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B21-02",
+        "DE-B21-03"
+      ],
+      "solutions": "자료40→25명 감소는같은입구1회계수로확정;17일비/14→16시변경/전날저녁안내도사실,각영향·늦음판단기준·다음회복은미확인. 가 지원레나날씨관찰/마야포장완료분리, 새 다니엘은 영상을 저장하고서 화면을 보고 있었어요. 화면이 깜빡이더니 꺼졌다고 해요. 그 뒤 재시작했어요(고장원인미상). 나 지원입장지연→통로막힘역인과오류수정; 새 갑자기 물이 새는 바람에 바닥이 젖었어요. 바닥이 젖었기에 담당자가 상자를 높은 선반에 놓았어요. 다 지원레나놓침보고만/누군가고의방해제외; 새 민호 씨는 알림음이 계속 울리는 탓에 마지막 문장을 듣지 못했다고 했어요 / 알림음이 여러 번 울리는 통에 마지막 문장을 듣지 못했다고 했어요. 특정폰주인/고의추가안함. 라 지원점검중3명퇴장≠점검때문; 새 케이블 손상으로 인하여 화면이 꺼졌습니다. 교체하는 사이에 두 명이 나갔으나 이유는 미확인입니다. 마 지원원목적안내판수정/추가표확인구별; 새 책을 돌려주러 가는 김에 다음 독서 모임 날짜도 알아봐 줄래요? 듣기 원인칸→확인할가능성, 발송시간은사실로유지, 몇명질문/누가답변범위기록. 선택B:20→35명증가뒤SMS·하루연장영향미분리. 전이4문장: 6월에 운영 시간이 늘고 거치대도10개에서20개가 됐습니다. 같은기준이용은5월90회에서6월130회로늘었습니다. 각영향과추가거치대필요성은미확인입니다. 내일운영시간을확인하는김에이용이유를조사할계획도있는지묻겠습니다. 반론1문장: 효과가없다는뜻이아니라다른변화와분리한근거가아직없다는뜻입니다. 비탓을정정한스몰토크는길찾기수고/쉬기·준비시간인정두반응허용.",
+      "review": "전체 수정본 재독. freiwillige Angaben은 응답자의 선택성으로 정확히 옮겨졌고 nicht benotet가 비채점 범위를 보존한다. 아홉 기능의 새 산출을 각각 실제로 풀어 원인/시간/평가귀속/미완료부탁을 구별했다. 친구du와 TalSunbi에게Sie, 현대무게이트/고택E08+09 구별도 유지."
+    },
+    {
+      "unitId": "B2.1-03",
+      "sha256": "d33fb50c0e40e63e5ca03428a3a3e81e25a49ddea192202767afd026e9e9d7f5",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B21-04"
+      ],
+      "solutions": "작업기록편집: 삭제창취소로파일남음·거의삭제, 확인버튼5회,10:04실제이름입력수정관찰로진행중;서두름/대충/분노/고의미확인. 가 지원레나질문3회+피로보고,마야포장완료+후련함보고; 새 친구가 같은 농담을 해 대서 집중하기 힘들었어요. 미뤄 둔 장비 정리를 끝내 버리니 후련해요(친구의도미상). 나 지원우산잃음→두고올뻔했으나챙김/서두름잠정; 새 다니엘 씨는 피곤해서인지 가방을 버스에 두고 내릴 뻔했다고 했어요. 바로챙겨잃지않음. 다 지원A직원이문열고있어요/B문열려있어요; 새11시레나가포스터를붙이고있어요/11:05포스터가벽에붙어있어요. 듣기잘못주소발송회피,주소확인완료≠발송완료,새주소작성완료알림뒤에도발송별도확인. 선택B:접시온전/선반놓임/다른부분닦는중;A파손,C청소완료추가. 전이3문장: 참가자가 밖으로 찬 공은 유리창을 깰 뻔했지만 벽에 맞아 창문은 온전합니다. 지금 한 사람이 공을 찾고 있으며 발견 소식은 없습니다. 밖으로 찬 이유는 기록에 없습니다. 후속: -어 버리다는 완결과 태도를 드러낼 수 있지만 그 표현만으로 고의를 입증하지는 않습니다. 스몰토크 지갑실제지참에맞춰휴식/준비대기둘허용,분실신고불필요.",
+      "review": "전체 수정본 재독. 장비 정리를 die Ausrüstung ... aufgeräumt habe로 정확하고 자연스럽게 교정했다. 과거/진행/결과 상태는 자료의 실제 관찰과 일치하며 평가/원인/고의는 별도로 남는다. 4신규+2재활용 기능 모두 새 상황에서 산출했고 독립선택과 전이 모델을 먼저 보지 않는 순서가 명확하다."
+    },
+    {
+      "unitId": "B2.1-04",
+      "sha256": "b62b15998fd51646f66649eb985a190b2d9b0eda8267f23f3670e0b616772739",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B21-05",
+        "DE-B21-06",
+        "DE-B21-07",
+        "DE-B21-09"
+      ],
+      "solutions": "자료 A/B: 사전 독서·개인 연필·사전 질문은 모두 선택; 지난 18건은 준비물 질문이며 새 공지는 미발송이므로 효과 미확인. 지원: 공동 표의 평균 20→12분과 온라인 신청 추가를 나누고 인과는 만들지 않는다. 새 지도: 지도에서 보시다시피 길 이름이 크게 인쇄되어 있습니다. 글씨도 커졌거니와 휴게 공간 표시도 생겼습니다. 실제 길 찾기 효과는 미조사. 규정 지원: 운영 규정=근거, 신청 순서 자리 배정=실행. 새 산출: 대여 규정에 의하여 장비를 반납하기 전에 상태를 확인합니다. 출처 에 의하면과 실행 에 의하여는 구분. 30명·한 번의 오문은 집계 42명/좌석 30개/두 차례 결정으로 수정. 우산: 준비 기록에 의하면 참가자 24명에 우산 18개입니다. 우산이 6개 부족하므로 진행자가 여섯 개를 더 빌리기로 했습니다. 이름표 지원: 분실 감소 목적의 권고이며 필수 아님·효과 미확인. 새 고자: 낯선 단어를 함께 살펴보고자 모임 전에 짧은 목록을 보냅니다. 미리 외울 필요나 시험은 없습니다. 따름이다 수용 답 ①감사, 다음 참석 의무 아님. 듣기: 목적을 참석 조건으로 오독; 연필 지참·사전 질문 선택; 참여 가능/선택 여부를 앞으로 옮기되 목적 유지, 효과 미확인. 스몰토크: 첫 사례부터 함께 보거나 서로 읽은 부분을 정리하는 두 응답 모두 적절. 독립 확인 C: 질문 12건 수신은 사실이나 대기 미측정, A의 효과·의무와 B의 미수신은 무근거. 전이 답장 2문장: 미리 답하지 못해도 참석할 수 있어요. 종이 크기는 현장에서 고르면 돼요. 공지 3문장: 종이는 현장에서 골라도 됩니다. 낭비를 줄이고자 원하는 크기를 미리 알려 주시면 준비에 참고하겠습니다. 미리 회신하지 못해도 참석하실 수 있습니다. 반론: 아직 사용량을 집계하지 않았다는 것은 무효과가 확정되었다는 뜻이 아니며 목적과 성과 확인을 분리한다.",
+      "review": "교정 전문을 전부 다시 읽고 새 규정 적용 에 의하여를 직접 산출했다. allocation 217의 생산성 누락 해결, 자유 답 비채점 DE, 두 문장 요구와 모델, unter Druck 표현 모두 수정 확인. 자연스러운 du와 관계별 Sie, 선택 조건 및 미확인 효과 보존."
+    },
+    {
+      "unitId": "B2.1-05",
+      "sha256": "4a68e155f28a41e93b8d4a6303ba2dff8481dc2f3b6c5a33649b61247ea27fdc",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "자료 상태: 첫 파일 제목·날짜 유지/본문 없음, 둘째 날짜 유지/본문·어제 있던 제목 없음, 물품 상자는 보관실에 있음. 마저의 범위를 모든 파일·날짜·물품으로 확대할 수 없다. 지원 추측: 직원이 퇴근했나 싶지만 미확인/안내실은 비어 있는 듯하나 다른 방 미확인. 새 3형: 공연이 끝났나 싶지만 쉬는 시간일 수 있어요. 사람들이 나가려는 듯하지만 종료는 미확인입니다. 내일 날짜 배경을 설치하는 걸 보니 내일 공연을 할 모양이지만 공식 확인은 필요해요. 후회 지원은 어제 확인할걸, 새 산출은 어제 휴대전화를 충전해 둘걸. 새 포함·대조 4형: 오늘은 관객까지 의자를 날랐어요. 마지막 안내지도마저 젖어 못 써요. 큰 표지판이야 보이지만 방별 안내는 못 해요. 전자 안내판은 긴 설명은커녕 방 번호도 표시하지 못해요. 지원은 마야의 이해 실패와 레나의 반복 질문을 서로 바꾸지 않는다. 새 2형: 신청자는 안내를 듣고도 조건을 잘못 이해했다. 나는 설명이 끝나기 전에 따지고 들었다고 느꼈지만 네 번 끊어 질문한 이유나 악의는 모른다. 지원 우선 행동/이유/약속: 마야는 실제 신청 완료, 레나는 바쁜 일정+먼 장소 때문에 미신청, 아직 미수신인 수정 파일을 받는 대로 전달 예정. 새 3형: 동료는 일단 예약하고 보자고 했지만 미예약; 비용도 높고 일정도 겹치고 해서 확인 필요; 담당자는 조건을 확인하는 대로 답변 예정. 듣기 4답: 어제 예약 미확인을 후회; 옆방 준비로 이 방의 예약·허가 알 수 없음; 뒤 일정과 두 사람 버스 중단 등 복수 사정; 방 부족 때문에 취소됐다는 확정문 피함, 답변·취소 모두 미확인. 스몰토크: 함께 기다리거나 보유 우산을 나누는 두 제안 적절, 날씨 보장 없음. 독립 확인 B: 안내서·마지막 목록 부재와 물품 존치를 함께 보존. 전이 4문장: 먼저 신청하자는 제안은 있었으나 아무도 신청하지 않았다. 높은 비용과 겹치는 일정 때문에 조건 확인 중이다. 담당자에게 질문을 보냈지만 답은 아직 오지 않았다. 답을 받는 대로 공유할 예정이다. 후속: 미신청을 완료로 기록할 수 없고 현재 상태와 다음 행동을 분리한다.",
+      "review": "교정 전문 전체 재독 및 열세 기능 새 산출·지원·통합 과제 풀이 완료. 원래도 KO–DE PASS였으나 변경된 독립 확인 가림 규칙까지 현재 SHA에서 재확인. du 관계, 시점·인과·범위·추측 강도 보존."
+    },
+    {
+      "unitId": "B2.1-06",
+      "sha256": "e5175dc5bac1e61b010f6c0430e42ff3322c9fbe776f371f60fcb00c50bb42e1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B21-08"
+      ],
+      "solutions": "독서 모임 자료: 월별 중복 제거 인원 20→30명, 모임 2→3회; 관심 증가는 기사의 해석이고 주민 전체 관심·참여 이유·새 방식 효과 미조사. 고칠 문장에는 효과 확정 및 월별 고유 인원/회차로 실제 회차 인원을 복원한 오류가 있다(20/2,30/3을 실제 각10명이라고 할 수 없음). 효과 미확인은 무효과 입증 아님; 참여 이유를 조사하되 응답자 범위 보존. 사진 지원: 공통 파란 모자, 차이 A상자 보유/B빈손·촬영일 화/수; 동일인 여부·상자 반납 여부 모두 불명. 새 상담: 대면 신청 12명과 온라인 예약 8명이 있으나 중복과 실제 참여가 미확인이라 총 실제 상담자 20명 아님. 듣기: 신청 50→70건은 +20건이지 새 참가자20명 아님; 중복 제거45명 동일과 양립; 게시판 뒤 증가한 순서만 있고 원인 미확인; 남길 질문은 여러 행사 신청 이유. 스몰토크 즉시 검토 수락 또는 저녁 가능 시간 제안 모두 적절. 독립 확인 C: 900/20=45회,1200/30=40회; 총 +300회·개관일 +10일인데 일평균 -5회, 사람/인기도 추론 불가. 새 산책 발표 4문장: 중복 제거 참가자는 24→36명이고 운영은 2→4회였다. 기사는 새 안내문이 효과를 냈다고 해석했다. 참여 이유를 묻지 않아 원인 확정은 어렵다. 6월 횟수도 미정이고 미래 참여 조사도 없어 다음 달 증가를 단정할 수 없다. 반론의 두 부분 모두 답: 안내문 효과는 가능하지만 미확인, 미래 증가도 미확인. 방 전이 3문장: 새 방은30석으로25명이 앉을 수 있지만 계단만 있다. 옛 방은승강기가 있으나20석으로5석 부족하다. 먼저 계단 이용이 어려운 분이 있는지 물은 뒤 다른 방이나 운영 방식을 함께 검토하면 어떨까요? 알려진 지원 필요를 발명하거나 좌석 수를 접근성으로 대체하지 않는다.",
+      "review": "현재 SHA 전문을 전부 재독했다. 새 상담의 DE가 12/8을 각각 Personen으로 유지하고 예약·실제 참여·중복을 구분하도록 수정되어 DE-B21-08 해결. 본문 양적 근거 및 반론 대응·방 접근성 전이를 실제 계산/작성했고 du 일관성과 비채점 성격을 확인."
+    },
+    {
+      "unitId": "B2.2-01",
+      "sha256": "8911729d01ad2b9bf200a73115988ba0c8aa4a24ac0a59660904b6402be47a7e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B22-01"
+      ],
+      "solutions": "자료 협상: 오늘 두 사람 공통 시간은18:00–18:10으로 최소20분 미달, 내일18:00–18:30에서20분 확보 가능; 오늘 짧은 메모·내일 자세한 글은 서로 다른 상태. 전화/채팅 자유는 녹음 또는 사진 공개 동의를 뜻하지 않음. 제안은 오늘 메모+내일18:00–18:20 무녹음 대화, 사진 별도 질문, 아직 합의로 기록하지 않는다. 지원 만 같아도/이라도/이나마: 지난번20분과 오늘10분을 구별하고 ‘짧은 메모라도 괜찮아요 / 메모로나마 먼저 전할게요’. 새 전시: 공간이 지난번만 같아도 작은 작품 두 개는 걸 수 있어요. 작은 벽 한 면이라도 괜찮아요. 친구가 짧은 메모로나마 배치를 도울 수 있어요. 선택 지원 화/수·전화/채팅, 녹음 금지. 새 선택: 금요일이든 토요일이든 오전10시, 도서관이든 온라인이든 가능; 화면으로 보든지 종이로 읽든지 해도 되지만 사진 촬영은 하지 않음. 이면 지원 일정이면 일정/장소면 장소, 치고 기준은 레나의 예상1시간대비실제20분. 새 산출: 사진이면 사진, 그림이면 그림, 작은 작품의 배치 제안을 받아요. 한 안만 기대한 내 입장에서는 첫 전시치고 세 선택지가 많아요. 제안 지원 두안 모두 제안됨·동의됨 아님; 새 -는다거나: 사진 설명을 먼저 보낸다거나 현장에서 읽는다거나 하는 제안이 나왔다. 어느 쪽도 합의하지 않았다. 듣기: 오늘10분은20분미달; 둘 다는 전화/채팅에 한정; 합의는 오늘메모·내일전화전상세글·내일18시20분무녹음전화, 사진보류. 스몰토크 내일 받기/짧은메모가준비에도움됨 모두 적절. 독립 B=18:30–18:50무녹음전화, A레나시간미달/C녹음거절위반; B도아직제안. 전이 3문장+질문: 큰 작품 대신 작은 작품 하나를 제안합니다. 작은 작품 두 개까지 가능한 한 면의 벽에 맞습니다. 사진의 온라인 공개는 답을 받기 전까지 보류하겠습니다. 이 배치안에 동의하시나요? 후속: 현장 전시 수락과 온라인 사진 게시 동의는 별도로 확인해야 합니다.",
+      "review": "전체 교정 전문 재독 및 여덟 기능과 협상·후속 반론·시간 계산 완료. DE ‘Mit der Notiz kann ich mich schon vorbereiten’로 재귀 목적어 누락 해결. 친구 du와 전시 담당자 Sie, 무응답/제안/동의 범위 보존."
+    },
+    {
+      "unitId": "B2.2-02",
+      "sha256": "ed7d257c0c600a0793578198395ca0411f51df46b33ba9895949551b1836e2b1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B22-02",
+        "EN-FINAL-02"
+      ],
+      "solutions": "자료: 마야가 빌린 레나 전시판은금요일17시반환기한·18시사용,16:30실내입구인계합의. 비는가정; 덮개보유와Daniel이16시차로이동시킬수있음은자료에있지만Daniel이직접제안했다는말은없음. 건물폐쇄시즉시연락/다른장소재합의,밖방치금지. 가정지원: 비가온다면에밑줄,덮개+16시차량도움가능. 새 -는다면: 토요일기차가멈춘다면친구와방문일을다시상의할게요. 아직중단확정은아니에요. 양보지원: 비가오더라도반환약속은지키되건물이닫히면연락해새장소합의. 새카메라차용자역할: 여행을취소하더라도네카메라는월요일에돌려줄게. 범위지원: -는한으로제한되는것은실내대기이지반환전체아님. 새작업실: 작업실을쓸수있는한여기서액자를조립하고남은일은내일할게요; 오늘사용종료20시명시. 수용 -을래야: 출발하려야출발할수가없어요/출발하고싶어도지금은못해요,열쇠없는상태의불가능이지인격평가아님. 듣기: 삼각대소유Christian·차용Daniel;여행미정/금요일16:30반환합의(17시기한내);고장난초인종때문에도착전화;정상버스조건은귀가안심에한정하며정류장동행과반환자체는별도약속. 스몰토크는많이기대했나봐요를선택,실망을명시적으로받아주며날씨가그렇죠도친밀한말투에서는가능. 독립확인B: 요리취소해도냄비반환,밖에두기는소유자요구위반. 전이3문장: 손님이못온다면토요일요리는취소할수있어요. 그래도냄비는일요일11시까지돌려드릴게요. 10시30분에직접드려도될까요? 부재후속: 알려주셔서고마워요;밖에두지않고11시전직접인계할다른장소를함께정할수있는지질문,새장소합의됐다고쓰지않음.",
+      "review": "FIXES_7 최신 교정 전문 전체 재독·전 과제 실제 풀이. DE 차용 관계를 명확히 하고 지원 답에서 자료에 없는 angebotene 도움 제안을 없애 EN-FINAL-02도 해소. 세 표현의 시범/지원/다른 예와 독립 확인을 구분했고 미확정 날씨·기차·여행과 반환 약속 범위를 보존. 5절 노출 모델은 지원 모델로 읽으며 독립 성과로 별도 인증하지 않는다."
+    },
+    {
+      "unitId": "B2.2-03",
+      "sha256": "0512d46326b4cfb3ee1f43f8590210c9838440e4dee354bbb6826a87e43b6c42",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B22-03",
+        "DE-B22-04",
+        "DE-B22-05",
+        "DE-B22-12",
+        "DE-B22-13"
+      ],
+      "solutions": "자료 C수정: Daniel에게Lena가내일맡을수있다고들었지만시간은직접확인하라고했다;9시가능직접확인·상자있는곳=내가방자리확보는둘다무근거. Lena에게10–12시간및작은가방공간을직접질문. 전언지원10시/12시. Minho새전언 ‘민호는 토요일 오후에 만날 수 있대요’; 확인 ‘토요일 오후에 만날 수 있다면서요?’; 추가207독립생산 ‘금요일에는 못 만난다니, 토요일 오후에 만날 수 있다는 말인가요?’(시간합의는실제응답후). 직접경험지원: Daniel만방문했으나넓었다는자료는없어현재사실보고로는Daniel/Maya모두넓더군요불가. 새카페 ‘직접 가 보니 창가가 조용하더라. 안쪽은 음악이 크던데 창가에 앉을까?’ 저녁3문장 ‘나는 일곱 시에 출발해. 너는 몇 시에 출발하고? 식당이 오늘 여나 먼저 물어볼게.’ 놀라움 ‘벌써 표가 다 팔렸다니요? 어제 예매를 시작했다고 들었는데 다른 회차도 없나요?’ 수용: -어라직접지시/-게?지금나갈의도질문,나가라는명령아님;낯선사람께는놓아주세요/나가시려고요. 듣기: 현재공간확인은Lena(4),Daniel미확인;상자는Lena+친구(4,6),Maya혼자추정정정;10시도착/11:30까지회수합의(7,8),Lena12시외출. 스몰토크후일차한잔제공은자율적호혜,시간안맞으면말해달라는응답은거절여지. 독립: 공연15시,Hyuna14:30부터입구대기라14:30공연시작요약불가. 전이4문장: 준에게 두 시 반에 오신다고 들었지만 원문에는 그때부터 입구에서 기다리신다고 되어 있어요. 공연은 세 시 시작이죠? 제가 어제 직접 보니 입구가 두 개더군요. 어느 입구에서 만날까요? 전언/원문/직접경험/아직모르는장소를분리.",
+      "review": "교정 전문 전부 재독하고 열한 기능(수용2 포함)을 실제로 풀이. DE Uhrzeit nicht mitbekommen, keine Aufforderung abzusagen, kurz zusammen eine Tasse Tee 수정 확인. 저녁 모델의 3문장 표기와 allocation207 -는다니 새 확인 과제 추가가 원래 기능을 채움. 친구 du, 새 성인 Sie 및 Korean informal관계 합의 설명 적절."
+    },
+    {
+      "unitId": "B2.2-04",
+      "sha256": "dc7cc21ca9f3089840bfa75cb95b0ceaad3b5b87f893295f722d87e273816f82",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B22-06"
+      ],
+      "solutions": "자료 A/B: Maya가Lena정리폴더를촬영자로오해했으나실제촬영Maya/정리Lena;폴더작명동기불명. 지원빈칸은레나가찍은사진/마야/단체채팅설명. 새초대장2문장: 준이 주최하는 줄 알았는데 안내에서 주최자는 현아이고 준은 전달자임을 확인했어요. 제가 친구에게 잘못 전한 말을 바로잡을게요. 수용-어야지정답②당위강조,완료보고아님;새동료에게협력요청대체가능. 듣기: 목록미확인폴더추정에서오류(1);게시전미확인/현재확인(1,3);발표파일과같은단체채팅에Maya촬영/Lena정리로정정,공개여부미확인(4,5). 상대가일부러숨겼다고쓰지않음. 스몰토크: 초안은내가확인/최종본은함께검토하여사과를과도한단독책임으로바꾸지않는다. 독립새자료Lena역할: 마야가 작성한 줄 알았는데 작성자는 저이고 마야는 수신인이었어요. 보고서의 작성자 표기를 바로잡겠습니다. 누가 편집했는지는 추가 확인하겠습니다. 전이가상4문장: 저는 ‘민호 전달’이라는 초대장을 보고 민호가 행사를 주최하는 줄 알았어요. 행사 안내에서 주최자는 현아이고 민호는 전달자라는 것을 확인했어요. 확인하지 않고 잘못 알려 드려 미안해요. 제가 처음 올린 모임 채팅에 주최자 정보를 정정하겠습니다. 실제전송없고확인근거·수정채널구체적.",
+      "review": "교정 전문 전부 다시 읽고 문형 산출·수용·대본·가상 전이를 실제 작성. 새초대장 DE 모델이 두 문장으로 요구와 일치하고 부자연스러운 ‘meiner befreundeten Person’ 대체 확인. Daniel의 기존Sie관계와친구du를보존,저자/수신자/편집자/촬영자/정리자및사용허가를각각분리. 지원모델은지원연습,숨긴독립자료는별도판정."
+    },
+    {
+      "unitId": "B2.2-05",
+      "sha256": "aa7aa7ca0cbae2e8762da2c58680d70ce174932779653ae4c2bd9a59fa23e539",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B22-07",
+        "DE-B22-08",
+        "DE-B22-09"
+      ],
+      "solutions": "지원C2문장정정: 얼굴이보이는사진은회원채팅에만게시가능합니다. 얼굴·이름을뺀공개용편집본은Lena의검토뒤별도동의답을받기전에는게시하지않습니다. 검토허락≠게시허락·무응답≠허락. 다른예운영진3명전달허용/전체회원공유미결이므로현재3명에게만전달하고전체회원도괜찮은지질문. 듣기: 어제허락한사진18시게시를16시에철회(1),아직미게시;사진원본개인보관허락유지(5);날짜·장소만있는글을다시보내답받기전게시보류(4). 이름·개인이야기제외. 스몰토크: 다시말해줘서고맙다고하고사진없는소개대안제시,철회사유요구하지않음. 독립표 허용=이름뺀인터뷰2문장/회원뉴스레터,미결=사진·전체인터뷰/공개홈페이지. 편집자2문장: 회원뉴스레터에는마야이름없는인터뷰두문장을실을수있어요. 사진과전체인터뷰의공개홈페이지게시에는아직답을받지못했어요. 전이가상설문: 응답자별원문은허락범위밖이라제공하지않겠습니다. 이미회원인새팀원에게는허용된익명전체결과를먼저공유하겠습니다. 추가자료가필요하면어떤자료를누구에게어떤용도로전달할지정해응답자에게다시묻겠습니다. 어떤실제전송·법률판단도하지않음.",
+      "review": "교정 전문 전체 재독·지원/독립/전이 실제 풀이. Daniel의 상대복수Sie를 Ihre Durchsicht zu zweit로 유지, Maya–Lena친구의 dir/deine/darfst du 일관성, ‘다시 말하기 어려움’을 das noch einmal anzusprechen로 보존하여 세필수DE문제해결. 보관/검토/편집/게시와용도/대상/수신자범위를각각확인."
+    },
+    {
+      "unitId": "B2.2-06",
+      "sha256": "353db80aa6ea4b48c98df1e449c57660c679bfed95ac1a597c76008d18dff720",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-B22-10",
+        "DE-B22-11"
+      ],
+      "solutions": "초기/최종자료:18시30분녹음공개안→최종18:20–18:40무녹음,공개범위미합의;Maya목요일요약틀/두사람금요일공개범위의견. 지원초안은시작18:20·누락종료18:40·공개미합의로고치고무녹음유지. 새상자공개한문장 ‘상자는 월요일 마야에게서 레나에게 전달되었습니다.’ 내부한문장 ‘첫 사용자는 미확인이며 마야가 금요일에 이전 대여 기록을 확인합니다.’ 수령은확인됐어도첫사용자·향후조사결과는미확인. 듣기토요일10:15+25분=10:40;회원만우선/외부미합의+Lena반대기록;Maya금요일까지요약틀;다음논의날짜미정. 스몰토크다음에는확인필요부분만짧게읽겠다는응답으로확인을유지하며길이조정. 독립새19시시작만합의;30분은Maya선호,20분은Lena선호,길이/종료미합의;내일각가능종료시간을보내기로했음을공지. 전이4문장: 응답자30명중18명이저녁독서모임을원했습니다. 늦은귀가우려를반영해다음달한번18시에시작하고19시전에끝내는시험모임을엽니다. 모임뒤Maya가의견을모읍니다. 매주열지는시험뒤에논의하겠습니다. 60%는응답자내비율일뿐전체회원다수라고확대하지않고한번시험/이후담당/정기미정을유지.",
+      "review": "최신 전문 전부 재독 및 모든 기록 과제·시간계산·4문장 공지 작성. DE 내부기록을 세미콜론으로 한문장 요구에 맞추고 친구Lena→Maya의 halte로 du복원. 제안·시간합의·길이미합의·공개거절·수령/첫사용자 등 구분 적절."
+    },
+    {
+      "unitId": "C1.1-01",
+      "sha256": "4e9ea4058461bbf314a14ddb46da0801379443e2556b2e0c94df9766778333b4",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C11-01"
+      ],
+      "solutions": "자료 A120회문통과(재입장포함)/B46명고유대여회원/동기간;C는A번역이므로새조사아님,연결명단없어166명이용자합계불가. 지원: 수요일계속응답받으며중간집계했으므로모든응답후아님;자기소개는서로를알리는동시에희망토론주제를모으지만주제확정아님;19시불이켜지기가바쁘게사진을가리켰고관객반응은불명. 새9기능/상태재사용: 이표는오전입장만포함한다(-다). 보고서를보내기에앞서원본과사본을구분한다. 응답이들어오는가운데오전자료를먼저검토했다. 제목을그대로둔채로아래에메모를붙였다/메모는지금도아래에붙어있다. 날짜차이를확인하고는결합표를거뒀다. 전화문의만기록했던지난주와달리이번주에는채팅도기록한다. 이글은대여횟수집계에관하여설명한다. 앞서동시에/기가바쁘게도다른자료로작성. 듣기:166불가단위+중복,번역독립근거아님,실제총인원미상. 스몰토크표제부터집계단위명확히고침. 독립2문장:75%=응답32명중자막사용24명으로등록80명전체나재생210회기준아님. 인터뷰3명은32명안에이미포함돼표본에더할수없고도움평가가실제학습성과입증은아님. 전이:2월접수45건은재접수포함,완료33물건중1월접수5개포함이라33/45는2월접수완료율아님;28/45로단순수정해도단위·중복연결미해결. 접수건각각과완료물건을연결할식별번호·접수기간·중복규칙요청. 완료목록사진C는같은자료군.",
+      "review": "교정 전문 전체 재독·모든 기능/자료/계산/전이 풀이. DE에서 완료 물건을 ‘fertiggestellte Gegenstände’로 보존하고 Einreichungen과 식별자 연결을 요구해 DE-C11-01 해결. 출처군/기간/단위/분모와 직접측정 없는학습효과의 한계 일치."
+    },
+    {
+      "unitId": "C1.1-02",
+      "sha256": "fe07efe75d2c6162c2d3edefdf72a536b68788d8abcec0bb6c2aebf9ee285c6a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "자료 A수진은화요일파일수신/작성자아직미확인, B현아저자가능성은파일명을본Maya해석. C에서‘현아의’를삭제하고수진의직접말과Maya추측을분리. 새Lena요약: 처음오는사람에게추가설명이필요할수있다고했고기존회원은조사하지않았다;모든회원의실제이해실패아님. 듣기:기존기능에익숙한5명이특정문서하나를찾는시간을측정,시간감소는확인되나새검색이모든사람에게좋다는것은원문인용도전체사용성결론도아님. 스몰토크핵심과한계를남긴두문장수정안을발언자에게보여확인기회제공. 독립3문장: 수진은금요일17시에안내를게시했다. 현아는자기초안에는토요일시간이있었으나최종본을보지못했다고했고Maya가본게시본에는그시간이없다. 누가어떤이유로뺐는지는미확인이므로수진이실수로삭제했다고쓸수없다. 전이2문장+질문: 정원회의록에따르면이번달물사용이줄었고비온날은늘었다. 새물뿌리개때문일수있다는것은수진의의견이며원인은조사하지않았다. 강수량과실제물뿌리개사용방식을함께확인할수있을까요? 직접인용의원문일치·의역의부정·추측귀속을유지.",
+      "review": "현재 교정 전문을 끝까지 다시 읽고 인용/의역/해석의 전 문항을 풀이했다. 최초 KO–DE PASS 후 변경된 독립 자료 가림/모델 구획도 확인. 알려진 게시자와 미확인 삭제행위자를 구분하고 실제 측정 범위를 보존; 동료 Sie 일관성."
+    },
+    {
+      "unitId": "C1.1-03",
+      "sha256": "4e37661050bbf533d5c192dbbe9438e0a7d3af4dea0f36880356b60ea1978d96",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C11-02",
+        "CUR-FINAL-C113-01"
+      ],
+      "solutions": "검색자료:5명모두동일문서2회차검색시간감소는관찰,새기능과반복연습원인분리안됨;다른문서추가시험가치와효과입증은구분. 지원A중복제거성공≠누락없음;사과·칼·접시의도추정뒤먹기/촬영질문. 지원B이유남기기는원칙이지준수통계아님,독자에게안보인약어5개를모두실패로쓸수없음. 지원C만족도만으로속도모름,완주재생만으로이해입증못함. 새행별산출/분류:①네번고친끝에카드순서를맞춰냈다(성취),오타미검토.②그월요일관찰로는오후가덜붐비는듯하다(추정),인원미집계.③뜻풀이없는약어5개는처음읽는사람이어려워할법하다(가능성),실제반응불명.④사과를깎으려나보다(의도추정),먹을지촬영인지질문.⑤시각·문의처있어초안을시험해볼만하다(평가),이해도미검증.⑥진행자는새작업에질문이생기게마련이라며시간확보를권함(일반조언),아직질문발생미관찰.⑦어두우면비슷한실색을혼동하기쉽다(조건부경향),작업전밝은곳제안.⑧순서를바꿀때이유를알리는법이라고했다(원칙),이번설명미실행.⑨완주재생됐다고이해했다고볼수있는가(논증질문)? 이자료에는이해도측정결과가없다(자료범위).⑩설명이도움된것같지만질문감소에는동시퇴실영향도가능(추정),출석미집계. 듣기시간감소확인/기능단독효과유보/다른문서시험제안. 스몰토크좋은출발·관찰성과를기록하되확신과장않음. 독립두극단정정:안내를읽은응답자12명중10명이절차가명확하다고평가했다는정보는있지만예약성공증가측정·비독자비교는없다. 전이3문장:옮긴6화분중5식물성장증가관찰. 물주기도동시에바뀌고비교화분이없어위치만의효과는분리불가. 조건을나누어추가관찰할만하다.",
+      "review": "FIXES_3가 반영된 현재 전문을 전부 재독·10행 기능과 모든 과제 풀이. ‘이 자료에는 이해도 측정 결과가 없다’/‘Diese Unterlagen enthalten keine Ergebnisse zum Verständnis’로 제공자료 범위를 명시하여 CUR-FINAL-C113-01 해결. DE lohnt sich 목적어 구조 수정도 확인. 관찰을 지우지 않으면서 인과·추정·원칙·성과의 강도를 구별."
+    },
+    {
+      "unitId": "C1.1-04",
+      "sha256": "a95f0995862b47bdd63659f0c030760face9b5d148780c9a3991d1672289a894",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C11-03",
+        "DE-C11-04",
+        "DE-C11-05"
+      ],
+      "solutions": "대여소보고는한주시간문의20건중14건일요일(사람수아님),일요일18시마감을강조할표지제안/금요일담당자확인후교체가능/이후문의변화확인. 이용자안내는통계를생략해도되나18시전반납행동은명확히유지;저녁쯤으로흐리면안됨. 새큰제목판:신규6명중5명방찾기성공이나비교집단없어전체교체효과단정불가;다음주한방시험제안,전체교체예산미정. 듣기:지난주충전기문의15건중9건위치→오늘위치표지가능;고장신고2건은내일확인·수리완료시각모름;운영자는수치·조치/이용자는지상층1층안내대옆위치와기기정상여부문의. 스몰토크짧은안내뒤자세한근거제시또는시도후막힘알려달라고요청. 독립3문장: 다음달첫수요일18–19시한번시험운영을제안합니다. 18시선호는응답40명중26명이며60명은무응답이라전체선호로일반화할수없습니다. 정기운영은장소반복예약가능성을확인한뒤논의하겠습니다. 전이보고3문장: 모레체험에맞춰사진표를우선준비하자. 18명중7명도구이름문의가근거다. 내일까지제작·담당자정확성확인뒤배포하고일주일걸리는영상은후속으로검토하자. 참가자안내1문장: 도구이름은사진표에서확인하고모르겠으면진행자에게물어보세요. 제안/미래가능을실행완료로쓰지않음.",
+      "review": "현재 교정 전문 전체 재독과 독자별 보고·안내 작성/근거 계산 완료. Prüfung durch die zuständige Person, ausgeliehenen Gegenstände 반환목적어, 사진표 DE한문장지시/한문장모델 세필수수정해결. 독립3문장·전이3+1문장, 운영가능시각과반복예약미확인 유지."
+    },
+    {
+      "unitId": "C1.1-05",
+      "sha256": "fb0817abf3d6ce36a9836e2a03916e87141ab8e9cb396c86a7f77943180656c2",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "자료정의: 편집팀원본=자막·색변경전상태;보관팀원본=최초촬영·보관이력. 무편집후발사본X는A뜻에는맞지만B최초파일아님. 지원무편집과최초는상태/이력으로다른기준. 새공개본/확정본: 비회원접근가능하지만검토중인X는공개본이며확정본아님. 색인비유는위치안내에한정,내용복사·보관이아니므로색인만으로소실파일복원불가. 듣기공방시제품목적은크기·조립순서확인(2),가봉비유는미리점검하는점만유사·실제천아님(4),하중검사미실시라판매준비완료로쓸근거없음. 스몰토크이해한뜻을자기말로다시말해확인. 독립접수표발급=접수완료,점검전이므로수리완료문자오류: 접수는끝났지만점검과수리는아직입니다. 점검결과를언제알려주시나요? 전이3문장: 제공정의상활착은이식뒤새뿌리가자리잡는과정입니다. 새집에자리잡는다는비유는식물이사람처럼장소를선택했다거나꽃이폈다는뜻이아닙니다. 새잎만으로이를확정할수있는지그리고어떤추가관찰이필요한지확인할수있을까요? 실제원예진단이아닌제공된가상정의해석.",
+      "review": "현재 SHA 전문 전체 재독·각 정의/대조사례/비유한계/문자정정/가상전이 실제 풀이. 初회PASS였지만 변경된 독립 확인 가림까지 다시 확인. 전문 정의를 보편적 규정으로 확대하지 않으며 DE du학습자·Sie업무상대가 일관된다."
+    },
+    {
+      "unitId": "C1.1-06",
+      "sha256": "dbcbdcd7f7f5236462fccf4a2e9864ecfd9935679639fb0eb08aff21b5eabb97",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "첫질문금요일확정여부에‘아직아님’먼저답함:18–19큰방빈것은확인이나담당자승인없음,수진목요일12시까지승인여부질문예정(승인보장시각아님). 월요일설문부터낭독할필요없음. 새40명설문:16응답중12온라인선호=75%,나머지24선호미상이라전체대다수온라인이라못함(알려진12는전체40의30%이나무응답을반대로간주하지않음). 듣기:오늘글자료다운로드가능,영상은자막검토후게시·완료일미정,레나약속은내일오전편집자에게일정문의이지내일영상게시아님. 스몰토크질문이필요파악을돕고확정사항만재요약요청가능. 독립새질문:현장10→4감소하나온라인2→9증가;합계사건12→13이라고계산할수는있어도방문자·중복질문자·이해도결과가없어이해향상원인확정못함. 먼저그한계를답하고질문유형일관기록과이해확인추가를제안. 전이3문장:30권유입과18권유출의차이는12권이지만독서관심을측정한수치가아닙니다. 동일책의재반입과책별이동도기록하지않았습니다. 다음에는개별책의이동을남기고남은이유를따로물어보면어떨까요? 12권이라는순량차이를관심없는고유책12권으로정의하지않음.",
+      "review": "교정 전문 전체 재독 및 응답순서·비율·유입유출·후속문의 과제 실제 풀이. 원래KO–DE PASS였던 파일의 최종가림/새독립데이터도 재검토. 일정 질문·승인·게시 완료를 구분하고 독일어가 발표확정이나 독자이해결과를 추가하지 않음."
+    },
+    {
+      "unitId": "C1.2-01",
+      "sha256": "2bf39290ccf33f2863c74062d27d11c3a017c39426b340eea6a6017aafc365f3",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C12-01"
+      ],
+      "solutions": "업무카드지원3문장: 오늘17시까지제목만확인해주실수있을까요? 본문은내일보셔도됩니다. 어려우시면시간을함께맞추고싶습니다. 지시권없는첫동료에게즉시전부를요구하지않음. 수용4형:-거라관계있는성인학습자에대한직접지시/-고말고강한긍정약속이지완료아님/-네관찰감탄이지추가업무아님/-으려고?의도우려질문이지허락아님. 생산-는걸은근거있는정정. 교수새예: ‘교수님께서내일15시에오십니다’와‘교수님내일오후세시에오셔’둘다교수높임,청자레지스터만변경·성별미상. 듣기Hyuna16시쯤볼수있다는약속이지완료아님;오늘제목/본문내일;교수내일15시도착후검토예정,시존대는언급교수에게. 스몰토크Hyuna라고부르는것만으로한국어반말합의아님. 독립정정: 공지를보니아직신청을받는걸요. 마감은내일17시예요. 추가수용올리려고요는게시허락아님. 새관장두문자: ‘관장님께서토요일오전10시에오십니다’/‘관장님토요일아침열시에오셔’. 전이첫이웃3문장: 토요일10시청소전에상자를옆선반으로옮겨주실수있을까요? 열거나버리실필요는없어요. 시간이맞지않으면함께조정하고싶어요. 불필요함을금지로바꾸거나옮기는양을늘리지않음.",
+      "review": "최종 전문 전체 재독·생산/수용/높임2축/요청전이 직접 풀이. DE ‘muss weder geöffnet noch entsorgt werden’와 ‘müssen sie weder öffnen noch entsorgen’가 원문의 불필요함을 보존해 DE-C12-01 해결. 친밀호칭과반말합의·대상존대와청자존대·공손함과권한을분리."
+    },
+    {
+      "unitId": "C1.2-02",
+      "sha256": "bb3b8de77c681d46f2107bebf18f65a3c25569042773da2e8cd8101b0f0317fd",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C12-02",
+        "DE-C12-03",
+        "DE-C12-04"
+      ],
+      "solutions": "공동자료:3명중2명은내부만허락/1명무응답,동의한2사람의사진이라는범위이며사진2장이라는수량아님;내부초안또는글만준비두대안도아직제안. 양보지원오늘편리해도전체사진게시불가;새실제비가왔는데도실내설명회진행. 첨가지원크고저렴함≠이해효과;새포스터제목조차없음. 수용264확인할테다=자기결의/타인명령아님,265공개할테면=조건/무조건허락아님. 대안새사진을급히넣느니글만준비제안. 경고지원은아직사고발생아님,짧은답배려해석≠실제의도. 전제새공동제출하는이상상호출처확인후제출. 17생산행:254비가오는데도많이참가했다(실제양보);255시간이부족한데도불구하고두검토자가대조마침;256운반비증가에도불구하고의자3개추가;257시작이늦어질지라도이름먼저확인(미지연가정);258전문가조차새기호못이해;259제목·날짜는말할것도없고문의처까지확인;260A는용량이작을뿐더러같은내용글씨도큼;261방이좁은데다의자부족;262틀린지도를내느니확인뒤배포;263후보날짜지확정예약아님;266회의가길어질테지만이름확인유지;267숫자이해는분모설명하기나름;268생각하기에따라명료/불친절해석가능,작성자의도미상;269본인이설명한대로너무서두른나머지날짜누락(귀속된원인);270공동발송합의한이상전체확인;271덮어쓰다가는이전내용상실가능(아직미발생);272내부연습이면몰라도실제공개안내는검증수치만. 듣기동의한두사람사진도공개불가(내부만),오늘합의는글초안준비/내일공동문안검토/사진답뒤별도논의. 스몰토크오늘할수있는부분을협력제안. 독립2문장: 내부계산이면몰라도공개발표에는미검증수치를쓸수없습니다. 확인된수치만남기고새수치는검토뒤추가합시다. 전이3문장: 빠른게시와그림확인이둘다필요함을이해합니다. 오늘확인된화·금요일만게시하고그림은토요일검토후추가하면어떨까요? 두분이이순서에동의하시나요? 제안을합의로기록않음.",
+      "review": "최신 전문 전체를 출력 누락 없이 읽고 4묶음/19배정(17생산+2수용)과 모든 통합과제를 풀었다. DE Fotos überstürzt einzufügen, weniger Speicherplatz, Fotos der beiden Personen 수정으로 자연스러움·정보량과파일용량·사람과사진단위 보존. 지원모델과 독립 확인을 구분하고 역할/허락범위/가정·실제의미를 유지."
+    },
+    {
+      "unitId": "C1.2-03",
+      "sha256": "c60c73b07ff4363ca96b9704e3c9b453811591b2f699bf9bbdf8c9ef1d91baab",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C12-05",
+        "DE-C12-06"
+      ],
+      "solutions": "가상채팅: 이동중Lena의‘네그렇게하세요’는짧은순서수락과길게쓰기어려움이양립가능,화남은미확인. 지원응답수락으로이해했음을밝히고추가검토점질문/이동후답허용. 새위험2문장: 마감을놓치게생겼어요. 지금담당구간중누가어느부분을합칠지정합시다. 16:30중복발견/17시기한은위험평가이지이미실패아님. 새척하다: 준은못들었는데들은척했다고직접말했다(당사자귀속,우리의마음추정아님). 새기만: 관찰한3분동안창밖을보기만했고이유·질문청취여부모름. 새이라든가: 이메일이라든가음성메모라든가편한방법으로답해주세요(예시·다른방법허용). 듣기: 짧은이유는기차입력곤란,순서변경수락이나마지막사진이름확인요구남음,마야확인완료아니고약속. 친구du정정. 스몰토크편할때대화하자는응답으로시점여유제공. 독립: 지난주매일2–3문장대비오늘따라확인했습니다한문장으로짧아짐;바쁨/덧붙일내용없음두가능성을열어두고‘이대로진행해도되는지,추가의견이있는지편하실때알려주세요’로확인. ‘확인했습니다’만으로모든진행승낙을발명않음. 전이: 준비수고에대한칭찬일수있고좁은공간에비해물건이많다는우려일수있으나둘다확정못함. ‘이공간에배치하기에물건이많아보이는지함께봐주실수있을까요?’라고물어상대감정·의도를대신단정않음.",
+      "review": "교정 전문 전체 재독 및 다섯 기능·별도관계 카드·독립/전이 모두 풀이. Maya–Lena는 Deine/dich/Prüf/dir로 du 일관, ‘vorschnell auf deine Gefühle geschlossen’ 자연스럽게 수정; Jun의 ‘so getan, als hätte er es gehört’ 필수보문 복원 확인. 제3자 의도·완료상태를 확대하지 않음."
+    },
+    {
+      "unitId": "C1.2-04",
+      "sha256": "5e964f44ae4a603be582b0019fde482a38dd2c4390402ca750a1c30499b55472",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C12-07",
+        "DE-C12-08",
+        "DE-C12-09"
+      ],
+      "solutions": "공동자료:Maya담당자의장소변경계획전언/새방미방문,Hyuna오늘기존방빈상태직접관찰/변경공지미열람,Lena새주소필요/아무자료에도주소없음. 시범지원:들었다기에문의한상태는변경확정아님,안내대방문≠담당자면담/2층올라감≠접수완료(지상층위한층). 수용-데직접방문인상,전언-대와문맥구분;사진도보내라니는전달지시확인이지새지시아님. 새놀라움 ‘벌써목록이끝났다니놀랍네요;저는소식만들었고직접확인하지않았어요.’ 새생산5행:①준이쉰다고들었다기에전화했지만무응답이라휴무미확인.②Lena가먼저읽자기에함께읽었고신청은미실행.③11시에직접가보니안내판2개있더라고요,내용정확성미검토.④50명중3후기만가지고전체만족판단불가.⑤공지19시변경이적혀있길래달력수정,참석은미정. 듣기두진술로새방준비완료입증불가;Maya오늘15시까지담당자에게질문하고응답/무응답공유예정;Hyuna관찰은오늘오전기존방한정. 스몰토크관찰범위·시각을붙여가치를보존. 독립3문장: 제목만줄인다는것이본문한줄도지웠습니다. 아직복원하지못했습니다. 이전버전과대조해복원한후확인을부탁드리겠습니다. 전이4문장:현아는어제저녁수도꼭지가잠긴것을보았으나이유는모릅니다. 레나는담당자에게점검중이라고들었으나끝나는시각은모릅니다. 마야는내일아침물담당이라그때사용할수있는지알아야합니다. 문의할사람을함께정해담당자에게내일아침사용가능시간과임시물공급방법을물어보면어떨까요? 문의/새담당자/결과를완료로만들지않음.",
+      "review": "최종 전문 전체 재독·9배정 기능과 모든 지원/독립/전이 풀이. DE 요약 정확성을 ‘Ich fragte ... ob’로 질문만 보존, Maya는계획을들었고준비상태미관찰로복원,수도는zugedreht로물리상태유지하여세필수문제해결. 행위자·직접경험·전언·후속문의기한이명확."
+    },
+    {
+      "unitId": "C1.2-05",
+      "sha256": "93f314254900793c35ea2c7e02153e5eb35277f9abcd58883724c9bf35aa7504",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [],
+      "solutions": "자료:Lena가어제옛파일을게시하고오늘교체했으나옛파일다운로드자가누군지모름. 지원오류‘모든이용자가최신본수신’은원문없으므로삭제. 공지에는Lena의게시/교체와수신미확인유지,채팅에는본인행위와새파일확인요청을남기되요청≠이미확인결과. 새회의록한문장: 마야는설명을이해했다고했으나오늘안완료일정에는동의하기어렵다고밝혔다. 이해와동의를혼동않음. 듣기Andrea제목·날짜검토완료/Lena본문내일검토예정,어제Lena가일정에직접동의했으나작업완료아님. 스몰토크친근하게써도행위자·범위를보존할수있어회원채팅도수정. 독립2문장: 준이어제주소오타를발견해현아에게알렸고현아는내일고치겠다고했어요. 게시물은아직그대로이니수정후주소를다시확인해주세요. 전이주민역할채팅2문장: 계단이어둡다는의견을제가관리담당자에게전했어요. 내일살펴보겠다고했지만수리는아직약속되지않았어요. 공지2문장: 계단이어둡다는주민의견이관리담당자에게전달되었습니다. 담당자는내일현장을살펴볼예정이며수리여부는미정입니다. 문체설명: 채팅은1인칭친근한해요체,게시판은익명주민/공적인합니다체;두형식모두전달완료·점검약속·수리미정을보존하고비공개주민실명은발명않음.",
+      "review": "최종 교정 전문 전체 재독 및 원문-공지-채팅과 2+2문장 전이 직접 작성. 최초KO–DE PASS였으나 새독립가림·전이역할명시까지 현재SHA에서 재확인. 수동문허용과책임보존을문맥별로구분하고 게시물교체/이용자수신·검토일정/검토완료·점검/수리를 혼합하지 않음."
+    },
+    {
+      "unitId": "C1.2-06",
+      "sha256": "a0e1e132e50fa7b4e1742fd9996b25320ea94ef9c601c6a77f5024719b27499b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "resolvedFindingIds": [
+        "DE-C12-10"
+      ],
+      "solutions": "공동 자료: 사진 없이 글 먼저, 레나 인용은 뜻 보존 및 본인 확인 후 게재, 현아가 금요일 12시까지 문장 발송, 사진은 다음 회의 논의라는 순서에 합의했다. 지원: 금요일 12시는 현아 발송 기한이지 레나 회신 기한이 아니다. 새 수정 기록 한 문장: 레나는 표지를 수요일까지, 본문 그림을 금요일까지 검토하며 세 사람은 이 범위와 기한에 동의했다. 듣기: 처음 잘못 합친 정오 발송·승인을 분리한 뒤 레나가 새로 금요일 15시까지 확인 가능하다고 말하고 합의; 허용은 두 문장·무사진, 뜻이 달라지는 수정은 재확인, 단순 오타 수정은 통지만 필요하다. 스몰토크: 바뀐 줄을 표시해 마지막 낭독에서 확인하고 기억력만으로 합의를 유지하지 않는다. 독립 두 문장: 현아의 월요일 요약 발송과 마야의 수요일 검토는 합의되었습니다. 레나의 인용만 월요일 먼저 보내 화요일에 확인받는 순서에 모두 동의하시나요? 조정안을 이미 합의된 일정으로 쓰지 않는다. 전이 공지 두 문장: 토요일 10시부터 11시까지 물품을 나눕니다. 사진은 촬영하지 않습니다. 내부 두 문장: 마야가 금요일까지 목록을 만들고 현아가 토요일 9시 30분에 공간을 확인합니다. 남은 물건 처리는 행사 뒤 함께 정하며 폐기나 기부는 아직 합의하지 않았습니다. 물품 나눔에 맞교환 의무를 추가하지 않는다.",
+      "review": "최종 전문 전체 재독·지원/대본/독립 조정 질문/2+2문장 전이를 실제 작성했다. DE가 Tausch 대신 Gegenstände weitergeben으로 나눔을 보존하며 공지 모델도 두 개의 완전한 문장으로 수정되어 DE-C12-10 해결. 기존 업무 상대 Sie와 인용 확인·발송·검토·재확인 기한을 구분했다."
+    }
+  ],
+  "findings": [],
+  "notes": [
+    "Completed scope: 68/68 assigned changed manuscripts through C1.2; all PASS, no active required findings. Each row records a whole-text reread and fresh textual task solutions at its exact SHA, including superseding FIXES_1 through FIXES_7 where applicable.",
+    "The initial 16 band reports still document the full 100-manuscript original review. They remain immutable. Twenty unchanged initial PASS units may be reused by the parent audit after byte comparison; twelve corrected C2 manuscripts require the separately assigned FINAL_C2 evidence.",
+    "C2.1/C2.2 final review is delegated to final_c2_ko_de. This reviewer did not write, edit or claim the separate FINAL_C2.md/json result.",
+    "COMMON_FINAL.md/json covers six current common documents: three corrected documents fully reread, three unchanged initial full-reading PASS decisions reused after exact-byte checks.",
+    "Supported model comparison is not independent achievement. In particular B2.2-02 section 5 is supported practice; its section 8 is the separate independent check and transfer task.",
+    "Initial resolved IDs are listed in resolvedFindingIds. Active findings only belong in findingIds/findings; all nine final-review findings originally raised here have been resolved by full corrected-text rereading and task re-solving.",
+    "AI model review by gpt-6-astra at max effort, not human certification. No real audio listening, learner observation, audio synthesis, app change, manuscript edit or Git mutation was performed by this reviewer."
+  ],
+  "resolvedFindings": [
+    {
+      "id": "DE-FINAL-A125-01",
+      "unitId": "A1.2-05",
+      "severity": "required",
+      "location": "독립 확인: 그 활동의 이동 목적 또는 준비 의도 한 문장을 덧붙여요. / add one purpose or preparation sentence / einen Satz zu Bewegungszweck oder Vorbereitung",
+      "problem": "GRAMMAR_ALLOCATION 26(-으러),27(-으려고1)는둘다productive_target이다. 네하위활동은시범/도움까지있지만새자료과제는둘중하나만생산해도끝난다. 전이도희망/제약만명시하여나머지기능의새사례산출을보장하지않는다. BAND_CONTRACTS는배정기능마다시범→도움→다른예를요구한다.",
+      "proposal": "독립 확인의 마지막 문장을 두 카드 지시로 교체하고 두 답을 각각 확인한다. KO: ‘이동 카드: 조용한 읽기 자리로 가요. 준비 카드: 책을 가까이 놓아요. 각 카드에 맞게 -으러와 -으려고로 한 문장씩 따로 말해요.’ EN: ‘Movement card: You go to the quiet reading place. Preparation card: You put a book within reach. Make one separate sentence for each card, using -으러 and -으려고.’ DE: ‘Bewegungskarte: Du gehst zum ruhigen Leseplatz. Vorbereitungskarte: Du legst ein Buch bereit. Bilde für jede Karte einen eigenen Satz, einmal mit -으러 und einmal mit -으려고.’ 숨긴 모델의 OR를 두 답으로 바꿈: ‘책을 읽으러 가요. 책을 읽으려고 책을 준비해요.’ EN ‘I am going there to read. I am getting a book ready to read.’ DE ‘Ich gehe dorthin, um zu lesen. Ich lege ein Buch bereit, um darin zu lesen.’",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "8b7dce39ffa569ee6604f9f55d7b79e810593e9e71ef3c6265c8ccbdf28d0723",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-A224-01",
+      "unitId": "A2.2-04",
+      "severity": "required",
+      "location": "## 새 메시지와 생활 전이 — 할 일 및 바로 이어지는 모범 조각 KO/EN/DE",
+      "problem": "새 역할 자료로 여섯 기능을 산출하라는 과제 바로 아래 정답 문장이 세 언어로 노출된다. 시범 및 답안을 먼저 가리라는 지시나 도움받은 수행 구분이 없으므로 독립 새 예 산출인지 모델 복사인지 분리되지 않는다.",
+      "proposal": "새 자료 앞에 다른 단원과 같은 KO/EN/DE 안내(앞 시범과 아래 세 언어 답안을 가리고 먼저 새 자료로 응답; 도움을 열면 도움받은 수행)를 추가한다. 모범 조각의 KO/EN/DE 전체를 ‘응답 후 검토용 답안 / Review after responding / Erst nach der Antwort prüfen’ details에 넣는다. 여섯 기능 각각의 독립 문장 요구는 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "837666d6729825c86443092270921c9ec2731bd2b12ed42f2e1952c09466cfa0",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-A123-01",
+      "unitId": "A1.2-03",
+      "severity": "required",
+      "location": "새 기록 검토용 답안 DE: Sowohl 책은 안 읽었어요 als auch 책은 읽지 않았어요 bedeutet ...",
+      "problem": "sowohl ... als auch로 연결된 두 표현이 주어이므로 복수 동사 bedeuten이 필요하다.",
+      "proposal": "Sowohl 책은 안 읽었어요 als auch 책은 읽지 않았어요 bedeuten „Das Buch habe ich nicht gelesen“.",
+      "affectedLanguages": [
+        "DE"
+      ],
+      "resolvedBySha256": "9c0b77d5ba66da1574ef12effb0564797ecc0deac780fedff2d7bb64feb3028e",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-B115-01",
+      "unitId": "B1.1-05",
+      "severity": "required",
+      "location": "새 확인과 생활 전이의 첫 자료·과제·모범 및 뒤 ‘위 도움 제안에는 -어 드리다를 직접 써요’",
+      "problem": "-어 드리다의 새 사례 산출을 요구하지만 앞에 그 사례의 완성된 KO/EN/DE 모델을 그대로 노출한다. 답을 가리라는 안내는 모델 이후이며 ‘아래’ 답만 범위에 넣어 앞 도움 제안의 독립 산출을 구분하지 못한다.",
+      "proposal": "새 확인과 생활 전이 제목 바로 아래, 자료 전에 세 언어 공통 안내를 추가: 이전 시범 및 이 섹션의 모든 KO·EN·DE 모범/답을 가리고 새 역할 정보로 먼저 답하며, 답/표현 도움을 열면 지원 연습으로 기록. 가능하면 첫 모범도 응답 후 검토 details로 숨김. 뒤 기능표와 두 -게 하다 장면도 이 안내 범위에 포함.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "062ae0348ae160d4c7a886b3373728eed71b383d9e84cb2acd4dd7d74a891aed",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-B116-01",
+      "unitId": "B1.1-06",
+      "severity": "required",
+      "location": "새 제약과 생활 전이 첫 모범 및 두 번째 새 보기 4문장 모범",
+      "problem": "중간 조건 표현 추가 확인의 답 가림은 별도 역할 카드 두 문장에 한정된다. 첫 새 -어야겠- 자기 결심과 두 번째 새 공방 4개 기능 답은 가림 지시 없이 바로 노출되어 독립 산출과 도움 사용을 구분할 수 없다.",
+      "proposal": "새 제약과 생활 전이 제목 바로 아래, 자료 전에 이전 시범 및 이 섹션의 모든 KO/EN/DE 모델·답안을 가리고 먼저 새 자료로 응답하며 도움을 열면 지원 수행으로 기록하라는 안내를 세 언어로 추가. 중간 별도 -으려면/-어야 카드 및 두 번째 공방까지 범위를 명확하게 포함.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "2f0e761d4c3319bb2799d122c52a033eaaf3524d8a85b519b5220362925e78c9",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-B121-01",
+      "unitId": "B1.2-01",
+      "severity": "required",
+      "location": "새 메모와 생활 전이 첫 네 간접인용 과제와 모범, 뒤 남은 기능의 새 카드 안내",
+      "problem": "처음 네 간접인용 기능의 새 메모 보고 모델은 가림 지시 전에 그대로 노출되고, 뒤 답 가림 지시는 남은 다섯 카드만 범위에 둔다. 새 자료 독립 산출과 이미 본 모델 재현을 구분하지 못한다.",
+      "proposal": "새 메모와 생활 전이 제목 바로 뒤 자료 전에, 앞 시범 및 이 섹션 전체 KO/EN/DE 모범·답을 가리고 먼저 답하고 도움을 열면 지원 수행으로 기록하라는 안내를 세 언어로 삽입. 최초 네 간접인용 기능과 뒤 남은 기능 카드 모두에 적용.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "09fd34d5f55166110eb2932d775483488fecb72c547e80139018b742229f886b",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-B123-01",
+      "unitId": "B1.2-03",
+      "severity": "required",
+      "location": "새 자료와 생활 전이 첫 모범 및 마지막 비교·같이 확인 예",
+      "problem": "답 가림 안내는 가운데 추가 산출의 -는 만큼·대로·이고에만 있고 첫 뿐 및 마지막 만큼·같이 두 기능의 모델은 답 전에 보인다. 전체 새 생산 기능의 독립/지원 수행 구분이 없다.",
+      "proposal": "새 자료와 생활 전이 제목 뒤 자료 전에 이전 시범과 본 섹션 모든 KO/EN/DE 답·예를 가리고 먼저 응답하며 재열기 도움은 지원 수행으로 기록하라는 세 언어 공통 안내를 추가한다. 첫 자료군 과제·가운데 추가산출·마지막 비교/같이 모두 포함.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "b19a01961b14b01b933d53f35987b0b22cad7d6a8841224f2b075b6d6df7b791",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-B124-01",
+      "unitId": "B1.2-04",
+      "severity": "required",
+      "location": "새 선택과 생활 전이 첫 모범, -으나 안내문, 추가 의자 모범",
+      "problem": "새 여덟 기능 중 -는 반면에만 답 가림 지시가 있다. 앞 모델과 뒤 안내문/의자 모델은 바로 노출되어 나머지 기능을 독립적으로 만들었는지 구분되지 않는다.",
+      "proposal": "새 선택과 생활 전이 제목 뒤 자료 전에 모든 이전 시범과 본 섹션 KO/EN/DE 모델·안내문·예를 가리고 먼저 답하며 도움 재열기를 지원 수행으로 기록하도록 안내. 모든 하위 과제를 포함하는 범위를 세 언어로 명시.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "74826b90f3e426b68f3db39aa59021c2962b63423213a2b274a9751ab6cddf1a",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    },
+    {
+      "id": "DE-FINAL-B126-01",
+      "unitId": "B1.2-06",
+      "severity": "required",
+      "location": "새 조사와 전이 과제 및 바로 뒤 모범",
+      "problem": "새 통합 과제의 자료군 수·전달경로·불확실성·반박 응답을 완성한 모델이 바로 보이며 먼저 가리고 독립 응답하라는 지시나 도움 분류가 없다. B1.2 통합 수행을 모델 재현과 분리할 수 없다.",
+      "proposal": "새 조사와 전이 제목 뒤 자료 전에 이전 시범과 아래 모든 언어 모델을 가리고 먼저 답하며, 답 또는 표현 도움을 열면 지원 수행으로 기록하라는 KO/EN/DE 안내를 추가. 모범은 가능한 한 응답 후 검토 details로 감싼다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ],
+      "resolvedBySha256": "ccba13da7edea451a455df847474eed27f505e1e3b13727eaaa8101d3e07f6f6",
+      "status": "resolved after full corrected-text reread and all-task re-solve"
+    }
+  ],
+  "scope": "Completed by this reviewer: 68 changed manuscripts through C1.2, each fully reread and every textual task solved again at the current SHA. C2.1/C2.2 final rereads (12 changed manuscripts) are assigned to final_c2_ko_de and recorded separately in FINAL_C2.md/json; they are not claimed in this FINAL report."
+}

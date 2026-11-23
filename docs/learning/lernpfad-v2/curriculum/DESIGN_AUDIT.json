@@ -1,0 +1,98 @@
+{
+  "status": "structural_design_checks_only",
+  "proposal_source_sha256": "c5bde55e11a93616221348df2275a83de3f03919bebac73aeeff170cdc289040",
+  "unit_blueprints": 100,
+  "required_unit_blueprints": 99,
+  "optional_unit_blueprints": 1,
+  "foundation_units": 28,
+  "jamo_first_introductions": 40,
+  "bands": {
+    "F0.1": 3,
+    "F0.2": 7,
+    "F0.3": 11,
+    "F0.4": 7,
+    "A1.1": 6,
+    "A1.2": 6,
+    "A2.1": 6,
+    "A2.2": 6,
+    "B1.1": 6,
+    "B1.2": 6,
+    "B2.1": 6,
+    "B2.2": 6,
+    "C1.1": 6,
+    "C1.2": 6,
+    "C2.1": 6,
+    "C2.2": 6
+  },
+  "grammar_rows": 356,
+  "original_roles": {
+    "new": 336,
+    "spiral": 20
+  },
+  "grammar_decisions": {
+    "retain_band_split_into_functional_unit": 249,
+    "move_by_communicative_function": 56,
+    "reuse_existing_key_in_new_function": 19,
+    "optional_receptive_extension": 32
+  },
+  "grammar_modes": {
+    "productive_target": 286,
+    "receptive_target": 70
+  },
+  "existing_tasks_indexed": 902,
+  "task_match_basis": {
+    "grammar_key_link": 712,
+    "phase_context_only": 190
+  },
+  "course_bindings": 48,
+  "explicit_manifest_content_links": 224,
+  "content_candidate_rows": 768,
+  "supplement_specs": 20,
+  "checks": [
+    "pinned_original_bytes",
+    "356_rows_exactly_once",
+    "336_new_20_spiral",
+    "declared_unit_graph_acyclic",
+    "reference_targets_exist",
+    "40_jamo_introduced_once",
+    "foundation_target_symbol_closure",
+    "first_finals_target_coverage",
+    "legacy_task_ids_exist",
+    "legacy_task_requirement_keys_match",
+    "spiral_after_first_introduction",
+    "48_course_bindings_complete",
+    "unique_supplement_ids"
+  ],
+  "not_verified": [
+    "teacher_approval",
+    "learner_observation",
+    "all_item_level_prerequisites",
+    "all_audio_and_images",
+    "complete_teaching_material_for_all_units",
+    "actual_transfer_items_for_all_units",
+    "runtime_integration",
+    "saving_sync_backup_recovery",
+    "fun_or_learning_effect"
+  ],
+  "sources": {
+    "docs/learning/lernpfad-v2/reference/EXISTING_GRAMMAR_INVENTORY.csv": "01e3356f33ac185b8282783a192c0a82b377fffcc6e7d31ed0535451eaa7e1b1",
+    "docs/learning/lernpfad-v2/reference/CURRICULUM_FOUNDATION_TO_C2.md": "c5bde55e11a93616221348df2275a83de3f03919bebac73aeeff170cdc289040",
+    "docs/learning/lernpfad-v2/reference/HISTORY_AND_FIRST_STEPS.md": "13f87d90ec6dee0c4783185b068edd04676be8e82505b9e59f962d6123997cc3",
+    "docs/learning/lernpfad-v2/GRAMMAR_CROSSWALK.csv": "af4df3ccc3af5e0572b4f5a1b6c195fbd39d03d01e12bdaa83c530b15c75d2b1",
+    "assets/data/lernpfad_foundation.json": "e24f08fb79a1518afb8d83088ad527f6e11cc00e199eba4effd4896c02fa6ce0",
+    "assets/data/phase_tasks.json": "b8c25c68d5bafeb45d34d029a10ff392b025e88bb9b4334d65a8244238f408f4",
+    "assets/data/curriculum_manifest.json": "2222d49c02dce92dc092be06c958dd6b2b535d13fb0c0d7184ec91037018541b",
+    "lib/models/persona_presentation.dart": "3f050693df2f49ea395acf9fe6227b2e8c17b6fad46921920125266da924cf55",
+    "docs/learning/lernpfad-v2/curriculum/UNITS.psv": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "docs/learning/lernpfad-v2/curriculum/FOUNDATION.psv": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45",
+    "docs/learning/lernpfad-v2/curriculum/SUPPLEMENTS.psv": "54c46ec0897502b57f4578cb9dd59390f4ab447d583cca52b5f8b13d65b7bec3",
+    "docs/learning/lernpfad-v2/curriculum/COURSE_BINDINGS.psv": "9fc235f7287834932ee7f0c15dfde5f1036a26d0db6ba3be0cfb45a62640df7d",
+    "docs/learning/lernpfad-v2/curriculum/FIRST_PRODUCTION_PACK.md": "91a2aac62ddab82e8092cf51a2f0b83305377f57ead1f3af4043f68b1761f17f",
+    "docs/learning/lernpfad-v2/curriculum/ASSESSMENT_CONTRACT.md": "0e0b6e9526191819e520381f2e9291e81e2c2809df3336cbaeff07521128f8f7",
+    "docs/learning/lernpfad-v2/curriculum/BAND_CONTRACTS.md": "d69cd9e3911dde0205dc6cbcb08b3a69c3089a5faf884d6ba11c51b97a407344",
+    "docs/learning/lernpfad-v2/curriculum/STORY_LEARNING_LINKS.md": "8f09f5c504223212519882b8f0cd289ea6804100b85984ed04fb75892aeb5ba7",
+    "docs/learning/lernpfad-v2/curriculum/README.md": "a7ced42d6b579d6e26f876f9207b5f19baed52a9d24cb7f32852976bac5b5427",
+    "tool/check_curriculum_design.py": "fe5a7fc85a2c069811307f0d8f55c18de15c04b500e07f22969205ef00bde044",
+    "tool/test_curriculum_design.py": "78112d8588695b6db706882a16af2018450a8dbc97e4289ede22f5e9c2e6a8a0"
+  }
+}

@@ -63,15 +63,31 @@ class Batch19ReconciliationTest(unittest.TestCase):
         self.assertEqual(10, len(receipt["rows"]))
         levels = relevel_ledger.load_ledger(ROOT / "tools/content_factory/relevel_ledger.json")
         revisions = promoted._copy_revisions(root=ROOT, manifest_path=MANIFEST)
+        successors = promoted._editorial_successors(root=ROOT, manifest_path=MANIFEST)
         for item in receipt["rows"]:
             kind, ident = item["kind"], item["id"]
             artifact = next(a for a in manifest["artifacts"] if a["kind"] == kind)
             draft = next(r for r in records(ROOT / artifact["draft"], kind) if r["id"] == ident)
             live = next(r for r in records(ROOT / "assets/data" / promoted.TARGETS[kind][0], kind) if r["id"] == ident)
             compared = promoted._relevel_normalized_live(kind, ident, live, draft, levels)
+            successor_owned = (kind, ident) in successors
+            if successor_owned:
+                # A later recorded editorial successor owns today's live copy;
+                # it must resolve back to exactly the projection this receipt froze.
+                compared = promoted._editorial_predecessor(
+                    kind, ident,
+                    promoted._relevel_normalized_live(
+                        kind, ident,
+                        promoted._promotion_projection(kind, live),
+                        promoted._promotion_projection(kind, draft),
+                        levels,
+                    ),
+                    successors,
+                )
             with self.subTest(id=ident):
                 self.assertEqual(item["beforeSha256"], promoted._fingerprint(draft))
-                self.assertEqual(item["actualAfterSha256"], promoted._fingerprint(live))
+                if not successor_owned:
+                    self.assertEqual(item["actualAfterSha256"], promoted._fingerprint(live))
                 self.assertEqual(item["comparisonAfterSha256"], promoted._fingerprint(compared))
                 self.assertTrue(promoted._require_reviewed_copy_revision(
                     kind=kind, ident=ident, draft=draft, live=compared,

@@ -1,0 +1,51 @@
+{
+  "canonicalQuotes": [
+    {
+      "speakerLabel": "도깨비 · 정본 인용 P-7",
+      "ko": "글자도 다 흩어져 버린 책은 불쏘시개로도 못 쓴다! 예전엔 분명 저 책에서 시끄러운 잔소리꾼 목소리가 났던 것 같은데…….",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "플레이어 · 정본 인용 P-7",
+      "ko": "……아!",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "탈선비 · 정본 인용 P-7",
+      "ko": "허허! 드디어 글자의 이치를 깨쳐 첫 소리를 읽어 내는 새로운 제자가 왔구나!",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "도깨비 · 정본 인용 P-7",
+      "ko": "……탈선비?",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "탈선비 · 정본 인용 P-7",
+      "ko": "허허, 자네는 내가 잠든 새에도 아직 글공부를 안 했나?",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "도깨비 · 정본 인용 P-7",
+      "ko": "이놈아!!! 지금 몇백 년 만에 눈을 떠 놓고 첫마디가 그거냐!",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "탈선비 · 정본 인용 P-7",
+      "ko": "……집이 많이 낡았구먼. 자네는…… 내가 잠든 동안 줄곧 여기 혼자 있었나? ……많이 외로웠겠구먼.",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "도깨비 · 정본 인용 P-7",
+      "ko": "시, 시끄럽네! 집 지키는 도깨비가 이 집을 두고 어디를 가겠느냐! 자네가 돌아왔으니 밀린 일부터 하게! 이 새 제자에게 공부를 가르쳐야 내 집을 고칠 수 있다고!",
+      "inCanonicalText": true
+    },
+    {
+      "speakerLabel": "탈선비 · 정본 인용 P-7, 책갈피 표지 제외",
+      "ko": "허허, 소리가 먼저이고 글자는 그 소리의 옷이라네. 자, {이름} 제자여, 오늘은 첫 글자부터 차근차근 살펴보세.",
+      "inCanonicalText": true
+    }
+  ],
+  "allFound": true,
+  "sourceSha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb"
+}

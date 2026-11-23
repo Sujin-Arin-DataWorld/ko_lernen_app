@@ -1,0 +1,123 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "F0.3.double-strokes",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P1 야; P2 야 (야/아). I1 냐=B (나/냐/먀); I2 ㄴ+ㅑ=냐. P3 여; P4 여 (어/여). I3 며=A (며/녀/머); I4 ㅁ+ㅕ=며. Script next model immediately? B 아니요: same model repeated. Smalltalk 네 repeats/아니요 continues; transfer 냐/며.",
+      "review": "Separate ㅑ then ㅕ; no required 야구 reading, no grammar test from supported dialogue.",
+      "sha256": "220cb1f6ac97da085da6d198e5302f89c204edf33e99143d28b05683313a9276"
+    },
+    {
+      "unitId": "F0.3.two-below",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P1 요, P2 요; I1 뇨=A (뇨/묘/노), I2 ㄴ+ㅛ=뇨. Optional 냐 sample among 뇨/냐 → 냐. P3 유, P4 유; I3 뮤=C (뉴/무/뮤), I4 ㅁ+ㅠ=뮤. Optional 여 sample→여. Script seat shown? 네. Greeting or nod acceptable. Transfer 뇨/뮤 vowels below.",
+      "review": "Stroke direction up/down distinguished from entire vowel position below initial; 요 ending recognized without claiming full grammar.",
+      "sha256": "3102761f409181dc9b1424d4770b4a101671a9a5fdf4ea296ee3f58909adf3b3"
+    },
+    {
+      "unitId": "F0.3.air-one",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P1/P2 카; I1 쿠=C (구/카/쿠), I2 ㅋ+ㅜ=쿠. P3/P4 타; I3 티=B (타/티/디), I4 ㅌ+ㅣ=티. Script coffee accepted now? B 아니요. Replay 카 or 타 means same selected sample; 괜찮아요 can decline. Transfer 쿠/티.",
+      "review": "Coffee ㅍ explicitly oral/meaning support before teaching; 괜찮아요 context refusal, no permanent preference inferred. German du coherent.",
+      "sha256": "01b1a4f3096b87ca0864c4136e1d0dfa551b68a5d02394e30b341768532c468c"
+    },
+    {
+      "unitId": "F0.3.air-two",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Support 파, then 차. 푸=B (파/푸/부); ㅍ+ㅜ=푸. 추=A (추/주/차); ㅊ+ㅜ=추. Tea meaning A filled cup, not B empty. Script received A tea photograph, not real tea. Transfer C tea in glass, not D empty glass. Smalltalk accept/decline both.",
+      "review": "차 tea versus vehicle distinguished; first pair before second. DE Teefoto and actual beverage contrast preserved.",
+      "sha256": "6e59e3244675c2e16bf657a3bcb4149857ca4b96d4207f21ff4738a4187ce5ba"
+    },
+    {
+      "unitId": "F0.3.firm-one",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Support 까/따; 꾸=A (꾸/구/까), 띠=C (디/따/띠). ㄲ+ㅜ=꾸, ㄸ+ㅣ=띠. Script first A repeat same 까, then pause. Smalltalk repeat or request pause. Transfer 꾸/띠 on bookmarks.",
+      "review": "No force/loudness instruction, doubled shape one initial position. DE causal sequence same as KO.",
+      "sha256": "d972c0ba9c4e0efa26726f63e62b769af0c2b64e3f383f9b731638db1fc508f1"
+    },
+    {
+      "unitId": "F0.3.firm-two",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Supports 빠/싸/짜. 뿌=C (부/빠/뿌), 쑤=B (싸/쑤/수), 찌=A (찌/지/짜); assemble corresponding blocks. 씨=ㅆ+ㅣ. Script B photos one at a time, first removed before second. Transfer A seed with split shell/shoot, not B empty pot; chosen repeat of 뿌/쑤/찌 any allowed.",
+      "review": "Three separate activities; 씨 seed contrasted with name suffix; no E03/E07 seed identity supplied. German photos unopened awkwardly literal but meaning recoverable, not a required rewrite.",
+      "sha256": "ee97f924c5d35cd622453ab35c913f1227365f5dc08aeac66bba45a1ed3456e6"
+    },
+    {
+      "unitId": "F0.3.near-vowels",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "개 model; vowel ㅐ. 매 vowel ㅐ and ㅁ+ㅐ=매. 네 model vowel ㅔ; 세 vowel ㅔ and ㅅ+ㅔ=세. Script A dog. Transfer B white dog; 매=ㅐ, 세=ㅔ in new font. Smalltalk clarity yes or repeat request.",
+      "review": "No forced auditory ae/e distinction; same-sounding vowels do not collapse spelling. Words 개/네 taught before use; no 새/세 number sense inferred.",
+      "sha256": "d0586c72b381ec7e963c014d9eef3081dc73a4abd16b198a46227166b406a500"
+    },
+    {
+      "unitId": "F0.3.corner-vowels",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "와=ㅇ+ㅘ; support 와 among 오/와. 과=A (과/봐/가), ㄱ+ㅘ=과. 워=ㅇ+ㅝ; support 워 among 워/어. 궈=C (뭐/거/궈), ㄱ+ㅝ=궈. Script A lower part not visible; same 워 card moved nearer. Smalltalk confirm or closer request. Transfer landscape 궈, portrait 과.",
+      "review": "Component placement not two spoken syllables; 와요 supported, not conjugation assessment. DE relation/requests natural.",
+      "sha256": "b29b55296093107d56f627101d6e195770c759a2a2b2fbba7fbedf754fe63fbf"
+    },
+    {
+      "unitId": "F0.3.round-corner",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "위=ㅇ+ㅟ; 귀=C (뉘/구/귀), ㄱ+ㅟ=귀. 외=ㅇ+ㅚ; 괴=B (고/괴/기), ㄱ+ㅚ=괴. Script B hat onto box. Transfer A hat on chair; 귀 contains ㅟ, 괴 contains ㅚ. Missing location response can request repetition.",
+      "review": "Vowel shape and location noun 위 are separated; location photo directly supports auf, no blanket pronunciation mouth shape rule.",
+      "sha256": "d734c015f37c93c189d22d08de261a1dc54a2d180c1f51395f931dbb064434e0"
+    },
+    {
+      "unitId": "F0.3.first-finals",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "밤=바+ㅁ; 남=B (나/남/넘), ㄴ+ㅏ+ㅁ. 문=ㅁ+ㅜ+ㄴ; 산=A (산/사/선), ㅅ+ㅏ+ㄴ. 말=마+ㄹ; 길=C (기/걸/길), ㄱ+ㅣ+ㄹ. Script final B door photo, different from initial horse. Map A 문(final ㄴ), B 길(final ㄹ). Smalltalk yes or corrective pointer.",
+      "review": "Night versus chestnut and horse versus words explicitly scoped. 남/산/길 meanings supplied; final ㄹ not equated with a single Latin sound.",
+      "sha256": "79c7ec4883859024c3d5fee0897bdb51c3db07cd7bbf98047a0644aac049d552"
+    },
+    {
+      "unitId": "F0.3.silent-or-sounding",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "아 initial ㅇ silent consonant slot; 방 final ㅇ sounding. 공=A (공/고/곰/곤), 강=D (가/감/간/강). Alternative sets if prior finals unlearned: 공=A (공/고/궁), 강=C (가/공/강). Assemble 공 ㄱ/ㅗ/ㅇ; 강 ㄱ/ㅏ/ㅇ, final ㅇ bottom. Script first B courtyard, second indoor room. Map A 문/B 방/C 길/D 마당; smalltalk understand/repeat both.",
+      "review": "Initial/final roles precise, alternate choices preserve prerequisite boundary. 마당 courtyard introduced separately, no E04/completion trigger.",
+      "sha256": "6bb1eeec1af6909a15a3f8a087dbc97561774b6c7fda1a1e02cfd769dcb05260"
+    }
+  ],
+  "findings": [],
+  "notes": [
+    "All eleven manuscripts read in full. Solved all syllable assembly, transcribed sound-choice, photo-description, script, smalltalk and transfer tasks; compared with facilitator keys. This is text review, not sound recognition or actual image testing.",
+    "All eleven LEVEL_STORY_100 scene/gate records read; none/none gates and FOUNDATION/BAND_CONTRACTS F0.3 boundaries checked. Long story and modern utterances remain supported exposure rather than F0 sentence-reading assessment.",
+    "DE learner instructions use du; familiar Sujin/Christian and established spirits keep their relationships. No required KO–DE mismatch found."
+  ]
+}
