@@ -1,0 +1,114 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B1.1-01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P매일 읽던 책; 길이 조용하던데요; 여기는 카페였었어요; 주소를 찾는 중이에요; 현아는 옛길을 걷고 싶어 해요. L:Hyuna jetztWG,nichtalteWohnung; gestern/heuteBau; Lena willnachEröffnungmitHyunaBuchladen. Neu 민호 씨가 매주 걷던 곳이에요; 다리를 보수하는 중이에요; 민호 씨는 공사가 끝나면 다시 건너고 싶어 해요; 지금도 매주 오세요? Rollenwechsel 예전에는 이 근처에서 살았었어요. 지금은 다른 동네에 살아요; 오늘 와 보니 다리 공사 중이던데요. Transfer unbekannteRoutine fragen.",
+      "review": "FünfFormen einschließlich zweitemRollenwechsel gelöst. -던 beweistkeinEnde, -었었- nichtnurfemerVergangenheit. DeutscheZeit-/Wunschbezüge und Quellenstatus richtig, E07anonymerSender bleibtunbekannt.",
+      "sha256": "a378bb5c418c3c1f031d28ef89f760cb9298944a0609ea11e7cc755bf0123363"
+    },
+    {
+      "unitId": "B1.1-02",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "DE-B11-01"
+      ],
+      "solutions": "P버스를 타려다가 지하철을 탔어요 (Busnichtbestiegen). Modellrelationen Wechsel/Planabbruch/Entdeckung/TransferVerwendung/unmittelbar/Abschluss/nächsterSchritt/umgangssprachlicheSequenz getrennt. L:gesternUmschlag, Fotoerstheute; AnrufverhinderteÖffnung,nichtVerlust; vorEinpackenFotoidentitätprüfen. Neu 상자를 열었더니 빨간 끈이 있었어요; 끈을 꺼내자마자 초인종이 울렸어요; 상자를 묶으려다가 손님을 맞이했어요; 물은 손님을 안내한 다음에 주었어요? Zusatz 일기를 쓰다가 문을 열었어요; 도서관에서 자료를 빌려다가 발표를 준비했어요; 책을 분류하고 나니 빈 선반이 보였어요; 과일을 씻어 가지고 접시에 담았어요. Transfer3belegteEreignisse ohneerfundeneKausalität.",
+      "review": "Alle achtFormen in neue Fälle umgesetzt. Wasserzeit bleibtFrage, bell≠stringcause. Optional deutsche Beschreibung der noch beabsichtigten Tätigkeit glätten.",
+      "sha256": "263a79f425d13e25103d6e327be52cd5a6085445a03397e8477fb0bb64b77021"
+    },
+    {
+      "unitId": "B1.1-03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-B11-02"
+      ],
+      "solutions": "P봉투를 준비해 두었어요; 봉투가 책상 위에 놓여 있어요. L:TelefonwegenMayasSortieren, PapierwegenDanielsFlasche; Fotoseparatgeprüft; Blätternichtvölligtrocken. Neu Glasumgekippt→Umschlagnass, Täter/Innenzustandunbekannt; innenprüfen/drytabletrockenlassen/vormorgigerBenutzungkontrollieren. NeueEinzelformen 발표를 준비하느라고 전화를 못 받았어요; 버스표를 잃어버리고 말았어요; 서랍을 모두 확인한 결과 표는 없었어요; 회의실 조명을 켜 놓았어요; 내일 나눠 주려고 안내문을 복사해 두었어요; 빵 반죽이 조금씩 부풀어 가요; 세 달 동안 매일 연습해 왔어요; 등을 바꾸니 방이 밝아졌어요. TransferVorbereitung+Zustand.",
+      "review": "Alle8neuenFormen und Ergebnisspiralprüfung gelöst; -놓다/-두다 Überschneidung nichtabsolutverboten. Foto/SamenSchaden nicht ausNässeandererDingeabgeleitet. KonkreteMaterialangabe 창가선반 in DE/EN berichtigen.",
+      "sha256": "f59c5b79cc072cec6d5cc6132acc1f223af91986a3a2314f07ad99db54d5ef07"
+    },
+    {
+      "unitId": "B1.1-04",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "PFreund 같이 차 마시자; neueNachbarperson 같이 차 마실까요 (DE Sie). L:eonni gefragt+zugestimmt; höflichzurück möglich; neuerNachbarvereinbarungnichtmitübertragen. Neu 네 존댓말로 할게요 차 드실래요 / 우리 같이 앉자. WeitereFälle 나 먼저 들어간다; 너도 들어가니; 너도 이 책을 아는구나; 지민아 여기 봐 / 유리야 여기 봐; 저는요 창가에 앉을게요. Transfer bevorzugteAnredeerfragen, Neinrespektieren.",
+      "review": "KoreanischerRegisterwechsel ausdrücklichnichtWechselvomdeutschenSiezuDu. FremdenbeispielSie imMuster gesonderterklärt, Personendaten/Hyunaeonni Zustimmung und -니Nuance erhalten. Alle6Ziele eigenständiggelöst.",
+      "sha256": "882e7a3a4b51568f2355c7c8879237f58e3242597bb20dc4ca5f48ae69d597f5"
+    },
+    {
+      "unitId": "B1.1-05",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "DE-B11-03"
+      ],
+      "solutions": "P찾기 쉽도록 큰 카드에 적을까요; 붙이지 않고 옆에 놓을게요. L:nurLenasKisten; großInhaltzusätzlichzuFarben; HyunaFotosnochnichtfertig. Neu 책이 무겁지요? 제가 옆 테이블까지 옮겨 드릴까요 아니면 여기서 잠깐 들고 있을까요? 통로는 비워야 해서 거기에는 놓지 않을게요. Formen 손을 편하게 쓰실 수 있도록 제가 책을 들어 드릴까요; 책을 안전하게 놓기 위해 옆 테이블을 쓸까요; 통로에 책을 놓으면 안 돼요; 모두에게 편한 방법이면 좋겠어요. Zwei게하다: 진행자가 보조 담당자에게 의자 세 개를 옮기게 했어요=Veranlassen; 진행자가 참가자를 앉게 했어요=Erlauben. Transfer Bedürfnis+unerwünschteHilfe+gewählteAktion.",
+      "review": "SinnundRegistermodellstimmen, Wunsch≠Zustimmung, HilfeverleihtkeineWeisung. SechsFormen mitzweiBedeutungen 게하다 vollständiggelöst. Eine optionale deutscheGlättung.",
+      "sha256": "c1a6e1ec7f5da08f8637d296a01f350202c719d1e6a355e57e929b6619177151"
+    },
+    {
+      "unitId": "B1.1-06",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P19:00Teilnahme−20min=18:40 spätestensVorbereitung: 일곱 시에 참가하려면 여섯 시 사십 분까지 준비를 시작해야 해요. L:Mayaheute16:45Café; Aufbruch16:10+10=16:20keinPuffer; vereinbartnichtzurückgegeben. Neu18:00+40=18:40 nach18:30, heutefehlschlägt; morgen12bestätigterKontakt+heuteBuchpacken. Separat morgen12−40=11:20spätestens: 내일 열두 시에 만나려면 늦어도 열한 시 이십 분에는 출발해야 해요. ZweiterFall 비만 아니면 걸어가고 싶어요; 예약번호를 보여 줘야지 들어갈 수 있어요; 제가 번호를 확인할 테니 다음 버스 시각을 봐 주세요; 버스 시각을 알게 되거든 알려 주세요. Transfer Ziel/Voraussetzung/eigeneAktion/fremdeBestätigung.",
+      "review": "SiebenFormen samt extraAbfahrtsgrenze geprüft; Wartezeit fürzweitenBusnichthinzugedichtet. Bedingungs-거든 klarvonspäteremErklärungs-거든요 getrennt. Plan/Versprechen/tatsächlicheAnkunft bewahrt.",
+      "sha256": "b2c20667875948cee8847a3a0071fa5bf66629291c9c0b801967c46165abce39"
+    }
+  ],
+  "findings": [
+    {
+      "id": "DE-B11-01",
+      "unitId": "B1.1-02",
+      "severity": "optional",
+      "location": "Sie hat die geplante Kiste noch nicht zugebunden.",
+      "problem": "geplante Kiste bezeichnet sprachlich eine geplante Kiste statt der beabsichtigten Handlung des Zubindens.",
+      "proposal": "Sie hat die Kiste noch nicht zugebunden, obwohl sie das vorhatte.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-B11-02",
+      "unitId": "B1.1-03",
+      "severity": "required",
+      "location": "Beim Putzen der Fensterbank hat Hyuna gesehen, wie ein Wasserglas umkippte und das verschüttete Wasser auf den Heftumschlag gelangte.",
+      "problem": "창가 선반 ist ein Regal bzw. Brett am Fenster. Fensterbank bezeichnet einen anderen Gegenstand; damit verändert die Übersetzung eine konkrete Angabe im unabhängigen Aufgabenmaterial. EN windowsill hat denselben Punkt.",
+      "proposal": "Beim Abwischen des Regals am Fenster hat Hyuna gesehen, wie ein Wasserglas umkippte und das verschüttete Wasser auf den Heftumschlag gelangte.",
+      "affectedLanguages": [
+        "DE",
+        "EN"
+      ]
+    },
+    {
+      "id": "DE-B11-03",
+      "unitId": "B1.1-05",
+      "severity": "optional",
+      "location": "Soll ich große Karten schreiben, damit man die Sachen leichter findet?",
+      "problem": "Karten schreiben ist hier unnötig unpräzise; gemeint ist Inhalt auf große Karten schreiben.",
+      "proposal": "Soll ich die Angaben auf große Karten schreiben, damit man die Sachen leichter findet?",
+      "affectedLanguages": [
+        "DE"
+      ]
+    }
+  ],
+  "notes": [
+    "Sechs vollständige Manuskripte gelesen, sämtliche textlichen Aufgaben einschließlich zusätzlicher Formprüfungen gelöst; Lösungen nach eigener Herleitung abgeglichen.",
+    "UNITS/GRAMMAR_ALLOCATION/LEVEL_STORY_100 für die sechs Einheiten geprüft. 01–03 Haus S1-E07, 04–06 modernes this_scene_gate none.",
+    "Modellreview; Audio, Bilder und tatsächliche Lernendenperformanz nicht durchgeführt. Keine menschliche Zertifizierung."
+  ]
+}

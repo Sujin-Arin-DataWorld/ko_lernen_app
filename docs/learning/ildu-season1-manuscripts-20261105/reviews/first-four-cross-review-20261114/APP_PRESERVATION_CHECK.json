@@ -1,0 +1,13 @@
+{
+  "checkedUtc": "2026-11-14T23:29:37.164842+00:00",
+  "root": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-runtime-integration-20261103",
+  "head": "f369fe2ce3c36475e295b2369f0e5ae83939b867",
+  "headMatchesBaseline": true,
+  "branch": "codex/season1-runtime-integration-20261103",
+  "pinnedFileCount": 2308,
+  "pinnedAudioFileCount": 34,
+  "changed": [],
+  "missing": [],
+  "gitStatusMatchesStart": true,
+  "limitations": "Byte check covers existing APP_BASELINE file list, not every ignored/generated path. Git status compares tracked/untracked status and path listing, not all new-path bytes. No app/audio write or synthesis performed in this task."
+}

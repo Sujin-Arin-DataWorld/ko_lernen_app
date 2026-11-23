@@ -1,0 +1,204 @@
+{
+  "status": "frozen_for_final_reread",
+  "units": [
+    {
+      "unitId": "A1.1-02",
+      "sha256": "8f34fb725b910541d77bce38dcf1523859c0eb37d98ab8aca63119f8ddbb9ce0"
+    },
+    {
+      "unitId": "A1.1-03",
+      "sha256": "d50a3110c1b6c46dec64f99612f86f5f9a0951cc2b268502397a0d9f3b50a026"
+    },
+    {
+      "unitId": "A1.1-05",
+      "sha256": "863d464b5758898b5e23e22f81f71fcf7680cace631d4a729d267a505a8c7b0f"
+    },
+    {
+      "unitId": "A1.1-06",
+      "sha256": "c560db41938522ca76eefab96d7652872ff0ef37e20eb79bb3e7ebd182b9c187"
+    },
+    {
+      "unitId": "A1.2-01",
+      "sha256": "83b7187c7734314b02057a9eedaad551ae05799adcba615bf9cb6a510ffac429"
+    },
+    {
+      "unitId": "A1.2-02",
+      "sha256": "4eff585534c8fd674d0d42e9ba1ac1ff0a9aae1fd546100e3a02a186d93c7e0b"
+    },
+    {
+      "unitId": "A1.2-03",
+      "sha256": "2f298e525ec8618f83038f10e23f4e279b40ea2ddfb9485f178c671931f214ed"
+    },
+    {
+      "unitId": "A1.2-04",
+      "sha256": "12e6b91970d0d05d530b685c1deaab3f04d0960f5bab2df8ef677c15eb9855c0"
+    },
+    {
+      "unitId": "A1.2-05",
+      "sha256": "bcdbd3c3fc07d6be854232a82dd5aeb2fda60d741ae157a85f5048bb630d13b6"
+    },
+    {
+      "unitId": "A1.2-06",
+      "sha256": "f371c6fe5299d12193f0027e3fe8e4640cebb053c6c6f8c1fe7b52c7fb269cbb"
+    },
+    {
+      "unitId": "A2.1-01",
+      "sha256": "1f98eb4ffec270b660d4e4e82b9a3f735f99b3abef6ae81143b63d00fdea6310"
+    },
+    {
+      "unitId": "A2.1-02",
+      "sha256": "fd0cdc4dd76a49aab1a57190f319a91d7fc4320fb51d4b4493b1200b1a111db7"
+    },
+    {
+      "unitId": "A2.1-03",
+      "sha256": "2f5100d700871a4a4620359c324e6045595a282146a3c45f95d6c8e467dcbe57"
+    },
+    {
+      "unitId": "A2.1-04",
+      "sha256": "1b6dd7c5b419d749a43f4db7c304acd48df0afa402e40582d528cc1317594d70"
+    },
+    {
+      "unitId": "A2.1-05",
+      "sha256": "c88b2a67f2410eaf896da19708db87d7d05fb7f21ac10ba5414f61560bb4cec8"
+    },
+    {
+      "unitId": "A2.1-06",
+      "sha256": "a3bb877dab6b07d1a6046bca55cfaad2bbcdcd5af8c37f2c917ceaf21981350c"
+    },
+    {
+      "unitId": "A2.2-02",
+      "sha256": "5b2e3d01882d5684bb19b178725d99a6709bc5859a7f78ad1880fe32e83a8381"
+    },
+    {
+      "unitId": "A2.2-03",
+      "sha256": "f4bbed7c9b45d5a4f66736de0f41f57ff707b4d70129cc85a859b3406c551b69"
+    },
+    {
+      "unitId": "A2.2-04",
+      "sha256": "357d834cba7fbcf3eb7af4286de9a1a64ca104ce0e512c2e78a7202361b692a9"
+    },
+    {
+      "unitId": "A2.2-05",
+      "sha256": "6d262434b34a17962fcc1467afc18a4ff02dce24aaf35a54e6fdf11825769293"
+    },
+    {
+      "unitId": "A2.2-06",
+      "sha256": "dd339eb1bfea4a780c74028b2fffb3dbd1bab5ac76e86c027ad3cf28480f1abb"
+    },
+    {
+      "unitId": "B1.1-02",
+      "sha256": "dd6c26de06bee390e4214191994d8a98431e501656fa8a0b4154dafb1c68b97d"
+    },
+    {
+      "unitId": "B1.1-03",
+      "sha256": "a3d96cb2d988f645784148e9dfdfa81f63de96af79081bf004f561cbed9f50c4"
+    },
+    {
+      "unitId": "B1.1-05",
+      "sha256": "c6f882a6549600aef508dc89bf6089f84f4fe4fe8c70e3f4f8181cbd7643460f"
+    },
+    {
+      "unitId": "B1.1-06",
+      "sha256": "b25ef4a012f9cd9d0f033732af93cb1090bd548fd47ae52b532db356877d7a81"
+    },
+    {
+      "unitId": "B1.2-01",
+      "sha256": "04d3994464647937796588f4704359ce13e6d96b2abe00c0ceb64c61964ac421"
+    },
+    {
+      "unitId": "B1.2-03",
+      "sha256": "7d51137600dd90361b1339f9335b60e642e846d7fdd1b62006ce542be9eeae83"
+    },
+    {
+      "unitId": "B1.2-04",
+      "sha256": "f1852bf639698f1adc724ce2364b15d157de46c060596b1d07a88fad6bcf8c1b"
+    },
+    {
+      "unitId": "B1.2-06",
+      "sha256": "78ea0758a036e5842a7569845e29790952a554b8907480f3f403163e1a6a8c07"
+    },
+    {
+      "unitId": "B2.1-01",
+      "sha256": "a3587f10bee3d8638802a3c12acd7cfef0333c2cb96757db3a95765ca66d757f"
+    },
+    {
+      "unitId": "B2.1-02",
+      "sha256": "aa1f0879ee10ba2e09ad9fbc5b9d715d7040c57bc260f7eda3247fb7e7c3cb80"
+    },
+    {
+      "unitId": "B2.1-03",
+      "sha256": "d33fb50c0e40e63e5ca03428a3a3e81e25a49ddea192202767afd026e9e9d7f5"
+    },
+    {
+      "unitId": "B2.1-04",
+      "sha256": "b62b15998fd51646f66649eb985a190b2d9b0eda8267f23f3670e0b616772739"
+    },
+    {
+      "unitId": "B2.1-05",
+      "sha256": "4a68e155f28a41e93b8d4a6303ba2dff8481dc2f3b6c5a33649b61247ea27fdc"
+    },
+    {
+      "unitId": "B2.1-06",
+      "sha256": "e5175dc5bac1e61b010f6c0430e42ff3322c9fbe776f371f60fcb00c50bb42e1"
+    },
+    {
+      "unitId": "F0.2.first-names",
+      "sha256": "e9b96c43ea7419a7928cadf0211e74b731e586ef9623be384edb0f980d250b74"
+    },
+    {
+      "unitId": "F0.2.tree-and-hat",
+      "sha256": "fd628358357d569257e75525b2d485d535b17b57c98148720d621a567da5df3a"
+    },
+    {
+      "unitId": "F0.2.two-boxes",
+      "sha256": "3ba06846963b0af2c31f195595e91f359048b478f84e6a1ea6087906ab806135"
+    },
+    {
+      "unitId": "F0.2.two-tracks",
+      "sha256": "40f5036c15627daa621e06cc9194edccecc71c1f1c38cfa1c5de70202fd580a4"
+    },
+    {
+      "unitId": "F0.3.air-one",
+      "sha256": "344ea709700d6ffdfa0b86a5848ad12bdbc83f72fe7142352c65bc2012ddf104"
+    },
+    {
+      "unitId": "F0.3.firm-one",
+      "sha256": "0f8f6792ba949da55675519f283accd9804c575764184f4520957aee92519736"
+    },
+    {
+      "unitId": "F0.3.firm-two",
+      "sha256": "b6e2146b2f82c09c9a13108e191489dbda2bc8ec4dc4b9fe1c254d14ba827ce2"
+    },
+    {
+      "unitId": "F0.3.near-vowels",
+      "sha256": "a8a94842c6804457e936eee41d231d0f4c3ab875b532a6fe132f39a4fc59dce9"
+    },
+    {
+      "unitId": "F0.4.first-input",
+      "sha256": "ae9103bd75d924e31251b49fc4c18cc481a0ada641daebe98c84f9ef39dfb4ae"
+    },
+    {
+      "unitId": "F0.4.last-vowel",
+      "sha256": "23c024e610906bc4fd23b8af0fa227262e3d5132e12f46ffa9997f6ad0ddaa51"
+    },
+    {
+      "unitId": "F0.4.space-and-place",
+      "sha256": "5742678618bae951f342c9edd354f53f22cf00e7a222ef22ef75d11d5f21840f"
+    }
+  ],
+  "changedCommon": [
+    {
+      "file": "README.md",
+      "sha256": "46426c3bf954e7792e353c9f1dedd9ea8cc31b1195b0999e6149d70c02d948c0"
+    },
+    {
+      "file": "READER_INTRODUCTION.md",
+      "sha256": "4f3e4720b2a1f793c1905775a61bcc6b3c24e3f5572807f3b128c9ce9be832d5"
+    },
+    {
+      "file": "CURRICULUM_REUSE_NOTES.md",
+      "sha256": "b0064512bc6e5ffac0cb7bb373941f17783c5f444cc80abf7f2794265f3294e9"
+    }
+  ],
+  "note": "Initial 100-unit read first; then reread these full current texts and solve all tasks. Original reports remain immutable. Use FINAL reports for final current-hash decisions. Other 24+ units may receive a later batch."
+}

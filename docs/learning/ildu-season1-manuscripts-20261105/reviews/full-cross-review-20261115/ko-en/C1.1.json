@@ -1,0 +1,131 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C1.1-01",
+      "sha256": "19ae15ae7c59c693fda54ea5ad7aa2f2778f607eaec73ec0dfed515ba8a788fa",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "EN-C11-01"
+      ],
+      "solutions": "Set A support: interim review while responses arrive does not mean all replies arrived. New introductions both identify people and collect topics, not finalise topics. Set B: immediate light-on→photo pointing, not general busyness or audience reaction. Fresh outputs: morning entries only in -다 report; distinguish originals/copies before sending; review morning records while replies continue; unchanged heading during attachment and note still attached (action/state separate); differing dates→withdraw combined table; last week's calls-only versus this week's added chat; scope is loan counts, not user numbers. All nine new functions plus reused -어 있다 receive fresh cases.\nScript: 120 crossings +46 distinct borrowers cannot yield166 people; units and overlap differ, and translation C is dependent on A. Total unique users unknown. Independent:24/32=75% of respondents, not80 registrants or210 plays;3 interviewees already belong to32 and report helpfulness, not measured learning gain. Own two sentences retain those limits. Transfer:33 completed objects include5 January submissions;45 February requests include re-submissions;33/45 is not a February completion rate. Need identifiers linking submissions to objects and relevant intake/completion periods; photo C adds no independent evidence. E08 ledger/entrusting note and derivative-photo grouping match canon."
+    },
+    {
+      "unitId": "C1.1-02",
+      "sha256": "fac6d3ba259ffab55ea92f3a7d085dd2451b11b552835d044167ed7d79fc190e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Supported C correction removes ‘현아의’: Sujin reports Tuesday receipt and unknown authorship; Maya separately hypothesises Hyuna from filename. Direct quote stays verbatim; paraphrase retains negation; interpretation stays attributed.\nFresh Lena summary: newcomers may need further explanation, existing members not surveyed; no all-member failure. Script: search time for one document was shorter for five members familiar with the old feature; no general usability conclusion or ‘better for everyone’ original claim.\nIndependent three-sentence report: Sujin posted Friday17:00; Hyuna reports Saturday times in her draft and Maya sees their absence from the posted version; deletion agent and reason unknown. Posting does not establish editing or accidental intent. Smalltalk permits a short revision retaining core and limits.\nOwn transfer: ‘정원 회의록에는 이번 달 물 사용이 줄었으며 원인은 조사하지 않았다고 적혀 있다. 수진은 새 물뿌리개 덕분일 수도 있다는 의견을 냈지만 비 온 날도 늘었다. 강수량과 물뿌리개 사용 방식을 함께 확인할 수 있을까?’ Two newsletter sentences plus one question retain source, opinion, co-occurring change and uncertainty. Model's shorter version keeps the same causal limit. E08 recipient versus owner distinction preserved."
+    },
+    {
+      "unitId": "C1.1-03",
+      "sha256": "9bbe9900eb47e0c787e6a6a407bd288ecd90223a48af9b6c425f3ce460dda7d7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C11-02",
+        "EN-C11-03"
+      ],
+      "solutions": "Support A: finding/removing duplicates does not verify no omissions. Apple/knife/plate permits tentative peeling intent plus eating-versus-photography question. Support B: editor's reason-recording principle is not observed compliance; five unexplained abbreviations may be difficult, no actual failed readers. Support C: satisfaction does not measure speed; full playback does not demonstrate understanding.\nFresh ten-function outputs: achieved card order after four revisions, spelling unchecked; one Monday's more empty benches supports a low-certainty quieter-afternoon inference only; new-reader difficulty plausible but untested; apple purpose tentative; draft worth testing but comprehension unknown; facilitator's general expectation of questions remains attributed (English model drops attribution, flagged); dim light makes colour confusion easy but no completed errors; explaining changes is a stated principle with this explanation pending; playback→understanding is a question not a proven inference; fewer questions may reflect explanation or increased departures. Reused -는 것 같다 remains qualified.\nScript: measured time reduction for five second searches, feature-specific cause unresolved, test other documents. Independent:10 of12 readers report clarity, actual booking gains unmeasured; avoid both proven success and no information. Transfer three sentences:5 of6 moved plants grew faster; watering also changed and no comparison pots, so location-only effect unknown; separated-condition observation worth attempting. E08 hope stays separate from E11 sender certainty."
+    },
+    {
+      "unitId": "C1.1-04",
+      "sha256": "b4be8a54872e8874f2c1740aad9b2aaade33d94dcc9d30d62c832161dcfd69be",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C11-04",
+        "EN-C11-05"
+      ],
+      "solutions": "Supported: user notice can omit20/14 because those figures justify the operator proposal, while the Sunday18:00 deadline remains essential. New sign trial:5 of6 newcomers found room, no comparison; propose one-room trial next week with wider replacement budget unsettled, not proven rollout benefit.\nScript:9/15 enquiries concern charger location; signage possible today. Two fault reports checked tomorrow, repair completion unknown. Operator gets figures and next actions; user gets ground-floor desk location plus check of intended device, not implied universal function (EN wording flagged).\nIndependent three sentences: first Wednesday next month18:00–19:00 single trial;26 of40 respondents prefer18:00 with60 nonresponses, not majority of everyone; repeated venue booking remains to be checked. Own equivalent Korean: ‘다음 달 첫 수요일 18시부터19시까지 한 번 시험 운영할 것을 제안합니다. 18시를 선호한 사람은 응답자40명 중26명이며60명은 응답하지 않았습니다. 반복 운영은 장소 예약을 더 확인한 뒤 논의하겠습니다.’\nTransfer: photo guide can be prepared and checked tomorrow before workshop in two days; video needs a week. Three-sentence report prioritises guide using7/18 enquiries and makes distribution follow accuracy check; participant notice gives lookup-and-ask action. EN/DE model omits that distribution condition (flagged). No new grammar or E11 information."
+    },
+    {
+      "unitId": "C1.1-05",
+      "sha256": "27bfd12e9818aa1ae768e324f75ebe9bb49bb014ae3c7a52527a5400b776bfab",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Original-file support: unedited describes state; first recorded/stored describes history. File X meets editing team's definition but not archive team's original-file identity. Ask which definition/request applies before sending. Fresh public/final case: X is publicly readable but not final because review is ongoing.\nIndex analogy: useful for locating a file, not storing its content; an index alone cannot reconstruct lost contents. Script prototype is a local early model for size and assembly order, analogous to garment fitting only in that respect; no actual fabric and no completed load test/sale readiness.\nIndependent repair text: receipt/logging complete, inspection and repair still pending; ask when inspection result will be communicated. Transfer three sentences based solely on supplied definition: ‘활착은 옮겨 심은 식물이 새 자리에서 뿌리를 내리는 과정입니다. 새집에 자리 잡는다는 비유는 식물이 사람처럼 살 곳을 선택한다는 뜻이 아닙니다. 새 잎만으로 활착을 확인할 수 있는지, 어떤 관찰이 더 필요한지 알려 주실 수 있나요?’ No flowering claim or unobserved root confirmation. Smalltalk supports restating understanding. Technical knowledge is supplied, not scored; modern MQ06 ungated."
+    },
+    {
+      "unitId": "C1.1-06",
+      "sha256": "a3eeb1decb09e703b0b0706a9a4bdd99ddd8621dd6ca585fe77d712e21225b01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Supported answer starts ‘Not confirmed’, then room available Friday18:00–19:00 but approval pending, then Sujin will ask by Thursday noon. That deadline is for asking, not guaranteed approval; Monday survey history is unnecessary to the first answer. Fresh40/16/12 case:12/16=75% among respondents,24 nonrespondents unknown; cannot infer whole-population majority.\nScript: written materials available today; video only after caption review; completion date unknown; Lena promises to ask editor tomorrow morning, not release tomorrow. Operator notice retains all three statuses. Smalltalk permits confirmation recap.\nIndependent on-site10→4 versus online2→9: combined question occurrences12→13 can be computed but neither occurrence count nor decline in one channel establishes comprehension improvement. Visitor/repeat counts and comprehension unmeasured; propose consistent question categories plus separate understanding check.\nTransfer:30 arrivals minus18 departures is net12, not evidence of disinterest. Returns and item identity untracked. Three-sentence answer keeps count difference, unknown interest/returns and a proposal to track individual movements/reasons. No invented motive or certainty. E08 sender remains unknown; next estate scene explicitly requires E08+E10."
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-C11-01",
+      "unitId": "C1.1-01",
+      "severity": "optional",
+      "location": "Set B 새 예 ‘진행자가 사진을 가리켰다’ → model ‘첫 사진’ / EN ‘first photo’",
+      "problem": "The Korean fresh data gives a photo but no ordinal; the model and translations add that it is the first photo. It does not affect the immediate-sequence answer, but source-preserving modelling would avoid this small addition.",
+      "proposal": "Remove ‘첫’ from the KO model and ‘first’/‘erste’ from the corresponding EN/DE fresh-case text, keeping the event ‘불이 켜지기가 바쁘게 진행자가 사진을 가리켰다.’",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C11-02",
+      "unitId": "C1.1-03",
+      "severity": "required",
+      "location": "Opening EN ‘Joy turns Dokkaebi’s “perhaps” into “certainly.” He says, …’",
+      "problem": "‘He’ most naturally refers to the preceding subject Joy, but KO explicitly assigns the quoted line to Dokkaebi. This risks switching the speaker and also invites an unsupported gender reading for Joy.",
+      "proposal": "Replace ‘He says,’ with ‘Dokkaebi says,’. Keep the quoted translation otherwise unchanged.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-C11-03",
+      "unitId": "C1.1-03",
+      "severity": "required",
+      "location": "Fresh-production row -게 마련이다 EN model ‘Questions are natural at first, so time should be set aside; none are recorded yet.’",
+      "problem": "KO reports the facilitator's general expectation and advice (‘…라며 시간을 두자고 했다’). EN turns it into the narrator's unqualified principle and omits who proposed time for questions. This weakens the row's explicit source/expectation distinction.",
+      "proposal": "Replace EN model with: ‘The facilitator said that questions naturally arise with a new task and suggested setting aside time for them. No actual questions have been asked yet.’ Align DE to retain the facilitator's reported advice as well.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C11-04",
+      "unitId": "C1.1-04",
+      "severity": "required",
+      "location": "Modern script last EN row ‘Beside the ground-level desk marked 1층. Ask there which device is working.’",
+      "problem": "KO locates the information desk on the ground floor, labelled 1층 in Korean; EN makes the desk itself marked 1층. ‘Which device is working’ also presupposes a working device, while KO asks whether the intended device works. This is the reader-facing location/check instruction.",
+      "proposal": "Replace EN row with: ‘Beside the information desk on the ground floor (1층). Ask at the desk whether the device you want to use is working.’ Align DE's floor label and conditional function check.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C11-05",
+      "unitId": "C1.1-04",
+      "severity": "required",
+      "location": "생활 전이 extended EN proposal example ‘Let's get a photo guide ready … have it checked tomorrow. We can reconsider the video afterwards.’",
+      "problem": "The KO model explicitly conditions distribution on tomorrow's accuracy check (‘내일 정확성 확인 뒤 배포’). The English example retains a planned check but drops the distribution-after-check relationship. Preserving implementation conditions is the stated mediation goal.",
+      "proposal": "Replace EN three-sentence proposal with: ‘Let’s prioritise a photo guide for the workshop in two days. Seven of eighteen participants asked about the tool names. We can distribute it after an accuracy check tomorrow and consider the video later.’ Keep the participant instruction; align DE to the same check-before-distribution condition.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

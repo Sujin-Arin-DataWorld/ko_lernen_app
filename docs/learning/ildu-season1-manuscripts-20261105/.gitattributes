@@ -1,0 +1,2 @@
+# Preserve exact bytes for manuscript SHA-256 and historical audit evidence.
+* -text whitespace=cr-at-eol

@@ -1,0 +1,100 @@
+{
+  "date": "2026-11-14",
+  "role": "KO-DE manuscript author",
+  "status": "AUTHOR_DRAFTS_COMPLETE_INDEPENDENT_REVIEW_PENDING",
+  "units": [
+    {
+      "unitId": "A2.2-05",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.2-05.md",
+      "sha256": "0e139efa873af7e3c79a72356e93a7719f54579c085918402602cfd50ab90389",
+      "chars": 10075
+    },
+    {
+      "unitId": "A2.2-06",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.2-06.md",
+      "sha256": "e81262b562c260bafadd676a187deb4c05107e3199821f82c540eee57b8938d0",
+      "chars": 10972
+    },
+    {
+      "unitId": "B1.1-01",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.1-01.md",
+      "sha256": "34e8d2dccfa0c0cf96fd5a167089ca15a56d03d01285c7a1ac08e84bda425d77",
+      "chars": 10408
+    },
+    {
+      "unitId": "B1.1-02",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.1-02.md",
+      "sha256": "c5bda680e87dbc5dde8f256d0ecc538063bb183906f0978f19f852cef47dc27a",
+      "chars": 11461
+    },
+    {
+      "unitId": "B1.1-03",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.1-03.md",
+      "sha256": "ce23227980e37085eb685a84d99a052ac0c876f537ac9c0c0d738936a7a876e4",
+      "chars": 11200
+    },
+    {
+      "unitId": "B1.1-04",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.1-04.md",
+      "sha256": "8ce8d7a86618cc6f04c65b0f22df6e817c3ddf0b6fc8ccb01c1a526822aa1139",
+      "chars": 10685
+    },
+    {
+      "unitId": "B1.1-05",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.1-05.md",
+      "sha256": "a00fbaf1d65e3fc4b81b176f06ada2fc55ad539dbfbcb8cd5754e36c0909e28f",
+      "chars": 10383
+    },
+    {
+      "unitId": "B1.1-06",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.1-06.md",
+      "sha256": "2c6598192c751d1dca35c82e22f36a0d77de4cd5580d677cb0a27d7a269e2724",
+      "chars": 12706
+    },
+    {
+      "unitId": "B1.2-01",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.2-01.md",
+      "sha256": "3edb26944278ce2c56681d9fd2c557a3d75558e22346b88783b99f4874f42ae9",
+      "chars": 11557
+    },
+    {
+      "unitId": "B1.2-02",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.2-02.md",
+      "sha256": "b22b8487a3a8531f0fc9037188a8acfbda45a3c0352bb689f8bfbd3e3cec0565",
+      "chars": 11401
+    },
+    {
+      "unitId": "B1.2-03",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.2-03.md",
+      "sha256": "affb8da32f0ce36e713451d6016940573ef9d6163843268e5c61748ea51537f6",
+      "chars": 11420
+    },
+    {
+      "unitId": "B1.2-04",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.2-04.md",
+      "sha256": "2ec0800c51b136d5e88f0f377c3d90f7de73916fd20d618c8697f20bd49cdfa5",
+      "chars": 11803
+    },
+    {
+      "unitId": "B1.2-05",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.2-05.md",
+      "sha256": "06032efb8ad1fb397fc540bd41c9f1a5a4e4a8bdbaf6f8b2050534ea34b0a55c",
+      "chars": 11851
+    },
+    {
+      "unitId": "B1.2-06",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\B1.2-06.md",
+      "sha256": "57df36af4a274102acfb92e425cfff94362f5e01db21f2a7edb7945aee9fa421",
+      "chars": 13131
+    }
+  ],
+  "appChangesByThisAgent": false,
+  "audioSynthesisByThisAgent": false,
+  "humanApproval": false,
+  "notes": [
+    "Fourteen assigned remaining manuscripts saved individually.",
+    "B1.1-06 owner translation and second independent condition task revised after root feedback.",
+    "B1.2-02 distinguishes E08.started access from E08.middle package comparison.",
+    "Cross review of C2.1-01/02 and C2.2-01 through 06 is separate pending work."
+  ]
+}

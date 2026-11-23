@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "role": "ko-de",
+  "reviewer": "Astra Max Korean–German translation/editorial model role",
+  "humanApprovalClaim": false,
+  "audioListened": false,
+  "status": "FULL_THREE_FILES_READ_WITH_EXACT_PROPOSALS_NOT_FINAL_ACCEPTANCE",
+  "files": [
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.sound-signs.md",
+      "sha256": "ead9eb91f1f3cff768127e234c0a33a8efc229014dd8a48218b219098c45013d",
+      "readScope": "Entire current manuscript, all KO/DE learner text, story, tables, questions, models, memo; EN read for alignment only"
+    },
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.above-below.md",
+      "sha256": "b574edd29ffdc4c16cc870fdcebf06e3b55d5428bda528e5696eb08e2a0df076",
+      "readScope": "Entire current manuscript, all KO/DE learner text, story, tables, questions, models, memo; EN read for alignment only"
+    },
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.straight-lines.md",
+      "sha256": "fb699fa881a251bbf518964a467a0249b3cb0e44bc46b77ff8554c76b7acbc92",
+      "readScope": "Entire current manuscript, all KO/DE learner text, story, tables, questions, models, memo; EN read for alignment only"
+    }
+  ],
+  "proposals": [
+    {
+      "proposalId": "F01-KODE-001",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.sound-signs.md",
+      "sourceFileSha256": "ead9eb91f1f3cff768127e234c0a33a8efc229014dd8a48218b219098c45013d",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 11
+      },
+      "before": "Bilde 아 und 어 aus einem anlautenden ㅇ und einem Vokal. Unterscheide die beiden Silbenblöcke und gehe einen nach dem anderen durch.",
+      "after": "Bilde 아 und 어 mit ㅇ an erster Stelle und einem Vokalzeichen. Vergleiche die beiden Silbenblöcke, einen nach dem anderen.",
+      "reasonKo": "소리값 없는 첫자리 글자 ㅇ을 낯선 전문어 anlautend로 소개할 필요가 없다. 실제 과제의 글자 위치와 모음 글자를 평이하게 말한다. 비교는 둘을 한꺼번에 외우게 하지 않는다.",
+      "kind": "translation"
+    },
+    {
+      "proposalId": "F01-KODE-002",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.sound-signs.md",
+      "sourceFileSha256": "ead9eb91f1f3cff768127e234c0a33a8efc229014dd8a48218b219098c45013d",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 56
+      },
+      "before": "Das anlautende ㅇ in 아 und 어 fügt keinen Konsonantenlaut hinzu.",
+      "after": "Das ㅇ an erster Stelle fügt in 아 und 어 keinen Konsonantenlaut hinzu.",
+      "reasonKo": "첫자리 ㅇ이라는 적용 범위를 유지하며 독일어 전문어 부담을 낮춘다. 받침 ㅇ까지 무음으로 일반화하지 않는다.",
+      "kind": "translation"
+    },
+    {
+      "proposalId": "F01-KODE-003",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.sound-signs.md",
+      "sourceFileSha256": "ead9eb91f1f3cff768127e234c0a33a8efc229014dd8a48218b219098c45013d",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 45
+      },
+      "before": "Dokkaebi dreht den Kopf rasch weg und schnieft. Statt seinem alten Freund in die Augen zu sehen, blickt er zum neuen Gast hinüber.",
+      "after": "Dokkaebi dreht den Kopf rasch weg und schnieft. Statt seinem alten Freund in die Augen zu sehen, blickt er zu {이름} hinüber.",
+      "reasonKo": "새 제자를 Gast(손님)으로 바꿔 역할을 달리하지 않는다. 앞 대사에서 학습자로 소개된 커스텀 이름으로 자연스럽게 가리키며 성별을 부여하지 않는다.",
+      "kind": "translation"
+    },
+    {
+      "proposalId": "F01-KODE-004",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.sound-signs.md",
+      "sourceFileSha256": "ead9eb91f1f3cff768127e234c0a33a8efc229014dd8a48218b219098c45013d",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 46
+      },
+      "before": "Unterrichte den neuen Gast, damit mein Haus repariert werden kann!",
+      "after": "Du hast jetzt jemanden zum Unterrichten. Fang an, damit mein Haus repariert werden kann!",
+      "reasonKo": "도깨비가 새 제자의 배움을 탈선비에게 부탁하는 기능을 되살린다. 손님 응대가 아니라 수업이며 새 학습자의 성별을 정하지 않는다.",
+      "kind": "translation"
+    },
+    {
+      "proposalId": "F01-KODE-005",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.sound-signs.md",
+      "sourceFileSha256": "ead9eb91f1f3cff768127e234c0a33a8efc229014dd8a48218b219098c45013d",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 15
+      },
+      "before": "입문 필수 범위는 **ㅇ·ㅏ·ㅓ → 아·어**다. 아·어는 여기서 뜻을 맞히는 단어가 아니라 소리와 글자 모양을 연결하는 음절이다. 앞 장면은 프롤로그의 고택 도착과 복원 의뢰, 다음 단원은 **F0.1.above-below**의 오·우다.",
+      "after": "입문 필수 범위는 **ㅇ·ㅏ·ㅓ → 아·어**다. 아·어는 여기서 뜻을 맞히는 단어가 아니라 소리와 글자 모양을 연결하는 음절이다. 앞 장면은 프롤로그의 고택 도착과 복원 의뢰, 다음 단원은 **F0.1.above-below**의 오·우다.\n\n**DE** Du übst hier **ㅇ·ㅏ·ㅓ → 아·어**. 아 und 어 sind in dieser Aufgabe Silben, deren Klang du mit der Schriftform verbindest; ihre Bedeutung als Wörter musst du nicht kennen. Davor stehen die Ankunft am erinnerten Haus und der Auftrag zur Wiederherstellung. Als Nächstes folgen 오 und 우 in **F0.1.above-below**.",
+      "reasonKo": "필수 범위·음절과 단어 뜻의 구별·이전과 다음 연결이 한국어에만 있다. 독일어 초심자도 지금 할 일과 하지 않아도 되는 일을 읽을 수 있게 한다. EN 대응은 한영 담당 검토 범위다.",
+      "kind": "beginner_support"
+    },
+    {
+      "proposalId": "F01-KODE-006",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.above-below.md",
+      "sourceFileSha256": "b574edd29ffdc4c16cc870fdcebf06e3b55d5428bda528e5696eb08e2a0df076",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 14
+      },
+      "before": "앞 단원 **F0.1.sound-signs**에서 ㅇ·ㅏ·ㅓ와 아·어를 만났다. 새 범위는 **ㅗ·ㅜ → 오·우**다. 다음은 **F0.1.straight-lines**의 ㅡ·ㅣ다. 익숙하지 않은 앞 글자는 짧게 다시 배우고 참여할 수 있다.",
+      "after": "앞 단원 **F0.1.sound-signs**에서 ㅇ·ㅏ·ㅓ와 아·어를 만났다. 새 범위는 **ㅗ·ㅜ → 오·우**다. 다음은 **F0.1.straight-lines**의 ㅡ·ㅣ다. 익숙하지 않은 앞 글자는 짧게 다시 배우고 참여할 수 있다.\n\n**DE** In **F0.1.sound-signs** hast du ㅇ, ㅏ und ㅓ sowie 아 und 어 kennengelernt. Neu sind **ㅗ·ㅜ → 오·우**. Danach folgen ㅡ und ㅣ in **F0.1.straight-lines**. Sind dir die bisherigen Zeichen noch nicht vertraut, bekommst du zuerst noch einmal eine kurze Einführung.",
+      "reasonKo": "선행 글자를 모르는 초심자가 참여할 수 있는 지원과 새 범위가 KO에만 있다. DE 지원을 실제 문장으로 추가한다.",
+      "kind": "beginner_support"
+    },
+    {
+      "proposalId": "F01-KODE-007",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.above-below.md",
+      "sourceFileSha256": "b574edd29ffdc4c16cc870fdcebf06e3b55d5428bda528e5696eb08e2a0df076",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 41
+      },
+      "before": "ㅇ의 첫자리 역할은 앞 단원과 같다. ㅗ와 ㅜ를 회전시키는 조작으로 답을 만들지 않고 각각의 글자 모양을 익힌다. 입술 그림이나 로마자 하나를 정확한 한국어 소리의 대용으로 제시하지 않는다.",
+      "after": "ㅇ의 첫자리 역할은 앞 단원과 같다. ㅗ와 ㅜ를 회전시키는 조작으로 답을 만들지 않고 각각의 글자 모양을 익힌다. 입술 그림이나 로마자 하나를 정확한 한국어 소리의 대용으로 제시하지 않는다.\n\n**DE** Das ㅇ hat an erster Stelle dieselbe Aufgabe wie zuvor und fügt keinen Konsonantenlaut hinzu. Lerne ㅗ und ㅜ als zwei eigene Schriftzeichen kennen. Achte auf die jeweilige Strichrichtung, statt ein Teil nur zu drehen. Ein Bild der Lippen oder ein einzelner lateinischer Buchstabe ersetzt kein koreanisches Lautbeispiel.",
+      "reasonKo": "첫자리 무음의 범위와 글자 방향·음원 지원을 DE에서도 읽을 수 있게 한다. 입 모양만으로 발음을 평가하지 않는다.",
+      "kind": "beginner_support"
+    },
+    {
+      "proposalId": "F01-KODE-008",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.straight-lines.md",
+      "sourceFileSha256": "fb699fa881a251bbf518964a467a0249b3cb0e44bc46b77ff8554c76b7acbc92",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 14
+      },
+      "before": "앞 단원은 **F0.1.above-below**, 다음은 **F0.2.first-names**다. 이번 새 문자 범위는 **ㅡ·ㅣ → 으·이**다. 이의 숫자·치아 등 다른 뜻은 묻지 않는다. 아직 배우지 않은 ㄴ·ㅁ은 다음 장면의 예고에만 등장한다.",
+      "after": "앞 단원은 **F0.1.above-below**, 다음은 **F0.2.first-names**다. 이번 새 문자 범위는 **ㅡ·ㅣ → 으·이**다. 이의 숫자·치아 등 다른 뜻은 묻지 않는다. 아직 배우지 않은 ㄴ·ㅁ은 다음 장면의 예고에만 등장한다.\n\n**DE** Diese Einheit folgt auf **F0.1.above-below**; danach kommt **F0.2.first-names**. Neu sind **ㅡ·ㅣ → 으·이**. Andere Bedeutungen von 이, etwa als Zahl oder als Wort für einen Zahn, werden hier nicht abgefragt. ㄴ und ㅁ lernst du erst in der nächsten Einheit.",
+      "reasonKo": "이의 단어 뜻이나 예고 자음을 이미 배운 것으로 세지 않는 핵심 범위를 DE로 제공한다.",
+      "kind": "beginner_support"
+    },
+    {
+      "proposalId": "F01-KODE-009",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.straight-lines.md",
+      "sourceFileSha256": "fb699fa881a251bbf518964a467a0249b3cb0e44bc46b77ff8554c76b7acbc92",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 42
+      },
+      "before": "으를 영어 eu나 독일어 ü와 같은 소리라고 설명하지 않는다. 실제 음가 표본과 글자의 대응을 익히며, 그림만으로 발음을 평가하지 않는다.",
+      "after": "으를 영어 eu나 독일어 ü와 같은 소리라고 설명하지 않는다. 실제 음가 표본과 글자의 대응을 익히며, 그림만으로 발음을 평가하지 않는다.\n\n**DE** 으 klingt nicht wie das deutsche ü. Die lateinische Umschrift eu ist ebenfalls kein Lautvorbild. Höre auf das koreanische Lautbeispiel und verbinde es mit 으. Ein Bild allein zeigt nicht, wie du den Laut tatsächlich aussprichst.",
+      "reasonKo": "독일어 학습자에게 직접 중요한 으≠ü 경고가 KO에만 있다. 기술적 음성 설명을 추가하지 않고 실제 표본을 기준으로 안내한다.",
+      "kind": "beginner_support"
+    },
+    {
+      "proposalId": "F01-KODE-010",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.straight-lines.md",
+      "sourceFileSha256": "fb699fa881a251bbf518964a467a0249b3cb0e44bc46b77ff8554c76b7acbc92",
+      "locator": {
+        "kind": "unique_exact_text",
+        "line": 98
+      },
+      "before": "이것은 **배운 여섯 음절의 재구성**이다. 새 낱말의 의미·독해나 한글 전체 숙달을 확인하지 않는다. 아직 배우지 않은 앞 단원의 항목은 먼저 가르치고 연습으로 구분한다. 도움을 요청하면 해당 글자만 시범으로 보여 주고, 도움 뒤의 응답을 독립 응답으로 바꾸지 않는다.",
+      "after": "이것은 **배운 여섯 음절의 재구성**이다. 새 낱말의 의미·독해나 한글 전체 숙달을 확인하지 않는다. 아직 배우지 않은 앞 단원의 항목은 먼저 가르치고 연습으로 구분한다. 도움을 요청하면 해당 글자만 시범으로 보여 주고, 도움 뒤의 응답을 독립 응답으로 바꾸지 않는다.\n\n**DE** Hier setzt du **die sechs bereits geübten Silben** erneut zusammen. Das ist noch keine Prüfung neuer Wörter oder der gesamten koreanischen Schrift. Wenn du ein Zeichen noch nicht gelernt hast, lass es dir zuerst zeigen. Nach einem solchen Beispiel übst du mit Hilfe; das ist völlig in Ordnung.",
+      "reasonKo": "지원 뒤 수행을 실패처럼 다루지 않으면서 독립 확인과 도움 연습을 독일어 초심자에게 구별해 준다.",
+      "kind": "beginner_support"
+    }
+  ],
+  "kept": [
+    "아/어 initial silent ㅇ and right-side vowel placement; no silent-final generalisation",
+    "오/우 and 으 lower-vowel layouts versus 이 right-side layout",
+    "Supported models precede reconstruction; no unlearned consonant mandatory in the six-syllable check",
+    "Greeting, thanks and repetition are optional chunks; du/Sie follows relationship",
+    "Repetition requests replay the same sample; no audio access is not scored as listening",
+    "P-7 return sequence and exact Korean quoted lines checked against current STORY_V3_5.md lines379–394; subsequent units do not awaken TalSunbi again"
+  ],
+  "limits": [
+    "No other F0 or A1–C2 manuscript reviewed by this receipt",
+    "No sound files opened, listened to, generated or linked",
+    "No runtime or independent learner performance approval",
+    "Editorial paragraphs that are only KO should remain clearly separate from learner instructions; this proposal supplies the key learner-facing DE scope/support, not a translation of every editorial memo",
+    "EN additions require the KO–EN role; DE proposals are not evidence of independent EN acceptance"
+  ],
+  "officialEvidence": [
+    {
+      "url": "https://www.korean.go.kr/front/onlineQna/onlineQnaView.do?mn_id=261&pageIndex=1&qna_seq=318450",
+      "read": "Official indexed answer excerpt directly read; initial page open succeeded but answer-range followup timed out",
+      "supports": "Initial written ㅇ has no consonant sound; do not generalise to final position"
+    },
+    {
+      "url": "https://www.eps.go.kr/exam/Hanguel.pdf",
+      "read": "Official indexed Korean placement excerpt read; PDF text extraction loses Korean glyphs; screenshot request returned references without inspectable images in this run",
+      "supports": "Vowels ㅏ/ㅓ/ㅣ have consonant on left; ㅗ/ㅜ/ㅡ have consonant above",
+      "limit": "No claim of full PDF or visual screenshot inspection"
+    }
+  ]
+}

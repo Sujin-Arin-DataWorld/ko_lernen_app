@@ -1,0 +1,23 @@
+{
+  "status": "frozen_for_final_reread",
+  "supersedes": "FINAL_BATCH_3 C2.1-03/04 only",
+  "units": [
+    {
+      "unitId": "C2.1-03",
+      "sha256": "8d0c0571bdaca82e20fa8e5a3871fd08b8b36c317ec9376b292b06ed4f663ba7",
+      "reasons": [
+        "DE-C2FINAL-01"
+      ]
+    },
+    {
+      "unitId": "C2.1-04",
+      "sha256": "8ae902b63a53b5a82c338cece179c4f8791fd0bdfa7ea95344856b32423b3ea5",
+      "reasons": [
+        "EN-FINAL-03",
+        "EN-FINAL-04",
+        "DE-C2FINAL-02",
+        "DE-C2FINAL-03"
+      ]
+    }
+  ]
+}
