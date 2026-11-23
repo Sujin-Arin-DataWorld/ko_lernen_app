@@ -13206,7 +13206,7 @@
           },
           "explanation": {
             "ko": "“지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.”라는 말이 근거예요. 상황은 “다니엘이 지난주 병원비가 실손보험으로 보장되는지 전화로 확인합니다.”예요. 다른 두 선택지는 물건, 원인, 목적이나 일어난 순서를 바꿨으므로 이 대화와 맞지 않아요.",
-            "de": "Ein Beleg ist „지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.“ (Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Ist diese Untersuchung auch versichert? Das möchte ich gern klären.). Dazu passt: Daniel ruft an, um zu prüfen, ob seine Zusatzversicherung die Arztkosten der letzten Woche übernimmt. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
+            "de": "Ein Beleg ist „지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.“ (Ich hatte letzte Woche eine Untersuchung im Krankenhaus. Wird diese Untersuchung auch von meiner Versicherung übernommen? Das möchte ich gern klären.). Dazu passt: Daniel ruft an, um zu prüfen, ob seine Zusatzversicherung die Arztkosten der letzten Woche übernimmt. Die anderen Optionen verändern Gegenstand, Ursache, Absicht oder zeitlichen Ablauf und passen deshalb nicht zum Gespräch.",
             "en": "One supporting line is “지난주에 병원에서 검사를 받았는데, 그 검사도 보험으로 보장돼요? 확인하고 싶어서요.” (I had a test at the hospital last week. Is that test covered by my insurance too? I'd like to check.). The matching situation is: Daniel calls to check whether his supplementary insurance covers last week's clinic visit. The other options change the object, cause, purpose, or sequence and therefore do not match the conversation."
           },
           "sourceIds": [
@@ -13258,14 +13258,14 @@
               "en": "We need to check your coverage and the treatment first. Then I can let you know."
             },
             {
-              "ko": "접수한 뒤에 예상 처리 기간을 확인해 드릴게요.",
-              "de": "Nach der Einreichung prüfe ich die voraussichtliche Bearbeitungszeit für Sie.",
-              "en": "After you submit it, I'll check the expected processing time for you."
-            },
-            {
               "ko": "필요한 서류와 제출 방법을 확인해서 안내해 드릴게요.",
               "de": "Ich prüfe, welche Unterlagen Sie brauchen und wie Sie sie einreichen können, und gebe Ihnen dann Bescheid.",
               "en": "I'll check which documents you need and how to submit them, then let you know."
+            },
+            {
+              "ko": "접수한 뒤에 예상 처리 기간을 확인해 드릴게요.",
+              "de": "Nach der Einreichung prüfe ich die voraussichtliche Bearbeitungszeit für Sie.",
+              "en": "After you submit it, I'll check the expected processing time for you."
             }
           ],
           "correctIndex": 0
@@ -17524,8 +17524,8 @@
           },
           "explanation": {
             "ko": "근거는 “네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.”예요. 따라서 “한 번 기각됐어도 사진과 통화 내용을 담아 다시 검토를 요청해요.”가 맞아요. “한 번 기각됐으므로 다른 부서에 검토를 요청할 방법도 없어요.”와 “사진을 보냈으므로 이 통화에서 과태료 취소가 확정됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.“ (Ja. Prüfen Sie die in der Mitteilung genannten Wege und Fristen und fragen Sie unter Beifügung der Fotos nach.). Daraus folgt: Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt. Die Alternativen „Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.“ und „Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.” (Yes. Check the methods and deadlines listed in the decision notice, and ask with the photos attached.). This supports: Despite the rejection, they seek another review with the photo and call details. The alternatives “After one rejection, no route to review by another department exists.” and “Sending the photo has secured cancellation of the fine in this call.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.“ (Ja. Prüfen Sie den in der Mitteilung genannten Weg und die Frist und fügen Sie die Fotos Ihrer Anfrage bei.). Daraus folgt: Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt. Die Alternativen „Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.“ und „Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.” (Yes. Check the method and deadline stated in the decision notice, and include the photos when you contact the office.). This supports: Despite the rejection, they seek another review with the photo and call details. The alternatives “After one rejection, no route to review by another department exists.” and “Sending the photo has secured cancellation of the fine in this call.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "b2_w10_notice"
@@ -17620,8 +17620,8 @@
           },
           "explanation": {
             "ko": "근거는 “네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.”예요. 따라서 “한 번 기각됐어도 사진과 통화 내용을 담아 다시 검토를 요청해요.”가 맞아요. “한 번 기각됐으므로 다른 부서에 검토를 요청할 방법도 없어요.”와 “사진을 보냈으므로 이 통화에서 과태료 취소가 확정됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.“ (Ja. Prüfen Sie die in der Mitteilung genannten Wege und Fristen und fragen Sie unter Beifügung der Fotos nach.). Daraus folgt: Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt. Die Alternativen „Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.“ und „Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.” (Yes. Check the methods and deadlines listed in the decision notice, and ask with the photos attached.). This supports: Despite the rejection, they seek another review with the photo and call details. The alternatives “After one rejection, no route to review by another department exists.” and “Sending the photo has secured cancellation of the fine in this call.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.“ (Ja. Prüfen Sie den in der Mitteilung genannten Weg und die Frist und fügen Sie die Fotos Ihrer Anfrage bei.). Daraus folgt: Trotz Ablehnung wird mit Foto und Gesprächsinhalt eine erneute Prüfung beantragt. Die Alternativen „Nach einer Ablehnung gibt es keinen Weg zur Prüfung durch eine andere Stelle.“ und „Das Foto hat in diesem Gespräch die Aufhebung des Bußgelds bewirkt.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “네. 결과 안내문에 적힌 방법과 기한을 확인하시고, 사진을 포함해 문의해 보세요.” (Yes. Check the method and deadline stated in the decision notice, and include the photos when you contact the office.). This supports: Despite the rejection, they seek another review with the photo and call details. The alternatives “After one rejection, no route to review by another department exists.” and “Sending the photo has secured cancellation of the fine in this call.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "b2_w10_notice"
@@ -17730,14 +17730,14 @@
               "en": "I understand that flying today may be difficult depending on the weather. Could you check whether another airline or another route is possible?"
             },
             {
+              "ko": "제휴 항공사 좌석과 가능한 대체 경로를 확인해 보고, 가능 여부를 안내해 드리겠습니다.",
+              "de": "Ich prüfe Plätze bei der Partnerfluggesellschaft und mögliche Alternativverbindungen und informiere Sie dann über die Möglichkeiten.",
+              "en": "I'll check seats with partner airlines and possible alternative routes, then let you know what is available."
+            },
+            {
               "ko": "이틀 후면 일정에 큰 문제가 생기는데, 다른 방법이 없을까요?",
               "de": "Wenn ich erst in zwei Tagen fliegen kann, bringt das meinen Zeitplan völlig durcheinander. Gibt es keine andere Möglichkeit?",
               "en": "If I can't fly for two days, that will seriously disrupt my plans. Is there any other option?"
-            },
-            {
-              "ko": "저희 쪽에서는 더 드릴 수 있는 옵션이 없습니다.",
-              "de": "Mehr können wir Ihnen von unserer Seite leider nicht anbieten.",
-              "en": "There aren't any further options we can offer on our end."
             }
           ],
           "correctIndex": 0
@@ -17832,8 +17832,8 @@
           },
           "explanation": {
             "ko": "근거는 “확인된 방법을 들은 뒤에 결정하고 싶습니다.”예요. 따라서 “효과가 늦게 나타나는 것과 효과가 없는 것을 구분해요.”가 맞아요. “효과가 늦으면 그 약은 듣지 않는다고 결론 내려요.”와 “덜 졸린 약은 어떤 부작용도 없다고 확인했어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „확인된 방법을 들은 뒤에 결정하고 싶습니다.“ (Ich möchte entscheiden, nachdem ich die geklärte Möglichkeit gehört habe.). Daraus folgt: Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden. Die Alternativen „Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.“ und „Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “확인된 방법을 들은 뒤에 결정하고 싶습니다.” (I would like to decide after I hear the confirmed option.). This supports: A slower onset is distinguished from having no effect. The alternatives “A slower onset is taken to mean the medicine does not work.” and “The less drowsy medicine was confirmed to have no side effects at all.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „확인된 방법을 들은 뒤에 결정하고 싶습니다.“ (Ich möchte entscheiden, nachdem ich erfahren habe, welche Möglichkeiten tatsächlich infrage kommen.). Daraus folgt: Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden. Die Alternativen „Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.“ und „Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “확인된 방법을 들은 뒤에 결정하고 싶습니다.” (I'd like to decide after I hear what options are actually available.). This supports: A slower onset is distinguished from having no effect. The alternatives “A slower onset is taken to mean the medicine does not work.” and “The less drowsy medicine was confirmed to have no side effects at all.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "b2_w10_health"
@@ -17928,8 +17928,8 @@
           },
           "explanation": {
             "ko": "근거는 “확인된 방법을 들은 뒤에 결정하고 싶습니다.”예요. 따라서 “효과가 늦게 나타나는 것과 효과가 없는 것을 구분해요.”가 맞아요. “효과가 늦으면 그 약은 듣지 않는다고 결론 내려요.”와 “덜 졸린 약은 어떤 부작용도 없다고 확인했어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „확인된 방법을 들은 뒤에 결정하고 싶습니다.“ (Ich möchte entscheiden, nachdem ich die geklärte Möglichkeit gehört habe.). Daraus folgt: Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden. Die Alternativen „Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.“ und „Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “확인된 방법을 들은 뒤에 결정하고 싶습니다.” (I would like to decide after I hear the confirmed option.). This supports: A slower onset is distinguished from having no effect. The alternatives “A slower onset is taken to mean the medicine does not work.” and “The less drowsy medicine was confirmed to have no side effects at all.” change the distinction or condition in the dialogue."
+            "de": "Der Beleg lautet: „확인된 방법을 들은 뒤에 결정하고 싶습니다.“ (Ich möchte entscheiden, nachdem ich erfahren habe, welche Möglichkeiten tatsächlich infrage kommen.). Daraus folgt: Ein späterer Wirkungseintritt wird von fehlender Wirkung unterschieden. Die Alternativen „Spätere Wirkung wird als völlige Wirkungslosigkeit verstanden.“ und „Für das weniger müde machende Mittel wurde jede Nebenwirkung ausgeschlossen.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "en": "The evidence is “확인된 방법을 들은 뒤에 결정하고 싶습니다.” (I'd like to decide after I hear what options are actually available.). This supports: A slower onset is distinguished from having no effect. The alternatives “A slower onset is taken to mean the medicine does not work.” and “The less drowsy medicine was confirmed to have no side effects at all.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "b2_w10_health"
@@ -18295,7 +18295,7 @@
           "explanation": {
             "ko": "근거는 “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.”예요. 따라서 “이 장면에서는 신청 시작 시점과 최종 접수 기한을 구분해요.”가 맞아요. “만료일 전이면 아무 때나 준비 없이 자동 연장돼요.”와 “만료일 네 달 전에 반드시 접수를 끝내야 한다고 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.“ (Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.). Daraus folgt: In dieser Szene werden frühester Antragstermin und späteste Einreichung unterschieden. Die Alternativen „Vor Ablauf erfolgt die Verlängerung ohne Vorbereitung automatisch.“ und „Der Antrag muss genau vier Monate vor Ablauf vollständig eingereicht sein.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.” (The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information.). This supports: This scene distinguishes when applications open from the submission deadline. The alternatives “Before expiry, extension is automatic without preparation.” and “They say submission must be completed four months before expiry.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.” (The timing and documents can vary by residence status and current situation. Let's first check your passport and current residence-status details.). This supports: This scene distinguishes when applications open from the submission deadline. The alternatives “Before expiry, extension is automatic without preparation.” and “They say submission must be completed four months before expiry.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "b2_w10_authorities"
@@ -18391,7 +18391,7 @@
           "explanation": {
             "ko": "근거는 “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.”예요. 따라서 “이 장면에서는 신청 시작 시점과 최종 접수 기한을 구분해요.”가 맞아요. “만료일 전이면 아무 때나 준비 없이 자동 연장돼요.”와 “만료일 네 달 전에 반드시 접수를 끝내야 한다고 해요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
             "de": "Der Beleg lautet: „신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.“ (Antragszeitpunkt und Unterlagen können je nach Aufenthaltsstatus und aktueller Situation unterschiedlich sein. Wir sehen uns zuerst Ihren Pass und Ihre aktuellen Aufenthaltsdaten an.). Daraus folgt: In dieser Szene werden frühester Antragstermin und späteste Einreichung unterschieden. Die Alternativen „Vor Ablauf erfolgt die Verlängerung ohne Vorbereitung automatisch.“ und „Der Antrag muss genau vier Monate vor Ablauf vollständig eingereicht sein.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
-            "en": "The evidence is “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.” (The timing and documents can vary by residence status and current situation. Let's first check your passport and current stay information.). This supports: This scene distinguishes when applications open from the submission deadline. The alternatives “Before expiry, extension is automatic without preparation.” and “They say submission must be completed four months before expiry.” change the distinction or condition in the dialogue."
+            "en": "The evidence is “신청 시기와 필요한 서류는 체류 자격과 현재 상황에 따라 달라질 수 있어요. 여권과 현재 체류 정보를 먼저 확인해 볼게요.” (The timing and documents can vary by residence status and current situation. Let's first check your passport and current residence-status details.). This supports: This scene distinguishes when applications open from the submission deadline. The alternatives “Before expiry, extension is automatic without preparation.” and “They say submission must be completed four months before expiry.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
             "b2_w10_authorities"
@@ -21528,7 +21528,7 @@
           },
           "explanation": {
             "ko": "근거는 “아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.”예요. 따라서 “이용 가능 여부를 아직 단정할 수 없어 확인된 대안으로 바꿔요.”가 맞아요. “반응이 좋으면 상업 이용 조건은 확인할 필요가 없어요.”와 “유사하다는 의견만으로 침해가 확정됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.“ (Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.). Daraus folgt: Die Nutzung ist noch ungeklärt; deshalb wird eine Alternative mit geklärten Rechten gewählt. Die Alternativen „Bei guter Resonanz müssen kommerzielle Nutzungsbedingungen nicht geprüft werden.“ und „Allein der Hinweis auf Ähnlichkeit beweist bereits eine Rechtsverletzung.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.“ (Noch nicht. Mit den derzeitigen Informationen können wir nicht sicher sagen, dass wir es verwenden dürfen.). Daraus folgt: Die Nutzung ist noch ungeklärt; deshalb wird eine Alternative mit geklärten Rechten gewählt. Die Alternativen „Bei guter Resonanz müssen kommerzielle Nutzungsbedingungen nicht geprüft werden.“ und „Allein der Hinweis auf Ähnlichkeit beweist bereits eine Rechtsverletzung.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.” (Not yet. With the information we have, it's hard to conclude that we can use it.). This supports: Use is not yet confirmed, so they choose an alternative with verified rights. The alternatives “Good audience response removes the need to check commercial terms.” and “A report of similarity alone establishes infringement.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -21624,7 +21624,7 @@
           },
           "explanation": {
             "ko": "근거는 “아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.”예요. 따라서 “이용 가능 여부를 아직 단정할 수 없어 확인된 대안으로 바꿔요.”가 맞아요. “반응이 좋으면 상업 이용 조건은 확인할 필요가 없어요.”와 “유사하다는 의견만으로 침해가 확정됐어요.”는 이 대화의 구분이나 조건을 바꾼 해석이에요.",
-            "de": "Der Beleg lautet: „아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.“ (Noch nicht. Mit den derzeitigen Informationen können wir die Nutzung nicht als unbedenklich einstufen.). Daraus folgt: Die Nutzung ist noch ungeklärt; deshalb wird eine Alternative mit geklärten Rechten gewählt. Die Alternativen „Bei guter Resonanz müssen kommerzielle Nutzungsbedingungen nicht geprüft werden.“ und „Allein der Hinweis auf Ähnlichkeit beweist bereits eine Rechtsverletzung.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
+            "de": "Der Beleg lautet: „아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.“ (Noch nicht. Mit den derzeitigen Informationen können wir nicht sicher sagen, dass wir es verwenden dürfen.). Daraus folgt: Die Nutzung ist noch ungeklärt; deshalb wird eine Alternative mit geklärten Rechten gewählt. Die Alternativen „Bei guter Resonanz müssen kommerzielle Nutzungsbedingungen nicht geprüft werden.“ und „Allein der Hinweis auf Ähnlichkeit beweist bereits eine Rechtsverletzung.“ verändern die Unterscheidung oder Bedingung im Gespräch.",
             "en": "The evidence is “아직 확인하지 못했습니다. 지금 정보만으로 사용 가능하다고 단정하기는 어렵습니다.” (Not yet. With the information we have, it's hard to conclude that we can use it.). This supports: Use is not yet confirmed, so they choose an alternative with verified rights. The alternatives “Good audience response removes the need to check commercial terms.” and “A report of similarity alone establishes infringement.” change the distinction or condition in the dialogue."
           },
           "sourceIds": [
@@ -25448,7 +25448,7 @@
           "skill": "sentence",
           "prompt": {
             "ko": "들은 대사의 어절을 같은 순서로 놓으세요.",
-            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.",
+            "de": "Ordne die Wörter genau wie in der Aufnahme. Bedeutung: Wir sollten relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und die Möglichkeit, die Teilnahme abzubrechen, getrennt darstellen.",
             "en": "Put the words in the same order as the recording. Meaning: Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw."
           },
           "explanation": {
