@@ -253,6 +253,9 @@ class ContentValidator:
         self.validate_ledger_entries()
         return self.issues
 
+    def _is_checkout_root(self) -> bool:
+        return self.root.resolve() == ROOT.resolve()
+
     def validate_dialogue_authoring_contract(self) -> None:
         """Require the canonical user-reviewed dialogue contract on future
         scene-first/persona authoring artifacts.
@@ -270,7 +273,10 @@ class ContentValidator:
         contract_path = self.root / expected
         source = "dialogue_authoring_contract_20261006.json"
         if not contract_path.is_file():
-            self.issue(source, f"missing canonical dialogue contract at {expected}")
+            # Staging trees (relevel/corpus preflight) copy only assets/data;
+            # the repo-level governance contract is required on the checkout.
+            if self._is_checkout_root():
+                self.issue(source, f"missing canonical dialogue contract at {expected}")
             return
         try:
             contract = json.loads(contract_path.read_text(encoding="utf-8"))
@@ -374,7 +380,8 @@ class ContentValidator:
         path = self.root / relative
         source = path.name
         if not path.is_file():
-            self.issue(source, f"missing canonical localization contract at {relative}")
+            if self._is_checkout_root():
+                self.issue(source, f"missing canonical localization contract at {relative}")
             return
         try:
             contract = json.loads(path.read_text(encoding="utf-8"))
@@ -492,11 +499,12 @@ class ContentValidator:
             / "trilingual_content_topic_coverage_20261006.json"
         )
         source = ledger_path.name
-        if not taxonomy_path.is_file():
-            self.issue(source, "missing CEFR taxonomy for topic coverage validation")
-            return
-        if not ledger_path.is_file():
-            self.issue(source, "missing trilingual content-topic coverage ledger")
+        if not taxonomy_path.is_file() or not ledger_path.is_file():
+            if self._is_checkout_root():
+                if not taxonomy_path.is_file():
+                    self.issue(source, "missing CEFR taxonomy for topic coverage validation")
+                else:
+                    self.issue(source, "missing trilingual content-topic coverage ledger")
             return
         try:
             taxonomy = json.loads(taxonomy_path.read_text(encoding="utf-8"))

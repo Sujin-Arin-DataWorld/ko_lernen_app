@@ -1157,7 +1157,7 @@
 - 주제를 못 찾은 팩 id (0): 없음
 - 주제를 못 찾은 시나리오 (0): 없음
 - 주제를 못 찾은 코스유닛 (8): a2_01_haeyo_transition, a2_02_plans_proposals, b1_01_experience_reasons, b1_02_indirect_speech, b1_05_complaint_resolution, b2_01_formal_opening, b2_03_precise_requests, c1_06_intimacy_safety_design
-- 기능(화행)에 하나도 걸리지 않은 시나리오 (9): a2_w10_fandom, b1_lena_hyuna_crowded_weekend, b1_w10_incident, b2_hyuna_daniel_gyeongju_after_apec, c2_w10_jurisdiction, gentrification_storefront, hidden_gem_local_impact, noisy_neighbor_evening, portfolio_interview_gap
+- 기능(화행)에 하나도 걸리지 않은 시나리오 (7): a2_w10_fandom, b1_w10_incident, b2_hyuna_daniel_gyeongju_after_apec, c2_w10_jurisdiction, hidden_gem_local_impact, noisy_neighbor_evening, portfolio_interview_gap
 - 기능(화행)에 하나도 걸리지 않은 코스유닛 (1): a2_06_study_work
 - 레벨이 없어 어떤 요구행에도 배정하지 않은 문화 노트 (36): 0, 1, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 2, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 3, 30, 31, 32, 33, 34, 35, 4, 5, 6, 7, 8, 9
 

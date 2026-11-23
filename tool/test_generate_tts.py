@@ -190,12 +190,11 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertEqual(manifest["schemaVersion"], 1)
         self.assertEqual(manifest["kind"], "tts_first_line_manifest")
         self.assertEqual(manifest["cacheRevision"], "v3")
-        self.assertEqual(manifest["scenarioCount"], 186)
-        self.assertEqual(len(manifest["items"]), 186)
-        # W10 Wave 2와 후속 우선순위 시나리오로 183편까지 갱신됐다.
-        # 유니크 첫 문장 mp3가 실제로 assets/tts/v3/ 에 다운로드돼 커밋됐다 —
-        # 183개 항목은 모두 bundled:true 여야 한다.
-        self.assertEqual(manifest["bundledCount"], 186)
+        self.assertEqual(manifest["scenarioCount"], 219)
+        self.assertEqual(len(manifest["items"]), 219)
+        # Every scenario, including the culture and Living Korea additions,
+        # must have its first dialog available offline.
+        self.assertEqual(manifest["bundledCount"], 219)
         ids = [item["scenarioId"] for item in manifest["items"]]
         self.assertEqual(len(ids), len(set(ids)))
         order = [
@@ -394,7 +393,7 @@ class TtsGeneratorContractTest(unittest.TestCase):
             with open(output, encoding="utf-8") as handle:
                 written = json.load(handle)
 
-        self.assertEqual(written["scenarioCount"], 186)
+        self.assertEqual(written["scenarioCount"], 219)
         auth.assert_not_called()
         synth.assert_not_called()
         remote.assert_not_called()

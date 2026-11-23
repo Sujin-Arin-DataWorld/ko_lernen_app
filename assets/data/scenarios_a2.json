@@ -7822,7 +7822,7 @@
           "speaker": "dongsun",
           "ko": "있기는 있는데 오늘 오는 건 아니에요.",
           "de": "Ja, schon, aber es sollte heute nicht kommen.",
-          "en": "I am expecting a package, but it isn't supposed to arrive today."
+          "en": "I'm expecting a package, but it isn't supposed to arrive today."
         },
         {
           "speaker": "user",
@@ -7863,7 +7863,7 @@
               },
               {
                 "de": "Ja, schon, aber es sollte heute nicht kommen.",
-                "en": "I am expecting a package, but it isn't supposed to arrive today."
+                "en": "I'm expecting a package, but it isn't supposed to arrive today."
               },
               {
                 "de": "Dann schauen wir lieber direkt in der Paket-App nach, statt den Link zu benutzen.",

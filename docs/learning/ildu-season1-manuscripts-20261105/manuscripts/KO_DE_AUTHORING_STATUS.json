@@ -1,0 +1,118 @@
+{
+  "role": "ko-de",
+  "humanApprovalClaim": false,
+  "audioCreated": false,
+  "appChanged": false,
+  "scopeAssigned": [
+    "A2.1",
+    "A2.2",
+    "B1.1",
+    "B1.2"
+  ],
+  "writtenUnits": [
+    {
+      "unitId": "A2.1-01",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.1-01.md",
+      "sha256": "209266a0c7bbfa92916c7e928af593c7e1cd78b46adf44a78085e85df1f351af",
+      "status": "COMPLETE_AUTHOR_DRAFT_WITH_REVIEW_FOLLOWUPS_PENDING",
+      "languages": [
+        "ko",
+        "en",
+        "de"
+      ],
+      "independentKOENRead": true,
+      "independentDeltaAcceptancePending": true
+    },
+    {
+      "unitId": "A2.1-02",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.1-02.md",
+      "sha256": "aa49dc356f1eeaf5532f662b403ec2493e092fdd44921376dba6ac54a85d0cdd",
+      "status": "COMPLETE_AUTHOR_DRAFT_WITH_REVIEW_FOLLOWUPS_PENDING",
+      "languages": [
+        "ko",
+        "en",
+        "de"
+      ],
+      "independentKOENRead": true,
+      "independentDeltaAcceptancePending": true
+    },
+    {
+      "unitId": "A2.1-03",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.1-03.md",
+      "sha256": "58313b539f561d7dcd0809ca52f075469b02acd2586e67bf91b48f5b576ab6bb",
+      "status": "COMPLETE_AUTHOR_DRAFT_WITH_REVIEW_FOLLOWUPS_PENDING",
+      "languages": [
+        "ko",
+        "en",
+        "de"
+      ],
+      "independentKOENRead": true,
+      "independentDeltaAcceptancePending": true
+    },
+    {
+      "unitId": "A2.1-04",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.1-04.md",
+      "sha256": "0e6d897623b3049facd6a76d0b31e371a4ef20d16c0dbb2e2ed8d9affd7b5a7b",
+      "status": "COMPLETE_AUTHOR_DRAFT_WITH_REVIEW_FOLLOWUPS_PENDING",
+      "languages": [
+        "ko",
+        "en",
+        "de"
+      ],
+      "independentKOENRead": false,
+      "independentDeltaAcceptancePending": true
+    },
+    {
+      "unitId": "A2.1-05",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.1-05.md",
+      "sha256": "0c235267c70a949afd184be33102c116147f4c7f1c04d1a5b899b720013e7eaf",
+      "status": "COMPLETE_AUTHOR_DRAFT_WITH_REVIEW_FOLLOWUPS_PENDING",
+      "languages": [
+        "ko",
+        "en",
+        "de"
+      ],
+      "independentKOENRead": false,
+      "independentDeltaAcceptancePending": true
+    },
+    {
+      "unitId": "A2.1-06",
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\A2.1-06.md",
+      "sha256": "1d2c0b15ac373a13a3824fc5531e22072f84978bf186911fa0f438e9fecaeb86",
+      "status": "COMPLETE_AUTHOR_DRAFT_WITH_REVIEW_FOLLOWUPS_PENDING",
+      "languages": [
+        "ko",
+        "en",
+        "de"
+      ],
+      "independentKOENRead": false,
+      "independentDeltaAcceptancePending": true
+    }
+  ],
+  "remainingUnits": [
+    "A2.2-01",
+    "A2.2-02",
+    "A2.2-03",
+    "A2.2-04",
+    "A2.2-05",
+    "A2.2-06",
+    "B1.1-01",
+    "B1.1-02",
+    "B1.1-03",
+    "B1.1-04",
+    "B1.1-05",
+    "B1.1-06",
+    "B1.2-01",
+    "B1.2-02",
+    "B1.2-03",
+    "B1.2-04",
+    "B1.2-05",
+    "B1.2-06"
+  ],
+  "openChecks": [
+    "Independent KO–EN review of04–06 and current01–03 deltas",
+    "Final sweep of all learner-facing prompts/source facts in all three languages; no translator completeness approval from file count",
+    "Current source-bound character/event/gate checks before A2.2/B1 drafting"
+  ],
+  "currentTask": "Continue A2.2 after first-six handoff; Phase902 review halted"
+}

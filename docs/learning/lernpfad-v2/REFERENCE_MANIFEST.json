@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "designDate": "2026-10-23",
+  "implementationBase": "44727c1921b4b7f40748ac0d210d0ca62a094028",
+  "sourceFiles": [
+    {
+      "file": "reference/CURRICULUM_FOUNDATION_TO_C2.md",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-story-design-20261023\\CURRICULUM_FOUNDATION_TO_C2.md",
+      "sha256": "c5bde55e11a93616221348df2275a83de3f03919bebac73aeeff170cdc289040",
+      "bytes": 37922
+    },
+    {
+      "file": "reference/EXISTING_GRAMMAR_INVENTORY.csv",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-story-design-20261023\\EXISTING_GRAMMAR_INVENTORY.csv",
+      "sha256": "01e3356f33ac185b8282783a192c0a82b377fffcc6e7d31ed0535451eaa7e1b1",
+      "bytes": 48369
+    },
+    {
+      "file": "reference/SOURCE_SNAPSHOT.json",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-story-design-20261023\\SOURCE_SNAPSHOT.json",
+      "sha256": "8ccc00b958b6e6a75ef2ed77db841e11797ec0abebca449061d27bb374ef8ea6",
+      "bytes": 1379
+    },
+    {
+      "file": "reference/DESIGN.md",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-story-design-20261023\\DESIGN.md",
+      "sha256": "8bab7e1f81e995d7e825efe78ceb08c69b3c2a9bcc5d473e9544c52931ed61c0",
+      "bytes": 34878
+    },
+    {
+      "file": "reference/HISTORY_AND_FIRST_STEPS.md",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-story-design-20261023\\HISTORY_AND_FIRST_STEPS.md",
+      "sha256": "13f87d90ec6dee0c4783185b068edd04676be8e82505b9e59f962d6123997cc3",
+      "bytes": 25666
+    },
+    {
+      "file": "reference/HISTORY_FLOW.mmd",
+      "original": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-story-design-20261023\\HISTORY_FLOW.mmd",
+      "sha256": "5779cf3408f92f6604826d2a5b64bd8042ca45ee22cb2e030ca17e50468576b3",
+      "bytes": 1339
+    }
+  ]
+}

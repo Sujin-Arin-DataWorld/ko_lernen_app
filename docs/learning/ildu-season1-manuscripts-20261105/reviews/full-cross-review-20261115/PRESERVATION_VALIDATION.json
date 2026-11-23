@@ -1,0 +1,80 @@
+{
+  "checkedUtc": "2026-11-15T09:06:16.530589+00:00",
+  "appRoot": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-runtime-integration-20261103",
+  "pinnedFiles": 2308,
+  "changedFiles": [],
+  "missingFiles": [],
+  "audioFileCount": 34,
+  "externalSources": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-runtime-integration-20261103\\docs\\learning\\ildu-season1-content-20261030\\reference\\STORY_V3_5.md",
+      "sha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb",
+      "currentSha256": "24ec73c1051da05702aac1d0257339cb10059d6cc4ea05cb5c7fb585deb64bcb"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-runtime-integration-20261103\\docs\\learning\\ildu-season1-content-20261030\\reference\\curriculum\\BAND_CONTRACTS.md",
+      "sha256": "d69cd9e3911dde0205dc6cbcb08b3a69c3089a5faf884d6ba11c51b97a407344",
+      "currentSha256": "d69cd9e3911dde0205dc6cbcb08b3a69c3089a5faf884d6ba11c51b97a407344"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-runtime-integration-20261103\\docs\\learning\\ildu-season1-content-20261030\\reference\\curriculum\\GRAMMAR_ALLOCATION.csv",
+      "sha256": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a",
+      "currentSha256": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-manuscript-review-20261115\\docs\\CONTENT_LEVEL_BIBLE.md",
+      "sha256": "5f42f92b96aaf3ff6bb6f7987cfcee0945d24275a5591141331083e869427854",
+      "currentSha256": "5f42f92b96aaf3ff6bb6f7987cfcee0945d24275a5591141331083e869427854"
+    }
+  ],
+  "gitPreservationBaseline": {
+    "capturedUtc": "2026-11-15T07:00:02.841074+00:00",
+    "scope": "same-session Git preservation baseline after read-only fetch/query; manuscript files untouched by reviewers",
+    "checkouts": [
+      {
+        "root": "C:/dev/hangulsori/ko_lernen_app",
+        "head": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+        "branch": "main",
+        "statusSha256": "053810a58ad3eafaf24c42faaf4dc61fe903c2258ae8a47b5f83e53bda4381fa",
+        "statusCount": 630,
+        "indexEntriesSha256": "bd69a0d7bc8726bbb5225d449031c3b936a1c91b35f691ea77bcf539c6e32a24",
+        "indexEntriesCount": 7317
+      },
+      {
+        "root": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-runtime-integration-20261103",
+        "head": "f369fe2ce3c36475e295b2369f0e5ae83939b867",
+        "branch": "codex/season1-runtime-integration-20261103",
+        "statusSha256": "8e038d131dba5713209fd9b0108eff7424e2b1bbd3aac0eb80b59cbf61b60604",
+        "statusCount": 707,
+        "indexEntriesSha256": "23098276d9ea52fc0570185a12df646b2033bfeefa556ab14f4304e56521fbfa",
+        "indexEntriesCount": 9681
+      }
+    ]
+  },
+  "checkpointArchiveSha256": "5be3eba609b533cc537ae207c051cc83ac1518cb32ad2b8973d7e16767c8bd9b",
+  "checkpointArchiveEntriesVerified": 170,
+  "checkpointArchivePrefix": "season1-manuscripts-20261105/",
+  "originalFolderChangedOrMissing": [],
+  "gitCurrent": [
+    {
+      "path": "C:/dev/hangulsori/ko_lernen_app",
+      "head": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+      "branch": "main",
+      "statusLineCount": 630,
+      "statusSha256": "053810a58ad3eafaf24c42faaf4dc61fe903c2258ae8a47b5f83e53bda4381fa",
+      "indexLineCount": 7317,
+      "indexSha256": "bd69a0d7bc8726bbb5225d449031c3b936a1c91b35f691ea77bcf539c6e32a24"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\season1-runtime-integration-20261103",
+      "head": "f369fe2ce3c36475e295b2369f0e5ae83939b867",
+      "branch": "codex/season1-runtime-integration-20261103",
+      "statusLineCount": 707,
+      "statusSha256": "8e038d131dba5713209fd9b0108eff7424e2b1bbd3aac0eb80b59cbf61b60604",
+      "indexLineCount": 9681,
+      "indexSha256": "23098276d9ea52fc0570185a12df646b2033bfeefa556ab14f4304e56521fbfa"
+    }
+  ],
+  "gitChanges": [],
+  "allProtectedStateUnchanged": true
+}

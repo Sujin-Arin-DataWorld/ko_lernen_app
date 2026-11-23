@@ -1,0 +1,46 @@
+{
+  "status": "frozen_for_final_reread",
+  "supersedes": "FINAL_BATCH_1 B1.2-01/03/04/06; four other units newly edited",
+  "units": [
+    {
+      "unitId": "B1.2-01",
+      "sha256": "09fd34d5f55166110eb2932d775483488fecb72c547e80139018b742229f886b",
+      "reason": "DE-FINAL-B121-01"
+    },
+    {
+      "unitId": "B1.2-03",
+      "sha256": "b19a01961b14b01b933d53f35987b0b22cad7d6a8841224f2b075b6d6df7b791",
+      "reason": "DE-FINAL-B123-01"
+    },
+    {
+      "unitId": "B1.2-04",
+      "sha256": "74826b90f3e426b68f3db39aa59021c2962b63423213a2b274a9751ab6cddf1a",
+      "reason": "DE-FINAL-B124-01"
+    },
+    {
+      "unitId": "B1.2-06",
+      "sha256": "ccba13da7edea451a455df847474eed27f505e1e3b13727eaaa8101d3e07f6f6",
+      "reason": "DE-FINAL-B126-01"
+    },
+    {
+      "unitId": "B1.1-01",
+      "sha256": "3a894afde776f9dcd85c7c01970e58443bc30893b3a2c373a8bac499b0a0ec6f",
+      "reason": "ROOT-FINAL-B111-01"
+    },
+    {
+      "unitId": "B1.1-04",
+      "sha256": "10eda0dd3606e32d0eb3082e614215cb7c179c3bb54153569bfd2e89bf479c6c",
+      "reason": "ROOT-FINAL-B114-01"
+    },
+    {
+      "unitId": "B1.2-02",
+      "sha256": "8afad508f6ce4cc860022cd3ec2b7cadec5e256b34739dc848d01971683d7557",
+      "reason": "ROOT-FINAL-B122-01"
+    },
+    {
+      "unitId": "B1.2-05",
+      "sha256": "5f3b34ab416132081fd67100f55a1a8cfbbcfbc52d4bc441a2704fa28b6c6d35",
+      "reason": "ROOT-FINAL-B125-01"
+    }
+  ]
+}

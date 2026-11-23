@@ -1,0 +1,16 @@
+{
+  "status": "frozen_for_final_reread",
+  "supersedes": "FINAL_BATCH_2 B2.2-02 and FINAL_FIXES_6 B1.2-02",
+  "units": [
+    {
+      "unitId": "B2.2-02",
+      "sha256": "ed7d257c0c600a0793578198395ca0411f51df46b33ba9895949551b1836e2b1",
+      "reason": "EN-FINAL-02"
+    },
+    {
+      "unitId": "B1.2-02",
+      "sha256": "690283f9c62dfab65d0755ea436d1e0f7c5929eb5e73674adcfe2d59d1b407c3",
+      "reason": "CUR-FINAL-B122-01"
+    }
+  ]
+}

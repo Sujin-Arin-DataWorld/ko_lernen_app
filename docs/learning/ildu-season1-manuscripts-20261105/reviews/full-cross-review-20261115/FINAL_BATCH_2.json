@@ -1,0 +1,77 @@
+{
+  "status": "frozen_for_final_reread",
+  "units": [
+    {
+      "unitId": "B2.2-01",
+      "sha256": "8911729d01ad2b9bf200a73115988ba0c8aa4a24ac0a59660904b6402be47a7e"
+    },
+    {
+      "unitId": "B2.2-02",
+      "sha256": "2385a5be8f4eb0db35c9c3ef0bc6ef0e4889548ea0c39e0c90a9667cada060f4"
+    },
+    {
+      "unitId": "B2.2-03",
+      "sha256": "0512d46326b4cfb3ee1f43f8590210c9838440e4dee354bbb6826a87e43b6c42"
+    },
+    {
+      "unitId": "B2.2-04",
+      "sha256": "dc7cc21ca9f3089840bfa75cb95b0ceaad3b5b87f893295f722d87e273816f82"
+    },
+    {
+      "unitId": "B2.2-05",
+      "sha256": "aa7aa7ca0cbae2e8762da2c58680d70ce174932779653ae4c2bd9a59fa23e539"
+    },
+    {
+      "unitId": "B2.2-06",
+      "sha256": "353db80aa6ea4b48c98df1e449c57660c679bfed95ac1a597c76008d18dff720"
+    },
+    {
+      "unitId": "C1.1-01",
+      "sha256": "4e9ea4058461bbf314a14ddb46da0801379443e2556b2e0c94df9766778333b4"
+    },
+    {
+      "unitId": "C1.1-02",
+      "sha256": "fe07efe75d2c6162c2d3edefdf72a536b68788d8abcec0bb6c2aebf9ee285c6a"
+    },
+    {
+      "unitId": "C1.1-03",
+      "sha256": "729eacdadd5debbd27456ca50e0216ee3ec2a214f03c81f082cad167fc12f6a1"
+    },
+    {
+      "unitId": "C1.1-04",
+      "sha256": "a95f0995862b47bdd63659f0c030760face9b5d148780c9a3991d1672289a894"
+    },
+    {
+      "unitId": "C1.1-05",
+      "sha256": "fb0817abf3d6ce36a9836e2a03916e87141ab8e9cb396c86a7f77943180656c2"
+    },
+    {
+      "unitId": "C1.1-06",
+      "sha256": "dbcbdcd7f7f5236462fccf4a2e9864ecfd9935679639fb0eb08aff21b5eabb97"
+    },
+    {
+      "unitId": "C1.2-01",
+      "sha256": "2bf39290ccf33f2863c74062d27d11c3a017c39426b340eea6a6017aafc365f3"
+    },
+    {
+      "unitId": "C1.2-02",
+      "sha256": "bb3b8de77c681d46f2107bebf18f65a3c25569042773da2e8cd8101b0f0317fd"
+    },
+    {
+      "unitId": "C1.2-03",
+      "sha256": "c60c73b07ff4363ca96b9704e3c9b453811591b2f699bf9bbdf8c9ef1d91baab"
+    },
+    {
+      "unitId": "C1.2-04",
+      "sha256": "5e964f44ae4a603be582b0019fde482a38dd2c4390402ca750a1c30499b55472"
+    },
+    {
+      "unitId": "C1.2-05",
+      "sha256": "93f314254900793c35ea2c7e02153e5eb35277f9abcd58883724c9bf35aa7504"
+    },
+    {
+      "unitId": "C1.2-06",
+      "sha256": "a0e1e132e50fa7b4e1742fd9996b25320ea94ef9c601c6a77f5024719b27499b"
+    }
+  ]
+}

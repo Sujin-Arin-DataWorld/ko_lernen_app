@@ -152,13 +152,13 @@ void main() {
     final manifest =
         jsonDecode(manifestFile.readAsStringSync()) as Map<String, dynamic>;
     expect(manifestFile.existsSync(), isTrue);
-    expect(manifest['scenarioCount'], 186);
+    expect(manifest['scenarioCount'], 219);
     expect(
       manifest['bundledCount'],
-      186,
+      219,
       reason:
-          'bundledCount counts every scenario, including the three approved '
-          'persona additions; shared first lines reuse one immutable MP3.',
+          'Each scenario must have an offline first line. Shared first lines '
+          'reuse one immutable MP3.',
     );
     expect(pubspec, contains('- assets/data/'));
     expect(pubspec, contains('- assets/tts/v3/female/'));

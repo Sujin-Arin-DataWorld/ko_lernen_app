@@ -1,0 +1,173 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A2.2-01",
+      "sha256": "b0af22868ec40e7ccc7156bdafd89d67ca4089a8174c37765778804147d95bea",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A2.2-02",
+      "sha256": "2b91012bb68ae2da690ba6829a02aac746abaef459cf7d7458d5fc988e8b8cd4",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A22-01",
+        "CUR-A22-02"
+      ]
+    },
+    {
+      "unitId": "A2.2-03",
+      "sha256": "f7115a5450ec9cf78cde23df2613ba9c8761334c82d3708ccdda66e17b083c25",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A22-03",
+        "CUR-A22-04"
+      ]
+    },
+    {
+      "unitId": "A2.2-04",
+      "sha256": "bdcbac9e04d257ffd91798a8fd5dedac31f46a9915ab15d0653cac00dc693e0a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A2.2-05",
+      "sha256": "25aa485ca7e41473782733468517ca77f869c93d99a83b5b3bd3d52f3cd8e092",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A22-05",
+        "CUR-A22-06"
+      ]
+    },
+    {
+      "unitId": "A2.2-06",
+      "sha256": "ab30fce89aacc349eaf32e9078e57cd519344eb8f3c80ec40130f4c9abe053d0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A22-07",
+        "CUR-A22-08"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-A22-01",
+      "unitId": "A2.2-02",
+      "severity": "required",
+      "location": "새 분실 상황으로 독립 확인 / 가능한 답: 물을 마시면서",
+      "problem": "The explicitly independent task displays its full response and causal-check answer without concealment.",
+      "proposal": "Before the independent task add KO ‘앞의 시범과 아래 KO·EN·DE 모범답을 가리고, 새 자료와 과제만 보고 먼저 답해요. 도움을 열면 지원받은 수행으로 기록해요.’ EN ‘Hide the earlier models and all KO/EN/DE answers below. First answer from the new material and prompts only; record use of help as supported performance.’ DE ‘Decke die bisherigen Vorbilder und alle folgenden KO/EN/DE-Musterantworten ab. Antworte zuerst nur anhand des neuen Materials und der Aufgaben; mit Hilfe zählt der Versuch als gestützt.’ Move complete responses to a facilitator-only/closed details block shown after the attempt.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A22-02",
+      "unitId": "A2.2-02",
+      "severity": "required",
+      "location": "고택 · 조이가 섞어 놓은 순서 카드 / 아래 현대 열쇠 이야기부터 공부해요",
+      "problem": "The upper-first route jumps to the modern key listening story, which occurs after the new vocabulary and all three grammar models/support tasks. That route omits the preparation needed for the same learning goal.",
+      "proposal": "Replace the bypass instruction with KO ‘본편 조건 전에는 앞뒤 고택 장면만 건너뛰어요. ‘움직임과 변화의 단어’부터 단어와 시범을 먼저 익힌 뒤 현대 듣기와 새 과제로 이어가요.’ EN ‘Before the story condition is met, skip only the opening and closing house passages. Start with the vocabulary section, learn the models, and then continue to the modern conversation and new task.’ DE ‘Überspringe vor Erfüllung der Erzählvoraussetzung nur die Hausszenen am Anfang und Ende. Beginne beim Wortschatz, lerne die Vorbilder und gehe dann zum heutigen Gespräch und zur neuen Aufgabe weiter.’ Preserve the explicit E06.middle gate.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A22-03",
+      "unitId": "A2.2-03",
+      "severity": "required",
+      "location": "새 자료로 확인하고 생활에 쓰기 / 파일이 열리지 않기 때문에 걱정된다고 했어요",
+      "problem": "The example adds productive reported speech -다고 했어요, not part of A2.2-03's allocated background/reason/reaction targets or earlier explicit units. A learner cannot be required to invent this later form to demonstrate the current cause expression.",
+      "proposal": "Change task② to KO ‘현아 역할로, 확인된 걱정 이유를 직접 말해요.’ EN ‘As Hyuna, state the known reason for your worry directly.’ DE ‘Nenne in Hyunas Rolle den bekannten Grund deiner Sorge direkt.’ Replace only the corresponding model with ‘파일이 열리지 않기 때문에 걱정돼요.’ / ‘I’m worried because the file will not open.’ / ‘Ich mache mir Sorgen, weil sich die Datei nicht öffnen lässt.’ Keep other turns addressed to Hyuna/narrated as specified and label the brief role switch. Do not assess quoted speech; preserve the unknown technical cause.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A22-04",
+      "unitId": "A2.2-03",
+      "severity": "required",
+      "location": "안마당의 침묵 / 아래 현대 듣기부터 시작해요",
+      "problem": "The upper-first instruction bypasses vocabulary and the new productive/receptive teaching table located before modern listening.",
+      "proposal": "Replace the bypass instruction with KO ‘본편 조건 전에는 앞뒤 고택 장면만 건너뛰어요. ‘마음과 대화의 단어’부터 단어와 시범을 먼저 익힌 뒤 현대 듣기와 새 과제로 이어가요.’ EN ‘Before the story condition is met, skip only the opening and closing house passages. Start with the vocabulary section, learn the models, and then continue to the modern conversation and new task.’ DE ‘Überspringe vor Erfüllung der Erzählvoraussetzung nur die Hausszenen am Anfang und Ende. Beginne beim Wortschatz, lerne die Vorbilder und gehe dann zum heutigen Gespräch und zur neuen Aufgabe weiter.’ Preserve the explicit E06.middle gate.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A22-05",
+      "unitId": "A2.2-05",
+      "severity": "required",
+      "location": "이야기 앞 / 현대 장면부터 읽어요",
+      "problem": "The specified bypass begins at the modern scene, after the vocabulary, state/progressive/inference models and supported window task. Upper-first learners need that preparation too.",
+      "proposal": "Replace the bypass instruction with KO ‘본편 조건 전에는 앞뒤 고택 장면만 건너뛰어요. ‘상태를 말하는 단어’부터 단어와 시범을 먼저 익힌 뒤 현대 듣기와 새 과제로 이어가요.’ EN ‘Before the story condition is met, skip only the opening and closing house passages. Start with the vocabulary section, learn the models, and then continue to the modern conversation and new task.’ DE ‘Überspringe vor Erfüllung der Erzählvoraussetzung nur die Hausszenen am Anfang und Ende. Beginne beim Wortschatz, lerne die Vorbilder und gehe dann zum heutigen Gespräch und zur neuen Aufgabe weiter.’ Preserve the explicit E06.middle gate.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A22-06",
+      "unitId": "A2.2-05",
+      "severity": "required",
+      "location": "새 확인과 생활 전이 / 도움을 보고 답한 뒤에는 다른 사진으로 혼자 다시 해 봐요",
+      "problem": "The supplied new library material is followed by a complete model. The promised independent retry requires a different picture, but no second picture description/card is supplied. The independent step cannot be solved from this manuscript.",
+      "proposal": "Supply a second text-solvable card, usable without an unseen image: KO ‘혼자 확인할 새 카드 B: 카페 문은 닫혀 있고 창문은 열려 있어요. 안쪽은 보이지 않아요. 직원의 설명은 아직 못 들었어요. 앞의 모범을 가리고 두 상태, 아직 확인하지 않은 추측, 직원에게 할 질문을 말해요.’ EN ‘New independent card B: the café door is closed and its window is open. You cannot see inside and have not heard from staff. Hide the previous model; state both observed states, one unverified inference and a question for staff.’ DE ‘Neue Karte B zum selbstständigen Üben: Die Cafétür ist geschlossen, das Fenster offen. Du kannst nicht hineinsehen und hast noch keine Auskunft des Personals. Decke das vorherige Muster ab; nenne beide Zustände, eine unbestätigte Vermutung und eine Frage an das Personal.’ Closed facilitator key: 문이 닫혀 있어요 / 창문이 열려 있어요; an explicitly tentative inference such as 아무도 없는 것 같아요, followed by 안에 누구 계세요? or 지금 들어가도 돼요? No one inference is fact; accept other tentative plausible readings. If help is opened, record support. No actual image perception is certified.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A22-07",
+      "unitId": "A2.2-06",
+      "severity": "required",
+      "location": "독립 확인과 생활 전이 / 모범: 제 가방이 아니에요",
+      "problem": "The first independent task prints correction, apology, return plan and confirmation directly beneath its prompt without concealment. The subsequent 수밖에 task correctly hides its own answer; apply that separation to the first task too.",
+      "proposal": "Before the independent task add KO ‘앞의 시범과 아래 KO·EN·DE 모범답을 가리고, 새 자료와 과제만 보고 먼저 답해요. 도움을 열면 지원받은 수행으로 기록해요.’ EN ‘Hide the earlier models and all KO/EN/DE answers below. First answer from the new material and prompts only; record use of help as supported performance.’ DE ‘Decke die bisherigen Vorbilder und alle folgenden KO/EN/DE-Musterantworten ab. Antworte zuerst nur anhand des neuen Materials und der Aufgaben; mit Hilfe zählt der Versuch als gestützt.’ Move complete responses to a facilitator-only/closed details block shown after the attempt.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A22-08",
+      "unitId": "A2.2-06",
+      "severity": "required",
+      "location": "독립 확인과 생활 전이 / 정정·사과·가능한 반환 계획을 세 문장으로 쓰고",
+      "problem": "The source can-do explicitly includes refusal as well as apology/correction. The present learner tasks correct/apologise/promise and state a constraint, but never perform a refusal to a request.",
+      "proposal": "Add a separate brief request-response after the bag correction: KO ‘친구가 “이 가방을 오늘 써도 돼요?”라고 물어요. 마야는 빌려줘도 된다고 말하지 않았고, 나는 오늘 가방을 돌려주어야 해요. 이유를 짧게 말하며 부탁을 거절해요.’ EN ‘A friend asks to use the bag today. Maya has not given permission to lend it, and you must return it today. Decline with a brief reason.’ DE ‘Eine befreundete Person möchte die Tasche heute benutzen. Maya hat keine Erlaubnis zum Weiterverleihen gegeben, und du musst sie heute zurückgeben. Lehne mit einer kurzen Begründung ab.’ Closed possible response ‘미안해요. 제 가방이 아니어서 빌려줄 수 없어요. 오늘 마야 씨에게 돌려줘야 해요.’ Natural shorter polite refusal accepted; neither the bag's ownership nor return appointment changes.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

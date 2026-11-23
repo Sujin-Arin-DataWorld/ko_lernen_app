@@ -1,0 +1,56 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C2.2-01",
+      "sha256": "231ea76f03e2ac2788710566430e7d40e91994b11e277074da0aabe466555414",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "C2.2-02",
+      "sha256": "8ac4917f72e488408cfabe391503ab3a97bdb4059a145a10f5adcadc15cbdb49",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "C2.2-03",
+      "sha256": "6345bbb484b52e271dfb88961247ae812d2d1734d0a55acc099d6c604b53eefa",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "C2.2-04",
+      "sha256": "768fee5e332a5cc81f5c361ff08d6199efe649660dd68ab32b92177a77eaeff0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "C2.2-05",
+      "sha256": "b9cf62531eda9b4fe87a7395712e0ed25a5e6d47e323babcf1f277043892cd03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "C2.2-06",
+      "sha256": "92d8befa6f1c0293e7ba21413d11ee0b2f3063b9d2e784a70202c905e91ee4cd",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": []
+}

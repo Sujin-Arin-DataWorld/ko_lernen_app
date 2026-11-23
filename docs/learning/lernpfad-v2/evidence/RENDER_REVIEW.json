@@ -1,0 +1,103 @@
+{
+  "contract": "Gated Lernpfad foundation expansion: 28 authored candidate lessons, goals first, canonical Joy, actual letter placement, bounded input, prerequisite help, suspended cursors and dated review. Automated/layout scope only; physical screen readers, native TTS, learner fun and approved mockup parity remain unverified.",
+  "targetViewports": [
+    "390x844",
+    "320x640 text200",
+    "800x600"
+  ],
+  "renderedEvidence": [
+    {
+      "viewport": "390x844",
+      "artifact": "f0-goal.png",
+      "observation": "Goal and available activity count precede the next task; no full-band completion percentage."
+    },
+    {
+      "viewport": "320x640 text200",
+      "artifact": "de-320-text200.png",
+      "observation": "German goal wraps at 200 percent text; no RenderFlex overflow in widget test."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "f0-supported-result.png",
+      "observation": "Original canonical wing-open Joy follows durable completion; supported result, narrow scope and return CTA."
+    },
+    {
+      "viewport": "800x600",
+      "artifact": "catalog-error.png",
+      "observation": "Catalog error retains retry and previous-path escape."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "f0-assembly.png",
+      "observation": "Two placed letter parts form the syllable above the submit action. The original wrong order remains in the response history; rearranging clears stale feedback. Submit advances only after durable save."
+    },
+    {
+      "viewport": "320x640 text200",
+      "artifact": "f0-assembly-320-text200.png",
+      "observation": "Scrolled to the two slots: selectable parts, rearrange, place and help controls remain readable at 200 percent German text. No drag is required. Physical keyboard and screen-reader QA remains pending."
+    },
+    {
+      "viewport": "390x844",
+      "artifact": "f0-typing.png",
+      "observation": "The taught word, labelled entry field, check action and supported alternative remain distinct. A copied example does not become independent writing evidence."
+    },
+    {
+      "viewport": "320x640 text200",
+      "artifact": "f0-typing-320-text200.png",
+      "observation": "Input label is outside the field and wraps instead of ellipsizing. Scrolling is required for the field at this text scale."
+    },
+    {
+      "viewport": "320x640 text200",
+      "artifact": "f0-help-320-text200.png",
+      "observation": "The prerequisite title wraps fully in the action, including an intra-word break at this scale. A scrollable choice dialog replaces the fixed-height dropdown that clipped the title. Selecting a different foundation displays its actual teaching."
+    },
+    {
+      "viewport": "800x600",
+      "artifact": "f0-delayed-check.png",
+      "observation": "Dated review begins at the new check without replaying teaching; its original independent receipt is preserved and validated. This is a delayed same-scope check, not proof of real-life transfer."
+    }
+  ],
+  "accessibility": {
+    "status": "pass",
+    "evidence": "Scoped automated check: Android 48dp tap guideline on teaching, actual Noto/Paperlogy fonts, 200 percent German reflow, reduced motion. Physical TalkBack/VoiceOver and complete audit pending."
+  },
+  "responsive": {
+    "status": "pass",
+    "evidence": "Widget sizes 320x640 at 200 percent text and 390x844 at 100 percent; goals, input, preparation choice and letter placement reflow without layout exceptions. Captures inspected, including scroll positions."
+  },
+  "contentStates": {
+    "loading": {
+      "status": "pass",
+      "evidence": "Delayed catalog future shows indicator then error/retry; widget regression."
+    },
+    "empty": {
+      "status": "pass",
+      "evidence": "Empty record shows zero completion and unconfirmed skills; C2 selection creates no evidence."
+    },
+    "error": {
+      "status": "pass",
+      "evidence": "Catalog retry, native rejected/uncertain write recovery, failed wrong-answer transition regression."
+    },
+    "partial": {
+      "status": "pass",
+      "evidence": "Every band states incomplete curriculum; no total CEFR percentage or completion seal."
+    },
+    "success": {
+      "status": "pass",
+      "evidence": "Actual path to lesson to receipt to path interaction; raw placement order, bounded input, help-before-use, delayed basis and per-lesson resume are tested. Supported results never become independent."
+    },
+    "permission": {
+      "status": "not-applicable",
+      "reason": "First lesson requests no microphone or new platform permission. Audio unavailable fallback tested; future microphone tasks remain under existing PhaseTaskScreen."
+    }
+  },
+  "validation": {
+    "date": "2026-10-23",
+    "pythonContracts": 6,
+    "flutterContracts": 47,
+    "flutterBreakdown": "20 model + 7 storage + 12 widget + 5 retained-evidence + 3 reset-zone tests; focused suites passed, widget suite rerun after final layout changes.",
+    "staticAnalysis": "Seven changed implementation/test files: no issues.",
+    "review": "Independent read-only review; prerequisite-help P2 fixed and rechecked, no new actionable assembly defects. Physical QA was not performed.",
+    "exclusions": "No device install, remote CI, user observation, pronunciation validation, complete A1-C2 narrative, cloud extension sync or public rollout."
+  }
+}

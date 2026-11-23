@@ -1,0 +1,158 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C2.2-01",
+      "sha256": "231ea76f03e2ac2788710566430e7d40e91994b11e277074da0aabe466555414",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C22-01",
+        "EN-C22-02"
+      ],
+      "solutions": "Estate exercise two-paragraph content: earlier receipt record established receipt, not sender identity; later comparison of outside copy and house records supplied sender finding. Do not project later knowledge into first ledger. Guided market:76−43=33 fewer entries across equal two-hour intervals, not33 distinct people deterred by rain. Re-entry included. Rain began13:45; covered stalls continued, two outdoor stalls packed before14:00, reason unknown. C describes participant and friend's choice to stop browsing outside because of rain, then stay under canopy; newsletter repeating C supplies no independent witness. Script: Maya's umbrella re-entry demonstrates count/headcount distinction. Revised43-entry14:00–16:00 headline retains time and measure, removes causal/headcount claims. Ask departing stalls tomorrow; don't prefill their reasons. Small talk alternatives acknowledge either no offence or initial surprise and subsequent understanding. Independent four sentences: evening entries increased46; three users attribute visits to later hours and newsletter repeats them; coincident exams prevent attributing entire aggregate rise to extension; next month count by same method and ask further users the same visit-reason question. Objection response: three users report benefit, so no-effect claim unsupported; aggregate effect remains unidentified. Transfer constructed pair for textual solution: library announces10:00–17:00 hours; community post quotes same announcement. Library notice is source, post is repetition; if notice later corrects opening to11:00, preserve original wording alongside dated reason 'opening time corrected', not treat repost as independent confirmation. S1-END gate protects estate afterstory; modern synthesis independent. No new grammar list is assigned in C2.2."
+    },
+    {
+      "unitId": "C2.2-02",
+      "sha256": "8ac4917f72e488408cfabe391503ab3a97bdb4059a145a10f5adcadc15cbdb49",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C22-03",
+        "EN-C22-04"
+      ],
+      "solutions": "Opening: keep imagined evening light explicitly in creative section, separated from account of actual letter-reading day. Workshop log: Maya moved pot17:10, no spill; Daniel saw result17:20 and denied seeing move; motive unknown. Creative A adds chill, hands, leaf touching chin; B adds round mark and Daniel's uncertainty. Guided change gives Daniel a conjecture about cold-protection, not new historical evidence; invented chill can motivate the fictional conjecture if labelled. Script: retain leaf/chin line as first line of fictional scene headed as fiction inspired by log; source note may be read later. Daniel's version withholds mover identity through its end. Current key does not give opening placement explicitly. Small talk alternatives public omission/private retention or softened wording preserve choice. Independent six sentences: source note says open18:30, Hyuna closed18:35, opener unknown. Hyuna fiction: lockers rattle on arrival; I quietly close clubroom door. Waiting-person fiction: I rise from chair as Hyuna rounds corner; corridor feels quieter once door closes. Added waiting person, chair, sound, corner movement and subjective quiet belong to fiction; open corridor window is a source fact, no unrecorded opener asserted. English must retain evening timestamps. Transfer constructed cafe scene: A witnesses own placing a cup on table before leaving; B arrives later and sees cup, but cannot witness its placing or infer who left it. Underline only A's placing/leaving in A account and B's arrival/visible cup in B account; invented expectations remain un-underlined. S1-END gate and clear creative/source headings preserve canon."
+    },
+    {
+      "unitId": "C2.2-03",
+      "sha256": "6345bbb484b52e271dfb88961247ae812d2d1734d0a55acc099d6c604b53eefa",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C22-05"
+      ],
+      "solutions": "Guided three audiences retain: received6th, internal content-review listening only, participant wants proposed excerpt before deciding online publication, team asks again12th; neither response nor publication date fixed. Specialist gets precise dates/status, newcomer gets plain custody/permission sequence, other-language reader gets received explained. Library analogy expresses custody but must explicitly exclude public borrowing/access. Script: Lena mistook12th enquiry for release; corrected message must state follow-up12th and publication date unknown. German message solved: 'Am12. wird erneut nach der Freigabe gefragt. Ein Veröffentlichungstermin steht noch nicht fest.' Small talk gives example/definition choice. Independent technical note: entrance ramp confirmed; far doorway width unmeasured; site team measures Friday and reviews guidance afterwards. Newcomer: entrance ramp exists, route through far door still unconfirmed. Short EN message/reply: 'Friday is the day the team measures the far doorway. Please wait for the results and updated route guidance; Friday itself is not an opening confirmation.' Actual-notice transfer uses official2024 corpus-class notice (boardSeq149), read live as historical source, not current invitation: newcomer one sentence '2024년 안내에는11월16일 오전10시부터12시까지 대면·Zoom 병행 수업이 예정돼 있었고, Zoom 접속 주소는 나중에 알린다고 되어 있어요.' Responsible-person two sentences '게시 당시 안내는2024년11월16일 오전10시부터12시까지 대면·Zoom 병행 진행을 예고했습니다. Zoom 접속 주소와 세부 준비 사항은 추후 안내로 남아 있으므로 이 공지만으로 배포 완료를 확정할 수 없습니다.' No external communication sent. S1-END gate retained; responsibility, permission and next-step distinction clear apart from unsupported Joy gender."
+    },
+    {
+      "unitId": "C2.2-04",
+      "sha256": "768fee5e332a5cc81f5c361ff08d6199efe649660dd68ab32b92177a77eaeff0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C22-06"
+      ],
+      "solutions": "Estate: Joy wants warmth as a personal reflection, Sujin wants attributable/source-bounded words, Dokkaebi wants blank space; confirm each without obliging readers to feel alike. Guided roles: Maya values context and conditional self-chosen naming, not compulsory identification; Lena worries that alley address identifies unnamed author and wants author's permission for that passage, not removal of all stories; Daniel needs quick readable time/place information and separate story space, not reduced cost. Script status: agreed practical time/place notice today and distinct story space; address-bearing story held pending author's reply; general naming principle for other stories deferred to next meeting. Length left intact while address checked. Small talk distinction: wanting prerelease review versus actual sentence deletion; both responses remain acceptable. Independent four-line solution: (1) '공연팀은19시부터30분을 원한다는 뜻인가요?' (2) '이웃은19시20분부터 소리가 없어야 한다는 뜻인가요?' (3) '모두18시50분까지 준비를 마칠 수 있다면 그때 시작해19시20분에 마치는 안을 제안해요.' (4) '대표의18시45분 도착 가능만 확인됐으니 전체 참가자의 가능 시간과 실내 사용 여부를 확인한 뒤 결정해요.' This corrects representative-to-all inference; indoor alternative and timing not yet agreed. Transfer as explicitly simulated exchange, not an actual negotiation: preferred early outdoor performance; opposing neighbour's strongest reason is child sleeping19:20, not hostility to music. Simulated correction '19:20에 끝낼 준비를 시작하는 것이 아니라 그때 이미 조용해야 해요' changes note to sound ending by19:20. No real participant response or external message claimed. S1-END gate and fair unresolved-disagreement handling good; unsupported Joy gender remains in translations."
+    },
+    {
+      "unitId": "C2.2-05",
+      "sha256": "b9cf62531eda9b4fe87a7395712e0ed25a5e6d47e323babcf1f277043892cd03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Read all source notes and script; spoken tasks answered as text, with no voice performance claimed. Guided switches: repair question → facilities replaced hinge and two people verified opening16:10; where-to-go question → west entrance for today's18:00 event, organiser reconfirmed16:15; tomorrow question → route undecided. Opening mechanical check never grants event-route permission. Script's initial east answer conflates function with designation; correction cites organiser16:15 and leads with west entrance. One-sentence reply requested by Andrea may be '16시15분 담당자 확인에 따라 오늘18시 모임은 서쪽 입구로 오세요.' Follow-up preserves tomorrow unknown; no need to recite repair history to someone asking directions. Small talk: west entrance, optional meeting at door or text help. Independent one spoken-style sentence: '12시10분 작성자 답장에 따라 첫 두 장은 팀 안에서 검토할 수 있어요.' Chat: no permission yet for third photo to outside client; check proposed external list and obtain relevant decision before claiming release. If earlier misstatement existed, explicitly correct '파일 수령을 외부 전달 허락으로 잘못 말했어요.' Transfer using a constructed longer workshop notice: opening line '안전 교육에 먼저 참석해 주세요.' Follow-up '교육만 받으면 바로 전동 공구를 쓸 수 있죠?' changes authority/certainty from required briefing to confirmed practice place; reply that instructor must confirm turn and age criterion still applies. No approval inferred from task completion. Modern MQ06 scene correctly has no estate gate; only optional final Sarangchae paragraph requires S1-END."
+    },
+    {
+      "unitId": "C2.2-06",
+      "sha256": "92d8befa6f1c0293e7ba21413d11ee0b2f3063b9d2e784a70202c905e91ee4cd",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C22-07"
+      ],
+      "solutions": "Estate opening treats selected account as partial, not total mastery of house story. Guided station materials: same-room claim needs location-identification link; always needs continuity-of-use evidence; confirms requires both sources actually supporting same proposition. Photo caption June1978 is an attributed back-note, not independently verified photographer/date. Bench/window visible, umbrella-room identity uncertain. Contributor conditions belong in internal editing note and review copy; do not publish name/direct quote without permission. Script: bench is not unique-room proof; photographer may not be note writer; public sign may describe visible objects and attribute caption, umbrella account retained internally pending contributor reply. Small talk permits side-by-side original/revision or postponement. Independent choose improvement proposal. Draft '오전 교환은 성공했으니 같은 안내를 계속 쓰자' fails. Revision: '10시부터12시까지 물건18개가 새 주인에게 갔습니다. 사람 수·전체 만족도·오후 실적은 확인되지 않았습니다. 다음 모임에서는 인계 전 설명을 제공하는 안을 검토하고, 받은 사람이 어떤 추가 설명을 원했는지 물어봅시다.' Objection:18 is items, not satisfied people; one unquotable email is limited feedback, not permission to publish. Revision log deletes blanket success and automatic reuse claim. Next question: which explanation helped recipients and what remained unclear? Newcomer forecast is opinion before registration, not confirmed count. Transfer changed purpose to explicitly labelled fiction: '창작: 빈 탁자 앞에서 새 주인을 기다리는 노란 주전자가 오늘은 설명도 함께 듣고 싶다고 중얼거렸다.' Kettle colour, thought and speech are invented, not source evidence. Optional epilogue portfolio solved: choose prior recipient/sender account, underline newly introduced house receipt record/outside copy, add context '이 설명은 서로 다른 기록을 차례로 대조해 알게 된 과정을 다룹니다'; preserve two-sentence recipient/sender distinction; revision reason avoids conflating them; open question asks whether newcomer can follow transmission route; next practice three-sentence explanation. Existing sample omits underlining and added context. S1-END portfolio non-scored, modern station/swap materials do not establish Season2 events or new canon."
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-C22-01",
+      "unitId": "C2.2-01",
+      "severity": "required",
+      "location": "현대 자료 C EN 'When it rained'; DE 'Als es regnete'",
+      "problem": "The Korean participant explicitly gives rain as the reason for stopping outdoor browsing (비가 와서). EN/DE present only temporal coincidence, but the later dialogue and argument correctly describe the participant as attributing the action to rain. In this cause-versus-correlation task, preserve that limited first-person causal claim.",
+      "proposal": "EN C: '“Because of the rain, my friend and I stopped browsing outside. We stayed under the canopy a little longer before leaving.”' DE C: '„Wegen des Regens haben meine Begleitung und ich aufgehört, draußen zu stöbern. Wir blieben noch eine Weile unter dem Zelt, bevor wir gingen.“'",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C22-02",
+      "unitId": "C2.2-01",
+      "severity": "required",
+      "location": "독립 과제 EN fourth model sentence 'Next month I will use the same count'",
+      "problem": "같은 기준으로 집계한다 means repeat the counting method/criteria, not reuse the same count. The English plan is ambiguous about whether new observations are collected, undermining the comparison design.",
+      "proposal": "Replace fourth EN model sentence with 'Next month I will count entries using the same method and ask more users the same question about why they came.'",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-C22-03",
+      "unitId": "C2.2-02",
+      "severity": "required",
+      "location": "독립 새 기록 EN 'At 6:30' / 'at 6:35'; model note 'at 6:30'",
+      "problem": "The Korean exact record is18:30/18:35. English converts to twelve-hour times without p.m., losing whether the event is morning or evening in a source-fidelity exercise.",
+      "proposal": "New record EN: 'At 6:30 p.m. the clubroom door was open. Hyuna arrived at 6:35 p.m. and closed it. The corridor window was open. The record does not say who opened the door.' Model note first sentence: 'The door was open at 6:30 p.m. and Hyuna closed it five minutes later.'",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-C22-04",
+      "unitId": "C2.2-02",
+      "severity": "required",
+      "location": "듣기 확인 '무엇을 살렸으며 어디에 두었나요?' answer",
+      "problem": "The question asks which detail remains and where it is placed. The key only says it remains in fiction, omitting the agreed placement at the scene's beginning under an explicit fiction heading.",
+      "proposal": "KO first answer sentence: '잎이 턱에 스치는 문장은 창작임을 알리는 제목 아래, 장면의 첫 줄에 남긴다.' EN: 'The leaf-brushing-the-chin detail becomes the opening line of the scene under a heading that identifies it as fiction.' DE: 'Die Zeile, in der das Blatt das Kinn streift, steht am Anfang der Szene unter einer Überschrift, die sie als erfunden kennzeichnet.' Keep the following sentence about Daniel not knowing who moved the pot.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C22-05",
+      "unitId": "C2.2-03",
+      "severity": "required",
+      "location": "opening EN 'As Joy reads the new page, he sets'; closing EN 'Joy folds his wings'",
+      "problem": "Joy's sex is not established by the canon used for this review. Both English possessive/personal pronouns introduce male identity absent from Korean and German.",
+      "proposal": "Opening EN: 'Reading the new page, Joy sets a small piece beside the book for every name. Soon the whole row is full.' Closing EN: 'A short guide stays at the front, with sources and detail at the back. Joy folds the wings and waits to see which part the next visitor opens.'",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-C22-06",
+      "unitId": "C2.2-04",
+      "severity": "required",
+      "location": "traveller EN 'Joy's line in his own name' / DE 'seine eigene Aussage'; closing EN 'Joy signs his reflection' / DE 'seinen Namen unter seinen Text'",
+      "problem": "The translations infer Joy's male gender, absent from canon and Korean. The attribution exercise can retain authorship without gendered pronouns.",
+      "proposal": "Traveller EN: 'We’ll share the facts we checked and label Joy’s line as Joy’s own reflection. We’ll also keep the space Dokkaebi wants. Have I got that right?' Closing EN: 'Joy signs the reflection. Sujin writes the names of the sources they checked. Dokkaebi smooths the bottom of the page and leaves it blank.' DE traveller: 'Die belegten Fakten lesen wir gemeinsam. Joys Zeile kennzeichnen wir als persönliche Aussage von Joy, und Dokkaebis freier Platz bleibt auch. Habe ich euch richtig verstanden?' DE closing first sentence: 'Joy setzt den eigenen Namen unter den Text.'",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C22-07",
+      "unitId": "C2.2-06",
+      "severity": "required",
+      "location": "새 쪽 포트폴리오 task '밑줄을 긋고 필요한 맥락 한 줄' versus sample",
+      "problem": "The portfolio requires marking information new to the reader and adding one context line. The sample supplies text/revision reason/open question/practice goal but demonstrates neither underlining nor an added context line, leaving two requested actions without a model.",
+      "proposal": "Add before the existing sample text: KO '맥락: 이 설명은 서로 다른 기록을 차례로 대조해 알게 된 과정을 다룹니다.' EN 'Context: This account explains what was learned by comparing different records in stages.' DE 'Kontext: Diese Erklärung zeigt, was sich durch den schrittweisen Abgleich verschiedener Aufzeichnungen klären ließ.' In the sample text underline '집 안 수령 기록' and '집 밖의 사본' using <u>...</u>; match EN 'house receipt record' and 'a copy kept outside the house', DE 'Empfangsverzeichnis im Haus' and 'einer außerhalb aufbewahrten Abschrift'. Explain these are terms introduced for the first-time reader. Retain existing revision reason, open question and next-practice goal.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

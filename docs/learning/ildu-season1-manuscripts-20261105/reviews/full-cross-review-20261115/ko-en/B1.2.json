@@ -1,0 +1,71 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B1.2-01",
+      "sha256": "d8f053d9aa8847a75f2514f05882f93389d42dce8b2847dd4f67ccc4ddf8513f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.2-02",
+      "sha256": "2a785b1bf843b114a7d9680cd405095e7a1a0254fb4a3f1c0cb966a22e27e197",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.2-03",
+      "sha256": "00395c3fbc7ee1007f233af86a95aab3c07c9cd4f06a7a0b90bca39ffcaf4324",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "EN-B12-01"
+      ]
+    },
+    {
+      "unitId": "B1.2-04",
+      "sha256": "9192b12917b266a925f23f79589ffb3d0c22aeeee4ec324b847c0b02cf000bc1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.2-05",
+      "sha256": "14e53f08b499e2a53b801217596b9acf8f04521eed71d311201cbe02128b360e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.2-06",
+      "sha256": "41aad2aad23519d4be6a465a8666d5edb5adff871311e49fd9cabd6e53a2fff0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-B12-01",
+      "unitId": "B1.2-03",
+      "severity": "optional",
+      "location": "추가 산출 notice ‘학생과 직원은 모두 물건을 하나씩 확인해 주세요’; EN ‘check the items one at a time’",
+      "problem": "English and German select sequential checking. Korean 하나씩 after ‘students and staff all’ can also mean one item per person. The key follows sequential checking, so clarify that reading in the source.",
+      "proposal": "KO quoted notice: ‘학생과 직원 모두 정해진 절차대로, 한 번에 물건 하나씩 확인해 주세요.’ EN: ‘Students and staff should all follow the stated procedure and check one item at a time.’ German can retain its sequential einzeln interpretation.",
+      "affectedLanguages": [
+        "KO",
+        "EN"
+      ]
+    }
+  ]
+}

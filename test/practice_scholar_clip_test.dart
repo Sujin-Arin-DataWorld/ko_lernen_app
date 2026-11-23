@@ -6,16 +6,17 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:video_player/video_player.dart';
 import 'package:video_player_platform_interface/video_player_platform_interface.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/practice_guide.dart';
-import 'package:ko_lernen_app/widgets/practice_dokkaebi_help.dart';
 import 'package:ko_lernen_app/widgets/practice_character_clip.dart';
-import 'package:ko_lernen_app/widgets/practice_dokkaebi_clip.dart';
 import 'package:ko_lernen_app/widgets/practice_dokkaebi_art.dart';
+import 'package:ko_lernen_app/widgets/practice_dokkaebi_clip.dart';
+import 'package:ko_lernen_app/widgets/practice_dokkaebi_help.dart';
+import 'package:ko_lernen_app/widgets/practice_guide.dart';
 import 'package:ko_lernen_app/widgets/practice_scholar_clip.dart';
 import 'package:ko_lernen_app/widgets/practice_scholar_explanation.dart';
-import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/widgets/sori/dokkaebi_intro.dart';
 import 'package:ko_lernen_app/widgets/sori/route_observer.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
 import 'package:ko_lernen_app/widgets/sori/video_lease.dart';
@@ -368,7 +369,7 @@ void main() {
   );
 
   testWidgets(
-    'introduction shows the approved invitation pose and plays only on request',
+    'introduction plays the approved one-shot, then gestures only on request',
     (tester) async {
       await tester.pumpWidget(
         MaterialApp(
@@ -390,33 +391,16 @@ void main() {
       await tester.tap(find.text('Meet'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
-      expect(platform.plays, 0);
-      expect(
-        find.byWidgetPredicate(
-          (w) =>
-              w is Image &&
-              w.image is ResizeImage &&
-              ((w.image as ResizeImage).imageProvider as AssetImage)
-                      .assetName ==
-                  'assets/illustrations/tactile/dokkaebi/dokkaebi_inviting.png',
-        ),
-        findsOneWidget,
-      );
-      await tester.ensureVisible(
-        find.byKey(const ValueKey('dokkaebi-gesture')),
-      );
-      await tester.pump();
-      await tester.tap(find.byKey(const ValueKey('dokkaebi-gesture')));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
       await flushNativeFutures(tester);
       for (var i = 0; i < 8; i++) {
         await tester.pump(const Duration(milliseconds: 50));
       }
+      // The approved introduction plays its muted one-shot automatically;
+      // the gesture clips still play only on request.
+      expect(find.byType(DokkaebiIntro), findsOneWidget);
       expect(platform.plays, 1);
-      expect(platform.assets.last, PracticeDokkaebiClip.strike.videoAsset);
+      expect(platform.assets.last, DokkaebiIntro.videoAsset);
       expect(platform.volumesAtPlay, [0]);
-      expect(Storage.xp, 0);
       platform.events.add(VideoEvent(eventType: VideoEventType.completed));
       await tester.pump();
       await flushNativeFutures(tester);
@@ -432,8 +416,26 @@ void main() {
         await tester.pump(const Duration(milliseconds: 50));
       }
       expect(platform.plays, 2);
-      expect(platform.assets.last, PracticeDokkaebiClip.swing.videoAsset);
+      expect(platform.assets.last, PracticeDokkaebiClip.strike.videoAsset);
       expect(platform.volumesAtPlay, [0, 0]);
+      expect(Storage.xp, 0);
+      platform.events.add(VideoEvent(eventType: VideoEventType.completed));
+      await tester.pump();
+      await flushNativeFutures(tester);
+      await tester.ensureVisible(
+        find.byKey(const ValueKey('dokkaebi-gesture')),
+      );
+      await tester.pump();
+      await tester.tap(find.byKey(const ValueKey('dokkaebi-gesture')));
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 400));
+      await flushNativeFutures(tester);
+      for (var i = 0; i < 8; i++) {
+        await tester.pump(const Duration(milliseconds: 50));
+      }
+      expect(platform.plays, 3);
+      expect(platform.assets.last, PracticeDokkaebiClip.swing.videoAsset);
+      expect(platform.volumesAtPlay, [0, 0, 0]);
       expect(Storage.xp, 0);
       await tester.ensureVisible(find.text('Back to the puzzle'));
       await tester.pump();
@@ -441,7 +443,7 @@ void main() {
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 400));
       await flushNativeFutures(tester);
-      expect(platform.disposes, 2);
+      expect(platform.disposes, 3);
     },
   );
 

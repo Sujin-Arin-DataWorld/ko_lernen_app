@@ -8239,7 +8239,7 @@
         {
           "speaker": "sujin",
           "ko": "아무튼 고마워. 그래서 앱에서 확인해 보니까 그 문자가 가짜였어?",
-          "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast – war die Nachricht dann tatsächlich fake?",
+          "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast, war die Nachricht dann tatsächlich fake?",
           "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
         },
         {
@@ -8278,7 +8278,7 @@
                 "en": "Yeah, exactly... If texts like that can lead to personal information being stolen, we really need to be careful."
               },
               {
-                "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast – war die Nachricht dann tatsächlich fake?",
+                "de": "Auf jeden Fall danke. Und als du in der App nachgesehen hast, war die Nachricht dann tatsächlich fake?",
                 "en": "Anyway, thanks. So when you checked in the app, did it turn out the text was fake?"
               }
             ],
@@ -8612,7 +8612,7 @@
           "speaker": "user",
           "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자.",
           "de": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
-          "en": "That's actually what they're talking about—dropping a few of them. If Friday afternoon opens up, let's eat early with Jun."
+          "en": "That's actually what they're talking about: dropping a few of them. If Friday afternoon opens up, let's eat early with Jun."
         },
         {
           "speaker": "minho",
@@ -8659,7 +8659,7 @@
           ],
           "data": {
             "promptDe": "Genau darüber reden sie tatsächlich schon. Wenn der Freitagnachmittag frei wird, lass uns mit Jun früher essen.",
-            "promptEn": "That's actually what they're talking about—dropping a few of them. If Friday afternoon opens up, let's eat early with Jun.",
+            "promptEn": "That's actually what they're talking about: dropping a few of them. If Friday afternoon opens up, let's eat early with Jun.",
             "options": [
               {
                 "ko": "그래서 실제로 몇 개 없애자는 얘기가 나왔어. 금요일 오후 비면 준이랑 일찍 먹자."
@@ -9517,8 +9517,8 @@
         {
           "speaker": "maya",
           "ko": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
-          "de": "Diese Verbindungen würde ich auch gern im Content zeigen – ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
-          "en": "I want to show those connections in our content too—without treating one trend like it represents all of Korea."
+          "de": "Diese Verbindungen würde ich auch gern im Content zeigen, ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+          "en": "I want to show those connections in our content too, without treating one trend like it represents all of Korea."
         }
       ],
       "quests": [
@@ -9586,8 +9586,8 @@
           "data": {
             "targetKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
             "audioKo": "저도 그 연결을 콘텐츠에 보여 주고 싶어요. 대신 유행 하나를 한국 전체라고 말하진 않게요.",
-            "promptDe": "Diese Verbindungen würde ich auch gern im Content zeigen – ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
-            "promptEn": "I want to show those connections in our content too—without treating one trend like it represents all of Korea.",
+            "promptDe": "Diese Verbindungen würde ich auch gern im Content zeigen, ohne so zu tun, als würde ein Trend ganz Korea repräsentieren.",
+            "promptEn": "I want to show those connections in our content too, without treating one trend like it represents all of Korea.",
             "distractors": [
               "아마 다음에",
               "그냥 아무거나",
