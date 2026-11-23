@@ -17676,6 +17676,18 @@ abstract class AppL10n {
   /// **'Anhören'**
   String get phaseTaskPlay;
 
+  /// No description provided for @phaseTaskRomanizationToggle.
+  ///
+  /// In de, this message translates to:
+  /// **'Umschrift'**
+  String get phaseTaskRomanizationToggle;
+
+  /// No description provided for @phaseTaskExampleListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiel anhören: {text}'**
+  String phaseTaskExampleListen(String text);
+
   /// No description provided for @phaseTaskRecord.
   ///
   /// In de, this message translates to:

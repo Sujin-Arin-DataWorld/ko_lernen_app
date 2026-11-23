@@ -4977,6 +4977,15 @@
   "phaseTaskNeedsPractice": "Noch üben: Prüfe die Erklärungen.",
   "phaseTaskUnscored": "Versuch gespeichert · Bedeutung nicht automatisch bewertet",
   "phaseTaskPlay": "Anhören",
+  "phaseTaskRomanizationToggle": "Umschrift",
+  "phaseTaskExampleListen": "Beispiel anhören: {text}",
+  "@phaseTaskExampleListen": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
   "phaseTaskRecord": "Aufnehmen",
   "phaseTaskStop": "Aufnahme beenden",
   "phaseTaskReplay": "Aufnahme anhören",
