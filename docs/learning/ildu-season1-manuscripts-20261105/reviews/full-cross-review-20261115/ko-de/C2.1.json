@@ -1,0 +1,176 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C2.1-01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "DE-C21-01"
+      ],
+      "solutions": "고택복수읽기:연이의즉답·웃음·그럼은아이의재치/장난단서,앞의가족없다는말과내가는외로움위로·자기역할제안단서;두읽기양립,미래모든사건약속아님.5수용형:이라고명칭비판(시간장소없는안내)vs명칭전언;이라고는기대했던정보중확인중뿐으로부족;깨나정리된자료감탄/쓸내용없는더미라면빈정거림;을랑주소업무내가맡음/상대시간만;이라면밤샘주제강한반응/허가조건아님. 듣기1메모모든날짜출처=칭찬근거,2메모20파일대쓸날짜1=반어근거,원억양·실제분노미상. 스몰토크재미/놀람둘다상대직접설명에따라확인. 독립시간깨나:앞의표가독성칭찬→노력인정;뒤의시간절반요청→업무량우려;양립/비꼼확정불가;표작성어느단계시간줄일지질문. 실제메시지송신안함. 전이는가상친구예로풀이:앞말예정보다10분일찍왔네+참빠르네면칭찬근거,참빠르네단독이면칭찬/지각반어양쪽가능. 모든모델·키대조.",
+      "review": "C2복수해석을근거와범위로설명하는수용과제이며희귀5형식을직접생산하도록강제하지않는다. DE모국어독자에게대체로자연스럽고친구du·형식예시Sie관계분리적절. 어휘맥락예문에만원문보다불확실성추가하는선택적개선안. E06회상과현재감정/나중모든사건약속을구별,실제음성·표정원본관찰은없고제시텍스트만검토.",
+      "sha256": "85021011eef0214d063ffbf40168b593a59937e06fc63a7e345b5520a7667020"
+    },
+    {
+      "unitId": "C2.1-02",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-C21-02"
+      ],
+      "solutions": "목공실지원15세외지인:신청가능/손공구시범관람가능/전동공구실습16세미달불가,안내읽음≠교육완료·차례확인.조건연령·교육·강사차례확인필요,거주지무관은신청만. 시범8형:는다는추출명제신청=자리확보근거없음;이라야필요조건/충분아님;되접수하되교육확인뒤참여;막론하고지역제한없음;마당에기발송잘못된공지수리;느니만큼우리발신책임수신자정정;건대수용판단틀≠증거자체;기담당자명유지. 듣기지역무관신청/강사교육후차례/Christian수신목록확인/Sujin공지수정. 독립회원무관신청,원본staff확인필요,18안내/5열람확인,실제열람인원미상(EN/DE와의도된모델기준);Minho접근확인/Lena안내수정. 추가편집새산출:안내받으면원본본다는명제정정;초고보낸마당에게시판만변경불충분;우리안내이니만큼같은18명정정발송;확인받은사람이라야원본열람;14시못오는사람대체시간확인아직미합의. 생활전이는가상안내로3줄:외지인포함신청가능;나이만으로실습충분아니고교육+차례확인필요;강사차례/Sujin문안/Christian목록업무구분. 실제발송없음,모델대조.",
+      "review": "C2조건논증을새기록실사례와실제정정책임에적용하고희귀건대는수용/-기재사용유지. DE는명료·자연스럽고Sujin-Christian친숙du관계도일관적이다. 다만KO독립자료원본확인을마친은실제원본점검완료처럼읽혀EN/DE의승인받음과핵심결론이달라질수있으므로KO정확화필요. E06약속을보편가족의무로확대하지않음. 실제음성·법률판단없음.",
+      "sha256": "0e992cc786352a1e123044e952e0a16bb74361e0f01f436ec3de13ef5e324206"
+    },
+    {
+      "unitId": "C2.1-03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "DE-C21-03"
+      ],
+      "solutions": "기록18시준비완료/동료아직미도착. A완료+휴식가능→후련함, B같이보기전완료→아쉬움;동료감정미기록. 마는·건만수용:기록있어도망설임없음/문열어두었으나발소리없음,밖에사람있었다증거아님. 새편지남음/표정미기록→내용대조현대어가능. 반복지원1·2·4알림누락/3정상=4중3빈번,항상아님. 강조수용12m실측vs길디긴체감모순아님;웃음관찰/비평자의비웃음의도해석/무례하기짝없다강평가분리;노라면반복경로중발견. 새생산치우다내초안중복제목2삭제/본인후련함말함;일쑤이다5발송중4누락/1정상;버리다보낸뒤날짜오류발견·본인아쉬움/수신자반응미상. 듣기같은18시완료·후문장평가차이·동료화남추가불가. 독립3칸14시발송/화자안도/상대읽음·답변미상. 전이사진닫힌창문·빈의자2/시각·부재이유미상/누군가돌아오지않았다는창작제목,3문장으로사실과분리. 모델대조완료.",
+      "review": "C2서사시점과평가차이를근거로설명하고5문학형수용/2생산+완료형재사용을구별한다. DE대체로자연스럽고수치·반복범위·감정주체보존. 회상B는아직미도착을그대로보이는표현으로선택적개선가능. E06재독이후행적·결말추가없음,실제음성·사진열람없음.",
+      "sha256": "cddf19d96e3c65b43847dbc63c45f7b343219207a367f33a62d1e20b695ee45b"
+    },
+    {
+      "unitId": "C2.1-04",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-C21-04",
+        "DE-C21-05",
+        "DE-C21-06"
+      ],
+      "solutions": "주자료내일발표/원자료미수신/내준비재작성가능/타인야근권한없음/검증부분만+미확인표시가능하나일정·범위변경미합의. 수용4형:열번고친들가정(실제10회아님);짧아질망정출처없는내용배제선호;급하기로서니질책/오류정당화불가;대조할라치면지정기간반복중단(보편항상아님). 새이번주3검토때마다수정본도착으로한정. 일반더라도≠밤샘약속.7새생산직접풀이:내원고다시쓰는한있어도내오류정정;짧게쓴다고줄이다날짜누락;비율비교하자면등록/응답분모먼저맞춤;빼자니반론소실두자니1쪽초과→별첨제안;물어보려도담당연락처없음;무근거그래프낼바에출처글;답늦더라도추측사실화안함. 듣기마야자기결심만/전원야근합의없음/검증부분발표안운영자에게제안전승인없음. 독립2문장:미검증수치보다지연감수하자는뜻/실제일정변경미합의. 전이3칸5화분·크기다양성목적/5개다불가·작은것만목적약화/순환전시대안/제외·교체순서모두동의질문;권한없이타인제외안함. 키대조.",
+      "review": "C2극단양보·딜레마·자기결심·권한을구분하고4희귀형수용/6생산+더라도재사용을새자료에적용한다. DE몇모델의압축구문이부자연스럽고Maya-LenaSie및others→you범위축소가있어수정필요. E06Dokkaebi구속을남의의무로일반화하지않음. 실제음성없음.",
+      "sha256": "97da19d6584b4ffffa9674dd73b7e02c356185d78ed3d5725eb39bed24a20219"
+    },
+    {
+      "unitId": "C2.1-05",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "주자료원지시현아→청자B요약파일우선;현재질문A→B회상;실제전송미상. 자면2는레나가제안할경우조건/아직제안아님;던가생산은다녀온상대경험질문;는다던가계열은들은지시회상;던2문말경험질문vs뒤명사꾸미는던구별;으래서야10쪽5분요구무리함반문;이라고인용vs이걸초안이라고비판은공식지위변경아님. 새생산전시안간내가안내읽은동료에게입구위치분명하던가?→처음담당자읽으셨을때분명했나요?;하 게체는역할극한정. 새인용마야내일오후확인하겠습니다그대로인용/현재예정상태,완료삭제. 듣기현아요약우선/사진말없음;사진추가는레나의견·동의미질문;요약미발송·재검토예정. 독립레나같이보자면알려달라는A조건부요청/레나실제제안없음. 연극전이3문장:A과거재방문지시날짜B에게질문;B날짜못들어내일확정불가;말투만나이·친족미정,이후행동추가없음. 모델과대조완료.",
+      "review": "C2인용층위·과거/현재·제안조건/실제요구를보존하며낯선말투4형은수용에한정한다. DE관계정보를나이/친족으로확정하지않고자료의지시주체와추가의견을정확히나눈다. 던가생산과인용재사용도새과제로충족. E06이후의약속을플레이어새의무로바꾸지않음. 실제오디오·역할발화없음.",
+      "sha256": "af43dda01a6e55b3c8f54795e875cc6dab4a1acd2edbc064419aaaa0f153efce"
+    },
+    {
+      "unitId": "C2.1-06",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-C21-07",
+        "DE-C21-08"
+      ],
+      "solutions": "선택26행6책갈피전부풀이(학습자는선택가능). A331길드러날예측/끝까지읽기결심둘다미완;332출처없는이야기믿겠냐반문;333재독기대vs현재불가;334월요일회상내일=화요일/결과미상;335재회기대≠약속·재회. 새판빈칸감소예측/편집전이므로모두이미채움정정. 실제문헌예19앞의선조본받음·몰락경계와배움필요강조를근거로반문,현대어선조뜻이어가려면배움놓을수없다. B336자기기억질문;337복사3≠독립3반문;338마지막기록이라진술≠기록하라명령;339친구끼어듦질책을새동료에게끝까지들어달라공손요청;340책봄→읽는듯추측. 새금요일이었던가청자없음/자기기억미확정. C341찾으면조건·미발견/342약속있음현재배경;새시간남거들랑조건vs없거들랑현재이유. D343기다리네일정/344먼저읽을의향/345읽게지시/346주의환기·수정미완/34712→8어절새발견·나이불명/348같은그림발견·호칭요함께. 새이줄보게이름빠졌네→보세요/빠졌네요,나이직급추가안함. E349표지대로만/지도미대조;350앉-으오·오-오;351앉으라는요청미완/352들어오는진행관찰/353노고인정비꼼근거없음;새들어오구려=A권유/들어오세요. F354·355새발견감탄vs하 게체방침,독자전원이해미입증;356오시네/오세요제3자교수높임공통. 새읽으시네→읽으세요,완독미상. 듣기편집시작전/예측/문학자신감효과만. 독립일기3문장내일답기대/들은곳기억불명/오늘기록종료,실제회신없음. 전이관객2문장현대창작/쉽게잊히지않는빈자리효과·실제실종아님;편집자1문장으리오수사반문강조. 모든모델/키비교.",
+      "review": "선택심화·수용전용·결말과독립이라는경계를잘지킨다. 실제문헌과신규연극예문을구분하고자료의1808표기를직접확인했다. DE전이의schwer vergessene/das schwere Vergessen은의미와관용이틀려수정필요;어절을Wortgruppen으로번역한것도분리표기단위로명확화필요. 나머지관계·세대미정/예측vs결과구별은적절. 실제음성없음.",
+      "sha256": "f2ae8a2c262c070e8b7a688e364980968e35ccc449aa5fce1251504a506c0f66"
+    }
+  ],
+  "findings": [
+    {
+      "id": "DE-C21-01",
+      "unitId": "C2.1-01",
+      "severity": "optional",
+      "location": "Erst durch den nächsten Satz verstand ich, wie der Scherz gemeint sein könnte.",
+      "problem": "KO는 뒷문장을 읽고 농담의 맥락을 알았다고 했는데 DE könnte가 원문에 없는 불확실성을 보탠다. 핵심 과제 정답에는 영향 없으나 어휘 예문은 맥락을 그대로 옮기는 편이 정확하다.",
+      "proposal": "Erst durch den nächsten Satz verstand ich den Zusammenhang des Scherzes.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C21-02",
+      "unitId": "C2.1-02",
+      "severity": "required",
+      "location": "안내를 이미 받아 본 사람이 18명이고 원본 확인을 마친 사람은 5명이다.",
+      "problem": "원본 확인을 마친 사람은 원본을 실제로 보아 확인을 끝낸 사람이라는 뜻으로 읽힌다. EN/DE는 staff confirmation을 받은5명이고 키도 허가/확인과 실제열람을 구별한다. 목표어 KO자료를 그 구별에 맞춰 명확히 해야 한다.",
+      "proposal": "안내를 이미 받은 사람이 18명이고 담당자에게 원본 열람이 가능하다는 확인을 받은 사람은 5명이다. 실제로 원본을 열람했는지는 기록하지 않았다.",
+      "affectedLanguages": [
+        "KO"
+      ]
+    },
+    {
+      "id": "DE-C21-03",
+      "unitId": "C2.1-03",
+      "severity": "optional",
+      "location": "Nun hatte ich es schon abgeschlossen, bevor die verabredete Person da war.",
+      "problem": "원문은 함께 볼 동료가 아직 오지 않은 현재 회상 시점을 강조한다. bevor ... da war는 그 사람이 이후 도착했다는 시간 순서로 읽힐 여지가 있다. noch nicht da로 쓰면 자료의 열린 뒤 시점과 아쉬움이 선명하다.",
+      "proposal": "Ich war schon fertig. Dabei war die Person, mit der ich es gemeinsam durchsehen wollte, noch gar nicht da.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C21-04",
+      "unitId": "C2.1-04",
+      "severity": "required",
+      "location": "Nein, ich meinte meine Zeit. Ihre kann ich nicht festlegen.",
+      "problem": "친구Maya/Lena가다시formalIhre로바뀌고,KO다른분일정(다른사람들전체)을청자시간으로좁힌다. 이과제는자기결심과타인부담의범위를구별한다.",
+      "proposal": "Nein, ich meinte meine eigene Zeit. Über die Zeit der anderen kann ich nicht entscheiden.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C21-05",
+      "unitId": "C2.1-04",
+      "severity": "required",
+      "location": "Streichen verliert Belege, Behalten überschreitet die Länge.",
+      "problem": "동작명사를주어로한Streichen verliert Belege와Behalten überschreitet die Länge는독일어모델문장으로부자연스럽다. 두선택의결과를완결조건문으로보여줘야한다.",
+      "proposal": "Wenn wir den Text streichen, gehen Belege verloren; lassen wir ihn stehen, wird er zu lang.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C21-06",
+      "unitId": "C2.1-04",
+      "severity": "required",
+      "location": "Selbst wenn ich neu vorbereiten muss, kläre ich die zitierte Person.",
+      "problem": "vorbereiten에목적어/재귀대명사가없고die zitierte Person klären도부자연스럽다. 자신의준비를다시함과인용발화주체확인을명시한다.",
+      "proposal": "Selbst wenn ich meine Vorbereitung wiederholen muss, kläre ich, von wem die zitierte Aussage stammt.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C21-07",
+      "unitId": "C2.1-06",
+      "severity": "required",
+      "location": "Sie vermitteln eine schwer vergessene Leerstelle ... / Die rhetorische Frage betont das schwere Vergessen",
+      "problem": "schwer vergessene는이미잊혀진빈자리처럼읽히며das schwere Vergessen도비관용적이다. 원문은빈자리를쉽게잊을수없다는수사적강조이지이미어렵게잊었다는뜻이아니다.",
+      "proposal": "관객용: „Bild und Text sind moderne Kunst. Sie vermitteln den Eindruck einer Leerstelle, die sich nicht leicht vergessen lässt, und schildern keinen tatsächlichen Vermisstenfall.“ 편집자용: „Die rhetorische Frage betont, dass die Leerstelle schwer zu vergessen ist, statt um Auskunft zu bitten.“",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C21-08",
+      "unitId": "C2.1-06",
+      "severity": "required",
+      "location": "von zwölf auf acht Wortgruppen",
+      "problem": "KO어절은띄어쓰기로분리된단위인데Wortgruppen은여러단어로이루어진구/단어군으로읽힌다. 길이변화의단위를정확히옮겨야한다.",
+      "proposal": "von zwölf auf acht durch Leerzeichen getrennte Einheiten",
+      "affectedLanguages": [
+        "DE"
+      ]
+    }
+  ],
+  "notes": [
+    "여섯 원고의 전 문장을 읽고 모든 텍스트 기반 과제를 직접 해결한 뒤 답안과 대조했다. 실제 음성·사진·영상의 품질 검토나 인간 검수 인증은 아니다.",
+    "LEVEL_STORY_100·UNITS와 GRAMMAR_ALLOCATION의 C2.1 전체 배정을 대조했다. E06 재독에 후속 사실을 추가하지 않으며, C2.1-06의 26개 선택 수용형도 검수자는 모두 풀었다. 선택 자료를 건너뛴 학습자를 실패 처리하지 않는 계약을 확인했다.",
+    "C2.1-06의 실제 인용은 [디지털장서각 정일당유고](https://jsg.aks.ac.kr/dir/view?dataId=LIB_114217)의 예19와 대조했다. 1808년 표기, 捨學何以哉 및 학문을 버리고 무엇으로 하겠느냐는 수사적 문맥을 확인했다.",
+    "형식 설명은 한국어기초사전의 [-으리라](https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=79281&nation=eng) 추측/의지와 [-거들랑](https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=66511&nation=eng) 조건/이유 용례를 확인했다. 문헌 원문 검증은 읽기 전용으로 수행했다."
+  ]
+}

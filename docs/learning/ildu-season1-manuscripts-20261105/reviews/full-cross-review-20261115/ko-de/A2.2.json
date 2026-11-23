@@ -1,0 +1,100 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A2.2-01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "PChristian 도예 해 본 적이 없어요; 지금 그림을 그리고 있어요. Lena April1→June1 zweiMonate seitBeginn, CupErfahrung, bowlheute; L:nichtdieseSchale2Monate, jaCup, Christiandrawparallel. NeueHyuna May3→May24 dreiWochen: 둥근 빵을 만든 적이 있어요; 배운 지 삼 주 됐어요; 긴 빵을 만들고 있어요; 처음 배울 때 순서를 적었어요; 현아가 빵을 만드는 동안 레나는 차를 준비해요. Transfer eigeneErfahrung/Beginn/jetzt getrennt, Datumdarf unbekanntbleiben.",
+      "review": "Zeitrechnung korrekt, Erfahrung behauptet weder Dauer noch Häufigkeit; wöchentlichePraxis≠ununterbrochen. DE erhält unsichere historische Dauer, keineNamens-/500Jahre-Erfindung.",
+      "sha256": "b0af22868ec40e7ccc7156bdafd89d67ca4089a8174c37765778804147d95bea"
+    },
+    {
+      "unitId": "A2.2-02",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Hausgehen+sprechenparallel; FotoerstnachStop; TitelbeimFoto; nichtzumNächsten. P물을 마시면서 창밖을 봐요; 편지를 쓰다가 문을 열었어요. L:Musik+Bücherbewegenparallel; MusikalsUrsacheunbekannt; jetztSchlüsselkleineBoxEingang. Neu 물을 마시면서 안내문을 읽었어요; 안내문을 읽다가 전화를 받았어요; 원래 방을 쓸 수 없어서 마당에서 안내를 듣게 됐어요. AnderePersonnahmZettel?unbekannt, nurinEigenerTaschegefunden. Transfer echteParallelhandlung+Unterbrechung, Veränderungnurfallsbelegt.",
+      "review": "-다가 nicht endgültigesEnde, -게 되다 nicht immerZwang. Alle drei neuenFunktionen und Kausalitätsfragegelöst. ModerneNachbarn du konsistent.",
+      "sha256": "2b91012bb68ae2da690ba6829a02aac746abaef459cf7d7458d5fc988e8b8cd4"
+    },
+    {
+      "unitId": "A2.2-03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "DE-A22-01"
+      ],
+      "solutions": "P내일 수업이 있는데 몇 시에 시작해요; 표가 매진됐기 때문에 못 갔어요; 빈 의자가 많네요. Rezeptiv WunschRuhe, 감탄-는데요 beendetSatz keinGrundnötig. L:Kartevorhanden, Busverpasst→spät, währendVorstellungkeinEinlass; Samstagoffen; Maya willZuhören. Neu 내일 발표가 있는데 어떤 도움이 필요해요; bestätigteSorgeDateiöffnetnicht; 오류가 뜨네요; 다른 파일은 열려요? Antwortunbekannt. KeineerfundeneTechnikursache; TrostoderGehenbeidesnatürlich.",
+      "review": "ExpliziterGrund von tiefererunbekannterUrsache getrennt. -군/-는데요 nurrezeptiv, komplexereEmpathie unterstützt. Optional schlechteFrage DEidiomatischpräzisieren; keineMotivefürDokkaebierfinden.",
+      "sha256": "f7115a5450ec9cf78cde23df2613ba9c8761334c82d3708ccdda66e17b083c25"
+    },
+    {
+      "unitId": "A2.2-04",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P오늘 여섯 시까지 주소를 확인할게요; 차 마실래요 물 마실래요; 집에서 쉴까 봐요; 오늘 약속이 있고 내일 시험도 있어요; 세 시에는 수업이 있어서 어려워요 다섯 시는 어때요; 초대는 고맙지만 오늘은 어려워요. L:Lena prüft+meldetbis morgen12; Sonntag15 nurChristianbestätigt; andereAusstellungbloßÜberlegung. Neu 금요일에는 수업이 있고 집에도 늦게 와요; 수업이 있어서 여섯 시는 어려워요; 같이 걷고 싶지만 토요일 일정은 아직 몰라요; 비가 오면 집에서 쉴까 봐요; 내일 열 시까지 확인하고 연락할게요; 그때 시간을 정할래요? KurzeAntwort AuswahlGrund+Rückmeldung+Frage.",
+      "review": "Korrigierter Samstagvorschlag passtRollenkarte. -을까 봐요 ausdrücklich Absicht stattSorge. DE Zusage/Verfügbarkeit/unbestätigteVerabredung erhalten. Modernes this_scene_gate none korrekt.",
+      "sha256": "bdcbac9e04d257ffd91798a8fd5dedac31f46a9915ab15d0653cac00dc693e0a"
+    },
+    {
+      "unitId": "A2.2-05",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "DE-A22-02"
+      ],
+      "solutions": "P창문을 열고 있어요 aktiveÖffnung; 창문이 열려 있어요 Zustand. L:Türzu+Lichtan; GrundfürTürnichtgenannt, lediglichStühleaufstellen; Erlaubnisab 들어오세요. Neu 문이 열려 있어요; 안내판이 걸려 있어요; 지금 비어 있는 것 같아요; 이 방을 사용해도 돼요? KeinePersonimFoto≠Gebäudeleer/Erlaubnis. Transfer 2Beobachtungen/Vermutung/Rückfrage.",
+      "review": "Progressiv/Ergebniszustand/Inference korrekt; DialogSiezuPersonal trotzFreundeskontext. OptionalkleineGlättung Wasserbitte.",
+      "sha256": "25aa485ca7e41473782733468517ca77f869c93d99a83b5b3bd3d52f3cd8e092"
+    },
+    {
+      "unitId": "A2.2-06",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P내일 열한 시에 만나지요; 그때 책을 돌려줄게요. L:NamevonLena bestätigt Eigentum, versehentlichmitgenommen nichtgeliehen, eigenerSchirmimUnterrichtsraumunbestätigt. Neu 제 가방이 아니에요; 확인하지 않고 가져와서 미안해요; 다섯 시 반에 카페로 가져갈게요; 여섯 시까지 계시지요? Rückgabe17:30innerhalbFrist18:00 möglich, deshalbnichtzwangsweisemorgen. ZusatzgeschlosseneAnmeldungohneTelefon/Online→내일까지 기다릴 수밖에 없어요. Transfer tatsächlicherEntleiher/Datum/Methode+VersprechennichtVollzug.",
+      "review": "NeuesZwangsmuster hat wirklich neues positivesBeispiel zusätzlichNegativfall. -인 줄 알다 nurHilfe. Deutsche negativeFrage/Nein schlüssig gegenüberkoreanischem 네Bestätigungsprinzip. KeinEigentumhistorischerObjekte.",
+      "sha256": "ab30fce89aacc349eaf32e9078e57cd519344eb8f3c80ec40130f4c9abe053d0"
+    }
+  ],
+  "findings": [
+    {
+      "id": "DE-A22-01",
+      "unitId": "A2.2-03",
+      "severity": "optional",
+      "location": "„Sie sind so, weil Sie jemanden hassen, oder?“",
+      "problem": "Sie sind so ist im konkreten Schweigekontext unnatürlich vage; hassen verstärkt 미워하다 unnötig. Auch ein bewusst problematisches Fragebeispiel kann sprachlich natürlich sein.",
+      "proposal": "„Sie schweigen, weil Sie jemanden nicht leiden können, oder?“",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-A22-02",
+      "unitId": "A2.2-05",
+      "severity": "optional",
+      "location": "„Kann ich vor dem Anfang kurz etwas Wasser trinken?“",
+      "problem": "vor dem Anfang klingt als beiläufige Bitte hölzern.",
+      "proposal": "„Kann ich noch kurz etwas Wasser trinken, bevor wir anfangen?“",
+      "affectedLanguages": [
+        "DE"
+      ]
+    }
+  ],
+  "notes": [
+    "Sechs Manuskripte vollständig gelesen und alle textlichen Aufgaben eigenständig gelöst, anschließend Antworten geprüft.",
+    "UNITS, GRAMMAR_ALLOCATION und sechs LEVEL_STORY_100-Einträge abgeglichen: E06.middle für Hauspassagen, 04 modernes this_scene_gate none. Keine spätere Erinnerung aus Sprachleistung abgeleitet.",
+    "Keine tatsächliche Audio-/Sprech-/App-Verifikation, keine menschliche Zertifizierung."
+  ]
+}

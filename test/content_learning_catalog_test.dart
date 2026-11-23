@@ -5,6 +5,8 @@ import 'package:ko_lernen_app/features/content_learning/content_learning_catalog
 import 'package:ko_lernen_app/features/content_learning/content_learning_models.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 
+import 'support/listening_pending.dart';
+
 Map<String, dynamic> read(String name) =>
     jsonDecode(File('assets/data/$name.json').readAsStringSync())
         as Map<String, dynamic>;
@@ -121,8 +123,12 @@ void main() {
             }
           }
         }
-        expect(used.toSet(), sources.keys.toSet());
-        expect(used.length, sources.length);
+        final pending = kind == LearningContentKind.listening
+            ? listeningPendingScenarioIds
+            : const <String>{};
+        expect(sources.keys.toSet().containsAll(pending), isTrue);
+        expect(used.toSet(), sources.keys.toSet().difference(pending));
+        expect(used.length, sources.length - pending.length);
       },
     );
   }

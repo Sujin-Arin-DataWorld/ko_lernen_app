@@ -1,0 +1,126 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C2.2-01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "결말 뒤 책의 두 단락: 처음 받은 기록은 수령 사실을 보였지만 발신자를 확정하지 못했다. 나중에 집 밖 사본과 집 안 기록을 대조하여 발신 사실을 확인했다. 현재 아는 결말을 당시 장부의 증거로 소급하지 않는다.\n\n지원 계산: 76−43=33으로 후반 두 시간 입구 통과가 33회 적다. 재입장을 포함하므로 서로 다른 방문객 33명이 비 때문에 오지 않았다는 주장은 불가능하다. 비가 13:45에 왔고 두 야외 판매대가 14시 전 정리한 것은 기록되지만 철수 원인은 미질문이다. C는 본인과 친구의 경험이며 C 인용 소식지는 같은 증언의 반복이지 독립 목격자 추가가 아니다.\n\n듣기: 마야가 우산을 가지러 나갔다 재입장한 사례는 1인 중복 집계를 보여 준다. 새 제목은 14–16시 43회라는 시간대/계수 단위를 남기고 방문객 수·비의 인과 단정을 뺀다. 내일 철수 팀에 묻겠다는 계획은 아직 얻은 답이 아니다.\n\n스몰토크 응답: Ich war kurz überrascht, habe aber nach deiner Erklärung verstanden, dass ich Personen und Eintritte verwechselt hatte. 감정 경험은 역할 답안이며 실제 검수자의 경험을 주장하지 않는다.\n\n독립 4문장: Im ersten Monat wurden abends 46 Eintritte mehr gezählt. Drei Personen führten ihren Besuch auf die längeren Öffnungszeiten zurück; der Newsletter wiederholt ihre Aussagen. Weil zugleich die Prüfungszeit begann, lässt sich der gesamte Zuwachs nicht eindeutig der Verlängerung zuschreiben. Für den nächsten Vergleich zählen wir nach derselben Methode und fragen weitere Personen nach ihrem Besuchsgrund. 반론 답: Das bedeutet nicht, dass die Verlängerung wirkungslos war; sie half nach eigener Aussage drei Personen, ihr Anteil am gesamten Anstieg ist aber unbekannt. 원고 4문장 모델과 의미/범위 일치.\n\n실제 전이: 2026-11-15에 [NASA CRS-25 상세 공지](https://www.nasa.gov/event/nasas-northrop-grumman-crs-25/)와 이를 연결하며 같은 일정을 반복하는 [NASA 발사 일정 게시물](https://www.nasa.gov/event-type/launch-schedule/)을 읽었다. 상세 공지가 이 쌍의 원출처이고 일정 목록은 같은 기관의 재게시이므로 독립 증거 2개로 세지 않는다. 둘 다 2026년 11월 29일보다 이르지 않다는 조건을 유지한다. 검수용 초안에 ‘29일 확정 발사’라고 적었다면 정정문은 ‘2026-11-15: NASA의 no earlier than 조건을 반영하여 확정을 삭제하고 가장 이른 예정일로 고침’이다. 실제 게시물은 수정하지 않았다.",
+      "review": "C2 복합 자료의 단위·독립성·인과·반론을 모두 다른 사례에 적용한다. DE는 자연스럽고 4문장 요구/답안 수가 일치한다. Daniel–Maya의 du는 이 단원의 친숙한 대화에서 일관적이며 한국어 요를 자동 Sie로 옮기지 않았다. END 뒤 사실을 초기 증거로 소급하지 않는 서사 경계가 적절하다. 실제 음성은 검토하지 않았다.",
+      "sha256": "231ea76f03e2ac2788710566430e7d40e91994b11e277074da0aabe466555414"
+    },
+    {
+      "unitId": "C2.2-02",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "지원: 다니엘이 마야가 식물을 추위에서 보호하려 했다고 생각한다는 문장을 넣으면 다니엘의 추측이 추가되지만 기록의 사실은 늘지 않는다. 다니엘이 찬 기운을 느끼는 장면은 추측의 개연성을 돕는 명시적 창작이다. 마야가 옮긴 이유/찬 기운/잎의 감촉/창틀 자국은 일지 사실로 승격하지 않는다.\n\n듣기: 잎이 턱에 스친 문장은 ‘공방 일지에서 착안한 창작’이라는 표제 아래 창작 장면의 첫 줄로 남긴다. 다니엘 버전에서는 옮긴 사람을 끝까지 알지 못한다. 본문 사실 설명을 먼저 강제하면 그 질문의 효과가 줄어들므로 독자가 창작을 먼저 선택할 수 있고 표제가 장르를 구분한다.\n\n스몰토크 역할 응답: In der öffentlichen Fassung würde ich diese persönliche Stelle weglassen, in meinen Notizen aber behalten. 공개 범위 선택을 존중하며 사실 확인과 혼동하지 않는다.\n\n독립 설명 2문장: Um 18:30 Uhr war die Tür des Vereinsraums offen, fünf Minuten später schloss Hyuna sie. Wer sie zuvor geöffnet hatte, steht nicht im Eintrag. 현아 창작 2문장: Als ich in den Flur trat, bewegte sich ein Papier am offenen Fenster. Ich zog die Tür zum Vereinsraum vorsichtig zu. 대기인 창작 2문장: Von meiner Bank aus sah ich Hyuna zur Tür gehen. Nachdem sie die Tür geschlossen hatte, hörte ich nur noch Schritte im Flur. 추가: 종이/움직임/조심스러운 동작/대기인/벤치/걸음 소리; 열린 창문·문 상태와 현아의 닫기는 기록에서 왔다. 최초로 문을 연 사람은 두 창작에서도 확정하지 않았다. 원고 2+2+2 문장 모델은 제약에 맞는다.\n\n전이용 명시적 가상 일상 장면 두 시점: 마야 ‘Daniel stellte den nassen Schirm neben die Tür. Er wirkte auf mich vielleicht verärgert.’ 다니엘 ‘Ich stellte den Schirm neben die Tür. Maya sah kurz zu mir herüber; vielleicht störte sie das Wasser.’ 밑줄 대상은 각 첫 문장과 ‘Maya sah kurz zu mir herüber’의 직접 보이는 동작뿐이다. 상대의 화남/불쾌함은 추측이므로 밑줄을 긋지 않는다. 실제 개인 경험을 주장하지 않는다.",
+      "review": "DE의 Quellenbeschreibung/erfundene Szene 대비, 시점별 지식 범위와 창작 표시가 정확하다. 독립 과제의 문장 수와 각 화자의 시점도 일치한다. Maya–Daniel du를 유지한다. END 뒤 편지 독서에 상상한 빛을 정본 사실처럼 넣지 않으며 실제 음성·사진 검토는 아니다.",
+      "sha256": "8ac4917f72e488408cfabe391503ab3a97bdb4059a145a10f5adcadc15cbdb49"
+    },
+    {
+      "unitId": "C2.2-03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "DE-C22-01"
+      ],
+      "solutions": "지원 세 독자판 모두: 수령=6일 자료팀이 파일을 받음, 허용=팀 내부 내용 확인만, 다음=당사자에게 예정 발췌문을 보여 준 뒤 12일 공개 여부 재질문, 답변일/공개일은 미정. 간단한 방문자판도 12일을 공개일로 바꾸지 않는다. 도서관 비유는 보관만 설명하며 공개 대여를 뜻하지 않도록 팀 내부 확인 한정을 덧붙인다.\n\n듣기: 레나는 수령 완료를 접근 허용으로, 12일을 공개 시작일로 잘못 읽었다. 친구에게 보낼 메시지: Am 12. fragt das Team erneut nach der Freigabe; wann die Aufnahme öffentlich wird, ist noch offen. 파일 수령과 내부 검토는 당사자의 온라인 공개 결정권을 대체하지 않는다.\n\n스몰토크 선택: Ein Beispiel wäre gut. 단어 설명 또는 예시 선택 중 학습자가 고를 수 있고 du 관계는 일관적이다.\n\n독립 작업 메모: Rampe am Eingang vorhanden und bestätigt; Türbreite am anderen Ende noch ungemessen. Das Team vor Ort misst am Freitag und prüft danach den Hinweis zur Nutzbarkeit. 쉬운 설명: Am Eingang gibt es eine Rampe; ob auch die Tür am anderen Ende breit genug ist, wissen wir noch nicht. 독일어 짧은 메시지/질문 답: Am Freitag wird die Türbreite gemessen. Das ist noch keine Zusage, dass der Weg ab Freitag genutzt werden kann; die Auskunft hängt vom Ergebnis ab. 새 측정이 새 개통일로 바뀌지 않는다. 제시 모델은 이 범위에 맞는다.\n\n실제 알림 전이: [NASA CRS-25 공지](https://www.nasa.gov/event/nasas-northrop-grumman-crs-25/)를 2026-11-15에 확인. 처음 보는 사람에게 1문장: NASA plant den Start frühestens für den 29. November 2026, ein Start an genau diesem Tag ist damit nicht zugesagt. 담당자에게 2문장: Die NASA-Mitteilung nennt den 29. November 2026 als frühestmöglichen Starttermin. Übernehmen Sie diese Einschränkung in die Ankündigung, denn ein verbindlicher Start an diesem Tag ist nicht bestätigt. 시간대는 선정되지 않은 페이지 표시를 임의로 환산하지 않았으며 실제 외부 전송은 하지 않았다.",
+      "review": "C2 중개 과제에서 수령·내부 허용·발췌 확인·공개 결정·재질문 날짜의 구분이 DE에 유지된다. 길의 stufenlos는 완전한 barrierefrei로 과장되지 않고 미측정 문 폭도 남는다. Sujin–Lena와 일반 친숙 대화의 du가 일관적이다. 목표 문장의 Gewissheit는 정도 보존을 더 직접 쓰면 명료해지는 선택적 개선만 있다. 실제 녹음을 듣거나 외부 메시지를 보내지 않았다.",
+      "sha256": "6345bbb484b52e271dfb88961247ae812d2d1734d0a55acc099d6c604b53eefa"
+    },
+    {
+      "unitId": "C2.2-04",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "지원: Lena lehnt nicht Geschichten generell ab; sie möchte verhindern, dass die Person trotz weggelassenen Namens an der Adresse erkannt wird, und die Freigabe dieser Stelle mit ihr klären. Maya möchte anschauliche persönliche Geschichten bei entsprechender Zustimmung erhalten. Daniel will schnell lesbare Orts-/Zeitangaben und einen eigenen Platz für Geschichten; ein Kostenargument steht nicht in seinen Angaben.\n\n듣기: 오늘 합의=장소·시간 안내 먼저 크게 게시, 사연은 따로; 당사자 답변까지 보류=주소가 든 글의 게시; 다음 회의=다른 사연까지 적용할 일반 이름 공개 원칙. 현 글의 길이를 그대로 두자는 임시 선택은 모든 사연의 이름 공개 승인이 아니다.\n\n스몰토크 역할 정정: Nein, ich möchte nicht den ganzen Beitrag streichen lassen; ich möchte ihn vor der Veröffentlichung noch einmal sehen und dann entscheiden. 또는 실제 삭제 의사라면 Nein, bitte streich diesen Satz. 당사자의 확인을 듣기 전 어느 쪽으로도 확정하지 않는다.\n\n독립 두 확인 줄: ‘Die Gruppe möchte um 19 Uhr anfangen und braucht 30 Minuten; stimmt das?’ / ‘Für die Nachbarschaft soll der Ton spätestens um 19:20 Uhr enden; habe ich das richtig verstanden?’ 제안 한 줄: ‘Wenn alle bis 18:50 Uhr spielbereit sind und zustimmen, könnten wir dann draußen beginnen und um 19:20 Uhr enden.’ 보류·확인 한 줄: ‘Nur die Vertretung hat 18:45 Uhr als mögliche Ankunft genannt; wir prüfen zuerst die übrigen Teilnehmenden, die nötige Vorbereitungszeit und einen verfügbaren Innenraum.’ 대표의 가능 시각은 전원 가능·시작 준비 완료의 증거가 아니다. 원고 모델의 조건부 18:50 제안은 30분/19:20 경계에 맞는다.\n\n전이의 텍스트 역할 연습: 내 선호=19시 야외 공연. 상대 이유 요약 ‘Du möchtest gar keine Musik, weil dein Kind schläft.’ 상대 역할 정정 ‘Nicht gar keine Musik; ich brauche nur ab 19:20 Uhr Ruhe.’ 수정 메모 ‘Die Person lehnt Musik nicht grundsätzlich ab; entscheidend ist ein Ende vor der Schlafenszeit. Früherer Beginn bleibt von allen Beteiligten und Vorbereitung abhängig.’ 실제 다른 사람에게 메시지를 보내거나 실제 협의/응답을 받은 것으로 기록하지 않았다.",
+      "review": "공정한 반대 입장 재진술과 승인/보류/미해결을 DE에서 정확히 구분한다. 분 단위 시간 계산과 가능한 도착/전원 준비 완료도 혼동하지 않는다. 요구는 줄 단위이므로 예시의 문장 수 차이는 결함이 아니다. 친숙 대화 du는 자연스럽고 END 뒤 다르게 느낄 자유/여백도 유지한다. 실제 협의·음성 검토는 아니다.",
+      "sha256": "768fee5e332a5cc81f5c361ff08d6199efe649660dd68ab32b92177a77eaeff0"
+    },
+    {
+      "unitId": "C2.2-05",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-C22-02",
+        "DE-C22-03"
+      ],
+      "solutions": "지원 전환 세 답: Reparatur? Das Scharnier wurde ersetzt, und das Gebäudeteam bestätigte um 16:10 Uhr, dass sich die Tür öffnen ließ. Weg? Für das Treffen heute um 18 Uhr bitte den Westeingang benutzen; bestätigt durch die Veranstaltungsleitung um 16:15 Uhr. Morgen? Der Eingang für morgen ist noch nicht festgelegt. 기술적 작동 확인, 오늘 참가 경로 결정, 내일 미정을 구분한다.\n\n듣기: 잘못은 수리되어 열리는 문을 지정 입구로 바꾼 것. 정정 출처는 수리보다 뒤의 16:15 행사 담당자 메시지로 오늘의 서쪽 입구를 유지한다. 내일은 미정이고 후속 안내가 생기면 알리겠다는 계획이다.\n\n스몰토크 역할 답: Zum Westeingang; wenn es dir hilft, schreibe ich es dir kurz. 짐을 든 상대에게 즉시 필요한 방향을 먼저 말하며 장황한 수리 경과를 필수로 넣지 않는다.\n\n독립 발화용 1문장: Laut Freigabe um 12:10 Uhr dürfen wir die ersten beiden Fotos intern prüfen. 채팅 답: Für das dritte Foto gibt es noch keine Freigabe zur Weitergabe an Kunden; ich kläre erst die externe Liste. 잘못 ‘전부 고객 전송 가능’이라고 말한 경우 정정: Ich korrigiere meine vorige Antwort: Die Freigabe betrifft nur die interne Prüfung der ersten beiden Fotos, nicht den Versand des dritten Fotos an Kunden. 11:30 미리보기 생성은 외부 사용 승인이 아니다. 답안과 범위 일치하며 실제 발화/전송은 수행하지 않았다.\n\n전이 텍스트 예: 긴 행사 안내의 세 자료를 받았을 때 즉시 행동 1문장 ‘Gehen Sie für das heutige Treffen um 18 Uhr bitte zum Westeingang.’ 후속 ‘Gilt das auch morgen?’에서는 시점이 바뀌어 내일 미정이라는 확신 범위를 밝혀야 한다. 후속 ‘Aber die Tür im Osten ist repariert, also dürfen wir sie nutzen?’에서는 시설 점검과 행사 출입 결정의 권한/목적이 바뀐다. 어느 경우에도 담당자 확인 없는 허가를 추가하지 않는다.",
+      "review": "MQ-06 현대 독립 수행과 END 뒤 선택 한 줄을 잘 분리한다. DE는 대부분 간결하고 수령/미리보기/내부검토/외부전달을 정확히 구분한다. Andrea–여행자 Sie와 별도 친숙 스몰토크 du는 서로 다른 맥락이다. 듣기의 verwechseln+dass 병렬은 학습 모델로 부자연스러워 명사구+mit 구조로 수정 필요. 시설팀 문장의 손잡이 동작은 선택적으로 더 명확하게 쓸 수 있다.",
+      "sha256": "b9cf62531eda9b4fe87a7395712e0ed25a5e6d47e323babcf1f277043892cd03"
+    },
+    {
+      "unitId": "C2.2-06",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-C22-04"
+      ],
+      "solutions": "지원: 같은 방이라는 결론에는 사진 공간과 구술 공간을 동일시하는 추가 자료가 필요하다. 늘/1978년부터 계속이라는 결론에는 중간 용도 변화가 없었다는 연속 기록이 필요하다. 확인한다는 말은 두 자료가 실제 같은 명제를 지지할 때만 가능하며 우산 보관 기억은 대합실 지속 사용을 현재 확증하지 못한다. D의 이름/직접 인용 미공개와 당사자 초고 확인 조건은 공개 표지에 노출하지 말고 내부 수정 메모에 기록한다.\n\n듣기: 긴 의자는 사진에 보이는 사물이라는 단서일 뿐 같은 방의 유일성/주민 기억과 일치를 증명하지 않는다. 사진 뒷면 필자와 촬영일도 미확인이다. 공개 설명은 보이는 긴 의자/창문과 ‘사진 뒷면 메모’의 문구를 출처와 함께 나누고, 우산 기억은 당사자 검토용 내부 초고에 남겨 답을 기다린다. 실제 사진 파일을 본 것은 아니다.\n\n스몰토크 역할 응답: Ja, zeigen Sie mir die Änderung bitte neben meiner ursprünglichen Formulierung. 또는 Heute habe ich keine Zeit; ich sehe es mir morgen an. 수정본 열람 의사는 공개 승인과 다르다.\n\n독립 선택=운영 개선안. 실제 텍스트 초고 ‘Der Tauschmarkt war erfolgreich, also können die Hinweise unverändert bleiben.’ 수정 ‘Zwischen 10 und 12 Uhr wurden 18 Gegenstände weitergegeben; zur Zahl zufriedener Menschen und zum Nachmittag reicht die Aufzeichnung nicht aus. Ich schlage vor, eine kurze Erklärung vor der Übergabe zu erproben und anschließend nach fehlenden Informationen zu fragen.’ 반론 답 ‘18 zählt Gegenstände, nicht Personen oder Zufriedenheit.’ 이메일은 허가 없이 직접 인용하지 않았고 새 손님이 많을 가능성도 등록 수로 바꾸지 않았다. 실제 고친 문장=성공/그대로 유지 단정을 제거한 첫 문장; 다음 질문 ‘Welche Erklärung fehlte bei der Übergabe und wäre vorab hilfreich?’\n\n전이=동일 자료로 창작 1문장: ‘Erfundene Szene: Neben der Uhr hielt eine neue Besucherin eine rote Tasse und überlegte, wen sie nach der Bedienung fragen könnte.’ 시계/새 방문자/붉은 컵/생각은 모두 추가한 창작이고 18개 기록이나 이메일 당사자의 실제 경험으로 제시하지 않는다. 운영 제안도 아직 확정된 절차라는 명령으로 바꾸지 않는다.\n\nEND 뒤 포트폴리오 선택=C2.2-01에서 만든 설명. 맥락 한 줄 ‘Wir unterscheiden, was das Hausregister damals belegte und was erst ein späterer Quellenvergleich klärte.’ 새 독자 밑줄 대상=‘수령 기록으로 확인한 받은 사람’과 ‘집 밖 사본+집 안 기록을 나중에 대조하여 확인한 보낸 사람’. 남길 글 ‘Das Empfangsverzeichnis nennt die empfangende Person. Die absendende Person wurde erst später durch den Vergleich mit der Abschrift von außerhalb geklärt.’ 실제 수정 전 ‘Aus dem Register kennen wir Empfänger und Absender’를 이 두 문장으로 교체; 이유=당시 증거와 나중 확인 및 수신자/발신자 분리. 미해결 질문 ‘Kann eine neue lesende Person erkennen, welche Quelle welche Person belegt?’ 다음 선택 목표=첫 방문자에게 세 문장으로 전달 경로 설명. 새 시즌 단서/결말 사실을 만들지 않는다.",
+      "review": "C2 최종 과제의 목적 선택→초고→반론→실제 수정→새 목적→포트폴리오가 텍스트로 수행 가능하고 비채점 성찰/END 경계가 적절하다. DE는 대체로 자연스럽고 익명/직접인용 미승인 조건을 보존한다. 포트폴리오 수정 이유에서 수신자/발신자라는 사람 구분을 수신/발송 절차로 바꾼 부분만 정확화 필요. 실제 외부 당사자에게 초고를 보내거나 음성을 생성하지 않았다.",
+      "sha256": "92d8befa6f1c0293e7ba21413d11ee0b2f3063b9d2e784a70202c905e91ee4cd"
+    }
+  ],
+  "findings": [
+    {
+      "id": "DE-C22-01",
+      "unitId": "C2.2-03",
+      "severity": "optional",
+      "location": "목표 DE: Passe die Einzelheiten an und halte Zuständigkeit und Gewissheit fest.",
+      "problem": "halte ... Gewissheit fest는 확신의 정도를 보존하라는 KO보다 추상적이며 확실함 자체를 기록하라는 뜻으로도 읽힌다.",
+      "proposal": "Passe die Einzelheiten an und bewahre dabei, wer entscheiden darf und wie sicher die Aussagen sind.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C22-02",
+      "unitId": "C2.2-05",
+      "severity": "required",
+      "location": "듣기 여행자 DE: Ich habe verwechselt, dass die Tür aufgeht und dass sie benutzt werden soll.",
+      "problem": "verwechseln 뒤 두 dass 절을 이렇게 병렬로 둔 문장은 독일어 발화 모델로 부자연스럽다. 실제 작동 보고와 사용 지시를 혼동했다는 두 대상도 직접 분리하는 편이 명확하다.",
+      "proposal": "Ich habe die Meldung, dass die Tür wieder aufgeht, mit einer Anweisung verwechselt, diesen Eingang zu benutzen.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C22-03",
+      "unitId": "C2.2-05",
+      "severity": "optional",
+      "location": "시설팀 메모 DE: Zwei Personen aus dem Team haben am Griff geprüft, dass sich die Tür öffnen lässt.",
+      "problem": "am Griff geprüft는 무엇을 했는지 흐릿하며 KO/EN의 손잡이를 돌려 확인했다는 구체 동작을 자연스럽게 옮길 수 있다.",
+      "proposal": "Zwei Personen aus dem Team haben den Türgriff gedreht und bestätigt, dass sich die Tür öffnen lässt.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-C22-04",
+      "unitId": "C2.2-06",
+      "severity": "required",
+      "location": "포트폴리오 예 DE Grund: Ich habe den Satz geteilt, damit Empfang und Versand nicht verwechselt werden.",
+      "problem": "KO/EN 수정 이유는 받은 사람과 보낸 사람을 혼동하지 않기 위해서이다. DE는 사람을 Empfang/Versand라는 절차로 바꿔 바로 앞 두 문장을 나눈 초점이 달라진다.",
+      "proposal": "Ich habe den Satz geteilt, damit die empfangende und die absendende Person nicht verwechselt werden.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    }
+  ],
+  "notes": [
+    "C2.2 여섯 원고를 모두 읽고 지원·듣기 대본·스몰토크·독립·전이·최종 포트폴리오의 텍스트 과제를 직접 해결했다. 실제 인간과 협의하거나 소리 내어 발화한 수행으로 세지 않는다.",
+    "LEVEL_STORY_100과 UNITS의 모든 C2.2 행을 대조했다. 신규 문법 배정은 없고 복합 수행/중개/논증/편집의 재사용 밴드다. C2.2-05 현대 역할극은 gate none, 고택 선택 읽기는 END라는 분리를 확인했다.",
+    "실제 알림을 고르는 전이 과제에는 [NASA CRS-25 상세 공지](https://www.nasa.gov/event/nasas-northrop-grumman-crs-25/)와 같은 내용을 연결하는 [NASA 발사 일정 게시물](https://www.nasa.gov/event-type/launch-schedule/)을 2026-11-15 읽고 원출처/반복 및 no earlier than 조건을 보존했다. 외부 게시물 수정·메시지 전송은 하지 않았다.",
+    "모든 판정은 AI 모델의 언어/텍스트 검토이며 인간 번역 감수 인증이나 실제 음성·앱 검증이 아니다."
+  ]
+}

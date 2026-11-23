@@ -1,0 +1,24 @@
+{
+  "capturedUtc": "2026-11-15T07:00:02.841074+00:00",
+  "scope": "same-session Git preservation baseline after read-only fetch/query; manuscript files untouched by reviewers",
+  "checkouts": [
+    {
+      "root": "C:/dev/hangulsori/ko_lernen_app",
+      "head": "afd4c4dc524d89c316b23fd001dac37e087796cd",
+      "branch": "main",
+      "statusSha256": "053810a58ad3eafaf24c42faaf4dc61fe903c2258ae8a47b5f83e53bda4381fa",
+      "statusCount": 630,
+      "indexEntriesSha256": "bd69a0d7bc8726bbb5225d449031c3b936a1c91b35f691ea77bcf539c6e32a24",
+      "indexEntriesCount": 7317
+    },
+    {
+      "root": "C:/dev/hangulsori/ko_lernen_app_worktrees/season1-runtime-integration-20261103",
+      "head": "f369fe2ce3c36475e295b2369f0e5ae83939b867",
+      "branch": "codex/season1-runtime-integration-20261103",
+      "statusSha256": "8e038d131dba5713209fd9b0108eff7424e2b1bbd3aac0eb80b59cbf61b60604",
+      "statusCount": 707,
+      "indexEntriesSha256": "23098276d9ea52fc0570185a12df646b2033bfeefa556ab14f4304e56521fbfa",
+      "indexEntriesCount": 9681
+    }
+  ]
+}

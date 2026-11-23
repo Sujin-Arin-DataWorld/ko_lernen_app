@@ -1,0 +1,11 @@
+{
+  "status": "frozen_for_final_reread",
+  "supersedes": "FINAL_BATCH_1.json A1.2-03 only",
+  "units": [
+    {
+      "unitId": "A1.2-03",
+      "sha256": "a5de6f94c01bc7907e0a0656daa7d4665ea22cf44b4787f1ade1e4e89d1ebfee",
+      "reason": "EN-FINAL-01"
+    }
+  ]
+}

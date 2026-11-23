@@ -1,0 +1,16 @@
+{
+  "checkedUtc": "2026-11-15T09:05:55.076921+00:00",
+  "command": "rtk proxy graphify update . --no-cluster",
+  "exitCode": 0,
+  "scope": "sparse documentation worktree; AST only, no paid semantic extraction",
+  "nodes": 2602,
+  "edges": 2744,
+  "graphSha256": "663d647f4917860ad9d352cb8d36eda120a3c4f38f0156813fcae234c6fe9bd2",
+  "outputIgnoredByGit": true,
+  "manifestPreservation": {
+    "reason": "Generated tracked manifest restored to exact HEAD bytes; ignored local graph retained.",
+    "generatedSha256": "1d414d0295e2ba41648df5e6dbecfba3c67e3519a1d42d41cccbfc1baff48e50",
+    "restoredSha256": "7087b9fbba0ca92a03419f0810315df370ca7f58b181f4a98449ba68021a80e4"
+  },
+  "meaningValidation": "Translation/task evidence comes from independent role reports, not AST nodes."
+}

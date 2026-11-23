@@ -1,0 +1,83 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B1.1-01",
+      "sha256": "a378bb5c418c3c1f031d28ef89f760cb9298944a0609ea11e7cc755bf0123363",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-02",
+      "sha256": "263a79f425d13e25103d6e327be52cd5a6085445a03397e8477fb0bb64b77021",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-03",
+      "sha256": "f59c5b79cc072cec6d5cc6132acc1f223af91986a3a2314f07ad99db54d5ef07",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-B11-01",
+        "EN-B11-02"
+      ]
+    },
+    {
+      "unitId": "B1.1-04",
+      "sha256": "882e7a3a4b51568f2355c7c8879237f58e3242597bb20dc4ca5f48ae69d597f5",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-05",
+      "sha256": "c1a6e1ec7f5da08f8637d296a01f350202c719d1e6a355e57e929b6619177151",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "B1.1-06",
+      "sha256": "b2c20667875948cee8847a3a0071fa5bf66629291c9c0b801967c46165abce39",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-B11-01",
+      "unitId": "B1.1-03",
+      "severity": "required",
+      "location": "세 묶음 시범 EN ‘I was sorting photos and missed the call’; modern script turn1 ‘I missed your call while sorting the notices’; turn2 ‘Two sheets got wet.’",
+      "problem": "The translations weaken the target contrast: -느라고 explicitly gives the reason one could not answer, whereas ‘and/while’ can state only co-occurrence. The listening comprehension explicitly asks for distinct causes. The bare ‘got wet’ also omits the unwanted-outcome colouring of 젖고 말았어요.",
+      "proposal": "Model: ‘I couldn’t answer the call because I was busy sorting photos.’ Modern turn1: ‘I couldn’t answer your call because I was busy sorting the notices. What happened?’ Modern turn2: ‘My bottle leaked inside the bag. Unfortunately, two sheets ended up getting wet.’",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-B11-02",
+      "unitId": "B1.1-03",
+      "severity": "required",
+      "location": "새 확인 자료 KO ‘창가 선반’; EN ‘While cleaning a windowsill’; DE ‘Beim Putzen der Fensterbank’",
+      "problem": "A shelf by the window has been changed to the windowsill. The Korean specifies a shelf, and the account of the cup spill should preserve that object/location.",
+      "proposal": "EN first sentence: ‘While cleaning a shelf by the window, Hyuna directly saw a cup tip over and the spilled water reach the notebook cover.’ Align German ‘Fensterbank’ with ‘Regal am Fenster’; leave the Korean unchanged.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

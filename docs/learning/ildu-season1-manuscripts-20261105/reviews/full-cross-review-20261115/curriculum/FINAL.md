@@ -1,0 +1,1246 @@
+# Curriculum final verification - 100 current manuscripts PASS
+
+All 100 current manuscripts have a complete curriculum/story/task review: 80 changed manuscripts were fully reread and their supplied tasks solved again as text; 20 unchanged initial PASS reviews were reused only after exact current-byte hash equality. Six common documents also PASS at their recorded hashes. No open final findings remain.
+
+This is an AI manuscript review, not human approval, actual audio/image perception, spontaneous speaking, learner difficulty validation or real 24-hour retention evidence. Learner-selected external or future activities are textually rehearsed; no real future completion is claimed. Initial band reports remain immutable.
+
+Audit UTC: 2026-11-15T08:59:52.272461+00:00
+
+Initial checkpoint: 174c449c173c0d00b90d5e86c4bf71c2e904b982
+
+Latest follow-up: FINAL_FIXES_8 and FINAL_FIXES_9. C2.1-03, C2.1-04 and C2.2-04 were each fully reread again, with all supplied tasks solved as text. The other 77 changed manuscripts, 20 unchanged manuscripts and six common documents retain their reviewed bytes.
+
+## F0.2.first-names - PASS
+
+SHA-256: e9b96c43ea7419a7928cadf0211e74b731e586ef9623be384edb0f980d250b74
+
+Guided construction: ㄴ+ㅏ=나, ㄴ+ㅓ=너, ㅁ+ㅏ=마, ㅁ+ㅗ=모; first position takes only one consonant. Textually specified sound choice for 니 is B and for 무 is A; actual recordings remain untested. The repeated modern name is Christian, supported by his two self-identifications; the whole name's unfamiliar spelling is not assessed. Chosen or omitted personal name is allowed.
+
+Final independent I1ㅣ/ㄴ→니 (ㄴ left,ㅣ right), I2ㅜ/ㅁ→무 (ㅁ above,ㅜ below). Explicit trilingual cover instructions now hide earlier model/sound choices and all later answers/box activity. Reconstruction is correctly labelled as recall of seen syllables, not first-time decoding, independent pronunciation or meaning. The box task opens only after both responses and uses sound labels, not object names. CUR-F02-01 resolved. No unseen storage clue or family identity is revealed.
+
+## F0.2.tree-and-hat - PASS
+
+SHA-256: fd628358357d569257e75525b2d485d535b17b57c98148720d621a567da5df3a
+
+Text-specified pictures teach tree versus headwear before testing. Guided1/2=나무/모자; guided sound3/4=A2/B2. Fresh C→나무, sound모자→D, written나무→A2, repeatD→모자; the last is expressly not a first-seen image test. Missing image/audio assets cannot count as actual perception. Korean 모자 category includes brimmed hat and knit cap; translations now distinguish the pictures.
+
+Only after basic meanings comes wood: 무/나 reordered to나무; E is the material photograph, while both A1 and E can bear나무 under different senses. Untaught wood is not tested. Modern request asks for the hat(A), delivery and thanks complete the exchange, and pointing/declining are allowed. Transfer can label a new tree or hat and, if taught, compare tree/wood senses. No undocumented delay is claimed as retention; props create no canon ownership.
+
+## F0.2.two-boxes - PASS
+
+SHA-256: 3ba06846963b0af2c31f195595e91f359048b478f84e6a1ea6087906ab806135
+
+Guided 가/고/다/도: verticalㅏ goes right; horizontalㅗ below. Text sound keys for 구/디 are A/C; reconstructionㅜ+ㄱ=구 andㅣ+ㄷ=디 reuses seen items and is not double-counted as fresh transfer. ㄱ/ㄷ are not equated with English g/d. No audio selection is certified without recordings.
+
+Only after 구 confirmation comes 도구: reorder구/도→도구, tool picture A, not blank sheets B. This is supported meaning practice, with grammar/unknown letters excluded. Christian asks to see the same model again, so script answer네; both네/아니요 choices in small talk get coherent responses. Label position swap and later reconstruction do not establish24-hour retention without elapsed-time evidence. Ordinary practice boxes do not disclose the future old box or ownership.
+
+## F0.2.two-tracks - PASS
+
+SHA-256: 40f5036c15627daa621e06cc9194edccecc71c1f1c38cfa1c5de70202fd580a4
+
+Guided pieces yield사/소/자/조;ㅏ right,ㅗ below. Text sound choices수=B,지=A; subsequentㅜ+ㅅ→수 andㅣ+ㅈ→지 reconstruct already-seen syllables. Joy's earlier line is expressly prior exposure, and no first-time or duplicated independent-transfer credit is claimed. Required target remains syllable form/sound, not untaught word meanings.
+
+Christian first checks the indicated piece(이거요?, answerA), then passes it after confirmation; direct passing when clear and clarification when unsure are both valid. Supported gestures/translation participation are not recorded as actual spoken success. Desk position swap and later reconstruction check the same labels; actual delay/help is required before a retention claim. No audio/image results or outside-gate discovery is asserted.
+
+## F0.3.air-one - PASS
+
+SHA-256: 344ea709700d6ffdfa0b86a5848ad12bdbc83f72fe7142352c65bc2012ddf104
+
+First pair P1카 withㅋleft/ㅏright; P2카sample→카; I1쿠 choiceC; I2ㅋaboveㅜ→쿠. Second pair P3타 withㅌleft/ㅏright; P4타sample→타; I3티 choiceB; I4ㅌleft/ㅣright→티. Assembly after sound items is repeat structural checking, not fresh independent performance. Same-speaker comparisons and optional comfortable repetition replace effort/loudness/paper movement as success criteria; recordings remain untested.
+
+Coffee is meaning-supported becauseㅍ is not yet taught. Christian declines coffee now (B), accepts a break, and reveals no lifelong dislike. Replay카 or타, or decline another replay, are valid small-talk paths. Transfer relocates pieces to rebuild쿠/티 with help recorded separately. No forced reading of full dialogue or undisclosed gate/ownership follows.
+
+## F0.3.firm-one - PASS
+
+SHA-256: 0f8f6792ba949da55675519f283accd9804c575764184f4520957aee92519736
+
+ㄲ is one initial letter: guided까 fromㄲ+ㅏ, sound까→까; new꾸 choiceA thenㄲaboveㅜ. ㄸ block gives따, sound따→따; new띠 choiceC thenㄸleft/ㅣright. These seen-item rebuilds require no vocabulary meaning or full까치 reading. Same-speaker sound comparison does not certify force or loudness.
+
+Modern script first replays the same까 sound (A), then pauses; learner can request replay or a break, with the corresponding response. Transfer bookmarks reconstruct꾸/띠 with models covered; help is marked supported. Translation assistance for full sentences is explicit, no audio or pronunciation certification claimed, none-gated ordinary props disclose no story facts.
+
+## F0.3.firm-two - PASS
+
+SHA-256: b6e2146b2f82c09c9a13108e191489dbda2bc8ec4dc4b9fe1c254d14ba827ce2
+
+Separate guided빠/싸/짜 blocks precede뿌/쑤/찌. Text sound keys are C/B/A;뿌 and쑤 placeㅜbelow,찌 placesㅣright. Rebuilds are explicitly re-exposure; later바/파/빠 and자/차/짜 comparisons occur only after teaching all letters and are supported, not new independent tests. No throat-tightening, loudness or word meanings are required.
+
+씨 means a plant seed here and differs from the name suffix. Script views pictures one at a time(B), first put down before second shown. Continue or pause choices each have coherent partner actions. TransferA now explicitly shows the seed with split coat and emerging shoot, so selecting씨 has visual-content support; B is empty pot. Text-only use remains meaning-supported until images exist. Modern seed photos reveal no E03/E07 clue.
+
+## F0.3.near-vowels - PASS
+
+SHA-256: a8a94842c6804457e936eee41d231d0f4c3ab875b532a6fe132f39a4fc59dce9
+
+개/매 vowels areㅐ;네/세 vowels areㅔ. All four blocks place consonant left and the complete vowel shape right. The new assembly repeats seen forms and does not assess untaught meanings of매 or number세. Similar or merged perception is allowed; spelling contrast is visual, not a mandatory auditory discrimination.
+
+Modern photo subject is개(A), whose meaning was supplied;네 confirms seeing/acceptance and does not requireㅐ/ㅔ listening contrast. Small talk can confirm or ask a closer repeat. Transferdog=B (white dog versus treeC), new-font매=ㅐ/세=ㅔ. Text descriptions do not certify actual image perception, and actual audio was not tested. None-gated props/scene preserve story boundaries.
+
+## F0.4.first-input - PASS
+
+SHA-256: ae9103bd75d924e31251b49fc4c18cc481a0ada641daebe98c84f9ef39dfb4ae
+
+Method demonstration uses아, so the first lexical recall remains집 from a new dwelling picture without exposed answer/key sequence. If needed,집+ㅈ/ㅣ/ㅂ supplies support after the attempt. Typing, piece assembly and copying are distinguished; composing intermediate jamo is not prematurely graded. The story's one집 note remains conditional on actual Sarangchae completion/readiness and confirmed storage; pending storage preserves the entered text, and the note is neither duplicated nor overwritten.
+
+Further guided나무/모자 and prepared모사→모자 change only사→자. New hidden-answer photos A/B map바다/다리, provided with facilitator-only asset specification and no answer labels. Seeing the glossary just beforehand is re-exposure, not fresh recall. Prepared짐→집 is subsequent typo correction, not an actual learner-origin error or new first recall. Script answerB (사→자) explicitly uses a model. Small talk can request help or try first; real-note transfer preserves source story note and records input method rather than certifying handwriting/free composition.
+
+## F0.4.last-vowel - PASS
+
+SHA-256: 23c024e610906bc4fd23b8af0fa227262e3d5132e12f46ffa9997f6ad0ddaa51
+
+ㅢ is visually composed with familiarㅡ/ㅣ;ㅇ+ㅢ→의. New희 and늬 both containㅢ and reconstructㅎ+ㅢ/ㄴ+ㅢ after viewing. They are written practice forms, not identification of people or universal meaningless syllables. Optional왜/웨 or얘/예 review compares strokes. Whole-word의자 meaning/sound is separately supported; no one pronunciation is imposed on all names/possessives, and the possessive grammar is deferred.
+
+Script uses chairA, asks before moving it, receives agreement, then sits. Permission wording is now explicitly receptive support, not required novel production. Small talk permits repeat, agreement or refusal with an alternative chair. Transferstool=A versus dining tableB; new-font늬=ㄴ+ㅢ. No actual photo/audio performance or family identity is inferred.
+
+## F0.4.space-and-place - PASS
+
+SHA-256: 5742678618bae951f342c9edd354f53f22cf00e7a222ef22ef75d11d5f21840f
+
+Water is taught via meaning/action before물주세요. Guided spacing yields모자 주세요,물 주세요 and이 집 on a separate board, preserving the single prior집 note/draft. Script requests and receives water, thanks the giver, declines the hat, and does not receive it.
+
+Final A selects2물 주세요 and enters an already chosen form; B recalls모자 주세요 without choices, with natural모자를 주세요 also accepted without requiring the particle. Explicit trilingual covering now separates all earlier glossary/models and later facilitator answers until responses. Selection-input, unsupported reconstruction and supported attempts are separately labelled; CUR-F04-01 resolved. Transfer writes a short water/hat request and verifies delivered object, not just text copying. None-gated scene adds no storage/ending condition.
+
+## A1.1-02 - PASS
+
+SHA-256: 8f34fb725b910541d77bce38dcf1523859c0eb37d98ab8aca63119f8ddbb9ce0
+
+Guided topic forms are 저는, 민수는, 하린은. Minsu's role card supports Korea/English; Harin's supports Germany/Korean. Formal 이름이 무엇입니까/하린입니다 remains receptive; personal nationality and language disclosure is optional.
+
+Fresh A supplies Yuna's name and English but leaves nationality undisclosed; B supplies Jun/Korea/Korean. With models and facilitator answers hidden, 영어 해요? elicits 네, 영어 해요 from A and independently confirms English. Natural polite variants are accepted; using help remains supported work. This repairs the missing learner question turn.
+
+The final two-sentence introduction allows only disclosed facts; the listener repeats those facts without inferring identity or ability. Choosing a name only or 조금 해요 is accepted.
+
+Resolved findings: CUR-A11-01
+
+## A1.1-03 - PASS
+
+SHA-256: d50a3110c1b6c46dec64f99612f86f5f9a0951cc2b268502397a0d9f3b50a026
+
+Guided A has a hat and no bag; B has a bag: 모자가 있어요 / 가방이 있어요. Speaker-relative 여기/저기 changes with position. Absence is restricted to the inspected area, not an unopened box or whole house.
+
+Fresh A near the learner has only a book; B across the space has a hat and bag. Valid statements are 여기 모자가 없어요, 저기 모자가 있어요, 여기 책이 있어요. With earlier models and keys hidden, 저기 가방이 있어요? receives 네, 있어요; a pointing-supported 가방이 있어요? is also accepted.
+
+The new ask turn explicitly confirms supplied information rather than pretending to discover hidden content. The transfer checks two known objects in another room; the hat behind cloth is an ordinary prop and changes no story gate.
+
+Resolved findings: CUR-A11-02
+
+## A1.1-05 - PASS
+
+SHA-256: 863d464b5758898b5e23e22f81f71fcf7680cace631d4a729d267a505a8c7b0f
+
+Owner and companion evidence remain separate. Guided book = Sujin, bag = Christian; Sujin saying 제 책 refers to the same owner. 수진하고/수진이랑 같이 있어요 and 친구랑 같이 있어요 are valid; 과/와 only requires identifying book and hat.
+
+The modern script yields book owner Sujin, bag owner Christian, Christian's companion Hyuna; merely standing with Sujin does not assign ownership or contradict the named companion. Return is confirmed by Sujin's thanks.
+
+New supported cards yield confirmation 준 씨 거예요?, Yuna-role 제 가방이에요, and 준은 수진하고/수진이랑 같이 있어요. The displayed answer remains a supported new check, not claimed independent evidence. Unknown ownership uses supported 잘 모르겠어요 and confirmation before return; copy input and actual ownership confirmation remain separate.
+
+## A1.1-06 - PASS
+
+SHA-256: c560db41938522ca76eefab96d7652872ff0ef37e20eb79bb3e7ebd182b9c187
+
+Guided correction rejects B and points to A; shared bag information gives 저도 가방이 있어요, and umbrella-only need gives 우산만 주세요. 없다 is limited to absence from a checked place, whereas 아니다 corrects identity or ownership of a present object.
+
+The modern script identifies Christian's hat, rejects another owner's bag and declines water, so the delivered set is only the hat. 드릴게요 is receptive speech support.
+
+The independent task hides prior models, vocabulary examples and all-language facilitator answers. New B is rejected with 아니요, 제 가방이 아니에요; A is requested with 이거 주세요, shared hat information gives 저도 모자가 있어요, and the new restricted need gives 차만 주세요. Opening help is supported work; natural alternatives and target-form checks are separate.
+
+The partner must actually exchange the object and reconfirm. Transfer name correction and single-item request are card-dependent, and E04, completed gate and memory 30% remain separately gated.
+
+Resolved findings: CUR-A11-03
+
+## A1.2-01 - PASS
+
+SHA-256: 83b7187c7734314b02057a9eedaad551ae05799adcba615bf9cb6a510ffac429
+
+Guided 4:00 = 네 시, 2:20 = 두 시 이십 분, 14:00–15:00 = 오후 두 시부터 세 시까지; tomorrow on the supplied calendar is 13 May. Hours, minutes and dates have separate preparation.
+
+Script agreement is 13 May, 15:00–16:00, afternoon. In the independent new table only A 14:20–15:00 fits 14:00–15:00 availability. Say 내일 오후 두 시 이십 분부터 세 시까지예요 and correct 14:50: 두 시 오십 분이 아니에요. 두 시 이십 분이에요. Prior models and collapsed answer are explicitly hidden; help changes evidence to supported.
+
+Transfer compares date, daypart, start and end between both people's notes. Fictional dates and schedule do not set actual construction or elapsed retention.
+
+Resolved findings: CUR-A12-01
+
+## A1.2-02 - PASS
+
+SHA-256: 4eff585534c8fd674d0d42e9ba1ac1ff0a9aae1fd546100e3a02a186d93c7e0b
+
+Guided library destination/action are 도서관에 가요 / 도서관 앞에서 기다려요; bus is a means and 오른쪽 is direction. At original X, north-facing right is the eastern café, south-facing right the western stop. 가다/오다 is checked from each speaker's position.
+
+Script yields bus, in front of café, and facing direction checked before right. 왔어요 is receptive support, with past production deferred. The independent map is genuinely rearranged: north stop, east library, south café, west bridge. Facing north at X, right to the library is correct; 도서관에 가요 and 도서관 앞에서 기다려요 solve destination/action separately.
+
+All prior models and review answers are hidden. Transfer locates the bridge on a further new map and confirms waiting in front; map-top is distinct from physical on-top and no actual access right changes.
+
+Resolved findings: CUR-A12-02, CUR-A12-07
+
+## A1.2-03 - PASS
+
+SHA-256: 9c0b77d5ba66da1574ef12effb0564797ecc0deac780fedff2d7bb64feb3028e
+
+Full current text reread after FINAL_FIXES_4. Past/current/ongoing supports remain distinct, and -고 expresses the supplied card order without a universal strict-chronology claim. Available-book choice gives 안 읽었어요 / 읽지 않았어요; missing intended book gives 못 읽었어요 / 읽지 못했어요.
+
+Listening text: Christian ate and rested yesterday, could not read because the book was at home, brought it today and is reading now. Photos later is a supported future line, not a completed act.
+
+Fresh record, both negative forms independently required: 사진을 보고 차를 마셨어요. 책은 안 읽었어요. 책은 읽지 않았어요. 지금 밥을 먹고 있어요. 마셨어요 is prepared before the task. The German plural verb is now bedeuten, with the same two-form meaning.
+
+Fresh inability pair: 어제 사진을 못 봤어요 / 어제 사진을 보지 못했어요, because the intended photos were left at home. Do not attach this inability to the available-book/rest-choice case.
+
+Models/keys are hidden before an independent attempt and help is supported. Small talk and optional fictional-role transfer preserve learner choice; no story gate, memory, ownership or reward changes.
+
+Resolved findings: CUR-A12-03, EN-FINAL-01, DE-FINAL-A123-01
+
+## A1.2-04 - PASS
+
+SHA-256: 12e6b91970d0d05d530b685c1deaab3f04d0960f5bab2df8ef677c15eb9855c0
+
+Guided counters yield 물 세 병, 모자 네 개, 사람 세 명; two bottles at 2,000 each cost 사천 원. Christian-recipient practice is 크리스티안 씨한테 한 병 주세요.
+
+Script order is two bottles, 4,000 won, recipient Hyuna, distinct from ordering Sujin. New independent material changes unit price to 1,000 and recipient to Christian: 두 병이 아니에요. 세 병 주세요. 크리스티안 씨한테 주세요. 삼천 원이에요. Models/keys are hidden and support is separately recorded.
+
+Transfer supplies three people, two bottles and one hat, so 세 명/두 병/한 개 are checkable and recipient must actually receive the item. House recipient Sujin is explicitly a separate exercise; fictional prices do not alter currency or reward state.
+
+Resolved findings: CUR-A12-04
+
+## A1.2-05 - PASS
+
+SHA-256: 8b7dce39ffa569ee6604f9f55d7b79e810593e9e71ef3c6265c8ccbdf28d0723
+
+Full text reread after FINAL_FIXES_1. Guided functions remain separately supported: 한국어를 배우고 싶어요; 사진을 찍을 수 있어요 / 종이에 글씨를 쓸 수 없어요; 사진을 보러 카페에 가요; 책을 읽으려고 책을 준비해요. A prepared book is laid out, not authored.
+
+Script: original wish writing on paper; missing paper prevents it; choose outdoor photographs; Sujin next prepares a camera. The dialogue reports neither completed photography nor permission derived from having equipment.
+
+Fresh choice: 사진을 찍고 싶어요. 지금 사진을 찍을 수 없어요. 책을 읽을 수 있어요. Movement card A: 책을 읽으러 가요. Separate preparation card B supplies paper at a different place: 글씨를 쓰려고 종이를 준비해요. Both cards are now required separately, so one purpose form cannot substitute for all production evidence. Paper's new availability is explicit and does not contradict the earlier no-paper scene.
+
+Earlier models and all review answers are hidden first; opening help makes the attempt supported. Small talk permits declining for reading or rest. Transfer checks two actual available activities, a wish and a constraint; closed estate areas remain closed and Joy uses the accessible courtyard.
+
+Resolved findings: CUR-A12-05, DE-FINAL-A125-01
+
+## A1.2-06 - PASS
+
+SHA-256: f371c6fe5299d12193f0027e3fe8e4640cebb053c6c6f8c1fe7b52c7fb269cbb
+
+New supported set A: 비가 와서 집에서 책을 읽었어요 / 비가 오니까 도서관에서 만날까요. Set B: 공원이 카페보다 가까워요 / 공원이 가깝지만 비가 와요 / 두 시에 가능하고요, 장소는 카페예요. Set C: 출발하기 전에 차를 마셔요 / 만난 후에 책을 읽어요 / 제가 먼저 연락하겠어요. Each function is separate; 읍시다 remains receptive.
+
+The added independent prediction uses a new dark-cloud card, no rain yet, with prior examples and key hidden: 비가 오겠어요. It explicitly signals conjecture, not observed rain or a forecast. This adds production for the allocated prediction function, distinct from volunteering 연락하겠어요.
+
+Script agreement is today 16:00 café because of rain; Hyuna goes first, Sujin contacts before departure, photos follow meeting. Only at four is not all times after four. New conflict has mutual 15:00–16:00 availability and accessible library: 비가 오니까 내일 세 시에 도서관에서 만날까요? 저는 세 시부터 네 시까지 가능해요 → confirmed same time/place → 출발하기 전에 연락하겠어요. 만난 후에 책을 봐요.
+
+The integrated key is collapsed and models hidden; supported micro-checks are not counted as independent. 확인하고 연락할게요 is pending, not agreement. No erased name, departure reason or E05 reveal is produced.
+
+Resolved findings: CUR-A12-06, CUR-A12-08
+
+## A2.1-01 - PASS
+
+SHA-256: 1f98eb4ffec270b660d4e4e82b9a3f735f99b3abef6ae81143b63d00fdea6310
+
+House prop: today only Dokkaebi is listed, tomorrow unavailable, day after tomorrow two places. The traveller asks and gets Dokkaebi's agreement before entering a name. This is a separate arrangement from the modern booking, with no clue or construction change.
+
+Guided functions: 금요일에 자리가 있으면 예약하고 싶어요; 날짜를 바꾸거나 예약을 취소할 수 있어요. Wish, option and confirmed decision remain separate; 거나/이나 do not universally imply exactly one.
+
+Modern script: no tomorrow slot; confirmed reservation is day after tomorrow 10:00. The request alone does not complete it. New workshop has morning-only personal availability, so Friday/Monday afternoons are excluded. Responses: 일요일 오전에 자리가 있으면 바꾸고 싶어요; 일요일이나 월요일 (different offered dayparts); 직접 가거나 전화로 물어볼 수 있어요; 일요일 오전 열한 시로 바꾸기로 했어요. The alternative-action task now concerns two valid enquiry methods rather than an impossible retained booking.
+
+All-language models and collapsed answers are hidden for the independent attempt; transfer requires venue confirmation and repetition. Modern-first route and none gate remain intact.
+
+Resolved findings: CUR-A21-01
+
+## A2.1-02 - PASS
+
+SHA-256: 82dcbd7c7f8ed07a6eb15ab07df99b81c60e1b159abafc0d156e1193e39295b3
+
+Full latest KO/EN/DE manuscript and LEVEL row reread after the neutral Joy possession correction. Joy adjusts den eigenen kleinen Hut; the known original hat is not exchanged. Blue hat ownership is unknown and it stays in place. Only Sujin's brought-in green practice prop may be exchanged after asking her. Wearer, owner, resemblance and lesson prop remain separate; neither gate nor historical clue changes.
+
+Guided production: 빨간 장갑밖에 없어요; 이 가방도 저 가방처럼 검은색이에요; 단추를 달아 주세요; 안내를 읽는 사람에게 물어보세요; 가벼운 가방을 주세요; 상자에다가 주소를 써 주세요. Short practice: 파란 펜밖에 없어요. 하나 빌려 줘. The limited-stock negative, comparison, benefactive request, current-action modifier, adjective modifier and added location all have material to support their meanings.
+
+Shop script: size is the problem, small black is the only stock, unused bag plus receipt satisfy this fictional shop's stated condition, and the large bag goes in the indicated box. No real-world return-right rule is inferred. Alternative small-talk uncertainty about the new bag is accepted.
+
+Fresh event materials: 컵이 두 개밖에 없어요; 이 쟁반도 사진 속 쟁반처럼 흰색이에요; 명단을 읽는 사람이 민호 씨예요; 작은 쟁반을 주세요; 상자에다가 이름을 써 주세요. Models are to be covered before speaking; visible examples/help remain supported practice. A life-transfer rehearsal: 이 손전등은 불이 안 켜져요. 주인이 누구예요? 확인해 주세요. Natural 에 variants can be acceptable communication while the designated form is still practised separately. Photo facts are text-supplied, not an actual image-perception check.
+
+Resolved findings: ROOT-FINAL-A212-01
+
+## A2.1-03 - PASS
+
+SHA-256: 2f5100d700871a4a4620359c324e6045595a282146a3c45f95d6c8e467dcbe57
+
+At 09:10, 09:20 is the already-departed 09:00 service's arrival, so next departure is 10:00 and arrival 10:20. Listed departures are hourly; no unlisted service is inferred. Immediate giver Sujin is not necessarily the author. Phone follow-up occurs if the time changes again.
+
+Guided interval examples are 삼십 분마다 and 이십 분마다; giver 민호 씨에게서/한테서. 에게로 identifies person approached, 에서부터 the starting place and both remain receptive.
+
+New 40/45 minute preparation explicitly teaches 사십/사십오 with a different 1:45 clock before independent use; pointing can separate time understanding from number production. At 14:15 the next listed departure/arrival is 14:30/14:45, interval20min: 두 시 반에 출발하고 두 시 사십오 분에 도착해요. 이십 분마다 출발해요. 레나한테서/에게서 받았어요. Recognition: Minho, library. All models, translations and key are hidden.
+
+Transfer states a confirmed revised arrival or promises to check; no timetable is treated as a historical clue or medical fact.
+
+Resolved findings: CUR-A21-02, CUR-A21-03
+
+## A2.1-04 - PASS
+
+SHA-256: 1b6dd7c5b419d749a43f4db7c304acd48df0afa402e40582d528cc1317594d70
+
+The LQ07 fruit is restored to 홍시, aligned with the canonical event. House practice sign permits rest, prohibits photography before it and requires asking Sujin before the practice area; discomfort and help do not reveal a new core clue.
+
+Guided reading-room rules: 안에서 음료를 마시지 마세요 / 입구에서 가방을 맡겨야 해요. Formal 기다리십시오 is receptive. Modern waiting area: sitting allowed, passage must stay clear, bag under chair, only outside opening-hours notice may be photographed; front counter is the help location.
+
+Fresh workshop with models/keys hidden yields 대기실에서 쉬어도 돼요; 작업실에서 음식을 먹지 마세요; 작업 전에 앞치마를 입어야 해요/돼요; 이 스위치를 한번 눌러 보세요. Waiting place = information desk. Added apron-help role requires 도움이 필요해요 and staff response/help, satisfying actual help request. 도와주세요 is accepted with chunk support; untaught 돕다 conjugation is not separately assessed.
+
+Transfer responds to either local permission or relocation. Supported 오느라 and canonical bookmark remain distinct from production and actual health treatment; no real learner performance is certified.
+
+Resolved findings: CUR-A21-04, CUR-A21-05, CUR-A21-06
+
+## A2.1-05 - PASS
+
+SHA-256: c88b2a67f2410eaf896da19708db87d7d05fb7f21ac10ba5414f61560bb4cec8
+
+Photo A was sent by Minho yesterday; photographer unknown. B is checked now and unsent, C is prepared for tomorrow's sending. The script selects A, one legible print, and leaves other files; sending does not establish taking the photo.
+
+Guided received/planned descriptions are 어제 받은 자료 / 내일 읽을 자료. New preparation explicitly teaches 만들다→만든 using 만든 모형 and distinguishes a ㄹ-deletion error from failure to understand time reference.
+
+Independent poster tasks, with models/all-language keys hidden: 레나가 어제 만든 포스터예요; 내일 붙일 포스터예요; 현아가 종이를 자르는 것을 봤어요; 포스터 붙이기; 방문객들이 찾을 수 있게 입구에 화살표를 붙였어요. The five functions preserve past/planned action, observed event, list nominal and purpose; 는 걸 is a natural alternative.
+
+Transfer requires actual completed versus planned work, not an invented completion. The present teaching photograph is not historical ownership/authorship evidence and none gate remains intact.
+
+Resolved findings: CUR-A21-07
+
+## A2.1-06 - PASS
+
+SHA-256: a3bb877dab6b07d1a6046bca55cfaad2bbcdcd5af8c37f2c917ceaf21981350c
+
+Guided 선생님이 오세요 honours the arriving teacher while 요 addresses Christian politely. Familiar speech to Sujin can still honour the recipient in 선생님께 드릴 거야. Supported teacher-reading response is 선생님이 안내를 읽으세요.
+
+Recognition notice: teacher waits, room has already changed, list must be checked before entry. 2층 is explicitly one level above the ground entrance in all languages. Script identifies teacher upstairs, staff only promises onward delivery, and Lena says 제 이름 rather than self-honouring 성함.
+
+Fresh production: 선생님이 표를 확인하세요 (or familiar 확인하셔); 이 편지를 선생님께 전해 주세요. Listener changes from friend to staff, honoured third person stays teacher. New notice answers: responsible teacher / meeting time changed to3 / write name before entry. Both translation and key are separately collapsed; prior models and all languages hidden, help marked supported.
+
+Final house dialogue explicitly confirms TalSunbi receives the photograph; this is distinct from the unresolved modern onward delivery. Modern-first A2.2 route and E06 name/promise gate remain intact.
+
+Resolved findings: CUR-A21-08
+
+## A2.2-02 - PASS
+
+SHA-256: 5b2e3d01882d5684bb19b178725d99a6709bc5859a7f78ad1880fe32e83a8381
+
+Upper-first instructions skip only house passages and begin with vocabulary/models, preserving all preparation. House order: talking and walking together; stop; look at photo; attend to title; do not turn to next photo yet. Learning title is neither historical document title nor secret name.
+
+Supported water/letter cases give 물을 마시면서 창밖을 봐요 / 편지를 쓰다가 문을 열었어요. Modern key story: music and moving books overlap, music cause is unconfirmed, key found under book and actually placed in entrance box today.
+
+Fresh hidden-key task: 물을 마시면서 안내문을 읽었어요; 안내문을 읽다가 전화를 받았어요; 원래 방을 쓸 수 없어서 마당에서 안내를 듣게 됐어요. Finding the paper in his own bag does not establish another taker. The original unavailable room supplies the change reason, while simultaneous actions alone do not establish cause.
+
+Transfer allows true overlap/interruption without invented change. Both house passages retain E06.middle and no completion/name/family-promise reveal.
+
+Resolved findings: CUR-A22-01, CUR-A22-02
+
+## A2.2-03 - PASS
+
+SHA-256: f4bbed7c9b45d5a4f66736de0f41f57ff707b4d70129cc85a859b3406c551b69
+
+Upper-first route now begins at vocabulary and models. Three productive functions are background, stated reason and newly observed reaction; 군요/exclamatory 는데요 are receptive. House silence has no invented hate/responsibility explanation; the spoken wish is rest.
+
+Supported responses: 내일 수업이 있는데 몇 시에 시작해요; 표가 매진됐기 때문에 못 갔어요; 빈 의자가 많네요. Recognition: rest wish understood, 멋있는데요 ends as an exclamation. Concert script has ticket, missed bus, late arrival and no entry; Saturday undecided, wanted help = listening.
+
+New file task hides models/answers and explicitly changes roles only for step2: friend 내일 발표가 있는데 어떤 도움이 필요해요?; Hyuna 파일이 열리지 않기 때문에 걱정돼요; friend 오류가 뜨네요 (or 파일이 안 열리네요); 다른 파일은 열려요? No productive reported speech is required. The technical cause and last answer remain unknown; waiting for a response is valid.
+
+The temporary first-person role expresses the stated worry without assuming a third person's inner state. E06.middle and unrevealed causes/name/promise remain protected.
+
+Resolved findings: CUR-A22-03, CUR-A22-04
+
+## A2.2-04 - PASS
+
+SHA-256: 837666d6729825c86443092270921c9ec2731bd2b12ed42f2e1952c09466cfa0
+
+Full text reread after FINAL_FIXES_3. Christian cannot Saturday14 and can Sunday15; Lena's Saturday/Sunday availability remains unknown and checkable by tomorrow noon. Dialogue retracts the mistaken Saturday proposal.
+
+Supported six functions: 오늘 여섯 시까지 주소를 확인할게요; 차 마실래요, 물 마실래요; 집에서 쉴까 봐요; 오늘 약속이 있고 내일 시험도 있어요; 세 시에는 수업이 있어서 어려워요. 다섯 시는 어때요; 초대는 고맙지만 오늘은 어려워요. Tentative intention is explicitly still undecided rather than the worry meaning.
+
+Listening questions: Lena promises schedule check and contact by noon tomorrow; only Christian has confirmed Sunday15; shared visit is not booked. Tea after the visit can remain tentative or be declined warmly.
+
+Fresh six-form production: 금요일에는 수업이 있고 집에도 늦게 와요; 수업이 있어서 여섯 시는 어려워요; 같이 걷고 싶지만 토요일 일정은 아직 몰라요; 비가 오면 집에서 쉴까 봐요; 내일 열 시까지 확인하고 연락할게요; 그때 시간을 정할래요?
+
+All earlier models and new fragments are now explicitly hidden in every language before the fresh role task; the new model is collapsed, and viewing help makes the attempt supported. A short actual reply selects the reason, feasible contact promise and choice question after practising all six separately.
+
+The calendar records only Lena's checking/contact commitment. Modern MQ-03 this_scene_gate none reveals no house memory, and no availability or shared appointment is invented.
+
+Resolved findings: DE-FINAL-A224-01
+
+## A2.2-05 - PASS
+
+SHA-256: 6d262434b34a17962fcc1467afc18a4ff02dce24aaf35a54e6fdf11825769293
+
+Upper-first route includes vocabulary, state/progressive/inference models and supported window task. Opening action = 창문을 열고 있어요, result = 창문이 열려 있어요; no visible person does not establish an empty building.
+
+Modern script observations are closed door and light on. Staff is arranging chairs but never states the reason for closing; explicit 들어오세요 grants entry. Library supported card yields open door, hanging sign, tentative vacant room and use-permission question.
+
+The formerly missing retry now has complete textual cardB: café door closed/window open, inside unseen, staff unheard. With prior examples/key hidden: 문이 닫혀 있어요. 창문이 열려 있어요. 아무도 없는 것 같아요. 안에 누구 계세요? Other plausible tentative inferences and permission questions are accepted; nobody inside is not established. Text description supplies solvability without certifying image perception.
+
+House record retains only observed door state. Both passages remain E06.middle and do not reveal recovered name, whole family promise or later motives.
+
+Resolved findings: CUR-A22-05, CUR-A22-06
+
+## A2.2-06 - PASS
+
+SHA-256: dd339eb1bfea4a780c74028b2fffb3dbd1bab5ac76e86c027ad3cf28480f1abb
+
+Guided shared arrangement: 내일 열한 시에 만나지요? 그때 책을 돌려줄게요. Modern umbrella ownership comes from Lena identifying her tag, not colour; item was mistakenly taken, not borrowed; Christian's own umbrella location remains unconfirmed.
+
+Independent Maya bag: 제 가방이 아니에요. 확인하지 않고 가져와서 미안해요. 다섯 시 반에 카페로 가져갈게요. 여섯 시까지 계시지요? 17:30 fits her availability to18:00; lack of a messenger does not force waiting until tomorrow. All models and all-language keys are hidden.
+
+Added request-refusal turn: friend wants bag today, owner has not authorised onward lending and return is due. Valid refusal: 미안해요. 제 가방이 아니어서 빌려줄 수 없어요. 오늘 마야 씨에게 돌려줘야 해요. Shorter polite equivalent is valid. The source refusal can-do now has actual learner production without changing owner or appointment.
+
+Separate constrained registration case closes all today/internet/phone routes: 내일까지 기다릴 수밖에 없어요. The independent form has a genuinely absent alternative. Promise is distinct from completed return; only final house handover explicitly completes Sujin's modern prop return and remaining E06 story stays gated.
+
+Resolved findings: CUR-A22-07, CUR-A22-08
+
+## B1.1-02 - PASS
+
+SHA-256: dd6c26de06bee390e4214191994d8a98431e501656fa8a0b4154dafb1c68b97d
+
+House seed cards run open packet → sow → tend → later bloom; watering time remains unknown and anonymous sender unchanged. Guided bus intention is 타려다가 지하철을 탔어요 because no boarding happened. Script finds envelope yesterday, photo today; call prevented opening and did not cause loss. Correct photo is checked before packing.
+
+Fresh sequence, with all-language model covered: 상자를 열었더니 빨간 끈이 있었어요; 끈을 꺼내자마자 초인종이 울렸어요; 상자를 묶으려다가 손님을 맞이했어요; 물은 손님을 안내한 다음에 주었어요? Unknown water time stays a question.
+
+Four further fresh scenes cover remaining outputs: 일기를 쓰다가 문을 열었어요; 도서관에서 자료를 빌려다가 발표를 준비했어요 (used at home); 책을 분류하고 나니 빈 선반이 보였어요; 과일을 씻어 가지고 접시에 담았어요. All eight functions have text-solvable separate production without forcing one overloaded story.
+
+Modern vocabulary/models and activities work without E07 house passages. Temporal proximity is not invented cause, and current task props are not historical records.
+
+## B1.1-03 - PASS
+
+SHA-256: a3d96cb2d988f645784148e9dfdfa81f63de96af79081bf004f561cbed9f50c4
+
+Guided preparation/result state: 봉투를 준비해 두었어요 / 봉투가 책상 위에 놓여 있어요. Script distinguishes Maya's missed call due to sorting from Daniel's leaking bottle; photos separately checked dry, sheets still drying, additional notices only promised.
+
+New notebook data expressly supplies direct observation of the cup tipping and water touching the cover, supporting 물컵이 넘어져서 표지가 젖었어요 without inventing a causal link. Who tipped it and inner damage remain unknown. Valid immediate action is inspect then dry on available desk; recheck before tomorrow's use.
+
+Independent fresh form checks with answer column hidden: 발표를 준비하느라고 전화를 못 받았어요; 버스표를 잃어버리고 말았어요; 서랍을 모두 확인한 결과 표는 없었어요; 회의실 조명을 켜 놓았어요; 내일 나눠 주려고 안내문을 복사해 두었어요; 빵 반죽이 조금씩 부풀어 가요; 세 달 동안 매일 연습해 왔어요; 방이 밝아졌어요. Domain of negative ticket result is only searched drawers.
+
+House new practice seed packet is checked dry separately from wet umbrella; no claim about old sender. Overlap of 놓다/두다 is allowed and no actual elapsed learner retention is certified.
+
+## B1.1-05 - PASS
+
+SHA-256: 062ae0348ae160d4c7a886b3373728eed71b383d9e84cb2acd4dd7d74a891aed
+
+Full latest three-language text and LEVEL row reread. Modern MQ-04 remains ungated and uses the previous unit's agreed familiar style only between those neighbours. Labels go only on Lena's boxes; Hyuna's await photographs. Help, permission, wish and completed work remain distinct.
+
+Supported card solution: 찾기 쉽도록 큰 카드에 적을까요? 붙이지 않고 옆에 놓을게요. This meets the expressed no-tape preference. Script solutions: Lena's boxes only receive labels now; Hyuna suggests large written contents as well as colour; photography is not completed because she promises to report after finishing. Moving towards Lena's room does not override the clear-passage rule.
+
+Fresh offer: 책이 무거우세요? 제가 옆 테이블까지 옮겨 드릴까요, 아니면 잠깐 들어 드릴까요? 어느 방법이 편하세요? The available table or holding are options; opening the refused bag is excluded. Fresh functions: 손을 편하게 쓰실 수 있도록 책을 들어 드릴까요? 책을 안전하게 놓기 위해 옆 테이블을 쓸까요? 통로에 책을 놓으면 안 돼요. 모두에게 편한 방법이면 좋겠어요. The wish is my preference, not another person's agreement.
+
+Separate -게 하다 cases: 진행자가 보조 담당자에게 의자 세 개를 옮기게 했어요 = assigned/caused action; 진행자가 참가자를 앉게 했어요 = permitted action in the given request-and-permission context. Completion is supplied in those role facts, and grammar alone grants no authority.
+
+The fresh section now starts with all-language concealment of earlier models and the entire section's answers plus explicit support labeling. Main model, four function answers and the two -게 하다 answers are separately collapsed. All six target forms and both causative/permissive uses can be answered before viewing models. Declining help and ending with 필요하시면 말씀해 주세요 remains valid.
+
+Resolved findings: DE-FINAL-B115-01
+
+## B1.1-06 - PASS
+
+SHA-256: 2f0e761d4c3319bb2799d122c52a033eaaf3524d8a85b519b5220362925e78c9
+
+Full latest KO/EN/DE and exact LEVEL row reread. Modern MQ-04 has no estate gate or historical date changes. -거든 is taught conditionally here, with explanatory -거든요 reserved for B1.2-02; 있대 is a supported next-unit preview rather than current mandatory production. A personal decision or scheduled arrival is not another person's promise or actual completion.
+
+Supported timing: 19:00 start minus twenty minutes preparation gives start by 18:40. Umbrella script: Maya confirms today at the café at 16:45; leaving at 16:00 reaches the stop 16:10, ten minutes before 16:20 departure; delaying departure to 16:10 removes the buffer. The return has not happened and no staff-storage permission exists. Rain makes the bus a preference, not mathematical proof that walking is impossible.
+
+Fresh book plan: 18:00 plus forty minutes is 18:40, later than today's 18:30 limit. Propose tomorrow noon following the owner's stated availability and prepare the book today: 잊지 않도록 가방에 넣어 두어야겠어요. The separate confirmed-meeting role card supports two distinct outputs: 내일 열두 시에 만나려면 늦어도 열한 시 이십 분에는 출발해야 해요; 늦어도 열한 시 이십 분에는 출발해야 열두 시에 역에 도착할 수 있어요. The second explicitly supplies the new -어야 condition-to-result link; obligation alone no longer substitutes for it.
+
+Fresh workshop functions: 비만 아니면 걸어가고 싶어요. 예약번호를 보여 줘야지 들어갈 수 있어요. 제가 번호를 확인할 테니 다음 버스 시각을 봐 주세요. 버스 시각을 알게 되거든 알려 주세요. Neither number nor bus time has been checked yet. Seven targets are elicited across separate scenarios, with required condition distinguished from resolve.
+
+All earlier and current-section models in every language must now be concealed from the start; help-exposed attempts are supported. All new answer groups are collapsed. Real-plan transfer allows multiple feasible answers while keeping unknown methods open and does not score story progress or speed.
+
+Resolved findings: CUR-B11-01, DE-FINAL-B116-01
+
+## B1.2-01 - PASS
+
+SHA-256: 09fd34d5f55166110eb2932d775483488fecb72c547e80139018b742229f886b
+
+Full latest KO/EN/DE and exact LEVEL row reread. Estate opening/closing require E07 plus E08.started and keep house receipt versus external custody, reader versus writer versus eyewitness separate. Partial documents do not reveal distributed storage as completed proof, protection motive or the sender; no omniscient testimony after TalSunbi slept is invented. Modern reporting cards remain independently available.
+
+Supported transformations preserve Sujin's exact direct quote, indirect borrowed-umbrella statement, Lena's question to me, Hyuna's instruction to me, Daniel's joint suggestion, Lena's own cold reason and window action, example late/absent reports and a formal received change request. Maya's photo request is reported without falsely saying I sent it.
+
+Script: Christian received Maya's voice-message content, not witnessed arrival; Christian is asked to bring two photos; Lena is asked when she can arrive and offers 18:30, still requiring Maya's acceptance. Photograph selection is a proposed joint action after arrival. The messenger can reduce burden by inviting direct contact.
+
+Fresh Hyuna memo: 현아 씨가 레나 씨에게 보낸 메시지를 읽었어요. 현아 씨는 내일 열 시에 도서관에 간다고 했어요. 다니엘 씨가 언제 올 수 있냐고 물었고 입구에서 만나자고 했어요. 레나 씨보고 지도 한 장을 가져오라고 했어요. The original recipient and action recipient remain Lena; no arrival or handover completion is asserted.
+
+Fresh remaining functions: 현아 씨가 ‘문은 아홉 시에 열어요’라고 했어요; 다니엘은 목이 마르다고 물을 마셨어요; 자리가 없다거나 시간이 안 맞는다는 답장이 왔어요; 마야가 저보고 창문을 닫으라고 했어요. 아직 닫지 않았어요; 안내팀으로부터 새 지도를 받았습니다. All target functions, including source/recipient and quote-as-reason, have new prompts. New section-wide all-language hiding/support instructions cover both the primary collapsed key and later function table.
+
+Resolved findings: DE-FINAL-B121-01
+
+## B1.2-03 - PASS
+
+SHA-256: b19a01961b14b01b933d53f35987b0b22cad7d6a8841224f2b075b6d6df7b791
+
+Full latest three-language text and exact LEVEL row reread. E07+E08.started estate work groups photo/transcription/translation of the same revealed receipt passage as one originating source and keeps the external custody note distinct. It invents no text, owner, sender or later disclosed motive. The modern task is available without the gated opening/closing.
+
+Supported umbrellas: A는 B만큼 길고 색도 같지만 손잡이 재료는 달라요. Script establishes two objects because Daniel photographed A and B side by side; both measure 70 cm, A alone has a red repair. Minho's reported red-thread repair makes A a candidate, not confirmed ownership or authorisation to hand it over.
+
+Fresh photos: 크기는 같지만 손잡이 색은 달라요. B는 A를 확대한 것뿐이므로 같은 자료군이에요. C는 별도로 찍은 사진이에요. 촬영 사이에 손잡이를 바꾼 적이 있나요? Separate capture is not proof of a different underlying bag, and no owner is supplied.
+
+New function outputs: 물건이 많아진 만큼 시간이 더 필요해요, with the same person/procedure now checking eight instead of two; 안내에 적힌 대로 하나씩 확인해요; 학생이고 직원이고 같은 절차를 따라 주세요. A의 가방은 C의 가방만큼 커요; 손잡이가 고리같이 생겼어요; 레나와 마야가 같이 사진을 봐요. Inclusive 이고 is not one person's dual status; similarity 같이 and together 같이 are separately used.
+
+Updated all-language, whole-section concealment includes the final comparison examples as well as main and additional models; exposed attempts are supported. Transfer preserves at least one criterion beyond colour and independent-source grouping. Supplied image descriptions are solved as text, not certified visual inspection.
+
+Resolved findings: DE-FINAL-B123-01
+
+## B1.2-04 - PASS
+
+SHA-256: 74826b90f3e426b68f3db39aa59021c2962b63423213a2b274a9751ab6cddf1a
+
+Full latest KO/EN/DE text and exact LEVEL row reread. Estate passages remain behind E07+E08.started and concern teaching paper models only; the choice of a dry drawer/location note does not move original records or reveal later E08/E11 facts. Modern deliberation remains independently usable.
+
+Supported alternative: 입구가 잘 보이기는 해요. 하지만 자료를 입구에 두는 대신 안쪽에 두고 위치만 안내하면 어떨까요? Script avoidance of the entrance follows observed rain entering now, not only a forecast. An entrance arrow addresses the inner table's visibility problem; the box remains open during the meeting and closes afterward. Looking sturdy is not a test result.
+
+Fresh reading-place response: B가 찾기 쉽기는 하지만 A가 조용한 편이에요. 읽는 시간에 대해 생각하면 A가 좋겠어요. 입구에 앉는 대신에 A의 위치 안내를 붙여요. A는 조용한 반면 입구에서 멀어요. Formal notice: 모임 장소는 입구에서 멀리 있으나 조용합니다. The comparison baseline for 조용한 편 is supplied and permission for a sign is explicit.
+
+Additional appearance/concession rehearsal: 편해 보여요. 하지만 편해 보여도 실제로 불편하니 다른 의자를 쓸게요. Comfort appearance is a stipulated language prompt, not an actual photograph judgment; the subsequent uncomfortable condition supplies the revision. Eight functions can be practised across the new choice, notice and extension without forcing all into one reply.
+
+New section-wide instruction hides every earlier/current answer in all languages, including the separately printed notice and 반면 example, before responding. Help-exposed attempts stay supported; another reasoned choice can remain communicatively valid if it satisfies the supplied constraints.
+
+Resolved findings: DE-FINAL-B124-01
+
+## B1.2-06 - PASS
+
+SHA-256: ccba13da7edea451a455df847474eed27f505e1e3b13727eaaa8101d3e07f6f6
+
+Full latest three-language manuscript and exact LEVEL row reread. This scene uses the stricter E07+E08.middle gate, preserving the difference from the canonical started anchor. It can now discuss divided custody but not E11 protective name removal, lifelong sender or E12 letter. Modern investigation precedes any unrevealed estate content.
+
+Supported umbrella account: photo P at 10:00 and its enlargement are one origin. Lena's 10:05 message reports leaving a borrowed blue umbrella, not its exact placement time or identity with P. Hyuna at 10:20 says she has not received it. Revise completed return to reported placement, uncertain photographed identity and unconfirmed receipt; ask for handle features and placement time.
+
+Script: the overextended initial claim is return to Hyuna, the photograph establishes neither identical umbrella nor receipt, and the practical next step is to search together and then report confirmed facts. Lena can speak for her own placement and message, not Hyuna's receipt. Briefness is corrected without treating error as a character fault.
+
+Fresh exhibition case: four source groups A, B, C/D and E; C and its crop D share one image. Maya reports entrusting the exhibition book to Daniel; Daniel reports desk placement without personal staff handover; the 14:20 blue book's title is invisible; at 14:30 the staff member reports no book received. Ask the photographer to check the title separately and the current storage location. Objection reply: 사진 두 장이 아니라 같은 사진 전체와 일부이므로 독립 확인이 늘지 않아요. Four groups are not four independent eyewitness confirmations.
+
+Whole-section concealment now covers earlier models and all languages before the new investigation; exposed answers/help remain supported. Photo/source facts are text-provided. The corrected estate account retains anonymous-sender uncertainty and explicitly separates later story disclosure from language mastery.
+
+Resolved findings: DE-FINAL-B126-01
+
+## B2.1-01 - PASS
+
+SHA-256: a3587f10bee3d8638802a3c12acd7cfef0333c2cb96757db3a95765ca66d757f
+
+Modern source edit: April120 visits and80 distinct visitors are different indicators in the same month; repeat visits count repeatedly. No prior-month or satisfaction data supports popularity growth or a cause. Script answers: unit visits→people error; missing earlier-month/satisfaction evidence; corrected headline120회/80명 plus repeat-count rule.
+
+Fresh form outputs: 시청자 수란 중복을 뺀 사람 수예요. 다시 재생한 횟수가 포함되는지 확인해야 해요; 금요일에 비하여 토요일 대여는15회 늘었어요. 중복 대여를 세는지에 따라 수가 달라져요; 담당자는 주문을 적으며 결제 여부를 확인해요. 음료며 수량이며 가격이며 확인해요; 자원봉사자로서 예약을 확인했어요. 예약 번호를 대조함으로써 중복 신청을 찾았어요.
+
+Remaining form cases: 지도가 이동 경로를 안내하듯이 조리 순서표는 요리의 진행 순서를 안내해요; 이 표에서는 이용자가 많을수록 평균 대기 시간이 길어요. 직원 수를 기록하지 않아 원인은 확정할 수 없어요. Function analogy does not identify contents, and observed association is not causal experiment.
+
+Independent choiceB: June40/100 full membership versus July30/50 invited subset cannot directly measure whole-membership change; A confuses denominator and C confuses counts. Answer and explanations in all languages are now hidden/collapsed, and after-key attempts explicitly supported. Choice is comprehension only.
+
+Transfer three sentences preserve60% courses versus40% learners: majority courses online does not mean majority learners online; check reference group next. HouseE08+E09, no invented historical quantities, sender, protection motive, memory or rewards.
+
+Resolved findings: CUR-B21-01
+
+## B2.1-02 - PASS
+
+SHA-256: aa1f0879ee10ba2e09ad9fbc5b9d715d7040c57bc260f7eda3247fb7e7c3cb80
+
+Attendance40→25 is comparable under unchanged count rule; rain and start14→16 both occurred, notice sent previous evening, absent people's reasons not asked. Preserve changes and dispatch time; remove confirmed rain cause, unsupported blame/late standard and guaranteed recovery. Possible influence is not ranked probability or zero effect.
+
+New groups solved: 다니엘 씨는 영상을 저장하고서 화면을 보고 있었어요. 화면이 깜빡이더니 꺼졌다고 해요; 갑자기 물이 새는 바람에 바닥이 젖었어요. 담당자는 바닥이 젖었기에 상자를 높은 선반에 놓았어요. Observer/action chronology and given leak cause remain distinct from unknown computer fault.
+
+Attributed noise cases: 민호 씨는 알림음이 계속 울리는 탓에/알림음이 울리는 통에 마지막 문장을 듣지 못했다고 했어요. No named owner or deliberate disruption is added. Confirmed technical cause: 케이블 손상으로 인하여 화면이 꺼졌습니다. 직원이 케이블을 교체하는 사이에 두 명이 나갔으나 이유는 확인하지 않았습니다.
+
+Opportunity case: 책을 돌려주러 가는 김에 다음 독서 모임 날짜도 알아봐 줄래요? Original return purpose and extra question remain future. Script revises cause box to possibilities, retains factual dispatch time and requires response scope; small-talk correction says wrong stop, not rain, caused the missed bus.
+
+IndependentB for20→35 after text+deadline extension; all-language answer/explanation hidden and collapsed. Transfer: hours extended and racks10→20, usage90→130, separate effects/additional rack need unknown; 내일 운영 시간을 확인하는 김에 이용 이유 조사 계획도 물어보겠습니다. Counterargument: unknown effect is not no effect.
+
+Modern scene is ungated; separate house reading requiresE08+E09 and never grants TalSunbi eyewitness knowledge after sleep. No audio or actual learner performance is claimed.
+
+Resolved findings: CUR-B21-02
+
+## B2.1-03 - PASS
+
+SHA-256: d33fb50c0e40e63e5ca03428a3a3e81e25a49ddea192202767afd026e9e9d7f5
+
+File record: deletion cancelled before confirmation, file remains; five button presses do not establish anger, deliberate deletion or hurry. At10:04 Maya is actually observed editing the name field, so progressive claim is supported beyond absence of completion indicator. Revised report preserves avoided deletion and ongoing renaming.
+
+Fresh evaluations: 친구가 같은 농담을 해 대서 집중하기 힘들었어요; 미뤄 둔 장비 정리를 끝내 버리니 후련해요. Own fatigue/relief are stated, friend's intent unknown. Daniel case: 피곤해서인지 가방을 버스에 두고 내릴 뻔했다고 했어요. 바로 챙겨 잃지는 않았어요. Possible cause is attributed to him.
+
+Progress/state task:11:00 레나가 포스터를 벽에 붙이고 있어요;11:05 포스터가 벽에 붙어 있어요. No motive or current actor is invented. Script avoids wrong-address mailing; address check completed, new address writing ongoing, envelope here and unsent. Corrected key points to whole turns1/3 for Maya's mistaken completion summary; writing completion still does not establish dispatch.
+
+IndependentB preserves intact plate on shelf and ongoing cleaning; A invents breakage, C completion. All-language key/explanations hidden/collapsed. Transfer: ball hit wall, window intact, search ongoing, no recovery/motive; 버리다 alone does not prove intent. Personal tentative shock explanation may be omitted or attributed.
+
+E08+E09 house preserves TalSunbi sleep after collapse rather than choosing abandonment; Joy's sadness is his own evaluation. No post-sleep eyewitness role, rescueE10 or senderE11 is added.
+
+Resolved findings: CUR-B21-03
+
+## B2.1-04 - PASS
+
+SHA-256: b62b15998fd51646f66649eb985a190b2d9b0eda8267f23f3670e0b616772739
+
+Notice purpose = discussion preparation; prior reading/pencil/advance question not required, shared summary available and no eligibility test. Previous18 material questions are a count, new notice unsent, so neither improved outcome nor new obligation follows. Script distinguishes purpose from admission requirement and proposes optionality first, preserving purpose.
+
+Fresh map: 지도에서 보시다시피 길 이름이 더 크게 인쇄되어 있습니다. 글씨도 커졌거니와 휴게 공간 표시도 추가되었습니다. Actual wayfinding effect is unstudied. Shared visible fact and additional benefit do not create a cause.
+
+Rechecked actual GRAMMAR_ALLOCATION217: form 에 의하여, variant 에 의하면, productive_target, function 규정·행위자·근거에 의한 결과를 말하기. Separate new lending rule supports 대여 규정에 의하여 반납 전에 장비 상태를 확인합니다. This now provides required rule-based production; source 에 의하면 remains contrasted rather than substituted. Natural 에 따라 communicates but is not target-form evidence.
+
+Source/reason fresh case: 준비 기록에 의하면 참가자는24명이고 우산은18개입니다. 우산이6개 부족하므로 진행자는 여분을 더 빌리기로 했습니다. No forecast invented. Purpose: 낯선 단어를 함께 살펴보고자 짧은 목록을 보냅니다; no memorisation/test. 따름 gratitude recognition =1, not future attendance duty; row227 stays receptive.
+
+IndependentC:12 questions received, waiting unmeasured, intended reduction not proven; key/explanations hidden in all languages. Transfer two-sentence reply permits attendance/no reply and on-site paper choice; three-sentence notice puts choice first and retains waste-reduction purpose. Unknown effect is not no effect. HouseE08+E09 and personal belief autonomy remain unchanged.
+
+Resolved findings: CUR-B21-04
+
+## B2.1-05 - PASS
+
+SHA-256: 4a68e155f28a41e93b8d4a6303ba2dff8481dc2f3b6c5a33649b61247ea27fdc
+
+Archive comparison: A retains the July 12 date and Weekend Book Talk title while its body is erased; B retains July 19 but loses body and title. Supplies remain in storage. The blank practice sheet is a modern mockup, not an additional historical record.
+
+Fresh inference tasks: 공연이 끝났나 싶지만 쉬는 시간일 수도 있어요; 사람들이 나갈 준비를 하는 듯하지만 종료 여부는 확인되지 않았다; 배경을 설치하는 걸 보니 내일도 공연을 할 모양이지만 공식 확인은 필요해요. Coats and backdrop installation do not prove the inferred events.
+
+Regret and scalar cases: 어제 배터리를 충전해 둘걸; 오늘은 관객까지 의자를 날랐어요; 남은 안내지도마저 젖어서 못 쓰게 됐어요; 큰 표지판이야 보이지만 방별 길 안내는 할 수 없어요; 전자 안내판에는 자세한 설명은커녕 방 번호도 나오지 않아요.
+
+Contrary result and attributed judgment: 신청자는 안내를 듣고도 조건을 잘못 이해했어요; 저는 설명이 끝나기 전에 따지고들었다고 느꼈어요; 왜 그렇게 질문했는지는 모르겠어요. Four interruptions support the speaker's impression, not a claim of malicious intent.
+
+Proposal/reasons/sequence: 동료가 일단 예약하고 보자고 제안했지만 아직 예약하지 않았어요; 비용도 높고 일정도 겹치고 해서 확인이 필요해요; 담당자는 조건을 확인하는 대로 답하겠다고 했어요. Booking is still pending and -는 대로 denotes immediately following confirmation.
+
+Listening text: Lena regrets not checking yesterday; preparation in the adjacent room does not establish this room's availability. Later commitments and a bus-service stoppage are added constraints. No reply, admission permission or cancellation decision has arrived. A valid group message asks for scheduling opinions while availability remains under review.
+
+Independent choice B preserves the missing guide and last short list while leaving supplies intact. All-language answer/explanation hiding and supported-practice labeling remove the initial answer-leakage defect.
+
+Transfer: report proposal rather than completed application, unresolved cost and scheduling, the sent inquiry and pending reply, and a promise to share upon receipt. Reject the suggestion to claim an already-completed application. E08/E09 gate and modern-first route remain intact.
+
+Resolved findings: CUR-B21-05
+
+## B2.1-06 - PASS
+
+SHA-256: e5175dc5bac1e61b010f6c0430e42ff3322c9fbe776f371f60fcb00c50bb42e1
+
+Newsletter/table: monthly distinct participants rise 20 to 30 and sessions two to three. The article interprets growing interest; reasons were not surveyed. Dividing deduplicated monthly people by session count does not recover actual per-session attendance when people may attend multiple sessions.
+
+Photo comparison: both show a blue hat; Tuesday's person carries a box and Wednesday's does not. Faces are unseen, so identity and a return visit remain unconfirmed. Twelve in-person consultation registrations plus eight online reservations do not establish twenty actual participants: overlap and attendance are unknown.
+
+Listening text: remove '20 new participants'; applications rise 50 to 70 while distinct applicants remain 45. Different counting units are compatible. The unresolved question concerns reasons for applying to multiple events; temporal order after a noticeboard does not establish its causal effect.
+
+Independent choice C: July has more opening days (30 versus 20) and visits (1,200 versus 900) but a lower daily mean (40 versus 45). Repeated visits are counted; popularity and motivation are not established. All-language hidden key fixes CUR-B21-06.
+
+Fresh walk sources: monthly distinct participants 24 to 36 and walks two to four; attribute the notice-effect interpretation to the article. Reasons were not asked, and June's schedule is undecided. Reply to both causal and predictive claims: possible notice influence remains unconfirmed and future participation is unknown.
+
+Transfer: the 30-seat room fits 25 applicants but has stairs only; the 20-seat room has a lift but five too few seats. Ask about stair-access needs before considering another room or arrangement. Do not invent a known access need or equate capacity with accessibility.
+
+Small talk accepts a later review time as well as immediate help. No new grammar, E08/E09-only house passage, no disclosure of E10, and reading/audio evidence boundaries are preserved.
+
+Resolved findings: CUR-B21-06
+
+## B2.2-01 - PASS
+
+SHA-256: 8911729d01ad2b9bf200a73115988ba0c8aa4a24ac0a59660904b6402be47a7e
+
+Modern source revision: today's ten minutes cannot meet the stated twenty-minute minimum. Propose today's short note and tomorrow 18:00–18:20 discussion, no recording, photo publication still undecided, and request agreement. Maya's preference for today remains recognized without fabricating acceptance.
+
+Fresh minimum/alternative/contribution: 전시 공간이 지난번만 같아도 작은 작품 두 개는 걸 수 있어요; 작은 벽 한 면이라도 괜찮아요; 친구는 짧은 메모로나마 배치를 도와줄 수 있어요.
+
+Fresh free-choice cases: 금요일이든 토요일이든 오전 10시에 만날 수 있어요; 도서관이든 온라인이든 괜찮고 화면으로 보든지 종이로 읽든지 해도 돼요; 사진은 찍지 않아요. Permitted alternatives do not extend to photography.
+
+Category listing and expectation: 사진이면 사진, 그림이면 그림, 작은 작품의 배치 제안을 받습니다; 한 가지 안만 예상한 제 입장에서는 첫 전시치고 선택지가 많은 편입니다. The expectation is attributed, not a universal rule about first exhibitions.
+
+Reported alternatives: 사진 설명을 먼저 보낸다거나 현장에서 읽는다거나 하는 제안이 나왔어요. 전달 방식은 아직 합의하지 않았어요.
+
+Listening text: reject ten minutes because twenty are needed; '둘 다' refers only to phone/chat. Final agreement is today's note, detailed text before tomorrow's 18:00 twenty-minute unrecorded call; photos remain pending.
+
+Independent choice B fits both schedules and recording restrictions, but remains a proposal until accepted. All-language hidden explanation resolves the leakage defect. Small talk allows postponing help without additional obligation.
+
+Transfer: propose one small work, preserve the wall's two-small-work maximum, defer unanswered online-photo publication and ask layout confirmation. Exhibition acceptance is not online-photo consent. Exact LEVEL E05/E08 variants preserve observations before E08 and storage paths after E08 without E11 motive or sender.
+
+Resolved findings: CUR-B22-01
+
+## B2.2-02 - PASS
+
+SHA-256: ed7d257c0c600a0793578198395ca0411f51df46b33ba9895949551b1836e2b1
+
+Full FIXES_7 KO/EN/DE manuscript and exact LEVEL row reread. The EN/DE supported answer now identifies the cover and the fact that Daniel can drive Maya at 16:00. It no longer upgrades the source into a specific offer by Daniel. This also corrects the overly strong offered-ride phrase in the preceding curriculum FINAL entry.
+
+Negotiation: Friday rain is only possible. The cover exists, Daniel can drive at four, the car is the rain contingency, return by five remains required for Lena's six-o'clock use, and 16:30 indoors is agreed. Building closure requires contacting Lena and jointly arranging a new place; no alternative or outside abandonment is pre-authorised.
+
+Fresh hypothetical: 기차가 멈춘다면 방문 날짜를 다시 상의할게요. 아직 중단이 확정된 것은 아니에요. Friday normal trains do not determine Saturday. Fresh concession from the explicitly assigned borrower role: 여행을 취소하더라도 카메라는 월요일에 돌려줄게. Scope case: 작업실을 쓸 수 있는 한 여기서 조립하고 남은 일은 내일 할게요. 오늘은 오후 8시까지만 쓸 수 있어요. Scope restricts workshop access, not every commitment. Model-visible rehearsal is support, not independently certified production.
+
+Receptive -을래야 remains an understanding target: 출발하려야 출발할 수가 없어요 or 출발하고 싶어도 지금은 못 해요. The previously checked NIKL source distinguishes the standard form; the unit does not require colloquial-form production or attach character judgments to it.
+
+Script: Friday 16:30 tripod return is agreed, travel decision waits until Friday morning, and the broken doorbell requires a phone call. Normal bus operation conditions reassurance about Daniel's journey home; walking to the stop and tripod return are separate promises. Disappointment can be acknowledged without immediately settling a replacement trip.
+
+Independent pot choice is B. Transfer: 손님이 못 온다면 토요일 요리는 취소할 수도 있어요. 취소하더라도 냄비는 일요일 11시까지 돌려드릴게요. 10시 30분에 직접 드려도 될까요? If the owner is away: 밖에 두지 않을게요. 11시 전에 직접 받을 다른 장소를 함께 정할 수 있을까요? No new agreement is invented. All-language answer/help concealment and support labeling remain; no real message is sent.
+
+E05 gate covers both estate scenes; the mat is a present teaching prop rather than the historical cloth clue. Before E08 only revealed letters/ink marks appear; after E08 and before E11 only established storage routes are added. Ownership, historical Yeoni choices and ending gates stay unchanged.
+
+Resolved findings: CUR-B22-02, CUR-B22-09, EN-FINAL-02
+
+## B2.2-03 - PASS
+
+SHA-256: 0512d46326b4cfb3ee1f43f8590210c9838440e4dee354bbb6826a87e43b6c42
+
+Message repair: Lena offers bag care 10:00–12:00, expressly not 09:00, and requests direct time confirmation. Daniel saw hallway boxes but did not check bag space. Maya must not turn a visit into a 09:00 agreement or prepared suitcase space.
+
+Fresh Minho reporting/verification: 민호는 토요일 오후에 만날 수 있대요; 토요일 오후에 만날 수 있다면서요? 몇 시가 좋으세요? Added row207 clarification: 금요일에는 못 만난다니, 토요일 오후에는 만날 수 있다는 말인가요? This checks reported meaning separately from row209 surprise, and awaits Minho's answer.
+
+Firsthand distinction: Daniel has visited but no evidence says the home was spacious, so neither Daniel nor Maya can report spaciousness from these materials. Fresh café observation: 창가가 조용하더라. 안쪽은 음악이 크던데 창가에 앉을까?
+
+Related-question/uncertainty: 나는 일곱 시에 출발해. 너는 몇 시에 출발하고? 식당이 오늘 여나 먼저 물어볼게. Fresh surprise: 벌써 다 팔렸다니요? 어제 예매를 시작했다고 들었는데 다른 회차도 없나요?
+
+Receptive -어라 is a direct instruction and -게? an intention question, with relationship/intonation context. 벌써 나가게? is not an order to leave. Polite alternatives are supplied without making direct commands compulsory production.
+
+Listening text: Daniel did not verify present space; Lena confirms it. Lena and a friend cleared the boxes, correcting Maya's assumption of working alone. Final agreement: arrive 10:00, collect by 11:30.
+
+Independent response: no, 15:00 is show start and 14:30 begins Hyuna's waiting. Transfer now preserves Jun's reported coming at 14:30 versus Hyuna's original waiting from then; add 제가 어제 가 보니 입구가 두 개더군요 and ask which entrance. All-language hidden models and distinct source attribution resolve all three required findings.
+
+Small talk does not create required repayment or extend the agreed care window. E05/E08 branches, current props, existing facts, and text-versus-listening evidence limits remain intact.
+
+Resolved findings: CUR-B22-03, CUR-B22-07, CUR-B22-08
+
+## B2.2-04 - PASS
+
+SHA-256: dc7cc21ca9f3089840bfa75cb95b0ceaad3b5b87f893295f722d87e273816f82
+
+Opening modern scene: Daniel took the photo; Sujin's folder-based player credit is corrected and the reason retained. Correct attribution does not settle presentation/publication permission.
+
+Source A/B and scaffold: Maya mistook Lena the sorter for photographer; confirmed photographer is Maya. Correct the same group-chat description, without inventing Lena's reason for naming the folder.
+
+Fresh invitation repair: 준이 주최하는 줄 알았는데 안내를 보니 주최자는 현아였어요. 제가 잘못 전했으니 친구에게도 바로잡아 말할게요. 준 전달 is forwarding, not hosting.
+
+Receptive -어야지 answer 2: it emphasizes checking before posting, not completed verification. 줄 알다 denotes a mistaken belief here because of the correction, not inherently in every context.
+
+Listening text: the first post relied on the folder and omitted the photo list. Checking has now occurred. Correct both presentation file and original group chat; permission remains being checked. No deliberate concealment is established.
+
+Independent Lena-role answer: 마야가 작성한 줄 알았는데 작성자는 저이고 마야는 수신인이었어요. 보고서를 고치겠습니다. 누가 내용을 편집했는지는 추가 확인이 필요합니다. Hidden all-language key resolves leakage; author, recipient and unknown editor remain distinct.
+
+Transfer can state a fictional invitation's first mistaken host, evidence naming the actual host, apology for forwarding error and the same chat where it will be corrected. Small talk distributes review work instead of making apology a compulsory sole responsibility. MQ-05 no-gate modern branch matches LEVEL and reveals no estate information.
+
+Resolved findings: CUR-B22-04
+
+## B2.2-05 - PASS
+
+SHA-256: aa7aa7ca0cbae2e8762da2c58680d70ce174932779653ae4c2bd9a59fa23e539
+
+Modern MQ-05: Daniel permits current personal/two-person review; proposed presentation editing must be shown and presentation permission separately requested. No refusal motive is supplied and no estate gate is bypassed.
+
+Source repair: identifiable photos are allowed only in the members' chat. Removing face/name produces a version for Lena to review, not immediate public permission; no reply does not authorize posting tomorrow.
+
+Fresh three-organiser case: only those three recipients are approved. Ask whether all-member sharing is acceptable while keeping to the existing recipient scope.
+
+Listening text: photo posting is withdrawn before scheduled publication; private original storage remains allowed. Date/place text is a new draft to send for reply before posting. Neither delete-all nor keep-photo-publication follows.
+
+Independent table: approved = two interview sentences with Maya's name removed in the members' newsletter; pending = photos/full interview on the public website. Two-sentence explanation preserves both quantity and audience; collapsed multilingual answers remain after the task.
+
+Transfer: requester is explicitly already a group member. Individual raw responses are outside the agreed aggregate-only scope; supply anonymous aggregate results and ask respondents separately about any further scope. No real transmission or legal adjudication is required.
+
+Small talk permits an alternative without demanding a personal explanation. No new grammar or canonical fact is granted; existing ownership/permission distinctions remain intact.
+
+## B2.2-06 - PASS
+
+SHA-256: 353db80aa6ea4b48c98df1e449c57660c679bfed95ac1a597c76008d18dff720
+
+Modern final record supersedes initial 18:00/30-minute/public-recording proposal: meet 18:20–18:40 without recording; disclosure is unresolved; Maya sends template by Thursday and both send audience preferences by Friday.
+
+Fresh box case: public notice states Monday transfer from Maya to Lena only. Internal follow-up records unknown first user and Maya's Friday earlier-loan check. A future check is not a verified result.
+
+Listening text: Saturday 10:15 plus 25 minutes ends 10:40. Members-only summary first, external publication unresolved and Lena's opposition retained. Maya sends template by Friday; next discussion date remains unset.
+
+Independent correction: 시작은 19시입니다. 모임 길이는 아직 정하지 않았어요. 두 사람이 내일 가능한 종료 시각을 보내기로 했어요. Maya's 30-minute wish cannot replace agreement; all-language hidden answer resolves CUR-B22-06.
+
+Transfer four sentences preserve 18 of 30 respondents rather than all members; one trial next month starts 18:00 and ends before 19:00 due to late-return concerns; Maya collects feedback afterwards; weekly meetings remain for later discussion. The material now explicitly supplies the feedback timing and complete model.
+
+Small talk shortens readback while keeping confirmation. The no-new-grammar integration matches LEVEL, preserves open questions and dissent, respects E05/E08/E11 branch limits, and grants no new historical fact, ownership or reward.
+
+Resolved findings: CUR-B22-06
+
+## C1.1-01 - PASS
+
+SHA-256: 4e9ea4058461bbf314a14ddb46da0801379443e2556b2e0c94df9766778333b4
+
+Source integration/listening: 120 doorway crossings including repeats and 46 distinct borrowing members cannot be added into 166 people. Overlap is unknown; C translates A and supplies no independent observation. Total distinct users and a long-term trend are not established.
+
+Fresh scope/order/simultaneity: 이 표에는 오전 입장만 포함된다; 보고서를 보내기에 앞서 원본과 사본을 구분한다; 응답이 들어오는 가운데 오전 자료를 먼저 검토했다; 자기소개는 서로를 알리는 동시에 토론 주제를 모으는 활동이다. The latter does not decide the final topic.
+
+Fresh action/state/sequence: 제목을 그대로 둔 채로 아래에 메모를 붙였다. 메모는 지금도 그 아래에 붙어 있다; 날짜가 다르다는 것을 확인하고는 결합 표를 거뒀다; 불이 켜지기가 바쁘게 진행자가 사진을 가리켰다. No audience reaction is given.
+
+Fresh past contrast/topic: 전화 문의만 기록했던 지난주와 달리 이번 주에는 채팅도 기록한다; 이 글은 대여 횟수 집계에 관하여 설명한다. User counts are not supplied. All nine new functions have distinct fresh material, while result-state -어 있다 remains reuse.
+
+Independent calculation: 24/32 = 75% of respondents used captions, not 75% of 80 registrants or 210 plays. The three interviewees are already within the 32 and do not enlarge the sample. Reported helpfulness does not prove learning gain. All-language hidden answer fixes leakage.
+
+Transfer: 33/45 is not February-request completion rate: repeat requests, completed-item units and five January submissions mismatch. Request IDs linking requests and completed items; a photo of the same completion list adds no independent source.
+
+E08 house passage retains arrival versus entrusting records and groups ledger/photo together. E11 sender/protective motive remain unavailable; the modern-first task is complete without the gate.
+
+Resolved findings: CUR-C11-01
+
+## C1.1-02 - PASS
+
+SHA-256: fe07efe75d2c6162c2d3edefdf72a536b68788d8abcec0bb6c2aebf9ee285c6a
+
+Source A/B/C: quote Sujin's unconfirmed authorship accurately, paraphrase Tuesday receipt separately, attribute possible Hyuna authorship to Maya. Remove '현아의' from the purported Sujin report.
+
+Fresh newcomer summary: Lena raises a possible need for additional explanation among newcomers; existing members were not surveyed. This is neither every member nor an observed comprehension failure.
+
+Listening text: five members familiar with the old feature searched for one particular document; measured search time fell. 'Better for everyone' is neither source quotation nor justified general usability conclusion.
+
+Independent three-sentence report: Sujin posted Friday 17:00; Hyuna says her draft contained Saturday hours while Maya's observed posted version lacks them; remover and reason remain unconfirmed. Posting responsibility does not establish accidental deletion. All-language hidden answer resolves CUR-C11-02.
+
+Transfer: report this month's lower water use; label the new watering-can effect as Sujin's tentative suggestion and preserve that causes were not investigated. Ask to examine rainfall and watering practices as well. More rainy days do not alone establish the causal explanation.
+
+Small talk offers a short revised summary to the source speaker. E08 receipt records do not establish ownership, E11 remains withheld, and no new grammar or canonical fact is introduced.
+
+Resolved findings: CUR-C11-02
+
+## C1.1-03 - PASS
+
+SHA-256: 4e37661050bbf533d5c192dbbe9438e0a7d3af4dea0f36880356b60ea1978d96
+
+Full text reread after FINAL_FIXES_3. Main trial/listening: all five repeated document searches are faster; feature and practice effects were not separated. Keep observed reduction while reserving feature-only causation and proposing other-document trials; 'nothing is known' remains too weak.
+
+Fresh achievement/inference: 네 번 고친 끝에 순서를 맞춰 냈다. 오타는 미검토다; 그날 관찰로는 오후가 덜 붐비는 듯하다; 처음 읽는 사람이 어려워할 법하다. 실제 반응은 아직 모른다; 사과를 깎으려나 봐요. 드시려는 건지 촬영 준비인지 물어볼게요.
+
+Fresh value/tendency/principle: 필요한 정보가 있어 시험해 볼 만하다. 이해도는 확인해야 한다; 처음이면 질문이 생기게 마련이라며 시간을 두자고 했다, no actual questions yet; 어두우면 색을 혼동하기가 쉽다, proposing brighter space without invented failures; 순서를 바꿀 때는 이유를 알리는 법이라고 했다, this explanation still pending.
+
+Corrected fresh question: 끝까지 재생됐다고 내용을 이해했다고 볼 수 있는가? 이 자료에는 이해도 측정 결과가 없다. KO/EN/DE now state the material's missing results rather than an unsupported history of no measurement, resolving CUR-FINAL-C113-01. Reused 설명이 도움 된 것 같지만 퇴실 영향도 있을 수 있다 preserves concurrent departures and missing attendance counts.
+
+Independent answer: ten of twelve instruction-reading respondents found the procedure clear; booking-success increase was not measured and no non-reader comparison exists. Keep the known evaluation, reject causal overclaim and 'no information'. All-language hidden answer resolves CUR-C11-03.
+
+Transfer: five of six moved plants grew faster, watering changed too and no comparison pots exist. Location-only cause remains unknown; additional observations with separated conditions are worthwhile. E08 hope/confirmation distinction and no E11 assessed inference remain intact.
+
+Resolved findings: CUR-C11-03, CUR-FINAL-C113-01
+
+## C1.1-04 - PASS
+
+SHA-256: a95f0995862b47bdd63659f0c030760face9b5d148780c9a3991d1672289a894
+
+Operator report: 14 of 20 one-week return-time enquiries concern Sunday; propose highlighting 18:00 closure, replacement only after Friday's responsible-person check, then observe enquiry changes. User notice can omit proposal statistics while preserving Sunday 18:00 and return-before action.
+
+Fresh signage case: propose one-room trial next week using the five-of-six newcomer observations; no comparison group or budget supports declaring full replacement effective or approved.
+
+Listening text: nine of fifteen enquiries concern charger location, so add the location sign today. Two fault reports are checked tomorrow, with repair completion unknown. Tell the user ground floor 1층, beside the information desk, and to ask whether their intended device works; no all-chargers-working inference.
+
+Independent proposal: one trial next month's first Wednesday 18:00–19:00; preference evidence is 26 of 40 respondents with 60 nonresponses; recurring venue availability remains unchecked. The all-language hidden model resolves CUR-C11-04.
+
+Transfer: for the workshop in two days, prioritize the photo guide that can be made and checked tomorrow, with seven of eighteen asking tool names as rationale. Defer the week-long video. Participant wording tells them to consult the guide and ask the facilitator when unsure; proposed distribution remains conditional on the check.
+
+Short report and user guidance preserve facts, certainty and implementation conditions while varying detail. E08-only house adaptation and modern-first route preserve unknown roles and E11 restrictions.
+
+Resolved findings: CUR-C11-04
+
+## C1.1-05 - PASS
+
+SHA-256: fb0817abf3d6ce36a9836e2a03916e87141ab8e9cb396c86a7f77943180656c2
+
+File definitions: X is an unedited later copy, satisfying the editing team's original definition but not the archive team's first-recorded-and-stored-file definition. Ask whether an unedited copy is acceptable rather than sending a file on an assumed common meaning.
+
+Fresh public/final classification: a document accessible to nonmembers but still under review is public, not yet final. Unedited describes state while first describes provenance.
+
+Index/map analogy: an index locates stored files but does not copy their contents; it cannot by itself restore missing content. Keep the analogy's location-only limit.
+
+Listening text: this workshop's prototype checks size and assembly order. Garment fitting is an analogy, not fabric in the wooden box; load testing remains unperformed and sale readiness is not established.
+
+Independent repair notice: 접수는 완료됐지만 점검과 수리는 아직입니다. 점검 결과는 언제 알려 주시나요? Receipt issuance is neither inspection nor completed repair. All-language hidden key resolves CUR-C11-05.
+
+Transfer supplied definition: 활착 is roots establishing after transplant, not flowering. A new-home analogy does not give a plant human location choice. Visible new leaves with uninspected roots warrant asking what further observations establish rooting, not asserting success.
+
+Terminology is explicitly local to the fictional tasks and provided before use, so specialist knowledge is not an unstated language-assessment prerequisite. MQ-06 no-gate modern setting and no-new-grammar contract are preserved.
+
+Resolved findings: CUR-C11-05
+
+## C1.1-06 - PASS
+
+SHA-256: dbcbdcd7f7f5236462fccf4a2e9864ecfd9935679639fb0eb08aff21b5eabb97
+
+Confirmation-first response: Friday meeting is not confirmed; room is free 18:00–19:00 but approval is pending. Sujin's Thursday-noon deadline is to ask, not to obtain guaranteed approval. Monday's survey chronology need not precede the direct answer.
+
+Fresh preference calculation: 12/16 = 75% of respondents choose online. Forty were asked and 24 did not answer, so whole-group majority preference remains unknown.
+
+Listening text: written materials are available today; video awaits caption review; completion date is unknown. Lena promises to ask the editor tomorrow morning, not publication tomorrow.
+
+Independent answer: on-site questions fall 10 to 4 while online questions rise 2 to 9. Visitor counts and repeat questioners are unknown; these materials contain no comprehension results. No improved-understanding conclusion follows. Propose consistent question-type tracking and a separate understanding check. Corrected model preserves unavailable-results scope and all-language hidden answer, resolving both required findings.
+
+Transfer: 30 incoming minus 18 outgoing gives a net difference of 12, not proof of disinterest in twelve particular books. Same-book returns are not tracked; ask for item-level movement and reasons for remaining. No unknown reason becomes an asserted fact.
+
+E08-only sender question is answered with current uncertainty and verified routes; Sujin assists without replacing the learner's answer. The next estate scene explicitly requires E08+E10 rather than completion of this language unit.
+
+Resolved findings: CUR-C11-06, CUR-C11-07
+
+## C1.2-01 - PASS
+
+SHA-256: 2bf39290ccf33f2863c74062d27d11c3a017c39426b340eea6a6017aafc365f3
+
+Work-card repair: 오늘 17시까지 제목만 확인해 주실 수 있을까요? 본문은 내일 보셔도 됩니다. 시간이 어려우시면 알려 주세요. Neither politeness nor requesting help expands the scope to everything immediately.
+
+Receptive contrasts: -거라 gives a relationship-marked direct instruction; -고말고 promises emphatic agreement rather than completed help; -네 evaluates an observation, not new work; -으려고? checks intention/expresses concern rather than granting permission. Only -는걸 is a new productive target; -으시- is reuse.
+
+Listening text: Hyuna offers availability around 16:00 but has not completed review. Today concerns the title, body tomorrow. Subject honorification refers to the professor; final review follows planned arrival tomorrow 15:00.
+
+Independent correction: 공지를 보니 아직 신청을 받는걸요. 마감은 내일 17시예요. Receptive check: 지금 올리려고요? does not authorize posting. The all-language hidden models resolve CUR-C12-01.
+
+Fresh honorific messages: 관장님께서 토요일 오전 10시에 오십니다 / 관장님 토요일 아침 열 시에 오셔. Both retain the same arrival and subject respect while changing address to the newly met organiser versus mutually informal friend.
+
+Transfer: politely request moving the box to the adjacent shelf before Saturday 10:00 cleaning, state no need to open/discard, offer to coordinate if time is difficult. No authority or additional work is invented.
+
+Both E08 and E10 are required for shrine material, modern-first activity remains complete, E11/E12 stay separate, and Taego's equal relationship is preserved.
+
+Resolved findings: CUR-C12-01
+
+## C1.2-02 - PASS
+
+SHA-256: bb3b8de77c681d46f2107bebf18f65a3c25569042773da2e8cd8101b0f0317fd
+
+Team sources/listening: two people permit internal photos only and one has not answered. Public posting is not authorized by internal consent. Today's agreed work is a text draft; tomorrow joint wording review; photos remain a separate later discussion. Convenient options are not already agreements.
+
+Fresh rows254–257: 비가 오는데도 참가자가 많았다; 시간이 부족한데도 불구하고 두 사람은 대조를 마쳤다; 비용 증가에도 불구하고 의자 세 개를 더 마련했다; 시작이 늦어질지라도 이름을 먼저 확인하겠다. Actual concessions remain distinct from hypothetical delay.
+
+Fresh rows258–261: 전문가조차 새 기호를 이해하지 못했다; 제목과 날짜는 말할 것도 없고 문의처까지 확인했다; A는 용량이 작을뿐더러 글자도 크다; 방이 좁은 데다가 의자도 부족하다. Larger print/file size does not prove comprehension.
+
+Fresh rows262–263/266: 틀린 지도를 내느니 확인 뒤 배포하겠다; 이것은 후보 날짜지 확정 예약이 아니다; 회의가 길어질 테지만 이름은 확인하자. Receptive 확인할 테다 is personal resolve rather than an order, and 공개할 테면 is conditional rather than unconditional permission.
+
+Fresh rows267–269: 숫자의 뜻은 분모를 설명하기 나름이다; 생각하기에 따라 명료하게도 불친절하게도 읽힌다, without asserting writer intention; 너무 서두른 나머지 날짜를 빠뜨렸다, grounded in the writer's own causal account.
+
+Fresh rows270–272: 함께 보내기로 한 이상 전체 내용을 확인하자; 계속 덮어쓰다가는 옛 내용을 잃을 수 있다, with no actual loss yet; 연습이면 몰라도 실제 공지에는 확인한 수치만 쓴다. All seventeen productive allocations have separate cases and two stronger forms remain receptive.
+
+Independent public-deck answer preserves the internal-calculation exception and public verified-only rule, retaining verified figures while new ones await review. All-language hidden key resolves CUR-C12-02.
+
+Transfer acknowledges both prompt watering-day notice and checked illustrations, proposes verified Tuesday/Friday days now and pictures after Saturday review, and asks both parties' agreement. E08+E10 house gate and no E11/E12 disclosure remain intact.
+
+Resolved findings: CUR-C12-02
+
+## C1.2-03 - PASS
+
+SHA-256: c60c73b07ff4363ca96b9704e3c9b453811591b2f699bf9bbdf8c9ef1d91baab
+
+Initial chat permits simultaneous brief acceptance and limited time while travelling; it does not establish anger. Ask whether any additional issue needs attention and allow a reply after travel rather than asserting an emotion.
+
+Fresh prospective result: 마감을 놓치게 생겼어요. 지금 누가 어느 부분을 합칠지 정하죠. At 16:30 before a 17:00 deadline, risk is not completed failure.
+
+Fresh pretending report: 준은 못 들었지만 들은 척했다고 말했다, grounded in Jun's self-report. Fresh observation: 그 3분 동안 창밖을 보기만 했다. 이유는 모른다; this neither proves ignoring the question nor extends beyond three minutes. 이메일이라든가 음성 메모라든가 편한 방법으로 답해 주세요 offers examples, not exclusive channels.
+
+Listening text: Lena explains short typing by being on a train, accepts order change, but requests final-photo name confirmation. Maya promises that check; it is not completed yet.
+
+Independent fresh 따라: 오늘따라 답장이 짧네요. 바쁘실 수도 있고 더 덧붙일 말이 없으실 수도 있어요. 이대로 진행해도 되는지, 추가 의견이 있는지 편하실 때 알려 주세요. Known week-long baseline supports unusual brevity, while the two reasons remain tentative. Hidden multilingual model resolves CUR-C12-03.
+
+Transfer keeps praise for preparation and concern about limited space as possibilities, then asks to inspect whether the prepared amount fits the space together. No specific feeling becomes the correct answer.
+
+E08+E10 house scene allows Dokkaebi to clarify or pause; modern-first route requires no story unlock, and E11/E12 remain separate.
+
+Resolved findings: CUR-C12-03
+
+## C1.2-04 - PASS
+
+SHA-256: 5e964f44ae4a603be582b0019fde482a38dd2c4390402ca750a1c30499b55472
+
+Source mediation: Maya heard a proposed room change but did not see the new room; Hyuna saw only the old room empty this morning; Lena needs the unknown new address. Combining those accounts does not establish readiness.
+
+Fresh reported-basis/action: 준이 쉰다고 들었다기에 전화했지만 연결되지 않아 휴무는 미확인이다; 먼저 읽자기에 함께 읽었다. 신청은 아직 하지 않았다. A prompted call/read is not confirmation/application.
+
+Fresh firsthand/basis: 열한 시에 가 보니 안내판이 두 개 있더라고요. 내용은 확인하지 않았어요; 시작이 열아홉 시로 바뀌었다고 적혀 있길래 달력을 고쳤다. 참석은 아직 미정이다. Three of fifty comments do not establish overall satisfaction: 세 사람의 후기만 가지고 참가자 전체의 만족도를 판단하기 어렵다.
+
+Fresh surprise preserves source: 벌써 끝났다니 놀랍네요. 저는 끝났다는 소식을 들었을 뿐 직접 확인하지는 않았어요. Receptive -는다니1 checks a relayed instruction, not a new command; -데 is interpreted in the supplied firsthand context.
+
+Listening text: no new-room readiness proof; Maya will ask by 15:00 and share either a reply or no reply. The deadline concerns enquiry, not guaranteed readiness or response.
+
+Independent intent/result repair: 제목만 줄인다는 것이 본문 한 줄도 지웠어요. 아직 복원하지 못했습니다. 이전 버전과 비교해 복원한 뒤 확인을 부탁드릴게요. Restoration is future, not already achieved; hidden multilingual key resolves CUR-C12-04.
+
+Transfer four sentences separately attribute Hyuna's yesterday-evening closed-tap observation with unknown cause, Lena's maintenance report with unknown end, and Maya's next-morning watering need; propose asking access/temporary supply and assigning an enquirer. No completed inquiry is invented.
+
+TalSunbi's post-sleep events are not his testimony; Taego's direct memory and Sujin's document reading remain distinct. E08+E10 gate and E11/E12 restrictions are preserved.
+
+Resolved findings: CUR-C12-04
+
+## C1.2-05 - PASS
+
+SHA-256: 93f314254900793c35ea2c7e02153e5eb35277f9abcd58883724c9bf35aa7504
+
+Source notice repair: Lena uploaded the old file yesterday and replaced it today; who received/downloaded the old version is unknown. Remove unsupported 'all users have the latest file'. A new request to check one's version is not an already-completed check.
+
+Fresh minutes preserve Maya's understanding of the explanation and her inability to agree to same-day completion. Understanding is not consent to the schedule.
+
+Listening text/current corrected notice explicitly retains Andrea as checker of title/date. Lena is assigned body review tomorrow and agreed yesterday, but work remains unfinished. This resolves the actor omission CUR-C12-07.
+
+Independent chat: Jun found the address typo yesterday; Hyuna promised correction tomorrow; post remains unchanged. Ask readers to recheck after correction rather than report 'address fixed'. All-language hidden key resolves CUR-C12-05.
+
+Transfer role is now explicitly the reporting resident. Chat can say 제가 전했어요; management promised tomorrow's inspection, not repair. The public notice can omit the resident's personal name while preserving a resident's report, management inspection and undecided repair. Explain first-person conversational wording versus public concise wording without strengthening certainty.
+
+Role clarification resolves CUR-C12-08; no new grammar, no automatic permissions/ownership and MQ-06's no-gate modern scope are preserved.
+
+Resolved findings: CUR-C12-05, CUR-C12-07, CUR-C12-08
+
+## C1.2-06 - PASS
+
+SHA-256: a0e1e132e50fa7b4e1742fd9996b25320ea94ef9c601c6a77f5024719b27499b
+
+Initial agreement: text first without photos; Lena's wording must preserve meaning and receive her check before publication; Hyuna sends quotations by Friday noon; photos deferred to the next meeting. Noon is sending deadline only, not Lena's promised approval time.
+
+Fresh correction: Lena reviews one cover by Wednesday and interior pictures by Friday, with all three explicitly agreeing to the revised scope and deadlines.
+
+Listening text adds a newly agreed 15:00 review/reply time after correcting the noon conflation. Only two sentences and no photo are included. Meaning-changing edits require renewed showing, while typo fixes require notification.
+
+Independent record: Hyuna's Monday sending and Maya's Wednesday review remain agreed. Ask whether Lena's quotation can be sent first Monday for Tuesday review; do not record that revised sequence as already agreed. Hidden multilingual model resolves CUR-C12-06.
+
+Transfer public notice: Saturday 10:00–11:00 sharing event, no photography. Internal record: Maya's list by Friday, Hyuna's space check Saturday 09:30; remaining items decided jointly after the event. Disposal/donation is not yet agreed.
+
+Readback and marking changed lines support correction without treating nodding or memory as complete agreement. E08+E10 house access, separate E11 documents/E12 letter gates, no new story facts and E06 rereading transition are preserved.
+
+Resolved findings: CUR-C12-06
+
+## C2.1-01 - PASS
+
+SHA-256: 46583085084bc964ddc2a2afd3d813b3429b0d5c2f4009d8310374917f22a503
+
+Canon rechecked directly: STORY_V3_5 §06 summary line245 contains the short guardian-spirit quotation and the smiling family promise; full scene B lines445–447 uses the longer guardian utterance. The revised author note explicitly distinguishes summary wording from full-scene wording. Joy's present reading and Dokkaebi's current reaction are separately marked teaching dialogue, not new historical events.
+
+E06 cue comparison: quick '그럼' and the smile can support playfulness; the preceding family question and '내가' support reassurance and offering a role. Neither interpretation commits Yeoni to every later event or reveals a new ending.
+
+Five receptive contrasts: 이라고 can negatively evaluate an inadequate notice rather than just report a label; 이라고는 restricts an insufficient reply; 깨나 can praise effort or mock low usefulness depending on context; 을랑 assigns the address to the speaker; 밤샘이라면 singles out a disliked topic rather than permits it conditionally.
+
+Listening-as-text: the first thoroughness note has a source for each date; the second has twenty files but one usable date, supporting an ironic reading. Neither actual intonation nor anger is known. Include the preceding line with the interpretation.
+
+Independent new message: readable-table praise supports appreciation, requested halving of time supports workload concern, and both may coexist. No audio establishes sarcasm. Ask which table-preparation step the sender would shorten first. The answer is collapsed; all forms remain receptive rather than compulsory production.
+
+Small talk seeks clarification of 'interesting' instead of assigning sarcasm. Transfer compares a short reply with and without preceding context. E06 gating also covers the final house return, and current feelings stay distinct from historical wording.
+
+## C2.1-02 - PASS
+
+SHA-256: 0d590757ff565ee205553ca3c5954c94704aecdac43b6ee477285d2125f07b75
+
+Woodworking supported case: a fifteen-year-old from outside the area may apply and watch the hand-tool demonstration, but does not satisfy the power-tool age minimum. Reading safety information is not completing the briefing or receiving a confirmed turn. Residence-neutral application does not imply every applicant's practical participation.
+
+Listening text: application has no residence restriction. The instructor confirms practical turns after training; Christian checks the recipient list and Sujin revises the notice. Do not substitute Christian's booking/list role for instructor confirmation.
+
+Six production functions use source scope: 신청하면 자리가 생긴다는 claim is unsupported; 열여섯 살 이상이라야 supplies a necessary age condition; 신청은 받되 교육과 차례 확인을 남긴다; 거주지를 막론하고 concerns application; already-circulated notice motivates -는 마당에; the team's own notice motivates -느니만큼. Reused -기 task labels retain owners and -건대 is receptive judgment framing, not independent evidence.
+
+Independent archive material now explicitly says eighteen received guidance and five received required staff confirmation for original access; actual consultation count is absent. A nonmember may apply but needs confirmation for the original. 민호 handles access checking and 레나 guidance revision. Clearance does not establish actual viewing, resolving CUR-C21-01's Korean ambiguity.
+
+Fresh editorial pass: 안내를 받으면 원본을 볼 수 있다는 문장을 바로잡아야 합니다; 이미 초고를 보낸 마당에 게시판만 바꾸면 앞서 받은 분들은 알 수 없습니다; 우리가 보낸 안내이니만큼 같은 분들에게 정정을 보내요; 담당자의 확인을 받은 사람이라야 원본을 볼 수 있어요. Check alternatives for morning applicants unable to attend the proposed 14:00 slot.
+
+Transfer identifies who a notice covers, necessary versus sufficient conditions and the next checker. E06 family promise remains one child's specific relationship rather than a universal obligation or new historical clue.
+
+Resolved findings: CUR-C21-01
+
+## C2.1-03 - PASS
+
+SHA-256: 8d0c0571bdaca82e20fa8e5a3871fd08b8b36c317ec9376b292b06ed4f663ba7
+
+Full FIXES_8 Korean/English/German manuscript and exact LEVEL row reread. E06 estate recollection remains an explicitly imagined Dokkaebi viewpoint, not a discovered record or later historical revelation. Rare literary forms remain receptive, -어 버리다 reuse is distinguished from the two productive functions, and modern materials remain available before the story gate.
+
+Neutral record and recollections share completion at 18:00 while the expected colleague has not arrived. A supplies 마침내 and permission to rest, so its At last/Endlich and relief are supported. B adds the still-absent colleague and supports the narrator's regret, not the colleague's anger. The independent 14:00 example has no 마침내; the revised German now correctly says Ich habe die Antwort abgeschickt without adding Endlich. Relief comes from the following waiting-felt-lighter sentence.
+
+Literary contrasts: an open door and no heard footsteps do not establish somebody outside; a surviving letter does not reveal an unrecorded expression. A modern paraphrase can be 편지는 남았지만 당시 표정은 알 수 없어요 without producing rare -마는. Three missed reminders in four meetings support bounded frequent failure, not always. A 12-metre plan and a 길디긴 felt corridor are compatible. Reported laughter, a critic's mockery interpretation and 무례하기 짝이 없다 evaluation must be kept separate.
+
+Fresh production: 자기 초안의 중복 제목 두 개를 지워 치우고 후련해했다고 말했다; 최근 다섯 번의 발송에서는 네 번 첨부를 빠뜨려 빠뜨리기 일쑤였지만 한 번은 붙였다; 안내를 보내 버린 뒤에 날짜 오류를 알아 아쉬웠다. No recipient reaction is supplied or invented. Script answers: preparation ended at 18:00, the subsequent sentences explain the different evaluations, and the colleague's emotion is unrecorded.
+
+Independent three cells: 14시 답장 전송 / 보내고 난 화자의 안도감 / 상대가 읽었는지 답했는지는 모름. Transfer in three sentences: 사진에는 닫힌 창문과 빈 의자 두 개가 보입니다. 촬영 시각과 부재 이유는 알려져 있지 않습니다. ‘누군가는 돌아오지 않았다’는 창작 제목이며 사실 설명이 아닙니다. All-language model concealment and help-as-support labels remain. These are text-based script/image-description solutions, not actual perception or learner attainment.
+
+Resolved findings: CUR-C21-02, DE-C2FINAL-01
+
+## C2.1-04 - PASS
+
+SHA-256: 8ae902b63a53b5a82c338cece179c4f8791fd0bdfa7ea95344856b32423b3ea5
+
+Full FIXES_8 Korean/English/German manuscript and exact LEVEL row reread. E06 Dokkaebi could not leave the grounds; his waiting is not freely chosen sacrifice or a rule for others. Modern commitments are negotiated separately, and the later recovery of freedom/ending choice is not revealed. Four marked literary forms remain receptive and -더라도 reuse is separate from the productive functions.
+
+Receptive table: ten rewrites are hypothetical, shortening is an accepted possible cost rather than an actual measured length, and urgency does not license unchecked quotations. The revised EN/DE -을라치면 row states that new revisions arrived when comparison was about to begin; it no longer asserts an actual work interruption. The fresh week's three reviews support only 이번 주 세 번은 대조를 시작할 때마다 새 수정본이 왔다, not an all-time pattern or a claim that any review necessarily stopped.
+
+Fresh seven-function solutions: 내 원고를 다시 쓰는 한이 있어도 오류를 바로잡겠다; 짧게 쓴다고 줄이다가 날짜를 빠뜨렸다; 비율을 비교하자면 분모를 맞춰야 한다; 빼자니 반론이 사라지고 두자니 한 쪽을 넘으니 별첨을 제안한다; 물어보려도 담당자 연락처를 모른다; 근거 없는 그래프를 낼 바에 출처를 적은 글로 설명하겠다; 답이 늦더라도 추측을 사실처럼 쓰지 않겠다. Own rewriting does not authorise colleagues' overtime, and an appendix remains a proposal.
+
+Script answers: Maya's resolve concerns her own time; no one agreed to everyone staying late. Presenting only verified sections is a proposed option for the organiser, not an approved schedule or scope change. Ordinary concession does not promise all-night work. A valid small-talk reply states my own capacity before agreeing shared timing.
+
+The independent instruction now requires two sentences in KO, EN and DE. Solution: 미확인 수치를 쓰지 않으려고 발표 지연까지 감수하자는 제안입니다. 실제 일정 변경은 아직 합의되지 않았습니다. It distinguishes rhetorical acceptance of a cost from an actual approved delay.
+
+Transfer: 다양한 크기를 보여 주려 하지만 자리는 세 칸입니다. 모두 놓자니 공간이 부족하고 작은 것만 고르자니 목적이 약해집니다. 순서대로 바꾸어 전시하는 안은 어떨까요? 제외나 교체 순서는 참가자들과 함께 정할까요? This addresses purpose, constraint, alternative and consent without assuming authority to exclude others' pots. All-language concealed keys/help-as-support rules remain; no real learner performance or audio perception is certified.
+
+Resolved findings: CUR-C21-03, EN-FINAL-03, EN-FINAL-04, DE-C2FINAL-02, DE-C2FINAL-03
+
+## C2.1-05 - PASS
+
+SHA-256: a0af4fc6ca114233f1be1e96cb636b5caeb8239e4990ad1df05edff3a90cf7e0
+
+Layered roleplay: Hyuna is the original instructor, B the original hearer/current reporter, A the absent-now-questioning person. The request concerns summary first; actual sending is not recorded.
+
+Receptive distinctions: -자면2 is a conditional future proposal, -는다던가1 recalls a reported instruction, sentence-final -던2 asks a familiar person's experience rather than modifying a noun, and -으래서야 questions an unreasonable demand. None becomes compulsory use with a stranger.
+
+Fresh productive -던가: 안내문을 읽어 보니 입구 위치가 분명하던가? asks the visiting colleague's experience in an explicitly assigned hage-style role. Polite alternative 안내문을 읽으셨을 때 입구 위치가 분명했나요? preserves the question without inventing the asker's visit.
+
+Fresh quotative reuse: 마야는 '내일 오후에 확인하겠습니다'라고 말했으며 확인은 아직 예정입니다. A promised future check cannot become Lena's 'checked' record; evaluating a 'draft' likewise does not change official document status.
+
+Listening text: summary first is Hyuna's demand; photos are Lena's own suggestion without permission; summary has not yet been sent. Keep original demand, added opinion and execution status separate.
+
+Independent correction: A asks to be told if Lena proposes joint review; Lena has made no such proposal yet. Hidden multilingual key resolves CUR-C21-04.
+
+Transfer three-sentence programme note: A checks the date of a past return instruction with B; B did not hear the date, so tomorrow is unconfirmed; register does not establish age or kinship. No audio or later action is invented.
+
+E06 historical promise is never converted into the player's present duty, and the upcoming optional register unit blocks neither modern requirements nor the ending.
+
+Resolved findings: CUR-C21-04
+
+## C2.1-06 - PASS
+
+SHA-256: 3abaf53c67bb4079fbc749dbf79e1b78c6ae96f7f13f45c2064fc6857d6790be
+
+Read all six bookmarks and all Korean/English/German materials. Rows 331–356 remain receptive or reuse within this optional unit; choosing one bookmark or skipping all does not add a failure, alter the required 99-unit denominator, or block the ending. E06 estate dialogue stays gated and the modern exercises remain available independently.
+
+A: neither prediction nor resolve establishes completion; remembered Monday's tomorrow is Tuesday. The new edition has not been edited: fewer gaps is expected, not all gaps already filled. The Jeongildang passage is explicitly Classical Chinese plus the archive's Korean rendering, not a Korean ending attributed to an 1808 original. Context about preserving ancestors' work supports the rhetorical modern paraphrase 선조의 뜻을 이어 가려면 배움을 놓을 수 없습니다. B: the solitary Friday question searches the speaker's own memory; -라 is a statement, and the interruption reproach can become 제 말을 끝까지 듣고 말씀해 주실 수 있을까요?
+
+C: 시간이 남거들랑 is an unfulfilled condition; 시간이 없거들랑 gives current background. D: 기다리네 states a plan, 짧아졌구만 notices a change, and 여기 보게 directs attention without proving correction. Modern new-colleague paraphrase: 이 줄을 보세요. 이름이 빠졌네요. Assigned stage register does not establish age or rank. E: 들어오구려 invites entry, not completed entry; 들어오세요 retains the action. 351 requests an unperformed action, 352 observes people entering, and no sarcasm clue is supplied for the effort acknowledgment. F: 교수님이 읽으세요 preserves subject honorification while changing listener style; completion remains unknown.
+
+Modern script: editing has not begun; the sentence predicts a future edition and its literary confidence can be described separately from results. Independent diary: 내일 답이 올 것으로 기대한다 / 그 말을 어디서 들었는지 기억을 더듬는다 / 오늘의 기록은 여기서 끝난다. No arrival is asserted. Transfer: 이 사진과 문구는 현대 창작물입니다 / 빈자리가 쉽게 잊히지 않을 것이라는 느낌을 전합니다; editor: -으리오는 정보 요청보다 잊기 어렵다는 뜻을 반문으로 강조한다. No real missing person or loss is invented.
+
+All-language answer/help concealment and supported-attempt labeling precede independent tasks; review keys are collapsed. Text solvability only: neither actual audio perception nor original-image inspection or human approval is certified.
+
+Resolved findings: CUR-C21-05
+
+## C2.2-01 - PASS
+
+SHA-256: 21b833c3d5680873915d4e142e2141e2fb7cad7c0b224926a834c49c1ca99b17
+
+Full three-language text and exact LEVEL row read. The estate opening and return are explicitly after S1-END; modern source synthesis is independently available. Earlier receipt evidence is not rewritten with the later identification from the outside copy/house-record comparison. New book-page prose is a present editorial act, not an additional historical clue or changed ending.
+
+Market task: 76−43=33 fewer entries in the later two-hour window, not 33 absent people. Re-entry prevents equating entries with visitors. Rain began at 13:45, two outdoor stalls packed before 14:00, but their reasons were not asked; C supplies one participant's reason and a newsletter quoting C is not an independent witness. Maya's umbrella re-entry demonstrates this limitation. The corrected headline keeps 14:00–16:00 and 43 entries while dropping headcount and causal attribution; tomorrow's stall inquiry is not already answered.
+
+Independent reading-room synthesis: 연장 첫 달 저녁 출입은 46회 늘었습니다. 이용자 세 명은 연장 덕분에 방문했다고 답했고 소식지는 그 답을 인용했습니다. 같은 달 시험 기간도 시작되어 증가분 전부를 연장 효과로 볼 수 없습니다. 같은 집계 기준과 공통 방문 이유 질문으로 더 확인하겠습니다. Objection: 효과가 없다는 뜻은 아니며 세 명의 설명은 도움이 됐다는 근거지만 전체 증가에 대한 기여량은 아직 모릅니다.
+
+Transfer procedure is solvable: an institution's announcement and a post quoting it share one source chain; mark the original, its repetition, and any correction date/reason without treating a repost as a second observation. The learner-selected external pair is an extension, not pre-certified evidence. Independent model is collapsed; guided and script keys are support, not proof of unassisted ability. No actual audio or learner attainment certified.
+
+## C2.2-02 - PASS
+
+SHA-256: 5f9bca9a86f3146a33d8a17e476d71b6aa3ea5bbd3d44c6155d490b990f7bf64
+
+Full KO/EN/DE text and LEVEL row read. S1-END estate writing labels evening light as the traveller's invention, preserving the source account separately. Both scene and closing remain gated; the workshop/clubroom tasks work before the ending with no new canon clue or ownership change.
+
+Workshop source note: Maya moved the pot at 17:10 with no spilled soil; Daniel saw it at 17:20 and did not witness the move; motive is absent. Maya's chill/leaf and Daniel's round mark are explicitly creative versions. Adding Daniel's belief about protecting the plant gives a theory rather than new evidence; an invented felt chill can motivate that fictional belief.
+
+Script solved: the leaf brushing the chin remains the scene's first line under a heading identifying fiction. Daniel's viewpoint withholds the mover's identity through the end, while source-note readers can know it. The revised answer now includes both requested placement details, not merely the fiction label. Public/private personal text can be separated or softened by the speaker's choice.
+
+Independent source note: 18시 30분에 동아리 방 문이 열려 있었고 현아가 5분 뒤 닫았다. 복도 창문은 열려 있었으며 최초로 문을 연 사람은 기록에 없다. Hyuna fiction: 복도에 들어서자 바람이 소매를 흔들었다. 나는 동아리 방 문을 당겨 닫았다. Waiting-person fiction: 문 옆에서 기다리던 나는 현아가 오는 것을 보았다. 현아가 문을 닫자 발소리가 더 또렷하게 들렸다. Wind sensation, waiting observer and sound effect are declared inventions; none identifies the opener.
+
+Transfer demonstration can use a newly invented bus-stop scene: arriving rider sees the bus depart; rider already aboard sees a person reach the stop. Underline only each observer's visible action, not the other's motive or unobserved arrival time. The prompt permits invented scenes while demanding viewpoint boundaries. Model stays collapsed and text work does not certify audio perception.
+
+## C2.2-03 - PASS
+
+SHA-256: ea71e4ff78b7e2cbbf9579a8ead2f46ef0ae9a1136c7b3bab48b3eb676a359d6
+
+Full KO/EN/DE and exact LEVEL row read. The post-ending book explanation changes information density without granting new facts, authority or assumed visitor proficiency. S1-END gate and modern alternative remain explicit.
+
+Guided recording cases: receipt is the sixth, permission covers only internal content checking, the participant must see the proposed excerpt before deciding about online publication, and the twelfth is a follow-up inquiry rather than answer or release date. All three audience versions preserve these distinctions. The library-book analogy needs the express internal-only restriction because ordinary borrowing would wrongly enlarge permission.
+
+Script: Lena first treats the twelfth as public availability and must correct the message. Valid concise German: Am 12. fragt das Team nach der Freigabe. Ein Veröffentlichungstermin steht noch nicht fest. The team holds the file but does not thereby acquire the participant's publication decision. A request for an example or definition can receive either choice without changing the proposition.
+
+Independent map: technical note—Eingangsrampe bestätigt; Türbreite am Ende ungemessen; Vor-Ort-Team misst Freitag, Wegfreigabe danach prüfen. Easy Korean—입구에는 경사로가 있어요. 끝쪽 문을 통과할 수 있는지는 아직 확인 중이에요. English message—The ramp is installed, but the far doorway has not been measured. Friday is the measurement date; route usability is still unconfirmed. Reply—금요일부터 가능하다는 뜻은 아니에요. 측정 결과를 보고 안내해야 해요. No accessibility certification is inferred from the single ramp.
+
+Transfer is a learner-selected real announcement exercise, not a claim that an external notice was verified here. Its text rule is executable: preserve the unresolved condition in both one-sentence newcomer and two-sentence responsible-person versions. Independent key is collapsed; supported examples are not attainment evidence.
+
+## C2.2-04 - PASS
+
+SHA-256: 8e241c971c14631bf99c86c5b8e287c2c2562badd7705873532b10a4771ab36f
+
+Full FIXES_9 Korean/English/German manuscript and exact LEVEL row reread. Estate opening and closing remain after S1-END, with Joy's attributed feeling, Sujin's sourced facts and Dokkaebi's blank space allowed together. Agreement on one emotion or reconciliation is not required to leave a text, and the modern mediation task is available independently.
+
+Guided wall-case reconstruction: Maya values a story's detail and includes a name only if its author wants that; Lena is concerned that the address may still identify an anonymous author, not opposed to all stories. Daniel prioritises quick, readable time/place orientation and a separate reading space, not costs. Check these reasons with the parties instead of treating the mediator's paraphrase as automatic consent.
+
+Script solution: today post time and place; keep the address-bearing story unpublished pending its author's reply; carry general naming policy for other stories to the next meeting. Story length is not the reason for Lena's objection. The current author's request is not cancelled by another author's possible future wish for a name. Small-talk repair permits either review-before-decision or explicit removal and asks which is meant.
+
+Fresh independent checks: 모임은 19시 시작과 30분 공연을 원한다는 뜻이 맞나요? 이웃은 아이가 자는 19시 20분부터 조용하기를 바란다는 뜻이 맞나요? 모두가 준비를 끝낼 수 있다면 18시 50분 시작을 검토할 수 있어요. 대표의 18시 45분 도착만 확인됐으므로 다른 참가자의 준비 가능 시각과 실내 사용 가능 여부를 확인한 뒤 정해요. The conditional thirty-minute proposal ends by 19:20; representative availability does not establish everyone else's arrival or readiness.
+
+The revised EN/DE material now preserves only that indoor availability is unknown. It does not assert that nobody has checked or that the room is unavailable. Proposing a check is still appropriate without inventing the history of previous checks. All explicit constraints remain solvable, and the answer model is collapsed.
+
+Transfer asks for a later real party's correction; the text rehearsal can summarise an opposing reason and leave room for correction, but no actual future negotiation or agreement is claimed. This full-text verification is AI manuscript review, not listening, actual learner performance or human approval.
+
+Resolved findings: EN-FINAL-05
+
+## C2.2-05 - PASS
+
+SHA-256: 547e4f00820f8d230b65de4f941fa6f05bb69edb0ceceb74a7fb23f98ac6031b
+
+Full KO/EN/DE text and exact LEVEL row read. MQ-06 is modern with this_scene_gate=none; only the final optional Sarangchae sentence requires S1-END. No estate spirit appears as a physical actor in the modern scene, and no new clue or ending requirement is created.
+
+Guided source switch: the 16:10 facilities check establishes that the repaired east door opens, while the organiser's 16:15 message retains the west entrance for today's 18:00 event. Tomorrow's route is undecided. Answering where attendees should go must lead with west, not the mechanism repair. Script repair explicitly acknowledges the mistaken inference and cites the organiser before sending the short corrected message.
+
+Independent spoken-content draft: 12시 10분 답장에 따라 첫 두 장을 사내에서 검토할 수 있어요. Chat: 세 번째 사진을 고객에게 보낼 허락은 아직 없어요. 외부 전달 목록을 확인한 뒤 알려 드릴게요. If an earlier yes was given, add 제가 사내 검토 허락을 외부 전송 허락으로 잘못 전했어요. File receipt/previews at 11:30 do not establish permission for all images or external clients.
+
+Transfer can rehearse with the supplied entrance notice: immediate action is 오늘 18시 모임은 서쪽 입구로 오세요; the follow-up about tomorrow changes timing and certainty, while the question about repair changes the relevant authority/source. Textual response preparation is assessed here, not real-time spoken fluency or audio listening. Independent answer remains collapsed.
+
+## C2.2-06 - PASS
+
+SHA-256: 0553f902cbd33d4af70ea402e2af4508f00e623c857b33ae87ecea5d9551a068
+
+Full three-language manuscript and exact LEVEL row read. Estate opening/portfolio/closing require S1-END, while the station-office and swap-market sources are explicitly fictional modern materials. The portfolio is ungraded reflection; it adds no new estate clue, Season 2 event, certification level or ending gate.
+
+Station source solve: a bench/window and the note 기다리는 방, 1978년 6월 are described, but neither note authorship nor actual photo date is independently documented. B places umbrella storage around 1980 with uncertain room identity. 같은 방 needs identity linkage; 늘 needs continuity evidence; 확인한다 needs agreement on the same claim. A bench alone establishes none of those. Keep the umbrella account and contributor's no-name/no-direct-quotation request in the internal review draft; revisit the public version after the contributor replies.
+
+Independent purpose chosen: proposal to the team. Draft sentence to revise: 오전 장터는 모두 만족한 성공이었습니다. Revised: 오전 10시부터 12시까지 물건 18개가 전달됐으며 사람 수·전체 만족도·오후 실적은 이 자료로 알 수 없습니다. Proposal: 다음 모임에서 수령 전 설명을 짧게 제공하고 필요한 추가 안내를 따로 확인해 봅시다. Objection response: 18은 물건 수이며 18명의 만족을 뜻하지 않습니다. Follow-up question: 어떤 설명을 언제 받았을 때 실제로 도움이 됐나요? Do not publish the participant's unpermitted email quote or treat predicted newcomers as registrations.
+
+Purpose-switch transfer: clearly labelled invented scene—처음 온 손님은 물건을 받아 들고 안내판을 다시 바라보았다. The newcomer and action are invented, not derived historical facts or an implemented procedure. If instead writing instructions, distinguish a proposed pre-handover explanation from a decided rule.
+
+Portfolio model now fulfills the requested context line and underlines newly introduced source names. A valid submission keeps house receipt and later outside-copy comparison in separate sentences, states why sender/recipient were separated, leaves the reader-route question open and chooses a three-sentence explanation as next practice. This is reflection about preserved sources, not proof that all history is known. Collapsed independent model, source boundaries and text-only verification limits remain intact.
+
+## B1.1-01 - PASS
+
+SHA-256: 3a894afde776f9dcd85c7c01970e58443bc30893b3a2c373a8bac499b0a0ec6f
+
+Full updated three-language text and exact LEVEL row read. E07-only opening/closing retain anonymous seed sender, past empty courtyard versus present flowers and unchanged historical events. The modern Minho timeline works without the gated estate scene. No claim that -던 always entails cessation or -었었- always means a distant past.
+
+Supported transformations: 매일 읽던 책; 길이 조용하던데요 after one's own walk; 여기는 카페였었어요 versus current bookshop; 주소를 찾는 중이에요; 현아는 옛길을 걷고 싶어 해요 backed by her direct statement. Five functions are distinct, rather than one remembered story answering all five.
+
+Script: Hyuna now lives in the shared house, not the former nearby home; construction was observed yesterday and remains underway today; Lena wants to visit the bookshop together after opening. Opening date remains pending. Small-talk acknowledgment need not invent how the neighbourhood changed.
+
+Fresh third-person answer: 민호 씨가 2023년에 매주 토요일 걷던 곳이에요. 지금은 다리를 보수하는 중이에요. 민호 씨는 공사가 끝나면 다시 건너고 싶어 해요. 지금도 매주 오세요? Separate Minho-role outputs: 예전에는 이 근처에서 살았었어요. 지금은 다른 동네에 살아요. 오늘 와 보니 다리 공사 중이던데요. His current weekly visits are unknown, not inferred to have stopped.
+
+Updated section-wide concealment applies to earlier models and all language answers, including the later role-switch model; answer/help exposure is supported practice. The real-place transfer is a preparation prompt; no actual personal biography or longitudinal recall is claimed.
+
+Resolved findings: ROOT-FINAL-B111-01
+
+## B1.1-04 - PASS
+
+SHA-256: 10eda0dd3606e32d0eb3082e614215cb7c179c3bb54153569bfd2e89bf479c6c
+
+Full updated KO/EN/DE text and LEVEL row read. MQ-04 is modern and ungated despite its canonical anchor at E07. Korean informal agreement is separate from already using German du; eonni is expressly requested and accepted within the specified roles, and reverting to polite Korean is allowed.
+
+Supported tea switch: 같이 차 마시자 to an agreed informal friend; 같이 차 마실까요? to a new neighbour. -니 is not prescribed to all peers/strangers; the unit explicitly provides alternatives and relation sensitivity. 아 after consonant-final names and 야 after vowel-final names are both shown.
+
+Script: Lena asks to call Hyuna 언니, Hyuna agrees and permits switching back; this agreement does not automatically cover a new neighbour. New reading-group task: 네, 존댓말로 할게요. 차 드실래요? to the adult who prefers polite speech; 우리 같이 앉자 to the separately agreed old friend.
+
+Fresh function outputs: 나 먼저 들어간다; 너도 들어가니? under Jimin's explicit comfort; 너도 이 책을 아는구나 after Jimin says so; 지민아, 여기 봐 / 유리야, 여기 봐 for both name endings; 저는요, 창가에 앉을게요 to the new acquaintance. Statement, question, suggestion, realisation, name call and medial 요 are all elicited from applicable new situations.
+
+The new section-level instruction conceals all earlier models and all language answers across the whole section, including the later function table, and labels help-exposed attempts as supported. Transfer prepares a preferred-address question and does not ask learners to overturn another person's refusal. No scripted roleplay is presented as actual relationship consent or speaking proficiency.
+
+Resolved findings: ROOT-FINAL-B114-01
+
+## B1.2-02 - PASS
+
+SHA-256: 690283f9c62dfab65d0755ea436d1e0f7c5929eb5e73674adcfe2d59d1b407c3
+
+Full FIXES_7 KO/EN/DE manuscript reread after the instruction change, with LEVEL and productive rows 158–164 already cross-checked. E07+E08.started opening remains distinct from the extra E08.middle-only packaging/routes paragraph; E11 sender/motive remain undisclosed. Modern inference practice remains available independently.
+
+Supported box: 책이 들어 있는 모양이에요. 무거울 텐데 제가 도와드릴까요? Closed-box contents and unmeasured weight stay inferred. Script: wet floor is observed, rain is Lena's initial inference, the shared cleaning sign supplies alternative evidence, and staff confirms their own mopping. Nothing establishes that it did not also rain outside; the dry right-hand route is the provided instruction.
+
+Fresh café response: 불이 켜져 있고 ‘잠시 자리 비움’이라고 적혀 있어요. 직원이 잠깐 나간 모양이에요. 언제 돌아오세요? The revised three-language task now requires a -거든요 background reason after either choice. In the self-selected waiting role: 조금 기다릴게요. 아직 시간이 있거든요. In a self-selected appointment role: 먼저 갈게요. 약속이 있거든요. Neither personal choice avoids row 158 any longer; the invented personal circumstance is not attributed to the café evidence.
+
+Other fresh outputs: 직원이 잠깐 나갔나 봐요 / 나갔는가 봐요 / 나간 모양이에요; 우리 같은 표지를 봤잖아요. 돌아올 시각은 모르니 먼저 확인해 봐요; 기다릴 시간이 많지 않을 텐데 먼저 가도 돼요. Twenty minutes until the friend's appointment minus fifteen travel supports little waiting time. No fixed percentages or definite staff return are inferred.
+
+All-language concealment covers earlier models and the entire current answer set, with exposed attempts explicitly supported. The inference versus observation and conditional -거든 versus explanatory -거든요 distinctions remain intact. CUR-FINAL-B122-01 is resolved at this hash; text-based photo/script work does not certify perception or learner attainment.
+
+Resolved findings: ROOT-FINAL-B122-01, CUR-FINAL-B122-01
+
+## B1.2-05 - PASS
+
+SHA-256: 5f3b34ab416132081fd67100f55a1a8cfbbcfbc52d4bc441a2704fa28b6c6d35
+
+Full latest KO/EN/DE and exact LEVEL row read. This unit has no separate grammar-allocation rows; its functional contract uses frequent active/passive/change vocabulary and reuses -게 하다, rather than requiring exhaustive morphology. E07+E08.started estate text distinguishes custody, writing and delivery without assigning an undisclosed name or asserting that the custodian wrote the book.
+
+Supported scope: 수진이 사진을 바꿨어요 names actor and act; 사진이 바뀌었어요 does not name an actor. 전달됐어요 can leave forwarder and creator unknown; 문이 열렸어요 does not identify a person or mechanism; 상자가 레나에게 맡겨졌어요 establishes care, not Lena's ownership. 책이 도서관에 맡겨졌어요 identifies custody location, not authorship: 누가 쓴 책인가요? Ambiguous causing versus allowing should be asked, not guessed.
+
+Script: Daniel confirms receiving the new file and explicitly says he did not post it. Sujin sent it, but selection is unknown. The posting coordinator needs the old caption and new image together to check the mismatch. Adding filenames/dates can be agreed or preceded by checking the existing team method; no new rule is unilaterally imposed.
+
+Fresh notice: 현아 씨는 상자를 보관했어요. 새 전시 장소는 어디인가요? 자료를 옮긴 사람은 누구인가요? 참가자에게 알릴 담당은 누구인가요? Rephrasing: 레나 씨가 상자를 현아 씨에게 맡겼어요 / 상자가 현아 씨에게 맡겨졌어요; the second omits Lena as entrusting person. After the additional confirmation: 다니엘 씨가 자료를 옮겼어요; 마야 씨가 참가자에게 알려요; 자료가 옮겨졌어요 omits Daniel. Custody does not supply unknown exhibition location or notifier.
+
+New all-language section-wide model concealment covers the rephrasing example and extension as well as the main key; exposed attempts are supported. Unknown actors remain questions, not assertions that nobody acted or nobody bears responsibility. Modern materials remain fully usable without the estate scene.
+
+Resolved findings: ROOT-FINAL-B125-01
+
+## Unchanged initial PASS reused after hash comparison
+
+These files were read completely in the initial review. They were not reread a second time; their current SHA-256 equals the recorded initial and checkpoint value.
+
+| Unit | Current SHA-256 | Initial report |
+|---|---|---|
+| F0.1.sound-signs | b7bb84466a1cde340dd866977556caea08757cf3b680e34efcbc730ca1ea6a52 | F0.1.json |
+| F0.1.above-below | cb6a1d917a5d1cfbd689b34bb905fa9a809d5fd2a6aa3d49acd53a41375f690f | F0.1.json |
+| F0.1.straight-lines | f14d42148bb33bf202c0f7e8a4a4a0feff156f4b43f7916a8a865e3d717c5b4a | F0.1.json |
+| F0.2.ribbon | 838b17518b2b46760c4e6582c319a40234278aed4b230858239e4c3fe82ec60e | F0.2.json |
+| F0.2.warm-breath | 2dbbd2c63946f3aa083f33acdba7e9e8cdde658dcb4329cbe3c3988fb18f2aeb | F0.2.json |
+| F0.2.sea-and-bridge | b0f2567c9aadf8f4fe92ae6edadd173f6a821efc956542d9eb7925bb8fc64795 | F0.2.json |
+| F0.3.double-strokes | 220cb1f6ac97da085da6d198e5302f89c204edf33e99143d28b05683313a9276 | F0.3.json |
+| F0.3.two-below | 3102761f409181dc9b1424d4770b4a101671a9a5fdf4ea296ee3f58909adf3b3 | F0.3.json |
+| F0.3.air-two | 6e59e3244675c2e16bf657a3bcb4149857ca4b96d4207f21ff4738a4187ce5ba | F0.3.json |
+| F0.3.corner-vowels | b29b55296093107d56f627101d6e195770c759a2a2b2fbba7fbedf754fe63fbf | F0.3.json |
+| F0.3.round-corner | d734c015f37c93c189d22d08de261a1dc54a2d180c1f51395f931dbb064434e0 | F0.3.json |
+| F0.3.first-finals | 79c7ec4883859024c3d5fee0897bdb51c3db07cd7bbf98047a0644aac049d552 | F0.3.json |
+| F0.3.silent-or-sounding | 6bb1eeec1af6909a15a3f8a087dbc97561774b6c7fda1a1e02cfd769dcb05260 | F0.3.json |
+| F0.4.closed-endings | aca91f2ef20dbcb7bf42015f0c99f7e9cbca641dc220518a7929621d1191f063 | F0.4.json |
+| F0.4.wide-vowels | 77a32bf3173897f07553cf5545b7645e3ca9206f27465a044d5c175c5ffd5b82 | F0.4.json |
+| F0.4.small-pair | cb5c1c09ed47d4a7357c9cd0b7b3e48495eb5ffea68dedad67e99f8f62ddca7d | F0.4.json |
+| F0.4.linked-sounds | d623578fcf158ea0ff1aba6da722527f824c118c52d3deea872a73ca8d3379b8 | F0.4.json |
+| A1.1-01 | c0d8decedb50dbca3e9ffc0e00b06adb4bb258f34fbf701eca76ba13f5fd35b1 | A1.1.json |
+| A1.1-04 | c3a31ade3b47cb11e9938394c619948234847b682c8bda8dabaefaad097bd88a | A1.1.json |
+| A2.2-01 | b0af22868ec40e7ccc7156bdafd89d67ca4089a8174c37765778804147d95bea | A2.2.json |

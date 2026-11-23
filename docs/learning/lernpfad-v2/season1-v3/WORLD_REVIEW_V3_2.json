@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-24",
+  "scope": "Authored world and quest/curriculum design only; not teacher, historian, learner or runtime approval",
+  "skill": "superpowers:brainstorming builder check",
+  "reviewer": "/root/world_v3_2_builder_check",
+  "model": "gpt-6.1-sol",
+  "reasoning_effort": "high",
+  "fresh_context": true,
+  "rounds": [
+    {
+      "scope": "Initial world bible and27quest/100unit links",
+      "result": "nothing important left"
+    },
+    {
+      "scope": "User visibility steering: two past human observers, invited current companions in memory house only",
+      "result": "One important question: TalSunbi can read; why no written greeting from Yeoni?",
+      "resolution": "A written greeting was possible. Initial anonymity and later fear/guilt prolonged Yeoni's silence. E11 includes her unsent draft. Last apology has real regret; no forced forgiveness or arbitrary magic ban."
+    },
+    {
+      "scope": "Written-greeting causality resolution in bible3.5/W13 and contract ending",
+      "result": "nothing important left"
+    }
+  ],
+  "director_choices_not_prior_user_approval": [
+    "Fictional private side-record corpus inspired by sacho, not lost official sacho",
+    "Initial flight danger and later custodial obligations/regret are distinct",
+    "Modern visibility inside memory house only; invitation is not moral or language scoring",
+    "Sujin/TalSunbi may help read; Christian voluntarily conveys",
+    "Gifts consumed in use; packaging remnants and memories retained",
+    "Real history labels and human reviews still required"
+  ],
+  "manual_language_correction": "마당=마+당; ㄷ is initial and ㅇ is final. Optional only after those letters and the meaning are taught.",
+  "human_review_pending": ["Korean teacher", "historian and historical register", "DE/EN language", "real novice observation", "media and accessibility", "persistence and reward runtime contracts"]
+}

@@ -72,6 +72,9 @@ EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER = Path(
 EDITORIAL_FOLLOWUP_LEDGER = Path(
     "tools/content_factory/review/promoted_editorial_followups_20261003.json"
 )
+EDITORIAL_SECOND_FOLLOWUP_LEDGER = Path(
+    "tools/content_factory/review/promoted_editorial_followups_20261119.json"
+)
 EDITORIAL_COPY_FIELDS = {
     "vocab": {"korean", "romanization", "german", "english", "pos_de", "pos_en",
         "example_korean", "example_german", "example_english"},
@@ -257,16 +260,29 @@ def _editorial_successors(
                     "before": predecessor["before"] if predecessor else amendment["before"],
                     "beforeSha256": predecessor["beforeSha256"] if predecessor else amendment["beforeSha256"],
                 }
-        followup_path = root / EDITORIAL_FOLLOWUP_LEDGER
-        if followup_path.exists():
-            payload = _json(followup_path)
-            if not isinstance(payload, dict):
-                raise PromotedBatchError("editorial followups must be an object")
-            for field, relative_path in (
+        # Each later followup ledger is appended, never rewritten: it freezes
+        # every earlier ledger by hash and chains each entry to the exact
+        # projection its predecessor left live.
+        for followup_ledger, frozen in (
+            (EDITORIAL_FOLLOWUP_LEDGER, (
                 ("predecessorLedgerSha256", EDITORIAL_SUCCESSOR_LEDGER),
                 ("firstAmendmentLedgerSha256", EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER),
                 ("copyRevisionLedgerSha256", COPY_REVISION_LEDGER),
-            ):
+            )),
+            (EDITORIAL_SECOND_FOLLOWUP_LEDGER, (
+                ("predecessorLedgerSha256", EDITORIAL_SUCCESSOR_LEDGER),
+                ("firstAmendmentLedgerSha256", EDITORIAL_SUCCESSOR_AMENDMENT_LEDGER),
+                ("firstFollowupLedgerSha256", EDITORIAL_FOLLOWUP_LEDGER),
+                ("copyRevisionLedgerSha256", COPY_REVISION_LEDGER),
+            )),
+        ):
+            followup_path = root / followup_ledger
+            if not followup_path.exists():
+                continue
+            payload = _json(followup_path)
+            if not isinstance(payload, dict):
+                raise PromotedBatchError("editorial followups must be an object")
+            for field, relative_path in frozen:
                 expected = hashlib.sha256((root / relative_path).read_bytes()).hexdigest()
                 if payload.get(field) != expected:
                     raise PromotedBatchError("editorial followup changed its frozen predecessor ledger")
@@ -276,7 +292,7 @@ def _editorial_successors(
                 raise PromotedBatchError("editorial followup has invalid predecessor commit")
             followups = _editorial_successors(
                 root=root, manifest_path=manifest_path,
-                _ledger_path=EDITORIAL_FOLLOWUP_LEDGER,
+                _ledger_path=followup_ledger,
             )
             for key, followup in followups.items():
                 predecessor = result.get(key)

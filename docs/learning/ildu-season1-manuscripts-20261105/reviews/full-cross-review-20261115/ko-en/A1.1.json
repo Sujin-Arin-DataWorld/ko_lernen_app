@@ -1,0 +1,96 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A1.1-01",
+      "sha256": "c0d8decedb50dbca3e9ffc0e00b06adb4bb258f34fbf701eca76ba13f5fd35b1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.1-02",
+      "sha256": "d07f102df60b06ca81a5d5abc265b69aeb18acb84fc83ac04c7a4dcb97e8f6b7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-A11-01"
+      ]
+    },
+    {
+      "unitId": "A1.1-03",
+      "sha256": "ba848d65ceaa010bd28a51bc9569995b88d9e778db3161bc3993ace1dd962f45",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-A11-02"
+      ]
+    },
+    {
+      "unitId": "A1.1-04",
+      "sha256": "c3a31ade3b47cb11e9938394c619948234847b682c8bda8dabaefaad097bd88a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.1-05",
+      "sha256": "f443e52e0d529a134cea928643fc49874e4d838edee0a4b768bd2db691c932a7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-A11-03"
+      ]
+    },
+    {
+      "unitId": "A1.1-06",
+      "sha256": "e9a372b201990af34514e59af75da77939c078517379129bfe9eb9d91b94e94e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-A11-01",
+      "unitId": "A1.1-02",
+      "severity": "required",
+      "location": "나누어 배우기 EN: ‘Minsu is Korean. He speaks English.’",
+      "problem": "The stand-alone Minsu/Korea/English role card states no gender. The translation adds a male identity absent from Korean.",
+      "proposal": "With the card Minsu/Korea/English, build ‘Minsu is Korean and speaks English.’",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-A11-02",
+      "unitId": "A1.1-03",
+      "severity": "required",
+      "location": "생활 전이 EN: ‘Translate unfamiliar labels.’; KO: ‘표지의 새 단어는 번역을 받아요.’",
+      "problem": "Korean grants translation support for unfamiliar words; English instructs the beginner to produce the translation independently, changing both action and level.",
+      "proposal": "Ask for a translation of unfamiliar labels.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-A11-03",
+      "unitId": "A1.1-05",
+      "severity": "required",
+      "location": "듣기 EN comprehension: ‘who came with Christian?’",
+      "problem": "The modern script establishes being with Hyuna now, not the past event of arriving together. Korean asks who Christian’s companion is. English should not add an arrival claim.",
+      "proposal": "Check: Who owns the book and bag, and who is Christian here with? Was Hyuna said to own the book?",
+      "affectedLanguages": [
+        "EN"
+      ]
+    }
+  ]
+}

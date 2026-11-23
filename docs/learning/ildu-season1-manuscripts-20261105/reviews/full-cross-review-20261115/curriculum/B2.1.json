@@ -1,0 +1,147 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B2.1-01",
+      "sha256": "b2b8ee51732b6a6ee7263f918e82954d68ab5a36173a7fa8de0ea87021b66ea0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-B21-01"
+      ]
+    },
+    {
+      "unitId": "B2.1-02",
+      "sha256": "9a59de9d090858e70405e623f9f0c19330b67e058442a2d3790530f1a0e60898",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-B21-02"
+      ]
+    },
+    {
+      "unitId": "B2.1-03",
+      "sha256": "3cfb6eecd06c0eac53a33063a1f5655ed236b6b9b2c70e33dcdbf028fe9612c7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-B21-03"
+      ]
+    },
+    {
+      "unitId": "B2.1-04",
+      "sha256": "5370c540700db3050006c60f85d4cc89e45fce9aff720e2facd60b46369397fa",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-B21-04"
+      ]
+    },
+    {
+      "unitId": "B2.1-05",
+      "sha256": "b869521bc84b21bf83aa777e2e544020b7ac5b4501da4a770db6bf389babe265",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-B21-05"
+      ]
+    },
+    {
+      "unitId": "B2.1-06",
+      "sha256": "58c20a45b161b4c3b5f491431a751993dd676141241774090d946ca6e9de1abe",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-B21-06"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-B21-01",
+      "unitId": "B2.1-01",
+      "severity": "required",
+      "location": "§8 독립 확인과 생활 전이 — '답은 B. A는 분모100명과50명을...'",
+      "problem": "The independent source-comprehension choice displays its answer and all three explanations immediately after the options. §5's cover-the-model instruction is scoped to its six expression groups; §8 only delays the later writing example. Reading B is not independent comprehension evidence.",
+      "proposal": "Move '답은 B' and its KO/EN/DE explanations to a facilitator/check-after-response block. Before the choices add KO '먼저 답과 해설을 모든 언어에서 가리고 A–C 중 하나를 고른 뒤 이유를 말해요. 답을 본 뒤의 시도는 지원 연습이에요.' EN 'Hide the answer and explanations in every language before choosing A–C and explaining why. An attempt after seeing the answer is supported practice.' DE 'Decke Antwort und Erklärungen in allen Sprachen ab, bevor du A–C auswählst und begründest. Nach dem Ansehen der Antwort gilt der Versuch als unterstützte Übung.' Preserve the distinction from speaking assessment and the properly delayed transfer example.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-B21-02",
+      "unitId": "B2.1-02",
+      "severity": "required",
+      "location": "§8 독립 확인 — '답 B. A의 만과 C의 원인·무영향...'",
+      "problem": "The independent choice prints B and its three-language explanation immediately after the options. The model-hiding instruction governs the earlier expression groups, while this choice has no answer-hiding boundary. The answer is semantically correct, but viewing it cannot count as independent evidence.",
+      "proposal": "Move '답 B' and its KO/EN/DE explanations to a facilitator/check-after-response block. Before the choices add KO '먼저 답과 해설을 모든 언어에서 가리고 A–C 중 하나를 고른 뒤 이유를 말해요. 답을 본 뒤의 시도는 지원 연습이에요.' EN 'Hide the answer and explanations in every language before choosing A–C and explaining why. An attempt after seeing the answer is supported practice.' DE 'Decke Antwort und Erklärungen in allen Sprachen ab, bevor du A–C auswählst und begründest. Nach dem Ansehen der Antwort gilt der Versuch als unterstützte Übung.' Preserve the distinction from speaking assessment and the properly delayed transfer example.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-B21-03",
+      "unitId": "B2.1-03",
+      "severity": "required",
+      "location": "§8 독립 확인 — '답 B: A는 파손을, C는 완료를 추가한다.'",
+      "problem": "The independent choice prints B and its three-language explanation immediately after the options. The model-hiding instruction governs the earlier expression groups, while this choice has no answer-hiding boundary. The answer is semantically correct, but viewing it cannot count as independent evidence.",
+      "proposal": "Move '답 B' and its KO/EN/DE explanations to a facilitator/check-after-response block. Before the choices add KO '먼저 답과 해설을 모든 언어에서 가리고 A–C 중 하나를 고른 뒤 이유를 말해요. 답을 본 뒤의 시도는 지원 연습이에요.' EN 'Hide the answer and explanations in every language before choosing A–C and explaining why. An attempt after seeing the answer is supported practice.' DE 'Decke Antwort und Erklärungen in allen Sprachen ab, bevor du A–C auswählst und begründest. Nach dem Ansehen der Antwort gilt der Versuch als unterstützte Übung.' Preserve the distinction from speaking assessment and the properly delayed transfer example.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-B21-04",
+      "unitId": "B2.1-04",
+      "severity": "required",
+      "location": "§8 독립 확인 — '답 C. A는 성과와 의무를...'",
+      "problem": "The explicitly independent choice displays its correct answer and three-language explanation immediately below the options. The separate productive exercises have appropriate delayed models, but that boundary does not cover this choice. A response after reading the key is supported practice.",
+      "proposal": "Move '답 C' and its KO/EN/DE explanations to a facilitator/check-after-response block. Before the choices add KO '먼저 답과 해설을 모든 언어에서 가리고 A–C 중 하나를 고른 뒤 이유를 말해요. 답을 본 뒤의 시도는 지원 연습이에요.' EN 'Hide the answer and explanations in every language before choosing A–C and explaining why. An attempt after seeing the answer is supported practice.' DE 'Decke Antwort und Erklärungen in allen Sprachen ab, bevor du A–C auswählst und begründest. Nach dem Ansehen der Antwort gilt der Versuch als unterstützte Übung.' Preserve the distinction from speaking assessment and the properly delayed transfer example.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-B21-05",
+      "unitId": "B2.1-05",
+      "severity": "required",
+      "location": "§8 독립 확인 — '답 B. A는 목록 상태를, C는 부정 범위를 바꾼다.'",
+      "problem": "The explicitly independent choice displays its correct answer and three-language explanation immediately below the options. The separate productive exercises have appropriate delayed models, but that boundary does not cover this choice. A response after reading the key is supported practice.",
+      "proposal": "Move '답 B' and its KO/EN/DE explanations to a facilitator/check-after-response block. Before the choices add KO '먼저 답과 해설을 모든 언어에서 가리고 A–C 중 하나를 고른 뒤 이유를 말해요. 답을 본 뒤의 시도는 지원 연습이에요.' EN 'Hide the answer and explanations in every language before choosing A–C and explaining why. An attempt after seeing the answer is supported practice.' DE 'Decke Antwort und Erklärungen in allen Sprachen ab, bevor du A–C auswählst und begründest. Nach dem Ansehen der Antwort gilt der Versuch als unterstützte Übung.' Preserve the distinction from speaking assessment and the properly delayed transfer example.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-B21-06",
+      "unitId": "B2.1-06",
+      "severity": "required",
+      "location": "§8 독립 확인 — '답 C. 두 평균은 자료에 이미 주어져 있다.'",
+      "problem": "The explicitly independent choice displays its correct answer and three-language explanation immediately below the options. The separate productive exercises have appropriate delayed models, but that boundary does not cover this choice. A response after reading the key is supported practice.",
+      "proposal": "Move '답 C' and its KO/EN/DE explanations to a facilitator/check-after-response block. Before the choices add KO '먼저 답과 해설을 모든 언어에서 가리고 A–C 중 하나를 고른 뒤 이유를 말해요. 답을 본 뒤의 시도는 지원 연습이에요.' EN 'Hide the answer and explanations in every language before choosing A–C and explaining why. An attempt after seeing the answer is supported practice.' DE 'Decke Antwort und Erklärungen in allen Sprachen ab, bevor du A–C auswählst und begründest. Nach dem Ansehen der Antwort gilt der Versuch als unterstützte Übung.' Preserve the distinction from speaking assessment and the properly delayed transfer example.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

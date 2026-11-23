@@ -1,0 +1,99 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A1.1-01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P1 안녕하세요. 하린이에요 (저는 optional). P2 repeat 하린 then 하린 씨예요?→네. S1 direct 민수예요/하린이에요 or repeat same QUESTION 이름이 뭐예요? first. L1 Christian; L2 크리스티안; L3 unchanged. I1 준이에요→partner 유나예요→다시 말해 주세요→유나 씨예요?→네. I2 민수예요. T1 self 하린이에요; partner 민수, confirm 민수 씨예요?; repeat optional if actually needed. Bare name communication versus target ending, alternate natural clarification accepted.",
+      "review": "All main text and separately held facilitator script/key read. Casual-role du explicitly specified, different from universal first-meeting Sie. 준 consonant/민수 vowel types genuinely differ; 씨예요 not substituted as evidence of self-introduction form.",
+      "sha256": "c0d8decedb50dbca3e9ffc0e00b06adb4bb258f34fbf701eca76ba13f5fd35b1"
+    },
+    {
+      "unitId": "A1.1-02",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-A11-01"
+      ],
+      "solutions": "Supported Minsu: 민수는 한국 사람이에요. 영어 해요. Harin chosen name+language: 저는 하린이에요. 한국어 해요; country optional. Formal 무엇입니까 asks name, not language. Script Harin Germany/Korean, Minsu English. New Yuna omitted country; role Jun 저는 준이에요. 한국어 해요. Transfer e.g. 저는 준이에요. 영어 해요 with card-specific truth, listener repeats only disclosed facts.",
+      "review": "DE uses du within peer roleplay, Sie for formal reception example. No real nationality imposed by cards. GRAMMAR_ALLOCATION rows11/12 explicitly receptive; absence of formal production matches individual allocation.",
+      "sha256": "d07f102df60b06ca81a5d5abc265b69aeb18acb84fc83ac04c7a4dcb97e8f6b7"
+    },
+    {
+      "unitId": "A1.1-03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-A11-02"
+      ],
+      "solutions": "Shelf B bag only: 아니요, 모자가 없어요. 가방이 있어요. Location from speaker A 여기, far B 저기. Script hat near Sujin; checked shelf no bag. New A book/no hat, B hat+bag: 여기 모자가 없어요. 저기 모자가 있어요. 여기 책이 있어요. Extra B-bag question 네, 있어요. Smalltalk found→thanks/not yet→where. Transfer described presence limited to inspected location.",
+      "review": "Here/there viewpoint, absence scope and unknown labels preserved. Required DE collocation/case repair in story line.",
+      "sha256": "ba848d65ceaa010bd28a51bc9569995b88d9e778db3161bc3993ace1dd962f45"
+    },
+    {
+      "unitId": "A1.1-04",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Supported umbrella request 우산 주세요→actual handover→감사합니다; action water 물을 마셔요 vs tea 차를 마셔요; chair 여기 앉으세요 and photo 이 사진 보세요. Script tea received, sitting first. New A umbrella; B 수진은 물을 마셔요/크리스티안은 차를 마셔요; C chair/photo invitation. Transfer new taught 휴지 주세요. Smalltalk tea/water/decline all fit.",
+      "review": "DE peer du consistent, action object versus request separated. New 휴지 meaning taught before transfer. Other natural polite requests, e.g. 물 좀 주세요, allowed.",
+      "sha256": "c3a31ade3b47cb11e9938394c619948234847b682c8bda8dabaefaad097bd88a"
+    },
+    {
+      "unitId": "A1.1-05",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Possession support Christian bag 크리스티안의 가방이에요, Christian role 제 가방이에요. Companion friend+me 친구하고/친구랑 같이 있어요. 과/와 receptive both book+hat. Script book Sujin, bag Christian, companion Hyuna; no claim Hyuna book owner. New Yuna role: ask Jun 준 씨 거예요?; 제 가방이에요; 준은 수진하고/수진이랑 같이 있어요. Unknown owner 잘 모르겠어요. Transfer identify tag then confirm actual owner.",
+      "review": "DE my/your and third-person ownership correct; companion not owner. 과/와 receptive and 의/하고/이랑 productive matches allocation.",
+      "sha256": "f443e52e0d529a134cea928643fc49874e4d838edee0a4b768bd2db691c932a7"
+    },
+    {
+      "unitId": "A1.1-06",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Correction wrong bagB→제 가방이 아니에요, request A. Added bag 저도 가방이 있어요. Only umbrella 우산만 주세요. Script Christian owns/keeps hat only; bag returned, water declined. New A own bag/B wrong bag/C own hat: 아니요, 제 가방이 아니에요. 이거 주세요 (A); 저도 모자가 있어요; 차만 주세요. Transfer correct role name then only selected item, e.g. 아니요, 준이에요. 물만 주세요.",
+      "review": "없어요 absence versus 아니에요 identity/ownership kept separate in DE. Natural shortened 제 거 아니에요 accepted separately from target form. Gate conditions retained; no E04/completion granted.",
+      "sha256": "e9a372b201990af34514e59af75da77939c078517379129bfe9eb9d91b94e94e"
+    }
+  ],
+  "findings": [
+    {
+      "id": "DE-A11-01",
+      "unitId": "A1.1-02",
+      "severity": "required",
+      "location": "소개판 앞에서 DE: Sujin hält die Vermutung auf.",
+      "problem": "A Vermutung cannot idiomatically be halted with aufhalten in this action scene. KO 수진이 막는다 stops Joy from attaching the inferred flag, rather than stopping an abstract supposition.",
+      "proposal": "Sujin hält Joy zurück.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-A11-02",
+      "unitId": "A1.1-03",
+      "severity": "required",
+      "location": "아직 보지 않은 자리 DE: Hinter das Tuch hat noch niemand gesehen.",
+      "problem": "The German directional phrase plus sehen is not idiomatic for checking the space behind the cloth. It obscures the concrete uninspected location that motivates the presence task.",
+      "proposal": "Hinter dem Tuch hat noch niemand nachgesehen.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    }
+  ],
+  "notes": [
+    "Six manuscripts read in full; all textual practice, script, smalltalk, independent and transfer tasks solved and compared with stated answers/open criteria. Listening material read as script only.",
+    "Six UNITS rows and six LEVEL_STORY_100 scene/gate records checked; 15 grammar allocation rows reviewed for production/reception. Individual formal receptive targets applied, not broad assumption that every A1 formal expression must be produced in this unit."
+  ]
+}

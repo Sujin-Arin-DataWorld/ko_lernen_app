@@ -1779,9 +1779,9 @@
           },
           "options": [
             {
-              "ko": "요즘 무슨 일 해요?",
-              "de": "Was machst du gerade beruflich?",
-              "en": "What kind of work do you do these days?"
+              "ko": "일 찾고 있어요?",
+              "de": "Suchst du gerade Arbeit?",
+              "en": "Are you looking for work?"
             },
             {
               "ko": "일 많아요?",
@@ -2611,9 +2611,9 @@
               "en": "I'm getting ready to apply for jobs."
             },
             {
-              "ko": "이력서 썼어요?",
-              "de": "Hast du deinen Lebenslauf geschrieben?",
-              "en": "Did you write your resume?"
+              "ko": "일 찾고 있어요?",
+              "de": "Suchst du gerade Arbeit?",
+              "en": "Are you looking for work?"
             }
           ],
           "correctIndex": 1,
@@ -2633,15 +2633,15 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“이력서 썼어요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„이력서 썼어요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“이력서 썼어요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“일 찾고 있어요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„일 찾고 있어요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“일 찾고 있어요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "이력서 썼어요?",
-              "de": "Hast du deinen Lebenslauf geschrieben?",
-              "en": "Did you write your resume?"
+              "ko": "일 찾고 있어요?",
+              "de": "Suchst du gerade Arbeit?",
+              "en": "Are you looking for work?"
             },
             {
               "ko": "요즘 취업 준비 중이에요.",
@@ -2649,22 +2649,22 @@
               "en": "I'm getting ready to apply for jobs."
             },
             {
-              "ko": "자소서 다 썼어요?",
-              "de": "Hast du den Text über dich selbst für die Bewerbung schon fertig?",
-              "en": "Have you finished your personal statement for the job application?"
+              "ko": "어떤 회사 가고 싶어요?",
+              "de": "Bei was für einer Firma möchtest du arbeiten?",
+              "en": "What kind of company do you want to work for?"
             }
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “이력서 썼어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Hast du deinen Lebenslauf geschrieben? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Did you write your resume? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “일 찾고 있어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Suchst du gerade Arbeit? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Are you looking for work? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a1_0033"
           ],
-          "audioKo": "이력서 썼어요?",
-          "evidenceKo": "이력서 썼어요?"
+          "audioKo": "일 찾고 있어요?",
+          "evidenceKo": "일 찾고 있어요?"
         },
         {
           "id": "smalltalk.a1.job_hunting.preparation.situation",
@@ -2738,7 +2738,7 @@
           },
           "options": [
             {
-              "ko": "집 구했어요?",
+              "ko": "집 찾았어요?",
               "de": "Hast du eine Wohnung gefunden?",
               "en": "Did you find a place?"
             },
@@ -2770,9 +2770,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“집 구했어요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„집 구했어요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“집 구했어요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“집 찾았어요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„집 찾았어요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“집 찾았어요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -2781,7 +2781,7 @@
               "en": "Did you sleep well?"
             },
             {
-              "ko": "집 구했어요?",
+              "ko": "집 찾았어요?",
               "de": "Hast du eine Wohnung gefunden?",
               "en": "Did you find a place?"
             },
@@ -2793,15 +2793,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “집 구했어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "ko": "이 표현의 내용은 “집 찾았어요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
             "de": "Gemeint ist: Hast du eine Wohnung gefunden? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
             "en": "The meaning is: Did you find a place? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a1_0035"
           ],
-          "audioKo": "집 구했어요?",
-          "evidenceKo": "집 구했어요?"
+          "audioKo": "집 찾았어요?",
+          "evidenceKo": "집 찾았어요?"
         },
         {
           "id": "smalltalk.a1.moving.newhome.situation",
@@ -4535,9 +4535,9 @@
           },
           "options": [
             {
-              "ko": "신발은 현관에 두면 될까요?",
-              "de": "Kann ich die Schuhe in der Diele lassen?",
-              "en": "Should I leave my shoes in the entryway?"
+              "ko": "현우 남동생은 뭐라고 불러요?",
+              "de": "Wie nenne ich Hyunwoos jüngeren Bruder?",
+              "en": "What do I call Hyunwoo's younger brother?"
             },
             {
               "ko": "어머님이라고 불러도 될까요?",
@@ -4697,9 +4697,9 @@
               "en": "Can I send this photo to Hyunwoo?"
             },
             {
-              "ko": "현우 남동생은 뭐라고 부르면 돼요?",
-              "de": "Wie soll ich Hyunwoos jüngeren Bruder ansprechen?",
-              "en": "What should I call Hyunwoo's younger brother?"
+              "ko": "어머님이라고 불러도 될까요?",
+              "de": "Darf ich Sie Eomeonim nennen?",
+              "en": "Is it okay if I call you Eomeonim?"
             }
           ],
           "correctIndex": 0,
@@ -4994,9 +4994,9 @@
               "en": "What time does everyone usually gather on Seollal?"
             },
             {
-              "ko": "현우 남동생은 뭐라고 부르면 돼요?",
-              "de": "Wie soll ich Hyunwoos jüngeren Bruder ansprechen?",
-              "en": "What should I call Hyunwoo's younger brother?"
+              "ko": "과일 바구니 어디에 둘까요?",
+              "de": "Wo soll ich den Obstkorb hinstellen?",
+              "en": "Where should I put the fruit basket?"
             }
           ],
           "correctIndex": 0,
@@ -5121,38 +5121,38 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“현우 남동생은 뭐라고 부르면 돼요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„현우 남동생은 뭐라고 부르면 돼요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“현우 남동생은 뭐라고 부르면 돼요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“현우 남동생은 뭐라고 불러요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„현우 남동생은 뭐라고 불러요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“현우 남동생은 뭐라고 불러요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
+            {
+              "ko": "이 사진 현우한테 보내도 될까요?",
+              "de": "Darf ich das Foto Hyunwoo schicken?",
+              "en": "Can I send this photo to Hyunwoo?"
+            },
+            {
+              "ko": "현우 남동생은 뭐라고 불러요?",
+              "de": "Wie nenne ich Hyunwoos jüngeren Bruder?",
+              "en": "What do I call Hyunwoo's younger brother?"
+            },
             {
               "ko": "어머님이라고 불러도 될까요?",
               "de": "Darf ich Sie Eomeonim nennen?",
               "en": "Is it okay if I call you Eomeonim?"
-            },
-            {
-              "ko": "현우 남동생은 뭐라고 부르면 돼요?",
-              "de": "Wie soll ich Hyunwoos jüngeren Bruder ansprechen?",
-              "en": "What should I call Hyunwoo's younger brother?"
-            },
-            {
-              "ko": "신발은 현관에 두면 될까요?",
-              "de": "Kann ich die Schuhe in der Diele lassen?",
-              "en": "Should I leave my shoes in the entryway?"
             }
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “현우 남동생은 뭐라고 부르면 돼요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Wie soll ich Hyunwoos jüngeren Bruder ansprechen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: What should I call Hyunwoo's younger brother? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “현우 남동생은 뭐라고 불러요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Wie nenne ich Hyunwoos jüngeren Bruder? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: What do I call Hyunwoo's younger brother? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a1_0077"
           ],
-          "audioKo": "현우 남동생은 뭐라고 부르면 돼요?",
-          "evidenceKo": "현우 남동생은 뭐라고 부르면 돼요?"
+          "audioKo": "현우 남동생은 뭐라고 불러요?",
+          "evidenceKo": "현우 남동생은 뭐라고 불러요?"
         },
         {
           "id": "smalltalk.a1.partner_family.photos.smalltalk_a1_0078.meaning",
@@ -5289,16 +5289,16 @@
               "en": "현우 동생은 몇 살이에요?"
             },
             {
-              "ko": "현우 남동생은 뭐라고 부르면 돼요?",
-              "de": "현우 남동생은 뭐라고 부르면 돼요?",
-              "en": "현우 남동생은 뭐라고 부르면 돼요?"
+              "ko": "현우 남동생은 뭐라고 불러요?",
+              "de": "현우 남동생은 뭐라고 불러요?",
+              "en": "현우 남동생은 뭐라고 불러요?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "“현우 남동생은 뭐라고 부르면 돼요?” — 현우의 남동생을 어떻게 불러야 할지 몰라서 물어봐요.",
-            "de": "„현우 남동생은 뭐라고 부르면 돼요?“ bedeutet: Wie soll ich Hyunwoos jüngeren Bruder ansprechen?",
-            "en": "“현우 남동생은 뭐라고 부르면 돼요?” means: What should I call Hyunwoo's younger brother?"
+            "ko": "“현우 남동생은 뭐라고 불러요?” — 현우의 남동생을 어떻게 불러야 할지 몰라서 물어봐요.",
+            "de": "„현우 남동생은 뭐라고 불러요?“ bedeutet: Wie nenne ich Hyunwoos jüngeren Bruder?",
+            "en": "“현우 남동생은 뭐라고 불러요?” means: What do I call Hyunwoo's younger brother?"
           },
           "sourceIds": [
             "smalltalk_a1_0077",
@@ -5306,8 +5306,8 @@
             "smalltalk_a1_0079",
             "smalltalk_a1_0080"
           ],
-          "audioKo": "현우 남동생은 뭐라고 부르면 돼요?",
-          "evidenceKo": "현우 남동생은 뭐라고 부르면 돼요?"
+          "audioKo": "현우 남동생은 뭐라고 불러요?",
+          "evidenceKo": "현우 남동생은 뭐라고 불러요?"
         }
       ]
     },
@@ -8246,9 +8246,9 @@
           },
           "options": [
             {
-              "ko": "이력서 썼어요?",
-              "de": "Hast du deinen Lebenslauf geschrieben?",
-              "en": "Did you write your resume?"
+              "ko": "일 찾고 있어요?",
+              "de": "Suchst du gerade Arbeit?",
+              "en": "Are you looking for work?"
             },
             {
               "ko": "자소서 다 썼어요?",
@@ -10749,38 +10749,38 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“나 당이 당겨. 뭐 좀 달달한 거 마실까?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„나 당이 당겨. 뭐 좀 달달한 거 마실까?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“나 당이 당겨. 뭐 좀 달달한 거 마실까?”\nWhich meaning matches the whole utterance?"
+            "ko": "“뭐 마실까?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„뭐 마실까?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“뭐 마실까?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "나 살짝 출출한데 감자튀김 사 먹을까?",
-              "de": "Ich habe ein bisschen Hunger. Wollen wir uns Pommes holen?",
-              "en": "I'm a little hungry. Want to get some fries?"
+              "ko": "물 좀 마실래?",
+              "de": "Möchtest du etwas Wasser trinken?",
+              "en": "Want some water?"
             },
             {
-              "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
-              "de": "Wow, schau mal da. Wie süß! Wollen wir zusammen ein Foto machen?",
-              "en": "Wow, look over there. So cute! Want to take a picture together?"
+              "ko": "우리 저거 탈까?",
+              "de": "Wollen wir mit dem da fahren?",
+              "en": "Want to go on that one?"
             },
             {
-              "ko": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
-              "de": "Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken?",
-              "en": "I'm craving sugar. Want to get something sweet to drink?"
+              "ko": "뭐 마실까?",
+              "de": "Was wollen wir trinken?",
+              "en": "What should we drink?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "이 표현의 내용은 “나 당이 당겨. 뭐 좀 달달한 거 마실까?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: I'm craving sugar. Want to get something sweet to drink? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “뭐 마실까?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Was wollen wir trinken? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: What should we drink? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0085"
           ],
-          "audioKo": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
-          "evidenceKo": "나 당이 당겨. 뭐 좀 달달한 거 마실까?"
+          "audioKo": "뭐 마실까?",
+          "evidenceKo": "뭐 마실까?"
         },
         {
           "id": "smalltalk.a2.theme_park_date.snack.smalltalk_a2_0086.meaning",
@@ -10793,9 +10793,9 @@
           },
           "options": [
             {
-              "ko": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
-              "de": "Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken?",
-              "en": "I'm craving sugar. Want to get something sweet to drink?"
+              "ko": "케첩 좋아해, 마요네즈 좋아해?",
+              "de": "Magst du Ketchup oder Mayonnaise?",
+              "en": "Do you like ketchup or mayonnaise?"
             },
             {
               "ko": "나 살짝 출출한데 감자튀김 사 먹을까?",
@@ -10825,20 +10825,20 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“넌 케첩파야, 마요파야?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„넌 케첩파야, 마요파야?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“넌 케첩파야, 마요파야?”\nWhich meaning matches the whole utterance?"
+            "ko": "“케첩 좋아해, 마요네즈 좋아해?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„케첩 좋아해, 마요네즈 좋아해?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“케첩 좋아해, 마요네즈 좋아해?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "넌 케첩파야, 마요파야?",
-              "de": "Bist du Team Ketchup oder Team Mayo?",
-              "en": "Are you team ketchup or team mayo?"
+              "ko": "케첩 좋아해, 마요네즈 좋아해?",
+              "de": "Magst du Ketchup oder Mayonnaise?",
+              "en": "Do you like ketchup or mayonnaise?"
             },
             {
-              "ko": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
-              "de": "Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken?",
-              "en": "I'm craving sugar. Want to get something sweet to drink?"
+              "ko": "뭐 마실까?",
+              "de": "Was wollen wir trinken?",
+              "en": "What should we drink?"
             },
             {
               "ko": "나 살짝 출출한데 감자튀김 사 먹을까?",
@@ -10848,15 +10848,15 @@
           ],
           "correctIndex": 0,
           "explanation": {
-            "ko": "이 표현의 내용은 “넌 케첩파야, 마요파야?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Bist du Team Ketchup oder Team Mayo? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Are you team ketchup or team mayo? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “케첩 좋아해, 마요네즈 좋아해?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Magst du Ketchup oder Mayonnaise? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Do you like ketchup or mayonnaise? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_a2_0087"
           ],
-          "audioKo": "넌 케첩파야, 마요파야?",
-          "evidenceKo": "넌 케첩파야, 마요파야?"
+          "audioKo": "케첩 좋아해, 마요네즈 좋아해?",
+          "evidenceKo": "케첩 좋아해, 마요네즈 좋아해?"
         },
         {
           "id": "smalltalk.a2.theme_park_date.snack.situation",
@@ -10970,9 +10970,9 @@
           },
           "options": [
             {
-              "ko": "나 살짝 출출한데 감자튀김 사 먹을까?",
-              "de": "Ich habe ein bisschen Hunger. Wollen wir uns Pommes holen?",
-              "en": "I'm a little hungry. Want to get some fries?"
+              "ko": "케첩 좋아해, 마요네즈 좋아해?",
+              "de": "Magst du Ketchup oder Mayonnaise?",
+              "en": "Do you like ketchup or mayonnaise?"
             },
             {
               "ko": "와, 저기 봐봐. 너무 귀여워! 같이 사진 찍을까?",
@@ -10980,9 +10980,9 @@
               "en": "Wow, look over there. So cute! Want to take a picture together?"
             },
             {
-              "ko": "나 당이 당겨. 뭐 좀 달달한 거 마실까?",
-              "de": "Ich brauche gerade etwas Süßes. Wollen wir etwas Süßes trinken?",
-              "en": "I'm craving sugar. Want to get something sweet to drink?"
+              "ko": "나 살짝 출출한데 감자튀김 사 먹을까?",
+              "de": "Ich habe ein bisschen Hunger. Wollen wir uns Pommes holen?",
+              "en": "I'm a little hungry. Want to get some fries?"
             }
           ],
           "correctIndex": 1,
@@ -13765,9 +13765,9 @@
               "en": "What field are you applying in?"
             },
             {
-              "ko": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
-              "de": "Muss ich alle Voraussetzungen der Stellenanzeige erfüllen?",
-              "en": "Do I need to meet every requirement in the job posting?"
+              "ko": "지원 조건을 다 맞춰야 하나요?",
+              "de": "Muss ich alle Anforderungen erfüllen?",
+              "en": "Do I need to meet every requirement?"
             },
             {
               "ko": "요즘 취업 시장 어때요?",
@@ -13808,9 +13808,9 @@
               "en": "What field are you applying in?"
             },
             {
-              "ko": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
-              "de": "Muss ich alle Voraussetzungen der Stellenanzeige erfüllen?",
-              "en": "Do I need to meet every requirement in the job posting?"
+              "ko": "지원 조건을 다 맞춰야 하나요?",
+              "de": "Muss ich alle Anforderungen erfüllen?",
+              "en": "Do I need to meet every requirement?"
             }
           ],
           "correctIndex": 1,
@@ -13830,9 +13830,9 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“채용 공고의 지원 자격을 모두 충족해야 하나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„채용 공고의 지원 자격을 모두 충족해야 하나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“채용 공고의 지원 자격을 모두 충족해야 하나요?”\nWhich meaning matches the whole utterance?"
+            "ko": "“지원 조건을 다 맞춰야 하나요?”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„지원 조건을 다 맞춰야 하나요?“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“지원 조건을 다 맞춰야 하나요?”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
@@ -13841,27 +13841,27 @@
               "en": "Who should I ask about my residence status?"
             },
             {
-              "ko": "어느 분야로 지원하고 있어요?",
-              "de": "In welchem Bereich bewirbst du dich?",
-              "en": "What field are you applying in?"
+              "ko": "요즘 취업 시장 어때요?",
+              "de": "Wie ist gerade der Arbeitsmarkt?",
+              "en": "How's the job market these days?"
             },
             {
-              "ko": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
-              "de": "Muss ich alle Voraussetzungen der Stellenanzeige erfüllen?",
-              "en": "Do I need to meet every requirement in the job posting?"
+              "ko": "지원 조건을 다 맞춰야 하나요?",
+              "de": "Muss ich alle Anforderungen erfüllen?",
+              "en": "Do I need to meet every requirement?"
             }
           ],
           "correctIndex": 2,
           "explanation": {
-            "ko": "이 표현의 내용은 “채용 공고의 지원 자격을 모두 충족해야 하나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: Muss ich alle Voraussetzungen der Stellenanzeige erfüllen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Do I need to meet every requirement in the job posting? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “지원 조건을 다 맞춰야 하나요?”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Muss ich alle Anforderungen erfüllen? Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: Do I need to meet every requirement? Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0073"
           ],
-          "audioKo": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
-          "evidenceKo": "채용 공고의 지원 자격을 모두 충족해야 하나요?"
+          "audioKo": "지원 조건을 다 맞춰야 하나요?",
+          "evidenceKo": "지원 조건을 다 맞춰야 하나요?"
         },
         {
           "id": "smalltalk.b1.job_hunting.requirements.smalltalk_b1_0075.meaning",
@@ -13879,9 +13879,9 @@
               "en": "Who should I ask about my residence status?"
             },
             {
-              "ko": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
-              "de": "Muss ich alle Voraussetzungen der Stellenanzeige erfüllen?",
-              "en": "Do I need to meet every requirement in the job posting?"
+              "ko": "지원 조건을 다 맞춰야 하나요?",
+              "de": "Muss ich alle Anforderungen erfüllen?",
+              "en": "Do I need to meet every requirement?"
             },
             {
               "ko": "요즘 취업 시장 어때요?",
@@ -15307,9 +15307,9 @@
           },
           "options": [
             {
-              "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
-              "de": "So zu tun, als hätte ich es gelesen, war am Ende noch unangenehmer.",
-              "en": "Pretending I'd read it was even more awkward."
+              "ko": "메시지를 못 읽어서 늦게 답했어요.",
+              "de": "Ich habe die Nachricht nicht gelesen und deshalb spät geantwortet.",
+              "en": "I didn't read the message, so I replied late."
             },
             {
               "ko": "죄송하지만 올해는 저희가 못 갈 것 같아요.",
@@ -15524,9 +15524,9 @@
           },
           "options": [
             {
-              "ko": "이번엔 제가 직접 대답해 볼게요.",
-              "de": "Diesmal versuche ich, selbst zu antworten.",
-              "en": "I'll try answering this one myself."
+              "ko": "메시지를 못 읽어서 늦게 답했어요.",
+              "de": "Ich habe die Nachricht nicht gelesen und deshalb spät geantwortet.",
+              "en": "I didn't read the message, so I replied late."
             },
             {
               "ko": "저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.",
@@ -15670,9 +15670,9 @@
               "en": "I'll tell you about that another time."
             },
             {
-              "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
-              "de": "So zu tun, als hätte ich es gelesen, war am Ende noch unangenehmer.",
-              "en": "Pretending I'd read it was even more awkward."
+              "ko": "죄송하지만 올해는 저희가 못 갈 것 같아요.",
+              "de": "Es tut mir leid, dieses Jahr schaffen wir es wohl nicht.",
+              "en": "I'm sorry, I don't think we can make it this year."
             },
             {
               "ko": "같은 방을 쓰는 게 불편하시면 말씀해 주세요.",
@@ -15741,14 +15741,14 @@
           },
           "options": [
             {
+              "ko": "메시지를 못 읽어서 늦게 답했어요.",
+              "de": "Ich habe die Nachricht nicht gelesen und deshalb spät geantwortet.",
+              "en": "I didn't read the message, so I replied late."
+            },
+            {
               "ko": "저는 술을 잘 못 마셔서 잠깐 자리를 비울게요.",
               "de": "Ich vertrage Alkohol nicht gut und gehe kurz raus.",
               "en": "I can't handle alcohol very well, so I'll step away for a bit."
-            },
-            {
-              "ko": "이번엔 제가 직접 대답해 볼게요.",
-              "de": "Diesmal versuche ich, selbst zu antworten.",
-              "en": "I'll try answering this one myself."
             },
             {
               "ko": "죄송하지만 올해는 저희가 못 갈 것 같아요.",
@@ -15952,20 +15952,20 @@
           "type": "choice",
           "skill": "meaning",
           "prompt": {
-            "ko": "“못 읽었으면서 읽은 척하는 게 더 어색하더라고요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
-            "de": "„못 읽었으면서 읽은 척하는 게 더 어색하더라고요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
-            "en": "“못 읽었으면서 읽은 척하는 게 더 어색하더라고요.”\nWhich meaning matches the whole utterance?"
+            "ko": "“메시지를 못 읽어서 늦게 답했어요.”\n이 말의 전체 뜻과 맞는 것을 고르세요.",
+            "de": "„메시지를 못 읽어서 늦게 답했어요.“\nWelche Bedeutung gibt die ganze Äußerung wieder?",
+            "en": "“메시지를 못 읽어서 늦게 답했어요.”\nWhich meaning matches the whole utterance?"
           },
           "options": [
             {
-              "ko": "같은 방을 쓰는 게 불편하시면 말씀해 주세요.",
-              "de": "Wenn ein gemeinsames Zimmer unangenehm ist, sagen Sie es bitte.",
-              "en": "If sharing a room is uncomfortable, please say so."
+              "ko": "죄송하지만 올해는 저희가 못 갈 것 같아요.",
+              "de": "Es tut mir leid, dieses Jahr schaffen wir es wohl nicht.",
+              "en": "I'm sorry, I don't think we can make it this year."
             },
             {
-              "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
-              "de": "So zu tun, als hätte ich es gelesen, war am Ende noch unangenehmer.",
-              "en": "Pretending I'd read it was even more awkward."
+              "ko": "메시지를 못 읽어서 늦게 답했어요.",
+              "de": "Ich habe die Nachricht nicht gelesen und deshalb spät geantwortet.",
+              "en": "I didn't read the message, so I replied late."
             },
             {
               "ko": "지금 일은 안정적으로 하고 있어요.",
@@ -15975,15 +15975,15 @@
           ],
           "correctIndex": 1,
           "explanation": {
-            "ko": "이 표현의 내용은 “못 읽었으면서 읽은 척하는 게 더 어색하더라고요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
-            "de": "Gemeint ist: So zu tun, als hätte ich es gelesen, war am Ende noch unangenehmer. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
-            "en": "The meaning is: Pretending I'd read it was even more awkward. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
+            "ko": "이 표현의 내용은 “메시지를 못 읽어서 늦게 답했어요.”입니다. 시간, 대상, 질문인지 진술인지까지 함께 확인하세요.",
+            "de": "Gemeint ist: Ich habe die Nachricht nicht gelesen und deshalb spät geantwortet. Achte auch darauf, wann etwas passiert, wer oder was gemeint ist und ob es eine Frage oder eine Aussage ist.",
+            "en": "The meaning is: I didn't read the message, so I replied late. Pay attention to the time reference, who or what is being referred to, and whether it is a question or a statement."
           },
           "sourceIds": [
             "smalltalk_b1_0068"
           ],
-          "audioKo": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
-          "evidenceKo": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요."
+          "audioKo": "메시지를 못 읽어서 늦게 답했어요.",
+          "evidenceKo": "메시지를 못 읽어서 늦게 답했어요."
         },
         {
           "id": "smalltalk.b1.partner_family.reflection.situation",

@@ -1,0 +1,113 @@
+{
+  "role": "ko-de",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B1.2-01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-B12-01"
+      ],
+      "solutions": "P: 마야가 저에게 사진을 보내라고 했어요. 아직 보내지는 않았어요. L: Mayas Plan per Sprachnachricht, keine beobachtete Ankunft; Fotos an Christian gerichtet; Lenas 18:30 noch nicht von Maya akzeptiert. Neue Nachricht: 현아 씨가 레나 씨에게 보낸 메시지를 읽었어요; 현아 씨는 내일 열 시에 도서관에 간다고 했어요; 다니엘 씨가 언제 올 수 있냐고 물었어요; 입구에서 만나자고 했어요; 지도 한 장은 레나 씨에게 가져오라고 했어요. Weitere Karten: exakt „문은 아홉 시에 열어요“라고; 다니엘은 목이 마르다고 물을 마셨어요; 자리가 없다거나 시간이 안 맞는다는 답장이 왔어요; 마야가 저보고 창문을 닫으라고 했어요. 아직 닫지는 않았어요; 안내팀으로부터 새 지도를 받았습니다. Transfer Quelle/Adressat/Erledigung erhalten.",
+      "review": "Alle neun Funktionen einschließlich vier indirekter Sprechakte separat gelöst. Direkte deutsche Leihquote muss das reflexive mir/sich bekommen, damit Entleiherrolle eindeutig bleibt; sonst Quelle und Handlungsstatus treffend.",
+      "sha256": "d8f053d9aa8847a75f2514f05882f93389d42dce8b2847dd4f67ccc4ddf8513f"
+    },
+    {
+      "unitId": "B1.2-02",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P: 책이 들어 있는 모양이에요; 무거울 텐데 제가 도와드릴까요? Beides unbestätigt. L: zunächst Boden nass; Reinigung vom Personal selbst bestätigt; Wetter draußen weiterhin unbekannt. Neu Licht an/Abwesenheitsschild; 직원이 잠깐 나간 모양이에요; 언제 돌아오세요? 저는 조금 기다릴게요. 아직 시간이 있거든요 (nur gewählte Musterrolle). Weitere Formen: 직원이 잠깐 나갔나 봐요 / 나갔는가 봐요 / 나간 모양이에요; 우리 같은 표지를 봤잖아요; 돌아올 시각은 모르니 먼저 확인해 봐요; 기다릴 시간이 많지 않을 텐데 먼저 가도 돼요. 20−15=5 Minuten Reserve, keine Pflicht zu warten.",
+      "review": "Alle sieben Ziele erfüllt; keine festen Wahrscheinlichkeiten. Bedingung gegenüber Erklärung von 거든 korrekt, 잖아요 stützt gemeinsam gesehenes Schild. Zusätzliches E08.middle-Gate für Verpackungsvergleich bewahrt.",
+      "sha256": "2a785b1bf843b114a7d9680cd405095e7a1a0254fb4a3f1c0cb966a22e27e197"
+    },
+    {
+      "unitId": "B1.2-03",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P: A/B gleich schwarz und 70cm, Griffmaterial verschieden. L: zwei Schirme durch nebeneinander aufgenommenes A/B belegt; gleiche Länge (auch gleiche Farbe akzeptabel); rote Reparatur nur A; A lediglich Minho-Kandidat. Neu Gruppen A/B und C; gleiche Größe, andere Grifffarbe; Frage nach zwischenzeitlichem Griffwechsel, kein Schluss auf sicher verschiedene Taschen/Eigentümer. Zusatz 물건이 많아진 만큼 시간이 더 필요해요; 안내에 적힌 대로 하나씩 확인해요; 학생이고 직원이고 같은 절차를 따라 주세요. A의 가방은 C의 가방만큼 커요; 손잡이가 고리같이 생겼어요; 레나와 마야가 같이 사진을 봐요. Transfer weiterer Maßstab neben Farbe.",
+      "review": "Sechs Ziele, inklusive beide 같이-Funktionen, gelöst. Foto/Vergrößerung nicht doppelt gezählt; separates Foto nicht automatisch anderer Gegenstand. Hausableitungen bleiben eine Quelle.",
+      "sha256": "00395c3fbc7ee1007f233af86a95aab3c07c9cd4f06a7a0b90bca39ffcaf4324"
+    },
+    {
+      "unitId": "B1.2-04",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-B12-02"
+      ],
+      "solutions": "P: Eingang sichtbar anerkennen, Unterlagen trocken innen plus Wegweisung. L: bereits eindringender Regen, keine bloße Prognose; Nachteil durch Pfeil am Eingang; Deckel nach Treffen schließen. Neu B가 찾기 쉽기는 하지만 A가 조용한 편이에요; 읽는 시간에 대해 생각하면 A가 좋겠어요; 입구에 앉는 대신에 A의 위치 안내를 붙여요. A는 조용한 반면 입구에서 멀어요; 모임 장소는 입구에서 멀리 있으나 조용합니다. Stuhl: 편해 보여요; 편해 보여도 실제로 불편하니 다른 의자를 쓸게요. Transfer tatsächlichen Vorteil anerkennen plus begründete Alternative.",
+      "review": "Alle acht Funktionen einschließlich formeller Kurzmitteilung, zusätzlicher 반면-Aufgabe und Eindruckskorrektur gelöst. Deutsche Schubladen-Gegenüberstellung benötigt eindeutige Subjekte; Register ansonsten passend.",
+      "sha256": "9192b12917b266a925f23f79589ffb3d0c22aeeee4ec324b847c0b02cf000bc1"
+    },
+    {
+      "unitId": "B1.2-05",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "P: Buch der Bibliothek anvertraut sagt Aufbewahrungsort, nicht Autor; 누가 쓴 책인가요? L: Daniel erhielt Datei und verneint Veröffentlichung; Sujin nur Weitergeberin belegt; Zuständige sollen Bild/Text prüfen. Neu Hyuna verwahrt Kiste; 새 전시 장소는 어디인가요? 자료를 옮긴 분은 누구인가요? 참가자에게 안내할 담당은 누구인가요? Umformung 레나 씨가 상자를 현아 씨에게 맡겼어요 / 상자가 현아 씨에게 맡겨졌어요; zweite lässt Lena weg. Nach Zusatzbestätigung 다니엘 씨가 자료를 옮겼어요; 마야 씨가 참가자에게 알려요; 자료가 옮겨졌어요 lässt Daniel weg.",
+      "review": "Kein einzelner Allocation-Eintrag, Funktion laut UNITS erfüllt. Aktiv/passiv/intransitiv nicht pauschal gleichgesetzt; fehlende Person nicht fehlende Handlung oder Verantwortlichkeit. Verwahrer nicht automatisch Besitzer/Autor.",
+      "sha256": "14e53f08b499e2a53b801217596b9acf8f04521eed71d311201cbe02128b360e"
+    },
+    {
+      "unitId": "B1.2-06",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "DE-B12-03"
+      ],
+      "solutions": "Anfangsmodell korrigiert: Lena meldet Abstellen, Fotoidentität offen, Hyuna sagt nicht erhalten; Griff/Abstellzeit prüfen. L: zu weit ging abgeschlossene Rückgabe; Foto belegt weder Identität noch Empfang; gemeinsam suchen und Ergebnis melden. Neu vier Gruppen A/B/C-D/E (keine vier unabhängigen Augenzeugen); Maya→Daniel anvertraut berichtet, Daniel→Desk abgelegt ohne Personalübergabe berichtet; Foto nur blaues Buch unbekannten Titels; Personal sagt kein Empfang. Buchtitel separat und aktuelle Verwahrung erfragen. Einwand zweiFotos: D nur Ausschnitt von C, keine neue unabhängige Bestätigung. Transfer Quelle/Erledigung/Frage + echte Revision.",
+      "review": "Neue integrierte Aufgabe vollständig gelöst, Sprachziel ist Revision nicht alle Formen. Deutscher Modellschluss muss fehlenden Beleg statt kategorischer Nicht-Rückgabe ausdrücken. E07+E08.middle tatsächlich strenger als canonical started, kein E11-Sender/Motiv.",
+      "sha256": "41aad2aad23519d4be6a465a8666d5edb5adff871311e49fd9cabd6e53a2fff0"
+    }
+  ],
+  "findings": [
+    {
+      "id": "DE-B12-01",
+      "unitId": "B1.2-01",
+      "severity": "required",
+      "location": "Sujin: „Ich habe einen Schirm geliehen.“ / Sujin sagte: „Ich habe einen Schirm geliehen.“ / Sujin hat gesagt, dass sie einen Schirm geliehen hat.",
+      "problem": "leihen ohne Reflexivpronomen lässt in diesen isolierten Lehrbeispielen die Richtung (ausleihen oder verleihen) offen. 빌렸어요 besagt eindeutig, dass Sujin den Schirm ausgeliehen hat. Gerade in der Einheit zu Sprecher/Handlung/Quelle muss diese Rolle eindeutig bleiben.",
+      "proposal": "Sujin: „Ich habe mir einen Schirm geliehen.“ / Sujin sagte: „Ich habe mir einen Schirm geliehen.“ / Sujin hat gesagt, dass sie sich einen Schirm geliehen hat.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-B12-02",
+      "unitId": "B1.2-04",
+      "severity": "required",
+      "location": "In der Schublade bleibt es trocken, ist aber nicht sofort sichtbar.",
+      "problem": "es ist zuerst unpersönlich (trocken bleiben im Raum), wird dann ohne klaren Bezug zum sichtbaren Gegenstand. Die koreanische Gegenüberstellung nennt ausdrücklich Schublade und Unterlagen.",
+      "proposal": "Die Schublade ist trocken, aber die Unterlagen sind darin nicht sofort zu sehen.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    },
+    {
+      "id": "DE-B12-03",
+      "unitId": "B1.2-06",
+      "severity": "required",
+      "location": "Hyuna hat ihren nach eigener Aussage nicht erhalten; die Rückgabe ist also nicht abgeschlossen.",
+      "problem": "Die Schlussklausel macht aus einer Aussagequelle ein kategorisches Nicht-Abgeschlossen-Sein. KO verlangt, Rückgabe nicht als abgeschlossen zu dokumentieren; EN sagt not established. Die Einheit prüft gerade diese Evidenzgrenze.",
+      "proposal": "Hyuna hat ihren nach eigener Aussage nicht erhalten; eine abgeschlossene Rückgabe ist daher nicht belegt.",
+      "affectedLanguages": [
+        "DE"
+      ]
+    }
+  ],
+  "notes": [
+    "Sechs vollständige Manuskripte gelesen; sämtliche textlichen Aufgaben eigenständig gelöst, einschließlich separater Karten und Einwände.",
+    "UNITS, GRAMMAR_ALLOCATION und LEVEL_STORY_100 bandweise geprüft. B1.2-02 zusätzlicher E08.middle-Abschnitt, B1.2-06 tatsächliches E08.middle-Gate erhalten.",
+    "KI-Modellreview, keine menschliche Zertifizierung. Keine Audio-/App-/Lernendenperformanzprüfung."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "changed_count": 38118,
+  "reviewed_hash_changes": 10,
+  "errors": [],
+  "review_source_changes": [
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\artifact-union-audit-20261010\\DECISIONS.json",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\c-hangul-parity-20261009\\craft-v2\\hangul-atelier\\DIRECTION.md",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-hanok-c-integration-20261010\\progress.md",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\docs\\design\\c_course_mockup_20261005\\index.html",
+      "status": "review_source_missing"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\canonical-reward-onboarding-20261004\\docs\\design\\c_lernen_screen_mockups_20261009\\v2\\SELECTIONS.json",
+      "status": "review_source_missing"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dokkaebi-c-parity-20261009\\docs\\design\\c_image_direction_v3_20261009\\FINAL_SELECTION.json",
+      "status": "review_source_missing"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\GRAMMAR_HERITAGE_IDEAS.md",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\JOSEON_TYPE_SAMPLE.json",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\JOSEON_GRAMMAR_SAMPLE.json",
+      "status": "review_source_hash_changed"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\lernen-ab-depth-review-20261010-v1\\COVERAGE_BY_MENU.json",
+      "status": "review_source_hash_changed"
+    }
+  ],
+  "full_report": "C:\\dev\\hangulsori\\_codex_artifacts\\ildu-season1-v3-plan-20261024\\source-changes-full.json",
+  "full_report_sha256": "4d0ba8ef4d8c9a72cd410693d723a3099f43c7b73569d0cb3073fa06759d0107",
+  "external_api_calls": 0,
+  "note": "Metadata probe only; current sources inspected separately. No art approval inherited."
+}

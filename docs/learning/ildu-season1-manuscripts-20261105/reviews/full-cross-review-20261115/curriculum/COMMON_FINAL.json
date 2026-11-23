@@ -1,0 +1,62 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "status": "PASS_at_recorded_hashes",
+  "documents": [
+    {
+      "file": "AUTHORING_BRIEF.md",
+      "sha256": "b321d41d863af894359976ccc777771353155c77f9d705b1c241737172efe8d3",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "rereadThisFinalPass": false,
+      "reusedUnchangedInitialReview": true
+    },
+    {
+      "file": "TERM_AND_TRANSLATION_NOTES.md",
+      "sha256": "40ba90f7925841bb5eb024cd86fb7207a8d4469983e0db9d31b2505e448f4993",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "rereadThisFinalPass": false,
+      "reusedUnchangedInitialReview": true
+    },
+    {
+      "file": "SERIES_EDITORIAL_MAP.md",
+      "sha256": "20749b99a4e1338422afda776993d22b6a397260224f47a78bd44b6ecb920f8f",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "rereadThisFinalPass": false,
+      "reusedUnchangedInitialReview": true
+    },
+    {
+      "file": "READER_INTRODUCTION.md",
+      "sha256": "4f3e4720b2a1f793c1905775a61bcc6b3c24e3f5572807f3b128c9ce9be832d5",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "rereadThisFinalPass": true,
+      "reusedUnchangedInitialReview": false
+    },
+    {
+      "file": "CURRICULUM_REUSE_NOTES.md",
+      "sha256": "b0064512bc6e5ffac0cb7bb373941f17783c5f444cc80abf7f2794265f3294e9",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "rereadThisFinalPass": true,
+      "reusedUnchangedInitialReview": false
+    },
+    {
+      "file": "README.md",
+      "sha256": "46426c3bf954e7792e353c9f1dedd9ea8cc31b1195b0999e6149d70c02d948c0",
+      "fullTextRead": true,
+      "verdict": "PASS",
+      "rereadThisFinalPass": true,
+      "reusedUnchangedInitialReview": false
+    }
+  ],
+  "findings": [],
+  "resolvedInitialFindingIds": [
+    "CUR-COMMON-01",
+    "CUR-COMMON-02"
+  ],
+  "currentHashAuditUtc": "2026-11-15T08:59:52.272461+00:00"
+}

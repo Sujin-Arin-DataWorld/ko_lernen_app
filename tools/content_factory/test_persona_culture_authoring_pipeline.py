@@ -98,6 +98,7 @@ class PersonaCultureAuthoringPipelineTest(unittest.TestCase):
         brief = {
             "schemaVersion": 1,
             "status": "review_only",
+            "dialogueAuthoringContract": module.DIALOGUE_AUTHORING_CONTRACT,
             "scenes": [
                 {
                     "scenarioId": "b1_support_role_probe",

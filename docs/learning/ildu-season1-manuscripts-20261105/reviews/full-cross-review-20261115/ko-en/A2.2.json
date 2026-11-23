@@ -1,0 +1,87 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A2.2-01",
+      "sha256": "b0af22868ec40e7ccc7156bdafd89d67ca4089a8174c37765778804147d95bea",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A2.2-02",
+      "sha256": "2b91012bb68ae2da690ba6829a02aac746abaef459cf7d7458d5fc988e8b8cd4",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A2.2-03",
+      "sha256": "f7115a5450ec9cf78cde23df2613ba9c8761334c82d3708ccdda66e17b083c25",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-A22-01"
+      ]
+    },
+    {
+      "unitId": "A2.2-04",
+      "sha256": "bdcbac9e04d257ffd91798a8fd5dedac31f46a9915ab15d0653cac00dc693e0a",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "EN-A22-02"
+      ]
+    },
+    {
+      "unitId": "A2.2-05",
+      "sha256": "25aa485ca7e41473782733468517ca77f869c93d99a83b5b3bd3d52f3cd8e092",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A2.2-06",
+      "sha256": "ab30fce89aacc349eaf32e9078e57cd519344eb8f3c80ec40130f4c9abe053d0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-A22-01",
+      "unitId": "A2.2-03",
+      "severity": "required",
+      "location": "새 자료로 확인하고 생활에 쓰기, task② and model ‘파일이 열리지 않기 때문에 걱정된다고 했어요.’",
+      "problem": "The fresh task asks the learner to report Hyuna’s stated worry, but its only given model newly requires indirect quotation without marking it as support or offering an A2 alternative. Indirect declarative quotation is assigned to B1.2-01 (allocation row153); this unit’s required output is -는데, -기 때문에 and -네요. English ‘She said she was worried’ follows the meaning accurately but inherits the unsupported production demand.",
+      "proposal": "Add before the task: KO ‘②에서는 현아 역할로 “파일이 열리지 않기 때문에 걱정돼요”라고 말해도 돼요. “걱정된다고 했어요”는 “she said she was worried”라는 뜻의 통째 도움 표현이에요. 이 단원에서는 간접인용을 새로 만들어 평가하지 않아요.’ EN ‘For task 2, you may speak as Hyuna: 파일이 열리지 않기 때문에 걱정돼요 (“I’m worried because the file won’t open”). The phrase 걱정된다고 했어요 (“she said she was worried”) is supplied as a supported chunk; independently forming indirect quotations is not assessed here.’ Mirror the same support/alternative in German.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-A22-02",
+      "unitId": "A2.2-04",
+      "severity": "optional",
+      "location": "다음 장면: calendar note ‘내일 12시, 레나 연락’ / ‘Lena’s message, noon tomorrow’",
+      "problem": "The dialogue promises contact by noon, but the compact closing note can read as a message at exactly noon. The actual answer key correctly preserves the deadline.",
+      "proposal": "KO calendar text ‘내일 12시까지, 레나 시간 확인 후 연락’; EN calendar text ‘By noon tomorrow: Lena checks her schedule and gets in touch.’ Preserve the by-noon deadline in German as well.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

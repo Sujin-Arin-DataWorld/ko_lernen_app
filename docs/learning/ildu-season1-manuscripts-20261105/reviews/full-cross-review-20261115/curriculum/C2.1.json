@@ -1,0 +1,132 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C2.1-01",
+      "sha256": "85021011eef0214d063ffbf40168b593a59937e06fc63a7e345b5520a7667020",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "C2.1-02",
+      "sha256": "0e992cc786352a1e123044e952e0a16bb74361e0f01f436ec3de13ef5e324206",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C21-01"
+      ]
+    },
+    {
+      "unitId": "C2.1-03",
+      "sha256": "cddf19d96e3c65b43847dbc63c45f7b343219207a367f33a62d1e20b695ee45b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C21-02"
+      ]
+    },
+    {
+      "unitId": "C2.1-04",
+      "sha256": "97da19d6584b4ffffa9674dd73b7e02c356185d78ed3d5725eb39bed24a20219",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C21-03"
+      ]
+    },
+    {
+      "unitId": "C2.1-05",
+      "sha256": "af43dda01a6e55b3c8f54795e875cc6dab4a1acd2edbc064419aaaa0f153efce",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C21-04"
+      ]
+    },
+    {
+      "unitId": "C2.1-06",
+      "sha256": "f2ae8a2c262c070e8b7a688e364980968e35ccc449aa5fce1251504a506c0f66",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C21-05"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-C21-01",
+      "unitId": "C2.1-02",
+      "severity": "required",
+      "location": "독립 과제와 전이 / 새 자료: ‘원본 확인을 마친 사람은 5명이다’",
+      "problem": "한국어는 원본을 실제로 확인해 본 사람이 다섯 명이라는 읽기도 허용한다. 하지만 EN/DE와 해답은 원본 열람 허가만 받은 다섯 명이며 실제 열람 여부는 모른다고 판정한다. 허가와 실제 열람을 구별하는 문제에서 자료 자체의 ‘원본 확인’이 모호하다.",
+      "proposal": "KO 자료를 ‘안내를 이미 받아 본 사람은 18명이고, 원본 열람에 필요한 담당자의 확인을 받은 사람은 5명이다. 실제로 원본을 열람한 사람 수는 이 자료에 없다.’로 바꾼다. EN: ‘Eighteen people have received guidance, and five have received the staff confirmation required to consult an original. The material does not say how many actually consulted one.’ DE: ‘18 Personen haben den Hinweis erhalten, 5 die erforderliche Bestätigung des Personals für die Originaleinsicht. Wie viele tatsächlich ein Original eingesehen haben, steht in diesen Angaben nicht.’",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C21-02",
+      "unitId": "C2.1-03",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제의 즉시 보이는 답 또는 모델",
+      "problem": "독립이라고 명시한 새 자료 과제 바로 아래 또는 같은 문단에 세 언어의 답이 공개돼 있다. 읽고 베낀 답을 도움 없는 해석 수행과 구별할 수 없다.",
+      "proposal": "해당 독립 답/모델의 KO·EN·DE 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary>에 넣는다. 지시: ‘먼저 모든 언어의 답과 풀이를 닫고 자신의 답을 쓴다. 답이나 표현 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding; mark answer/form support as supported performance. / Schließe zuerst alle Lösungen und Erläuterungen in jeder Sprache; kennzeichne verwendete Lösungs- oder Formulierungshilfe als unterstützte Bearbeitung.’ 06은 선택 심화이므로 건너뛰기를 실패나 필수 완료 부족으로 세지 않는 기존 문구를 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C21-03",
+      "unitId": "C2.1-04",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제의 즉시 보이는 답 또는 모델",
+      "problem": "독립이라고 명시한 새 자료 과제 바로 아래 또는 같은 문단에 세 언어의 답이 공개돼 있다. 읽고 베낀 답을 도움 없는 해석 수행과 구별할 수 없다.",
+      "proposal": "해당 독립 답/모델의 KO·EN·DE 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary>에 넣는다. 지시: ‘먼저 모든 언어의 답과 풀이를 닫고 자신의 답을 쓴다. 답이나 표현 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding; mark answer/form support as supported performance. / Schließe zuerst alle Lösungen und Erläuterungen in jeder Sprache; kennzeichne verwendete Lösungs- oder Formulierungshilfe als unterstützte Bearbeitung.’ 06은 선택 심화이므로 건너뛰기를 실패나 필수 완료 부족으로 세지 않는 기존 문구를 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C21-04",
+      "unitId": "C2.1-05",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제의 즉시 보이는 답 또는 모델",
+      "problem": "독립이라고 명시한 새 자료 과제 바로 아래 또는 같은 문단에 세 언어의 답이 공개돼 있다. 읽고 베낀 답을 도움 없는 해석 수행과 구별할 수 없다.",
+      "proposal": "해당 독립 답/모델의 KO·EN·DE 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary>에 넣는다. 지시: ‘먼저 모든 언어의 답과 풀이를 닫고 자신의 답을 쓴다. 답이나 표현 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding; mark answer/form support as supported performance. / Schließe zuerst alle Lösungen und Erläuterungen in jeder Sprache; kennzeichne verwendete Lösungs- oder Formulierungshilfe als unterstützte Bearbeitung.’ 06은 선택 심화이므로 건너뛰기를 실패나 필수 완료 부족으로 세지 않는 기존 문구를 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C21-05",
+      "unitId": "C2.1-06",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 / 독립 자료·과제의 즉시 보이는 답 또는 모델",
+      "problem": "독립이라고 명시한 새 자료 과제 바로 아래 또는 같은 문단에 세 언어의 답이 공개돼 있다. 읽고 베낀 답을 도움 없는 해석 수행과 구별할 수 없다.",
+      "proposal": "해당 독립 답/모델의 KO·EN·DE 전체를 기본 닫힘 <details><summary>답을 쓴 뒤 비교 / Compare after answering / Nach der eigenen Antwort vergleichen</summary>에 넣는다. 지시: ‘먼저 모든 언어의 답과 풀이를 닫고 자신의 답을 쓴다. 답이나 표현 도움을 열었다면 도움받은 수행으로 표시한다. / Close all answers and explanations in every language before responding; mark answer/form support as supported performance. / Schließe zuerst alle Lösungen und Erläuterungen in jeder Sprache; kennzeichne verwendete Lösungs- oder Formulierungshilfe als unterstützte Bearbeitung.’ 06은 선택 심화이므로 건너뛰기를 실패나 필수 완료 부족으로 세지 않는 기존 문구를 유지한다.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}
