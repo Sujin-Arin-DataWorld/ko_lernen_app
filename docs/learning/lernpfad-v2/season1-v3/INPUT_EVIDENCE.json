@@ -1,0 +1,203 @@
+{
+  "checked_date": "2026-10-24 Europe/Berlin",
+  "worktree": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernpfad-v2-20261023",
+  "head": "6fadd838e2a8ad378b92b38d06d86541782a7db8",
+  "branch": "codex/lernpfad-v2-20261023",
+  "remote_main_sha_checked": "373cdf18279f1f42293ca986266efe6d5e510cb7",
+  "story_source": "C:\\Users\\vjinn\\ELibrary\\Downloads\\한글소리_일두_지워진목소리_시즌1_스토리건축_통합최종본_v3.0_2026-10-24.md",
+  "story_source_sha256": "17928de909eb5291d361638d1af541ebf03e020f995ed25f0724627729969993",
+  "sources": {
+    "docs/learning/lernpfad-v2/reference/CURRICULUM_FOUNDATION_TO_C2.md": "c5bde55e11a93616221348df2275a83de3f03919bebac73aeeff170cdc289040",
+    "docs/learning/lernpfad-v2/reference/HISTORY_AND_FIRST_STEPS.md": "13f87d90ec6dee0c4783185b068edd04676be8e82505b9e59f962d6123997cc3",
+    "docs/learning/lernpfad-v2/reference/SEASON1_V3_20261024.md": "17928de909eb5291d361638d1af541ebf03e020f995ed25f0724627729969993",
+    "docs/learning/lernpfad-v2/curriculum/FOUNDATION.psv": "0d8ec0c9ec89060fd58df92c0ce71cf7b4d63454fef506eafe180386a2796c45",
+    "docs/learning/lernpfad-v2/curriculum/UNITS.psv": "212ef56a469a5136ce92fcd4ee2acd4c32a95ebf7d549a5d93a9c4369aadbcfd",
+    "docs/learning/lernpfad-v2/curriculum/GRAMMAR_ALLOCATION.csv": "85566f234a190abde20c4498d1b63df4680ef7947bf37d6e8be4c3bbbbe43c1a",
+    "docs/learning/lernpfad-v2/curriculum/ASSESSMENT_CONTRACT.md": "0e0b6e9526191819e520381f2e9291e81e2c2809df3336cbaeff07521128f8f7",
+    "tools/content_factory/canonical_scenarios/character_profiles.json": "5187c47dc211cbff25249a5b5d0705c9fe5fc7b502375845b5e26139387cf264",
+    "lib/models/persona_presentation.dart": "3f050693df2f49ea395acf9fe6227b2e8c17b6fad46921920125266da924cf55",
+    "lib/models/scenario_character.dart": "55561840dc8b283d6ce8f29b93380558e73ccf697683f73c97a911254b519b64",
+    "assets/data/ildu_world_manifest_v1.json": "60dc9921867e94438c08bc05fe43dcadec46aeee3a379e75c32a4b1c1b214a60",
+    "assets/data/ildu_construction_art_v1.json": "d990ec413979463ba802deb90d3951d4764944c08b133c18906ada7cf4c7af09",
+    "assets/data/sarangchae_construction_v3.json": "c0cd9a453fb3e7cbb787d67e3bf5cda53dd35bb606ee5cef78f45af8485bb65e",
+    "lib/services/yeopjeon_service.dart": "8f827063ab636a25d9844bd320b94a24d7ade8ebf07a8d36a4298def132f9161",
+    "lib/models/yeopjeon_wallet.dart": "c8a9bbc237ba8bec532e6b2f2d27442e362ae3d43370436fc5b123487458d828",
+    "lib/services/course_progress_service.dart": "310895cfea3af5dbb97a7db94e26fd40e2314379a89dd22b9285a5e0daddb72e"
+  },
+  "images": [
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-1.jpg",
+      "sha256": "a0a5c10dc4a147200c4341fb594da906699e1f1c627e561d1ae6807dd863e74f",
+      "bytes": 744366,
+      "dimensions": [
+        976,
+        1075
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "visual_observation": "도깨비 붉은 피부 인물과 손의 빛",
+      "planning_use": "캐릭터 형태 참고; 상태별 정본 연결은 등록 대조 필요",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-2.jpg",
+      "sha256": "0257cc496f14fd78d77fc4b3c3bb7b91b43db9317789a2167121b9c17f3ec175",
+      "bytes": 936253,
+      "dimensions": [
+        976,
+        1075
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "visual_observation": "도깨비와 푸른 불꽃의 민화풍 그림",
+      "planning_use": "선택 문화/도감 연출 후보; #1과 런타임 상태 자동 동일시 금지",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-3.png",
+      "sha256": "3baa7f3f26235b11b9235c814013a89c86c1a187312a78a1b6d97c5c6b0d8612",
+      "bytes": 2299587,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visual_observation": "금속 꽃 장식·편지가 있는 화려한 주머니",
+      "planning_use": "보상 소품 참고 후보; 연이의 소박한 씨앗 주머니로 자동 지정하지 않음",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-4.png",
+      "sha256": "371358c47a67ce4928f2a90872f86ec6307519140e629f660fe517947b13bb0b",
+      "bytes": 3179020,
+      "dimensions": [
+        1100,
+        1430
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visual_observation": "청록 풍화 재질·도깨비 얼굴·두 뿔의 뾰족한 수호기와",
+      "planning_use": "v3.0의 수호기와 형태 참고; 기존 소켓과 실제 부착 구조 검수",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-5.png",
+      "sha256": "f1a9a0534ebf7aeb233adef91f2e9f04e89ce10c6f8d9c321b54aab56d028fe9",
+      "bytes": 2931914,
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "visual_observation": "수호기와 변형과 연이 소품을 함께 보여주는 비교 시트",
+      "planning_use": "시안 한 파일. 문서의 7개 독립 PNG가 모두 제공된 것은 아님. 하단 세 번째는 책갈피처럼 보이며 문틈막이 천 기능 재표현 필요",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-6.png",
+      "sha256": "e84503eb90c128aac0c6b8ed922668ae6e34fc9d3546d3716ccb5e11fc469c0d",
+      "bytes": 2662960,
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "visual_observation": "도깨비·백호·갓 쓴 까치와 푸른 효과의 합성 장면",
+      "planning_use": "분위기 참고; 한옥 배치·개별 캐릭터 정본/까치 날개·용량 별도 검수. 시트를 잘라 런타임 아트로 자동 채택하지 않음",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-7.jpg",
+      "sha256": "1bf0f7ff3f5449c2267e320348d600379f012f7a390b264b224d9cb4afd77bdb",
+      "bytes": 2624064,
+      "dimensions": [
+        2528,
+        1684
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "visual_observation": "누마루가 있는 한옥 단일 건물 표현",
+      "planning_use": "건물 재질·조명 참고; 실측 형상·현재 asset ID 일치 미검증",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-8.jpg",
+      "sha256": "4f2da0aa5e0820c173520d12da97d24d34c020fa52ab294218df150e74ff3120",
+      "bytes": 3465885,
+      "dimensions": [
+        1792,
+        2390
+      ],
+      "mode": "RGB",
+      "alpha_extrema": null,
+      "visual_observation": "담장과 여러 건물을 사선에서 본 고택 표현",
+      "planning_use": "공간 분위기 참고; 현재 V3 geometry를 이 이미지로 교체하지 않음",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    },
+    {
+      "path": "C:\\Users\\vjinn\\.codex\\attachments\\2feacf48-35e0-4ee6-83ac-32b81a61b94b\\image-9.png",
+      "sha256": "e341e9ede04c27594c1142d611371c904238b7ecd6082dd088841488fbeeb48f",
+      "bytes": 1189238,
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "visual_observation": "청록·금색의 세 소용돌이 문양",
+      "planning_use": "신수 문양 참고; 메달 본체나 도깨비 수호기와로 자동 재분류하지 않음",
+      "sha_registered_in_prior_character_sources": false,
+      "status": "user_supplied_reference; not_runtime_release_approval"
+    }
+  ],
+  "limits": [
+    "No app code or source image modified",
+    "100 rows are design blueprints, not 100 complete released lessons",
+    "Game count is 11 including both toilets, explicitly reaffirmed by user",
+    "128 authored total; per-stage mapping is pending",
+    "Official heritage page 10-building field has a different count basis; it does not override the game catalogue",
+    "Prior artifact metadata probe is not current approval evidence"
+  ],
+  "official_sources": [
+    {
+      "url": "https://contents.history.go.kr/front/kc/printViewPopup.do?levelId=kc_i302400",
+      "checked": "2026-10-24",
+      "scope": "1498 Muo Sahwa context; does not prove fictional Yeoni events"
+    },
+    {
+      "url": "https://digital.khs.go.kr/heri/heriDetail.do?ctptNo=1483801860000&ctptUid=13898859686647401778",
+      "checked": "2026-10-24",
+      "scope": "Later rebuilding, present site; count field 10; not game stage catalogue"
+    },
+    {
+      "url": "https://www.korean.go.kr/hangeul/principle/001.html",
+      "checked": "2026-10-24",
+      "scope": "Syllable block, 19 initials and 21 vowels"
+    },
+    {
+      "url": "https://www.iksi.or.kr/lms/crse/crseApply.do?crseNo=121341",
+      "checked": "2026-10-24",
+      "scope": "Introductory teach-then-practice and curriculum coverage; not certification of this app"
+    }
+  ]
+}
