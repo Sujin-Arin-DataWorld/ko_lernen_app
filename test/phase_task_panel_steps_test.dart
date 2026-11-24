@@ -102,49 +102,100 @@ void main() {
     expect(find.byIcon(Icons.check_circle), findsNothing);
   });
 
-  test(
-    'earlier KP01 task records still complete their step after the split',
-    () async {
+  group('step completion', () {
+    late Map<String, PhaseTask> byId;
+    late LearningPhase phase;
+
+    setUp(() async {
       final catalog = await PhaseTaskCatalog.load();
-      final phase = (await LearningPhaseCatalog.load()).first;
-      final byId = {for (final t in catalog.forPhase('KP01')) t.id: t};
+      phase = (await LearningPhaseCatalog.load()).first;
+      byId = {for (final t in catalog.forPhase('KP01')) t.id: t};
+    });
+
+    // The strongest honest record for a task: a passed assessment when the
+    // task can be machine-scored, otherwise an unscored submission.
+    PhaseAttemptEvidence completing(PhaseTask task) {
+      final unscorable =
+          task.skill == 'speaking' ||
+          task.assessment.questions.any((q) => q.kind == 'freeText');
+      final e = unscorable ? _evidence(task, score: null) : _passed(task);
+      expect(phaseTaskDone(task, [e]), isTrue, reason: task.id);
+      return e;
+    }
+
+    Map<String, List<PhaseAttemptEvidence>> attemptsFor(Iterable<String> ids) =>
+        {
+          for (final id in ids) id: [completing(byId[id]!)],
+        };
+
+    test('existing task records complete their step after the split', () {
       final first = phase.steps.first;
-      final history = {
-        for (final id in first.taskIds)
-          id: _evidence(byId[id]!, assessment: false),
-      };
-      // Speaking/practice-only tasks count once a scored attempt exists.
-      final done = phaseStepCompletion(phase.steps, byId, history);
+      final attempts = attemptsFor(first.taskIds);
+      final done = phaseStepCompletion(phase.steps, byId, attempts);
       expect(done.first, isTrue);
       expect(done.skip(1), everyElement(isFalse));
-      history.remove(first.taskIds.last);
-      expect(phaseStepCompletion(phase.steps, byId, history).first, isFalse);
-    },
-  );
+      attempts.remove(first.taskIds.last);
+      expect(phaseStepCompletion(phase.steps, byId, attempts).first, isFalse);
+    });
 
-  test(
-    'submitting a speaking task completes KP01.2 (unscored, current)',
-    () async {
-      final catalog = await PhaseTaskCatalog.load();
-      final phase = (await LearningPhaseCatalog.load()).first;
-      final byId = {for (final t in catalog.forPhase('KP01')) t.id: t};
+    test('a scored practice attempt alone never completes a task', () {
+      final task = byId['KP01:grammar:01']!;
+      expect(
+        phaseTaskDone(task, [_evidence(task, assessment: false)]),
+        isFalse,
+      );
+      expect(
+        phaseTaskDone(task, [_evidence(task, assessment: false, score: 0)]),
+        isFalse,
+      );
+      // A failed assessment does not count either.
+      expect(phaseTaskDone(task, [_evidence(task, score: 0)]), isFalse);
+    });
+
+    test('a later practice run cannot hide an earlier completing attempt', () {
+      final task = byId['KP01:grammar:03']!;
+      final later = PhaseAttemptEvidence.fromJson({
+        ..._evidence(task, assessment: false, score: 0).toJson(),
+        'attemptId': 'later',
+        'occurredAt': '2026-02-01T00:00:00Z',
+      });
+      expect(phaseTaskDone(task, [later, _passed(task)]), isTrue);
+    });
+
+    test('submitting a speaking task completes KP01.2', () {
       final second = phase.steps[1];
       expect(second.taskIds, contains('KP01:speaking:01'));
-      final history = {
-        for (final id in second.taskIds)
-          id: id == 'KP01:speaking:01'
-              ? _evidence(byId[id]!, score: null)
-              : _evidence(byId[id]!, assessment: false),
-      };
-      expect(phaseStepCompletion(phase.steps, byId, history)[1], isTrue);
-      history.remove('KP01:speaking:01');
-      expect(phaseStepCompletion(phase.steps, byId, history)[1], isFalse);
-      // A stale revision never counts.
+      final attempts = attemptsFor(second.taskIds);
+      expect(phaseStepCompletion(phase.steps, byId, attempts)[1], isTrue);
+      attempts.remove('KP01:speaking:01');
+      expect(phaseStepCompletion(phase.steps, byId, attempts)[1], isFalse);
+    });
+
+    test('an earlier content revision never counts', () {
+      final speaking = byId['KP01:speaking:01']!;
       final stale = PhaseAttemptEvidence.fromJson({
-        ..._evidence(byId['KP01:speaking:01']!, score: null).toJson(),
+        ..._evidence(speaking, score: null).toJson(),
         'contentHash': 'f' * 64,
       });
-      expect(phaseTaskDone(byId['KP01:speaking:01']!, stale), isFalse);
-    },
-  );
+      expect(phaseTaskDone(speaking, [stale]), isFalse);
+    });
+
+    test('a step naming an unknown task is not done and does not throw', () {
+      final first = phase.steps.first;
+      final attempts = attemptsFor(first.taskIds);
+      final missing = Map.of(byId)..remove(first.taskIds.first);
+      expect(
+        phaseStepCompletion(phase.steps, missing, attempts).first,
+        isFalse,
+      );
+    });
+  });
+}
+
+PhaseAttemptEvidence _passed(PhaseTask task) {
+  final ids = [for (final q in task.assessment.questions) q.id];
+  return PhaseAttemptEvidence.fromJson({
+    ..._evidence(task).toJson(),
+    'passedCriterionIds': ids,
+  });
 }

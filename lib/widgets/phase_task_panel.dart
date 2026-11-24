@@ -8,23 +8,36 @@ import '../services/account/cloud_write_session.dart';
 import '../services/learning_phase_catalog.dart';
 import '../services/phase_task_catalog.dart';
 
-/// A task counts toward step completion when its current-revision attempt was
-/// passed, scored practice was saved, or the task cannot be scored at all
-/// (speaking, free text): then any current-revision submission completes it.
-bool phaseTaskDone(PhaseTask task, PhaseAttemptEvidence? e) =>
-    e != null &&
-    task.isCurrent(e) &&
-    (task.passedBy(e) || e.score == null || !e.assessment);
+/// A task counts toward step completion once any current-revision attempt
+/// either passed its assessment, or could not be machine-judged (`score` is
+/// null: speaking, free text, or a sentence outside the known answers). A
+/// scored practice attempt alone does not count, so a wrong answer never
+/// marks a step done. Older revisions never count.
+bool phaseTaskDone(PhaseTask task, Iterable<PhaseAttemptEvidence> attempts) =>
+    attempts.any(
+      (e) => task.isCurrent(e) && (task.passedBy(e) || e.score == null),
+    );
 
-/// Per-step completion in step order; never gates access to any task.
+/// Per-step completion in step order; never gates access to any task. A step
+/// naming a task missing from the catalog is reported as not done.
 List<bool> phaseStepCompletion(
   List<LearningPhaseStep> steps,
   Map<String, PhaseTask> tasksById,
-  Map<String, PhaseAttemptEvidence> history,
+  Map<String, List<PhaseAttemptEvidence>> attempts,
 ) => [
   for (final step in steps)
-    step.taskIds.every((id) => phaseTaskDone(tasksById[id]!, history[id])),
+    step.taskIds.every((id) {
+      final task = tasksById[id];
+      return task != null &&
+          phaseTaskDone(task, attempts[id] ?? const <PhaseAttemptEvidence>[]);
+    }),
 ];
+
+typedef _PanelData = (
+  List<PhaseTask> tasks,
+  Map<String, PhaseAttemptEvidence> history,
+  Map<String, List<PhaseAttemptEvidence>> attempts,
+);
 
 class PhaseTaskPanel extends StatefulWidget {
   const PhaseTaskPanel({
@@ -41,8 +54,7 @@ class PhaseTaskPanel extends StatefulWidget {
 }
 
 class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
-  late Future<(List<PhaseTask>, Map<String, PhaseAttemptEvidence>)> _data =
-      _load();
+  late Future<_PanelData> _data = _load();
   @override
   void initState() {
     super.initState();
@@ -69,33 +81,43 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
     super.dispose();
   }
 
-  Future<(List<PhaseTask>, Map<String, PhaseAttemptEvidence>)> _load() async {
+  Future<_PanelData> _load() async {
     final session = cloudWriteSessionController.current;
     final catalog = await PhaseTaskCatalog.load();
     final tasks = catalog.forPhase(widget.phaseId);
+    _PanelData empty() => (
+      tasks,
+      <String, PhaseAttemptEvidence>{},
+      <String, List<PhaseAttemptEvidence>>{},
+    );
     if (tasks.isEmpty) {
-      return (tasks, <String, PhaseAttemptEvidence>{});
+      return empty();
     }
     if (session != cloudWriteSessionController.current ||
         (session != null && session.mode != CloudWriteMode.ready)) {
-      return (tasks, <String, PhaseAttemptEvidence>{});
+      return empty();
     }
     final snapshot = await CourseProgressService.shared.readForDisplay();
     if (session != cloudWriteSessionController.current) {
-      return (tasks, <String, PhaseAttemptEvidence>{});
+      return empty();
     }
     final evidence =
         snapshot?.phaseTaskEvidence ?? const <PhaseAttemptEvidence>[];
     final history = <String, PhaseAttemptEvidence>{};
+    final byTask = <String, List<PhaseAttemptEvidence>>{};
     for (final task in tasks) {
       final attempts = evidence.where((e) => e.taskId == task.id).toList()
         ..sort((a, b) => b.occurredAt.compareTo(a.occurredAt));
       if (attempts.isNotEmpty) {
+        // The card label keeps showing the passed or latest attempt; step
+        // completion looks at every attempt so a later practice run cannot
+        // hide an earlier submission.
         history[task.id] =
             attempts.where(task.passedBy).firstOrNull ?? attempts.first;
+        byTask[task.id] = List.unmodifiable(attempts);
       }
     }
-    return (tasks, history);
+    return (tasks, history, byTask);
   }
 
   List<Widget> _body(
@@ -104,6 +126,7 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
     String lang,
     List<PhaseTask> tasks,
     Map<String, PhaseAttemptEvidence> history,
+    Map<String, List<PhaseAttemptEvidence>> attempts,
   ) {
     Widget card(PhaseTask task) {
       return Card(
@@ -141,7 +164,7 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
       return [for (final task in tasks) card(task)];
     }
     final byId = {for (final task in tasks) task.id: task};
-    final complete = phaseStepCompletion(widget.steps, byId, history);
+    final complete = phaseStepCompletion(widget.steps, byId, attempts);
     final next = complete.indexOf(false);
     return [
       if (next >= 0)
@@ -175,7 +198,8 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
             ],
           ),
         ),
-        for (final id in widget.steps[i].taskIds) card(byId[id]!),
+        for (final id in widget.steps[i].taskIds)
+          if (byId[id] case final task?) card(task),
       ],
     ];
   }
@@ -184,7 +208,7 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context),
         lang = Localizations.localeOf(context).languageCode;
-    return FutureBuilder<(List<PhaseTask>, Map<String, PhaseAttemptEvidence>)>(
+    return FutureBuilder<_PanelData>(
       future: _data,
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
@@ -199,7 +223,7 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
         if (!snapshot.hasData || snapshot.data!.$1.isEmpty) {
           return const SizedBox.shrink();
         }
-        final (tasks, history) = snapshot.data!;
+        final (tasks, history, attempts) = snapshot.data!;
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -209,7 +233,7 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
             ),
             const SizedBox(height: 8),
             Text(t.phaseTasksScope),
-            ..._body(context, t, lang, tasks, history),
+            ..._body(context, t, lang, tasks, history, attempts),
             const SizedBox(height: 24),
           ],
         );
