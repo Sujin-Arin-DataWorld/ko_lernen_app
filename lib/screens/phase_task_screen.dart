@@ -16,13 +16,21 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/hangul_start_material.dart';
+import '../widgets/sori/home_action.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 class PhaseTaskRoute {
-  const PhaseTaskRoute(this.phaseId, this.taskId, {this.assessment = false});
+  const PhaseTaskRoute(
+    this.phaseId,
+    this.taskId, {
+    this.assessment = false,
+    this.hangulStart = false,
+  });
   final String phaseId, taskId;
   final bool assessment;
+  final bool hangulStart;
 }
 
 class PhaseTaskScreen extends StatefulWidget {
@@ -73,6 +81,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
   Timer? _limit;
   final _chunks = <Uint8List>[];
   int _byteCount = 0;
+  int _captureEpoch = 0;
   Uint8List? _recorded;
   late final TabController _modes;
   String _romanMode = Storage.phaseTaskRomanization;
@@ -132,6 +141,11 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.hidden ||
+        state == AppLifecycleState.detached) {
+      _captureEpoch++;
+    }
     if (state != AppLifecycleState.resumed) {
       unawaited(_stopRecording());
     }
@@ -270,6 +284,8 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       : _romanMode == 'on';
 
   Future<void> _record() async {
+    final captureEpoch = _captureEpoch;
+    bool isCurrent() => mounted && captureEpoch == _captureEpoch;
     setState(() {
       _busy = true;
       _captureBusy = true;
@@ -277,19 +293,23 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     });
     try {
       _drafts!.assertCurrent();
-      if (!await _recorder.requestPermission()) {
-        throw StateError('Microphone permission denied');
-      }
-      if (!mounted) {
+      final permitted = await _recorder.requestPermission();
+      if (!isCurrent()) {
         return;
+      }
+      if (!permitted) {
+        throw StateError('Microphone permission denied');
       }
       _drafts!.assertCurrent();
       await _playerInstance?.stop();
+      if (!isCurrent()) {
+        return;
+      }
       _chunks.clear();
       _byteCount = 0;
       _recorded = null;
       final stream = await _recorder.startPcm16Stream();
-      if (!mounted) {
+      if (!isCurrent()) {
         await _recorder.stop();
         return;
       }
@@ -318,7 +338,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       );
     } catch (_) {
       await _stopRecording(discard: true);
-      if (mounted) {
+      if (isCurrent()) {
         setState(() => _error = AppL10n.of(context).phaseTaskError);
       }
     } finally {
@@ -464,6 +484,17 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
         _audioBusy ||
         _accountChanged ||
         (_recorded != null && _result == null);
+    if (widget.arguments.hangulStart &&
+        task != null &&
+        packet != null &&
+        !_accountChanged &&
+        packet.sourceKind == 'text' &&
+        packet.questions.length == 1 &&
+        packet.questions.single.kind == 'choice' &&
+        packet.questions.single.options.length <= 4 &&
+        task.skill != 'speaking') {
+      return _beginnerChoice(context, t, lang, task, packet, modeLocked);
+    }
     return SoriStudyFrame(
       title: task?.title.pick(lang) ?? t.phaseTasksTitle,
       padding: EdgeInsets.zero,
@@ -504,6 +535,218 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
               ),
             ),
       child: _body(context, t, lang, task, packet),
+    );
+  }
+
+  Widget _beginnerChoice(
+    BuildContext context,
+    AppL10n t,
+    String lang,
+    PhaseTask task,
+    PhaseTaskPacket packet,
+    bool modeLocked,
+  ) {
+    final question = packet.questions.single;
+    final showRoman = !_assessment && _romanizationShownFor(task.phaseId);
+    final canEdit = !_busy && !_audioBusy && _result == null;
+    final example = task.examplesKo.firstOrNull;
+    Future<void> leave() async {
+      if (_busy) return;
+      final proceed = await showLeaveConfirmSheet(
+        context,
+        SoriHomeEscape(
+          confirmWhen: _hasUnsavedAnswers,
+          confirmTitle: t.phaseTaskLeaveTitle,
+          confirmBody: t.phaseTaskLeaveBody,
+        ),
+      );
+      if (!proceed || !context.mounted) return;
+      _leave();
+      Navigator.of(context).pop();
+    }
+
+    final mode = Text(
+      _assessment ? t.phaseTaskAssessment : t.phaseTaskPractice,
+      style: HangulStartStyle.heading(
+        context,
+        HangulStartStyle.compact(context) ? 23 : 27,
+      ),
+    );
+    final toggle = !_assessment
+        ? ConstrainedBox(
+            constraints: const BoxConstraints(minHeight: 48),
+            child: Semantics(
+              label: t.phaseTaskRomanizationToggle,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                spacing: 4,
+                children: [
+                  Flexible(
+                    child: Text(
+                      t.phaseTaskRomanizationToggle,
+                      style: HangulStartStyle.body(context, 14, strong: true),
+                    ),
+                  ),
+                  Switch.adaptive(
+                    key: const ValueKey('phase-task-romanization-toggle'),
+                    value: showRoman,
+                    onChanged: (value) {
+                      final preference = value ? 'on' : 'off';
+                      setState(() => _romanMode = preference);
+                      unawaited(Storage.setPhaseTaskRomanization(preference));
+                    },
+                  ),
+                ],
+              ),
+            ),
+          )
+        : null;
+    final checked = _result;
+    final submit = HangulStartAction(
+      key: const ValueKey('phase-task-submit'),
+      label: checked == null ? t.hangulStartCheckAnswer : t.phaseTaskRetry,
+      onTap: checked != null
+          ? () => setState(() {
+              _result = null;
+              _attemptId = const Uuid().v4();
+              _occurredAt = null;
+              _listened = false;
+              _recorded = null;
+            })
+          : canEdit && _answers[question.id] != null
+          ? _submit
+          : null,
+    );
+    final modeSwitch = HangulStartAction(
+      label: _assessment ? t.phaseTaskPractice : t.phaseTaskAssessment,
+      kind: HangulStartActionKind.link,
+      onTap: modeLocked ? null : () => _switchMode(!_assessment),
+    );
+    return PopScope(
+      canPop: !_busy && !_hasUnsavedAnswers,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) unawaited(leave());
+      },
+      child: HangulStartScaffold(
+        title: 'A1.1 · KP01',
+        onBack: leave,
+        onLeave: _leave,
+        canLeave: () => !_busy && !_hasUnsavedAnswers,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          spacing: 12,
+          children: [
+            if (toggle == null)
+              mode
+            else
+              Wrap(
+                spacing: 8,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                alignment: WrapAlignment.spaceBetween,
+                children: [mode, toggle],
+              ),
+            Text(
+              task.title.pick(lang),
+              style: HangulStartStyle.heading(context, 16),
+            ),
+            if (!_assessment && example != null)
+              HangulStartPanel(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(example, style: HangulStartStyle.korean(21)),
+                          if (showRoman)
+                            Text(
+                              romanizeKorean(example),
+                              style: HangulStartStyle.body(
+                                context,
+                                13,
+                                color: HangulStartStyle.muted,
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                    IconButton(
+                      key: ValueKey('phase-task-example-listen:$example'),
+                      tooltip: t.phaseTaskExampleListen(example),
+                      onPressed: _audioBusy || _busy
+                          ? null
+                          : () => _listenExample(example),
+                      icon: const HangulStartArt(
+                        'gong',
+                        height: 28,
+                        width: 34,
+                        onPaper: true,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            Text(
+              question.prompt.pick(lang),
+              style: HangulStartStyle.body(context, 16),
+            ),
+            HangulStartPanel(
+              child: Text(packet.sourceKo, style: HangulStartStyle.korean(21)),
+            ),
+            LayoutBuilder(
+              builder: (context, size) {
+                final columns = HangulStartStyle.largeText(context) ? 1 : 2;
+                final width = (size.maxWidth - (columns - 1) * 8) / columns;
+                return Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    for (final option in question.options.entries)
+                      SizedBox(
+                        width: width,
+                        child: HangulStartTile(
+                          selected: _answers[question.id] == option.key,
+                          minHeight: 58,
+                          onTap: canEdit
+                              ? () => _answer(question.id, option.key)
+                              : null,
+                          child: Text(
+                            option.value,
+                            textAlign: TextAlign.center,
+                            style: HangulStartStyle.korean(26),
+                          ),
+                        ),
+                      ),
+                  ],
+                );
+              },
+            ),
+            if (_error case final error?)
+              Semantics(liveRegion: true, child: Text(error)),
+            if (checked != null)
+              Semantics(
+                liveRegion: true,
+                child: HangulStartPanel(
+                  child: Text(
+                    checked.score == null
+                        ? t.phaseTaskUnscored
+                        : !_assessment
+                        ? t.phaseTaskPracticeComplete
+                        : checked.passed
+                        ? t.phaseTaskPassed
+                        : t.phaseTaskNeedsPractice,
+                    style: HangulStartStyle.body(context, 16, strong: true),
+                  ),
+                ),
+              ),
+          ],
+        ),
+        footer: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [submit, modeSwitch],
+        ),
+      ),
     );
   }
 

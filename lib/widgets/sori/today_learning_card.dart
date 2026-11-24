@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/mission_recommender.dart';
+import '../../services/hangul_start_progress.dart';
+import '../../services/today_learning_snapshot.dart';
 import '../../services/vocab_pack_service.dart';
 import 'c_gallery/c_materials.dart';
 import 'c_gallery/c_objects.dart';
 import 'learning_focus.dart';
+import 'hangul_start_today.dart';
 import 'today_subject_art.dart';
 import 'tokens.dart';
 
@@ -39,6 +42,29 @@ class TodayLearningCard extends StatelessWidget {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final pick = focus!.today.pick;
+    if (focus.today.showHangulA11 && focus.brief?.hasStarted != true) {
+      return HangulStartCourseCard(
+        onReturn: () => controller.refresh(force: true),
+      );
+    }
+    if (pick case HangulIntroPick(start: final start?)) {
+      return HangulStartTodayCard(
+        start: start,
+        open: controller.launching
+            ? null
+            : () => scope.open(context, focus.destination!, focus: focus),
+        openCheck: controller.launching
+            ? null
+            : () => scope.open(
+                context,
+                const TodayLearningDestination(
+                  route: '/hangul-start',
+                  arguments: HangulStartEntry.quiz,
+                ),
+                focus: focus,
+              ),
+      );
+    }
     final type = SoriTextTheme.of(context);
     final unitId = focus.brief?.unit.id;
     final editorial = switch (unitId) {

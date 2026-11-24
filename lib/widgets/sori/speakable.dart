@@ -123,19 +123,25 @@ class SoriSpeech {
   /// 실제 재생 호출 지점 — 테스트가 `TtsService`/Firebase 없이 가짜
   /// 카운팅 리졸버로 갈아끼울 수 있게 훅으로 둔다. 기본은 진짜 서비스.
   @visibleForTesting
-  static Future<bool> Function(String text, String voice) speakImpl =
-      (text, voice) => TtsService.speak(text, voice: voice);
+  static Future<bool> Function(String text, String voice) speakImpl = (
+    text,
+    voice,
+  ) => TtsService.speak(text, voice: voice);
 
   /// 느린 학습 재생 훅. 화면은 이 파사드를 통해 기존 0.65 배수 계약을
   /// 유지하고 저수준 서비스를 직접 참조하지 않는다.
   @visibleForTesting
-  static Future<bool> Function(String text, String voice) speakSlowImpl =
-      (text, voice) => TtsService.speakSlow(text, voice: voice);
+  static Future<bool> Function(String text, String voice) speakSlowImpl = (
+    text,
+    voice,
+  ) => TtsService.speakSlow(text, voice: voice);
 
   /// 실제 프리페치 호출 지점 — 위와 같은 이유의 훅.
   @visibleForTesting
-  static Future<void> Function(String text, String voice) prefetchImpl =
-      (text, voice) => TtsService.prefetch(text, voice: voice);
+  static Future<void> Function(String text, String voice) prefetchImpl = (
+    text,
+    voice,
+  ) => TtsService.prefetch(text, voice: voice);
 
   /// 실제 정지 호출 지점 — 위 두 훅과 같은 이유. [SoriSpeechIndicator] 가
   /// 재생 중 탭=정지(WCAG 4.1.2)를 실제 TtsService/플랫폼 채널 없이
@@ -168,7 +174,11 @@ class SoriSpeech {
     stopImpl = () => TtsService.stop();
   }
 
-  static Future<bool> speak(String text, {String? voice}) {
+  static Future<bool> speak(
+    String text, {
+    String? voice,
+    double rateMultiplier = 1,
+  }) {
     ++_speechRequestGeneration;
     // C8 (EU AI Act Art. 50(2)) — 이 앱에서 실제로 오디오가 나가는 유일한
     // 진입점이 [speak] 다(직접 호출 스크린 34곳 + [SoriSpeakable]/
@@ -193,22 +203,26 @@ class SoriSpeech {
       aiVoiceNoticePending.value = true;
     }
     final resolvedVoice = voice ?? 'auto';
-    final key = '$resolvedVoice|$text';
+    final adjusted = rateMultiplier != 1;
+    final key = adjusted
+        ? '$rateMultiplier|$resolvedVoice|$text'
+        : '$resolvedVoice|$text';
+    final player = adjusted
+        ? (String value, String voice) => TtsService.speak(
+            value,
+            voice: voice,
+            rateMultiplier: rateMultiplier,
+          )
+        : speakImpl;
     final existing = _inFlight[key];
     if (existing != null) {
       if (_playbackFlights.contains(existing)) return existing;
       // 이미 이 키로 pending prefetch가 진행 중이다 — 새 해석을 내지 않고
       // 재생 요청으로 승격한다. 승격 future는
       // 동기적으로 맵에 게시되므로 뒤따르는 같은 키의 speak도 이에 합류한다.
-      return _publishSpeak(
-        key,
-        text,
-        resolvedVoice,
-        speakImpl,
-        pending: existing,
-      );
+      return _publishSpeak(key, text, resolvedVoice, player, pending: existing);
     }
-    return _startSpeak(key, text, resolvedVoice, speakImpl);
+    return _startSpeak(key, text, resolvedVoice, player);
   }
 
   /// An explicit replay is a new attempt, even while autoplay or prefetch is

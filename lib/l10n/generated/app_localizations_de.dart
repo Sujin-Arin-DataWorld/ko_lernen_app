@@ -12912,4 +12912,208 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get pronunciationRecordAgainShort => 'Erneut aufnehmen';
+
+  @override
+  String get hangulStartTitle => 'Hangul-Start';
+
+  @override
+  String get hangulStartOverviewLabel => 'Hangul-Start · 14 kurze Lektionen';
+
+  @override
+  String get hangulStartResume => 'Weiterlernen';
+
+  @override
+  String get hangulStartAlreadyRead => 'Ich kann Hangul schon lesen → Kurztest';
+
+  @override
+  String get hangulStartNextLetters => 'Als Nächstes:';
+
+  @override
+  String get hangulStartDurationWithAudio => 'ca. 6 Minuten · mit Ton';
+
+  @override
+  String get hangulStartTodayAtelier => 'Hangul-Atelier';
+
+  @override
+  String get hangulStartTodayAtelierDetail => 'Hören & schreiben';
+
+  @override
+  String get hangulStartTodayDirectA11 => 'A1.1 direkt';
+
+  @override
+  String get hangulStartA11CardTitle => 'Sich vorstellen';
+
+  @override
+  String get hangulStartA11Steps => '4 Schritte';
+
+  @override
+  String get hangulStartTodayHanok => 'Dein Hanok';
+
+  @override
+  String get hangulStartMapSummary => '14 Lektionen · Reihenfolge empfohlen';
+
+  @override
+  String hangulStartBandTitle(int number, String title) {
+    return 'Teil $number · $title';
+  }
+
+  @override
+  String get hangulStartFirstSyllableExplanation =>
+      'ㅏ ist ein Vokal. Am Silbenanfang ist ㅇ stumm.';
+
+  @override
+  String get hangulStartLessonNoun => 'Lektion';
+
+  @override
+  String get hangulStartGoal => 'Was du lernst';
+
+  @override
+  String get hangulStartBeginLesson => 'Lektion starten';
+
+  @override
+  String get hangulStartNext => 'Weiter';
+
+  @override
+  String get hangulStartLessonDone => 'Lektion abgeschlossen';
+
+  @override
+  String get hangulStartAllDone => 'Hangul-Start abgeschlossen';
+
+  @override
+  String get hangulStartAssemblyTitle => 'Setze die Silbe zusammen';
+
+  @override
+  String get hangulStartAssemblyBody =>
+      'Tippe auf die Zeichen und setze sie in die freien Felder.';
+
+  @override
+  String get hangulStartAssemblyReset => 'Teile neu legen';
+
+  @override
+  String get hangulStartAssemblyHint => 'Zeig mir einen Hinweis';
+
+  @override
+  String get hangulStartListenSound => 'Laut anhören';
+
+  @override
+  String get hangulStartListenWord => 'Wort anhören';
+
+  @override
+  String get hangulStartContrastTitle => 'Welche Silbe hörst du?';
+
+  @override
+  String get hangulStartReplaySlow => 'Erneut anhören · 0,75×';
+
+  @override
+  String get hangulStartCorrect => 'Richtig:';
+
+  @override
+  String get hangulStartIncorrect => 'Noch nicht richtig';
+
+  @override
+  String get hangulStartReplayHeard => 'Gehört:';
+
+  @override
+  String get hangulStartReplaySelected => 'Gewählt:';
+
+  @override
+  String get hangulStartAspiratedFeedback =>
+      'Bei ㅋ kommt ein Luftstoß hinterher. Halte die Hand vor den Mund.';
+
+  @override
+  String get hangulStartSoundPlain => 'weich';
+
+  @override
+  String get hangulStartSoundAspirated => 'behaucht';
+
+  @override
+  String get hangulStartSoundTense => 'gespannt';
+
+  @override
+  String get hangulStartFinalTitle => 'So klingt der Schlusslaut';
+
+  @override
+  String get hangulStartCheckAnswer => 'Antwort prüfen';
+
+  @override
+  String get hangulStartTestTitle => 'Hangul-Kurztest';
+
+  @override
+  String get hangulStartTestLead => 'Kannst du schon Hangul lesen?';
+
+  @override
+  String get hangulStartTestCount => '10 Fragen';
+
+  @override
+  String get hangulStartTestNoRomanization => 'Ohne Umschrift';
+
+  @override
+  String get hangulStartTestPassing => 'Ab 8 richtig geht es mit A1.1 weiter.';
+
+  @override
+  String get hangulStartTestAction => 'Test starten';
+
+  @override
+  String get hangulStartPreferLessons => 'Lieber erst den Hangul-Start machen';
+
+  @override
+  String get hangulStartTestPrompt => 'Hör zu und wähle das Wort.';
+
+  @override
+  String get hangulStartTestListen => 'Anhören';
+
+  @override
+  String get hangulStartTestPassed => 'Kurztest bestanden';
+
+  @override
+  String get hangulStartTestPractice => 'Übe weiter';
+
+  @override
+  String get hangulStartReviewTopic => 'Zum Wiederholen';
+
+  @override
+  String get hangulStartContinueA11 => 'Weiter mit A1.1';
+
+  @override
+  String get hangulStartSkipToA11 => 'Trotzdem mit A1.1 beginnen';
+
+  @override
+  String get hangulStartGoMap => 'Zur Lernkarte';
+
+  @override
+  String get hangulStartRetry => 'Erneut versuchen';
+
+  @override
+  String get hangulStartLoadError =>
+      'Hangul-Start konnte nicht geladen werden.';
+
+  @override
+  String get hangulStartAudioError =>
+      'Der Ton konnte nicht abgespielt werden. Versuche es erneut.';
+
+  @override
+  String get hangulStartSaveError =>
+      'Dein Fortschritt konnte nicht gespeichert werden. Versuche es erneut.';
+
+  @override
+  String hangulStartPlaysLeft(int remaining, int maximum) {
+    return 'Noch $remaining von $maximum';
+  }
+
+  @override
+  String hangulStartDoneCount(int done, int total) {
+    return '$done von $total abgeschlossen';
+  }
+
+  @override
+  String get hangulStartChooseLesson => 'Lektion auswählen';
+
+  @override
+  String get hangulStartTryParts => 'Prüfe die Reihenfolge der Zeichen.';
+
+  @override
+  String get hangulStartAudioBusy => 'Ton wird geladen …';
+
+  @override
+  String get hangulStartReplayLesson => 'Lektion wiederholen';
 }

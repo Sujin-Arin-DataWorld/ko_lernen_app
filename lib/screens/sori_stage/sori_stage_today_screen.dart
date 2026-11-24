@@ -1,10 +1,13 @@
 import '../../widgets/sori/top_chrome.dart';
 import '../../widgets/sori/yeopjeon_wallet_card.dart';
+
 import 'dart:async' show unawaited;
+
 import '../../features/dancheong/dancheong_connections.dart';
 import '../../features/dancheong/dancheong_store.dart';
 import '../../features/content_learning/content_learning_widgets.dart';
 import '../../widgets/sori/learning_focus.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -19,6 +22,7 @@ import '../../models/quest.dart';
 import '../../models/sarangchae_construction.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../services/decoration_reward_service.dart';
+import '../../services/mission_recommender.dart';
 import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
 import '../../services/storage_service.dart';
@@ -32,6 +36,7 @@ import '../../widgets/sori/app_bar.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/cultural_help.dart';
 import '../../widgets/sori/hanok_v3_preview.dart';
+import '../../widgets/sori/hangul_start_today.dart';
 import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/mascot_preference.dart';
 import '../../widgets/sori/milestone_celebration.dart';
@@ -724,9 +729,8 @@ double _todayCompanionHeroHeight(
         (compact ? 2 : 4) +
         measure(
           t.todayCompanionSubtitle,
-          SoriTextTheme.of(
-            context,
-          ).body.copyWith(fontSize: compact ? 14 : 15, height: 20 / 15),
+          SoriTextTheme.of(context).body
+              .copyWith(fontSize: compact ? 14 : 15, height: 20 / 15),
         ) +
         (compact ? 4 : (smallHero ? 8 : 20));
   }
@@ -809,6 +813,24 @@ class _TodayContent extends StatelessWidget {
             if (context.mounted) onRefresh();
           }
 
+          final focus = LearningFocusScope.maybeOf(context);
+          final pick = focus?.notifier?.value?.today.pick;
+          final beginner = pick is HangulIntroPick && pick.start != null;
+          final readyForA11 =
+              focus?.notifier?.value?.today.showHangulA11 == true &&
+              focus?.notifier?.value?.brief?.hasStarted != true;
+
+          Widget treasure() => _TodayTreasureCard(
+            count: snapshot.pendingBojagiCount,
+            height: rewardHeight,
+            compact: tight,
+            onTap: () => open(
+              snapshot.pendingBojagiCount > 0
+                  ? '/bojagi'
+                  : '/sarangbang/furnish',
+            ),
+          );
+
           return RefreshIndicator(
             onRefresh: () async => onRefresh(),
             child: ListView(
@@ -842,18 +864,20 @@ class _TodayContent extends StatelessWidget {
                       onActivityReturned: onRefresh,
                     ),
                   ),
-                if (!snapshot.today.isUnavailable) ...[
-                  const SizedBox(height: 10),
-                  _TodayTreasureCard(
-                    count: snapshot.pendingBojagiCount,
-                    height: rewardHeight,
-                    compact: tight,
-                    onTap: () => open(
-                      snapshot.pendingBojagiCount > 0
-                          ? '/bojagi'
-                          : '/sarangbang/furnish',
-                    ),
+                if (!snapshot.today.isUnavailable &&
+                    (beginner || readyForA11)) ...[
+                  const SizedBox(height: 8),
+                  HangulStartTodayLinks(
+                    reviewDue: snapshot.today.dueCount,
+                    owned: snapshot.ownedSarangchaeStage,
+                    reward: snapshot.pendingBojagiCount > 0 ? treasure() : null,
+                    showShortcuts: beginner,
+                    onGames: onOpenGames,
+                    onReturn: onRefresh,
                   ),
+                ] else if (!snapshot.today.isUnavailable) ...[
+                  const SizedBox(height: 10),
+                  treasure(),
                   const SizedBox(height: 10),
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -1505,9 +1529,8 @@ class _TodayMissionStage extends StatelessWidget {
                       await TodayLearningNavigation.open(
                         destination,
                         openRoute: (route, arguments) async {
-                          await Navigator.of(
-                            context,
-                          ).pushNamed(route, arguments: arguments);
+                          await Navigator.of(context)
+                              .pushNamed(route, arguments: arguments);
                         },
                       );
                     },

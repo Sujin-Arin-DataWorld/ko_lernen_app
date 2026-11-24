@@ -21,8 +21,8 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 
 class FakeRecorder implements PronunciationRecorder {
   bool allowed = false;
-  int stops = 0;
-  Completer<void>? permissionGate, stopGate;
+  int starts = 0, stops = 0;
+  Completer<void>? permissionGate, startGate, stopGate;
   final controller = StreamController<Uint8List>();
   @override
   Future<bool> requestPermission() async {
@@ -31,7 +31,12 @@ class FakeRecorder implements PronunciationRecorder {
   }
 
   @override
-  Future<Stream<Uint8List>> startPcm16Stream() async => controller.stream;
+  Future<Stream<Uint8List>> startPcm16Stream() async {
+    starts++;
+    await startGate?.future;
+    return controller.stream;
+  }
+
   @override
   Future<void> stop() async {
     stops++;
@@ -595,6 +600,47 @@ void main() {
       findsOneWidget,
     );
   });
+  for (final pendingNativeStart in [false, true]) {
+    testWidgets(
+      'backgrounding cancels pending microphone ${pendingNativeStart ? 'start' : 'permission'}',
+      (tester) async {
+        final gate = Completer<void>();
+        final recorder = FakeRecorder()..allowed = true;
+        if (pendingNativeStart) {
+          recorder.startGate = gate;
+        } else {
+          recorder.permissionGate = gate;
+        }
+        await tester.pumpWidget(
+          host(
+            PhaseTaskScreen(
+              arguments: const PhaseTaskRoute('KP01', 'KP01:speaking:01'),
+              loader: () async => catalog,
+              recorder: recorder,
+              saveAttempt: (_) async {},
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        final record = find.widgetWithText(SoriButton, 'Record');
+        await tester.ensureVisible(record);
+        await tester.tap(record);
+        await tester.pump();
+        expect(recorder.starts, pendingNativeStart ? 1 : 0);
+        tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+        tester.binding.handleAppLifecycleStateChanged(
+          AppLifecycleState.resumed,
+        );
+        gate.complete();
+        await tester.pumpAndSettle();
+        expect(recorder.starts, pendingNativeStart ? 1 : 0);
+        expect(recorder.stops, pendingNativeStart ? 1 : 0);
+        expect(record, findsOneWidget);
+        expect(find.widgetWithText(SoriButton, 'Stop recording'), findsNothing);
+      },
+    );
+  }
+
   testWidgets('failed draft saves guard departure and keep the actual mode', (
     tester,
   ) async {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'sori/button.dart';
+import 'sori/hangul_start_material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../screens/phase_task_screen.dart';
 import '../services/course_progress_service.dart';
@@ -44,8 +45,10 @@ class PhaseTaskPanel extends StatefulWidget {
     super.key,
     required this.phaseId,
     this.steps = const [],
+    this.hangulStart = false,
   });
   final String phaseId;
+  final bool hangulStart;
 
   /// The Phase's step grouping; empty shows one flat list.
   final List<LearningPhaseStep> steps;
@@ -128,34 +131,75 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
     Map<String, PhaseAttemptEvidence> history,
     Map<String, List<PhaseAttemptEvidence>> attempts,
   ) {
+    Future<void> open(PhaseTask task) async {
+      await Navigator.of(context).pushNamed(
+        '/learning-phase/task',
+        arguments: PhaseTaskRoute(
+          widget.phaseId,
+          task.id,
+          hangulStart: widget.hangulStart,
+        ),
+      );
+      _reload();
+    }
+
     Widget card(PhaseTask task) {
+      final evidence = history[task.id];
+      final status = evidence == null
+          ? null
+          : !task.isCurrent(evidence)
+          ? t.phaseTaskEarlierRevision
+          : task.passedBy(evidence)
+          ? t.phaseTaskHistory
+          : evidence.score == null
+          ? t.phaseTaskUnscored
+          : !evidence.assessment
+          ? t.phaseTaskPracticeComplete
+          : t.phaseTaskNeedsPractice;
+      if (widget.hangulStart) {
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 4),
+          child: HangulStartTile(
+            key: ValueKey('phase-task-${task.id}'),
+            onTap: () => open(task),
+            child: Row(
+              children: [
+                const SizedBox(width: 4),
+                Expanded(
+                  child: Text(
+                    task.title.pick(lang),
+                    style: HangulStartStyle.body(context, 14, strong: true),
+                  ),
+                ),
+                if (status != null)
+                  Expanded(
+                    child: Text(
+                      status,
+                      textAlign: TextAlign.end,
+                      style: HangulStartStyle.body(
+                        context,
+                        12,
+                        color: HangulStartStyle.muted,
+                      ),
+                    ),
+                  ),
+                const Icon(
+                  Icons.chevron_right,
+                  size: 16,
+                  color: HangulStartStyle.deep,
+                ),
+              ],
+            ),
+          ),
+        );
+      }
       return Card(
         child: ListTile(
           key: ValueKey('phase-task-${task.id}'),
           title: Text(task.title.pick(lang)),
-          subtitle: history[task.id] == null
-              ? null
-              : Text(
-                  !task.isCurrent(history[task.id]!)
-                      ? t.phaseTaskEarlierRevision
-                      : task.passedBy(history[task.id]!)
-                      ? t.phaseTaskHistory
-                      : history[task.id]!.score == null
-                      ? t.phaseTaskUnscored
-                      : !history[task.id]!.assessment
-                      ? t.phaseTaskPracticeComplete
-                      : t.phaseTaskNeedsPractice,
-                ),
+          subtitle: status == null ? null : Text(status),
           trailing: const Icon(Icons.chevron_right),
-          onTap: () async {
-            await Navigator.of(context).pushNamed(
-              '/learning-phase/task',
-              arguments: PhaseTaskRoute(widget.phaseId, task.id),
-            );
-            if (mounted) {
-              setState(() => _data = _load());
-            }
-          },
+          onTap: () => open(task),
         ),
       );
     }
@@ -166,6 +210,76 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
     final byId = {for (final task in tasks) task.id: task};
     final complete = phaseStepCompletion(widget.steps, byId, attempts);
     final next = complete.indexOf(false);
+    if (widget.hangulStart) {
+      final nextTask = next < 0
+          ? null
+          : widget.steps[next].taskIds
+                .map((id) => byId[id])
+                .whereType<PhaseTask>()
+                .where(
+                  (task) => !phaseTaskDone(task, attempts[task.id] ?? const []),
+                )
+                .firstOrNull;
+      return [
+        if (next >= 0)
+          DecoratedBox(
+            key: const ValueKey('phase-next-step'),
+            decoration: BoxDecoration(
+              color: HangulStartStyle.mist,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(9),
+              child: Text(
+                t.phaseStepNext(widget.steps[next].title.pick(lang)),
+                style: HangulStartStyle.body(
+                  context,
+                  14,
+                  color: HangulStartStyle.deep,
+                ),
+              ),
+            ),
+          ),
+        for (final (i, step) in widget.steps.indexed)
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: HangulStartPanel(
+              padding: const EdgeInsets.symmetric(horizontal: 7),
+              child: ExpansionTile(
+                key: ValueKey('phase-step-${step.id}'),
+                initiallyExpanded: i == 0,
+                tilePadding: const EdgeInsets.symmetric(horizontal: 5),
+                shape: const Border(),
+                collapsedShape: const Border(),
+                leading: Icon(
+                  complete[i] ? Icons.check_circle : Icons.bookmark,
+                  size: 16,
+                  semanticLabel: complete[i] ? t.phaseStepDone : null,
+                  color: complete[i]
+                      ? HangulStartStyle.jade
+                      : HangulStartStyle.wrong,
+                ),
+                title: Text(
+                  '${i + 1}. ${step.title.pick(lang)}',
+                  style: HangulStartStyle.heading(context, 14),
+                ),
+                children: [
+                  for (final id in step.taskIds)
+                    if (byId[id] case final task?) card(task),
+                ],
+              ),
+            ),
+          ),
+        if (nextTask != null)
+          Padding(
+            padding: const EdgeInsets.only(top: 12),
+            child: HangulStartAction(
+              label: t.hangulStartNext,
+              onTap: () => open(nextTask),
+            ),
+          ),
+      ];
+    }
     return [
       if (next >= 0)
         Padding(
@@ -227,12 +341,14 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              t.phaseTasksTitle,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: 8),
-            Text(t.phaseTasksScope),
+            if (!widget.hangulStart) ...[
+              Text(
+                t.phaseTasksTitle,
+                style: Theme.of(context).textTheme.titleLarge,
+              ),
+              const SizedBox(height: 8),
+              Text(t.phaseTasksScope),
+            ],
             ..._body(context, t, lang, tasks, history, attempts),
             const SizedBox(height: 24),
           ],

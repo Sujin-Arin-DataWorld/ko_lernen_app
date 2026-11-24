@@ -5,12 +5,13 @@ import 'approved_chrome_assets.dart';
 import 'c_gallery/c_materials.dart';
 import 'tokens.dart';
 
-/// The three approved Lernen toolbars share artwork and destination behavior.
+/// Learning toolbars share artwork and destination behavior.
 enum SoriLearningNavStyle {
   vocabulary(68, Size(70, 56), 62),
   review(70, Size(57, 53), 58),
   pronunciation(79, Size(69, 63), 64),
-  folio(69, Size(62, 54), 60);
+  folio(69, Size(62, 54), 60),
+  hangulStart(54, Size(55, 46), 36);
 
   const SoriLearningNavStyle(this.barHeight, this.selection, this.artSize);
   final double barHeight;
@@ -74,15 +75,22 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
   Widget build(BuildContext context) => TickerMode(
     enabled: _resumed,
     child: ColoredBox(
-      color: CPalette.jade,
+      color: widget.learningStyle == SoriLearningNavStyle.hangulStart
+          ? CPalette.paper
+          : CPalette.jade,
       child: Padding(
         padding: EdgeInsets.fromLTRB(
           10,
-          widget.learningStyle == SoriLearningNavStyle.folio ? 2 : 0,
+          switch (widget.learningStyle) {
+            SoriLearningNavStyle.folio => 2,
+            SoriLearningNavStyle.hangulStart => 4,
+            _ => 0,
+          },
           10,
           switch (widget.learningStyle) {
             null => 6,
             SoriLearningNavStyle.folio => 5,
+            SoriLearningNavStyle.hangulStart => 8,
             final style => 80 - style.barHeight,
           },
         ),

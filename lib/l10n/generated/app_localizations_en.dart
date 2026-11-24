@@ -12848,4 +12848,206 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get pronunciationRecordAgainShort => 'Record again';
+
+  @override
+  String get hangulStartTitle => 'Hangul Start';
+
+  @override
+  String get hangulStartOverviewLabel => 'Hangul Start · 14 short lessons';
+
+  @override
+  String get hangulStartResume => 'Keep learning';
+
+  @override
+  String get hangulStartAlreadyRead =>
+      'I can already read Hangul → Quick check';
+
+  @override
+  String get hangulStartNextLetters => 'Up next:';
+
+  @override
+  String get hangulStartDurationWithAudio => 'about 6 minutes · with audio';
+
+  @override
+  String get hangulStartTodayAtelier => 'Hangul Studio';
+
+  @override
+  String get hangulStartTodayAtelierDetail => 'Listen & write';
+
+  @override
+  String get hangulStartTodayDirectA11 => 'Go to A1.1';
+
+  @override
+  String get hangulStartA11CardTitle => 'Introduce yourself';
+
+  @override
+  String get hangulStartA11Steps => '4 steps';
+
+  @override
+  String get hangulStartTodayHanok => 'Your Hanok';
+
+  @override
+  String get hangulStartMapSummary => '14 lessons · suggested order';
+
+  @override
+  String hangulStartBandTitle(int number, String title) {
+    return 'Part $number · $title';
+  }
+
+  @override
+  String get hangulStartFirstSyllableExplanation =>
+      'ㅏ is a vowel. ㅇ is silent at the start of a syllable.';
+
+  @override
+  String get hangulStartLessonNoun => 'Lesson';
+
+  @override
+  String get hangulStartGoal => 'What you’ll learn';
+
+  @override
+  String get hangulStartBeginLesson => 'Start lesson';
+
+  @override
+  String get hangulStartNext => 'Continue';
+
+  @override
+  String get hangulStartLessonDone => 'Lesson complete';
+
+  @override
+  String get hangulStartAllDone => 'Hangul Start complete';
+
+  @override
+  String get hangulStartAssemblyTitle => 'Build the syllable';
+
+  @override
+  String get hangulStartAssemblyBody =>
+      'Tap the letters to place them in the slots.';
+
+  @override
+  String get hangulStartAssemblyReset => 'Reset pieces';
+
+  @override
+  String get hangulStartAssemblyHint => 'Show me a hint';
+
+  @override
+  String get hangulStartListenSound => 'Listen to the sound';
+
+  @override
+  String get hangulStartListenWord => 'Listen to the word';
+
+  @override
+  String get hangulStartContrastTitle => 'Which syllable do you hear?';
+
+  @override
+  String get hangulStartReplaySlow => 'Listen again · 0.75×';
+
+  @override
+  String get hangulStartCorrect => 'Correct:';
+
+  @override
+  String get hangulStartIncorrect => 'Not quite';
+
+  @override
+  String get hangulStartReplayHeard => 'You heard:';
+
+  @override
+  String get hangulStartReplaySelected => 'You chose:';
+
+  @override
+  String get hangulStartAspiratedFeedback =>
+      'With ㅋ, there is a puff of air. Hold your hand in front of your mouth.';
+
+  @override
+  String get hangulStartSoundPlain => 'plain';
+
+  @override
+  String get hangulStartSoundAspirated => 'aspirated';
+
+  @override
+  String get hangulStartSoundTense => 'tense';
+
+  @override
+  String get hangulStartFinalTitle => 'How the final sound is pronounced';
+
+  @override
+  String get hangulStartCheckAnswer => 'Check answer';
+
+  @override
+  String get hangulStartTestTitle => 'Hangul check';
+
+  @override
+  String get hangulStartTestLead => 'Can you already read Hangul?';
+
+  @override
+  String get hangulStartTestCount => '10 questions';
+
+  @override
+  String get hangulStartTestNoRomanization => 'Without romanization';
+
+  @override
+  String get hangulStartTestPassing => 'Get 8 right to continue to A1.1.';
+
+  @override
+  String get hangulStartTestAction => 'Start check';
+
+  @override
+  String get hangulStartPreferLessons => 'I’d rather do Hangul Start first';
+
+  @override
+  String get hangulStartTestPrompt => 'Listen and choose the word.';
+
+  @override
+  String get hangulStartTestListen => 'Listen';
+
+  @override
+  String get hangulStartTestPassed => 'Hangul check passed';
+
+  @override
+  String get hangulStartTestPractice => 'Keep practicing';
+
+  @override
+  String get hangulStartReviewTopic => 'To review';
+
+  @override
+  String get hangulStartContinueA11 => 'Continue to A1.1';
+
+  @override
+  String get hangulStartSkipToA11 => 'Start A1.1 anyway';
+
+  @override
+  String get hangulStartGoMap => 'Back to the lesson map';
+
+  @override
+  String get hangulStartRetry => 'Try again';
+
+  @override
+  String get hangulStartLoadError => 'Couldn’t load Hangul Start.';
+
+  @override
+  String get hangulStartAudioError => 'The audio couldn’t play. Try again.';
+
+  @override
+  String get hangulStartSaveError => 'Couldn’t save your progress. Try again.';
+
+  @override
+  String hangulStartPlaysLeft(int remaining, int maximum) {
+    return '$remaining of $maximum plays left';
+  }
+
+  @override
+  String hangulStartDoneCount(int done, int total) {
+    return '$done of $total completed';
+  }
+
+  @override
+  String get hangulStartChooseLesson => 'Choose a lesson';
+
+  @override
+  String get hangulStartTryParts => 'Check the order of the letters.';
+
+  @override
+  String get hangulStartAudioBusy => 'Loading audio…';
+
+  @override
+  String get hangulStartReplayLesson => 'Repeat lesson';
 }
