@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hangulsori://textbook/schemas/PILOT_TASK_ENTRY",
+  "title": "Pilot task registry entry",
+  "type": "object",
+  "required": [
+    "pilotTaskId",
+    "sourceTaskId",
+    "unitId",
+    "stage",
+    "l1Scope",
+    "instructionEn",
+    "instructionDe",
+    "targetRefs",
+    "successSignal",
+    "status"
+  ],
+  "properties": {
+    "pilotTaskId": {
+      "type": "string",
+      "pattern": "^1A\\.PILOT\\.(U0[1-8]|R(12|34|56|78)|FINAL)\\.(B0|I0|D1|D7|TR|F[0-9]{2})$"
+    },
+    "sourceTaskId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unitId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d",
+        "transfer"
+      ]
+    },
+    "l1Scope": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "en",
+          "de"
+        ]
+      }
+    },
+    "instructionEn": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instructionDe": {
+      "type": "string",
+      "minLength": 1
+    },
+    "targetRefs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "promptLevelDefault": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "changedContextRequired": {
+      "type": "boolean"
+    },
+    "successSignal": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "model_reviewed",
+        "human_reviewed",
+        "pilot_used"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

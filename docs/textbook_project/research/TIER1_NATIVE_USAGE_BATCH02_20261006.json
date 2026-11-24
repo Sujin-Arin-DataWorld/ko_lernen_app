@@ -1,0 +1,1279 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "EVIDENCE_PACK_BROAD_PASS_COMPLETE",
+  "scope": [
+    "shopping_consumption",
+    "transport_wayfinding",
+    "health_body",
+    "work_career"
+  ],
+  "policy": {
+    "independentLanguageResearch": true,
+    "multiGenreSampling": true,
+    "normalizedPatternsNotQuotes": true,
+    "researchCoverageDoesNotImplyPublicationApproval": true,
+    "minSourceContextsPerLanguage": 3,
+    "minPatternsPerLanguage": 8,
+    "minRegisterLanesPerLanguage": 2,
+    "healthAuthoritativeTerminologyRequired": true
+  },
+  "topics": [
+    {
+      "topicId": "shopping_consumption",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_shop_naver_oliveyoung",
+          "ko_shop_naver_musinsa",
+          "ko_shop_naver_ali"
+        ],
+        "registerLanes": [
+          "service",
+          "blog_review",
+          "chat"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "환불하고 싶어요.",
+            "function": "refund_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "교환하고 싶어요.",
+            "function": "exchange_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "사이즈가 안 맞아요.",
+            "function": "reason",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "다른 사이즈로 바꿀 수 있을까요?",
+            "function": "exchange_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "상품에 문제가 있어요.",
+            "function": "defect_report",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "주문한 것과 다른 상품이 왔어요.",
+            "function": "wrong_item",
+            "registerLane": "service",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "환불 요청을 했어요.",
+            "function": "process_report",
+            "registerLane": "blog_review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "반품을 보냈어요.",
+            "function": "process_report",
+            "registerLane": "blog_review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "환불금이 아직 안 들어왔어요.",
+            "function": "followup",
+            "registerLane": "chat",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "영수증 가져왔어요.",
+            "function": "proof",
+            "registerLane": "service",
+            "tone": "plain"
+          }
+        ],
+        "avoidTranslationese": [
+          "교환/환불은 exchange/refund 또는 Umtausch/Rückgabe로 항상 1:1 대응하지 않는다. 온라인 반품 과정에서는 반품/환불/교환이 단계별로 분리된다."
+        ],
+        "speechSurfaceNotes": [
+          "블로그 후기의 ㅋㅋ, 이모지, 과장된 반복은 그대로 TTS에 넣지 않는다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_shop_reddit_rest",
+          "en_shop_refund_blog",
+          "en_shop_reddit_clothing"
+        ],
+        "registerLanes": [
+          "service",
+          "review",
+          "community"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "I'd like to return this.",
+            "function": "return_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Can I exchange this for a different size?",
+            "function": "exchange_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "It doesn't fit.",
+            "function": "reason",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "This arrived damaged.",
+            "function": "defect_report",
+            "registerLane": "service",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "I received the wrong item.",
+            "function": "wrong_item",
+            "registerLane": "service",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "I requested a refund.",
+            "function": "process_report",
+            "registerLane": "review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I sent it back.",
+            "function": "process_report",
+            "registerLane": "community",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "I still haven't received my refund.",
+            "function": "followup",
+            "registerLane": "community",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "Could you send me a return label?",
+            "function": "return_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Customer service hasn't replied.",
+            "function": "complaint",
+            "registerLane": "review",
+            "tone": "frustrated"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 환불하다 can map to return an item, get a refund, issue a refund, or refund depending who acts and which stage of the process."
+        ],
+        "speechSurfaceNotes": [
+          "Review prose often intensifies with 'worst', 'crazy', 'never again'; textbook speech should separate complaint function from rant register."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_shop_trustpilot_lintico",
+          "de_shop_trustpilot_yours",
+          "de_shop_reddit_returnlaw"
+        ],
+        "registerLanes": [
+          "service",
+          "review",
+          "community"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Ich möchte das zurückgeben.",
+            "function": "return_request",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Kann ich das umtauschen?",
+            "function": "exchange_request",
+            "registerLane": "service",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Das passt nicht.",
+            "function": "reason",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Ich brauche eine andere Größe.",
+            "function": "exchange_request",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Die Ware ist beschädigt angekommen.",
+            "function": "defect_report",
+            "registerLane": "service",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "Ich habe die Retoure angemeldet.",
+            "function": "process_report",
+            "registerLane": "review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich habe die Ware zurückgeschickt.",
+            "function": "process_report",
+            "registerLane": "review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich warte noch auf die Rückerstattung.",
+            "function": "followup",
+            "registerLane": "review",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "Ich habe noch kein Rücksendeetikett bekommen.",
+            "function": "followup",
+            "registerLane": "review",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "Der Kundenservice antwortet nicht.",
+            "function": "complaint",
+            "registerLane": "review",
+            "tone": "frustrated"
+          }
+        ],
+        "avoidTranslationese": [
+          "Rückgabe, Retoure, Umtausch, Widerruf, Rückerstattung은 같은 단계가 아니다. 일상 서비스 대화와 법률/소비자 권리 문체를 분리한다."
+        ],
+        "speechSurfaceNotes": [
+          "Trustpilot식 강한 평가어는 소비자 리뷰 장르 표지로 보존하되 서비스 역할극 기본형으로 가르치지 않는다."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "KO 교환/환불은 행위 중심으로 짧게 말하지만 EN/DE는 return/exchange/refund 또는 Rückgabe/Umtausch/Rückerstattung 단계 구분이 더 명시적일 수 있다.",
+          "리뷰 장르는 세 언어 모두 감정 평가가 강해지지만 서비스 창구 대화는 훨씬 완곡하고 절차 중심이다."
+        ]
+      }
+    },
+    {
+      "topicId": "transport_wayfinding",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_transport_naver_map",
+          "ko_transport_naver_transfer_blog",
+          "ko_transport_navernews_proxy"
+        ],
+        "registerLanes": [
+          "service",
+          "blog_info",
+          "news"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "몇 호선 타야 해요?",
+            "function": "ask_route",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "어디서 갈아타요?",
+            "function": "ask_transfer",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "몇 번 출구로 나가요?",
+            "function": "ask_exit",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "이 버스 ○○ 가요?",
+            "function": "confirm_route",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "다음 역에서 내려요.",
+            "function": "give_direction",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "여기서 환승하면 돼요.",
+            "function": "give_direction",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "반대 방향이에요.",
+            "function": "repair_route",
+            "registerLane": "service",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "내릴 역을 놓쳤어요.",
+            "function": "report_problem",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "길찾기 켜고 갈게요.",
+            "function": "strategy",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "하차할 때 카드를 찍어야 해요.",
+            "function": "instruction",
+            "registerLane": "blog_info",
+            "tone": "informative"
+          }
+        ],
+        "avoidTranslationese": [
+          "환승은 transfer라는 단어 하나보다 갈아타다/환승하다가 장르와 레벨에 따라 달라진다. A1은 갈아타다/어디서 바꿔 타요? 같은 쉬운 실현도 필요하다."
+        ],
+        "speechSurfaceNotes": [
+          "지도앱 UI 표현은 음성 회화와 분리한다: '안내 시작', '승하차 알림'은 기능명이고 실제 대화에서는 '여기서 내려요/갈아타요'가 자연스럽다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_transport_asknyc_platform",
+          "en_transport_asknyc_route",
+          "en_transport_nycrail_navigate"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "community"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Which line should I take?",
+            "function": "ask_route",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Where do I transfer?",
+            "function": "ask_transfer",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Which exit should I use?",
+            "function": "ask_exit",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Is this the right platform?",
+            "function": "confirm_route",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Take the 7 to Times Square.",
+            "function": "give_direction",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Transfer to the 1 train.",
+            "function": "give_direction",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Get off at the next stop.",
+            "function": "give_direction",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Follow the signs.",
+            "function": "give_direction",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I missed my stop.",
+            "function": "report_problem",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I'm going the wrong way.",
+            "function": "repair_route",
+            "registerLane": "casual",
+            "tone": "clear"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 몇 호선 maps naturally to which line/train, not 'what number line' in most contexts."
+        ],
+        "speechSurfaceNotes": [
+          "Community transit talk uses local shorthand (uptown/downtown, line letters/numbers) that should be taught only with locale context."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_transport_berlin_reddit",
+          "de_transport_db_reddit",
+          "de_transport_berlin_apps"
+        ],
+        "registerLanes": [
+          "casual",
+          "community",
+          "service"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Welche Linie muss ich nehmen?",
+            "function": "ask_route",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Wo muss ich umsteigen?",
+            "function": "ask_transfer",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Wo muss ich aussteigen?",
+            "function": "ask_exit",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Ist das der richtige Bahnsteig?",
+            "function": "confirm_route",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Am Wittenbergplatz umsteigen.",
+            "function": "give_direction",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Dann mit der U7 weiter.",
+            "function": "give_direction",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich habe den Anschluss verpasst.",
+            "function": "report_problem",
+            "registerLane": "community",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "Die App schickt mich einen Umweg.",
+            "function": "complaint",
+            "registerLane": "community",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "Ich bin in die falsche Richtung gefahren.",
+            "function": "repair_route",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Welchen Ausgang muss ich nehmen?",
+            "function": "ask_exit",
+            "registerLane": "service",
+            "tone": "plain"
+          }
+        ],
+        "avoidTranslationese": [
+          "Anschluss는 일반 환승보다 특히 연결편/접속편 뉘앙스가 강하다. 모든 환승을 Anschluss로 번역하지 않는다."
+        ],
+        "speechSurfaceNotes": [
+          "Reddit/Berlin 교통담화는 노선명·역명 축약과 감정 표현이 강하다; 교재 기본형과 지역적 현실어를 분리한다."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "KO 환승하다/갈아타다, EN transfer/change trains, DE umsteigen/Anschluss는 같은 범위가 아니다.",
+          "영어 uptown/downtown, 독일 U-/S-Bahn local shorthand는 특정 도시 문화어로 취급한다."
+        ]
+      }
+    },
+    {
+      "topicId": "health_body",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_health_kdca_cold",
+          "ko_health_naver_personal",
+          "ko_health_naver_ent"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "authoritative"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "목이 아파요.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "목이 간질거려요.",
+            "function": "describe_symptom",
+            "registerLane": "casual",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "기침이 나요.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "콧물이 나요.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "코가 막혀요.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "열은 없어요.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "감기 걸린 것 같아요.",
+            "function": "self_report",
+            "registerLane": "casual",
+            "tone": "cautious"
+          },
+          {
+            "surfacePattern": "며칠째 계속 그래요.",
+            "function": "duration",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "감기가 잘 안 나아요.",
+            "function": "duration",
+            "registerLane": "casual",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "기침이랑 목 아픈 데 먹을 약이 있을까요?",
+            "function": "pharmacy_request",
+            "registerLane": "service",
+            "tone": "polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "인후통은 공식/의학 용어이고 일상 대화에서는 목이 아프다/목이 따갑다/목이 간질거리다처럼 경험 중심 표현이 더 자연스럽다."
+        ],
+        "speechSurfaceNotes": [
+          "건강 커뮤니티의 과장어 '죽겠어요' 등은 증상 강도 표현으로는 현실적이지만 초급 안전 기본형으로는 분리한다."
+        ],
+        "authoritativeTerminology": [
+          "콧물",
+          "코막힘",
+          "인후통",
+          "기침",
+          "발열"
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_health_nhs_cold",
+          "en_health_reddit_2026_cold",
+          "en_health_reddit_askdocs"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "authoritative"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "I have a sore throat.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "I've got a cough.",
+            "function": "describe_symptom",
+            "registerLane": "casual",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "My nose is blocked.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "I have a runny nose.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "I don't have a fever.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "It started with a sore throat.",
+            "function": "timeline",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "It's been going on for a week.",
+            "function": "duration",
+            "registerLane": "service",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "The cough still hasn't gone away.",
+            "function": "duration",
+            "registerLane": "casual",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "I feel really tired and unwell.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Is there anything over the counter for this?",
+            "function": "pharmacy_request",
+            "registerLane": "service",
+            "tone": "polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 몸살 is not a simple one-word equivalent of flu. EN usually specifies aches, fatigue, feverishness, chills, etc."
+        ],
+        "speechSurfaceNotes": [
+          "Community health posts intensify with 'awful', 'kicking my butt', etc.; keep symptom vocabulary separate from emotional stance."
+        ],
+        "authoritativeTerminology": [
+          "sore throat",
+          "cough",
+          "runny nose",
+          "blocked nose",
+          "fever"
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_health_bund_cold",
+          "de_health_reddit_askagerman",
+          "de_health_reddit_weibsvolk"
+        ],
+        "registerLanes": [
+          "casual",
+          "service",
+          "authoritative"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Ich habe Halsschmerzen.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Ich habe Husten.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Ich habe Schnupfen.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Meine Nase ist zu.",
+            "function": "describe_symptom",
+            "registerLane": "casual",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Ich habe kein Fieber.",
+            "function": "describe_symptom",
+            "registerLane": "service",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Es hat mit Halsschmerzen angefangen.",
+            "function": "timeline",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Das zieht sich schon seit einer Woche.",
+            "function": "duration",
+            "registerLane": "casual",
+            "tone": "frustrated"
+          },
+          {
+            "surfacePattern": "Ich fühle mich schlapp.",
+            "function": "describe_symptom",
+            "registerLane": "casual",
+            "tone": "plain"
+          },
+          {
+            "surfacePattern": "Mich hat's erwischt.",
+            "function": "self_report",
+            "registerLane": "casual",
+            "tone": "colloquial"
+          },
+          {
+            "surfacePattern": "Was bekomme ich rezeptfrei in der Apotheke?",
+            "function": "pharmacy_request",
+            "registerLane": "service",
+            "tone": "polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "grippaler Infekt는 공식/의료 설명에서 보이지만 일상에서는 Erkältung, erkältet sein, mich hat's erwischt가 더 자연스러운 경우가 많다."
+        ],
+        "speechSurfaceNotes": [
+          "Community posts use colloquial contractions and strong stance; authoritative health pages use complaints/symptom nouns and impersonal constructions."
+        ],
+        "authoritativeTerminology": [
+          "Halsschmerzen",
+          "Husten",
+          "Schnupfen",
+          "Fieber",
+          "laufende/verstopfte Nase"
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "KO 목이 아프다, EN sore throat, DE Halsschmerzen는 구조적으로 다르므로 증상 표현 패턴 자체를 익혀야 한다.",
+          "의료 공식어와 환자 일상어를 같은 난이도/장르로 섞지 않는다.",
+          "건강 커뮤니티는 자연어 근거일 뿐 진단·치료 근거로 사용하지 않는다."
+        ]
+      }
+    },
+    {
+      "topicId": "work_career",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_work_naver_police_interview",
+          "ko_work_naver_samsung_interview",
+          "ko_work_naver_first_company",
+          "ko_work_navernews_work"
+        ],
+        "registerLanes": [
+          "interview",
+          "blog_review",
+          "news",
+          "workplace"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "자기소개를 짧게 준비했어요.",
+            "function": "interview_prep",
+            "registerLane": "blog_review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "지원동기 중심으로 물어봤어요.",
+            "function": "interview_report",
+            "registerLane": "blog_review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "제가 맡은 업무는 ○○였습니다.",
+            "function": "role_explanation",
+            "registerLane": "interview",
+            "tone": "formal"
+          },
+          {
+            "surfacePattern": "실제로 했던 경험을 예로 들었어요.",
+            "function": "evidence",
+            "registerLane": "interview",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "이직 이유를 설명했어요.",
+            "function": "career_change",
+            "registerLane": "interview",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "면접 분위기는 생각보다 편했어요.",
+            "function": "review",
+            "registerLane": "blog_review",
+            "tone": "casual"
+          },
+          {
+            "surfacePattern": "결과를 기다리고 있어요.",
+            "function": "status",
+            "registerLane": "blog_review",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "업무 우선순위를 다시 정해야 해요.",
+            "function": "workload",
+            "registerLane": "workplace",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "퇴근 후 연락이 계속 와요.",
+            "function": "boundary_problem",
+            "registerLane": "workplace",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "구체적인 피드백을 받고 싶어요.",
+            "function": "feedback_request",
+            "registerLane": "workplace",
+            "tone": "polite"
+          }
+        ],
+        "avoidTranslationese": [
+          "면접 자기소개는 일상 자기소개보다 훨씬 압축된 직무 서사다. 같은 '자기소개'를 A1 social introduction과 job interview introduction으로 혼합하지 않는다."
+        ],
+        "speechSurfaceNotes": [
+          "취업 후기 블로그는 ㅎㅎ/이모지/회고식 감정표현이 많지만 실제 면접 발화는 훨씬 압축적이고 격식적이다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_work_british_council",
+          "en_work_bbc_feedback",
+          "en_work_stack_feedback"
+        ],
+        "registerLanes": [
+          "interview",
+          "workplace",
+          "professional"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Tell me about yourself.",
+            "function": "interview_prompt",
+            "registerLane": "interview",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I'm currently working as ...",
+            "function": "self_intro",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "In my current role, I ...",
+            "function": "role_explanation",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "One example would be ...",
+            "function": "evidence",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "The main challenge was ...",
+            "function": "challenge",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "Could you clarify what you mean?",
+            "function": "repair",
+            "registerLane": "workplace",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "I'd appreciate some feedback.",
+            "function": "feedback_request",
+            "registerLane": "professional",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Could you give me a specific example?",
+            "function": "feedback_request",
+            "registerLane": "workplace",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "I'm stretched pretty thin right now.",
+            "function": "workload",
+            "registerLane": "workplace",
+            "tone": "colloquial-professional"
+          },
+          {
+            "surfacePattern": "Let's prioritize this first.",
+            "function": "prioritization",
+            "registerLane": "workplace",
+            "tone": "collaborative"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 수고하셨습니다/고생하셨습니다 has no single default workplace equivalent; closing, thanks, acknowledgement and praise need separate EN realizations."
+        ],
+        "speechSurfaceNotes": [
+          "Interview coaching prose is didactic; actual interview answers should be shorter, evidence-led, and free of canned motivational clichés."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_work_stepstone_interview",
+          "de_work_reddit_arbeitsleben",
+          "de_work_kununu_review"
+        ],
+        "registerLanes": [
+          "interview",
+          "workplace",
+          "review"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Ich arbeite derzeit als ...",
+            "function": "self_intro",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "In meiner aktuellen Position ...",
+            "function": "role_explanation",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "Ich war verantwortlich für ...",
+            "function": "responsibility",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "Ein konkretes Beispiel wäre ...",
+            "function": "evidence",
+            "registerLane": "interview",
+            "tone": "professional"
+          },
+          {
+            "surfacePattern": "Warum möchten Sie wechseln?",
+            "function": "interview_prompt",
+            "registerLane": "interview",
+            "tone": "formal"
+          },
+          {
+            "surfacePattern": "Ich würde mich über Feedback freuen.",
+            "function": "feedback_request",
+            "registerLane": "professional",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Können Sie mir ein konkretes Beispiel nennen?",
+            "function": "feedback_request",
+            "registerLane": "workplace",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Die Arbeitsbelastung ist gerade ziemlich hoch.",
+            "function": "workload",
+            "registerLane": "workplace",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Wir sollten die Prioritäten neu setzen.",
+            "function": "prioritization",
+            "registerLane": "workplace",
+            "tone": "collaborative"
+          },
+          {
+            "surfacePattern": "Ich habe eine Absage bekommen.",
+            "function": "application_status",
+            "registerLane": "review",
+            "tone": "neutral"
+          }
+        ],
+        "avoidTranslationese": [
+          "German Bewerbung, Vorstellungsgespräch, Gespräch, Erstgespräch, Kennenlernen are not interchangeable; the hiring stage controls the noun choice."
+        ],
+        "speechSurfaceNotes": [
+          "r/arbeitsleben uses slang/Anglicisms and frustration; StepStone/Kununu use much more structured evaluation language."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "Korean 경력/직무/업무, EN experience/role/responsibility, DE Berufserfahrung/Aufgabe/Verantwortung divide professional meaning differently.",
+          "직장 후기와 실제 면접 발화는 장르가 다르므로 같은 표현은행을 공유하더라도 register metadata를 유지한다."
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "ko_shop_naver_oliveyoung": {
+      "genre": "naver_blog_review",
+      "title": "올리브영 제품사용 트러블 환불 방법 후기",
+      "url": "https://blog.naver.com/PostView.naver?blogId=versatile_tiger&categoryNo=6&logNo=223176645636&parentCategoryNo=0",
+      "date": "2023-08-07"
+    },
+    "ko_shop_naver_musinsa": {
+      "genre": "naver_blog_howto",
+      "title": "무신사 교환 방법(사이즈, 불량) 환불 요청",
+      "url": "https://blog.naver.com/PostView.naver?blogId=brotherm1n&logNo=223056125995",
+      "date": "2023-03-27"
+    },
+    "ko_shop_naver_ali": {
+      "genre": "naver_blog_review",
+      "title": "알리 빔프로젝터 환불 후기",
+      "url": "https://blog.naver.com/PostView.nhn?blogId=tap_rs&logNo=223393579969",
+      "date": "2024"
+    },
+    "en_shop_reddit_rest": {
+      "genre": "reddit_review",
+      "title": "Don't buy from Rest.com",
+      "url": "https://www.reddit.com/r/Bedding/comments/1uqfyfz/dont_buy_from_rest_com/",
+      "date": "2026-07-08"
+    },
+    "en_shop_refund_blog": {
+      "genre": "industry_blog",
+      "title": "Turning Ecommerce Refund Experience Into Future Sales",
+      "url": "https://www.retently.com/blog/refund-customer-experience/",
+      "date": "2025-05-08"
+    },
+    "en_shop_reddit_clothing": {
+      "genre": "reddit_review",
+      "title": "Is Amelie Official Clothing a scam?",
+      "url": "https://www.reddit.com/r/InstaShoppingFails/comments/1j34rcv/is_amelie_official_clothing_a_scam/",
+      "date": "2025"
+    },
+    "de_shop_trustpilot_lintico": {
+      "genre": "consumer_review",
+      "title": "LINTICO reviews",
+      "url": "https://de.trustpilot.com/review/linticoshop.com",
+      "date": "2025"
+    },
+    "de_shop_trustpilot_yours": {
+      "genre": "consumer_review",
+      "title": "Yours Clothing reviews",
+      "url": "https://de.trustpilot.com/review/yoursclothing.de",
+      "date": "2025-2026"
+    },
+    "de_shop_reddit_returnlaw": {
+      "genre": "reddit_community",
+      "title": "Product return and refund law",
+      "url": "https://www.reddit.com/r/germany/comments/xr8zz2",
+      "date": "2022-09-29"
+    },
+    "ko_transport_naver_map": {
+      "genre": "official_naver_blog",
+      "title": "네이버지도 대중교통 길안내 기능 안내",
+      "url": "https://blog.naver.com/PostView.naver?blogId=naver_map&logNo=223289066322",
+      "date": "2023-12-11"
+    },
+    "ko_transport_naver_transfer_blog": {
+      "genre": "naver_blog_info",
+      "title": "서울·경기도 버스 환승 정리",
+      "url": "https://blog.naver.com/PostView.naver?blogId=loveckk&logNo=223769587901",
+      "date": "2025-02-22"
+    },
+    "ko_transport_navernews_proxy": {
+      "genre": "news_summary",
+      "title": "환승 지옥 출근길 러닝크루",
+      "url": "https://www.platformcity.co.kr/news/cmtexfjky0009pm01w1fa2jmz",
+      "date": "2026-08-28"
+    },
+    "en_transport_asknyc_platform": {
+      "genre": "reddit_community",
+      "title": "App or Map for Where to Stand on Subway Platform",
+      "url": "https://www.reddit.com/r/AskNYC/comments/1wv7s9e/app_or_map_for_where_to_stand_on_subway_platform/",
+      "date": "2026-10-01"
+    },
+    "en_transport_asknyc_route": {
+      "genre": "reddit_community",
+      "title": "NYC route advice thread",
+      "url": "https://www.reddit.com/r/AskNYC/comments/1splglu/",
+      "date": "2026-04-19"
+    },
+    "en_transport_nycrail_navigate": {
+      "genre": "reddit_community",
+      "title": "How do you navigate the system?",
+      "url": "https://www.reddit.com/r/nycrail/comments/1sv393j/how_do_you_navigate_the_system/",
+      "date": "2026-04-25"
+    },
+    "de_transport_berlin_reddit": {
+      "genre": "reddit_community",
+      "title": "Irrste U-Bahnfahrt mit 6 mal Umsteigen",
+      "url": "https://www.reddit.com/r/berlin/comments/1qgf8oy/irrste_ubahnfahrt_mit_6_mal_umsteigen/",
+      "date": "2026-01-18"
+    },
+    "de_transport_db_reddit": {
+      "genre": "reddit_community",
+      "title": "Irrste Umstiege",
+      "url": "https://www.reddit.com/r/deutschebahn/comments/1qwnggk/was_waren_die_irrsten_umstiege_die_ihr_schon/",
+      "date": "2026-02-05"
+    },
+    "de_transport_berlin_apps": {
+      "genre": "reddit_community",
+      "title": "Weder Google noch BVG App geben gute Weg Vorschläge",
+      "url": "https://www.reddit.com/r/berlin/comments/1qsr3t0/weder_google_noch_bvg_app_geben_gute_weg/",
+      "date": "2026-02-01"
+    },
+    "ko_health_kdca_cold": {
+      "genre": "authoritative_health",
+      "title": "감기 | 국가건강정보포털 | 질병관리청",
+      "url": "https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5423.",
+      "date": "2026-05-12"
+    },
+    "ko_health_naver_personal": {
+      "genre": "naver_blog_personal",
+      "title": "팬미팅 후기 중 일상 감기 증상 서술",
+      "url": "https://blog.naver.com/PostView.naver?blogId=weezerpixies&logNo=223721904754",
+      "date": "2025-01-09"
+    },
+    "ko_health_naver_ent": {
+      "genre": "naver_blog_explainer",
+      "title": "이비인후과란?",
+      "url": "https://blog.naver.com/PostView.naver?blogId=nurse666_&logNo=223796709431",
+      "date": "2025-03-15"
+    },
+    "en_health_nhs_cold": {
+      "genre": "authoritative_health",
+      "title": "Common cold - NHS",
+      "url": "https://www.nhs.uk/conditions/common-cold/",
+      "date": "current"
+    },
+    "en_health_reddit_2026_cold": {
+      "genre": "reddit_community",
+      "title": "Bad cold virus going around?",
+      "url": "https://www.reddit.com/r/bayarea/comments/1w3w6ur/bad_cold_virus_going_around/",
+      "date": "2026-09-01"
+    },
+    "en_health_reddit_askdocs": {
+      "genre": "reddit_health",
+      "title": "Not Covid",
+      "url": "https://www.reddit.com/r/AskDocs/comments/1l1onuc",
+      "date": "2025-06-02"
+    },
+    "de_health_bund_cold": {
+      "genre": "authoritative_health",
+      "title": "Erkältung: Symptome und Behandlung",
+      "url": "https://gesund.bund.de/erkaeltung",
+      "date": "current"
+    },
+    "de_health_reddit_askagerman": {
+      "genre": "reddit_community",
+      "title": "Rezeptfreie Medikamente bei Erkältung",
+      "url": "https://www.reddit.com/r/AskAGerman/comments/1vzw6on/was_sind_gute_rezeptfreie_medikamente_die_euch_am/",
+      "date": "2026-08-27"
+    },
+    "de_health_reddit_weibsvolk": {
+      "genre": "reddit_community",
+      "title": "Immer wieder Infekte/Erkältungen",
+      "url": "https://www.reddit.com/r/Weibsvolk/comments/1w552u9/immer_wieder_infekteerk%C3%A4ltungen_woran_kann_das/",
+      "date": "2026-09-02"
+    },
+    "ko_work_naver_police_interview": {
+      "genre": "naver_blog_review",
+      "title": "경찰 면접 후기",
+      "url": "https://blog.naver.com/PostView.naver?blogId=acl_academy&isHttpsRedirect=true&logNo=223882108075",
+      "date": "2025-05-29"
+    },
+    "ko_work_naver_samsung_interview": {
+      "genre": "naver_blog_review",
+      "title": "삼성전자 DS 경력직 합격 후기",
+      "url": "https://blog.naver.com/PostView.nhn?blogId=oopsbae1&logNo=223136272150",
+      "date": "2023"
+    },
+    "ko_work_naver_first_company": {
+      "genre": "naver_blog_reflection",
+      "title": "나의 첫 회사, LIG 넥스원",
+      "url": "https://blog.naver.com/PostView.naver?blogId=taemin12&logNo=222655104810",
+      "date": "2022"
+    },
+    "ko_work_navernews_work": {
+      "genre": "naver_news_index",
+      "title": "오늘도 출근 - 직장생활 기사 모음",
+      "url": "https://media.naver.com/issue/022/295",
+      "date": "2026"
+    },
+    "en_work_british_council": {
+      "genre": "education_blog",
+      "title": "Job Interviews in English",
+      "url": "https://takeielts.britishcouncil.org/blog/job-interviews-in-english-success-as-a-non-native-speaker",
+      "date": "2025-09-05"
+    },
+    "en_work_bbc_feedback": {
+      "genre": "spoken_learning_media",
+      "title": "BBC Learning English Office English - Feedback",
+      "url": "https://www.bbc.co.uk/learningenglish/english/features/office-english/250512",
+      "date": "2025-05-12"
+    },
+    "en_work_stack_feedback": {
+      "genre": "community_qna",
+      "title": "Why do some employers provide feedback to non-hired candidates?",
+      "url": "https://workplace.stackexchange.com/questions/202088/why-do-some-employers-provide-feedback-to-non-hired-candidates",
+      "date": "2025"
+    },
+    "de_work_stepstone_interview": {
+      "genre": "career_editorial",
+      "title": "Vorstellungsgespräch einschätzen",
+      "url": "https://www.stepstone.de/magazin/artikel/vorstellungsgesprach-einschaetzen-gut-schlecht-gelaufen",
+      "date": "2025-05-27"
+    },
+    "de_work_reddit_arbeitsleben": {
+      "genre": "reddit_community",
+      "title": "Bewerbungen schreiben ist die größte Zeitverschwendung",
+      "url": "https://www.reddit.com/r/arbeitsleben/comments/1ru4keg/bewerbungen_schreiben_ist_die_gr%C3%B6%C3%9Fte/",
+      "date": "2026-03-15"
+    },
+    "de_work_kununu_review": {
+      "genre": "employer_review",
+      "title": "ING Deutschland Bewerbungserfahrungen",
+      "url": "https://www.kununu.com/de/ing-de/bewerbung/4",
+      "date": "2025"
+    }
+  }
+}

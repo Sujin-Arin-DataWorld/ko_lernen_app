@@ -1,0 +1,1248 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "book": "1A",
+  "status": "MODEL_REVIEWED_PILOT_READY_REGISTRY",
+  "unitPilotTasks": 40,
+  "pairReviewPilotTasks": 4,
+  "finalTransferTasks": 6,
+  "totalPilotTasks": 50,
+  "stageCounts": {
+    "baseline": 8,
+    "immediate_post": 8,
+    "delayed_24h": 8,
+    "delayed_7d": 8,
+    "transfer": 18
+  },
+  "tasks": [
+    {
+      "pilotTaskId": "1A.PILOT.U01.B0",
+      "sourceTaskId": "1A.U01.SB.T01",
+      "unitId": "a1_01_greetings_hangul",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요",
+        "감사합니다",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "maintains interaction after one comprehension breakdown",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U01.I0",
+      "sourceTaskId": "1A.U01.SB.T11",
+      "unitId": "a1_01_greetings_hangul",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요",
+        "감사합니다",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "maintains interaction after one comprehension breakdown",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U01.D1",
+      "sourceTaskId": "1A.U01.WB.T08",
+      "unitId": "a1_01_greetings_hangul",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요",
+        "감사합니다",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "maintains interaction after one comprehension breakdown",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U01.D7",
+      "sourceTaskId": "1A.U01.WB.T08",
+      "unitId": "a1_01_greetings_hangul",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요",
+        "감사합니다",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "maintains interaction after one comprehension breakdown",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U01.TR",
+      "sourceTaskId": "1A.U01.SB.T10",
+      "unitId": "a1_01_greetings_hangul",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "안녕하세요",
+        "네",
+        "아니요",
+        "죄송해요",
+        "다시 말씀해 주세요",
+        "감사합니다",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "maintains interaction after one comprehension breakdown",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U02.B0",
+      "sourceTaskId": "1A.U02.SB.T01",
+      "unitId": "a1_02_self_intro_identity",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요",
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "exchanges identity information without memorized paragraph",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U02.I0",
+      "sourceTaskId": "1A.U02.SB.T11",
+      "unitId": "a1_02_self_intro_identity",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요",
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "exchanges identity information without memorized paragraph",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U02.D1",
+      "sourceTaskId": "1A.U02.WB.T08",
+      "unitId": "a1_02_self_intro_identity",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요",
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "exchanges identity information without memorized paragraph",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U02.D7",
+      "sourceTaskId": "1A.U02.WB.T08",
+      "unitId": "a1_02_self_intro_identity",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요",
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "exchanges identity information without memorized paragraph",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U02.TR",
+      "sourceTaskId": "1A.U02.SB.T10",
+      "unitId": "a1_02_self_intro_identity",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "저는 ___이에요/예요",
+        "어디에서 왔어요?",
+        "___에서 왔어요",
+        "이름을 다시 말해 주세요",
+        "저도 그래요/저도 좋아해요",
+        "은/는",
+        "이에요/예요",
+        "N에서 왔어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "exchanges identity information without memorized paragraph",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U03.B0",
+      "sourceTaskId": "1A.U03.SB.T01",
+      "unitId": "a1_03_topic_subject_particles",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?",
+        "아니요, 그건 ___예요",
+        "그럼 이거예요?",
+        "은/는"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "uses particles in context, not through isolated translation",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U03.I0",
+      "sourceTaskId": "1A.U03.SB.T11",
+      "unitId": "a1_03_topic_subject_particles",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?",
+        "아니요, 그건 ___예요",
+        "그럼 이거예요?",
+        "은/는"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "uses particles in context, not through isolated translation",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U03.D1",
+      "sourceTaskId": "1A.U03.WB.T08",
+      "unitId": "a1_03_topic_subject_particles",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?",
+        "아니요, 그건 ___예요",
+        "그럼 이거예요?",
+        "은/는"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "uses particles in context, not through isolated translation",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U03.D7",
+      "sourceTaskId": "1A.U03.WB.T08",
+      "unitId": "a1_03_topic_subject_particles",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?",
+        "아니요, 그건 ___예요",
+        "그럼 이거예요?",
+        "은/는"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "uses particles in context, not through isolated translation",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U03.TR",
+      "sourceTaskId": "1A.U03.SB.T10",
+      "unitId": "a1_03_topic_subject_particles",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "저기요",
+        "___는 어디에 있어요?",
+        "___에 있어요",
+        "___가 여기 있어요",
+        "이거 ___예요?",
+        "아니요, 그건 ___예요",
+        "그럼 이거예요?",
+        "은/는"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "uses particles in context, not through isolated translation",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U04.B0",
+      "sourceTaskId": "1A.U04.SB.T01",
+      "unitId": "a1_04_order_request_object",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요",
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "orders and adjusts one condition without translation prompt",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U04.I0",
+      "sourceTaskId": "1A.U04.SB.T11",
+      "unitId": "a1_04_order_request_object",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요",
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "orders and adjusts one condition without translation prompt",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U04.D1",
+      "sourceTaskId": "1A.U04.WB.T08",
+      "unitId": "a1_04_order_request_object",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요",
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "orders and adjusts one condition without translation prompt",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U04.D7",
+      "sourceTaskId": "1A.U04.WB.T08",
+      "unitId": "a1_04_order_request_object",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요",
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "orders and adjusts one condition without translation prompt",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U04.TR",
+      "sourceTaskId": "1A.U04.SB.T10",
+      "unitId": "a1_04_order_request_object",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "___ 하나 주세요",
+        "___ 한 잔 주세요",
+        "많이 매워요?",
+        "안 매운 걸로 주세요",
+        "포장해 주세요",
+        "을/를",
+        "N 주세요",
+        "안 + adjective/verb"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "orders and adjusts one condition without translation prompt",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U05.B0",
+      "sourceTaskId": "1A.U05.SB.T01",
+      "unitId": "a1_05_numbers_time",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요",
+        "몇 번이에요?",
+        "N시에",
+        "아니에요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "confirms a time accurately after one misunderstanding",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U05.I0",
+      "sourceTaskId": "1A.U05.SB.T11",
+      "unitId": "a1_05_numbers_time",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요",
+        "몇 번이에요?",
+        "N시에",
+        "아니에요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "confirms a time accurately after one misunderstanding",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U05.D1",
+      "sourceTaskId": "1A.U05.WB.T08",
+      "unitId": "a1_05_numbers_time",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요",
+        "몇 번이에요?",
+        "N시에",
+        "아니에요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "confirms a time accurately after one misunderstanding",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U05.D7",
+      "sourceTaskId": "1A.U05.WB.T08",
+      "unitId": "a1_05_numbers_time",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요",
+        "몇 번이에요?",
+        "N시에",
+        "아니에요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "confirms a time accurately after one misunderstanding",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U05.TR",
+      "sourceTaskId": "1A.U05.SB.T10",
+      "unitId": "a1_05_numbers_time",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "일곱 시에 만나요",
+        "여섯 시 아니에요?",
+        "아니요, 일곱 시예요",
+        "몇 번이에요?",
+        "N시에",
+        "아니에요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "confirms a time accurately after one misunderstanding",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U06.B0",
+      "sourceTaskId": "1A.U06.SB.T01",
+      "unitId": "a1_06_transport_directions",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요",
+        "에",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "reaches correct stop after one route correction",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U06.I0",
+      "sourceTaskId": "1A.U06.SB.T11",
+      "unitId": "a1_06_transport_directions",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요",
+        "에",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "reaches correct stop after one route correction",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U06.D1",
+      "sourceTaskId": "1A.U06.WB.T08",
+      "unitId": "a1_06_transport_directions",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요",
+        "에",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "reaches correct stop after one route correction",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U06.D7",
+      "sourceTaskId": "1A.U06.WB.T08",
+      "unitId": "a1_06_transport_directions",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요",
+        "에",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "reaches correct stop after one route correction",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U06.TR",
+      "sourceTaskId": "1A.U06.SB.T10",
+      "unitId": "a1_06_transport_directions",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "여기 세워 주세요",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?",
+        "이 버스 ___에 가요?",
+        "저기 앞에 세워 주세요",
+        "에",
+        "-아/어 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "reaches correct stop after one route correction",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U07.B0",
+      "sourceTaskId": "1A.U07.SB.T01",
+      "unitId": "a1_07_contact_address",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?",
+        "제가 카톡 보낼게요",
+        "도착하면 연락할게요",
+        "10분 정도 늦을 것 같아요",
+        "(으)로",
+        "있어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "arranges contact without assuming consent",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U07.I0",
+      "sourceTaskId": "1A.U07.SB.T11",
+      "unitId": "a1_07_contact_address",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?",
+        "제가 카톡 보낼게요",
+        "도착하면 연락할게요",
+        "10분 정도 늦을 것 같아요",
+        "(으)로",
+        "있어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "arranges contact without assuming consent",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U07.D1",
+      "sourceTaskId": "1A.U07.WB.T08",
+      "unitId": "a1_07_contact_address",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?",
+        "제가 카톡 보낼게요",
+        "도착하면 연락할게요",
+        "10분 정도 늦을 것 같아요",
+        "(으)로",
+        "있어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "arranges contact without assuming consent",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U07.D7",
+      "sourceTaskId": "1A.U07.WB.T08",
+      "unitId": "a1_07_contact_address",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?",
+        "제가 카톡 보낼게요",
+        "도착하면 연락할게요",
+        "10분 정도 늦을 것 같아요",
+        "(으)로",
+        "있어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "arranges contact without assuming consent",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U07.TR",
+      "sourceTaskId": "1A.U07.SB.T10",
+      "unitId": "a1_07_contact_address",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "카톡 하세요?",
+        "카카오톡으로 연락할까요?",
+        "제가 카톡 보낼게요",
+        "도착하면 연락할게요",
+        "10분 정도 늦을 것 같아요",
+        "(으)로",
+        "있어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "arranges contact without assuming consent",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U08.B0",
+      "sourceTaskId": "1A.U08.SB.T01",
+      "unitId": "a1_08_clarify_repair",
+      "stage": "baseline",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Before teaching, attempt the scene meaning/task with no model. Record what the learner can already do.",
+      "instructionDe": "Vor dem Unterricht die Situationsaufgabe ohne Modell versuchen. Vorwissen und spontane Strategie notieren.",
+      "targetRefs": [
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?",
+        "13번이요?",
+        "-아/어 주세요",
+        "무슨 N"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "uses correct repair type without switching language",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U08.I0",
+      "sourceTaskId": "1A.U08.SB.T11",
+      "unitId": "a1_08_clarify_repair",
+      "stage": "immediate_post",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Immediately after the unit, complete the exit task without looking back at the explanation.",
+      "instructionDe": "Direkt nach der Einheit die Abschlussaufgabe ohne Zurückblättern lösen.",
+      "targetRefs": [
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?",
+        "13번이요?",
+        "-아/어 주세요",
+        "무슨 N"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": false,
+      "successSignal": "uses correct repair type without switching language",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U08.D1",
+      "sourceTaskId": "1A.U08.WB.T08",
+      "unitId": "a1_08_clarify_repair",
+      "stage": "delayed_24h",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 24 hours, retrieve the same function with changed names/items/times. Do not show the original model.",
+      "instructionDe": "Nach etwa 24 Stunden dieselbe Funktion mit veränderten Namen/Gegenständen/Zeiten abrufen. Das Originalmodell nicht zeigen.",
+      "targetRefs": [
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?",
+        "13번이요?",
+        "-아/어 주세요",
+        "무슨 N"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "uses correct repair type without switching language",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U08.D7",
+      "sourceTaskId": "1A.U08.WB.T08",
+      "unitId": "a1_08_clarify_repair",
+      "stage": "delayed_7d",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "After about 7 days, perform the function in a new scene. Use no unit heading or translation cue unless needed.",
+      "instructionDe": "Nach etwa 7 Tagen die Funktion in einer neuen Situation ausführen. Keine Kapitelüberschrift oder Übersetzungshilfe zeigen, solange sie nicht nötig ist.",
+      "targetRefs": [
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?",
+        "13번이요?",
+        "-아/어 주세요",
+        "무슨 N"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "uses correct repair type without switching language",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.U08.TR",
+      "sourceTaskId": "1A.U08.SB.T10",
+      "unitId": "a1_08_clarify_repair",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Transfer the unit function into a neighboring real-life context and keep the interaction going.",
+      "instructionDe": "Die Funktion der Einheit in eine benachbarte Alltagssituation übertragen und die Interaktion aufrechterhalten.",
+      "targetRefs": [
+        "다시 말씀해 주세요",
+        "한 번만 더 말씀해 주세요",
+        "천천히 말씀해 주세요",
+        "잘 못 들었어요",
+        "무슨 뜻이에요?",
+        "13번이요?",
+        "-아/어 주세요",
+        "무슨 N"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "uses correct repair type without switching language",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.R12.TR",
+      "sourceTaskId": "1A.R12.RV.T05",
+      "unitId": "a1_review_r12",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Complete the paired-unit interaction without being told which unit each expression comes from.",
+      "instructionDe": "Bearbeite die Interaktionsaufgabe der beiden Einheiten, ohne dass angegeben wird, aus welchem Kapitel die Ausdrücke stammen.",
+      "targetRefs": [
+        "안녕하세요",
+        "저는 ___이에요/예요",
+        "N에서 왔어요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Combines language from both reviewed units in one coherent interaction.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.R34.TR",
+      "sourceTaskId": "1A.R34.RV.T05",
+      "unitId": "a1_review_r34",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Complete the paired-unit interaction without being told which unit each expression comes from.",
+      "instructionDe": "Bearbeite die Interaktionsaufgabe der beiden Einheiten, ohne dass angegeben wird, aus welchem Kapitel die Ausdrücke stammen.",
+      "targetRefs": [
+        "저기요",
+        "___는 어디에 있어요?",
+        "N 하나 주세요"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Combines language from both reviewed units in one coherent interaction.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.R56.TR",
+      "sourceTaskId": "1A.R56.RV.T05",
+      "unitId": "a1_review_r56",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Complete the paired-unit interaction without being told which unit each expression comes from.",
+      "instructionDe": "Bearbeite die Interaktionsaufgabe der beiden Einheiten, ohne dass angegeben wird, aus welchem Kapitel die Ausdrücke stammen.",
+      "targetRefs": [
+        "몇 시에 만나요?",
+        "오후 한 시 어때요?",
+        "몇 번 출구예요?",
+        "어디서 갈아타요?"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Combines language from both reviewed units in one coherent interaction.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.R78.TR",
+      "sourceTaskId": "1A.R78.RV.T05",
+      "unitId": "a1_review_r78",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Complete the paired-unit interaction without being told which unit each expression comes from.",
+      "instructionDe": "Bearbeite die Interaktionsaufgabe der beiden Einheiten, ohne dass angegeben wird, aus welchem Kapitel die Ausdrücke stammen.",
+      "targetRefs": [
+        "카카오톡으로 연락할까요?",
+        "다시 말씀해 주세요",
+        "13번이요?"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Combines language from both reviewed units in one coherent interaction.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.FINAL.F01",
+      "sourceTaskId": "1A.FINAL.RV.T01",
+      "unitId": "a1_review_final",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Meet someone, introduce yourself, and arrange a later contact.",
+      "instructionDe": "Lerne jemanden kennen, stelle dich vor und vereinbare späteren Kontakt.",
+      "targetRefs": [
+        "Units01",
+        "Units02",
+        "Unit07"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Completes the integrated 1A task without unit labels.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.FINAL.F02",
+      "sourceTaskId": "1A.FINAL.RV.T02",
+      "unitId": "a1_review_final",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Find an item, order something, and respond to one staff question.",
+      "instructionDe": "Finde einen Gegenstand, bestelle etwas und reagiere auf eine Frage des Personals.",
+      "targetRefs": [
+        "Unit03",
+        "Unit04"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Completes the integrated 1A task without unit labels.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.FINAL.F03",
+      "sourceTaskId": "1A.FINAL.RV.T03",
+      "unitId": "a1_review_final",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Set a meeting time and ask for route/exit information.",
+      "instructionDe": "Vereinbare eine Uhrzeit und frage nach Weg/Ausgang.",
+      "targetRefs": [
+        "Unit05",
+        "Unit06"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Completes the integrated 1A task without unit labels.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.FINAL.F04",
+      "sourceTaskId": "1A.FINAL.RV.T04",
+      "unitId": "a1_review_final",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Repair three problems: you did not hear, you do not know a word, and you want to confirm a number.",
+      "instructionDe": "Repariere drei Probleme: nicht gehört, Wortbedeutung unbekannt, Zahl bestätigen.",
+      "targetRefs": [
+        "Unit08"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Completes the integrated 1A task without unit labels.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.FINAL.F05",
+      "sourceTaskId": "1A.FINAL.RV.T05",
+      "unitId": "a1_review_final",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Write a short message saying you will be about ten minutes late and what you will do next.",
+      "instructionDe": "Schreibe eine kurze Nachricht: ca. zehn Minuten Verspätung + nächster Schritt.",
+      "targetRefs": [
+        "Unit07",
+        "Unit05"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Completes the integrated 1A task without unit labels.",
+      "status": "model_reviewed"
+    },
+    {
+      "pilotTaskId": "1A.PILOT.FINAL.F06",
+      "sourceTaskId": "1A.FINAL.RV.T06",
+      "unitId": "a1_review_final",
+      "stage": "transfer",
+      "l1Scope": [
+        "en",
+        "de"
+      ],
+      "instructionEn": "Read a mini itinerary/menu/chat bundle and answer five practical questions without unit labels.",
+      "instructionDe": "Lies Mini-Fahrplan/Menü/Chat und beantworte fünf praktische Fragen ohne Kapitelhinweise.",
+      "targetRefs": [
+        "Units03-08"
+      ],
+      "promptLevelDefault": 0,
+      "changedContextRequired": true,
+      "successSignal": "Completes the integrated 1A task without unit labels.",
+      "status": "model_reviewed"
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "policyStatus": "OFFICIAL_GRAMMAR_ONLY",
+  "policy": {
+    "grammarDefinitionAllowedDomains": [
+      "korean.go.kr",
+      "www.korean.go.kr",
+      "krdict.korean.go.kr"
+    ],
+    "grammarDefinitionRule": "Grammar definition, function, attachment rule, honorific classification, and instructional constraint must be traceable to an official source.",
+    "usageEvidenceRule": "News, blogs, reviews, Reddit/community and corpora may support attested wording/register/genre only. They must not populate grammar-definition fields.",
+    "localizationRule": "EN/DE natural equivalents are localization data, not Korean grammar definitions.",
+    "unsupportedRule": "If no official basis has been verified, the item may remain a fixed chunk/recognition item but must not receive a generalized grammar explanation."
+  },
+  "officialSources": {
+    "NIKL_SEJONG1_2013": {
+      "title": "세종한국어 1 교원용 지침서",
+      "publisher": "국립국어원",
+      "year": 2013,
+      "sourceType": "official_teacher_guide",
+      "landingUrl": "https://korean.go.kr/front/reportData/reportDataView.do?mn_id=172&pageIndex=1&report_seq=746&searchOrder=years",
+      "relevantPages": [
+        111,
+        118,
+        119,
+        120
+      ],
+      "useFor": [
+        "-(으)세요",
+        "주세요",
+        "을/를",
+        "초급 물건 사기 요청"
+      ]
+    },
+    "NIKL_2010_VISITING_KOREAN": {
+      "title": "2010년 다문화 가정 자녀 대상 한국어 방문 학습 자료 개발 제작 사업",
+      "publisher": "국립국어원",
+      "year": 2010,
+      "sourceType": "official_research_teaching_material",
+      "url": "https://www.korean.go.kr/common/download.do?c_file_name=4e254bb6-57a6-4e39-9c1b-8cbcb444eb95_0.pdf&file_path=reportData&o_file_name=2010%EB%85%84+%EB%8B%A4%EB%AC%B8%ED%99%94+%EA%B0%80%EC%A0%95+%EC%9E%90%EB%85%80+%EB%8C%80%EC%83%81+%ED%95%9C%EA%B5%AD%EC%96%B4+%EB%B0%A9%EB%AC%B8+%ED%95%99%EC%8A%B5+%EC%9E%90%EB%A3%8C+%EA%B0%9C%EB%B0%9C+%EC%A0%9C%EC%9E%91+%EC%82%AC%EC%97%85.pdf",
+      "relevantPages": [
+        29
+      ],
+      "useFor": [
+        "-아/어 주세요",
+        "-(으)ㄹ게"
+      ]
+    },
+    "KRDIC_EUN": {
+      "title": "한국어기초사전: 은",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86111&nation=eng",
+      "useFor": [
+        "은/는"
+      ]
+    },
+    "KRDIC_I": {
+      "title": "한국어기초사전: 이 (조사)",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86289&nation=eng",
+      "useFor": [
+        "이/가"
+      ]
+    },
+    "KRDIC_EUL": {
+      "title": "한국어기초사전: 을",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86355&nation=eng",
+      "useFor": [
+        "을/를"
+      ]
+    },
+    "KRDIC_REUL": {
+      "title": "한국어기초사전: 를",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=85764&nation=eng",
+      "useFor": [
+        "을/를"
+      ]
+    },
+    "KRDIC_E": {
+      "title": "한국어기초사전: 에",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86572&nation=eng&nationCode=6",
+      "useFor": [
+        "장소 에",
+        "시간 에",
+        "목적지 에"
+      ]
+    },
+    "KRDIC_ESEO": {
+      "title": "한국어기초사전: 에서",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=68853&nation=eng",
+      "useFor": [
+        "행동 장소 에서",
+        "출발점 에서",
+        "출처 에서"
+      ]
+    },
+    "KRDIC_EURO": {
+      "title": "한국어기초사전: 으로",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=85784&nation=eng",
+      "useFor": [
+        "방향 (으)로",
+        "수단 (으)로",
+        "방법 (으)로"
+      ]
+    },
+    "KRDIC_IDA": {
+      "title": "한국어기초사전: 이다",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=86232",
+      "useFor": [
+        "이다",
+        "이에요/예요"
+      ]
+    },
+    "KRDIC_ANIDA": {
+      "title": "한국어기초사전: 아니다",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=26878",
+      "useFor": [
+        "아니다",
+        "아니에요"
+      ]
+    },
+    "KRDIC_ANI_AN": {
+      "title": "한국어기초사전: 아니/안",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=65980",
+      "useFor": [
+        "안 부정"
+      ]
+    },
+    "KRDIC_ITDA": {
+      "title": "한국어기초사전: 있다",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=68796",
+      "useFor": [
+        "있다",
+        "에 있다"
+      ]
+    },
+    "KRDIC_MUSEUN": {
+      "title": "한국어기초사전: 무슨",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=66237",
+      "useFor": [
+        "무슨 N"
+      ]
+    },
+    "KRDIC_SUBJECT_HONORIFIC": {
+      "title": "한국어기초사전: 주체 높임법",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=77102&nation=eng&nationCode=6",
+      "useFor": [
+        "-(으)시-"
+      ]
+    },
+    "KRDIC_LKKAYO": {
+      "title": "한국어기초사전: -ㄹ까요/-을까요",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=82350",
+      "companionUrl": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=82348",
+      "useFor": [
+        "-(으)ㄹ까요?"
+      ]
+    },
+    "KRDIC_LGEYO": {
+      "title": "한국어기초사전: -ㄹ게요",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=82347&nation=eng",
+      "useFor": [
+        "-(으)ㄹ게요"
+      ]
+    },
+    "NIKL_INTERMEDIATE_GEOT_GATDA": {
+      "title": "중급 한국어 1 교원용 지침서: 것 같다",
+      "publisher": "국립국어원",
+      "sourceType": "official_teacher_guide",
+      "url": "https://www.korean.go.kr/common/download.do?c_file_name=dbd5ddc6-e808-40e5-95f0-e1a7664664ff_0.pdf&file_path=reportData&o_file_name=%EC%A4%91%EA%B8%89+%ED%95%9C%EA%B5%AD%EC%96%B4+1+%EA%B5%90%EC%9B%90%EC%9A%A9+%EC%A7%80%EC%B9%A8%EC%84%9C.pdf",
+      "relevantPages": [
+        228
+      ],
+      "useFor": [
+        "-(으)ㄹ 것 같다"
+      ]
+    },
+    "KRDIC_NDEYO": {
+      "title": "한국어기초사전: -는데요",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=85753",
+      "useFor": [
+        "-는데요"
+      ]
+    },
+    "KRDIC_GYESIDA": {
+      "title": "한국어기초사전: 계시다",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=17749&nation=eng",
+      "useFor": [
+        "계시다",
+        "계신지"
+      ]
+    },
+    "KRDIC_NJI": {
+      "title": "한국어기초사전: -ㄴ지/-은지",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=87429",
+      "companionUrl": "https://krdict.korean.go.kr/eng/dicSearch/SearchView?ParaWordNo=87432",
+      "useFor": [
+        "-는지/-ㄴ지/-은지"
+      ]
+    },
+    "KRDIC_RAGOYO": {
+      "title": "한국어기초사전: -라고요",
+      "publisher": "국립국어원",
+      "sourceType": "official_dictionary",
+      "url": "https://krdict.korean.go.kr/kor/dicSearch/SearchView?ParaWordNo=82200",
+      "useFor": [
+        "-라고요"
+      ]
+    }
+  },
+  "grammarEntries": {
+    "G_REQUEST_AEO_JUSEYO": {
+      "canonicalForm": "-아/어 주세요",
+      "category": "request expression",
+      "officialExplanationKo": "상대에게 어떤 행동을 해 달라고 정중하게 요청하거나 부탁할 때 쓰는 표현으로 다룬다.",
+      "explanationEn": "An expression used to make a polite request for someone to perform an action.",
+      "explanationDe": "Eine Ausdrucksform, mit der man höflich darum bittet, dass die andere Person eine Handlung ausführt.",
+      "sourceIds": [
+        "NIKL_2010_VISITING_KOREAN"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_REQUEST_EUSEYO": {
+      "canonicalForm": "-(으)세요",
+      "category": "sentence ending / request-command expression",
+      "officialExplanationKo": "동사 뒤에 붙어 명령이나 요청을 나타내는 표현으로 제시된다.",
+      "explanationEn": "Attached to a verb to express a command or request.",
+      "explanationDe": "Wird an ein Verb angefügt und drückt eine Aufforderung oder Bitte aus.",
+      "sourceIds": [
+        "NIKL_SEJONG1_2013"
+      ],
+      "claimScope": [
+        "function",
+        "attachment"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_SERVICE_JUSEYO": {
+      "canonicalForm": "주세요",
+      "category": "request form of 주다",
+      "officialExplanationKo": "국립국어원 세종한국어 1 지침서는 ‘사과를 주세요’를 요청을 나타내는 ‘-(으)세요’의 예로 제시하고, 활용표에서 ‘주다 → 주세요’를 제시한다.",
+      "explanationEn": "The official Sejong Korean 1 guide presents 주세요 as the form of 주다 used with -(으)세요 in a request, e.g. 사과를 주세요.",
+      "explanationDe": "Der offizielle Leitfaden zu Sejong Korean 1 führt 주세요 als Form von 주다 mit -(으)세요 in einer Bitte auf, z. B. 사과를 주세요.",
+      "sourceIds": [
+        "NIKL_SEJONG1_2013"
+      ],
+      "claimScope": [
+        "form",
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_TOPIC_EUNNEUN": {
+      "canonicalForm": "은/는",
+      "category": "particle",
+      "officialExplanationKo": "앞말을 다른 대상과 대조하거나, 문장 속 화제로 나타내거나, 강조하는 조사이다.",
+      "explanationEn": "A particle that can mark contrast, the topic of a sentence, or emphasis.",
+      "explanationDe": "Eine Partikel, die unter anderem Kontrast, das Satzthema oder Hervorhebung markieren kann.",
+      "sourceIds": [
+        "KRDIC_EUN"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_SUBJECT_IGA": {
+      "canonicalForm": "이/가",
+      "category": "particle",
+      "officialExplanationKo": "상태·상황의 대상이나 동작의 주체를 나타내며, 되다·아니다와 함께 바뀌거나 부정되는 대상을 나타내기도 한다.",
+      "explanationEn": "A particle marking the subject/agent in a state, situation or action; it also has uses with 되다 and 아니다.",
+      "explanationDe": "Eine Partikel, die das Subjekt bzw. den Handlungsträger markiert; sie hat außerdem Verwendungen mit 되다 und 아니다.",
+      "sourceIds": [
+        "KRDIC_I"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_OBJECT_EULREUL": {
+      "canonicalForm": "을/를",
+      "category": "particle",
+      "officialExplanationKo": "동작이 직접적으로 영향을 미치는 대상을 나타내는 조사이다.",
+      "explanationEn": "A particle marking an object directly affected by an action.",
+      "explanationDe": "Eine Partikel, die ein Objekt markiert, das unmittelbar von einer Handlung betroffen ist.",
+      "sourceIds": [
+        "KRDIC_EUL",
+        "KRDIC_REUL"
+      ],
+      "claimScope": [
+        "function",
+        "allomorphy"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_E_LOCATION_TIME_DESTINATION": {
+      "canonicalForm": "에",
+      "category": "particle",
+      "officialExplanationKo": "장소·자리, 시간·때, 목적지나 진행 방향 등을 나타내는 조사이다. 단원에서는 해당 의미만 선택해 가르친다.",
+      "explanationEn": "A particle with official dictionary senses including place, time, and destination/direction. Each unit teaches only the relevant sense.",
+      "explanationDe": "Eine Partikel mit amtlich beschriebenen Bedeutungen u. a. für Ort, Zeit und Ziel/Richtung. Pro Einheit wird nur die relevante Bedeutung behandelt.",
+      "sourceIds": [
+        "KRDIC_E"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_ESEO": {
+      "canonicalForm": "에서",
+      "category": "particle",
+      "officialExplanationKo": "행동이 이루어지는 장소, 출발점, 출처 등을 나타내는 조사이다.",
+      "explanationEn": "A particle that can mark the place of an action, a starting point, or a source.",
+      "explanationDe": "Eine Partikel, die u. a. den Ort einer Handlung, einen Ausgangspunkt oder eine Quelle markieren kann.",
+      "sourceIds": [
+        "KRDIC_ESEO"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_EURO": {
+      "canonicalForm": "(으)로",
+      "category": "particle",
+      "officialExplanationKo": "방향·경로·수단·도구·방법 등 여러 의미를 나타내는 조사이다. 단원에서는 필요한 의미만 다룬다.",
+      "explanationEn": "A particle with official senses including direction, route, means/tool and method. The lesson selects only the relevant sense.",
+      "explanationDe": "Eine Partikel mit amtlich beschriebenen Bedeutungen u. a. für Richtung, Weg, Mittel/Werkzeug und Methode. Die Lektion behandelt nur die jeweils relevante Bedeutung.",
+      "sourceIds": [
+        "KRDIC_EURO"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_COPULA_IDA": {
+      "canonicalForm": "이다 / 이에요·예요",
+      "category": "predicative particle",
+      "officialExplanationKo": "‘이다’는 주어가 가리키는 대상의 속성이나 부류를 지정하는 서술격 조사이며, 활용한다.",
+      "explanationEn": "이다 is an official dictionary predicative particle that identifies an attribute or category of the subject referent and conjugates.",
+      "explanationDe": "이다 wird im amtlichen Wörterbuch als prädikative Partikel beschrieben, die Eigenschaft oder Kategorie des Subjektreferenten bestimmt und flektiert.",
+      "sourceIds": [
+        "KRDIC_IDA"
+      ],
+      "claimScope": [
+        "category",
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_ANIDA": {
+      "canonicalForm": "아니다 / 아니에요",
+      "category": "adjective / negation",
+      "officialExplanationKo": "‘아니다’는 어떤 사실이나 내용을 부정하는 뜻을 나타낸다. 단원에서는 활용형 ‘아니에요’를 사용한다.",
+      "explanationEn": "아니다 negates a fact or statement; the unit uses the polite form 아니에요.",
+      "explanationDe": "아니다 verneint einen Sachverhalt oder Inhalt; in der Einheit wird die höfliche Form 아니에요 verwendet.",
+      "sourceIds": [
+        "KRDIC_ANIDA"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_SHORT_NEGATION_AN": {
+      "canonicalForm": "안",
+      "category": "negative adverb",
+      "officialExplanationKo": "‘안’은 부정을 나타내는 부사 ‘아니’의 준말로 다룬다.",
+      "explanationEn": "안 is treated as the shortened negative adverb form of 아니.",
+      "explanationDe": "안 wird als verkürzte Form des negierenden Adverbs 아니 behandelt.",
+      "sourceIds": [
+        "KRDIC_ANI_AN"
+      ],
+      "claimScope": [
+        "category",
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_EXIST_ITDA": {
+      "canonicalForm": "있다 / 있어요",
+      "category": "verb",
+      "officialExplanationKo": "‘있다’는 사람이나 동물이 어떤 장소에 머무르는 뜻을 가지며 ‘1이 2에 있다’ 문형이 제시된다. 다른 사전 의미와 구별해 단원에서는 위치·존재 의미만 다룬다.",
+      "explanationEn": "For this unit, 있다 is used in its official dictionary location/existence sense, with the pattern 1이 2에 있다.",
+      "explanationDe": "In dieser Einheit wird 있다 in der amtlich beschriebenen Orts-/Existenzbedeutung mit dem Muster 1이 2에 있다 behandelt.",
+      "sourceIds": [
+        "KRDIC_ITDA"
+      ],
+      "claimScope": [
+        "function",
+        "sentencePattern"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_MUSEUN": {
+      "canonicalForm": "무슨 N",
+      "category": "determiner",
+      "officialExplanationKo": "‘무슨’은 확실하지 않거나 잘 모르는 일·대상·물건 등을 물을 때 쓰는 관형사이다.",
+      "explanationEn": "무슨 is a determiner used to ask about something the speaker is unsure of or does not know exactly.",
+      "explanationDe": "무슨 ist ein Determinierer, mit dem nach etwas gefragt wird, das nicht sicher oder nicht genau bekannt ist.",
+      "sourceIds": [
+        "KRDIC_MUSEUN"
+      ],
+      "claimScope": [
+        "category",
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_SUBJECT_HONORIFIC_SI": {
+      "canonicalForm": "-(으)시-",
+      "category": "subject honorification",
+      "officialExplanationKo": "용언 어간에 ‘-시-’를 붙여 문장의 주체를 높이는 주체 높임법과 관련된 형태이다.",
+      "explanationEn": "The official dictionary defines subject honorification as raising the sentence subject by attaching -시- to the predicate stem.",
+      "explanationDe": "Das amtliche Wörterbuch beschreibt die Subjekthonorierung als Erhöhung des Satzsubjekts durch -시- am Prädikatstamm.",
+      "sourceIds": [
+        "KRDIC_SUBJECT_HONORIFIC"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_PROPOSAL_LKKAYO": {
+      "canonicalForm": "-(으)ㄹ까요?",
+      "category": "sentence-final expression",
+      "officialExplanationKo": "듣는 사람에게 의견을 묻거나 제안할 때 쓰는 용법이 있다. 추측 질문 용법도 별도로 있으므로 문맥에 따라 구별한다.",
+      "explanationEn": "It has an official use for asking the listener's opinion or making a proposal; it also has a separate conjectural-question use.",
+      "explanationDe": "Es hat eine amtlich beschriebene Verwendung zum Erfragen der Meinung bzw. für Vorschläge; daneben gibt es eine eigene Vermutungsfrage-Verwendung.",
+      "sourceIds": [
+        "KRDIC_LKKAYO"
+      ],
+      "claimScope": [
+        "function",
+        "polysemy"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_INTENTION_LGEYO": {
+      "canonicalForm": "-(으)ㄹ게요",
+      "category": "sentence-final expression",
+      "officialExplanationKo": "화자가 어떤 행동을 할 것을 듣는 사람에게 약속하거나 자신의 의지를 나타내는 표현이며, 주로 구어에서 쓴다.",
+      "explanationEn": "An expression, mainly spoken, in which the speaker promises or signals an intention to do an action to the listener.",
+      "explanationDe": "Eine vor allem gesprochene Ausdrucksform, mit der der Sprecher dem Hörer eine Handlung verspricht oder seine Absicht dazu mitteilt.",
+      "sourceIds": [
+        "KRDIC_LGEYO"
+      ],
+      "claimScope": [
+        "function",
+        "register"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_CONJECTURE_GEOT_GATDA": {
+      "canonicalForm": "-(으)ㄹ 것 같다",
+      "category": "conjecture expression",
+      "officialExplanationKo": "국립국어원 교원용 지침서는 ‘것 같다’를 화자의 추측을 나타내며 의견이나 느낌을 단정하지 않고 표현할 때도 쓰는 문법으로 설명한다.",
+      "explanationEn": "An official NIKL teacher guide presents 것 같다 as expressing the speaker's conjecture and also as a way to state an opinion or feeling less categorically.",
+      "explanationDe": "Ein offizieller NIKL-Leitfaden beschreibt 것 같다 als Ausdruck einer Vermutung und auch als Möglichkeit, Meinung oder Gefühl weniger kategorisch auszudrücken.",
+      "sourceIds": [
+        "NIKL_INTERMEDIATE_GEOT_GATDA"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_NDEYO": {
+      "canonicalForm": "-는데요",
+      "category": "sentence-final expression",
+      "officialExplanationKo": "의외의 사실을 감탄하여 말하거나, 답을 요구하거나, 상황을 전달하며 듣는 사람의 반응을 기대하는 용법이 있다.",
+      "explanationEn": "Official dictionary senses include expressing an unexpected fact, requesting an answer, and presenting a situation while expecting the listener's response.",
+      "explanationDe": "Amtliche Wörterbuchbedeutungen umfassen u. a. unerwartete Feststellung, Bitte um Antwort und Situationsdarstellung mit erwarteter Reaktion.",
+      "sourceIds": [
+        "KRDIC_NDEYO"
+      ],
+      "claimScope": [
+        "function",
+        "polysemy"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_GYESIDA": {
+      "canonicalForm": "계시다",
+      "category": "honorific verb",
+      "officialExplanationKo": "‘계시다’는 높은 분이나 어른의 ‘있다’를 높여 말하는 동사로 제시된다.",
+      "explanationEn": "계시다 is the honorific verb corresponding to 있다 when referring to a senior or socially elevated person.",
+      "explanationDe": "계시다 ist die honorative Verbform zu 있다, wenn auf eine ältere oder sozial höhergestellte Person Bezug genommen wird.",
+      "sourceIds": [
+        "KRDIC_GYESIDA"
+      ],
+      "claimScope": [
+        "function",
+        "honorific"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_NJI": {
+      "canonicalForm": "-ㄴ지/-은지/-는지",
+      "category": "ending",
+      "officialExplanationKo": "뒤에 오는 말과 관련된 막연한 이유·판단 또는 의문과 관련된 용법이 있는 어미 계열이다.",
+      "explanationEn": "An ending family with official senses involving an uncertain reason/judgment or a vague question, depending on construction.",
+      "explanationDe": "Eine Endungsgruppe mit amtlich beschriebenen Verwendungen für unsichere Begründung/Beurteilung oder eine vage Frage, je nach Konstruktion.",
+      "sourceIds": [
+        "KRDIC_NJI"
+      ],
+      "claimScope": [
+        "function"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    },
+    "G_RAGOYO": {
+      "canonicalForm": "-라고요",
+      "category": "sentence-final expression",
+      "officialExplanationKo": "자신의 말을 되풀이·강조하거나 다른 사람의 말을 확인·따져 묻는 등의 용법이 있다.",
+      "explanationEn": "Official dictionary senses include repeating/emphasizing one's statement and confirming or questioning another person's statement.",
+      "explanationDe": "Amtliche Wörterbuchbedeutungen umfassen u. a. Wiederholen/Betonen der eigenen Aussage sowie Bestätigen oder Nachfragen zu einer fremden Aussage.",
+      "sourceIds": [
+        "KRDIC_RAGOYO"
+      ],
+      "claimScope": [
+        "function",
+        "polysemy"
+      ],
+      "editorialTranslationOfOfficialDefinition": true
+    }
+  }
+}

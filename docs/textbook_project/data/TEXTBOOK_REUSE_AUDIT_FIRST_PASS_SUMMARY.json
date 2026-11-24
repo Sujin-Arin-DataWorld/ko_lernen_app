@@ -1,0 +1,107 @@
+{
+  "schemaVersion": 1,
+  "auditDate": "2026-10-06",
+  "auditStage": "FIRST_PASS",
+  "definition": {
+    "KEEP": "Keep in textbook source pool; no known blocking reuse issue. Not a publication-ready claim.",
+    "REWRITE": "Keep the learning intent/topic but rewrite wording, distractors, localization, pragmatics, or exercise realization.",
+    "RELEVEL": "Content is reusable but current instructional level needs reassessment/reassignment.",
+    "REJECT": "Do not reuse this exact learning target/item as a textbook source; replace or retire it."
+  },
+  "total": 5961,
+  "decisionCounts": {
+    "KEEP": 5813,
+    "REWRITE": 128,
+    "RELEVEL": 12,
+    "REJECT": 8
+  },
+  "reasonCounts": {
+    "DIRECT_SCENARIO_EDITORIAL_REVIEW": 178,
+    "NO_KNOWN_BLOCKING_REUSE_ISSUE": 5813,
+    "SCENARIO_DIRECT_REVIEW_PENDING": 13,
+    "JIN_APPROVED_CANONICAL_120": 120,
+    "SMALLTALK_PENDING_ROUTING_FLAG": 19,
+    "SMALLTALK_LESSON_DIRECTLY_READ": 174,
+    "SMALLTALK_PENDING_LEVEL_ROUTING_FLAG": 7,
+    "SMALLTALK_PENDING_EDITORIAL_OR_CONTEXT_FLAG": 9,
+    "LINKED_SCENARIO_AND_LISTENING_DIRECTLY_REVIEWED": 178,
+    "LISTENING_SOURCE_SCENARIO_REVIEW_PENDING": 13,
+    "APP_EXERCISE_VALIDATED_SOURCE_POOL": 5250,
+    "HISTORICAL_LEVEL_EVIDENCE_CONFLICT_ADVISORY": 84,
+    "SPIRAL_RECYCLING_EASIER_VOCAB_AT_HIGHER_LEVEL": 9,
+    "TARGET_VOCAB_ABOVE_EXERCISE_LEVEL": 5,
+    "LEXICAL_UNIT_REWRITE_BEFORE_LEVELING": 80,
+    "TARGET_LEXEME_MARKED_FOR_REPLACEMENT": 8
+  },
+  "bySurface": {
+    "canonical_scenario": {
+      "KEEP": 120
+    },
+    "cloze": {
+      "KEEP": 2330,
+      "RELEVEL": 5,
+      "REWRITE": 26,
+      "REJECT": 4
+    },
+    "listening_lesson": {
+      "KEEP": 178,
+      "REWRITE": 13
+    },
+    "live_scenario": {
+      "KEEP": 178,
+      "REWRITE": 13
+    },
+    "sentence_building": {
+      "KEEP": 2833,
+      "REWRITE": 48,
+      "REJECT": 4
+    },
+    "smalltalk_lesson": {
+      "REWRITE": 28,
+      "KEEP": 174,
+      "RELEVEL": 7
+    }
+  },
+  "byLevel": {
+    "A1": {
+      "KEEP": 1398,
+      "REWRITE": 11,
+      "RELEVEL": 6
+    },
+    "A2": {
+      "KEEP": 948,
+      "REWRITE": 15,
+      "RELEVEL": 1
+    },
+    "B1": {
+      "KEEP": 1174,
+      "REWRITE": 15
+    },
+    "B2": {
+      "KEEP": 1082,
+      "REWRITE": 21
+    },
+    "C1": {
+      "KEEP": 583,
+      "REWRITE": 31,
+      "RELEVEL": 2,
+      "REJECT": 4
+    },
+    "C2": {
+      "KEEP": 628,
+      "REWRITE": 35,
+      "RELEVEL": 3,
+      "REJECT": 4
+    }
+  },
+  "topicManualReviewRequired": 327,
+  "secondPassRequired": 5311,
+  "evidence": [
+    "docs/CONTENT_LEVEL_BIBLE.md",
+    "docs/content_qa/direct_editorial_audit_20261002.json",
+    "tools/content_factory/canonical_scenarios/approvals.json",
+    "docs/data/level_bible/V2_relevel_candidates.csv",
+    "assets/data/korean_vocab.csv",
+    "tools/content_factory/validate_content.py"
+  ]
+}

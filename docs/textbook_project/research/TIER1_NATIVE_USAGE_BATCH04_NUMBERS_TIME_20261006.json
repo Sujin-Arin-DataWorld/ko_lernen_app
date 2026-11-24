@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "EVIDENCE_PACK_BROAD_PASS_COMPLETE",
+  "scope": [
+    "numbers_time_dates"
+  ],
+  "purpose": "Close the dedicated native-usage evidence gap for Korean 1A Unit 05: proposing, confirming, correcting and updating meeting times.",
+  "policy": {
+    "independentLanguageResearch": true,
+    "multiGenreSampling": true,
+    "normalizedPatternsNotQuotes": true,
+    "researchCoverageDoesNotImplyPublicationApproval": true,
+    "minSourceContextsPerLanguage": 3,
+    "minPatternsPerLanguage": 8,
+    "minRegisterLanesPerLanguage": 2,
+    "beginnerProductionMustPreferStableLowRiskForms": true
+  },
+  "topics": [
+    {
+      "topicId": "numbers_time_dates",
+      "ko": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "ko_time_internal",
+          "ko_time_current_appointment",
+          "ko_time_late_message",
+          "ko_time_nikl"
+        ],
+        "registerLanes": [
+          "casual",
+          "polite",
+          "chat",
+          "official_language_example"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "몇 시에 만나요?",
+            "function": "ask_time",
+            "registerLane": "polite",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "몇 시에 만날까?",
+            "function": "ask_time",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "오후 1시 어때요?",
+            "function": "propose_time",
+            "registerLane": "polite",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "2시 어때?",
+            "function": "propose_time",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "일곱 시에 만나요.",
+            "function": "confirm_time",
+            "registerLane": "polite",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "여섯 시 아니에요?",
+            "function": "check_correction",
+            "registerLane": "polite",
+            "tone": "checking"
+          },
+          {
+            "surfacePattern": "아니요, 일곱 시예요.",
+            "function": "correct_time",
+            "registerLane": "polite",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "10분 정도 늦을 것 같아요.",
+            "function": "delay_notice",
+            "registerLane": "chat",
+            "tone": "apologetic-neutral"
+          },
+          {
+            "surfacePattern": "지금 가고 있어요.",
+            "function": "status_update",
+            "registerLane": "chat",
+            "tone": "reassuring"
+          },
+          {
+            "surfacePattern": "곧 도착해요.",
+            "function": "arrival_update",
+            "registerLane": "chat",
+            "tone": "reassuring"
+          },
+          {
+            "surfacePattern": "도착하면 바로 연락할게요.",
+            "function": "next_step",
+            "registerLane": "chat",
+            "tone": "considerate"
+          },
+          {
+            "surfacePattern": "몇 시가 좋아요?",
+            "function": "ask_preference",
+            "registerLane": "polite",
+            "tone": "friendly"
+          }
+        ],
+        "avoidTranslationese": [
+          "몇 시가 좋아요?/몇 시에 만나요?를 영어·독일어의 한 문장으로 고정 번역하지 않는다. 상대에게 선택권을 주는지, 이미 정한 시간을 확인하는지에 따라 실현이 달라진다.",
+          "늦을 것 같아요는 단순 미래보다 완곡한 예상/알림 기능이 크므로 'will be late' 한 문법식으로만 설명하지 않는다."
+        ],
+        "speechSurfaceNotes": [
+          "채팅에서 ㅠㅠ, ㅋㅋ, 축약형은 태도 표지일 수 있지만 TTS lexical surface가 아니다.",
+          "숫자 되묻기는 짧은 echo intonation이 핵심이므로 오디오에서 3번/13번, 6시/7시 대비를 살린다."
+        ]
+      },
+      "en": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "en_time_vague_date_2026",
+          "en_time_interview_schedule",
+          "en_time_offer_specific",
+          "en_time_late_2024",
+          "en_time_group_poll"
+        ],
+        "registerLanes": [
+          "casual",
+          "professional",
+          "chat",
+          "community"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "What time works for you?",
+            "function": "ask_preference",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "What time works best for you?",
+            "function": "ask_preference",
+            "registerLane": "professional",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "What time should we meet?",
+            "function": "ask_time",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "How about 2 pm?",
+            "function": "propose_time",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Does 7 work for you?",
+            "function": "propose_time",
+            "registerLane": "casual",
+            "tone": "checking"
+          },
+          {
+            "surfacePattern": "Does tomorrow still work for you?",
+            "function": "confirm_plan",
+            "registerLane": "professional",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "I'm running about ten minutes late.",
+            "function": "delay_notice",
+            "registerLane": "chat",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "I'm on my way.",
+            "function": "status_update",
+            "registerLane": "chat",
+            "tone": "reassuring"
+          },
+          {
+            "surfacePattern": "I'll be there soon.",
+            "function": "arrival_update",
+            "registerLane": "chat",
+            "tone": "reassuring"
+          },
+          {
+            "surfacePattern": "Friday works for me.",
+            "function": "confirm_time",
+            "registerLane": "professional",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "I can do after 3.",
+            "function": "give_availability",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "If that doesn't work, let me know what does.",
+            "function": "offer_alternative",
+            "registerLane": "professional",
+            "tone": "collaborative"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 몇 시에 만나요? can be 'What time should we meet?' or a confirmation question depending context; do not lock it to one English sentence.",
+          "Korean 괜찮아요/좋아요 in scheduling often maps to 'works for me' rather than literal 'is good'."
+        ],
+        "speechSurfaceNotes": [
+          "Chat forms often omit full apologies or subjects; professional scheduling favors explicit availability and alternatives."
+        ]
+      },
+      "de": {
+        "status": "broad_pass_complete",
+        "sourceRefs": [
+          "de_time_wann_passt",
+          "de_time_um_wieviel",
+          "de_time_lateness_2026",
+          "de_time_bin_gleich_da",
+          "de_time_punctuality"
+        ],
+        "registerLanes": [
+          "casual",
+          "professional",
+          "chat",
+          "community"
+        ],
+        "patterns": [
+          {
+            "surfacePattern": "Wann passt es dir?",
+            "function": "ask_preference",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Um wie viel Uhr kannst du?",
+            "function": "ask_time",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Um 14:30 Uhr ginge es.",
+            "function": "give_availability",
+            "registerLane": "professional",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Passt dir 19 Uhr?",
+            "function": "propose_time",
+            "registerLane": "casual",
+            "tone": "checking"
+          },
+          {
+            "surfacePattern": "Freitag passt mir.",
+            "function": "confirm_time",
+            "registerLane": "casual",
+            "tone": "neutral"
+          },
+          {
+            "surfacePattern": "Ich komme etwa zehn Minuten später.",
+            "function": "delay_notice",
+            "registerLane": "chat",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "Ich verspäte mich ein paar Minuten.",
+            "function": "delay_notice",
+            "registerLane": "professional",
+            "tone": "polite"
+          },
+          {
+            "surfacePattern": "Ich gebe Bescheid, wenn es knapp wird.",
+            "function": "status_update",
+            "registerLane": "casual",
+            "tone": "considerate"
+          },
+          {
+            "surfacePattern": "Ich bin gleich da.",
+            "function": "arrival_update",
+            "registerLane": "chat",
+            "tone": "reassuring"
+          },
+          {
+            "surfacePattern": "Ich komme 5–10 Minuten zu spät.",
+            "function": "delay_notice",
+            "registerLane": "casual",
+            "tone": "clear"
+          },
+          {
+            "surfacePattern": "Treffen wir uns um sieben?",
+            "function": "propose_time",
+            "registerLane": "casual",
+            "tone": "friendly"
+          },
+          {
+            "surfacePattern": "Wenn das nicht passt, sag einfach Bescheid.",
+            "function": "offer_alternative",
+            "registerLane": "casual",
+            "tone": "collaborative"
+          }
+        ],
+        "avoidTranslationese": [
+          "Korean 시간 괜찮아요? is often 'Passt dir die Uhrzeit?/Passt es dir?' rather than literal 'Ist die Zeit okay?'.",
+          "German Termin can imply an appointment and may be too formal for a casual Treffen; choose Treffen/Verabredung/Termin by setting."
+        ],
+        "speechSurfaceNotes": [
+          "Community German shows strong stance around punctuality, but those opinions are cultural commentary, not a universal rule.",
+          "Chat status updates such as bin gleich da can be much shorter than formal scheduling language."
+        ]
+      },
+      "crossLanguage": {
+        "categoryShiftRisks": [
+          "KO 괜찮다/좋다, EN work, and DE passen all perform scheduling acceptance but are not lexical equivalents in other contexts.",
+          "KO 약속 covers social plans broadly; EN appointment/plan/date/meeting and DE Termin/Treffen/Verabredung divide the domain differently.",
+          "Late-arrival messages across all three languages are most useful when they combine delay amount + status/next step, but the degree of apology varies by relationship."
+        ]
+      }
+    }
+  ],
+  "sources": {
+    "ko_time_internal": {
+      "genre": "internal_reviewed_native",
+      "title": "Hangul Sori A1 meeting_time canonical scenario",
+      "path": "assets/data/scenarios_a1.json#meeting_time",
+      "date": "2026-10-06"
+    },
+    "ko_time_current_appointment": {
+      "genre": "current_language_explainer",
+      "title": "한국어로 약속 잡기 | 날짜와 시간 정하기, 변경·취소 표현",
+      "url": "https://thankdew.tistory.com/entry/%ED%95%9C%EA%B5%AD%EC%96%B4%EB%A1%9C-%EC%95%BD%EC%86%8D-%EC%9E%A1%EA%B8%B0-%EB%82%A0%EC%A7%9C%EC%99%80-%EC%8B%9C%EA%B0%84-%EC%A0%95%ED%95%98%EA%B8%B0-%EB%B3%80%EA%B2%BD%C2%B7%EC%B7%A8%EC%86%8C-%ED%91%9C%ED%98%84",
+      "date": "2026-09"
+    },
+    "ko_time_late_message": {
+      "genre": "current_advice_chat",
+      "title": "약속 시간 늦을 때 뭐라고 말해야 할까｜상황별 카톡 예시 정리",
+      "url": "https://thinkyou.co.kr/info_room/7260/",
+      "date": "2026-09"
+    },
+    "ko_time_nikl": {
+      "genre": "official_language_example",
+      "title": "국립국어원 온라인 소식지 — 우리 몇 시에 만날까?",
+      "url": "https://www.korean.go.kr/nkview/news_pdf/2021_1.pdf",
+      "date": "2021-01-15"
+    },
+    "en_time_vague_date_2026": {
+      "genre": "reddit_community",
+      "title": "First date planning is stressing me out: actual-time negotiation",
+      "url": "https://www.reddit.com/r/AutismInWomen/comments/1qfhefq/first_date_planning_is_stressing_me_out_she_wont/",
+      "date": "2026-01-17"
+    },
+    "en_time_interview_schedule": {
+      "genre": "reddit_learning",
+      "title": "Could anyone proofread my short e-mail? — what time works best",
+      "url": "https://www.reddit.com/r/EnglishLearning/comments/qumgtw",
+      "date": "2021-11-15"
+    },
+    "en_time_offer_specific": {
+      "genre": "reddit_professional",
+      "title": "Recruiting schedule follow-up — suggest a specific time",
+      "url": "https://www.reddit.com/r/recruitinghell/comments/18o2nh7",
+      "date": "2023-12-22"
+    },
+    "en_time_late_2024": {
+      "genre": "reddit_community",
+      "title": "Running 10 minutes late",
+      "url": "https://www.reddit.com/r/me_irl/comments/1hb9xri",
+      "date": "2024-12-10"
+    },
+    "en_time_group_poll": {
+      "genre": "reddit_community",
+      "title": "What time works best for everyone?",
+      "url": "https://www.reddit.com/r/TMPOC/comments/1cw0ydu",
+      "date": "2024-05-19"
+    },
+    "de_time_wann_passt": {
+      "genre": "reddit_workplace",
+      "title": "Termine mit Schwätzern machen — Wann passt es dir?",
+      "url": "https://www.reddit.com/r/arbeitsleben/comments/1c83k0q",
+      "date": "2024-04-19"
+    },
+    "de_time_um_wieviel": {
+      "genre": "reddit_community",
+      "title": "Kann mir jemand sagen, welche Uhrzeit sie nun vorschlägt?",
+      "url": "https://www.reddit.com/r/wasletztepreis/comments/1imw383",
+      "date": "2025-02-11"
+    },
+    "de_time_lateness_2026": {
+      "genre": "reddit_community",
+      "title": "Frage an alle die permanent zu spät kommen",
+      "url": "https://www.reddit.com/r/einfach_posten/comments/1uoplo6/frage_an_alle_die_permanent_zu_sp%C3%A4t_kommen/",
+      "date": "2026-07-06"
+    },
+    "de_time_bin_gleich_da": {
+      "genre": "reddit_community",
+      "title": "Ich bin in 5-10 Minuten da",
+      "url": "https://www.reddit.com/r/FragReddit/comments/13dmksw",
+      "date": "2023-05-10"
+    },
+    "de_time_punctuality": {
+      "genre": "reddit_community",
+      "title": "Gute Freundin kommt wirklich IMMER erheblich zu spät",
+      "url": "https://www.reddit.com/r/Ratschlag/comments/1h8p7vi",
+      "date": "2024-12-07"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_07_contact_address",
+  "status": "SCRIPT_ONLY_NO_TTS_GENERATION",
+  "ttsOwner": "Jin",
+  "tracks": [
+    {
+      "trackId": "u07_core_dialogue",
+      "type": "dialogue",
+      "relationshipContext": "처음 친해진 레나와 마야",
+      "lines": [
+        {
+          "speaker": "maya",
+          "displaySurfaceKo": "우리 숙제 같이 해요.",
+          "spokenSurfaceKo": "우리 숙제 같이 해요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Let's do the homework together.",
+          "de": "Lass uns die Hausaufgaben zusammen machen."
+        },
+        {
+          "speaker": "maya",
+          "displaySurfaceKo": "카카오톡으로 연락할까요?",
+          "spokenSurfaceKo": "카카오톡으로 연락할까요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Shall we message each other on KakaoTalk?",
+          "de": "Wollen wir über KakaoTalk schreiben?"
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "네, 좋아요.",
+          "spokenSurfaceKo": "네, 좋아요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Yes, sounds good.",
+          "de": "Ja, gern."
+        },
+        {
+          "speaker": "maya",
+          "displaySurfaceKo": "여기에 QR 코드가 있어요.",
+          "spokenSurfaceKo": "여기에 QR 코드가 있어요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "My QR code is right here.",
+          "de": "Hier ist mein QR-Code."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "이거 찍어요?",
+          "spokenSurfaceKo": "이거 찍어요?",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Do I scan this?",
+          "de": "Scanne ich das hier?"
+        },
+        {
+          "speaker": "maya",
+          "displaySurfaceKo": "네. 여기 누르세요.",
+          "spokenSurfaceKo": "네. 여기 누르세요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Yes. Press here.",
+          "de": "Ja. Drück hier."
+        },
+        {
+          "speaker": "user",
+          "displaySurfaceKo": "아, 됐어요. 이제 친구예요.",
+          "spokenSurfaceKo": "아, 됐어요. 이제 친구예요.",
+          "performanceCue": [
+            "natural conversational delivery"
+          ],
+          "en": "Oh, it worked. We're connected now.",
+          "de": "Ah, geschafft. Jetzt sind wir verbunden."
+        }
+      ]
+    }
+  ]
+}

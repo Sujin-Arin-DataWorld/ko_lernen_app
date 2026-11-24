@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "sourceLog": "C:\\dev\\hangulsori\\ko_lernen_textbook_worktree\\docs\\textbook_project\\production\\ONE_A_LEARNER_PILOT_LOG_TEMPLATE.csv",
+  "eventCount": 2,
+  "cohorts": [
+    "1A_U04_DE_PILOT_01",
+    "1A_U04_EN_PILOT_01"
+  ],
+  "participants": [
+    "DE01",
+    "EN01"
+  ],
+  "byStage": {
+    "baseline": {
+      "partial": 1
+    },
+    "immediate_post": {
+      "correct": 1
+    }
+  },
+  "byL1": {
+    "de": {
+      "correct": 1
+    },
+    "en": {
+      "partial": 1
+    }
+  },
+  "errorTypes": {
+    "form": 1,
+    "none": 1
+  },
+  "transferRiskRefs": {
+    "EN-A1-COUNTERS": 1
+  },
+  "promptLevels": {
+    "0": 1,
+    "1": 1
+  },
+  "selfCorrected": {
+    "true": 1,
+    "false": 1
+  },
+  "comprehensionBreakdown": {
+    "true": 0,
+    "false": 2
+  },
+  "independentCorrectCount": 1,
+  "delayedEventCount": 0,
+  "delayedIndependentCorrectCount": 0,
+  "interpretationRule": "Small discovery pilots identify problems; do not generalize cohort percentages to all EN/DE learners."
+}

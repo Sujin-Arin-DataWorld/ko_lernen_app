@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
+  "unitId": "a1_06_transport_directions",
+  "order": 6,
+  "titleKo": "교통에서 내릴 곳 말하기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "taxi_kakao",
+  "supplementarySourceIds": [
+    "a1_w10_taxi_stay",
+    "a1_w10_wayfinding",
+    "listening.a1.taxi_kakao"
+  ],
+  "nativeUsageTopics": [
+    "transport_wayfinding"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-E-ESEO",
+    "EN-A1-PARTICLES-OMIT-REPLACE"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-E-ESEO-EURO",
+    "DE-A1-PARTICLE-CASE"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "에",
+      "function": "destination/location",
+      "grammarRefs": [
+        "G_E_LOCATION_TIME_DESTINATION"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "-아/어 주세요",
+      "function": "request stop/direction",
+      "appAnchor": "grammar_a1_polite_request",
+      "grammarRefs": [
+        "G_REQUEST_AEO_JUSEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
+    }
+  ],
+  "formulaicProduction": [
+    {
+      "form": "어디서 갈아타요?",
+      "examples": [
+        "어디서 갈아타요?"
+      ],
+      "reason": "high-value transfer question; full 에서 contrast is recycled later",
+      "chunkOnlyNoGrammarExplanation": true
+    }
+  ],
+  "recognitionOnly": [
+    {
+      "form": "맞으시죠?",
+      "reason": "driver service-side confirmation; learner understands without productive analysis",
+      "chunkOnlyNoGrammarExplanation": true
+    }
+  ],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
+    "adult learner pilot"
+  ]
+}

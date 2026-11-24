@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hangulsori://textbook/schemas/LEARNER_PILOT_EVENT",
+  "title": "Anonymized learner pilot event",
+  "type": "object",
+  "required": [
+    "participantCode",
+    "cohortId",
+    "l1",
+    "unitId",
+    "taskId",
+    "attemptStage",
+    "responseMode",
+    "result",
+    "timestamp"
+  ],
+  "properties": {
+    "participantCode": {
+      "type": "string",
+      "minLength": 3,
+      "description": "Pseudonymous code only; no name/email."
+    },
+    "cohortId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "l1": {
+      "type": "string",
+      "enum": [
+        "en",
+        "de",
+        "other"
+      ]
+    },
+    "unitId": {
+      "type": "string"
+    },
+    "taskId": {
+      "type": "string"
+    },
+    "attemptStage": {
+      "type": "string",
+      "enum": [
+        "baseline",
+        "guided",
+        "immediate_post",
+        "delayed_24h",
+        "delayed_7d",
+        "transfer"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "responseMode": {
+      "type": "string",
+      "enum": [
+        "listening",
+        "reading",
+        "writing",
+        "speaking",
+        "interaction",
+        "mixed"
+      ]
+    },
+    "targetIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "result": {
+      "type": "string",
+      "enum": [
+        "correct",
+        "partial",
+        "incorrect",
+        "not_attempted"
+      ]
+    },
+    "errorType": {
+      "type": "string",
+      "enum": [
+        "none",
+        "form",
+        "meaning",
+        "particle",
+        "word_order",
+        "pronunciation",
+        "register",
+        "pragmatics",
+        "vocabulary",
+        "listening_segmentation",
+        "number",
+        "repair_failure",
+        "other"
+      ]
+    },
+    "transferRiskRef": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "selfCorrected": {
+      "type": "boolean"
+    },
+    "promptLevel": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 3
+    },
+    "comprehensionBreakdown": {
+      "type": "boolean"
+    },
+    "completionSeconds": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "confidence1to5": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "maximum": 5
+    },
+    "teacherNote": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "recordingRef": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Use only when separate recording consent/retention process exists; never store raw media here."
+    }
+  },
+  "additionalProperties": false
+}

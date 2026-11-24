@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "unitId": "a1_04_order_request_object",
+  "snapshot": {
+    "sourceCommit": "6230d140ce1d37061e2e99066911909280a3c491",
+    "manifestSha256": "321c809f871030b9f2622592848df21e45ecc1adbb527ed103abdc5cf56c8276"
+  },
+  "status": "OPEN",
+  "allowedDecisions": [
+    "APPROVE",
+    "APPROVE_WITH_EDITS",
+    "HOLD"
+  ],
+  "lanes": {
+    "koreanEducator": {
+      "reviewerCode": "",
+      "reviewerRole": "Korean educator / native-language editorial reviewer",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "dialogueNaturalness": "",
+        "relationshipRegister": "",
+        "a1ProductionCeiling": "",
+        "formulaicVsRecognition": "",
+        "vocabularyLoad": "",
+        "pragmatics": "",
+        "cultureAccuracy": "",
+        "pronunciationFocus": "",
+        "assessmentAlignment": ""
+      },
+      "notes": []
+    },
+    "englishPedagogy": {
+      "reviewerCode": "",
+      "reviewerRole": "English-native Korean pedagogy reviewer",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "idiomaticEnglish": "",
+        "noTranslationese": "",
+        "counterExplanation": "",
+        "serviceFormulaLocalization": "",
+        "transferRiskAccuracy": "",
+        "workbookClarity": "",
+        "answerVariants": "",
+        "adultTone": ""
+      },
+      "notes": []
+    },
+    "germanPedagogy": {
+      "reviewerCode": "",
+      "reviewerRole": "German-native Korean pedagogy reviewer",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "idiomaticGerman": "",
+        "noEnglishChain": "",
+        "noCaseParticleEquivalence": "",
+        "noDuSieHonorificEquivalence": "",
+        "counterExplanation": "",
+        "serviceFormulaLocalization": "",
+        "workbookClarity": "",
+        "answerVariants": "",
+        "adultTone": ""
+      },
+      "notes": []
+    },
+    "audioSpoken": {
+      "reviewerCode": "Jin",
+      "reviewerRole": "Final audio/TTS owner",
+      "date": "",
+      "decision": "",
+      "checks": {
+        "spokenSurfaceNatural": "",
+        "displayMarkersHandled": "",
+        "intonation": "",
+        "numberContrast": "",
+        "pronunciationConsistency": "",
+        "noUntrackedTargets": ""
+      },
+      "notes": []
+    }
+  },
+  "pilotGate": {
+    "cohortIds": [],
+    "decision": "",
+    "notes": []
+  }
+}

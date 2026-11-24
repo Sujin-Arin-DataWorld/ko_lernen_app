@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
+  "unitId": "a1_08_clarify_repair",
+  "order": 8,
+  "titleKo": "못 들었을 때 다시 묻기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "clarify_repeat",
+  "supplementarySourceIds": [
+    "bakery_queue",
+    "a1_w10_repeat",
+    "listening.a1.clarify_repeat",
+    "listening.a1.a1_w10_repeat"
+  ],
+  "nativeUsageTopics": [
+    "language_learning_communication_repair",
+    "social_etiquette_customs"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-SPEECHLEVEL"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-DU-SIE"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "-아/어 주세요",
+      "function": "repeat/slow request",
+      "grammarRefs": [
+        "G_REQUEST_AEO_JUSEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "무슨 N",
+      "function": "meaning question, chunk-first",
+      "grammarRefs": [
+        "G_MUSEUN"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "아니에요",
+      "function": "correct information",
+      "grammarRefs": [
+        "G_ANIDA"
+      ],
+      "grammarSourcePolicy": "official_only"
+    }
+  ],
+  "formulaicProduction": [],
+  "recognitionOnly": [
+    {
+      "form": "-는데요",
+      "source": "bakery_queue",
+      "reason": "natural interpersonal softening but above productive target for this unit",
+      "grammarRefs": [
+        "G_NDEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "계신지",
+      "source": "bakery_queue",
+      "reason": "honorific embedded form; recognition/context only",
+      "grammarRefs": [
+        "G_GYESIDA",
+        "G_NJI"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "몰랐어요",
+      "source": "bakery_queue",
+      "reason": "past explanation; not target grammar here",
+      "chunkOnlyNoGrammarExplanation": true
+    },
+    {
+      "form": "-ㄹ게요",
+      "source": "bakery_queue",
+      "reason": "promise/next action; recognition only",
+      "grammarRefs": [
+        "G_INTENTION_LGEYO"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "뭐라고요?",
+      "reason": "intonation-sensitive and can sound surprised/challenging; recognition first",
+      "chunkOnlyNoGrammarExplanation": true
+    },
+    {
+      "form": "제가 잘 이해한 게 맞아요?",
+      "reason": "useful confirmation phrase but structurally dense for 1A; recognition/optional extension only",
+      "chunkOnlyNoGrammarExplanation": true
+    }
+  ],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
+    "adult learner pilot"
+  ]
+}

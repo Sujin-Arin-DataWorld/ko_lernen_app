@@ -1,0 +1,162 @@
+# Korean 1A · Unit 07
+# Exchanging contact details naturally
+
+## By the end of this unit, you can:
+
+- Suggest a low-pressure way to stay in touch and confirm a contact channel.
+- Send a short message when you are late or plans change.
+
+## Why this unit exists
+
+Treat contact exchange as a social choice, not an automatic requirement.
+
+## 1. Core scene
+
+**Maya**
+우리 숙제 같이 해요.
+*Let's do the homework together.*
+
+**Maya**
+카카오톡으로 연락할까요?
+*Shall we message each other on KakaoTalk?*
+
+**Learner**
+네, 좋아요.
+*Yes, sounds good.*
+
+**Maya**
+여기에 QR 코드가 있어요.
+*My QR code is right here.*
+
+**Learner**
+이거 찍어요?
+*Do I scan this?*
+
+**Maya**
+네. 여기 누르세요.
+*Yes. Press here.*
+
+**Learner**
+아, 됐어요. 이제 친구예요.
+*Oh, it worked. We're connected now.*
+
+### First task
+
+Do not translate every word. Identify:
+- who is speaking;
+- what the immediate goal is;
+- which line solves the problem.
+
+## 2. What you should be able to say
+
+- **카톡 하세요?**
+- **카카오톡으로 연락할까요?**
+- **제가 카톡 보낼게요**
+- **도착하면 연락할게요**
+- **10분 정도 늦을 것 같아요**
+
+These are the productive chunks for this unit.
+
+### Productive grammar
+
+- **(으)로** — A particle with official senses including direction, route, means/tool and method. The lesson selects only the relevant sense.
+- **있어요** — For this unit, 있다 is used in its official dictionary location/existence sense, with the pattern 1이 2에 있다.
+
+The goal is not to memorize labels. Use the forms to solve the scene.
+
+### Useful formulaic production
+
+- **카톡 하세요?** — 카톡 하세요?  
+  Fixed learner-use chunk in this unit; no generalized grammar rule is introduced here.
+- **-(으)ㄹ까요?** — 카카오톡으로 연락할까요?
+  Officially sourced function: It has an official use for asking the listener's opinion or making a proposal; it also has a separate conjectural-question use.
+- **-ㄹ게요** — 제가 카톡 보낼게요 / 도착하면 연락할게요
+  Officially sourced function: An expression, mainly spoken, in which the speaker promises or signals an intention to do an action to the listener.
+- **-(으)ㄹ 것 같아요** — 10분 정도 늦을 것 같아요
+  Officially sourced function: An official NIKL teacher guide presents 것 같다 as expressing the speaker's conjecture and also as a way to state an opinion or feeling less categorically.
+
+Use these chunks now; study the full grammar later.
+
+
+## 3. Understand first — do not overlearn yet
+
+- **-(으)실래요?** — Recognize this in context; this unit does not teach a generalized production rule for it.
+
+Authentic input can contain grammar above your current production target. Understanding it does not mean you must produce it now.
+
+## 4. Living Korean
+
+### Pragmatics
+
+- Offering your own contact can be lower-pressure than demanding someone else's.
+- A delay message works well with apology + approximate delay + next step.
+
+### Culture/context
+
+- KakaoTalk is culturally salient, but it is not the only model of Korean digital communication.
+
+Avoid the rule “Koreans always say X.” Learn who says what, to whom, and why.
+
+## 5. English-speaker transfer notes
+
+### EN-A1-SUBJECT-OMISSION
+
+**Risk:** Repeating 저는/제가 or explicit pronouns because English clauses normally require overt subjects.
+
+**Teaching response:** Show dialogue pairs where the first subject establishes context and subsequent Korean clauses omit it naturally.
+
+### EN-A1-SPEECHLEVEL
+
+**Risk:** Expecting politeness to be optional lexical courtesy rather than sentence-final grammar.
+
+**Teaching response:** Treat sentence ending as relationship information. Keep 해요체 productive default; introduce register switching as recognition/social event.
+
+## 6. Sound focus
+
+- 카카오톡 contraction/rhythm
+- QR code mixed-script handling
+- 연락할게요 linking
+
+## 7. Input mission
+
+- Identify the chosen contact channel in a short chat.
+- Notice a low-pressure vs pushy contact request.
+
+## 8. Output mission
+
+- Offer one contact method.
+- Send one short delay/status message.
+
+## 9. Reading
+
+- Read a short chat bubble with time/contact information.
+
+## 10. Writing
+
+- Write a two-message micro exchange.
+
+## 11. Interaction mission
+
+Exchange contact options with a new classmate, including an option to decline or share your own contact first.
+
+## 12. Exit task
+
+You must be able to produce:
+
+- 카카오톡으로 연락할까요?
+- 도착하면 연락할게요
+
+You must be able to recognize:
+
+- 카톡 하세요?
+- 연락처 알려 주실래요?
+
+**Success:** Arrange contact without assuming consent.
+
+## Production ceiling
+
+Short chat messages only; no complex explanations for plan changes.
+
+## You will meet this again
+
+This unit is part of a spaced-recycling curriculum. The target language returns in later contexts.

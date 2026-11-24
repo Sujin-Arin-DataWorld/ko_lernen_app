@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "status": "MODEL_EDITORIAL_PASS_COMPLETE_HUMAN_REVIEW_OPEN",
+  "modelEditorialPassDate": "2026-10-06",
+  "unitId": "a1_02_self_intro_identity",
+  "order": 2,
+  "titleKo": "이름과 출신 말하기",
+  "unitContract": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+  "authoritativeScenarioId": "introduce_yourself",
+  "supplementarySourceIds": [
+    "listening.a1.introduce_yourself"
+  ],
+  "nativeUsageTopics": [
+    "personal_identification"
+  ],
+  "enLearnerRisks": [
+    "EN-A1-TOPIC-SUBJECT",
+    "EN-A1-SUBJECT-OMISSION",
+    "EN-A1-WORDORDER"
+  ],
+  "deLearnerRisks": [
+    "DE-A1-TOPIC-FOCUS",
+    "DE-A1-PARTICLE-CASE",
+    "DE-A1-SUBJECT-OMISSION",
+    "DE-A1-WORDORDER"
+  ],
+  "productiveGrammar": [
+    {
+      "form": "은/는",
+      "function": "set personal topic",
+      "appAnchor": "grammar_a1_topic_particle",
+      "grammarRefs": [
+        "G_TOPIC_EUNNEUN"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "이에요/예요",
+      "function": "identify self",
+      "appAnchor": "grammar_a1_copula_polite",
+      "grammarRefs": [
+        "G_COPULA_IDA"
+      ],
+      "grammarSourcePolicy": "official_only"
+    },
+    {
+      "form": "N에서 왔어요",
+      "function": "origin/source",
+      "mode": "lexical-frame",
+      "grammarRefs": [
+        "G_ESEO"
+      ],
+      "grammarSourcePolicy": "official_only"
+    }
+  ],
+  "formulaicProduction": [],
+  "recognitionOnly": [
+    {
+      "form": "-(으)셨어요",
+      "reason": "authentic polite question form may appear; productive honorific morphology is not analyzed exhaustively here",
+      "grammarRefs": [
+        "G_SUBJECT_HONORIFIC_SI"
+      ],
+      "grammarSourcePolicy": "official_only"
+    }
+  ],
+  "surfacePolicy": {
+    "displayVsSpokenSeparated": true,
+    "romanization": false,
+    "ttsOwner": "Jin",
+    "audioGenerated": false
+  },
+  "editorialRequirements": [
+    "human Korean educator review",
+    "native EN pedagogy review",
+    "native DE pedagogy review",
+    "unit-specific practice-bank selection",
+    "adult learner pilot"
+  ]
+}

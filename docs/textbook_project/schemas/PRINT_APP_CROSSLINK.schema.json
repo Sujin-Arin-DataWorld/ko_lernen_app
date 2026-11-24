@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "hangulsori://textbook/schemas/PRINT_APP_CROSSLINK",
+  "title": "Print-to-app content link",
+  "type": "object",
+  "required": [
+    "crosslinkId",
+    "unitId",
+    "printAnchor",
+    "linkRole",
+    "appContentIds",
+    "resolverMode",
+    "status"
+  ],
+  "properties": {
+    "crosslinkId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unitId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "printAnchor": {
+      "type": "string",
+      "minLength": 1
+    },
+    "linkRole": {
+      "type": "string",
+      "enum": [
+        "core_dialogue",
+        "listening",
+        "controlled_practice",
+        "recycling",
+        "extension",
+        "assessment"
+      ]
+    },
+    "appContentIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "resolverMode": {
+      "type": "string",
+      "enum": [
+        "CONTENT_ID_LOOKUP",
+        "DEEPLINK_WHEN_IMPLEMENTED"
+      ]
+    },
+    "deeplinkKey": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "offlineFallback": {
+      "type": "string"
+    },
+    "contentVersion": {
+      "type": "string"
+    },
+    "lastVerified": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "verified_content_ids",
+        "app_route_verified",
+        "published"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

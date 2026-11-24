@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-06",
+  "unitId": "a1_04_order_request_object",
+  "status": "READY_FOR_HUMAN_REVIEW",
+  "sourceCommit": "6230d140ce1d37061e2e99066911909280a3c491",
+  "files": [
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/STUDENT_MASTER.md",
+      "sha256": "35d4fcf4e90fc453ae7a9aa2559832e076759e172e7a42c2ac24340e7edbc19f",
+      "bytes": 8594
+    },
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/STUDENT_EN.md",
+      "sha256": "bbff1e84c70a010de49bd3d0ffa329edb62bd2938059db2ec9b93dbabb448ab6",
+      "bytes": 7590
+    },
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/STUDENT_DE.md",
+      "sha256": "87aefe9ac6e1d1e4227c747c6c1938d5708a84207a21a255846e7da0537ee0ed",
+      "bytes": 8171
+    },
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/WORKBOOK_EN.md",
+      "sha256": "e1fd0b01e3db2c91dfdad76feecc2606753f11f7cd2a192d6512789c98f00d41",
+      "bytes": 3340
+    },
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/WORKBOOK_DE.md",
+      "sha256": "d19262ece04735b31909e8717ff9ede0635b9e8358f2bb6cd68515e36f73a3dd",
+      "bytes": 3639
+    },
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/TEACHER_GUIDE.md",
+      "sha256": "05cff5ed41df0aa2270b22365ae9988279a21748079a8bcdf9d255871fd0b221",
+      "bytes": 5094
+    },
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/data/UNIT04_AUDIO_SCRIPT.json",
+      "sha256": "92b98b099a6d82924c8aeaac1af0b49b92257cce79ace2aee1c5e94b9aba58e7",
+      "bytes": 6156
+    },
+    {
+      "path": "docs/textbook_project/pilot_1A/unit04/data/UNIT04_PUBLISHING_MANIFEST.json",
+      "sha256": "ca2493345ccab61e2202abed8e096f2c9f9ce512ddf531ae511bb3f6f1add7af",
+      "bytes": 3684
+    },
+    {
+      "path": "docs/textbook_project/data/ONE_A_UNIT_CONTRACTS_20261006.json",
+      "sha256": "1be919df0bec3ab6f9fdd3d87590c630d282f1089d75d1960b1d534ba385b747",
+      "bytes": 39484
+    },
+    {
+      "path": "docs/textbook_project/production/UNIT04_ANSWER_KEY_SEED_20261006.json",
+      "sha256": "46c0e220ffea83dd23ee0070103eda357291f0c9167650cd778874719e1c6bd1",
+      "bytes": 6812
+    },
+    {
+      "path": "docs/textbook_project/production/ONE_A_ANSWER_KEY_REGISTRY_20261006.json",
+      "sha256": "fded4a636be21d0bb9e5802124e096fcc58d12293ab85d946416c3b95faa0ad0",
+      "bytes": 238382
+    },
+    {
+      "path": "docs/textbook_project/A1_LEARNER_ERROR_MATRIX_EN_DE_20261006.md",
+      "sha256": "1f6c163a6494663b6181d08f4897b969c92bb2720139ca88e308d6854ef844bc",
+      "bytes": 4933
+    },
+    {
+      "path": "docs/textbook_project/SPOKEN_DISPLAY_TTS_POLICY.md",
+      "sha256": "19eec475d4d9aa36277bd300c3f2b0562b194a71996e5eb2f87a942f96b8e9fd",
+      "bytes": 1959
+    }
+  ],
+  "decisionFile": "docs/textbook_project/production/human_review_packets/unit04/REVIEW_DECISIONS.json",
+  "rule": "If any listed file hash changes, regenerate this manifest before relying on previous human decisions."
+}

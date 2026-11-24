@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "cohortId": "1A_U04_DE_PILOT_01",
+  "edition": "de",
+  "unitId": "a1_04_order_request_object",
+  "status": "DRAFT",
+  "participantCodes": [
+    "DE01",
+    "DE02",
+    "DE03",
+    "DE04",
+    "DE05"
+  ],
+  "taskIds": [
+    "1A.PILOT.U04.B0",
+    "1A.PILOT.U04.I0",
+    "1A.PILOT.U04.D1",
+    "1A.PILOT.U04.D7",
+    "1A.PILOT.U04.TR"
+  ],
+  "schedulePolicy": {
+    "baseline": true,
+    "immediatePost": true,
+    "delayed24h": true,
+    "delayed7d": true,
+    "transfer": true
+  },
+  "consentPolicy": {
+    "pseudonymousOnly": true,
+    "recordingSeparateConsent": true,
+    "noEmailInEventLog": true
+  },
+  "facilitatorCode": "",
+  "notes": [
+    "Discovery pilot: 5–8 adults is sufficient for first qualitative issue discovery; do not generalize population percentages."
+  ]
+}
