@@ -1139,6 +1139,34 @@ def collect():
             if isinstance(example, dict):
                 add_auto(example.get("ko"))
 
+    # 16. Hangul-Start 입문 트랙 — hangul_foundation.json. 수업 화면은 기본
+    #     auto 음성으로 가르치기 대상·조립 결과·단어·소리 표기 읽기의 글자와
+    #     듣고 고르기/확인/Kurztest 의 정답과 선택지(오답 비교 재생)를 읽는다.
+    #     tool/audit_hangul_foundation_tts.py 의 utterances() 와 같은 범위다.
+    try:
+        foundation = _load_json("assets/data/hangul_foundation.json")
+    except (OSError, json.JSONDecodeError):
+        foundation = {}
+
+    def _add_choices(items):
+        for item in items or []:
+            add_auto(item.get("audio"))
+            for option in item.get("options", []):
+                add_auto(option)
+
+    for lesson in foundation.get("lessons", []):
+        for teach in lesson.get("teach", []):
+            add_auto(teach.get("target"))
+        for text in lesson.get("build", []):
+            add_auto(text)
+        _add_choices(lesson.get("listen"))
+        _add_choices(lesson.get("check"))
+        for word in lesson.get("words", []):
+            add_auto(word.get("ko"))
+        for reading in lesson.get("reading", []):
+            add_auto(reading.get("text"))
+    _add_choices((foundation.get("kurztest") or {}).get("items"))
+
     for pair in collect_phase_audio():
         texts[pair] = None
     return list(texts.keys())
