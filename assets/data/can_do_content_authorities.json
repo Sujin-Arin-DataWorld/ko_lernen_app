@@ -31394,7 +31394,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_1",
         "sourceVocabId": "vocab_a1_0491",
-        "sourceVocabFingerprintSha256": "6f60b5c12da2ec479d4d9a0ce1bfe6b4825a64c4ef5706d1af1d7fd936730236",
+        "sourceVocabFingerprintSha256": "b5f6e1ee15d7f4564a72c6402af4c44e0d9dc27563bd711825381cfec9146347",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -31416,7 +31416,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_1",
         "sourceVocabId": "vocab_a1_0493",
-        "sourceVocabFingerprintSha256": "31af6ed363d7ea52b522a86cef498f526e17c867fd184c25216d83e818263cc7",
+        "sourceVocabFingerprintSha256": "584137608f3ac2b1487f0740a0c43a0ca9a329bdb36c0133b353d4fc2900afd8",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -37092,7 +37092,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_2",
         "sourceVocabId": "vocab_a1_0169",
-        "sourceVocabFingerprintSha256": "781eabecbe01a3a3a12567c575d8d691ced0972e37f125b6181d2e8acb26fb83",
+        "sourceVocabFingerprintSha256": "7b91579d3395bbad35312e8390865b70ddc56a22d78509ba21278fdffd2f0df6",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -37103,7 +37103,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_2",
         "sourceVocabId": "vocab_a1_0170",
-        "sourceVocabFingerprintSha256": "08230d03d17ee5605b6b8fbbe0b926f8f113ac55d98c70b0ff730214483f1206",
+        "sourceVocabFingerprintSha256": "c36caeb5b7967fa78252206912ed710643b1b5483ee9c61339e95408ab574f87",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"
@@ -38302,7 +38302,7 @@
         "sourceKind": "vocabPack",
         "sourceId": "a1_greetings_1",
         "sourceVocabId": "vocab_a1_0491",
-        "sourceVocabFingerprintSha256": "6f60b5c12da2ec479d4d9a0ce1bfe6b4825a64c4ef5706d1af1d7fd936730236",
+        "sourceVocabFingerprintSha256": "b5f6e1ee15d7f4564a72c6402af4c44e0d9dc27563bd711825381cfec9146347",
         "level": "a1",
         "canDoSegmentId": "segment_a1_01_greetings_hangul",
         "courseUnitId": "a1_01_greetings_hangul"

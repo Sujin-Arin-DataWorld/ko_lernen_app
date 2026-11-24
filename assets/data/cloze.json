@@ -29753,11 +29753,11 @@
     {
       "id": "cloze_a1_0425",
       "level": "a1",
-      "sentenceKo": "민수는 ＿＿＿를 잘해요.",
+      "sentenceKo": "현우는 ＿＿＿를 잘해요.",
       "answer": "인사",
-      "fullKo": "민수는 인사를 잘해요.",
-      "de": "Minsu grüßt immer freundlich.",
-      "en": "Minsu always greets people politely.",
+      "fullKo": "현우는 인사를 잘해요.",
+      "de": "Hyunwoo grüßt immer freundlich.",
+      "en": "Hyunwoo always greets people politely.",
       "distractors": [
         "고기",
         "감사합니다",
@@ -29787,11 +29787,11 @@
     {
       "id": "cloze_a1_0427",
       "level": "a1",
-      "sentenceKo": "＿＿＿? 민수 씨예요?",
+      "sentenceKo": "＿＿＿? 현우 씨예요?",
       "answer": "여보세요",
-      "fullKo": "여보세요? 민수 씨예요?",
-      "de": "Hallo? Ist da Minsu?",
-      "en": "Hello? Is this Minsu?",
+      "fullKo": "여보세요? 현우 씨예요?",
+      "de": "Hallo? Ist da Hyunwoo?",
+      "en": "Hello? Is this Hyunwoo?",
       "distractors": [
         "끝나다",
         "쓰다",

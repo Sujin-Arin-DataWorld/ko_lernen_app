@@ -19533,7 +19533,7 @@
       "id": "satz_a1_0294",
       "level": "a1",
       "targetKo": "처음 뵙겠습니다. 김지수입니다.",
-      "promptDe": "Freut mich, Sie kennenzulernen. Ich bin Kim Jisu.",
+      "promptDe": "Freut mich. Ich bin Kim Jisu.",
       "promptEn": "Nice to meet you. I'm Kim Jisu.",
       "distractors": [
         "안녕하세요",
@@ -19544,9 +19544,9 @@
     {
       "id": "satz_a1_0295",
       "level": "a1",
-      "targetKo": "만나서 정말 반가워요.",
-      "promptDe": "Wirklich schön, dich kennenzulernen.",
-      "promptEn": "It's really nice to meet you.",
+      "targetKo": "만나서 반가워요. 저는 레나예요.",
+      "promptDe": "Schön, dich kennenzulernen. Ich bin Lena.",
+      "promptEn": "Nice to meet you. I'm Lena.",
       "distractors": [
         "안녕하세요",
         "안녕"
@@ -30195,9 +30195,9 @@
     {
       "id": "satz_a1_0406",
       "level": "a1",
-      "targetKo": "민수는 인사를 잘해요.",
-      "promptDe": "Minsu grüßt immer freundlich.",
-      "promptEn": "Minsu always greets people politely.",
+      "targetKo": "현우는 인사를 잘해요.",
+      "promptDe": "Hyunwoo grüßt immer freundlich.",
+      "promptEn": "Hyunwoo always greets people politely.",
       "distractors": [
         "문제없어요",
         "배불러요"

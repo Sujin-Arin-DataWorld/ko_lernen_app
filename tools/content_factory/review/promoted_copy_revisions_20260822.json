@@ -7730,8 +7730,7 @@
         "example_korean"
       ],
       "beforeSha256": "165e64153525a23dd1d75eaf4c2dce7da361b364f9156a27353660ca1fbd574c",
-      "afterSha256": "17c83da27eefb6d495f44b70e61cad8d1c10a104c0c6381227136ab57baccd9e",
-      "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+      "afterSha256": "584137608f3ac2b1487f0740a0c43a0ca9a329bdb36c0133b353d4fc2900afd8"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
@@ -7746,8 +7745,7 @@
         "sentenceKo"
       ],
       "beforeSha256": "f023ffccfce3b2198cf746348261fd718271416adcb07dfdacf5821110a1f17e",
-      "afterSha256": "7e59586486210d3aac35fd131d08ee4ee3bb4879fdbaa16d72d48ee77854461d",
-      "reviewReceipt": "tools/content_factory/review/batch_25_release_reconciliation_20260922.json"
+      "afterSha256": "73f207189384ea673846e8f4086def33c9977b7b1eba5d6ea5ee08be3cf952e6"
     },
     {
       "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
@@ -16491,6 +16489,46 @@
       ],
       "beforeSha256": "adedeea272116b31d22ebeb83a1542bb7c79d8218450eeca57325441d9aa7a16",
       "afterSha256": "07113421a6927cce877a847aa8d44aa58bdc32fb11b48feeaed0357490a03643"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+      "kind": "cloze",
+      "id": "cloze_a1_0425",
+      "level": "a1",
+      "fields": [
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
+      ],
+      "beforeSha256": "2cb006ed9a071c90ec7e999c3d8ecc0ce7e34897319d09aae3cb9ae79c518d65",
+      "afterSha256": "796e82d221edc7054b12673f20ad96b453f849bf560b699f76d5c677dbf7ea49"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+      "kind": "satz",
+      "id": "satz_a1_0406",
+      "level": "a1",
+      "fields": [
+        "promptDe",
+        "promptEn",
+        "targetKo"
+      ],
+      "beforeSha256": "b2823f9112d75629705c6b9c32130513463e4bba3ece097c5418f704795934b1",
+      "afterSha256": "7d75e6ae9813fe5c699673fb4d25d50d85e8a4bae7140c3b54f86cd8ee3219dd"
+    },
+    {
+      "manifest": "tools/content_factory/drafts/batch_25_a1_reinforcement_manifest.json",
+      "kind": "vocab",
+      "id": "vocab_a1_0491",
+      "level": "a1",
+      "fields": [
+        "example_english",
+        "example_german",
+        "example_korean"
+      ],
+      "beforeSha256": "b2d0ea87ad9455c6237fd3df990727355b71118fc27bba26ec89c76108d71c59",
+      "afterSha256": "b5f6e1ee15d7f4564a72c6402af4c44e0d9dc27563bd711825381cfec9146347"
     }
   ],
   "routingEntries": [
@@ -16771,6 +16809,12 @@
       "scope": "Second direct A2 pass: repair unnatural sample language and linked cloze/Satz text",
       "method": "Recomputed exact frozen-draft versus live copy fingerprints for named revised rows. Earlier human review requirements remain unchanged; this records model editorial work only.",
       "entriesRecorded": 27
+    },
+    {
+      "date": "2026-11-24",
+      "scope": "Beginner path PR-5: interpreter review of the A1 greeting examples and their linked cloze/Satz text",
+      "method": "Recomputed exact frozen-draft versus live copy fingerprints for named revised rows with the production validator's own projections. Earlier human review requirements remain unchanged; this records model editorial work only.",
+      "entriesRecorded": 5
     }
   ],
   "batchFieldRevisions": [

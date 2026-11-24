@@ -6,9 +6,9 @@
   "humanReviewStatus": "required_before_native-quality-claim",
   "predecessorGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
   "predecessorLedgerSha256": "5ab0dc738ce392b03cbb5a84c4bd18eee481a0588180be25eaf94df8addd707b",
-  "firstAmendmentLedgerSha256": "54a9fcba5d176dca10389c69fc7b20f30187935f9262662721e5d4f7884eeb5e",
-  "firstFollowupLedgerSha256": "6723930b8b55871237e5d5aff9283c723d517188137eba1be422bfafb894f0dd",
-  "copyRevisionLedgerSha256": "22f5920fe5cec13567e15448892a8dca535ce1c7f42f7370490b2247c9f5fde0",
+  "firstAmendmentLedgerSha256": "0dcf40ff3cabb90c0d1d6b27ddc61401bb7bd647bc2637c4baad72b20d253487",
+  "firstFollowupLedgerSha256": "e43c409c4623d32f39426efeead2cb1416774443d53b3bd9482d6f6a921135ed",
+  "copyRevisionLedgerSha256": "4cc4ec4cdc3a8df86ebe020732d11806126bfe305211696320e2c9ba2c486c15",
   "entries": [
     {
       "manifest": "tools/content_factory/drafts/batch_01_manifest.json",
