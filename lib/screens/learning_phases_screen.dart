@@ -101,9 +101,8 @@ class _LearningPhasesScreenState extends State<LearningPhasesScreen> {
                             illustrationAsset: phase.illustrationAsset,
                             fallback: const _PreparingImage(),
                             shrinkWrap: true,
-                            onTap: () => Navigator.of(
-                              context,
-                            ).pushNamed('/course/phase', arguments: phase),
+                            onTap: () => Navigator.of(context)
+                                .pushNamed('/course/phase', arguments: phase),
                           ),
                         ),
                     ],
@@ -143,7 +142,7 @@ class LearningPhaseDetailScreen extends StatelessWidget {
             shrinkWrap: true,
           ),
           const SizedBox(height: Spacing.lg),
-          PhaseTaskPanel(phaseId: phase.id),
+          PhaseTaskPanel(phaseId: phase.id, steps: phase.steps),
           Text(t.learningPhasePracticeTitle, style: type.h2),
           const SizedBox(height: Spacing.sm),
           Text(phase.practiceFocus.pick(lang), style: type.body),

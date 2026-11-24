@@ -17712,6 +17712,18 @@ abstract class AppL10n {
   /// **'Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.'**
   String get phaseTaskRecordingNotice;
 
+  /// No description provided for @phaseStepDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Schritt abgeschlossen'**
+  String get phaseStepDone;
+
+  /// No description provided for @phaseStepNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Schritt: {title}'**
+  String phaseStepNext(String title);
+
   /// No description provided for @phaseTaskHistory.
   ///
   /// In de, this message translates to:

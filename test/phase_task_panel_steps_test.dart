@@ -10,23 +10,31 @@ import 'package:ko_lernen_app/services/phase_task_catalog.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/phase_task_panel.dart';
 
-PhaseAttemptEvidence _evidence(PhaseTask task, {bool assessment = true}) =>
-    PhaseAttemptEvidence.fromJson({
-      'attemptId': 'a-${task.id}',
-      'phaseId': task.phaseId,
-      'taskId': task.id,
-      'contentHash': task.contentHash,
-      'contentRevision': task.contentRevision,
-      'rubricVersion': task.rubricVersion,
-      'minimumScore': task.minimumScore,
-      'evaluatorVersion': PhaseTaskResult.evaluatorVersion,
-      'mode': assessment ? 'assessment' : 'practice',
-      'score': 1.0,
-      'passedCriterionIds': <String>[],
-      'occurredAt': '2026-01-01T00:00:00Z',
-    });
+PhaseAttemptEvidence _evidence(
+  PhaseTask task, {
+  bool assessment = true,
+  double? score = 1.0,
+}) => PhaseAttemptEvidence.fromJson({
+  'attemptId': 'a-${task.id}',
+  'phaseId': task.phaseId,
+  'taskId': task.id,
+  'contentHash': task.contentHash,
+  'contentRevision': task.contentRevision,
+  'rubricVersion': task.rubricVersion,
+  'minimumScore': task.minimumScore,
+  'evaluatorVersion': PhaseTaskResult.evaluatorVersion,
+  'mode': assessment ? 'assessment' : 'practice',
+  'score': score,
+  'passedCriterionIds': <String>[],
+  'occurredAt': '2026-01-01T00:00:00Z',
+});
 
-Future<void> _pump(WidgetTester tester, String phaseId, String locale) async {
+Future<void> _pump(
+  WidgetTester tester,
+  String phaseId,
+  String locale, {
+  List<LearningPhaseStep> steps = const [],
+}) async {
   tester.view.physicalSize = const Size(800, 6000);
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
@@ -43,7 +51,9 @@ Future<void> _pump(WidgetTester tester, String phaseId, String locale) async {
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: Scaffold(
-        body: SingleChildScrollView(child: PhaseTaskPanel(phaseId: phaseId)),
+        body: SingleChildScrollView(
+          child: PhaseTaskPanel(phaseId: phaseId, steps: steps),
+        ),
       ),
     ),
   );
@@ -68,9 +78,9 @@ void main() {
   testWidgets('KP01 shows four ordered steps with their tasks grouped', (
     tester,
   ) async {
-    await _pump(tester, 'KP01', 'de');
-    final phases = await LearningPhaseCatalog.load();
+    final phases = (await tester.runAsync(LearningPhaseCatalog.load))!;
     final steps = phases.first.steps;
+    await _pump(tester, 'KP01', 'de', steps: steps);
     expect(steps.map((s) => s.id), ['KP01.1', 'KP01.2', 'KP01.3', 'KP01.4']);
     double top(Finder f) => tester.getTopLeft(f).dy;
     var previous = -1.0;
@@ -109,6 +119,32 @@ void main() {
       expect(done.skip(1), everyElement(isFalse));
       history.remove(first.taskIds.last);
       expect(phaseStepCompletion(phase.steps, byId, history).first, isFalse);
+    },
+  );
+
+  test(
+    'submitting a speaking task completes KP01.2 (unscored, current)',
+    () async {
+      final catalog = await PhaseTaskCatalog.load();
+      final phase = (await LearningPhaseCatalog.load()).first;
+      final byId = {for (final t in catalog.forPhase('KP01')) t.id: t};
+      final second = phase.steps[1];
+      expect(second.taskIds, contains('KP01:speaking:01'));
+      final history = {
+        for (final id in second.taskIds)
+          id: id == 'KP01:speaking:01'
+              ? _evidence(byId[id]!, score: null)
+              : _evidence(byId[id]!, assessment: false),
+      };
+      expect(phaseStepCompletion(phase.steps, byId, history)[1], isTrue);
+      history.remove('KP01:speaking:01');
+      expect(phaseStepCompletion(phase.steps, byId, history)[1], isFalse);
+      // A stale revision never counts.
+      final stale = PhaseAttemptEvidence.fromJson({
+        ..._evidence(byId['KP01:speaking:01']!, score: null).toJson(),
+        'contentHash': 'f' * 64,
+      });
+      expect(phaseTaskDone(byId['KP01:speaking:01']!, stale), isFalse);
     },
   );
 }

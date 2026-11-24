@@ -9,11 +9,12 @@ import '../services/learning_phase_catalog.dart';
 import '../services/phase_task_catalog.dart';
 
 /// A task counts toward step completion when its current-revision attempt was
-/// passed, or when an unassessed (practice/speaking) attempt was scored.
+/// passed, scored practice was saved, or the task cannot be scored at all
+/// (speaking, free text): then any current-revision submission completes it.
 bool phaseTaskDone(PhaseTask task, PhaseAttemptEvidence? e) =>
     e != null &&
     task.isCurrent(e) &&
-    (task.passedBy(e) || (e.score != null && !e.assessment));
+    (task.passedBy(e) || e.score == null || !e.assessment);
 
 /// Per-step completion in step order; never gates access to any task.
 List<bool> phaseStepCompletion(
@@ -26,8 +27,15 @@ List<bool> phaseStepCompletion(
 ];
 
 class PhaseTaskPanel extends StatefulWidget {
-  const PhaseTaskPanel({super.key, required this.phaseId});
+  const PhaseTaskPanel({
+    super.key,
+    required this.phaseId,
+    this.steps = const [],
+  });
   final String phaseId;
+
+  /// The Phase's step grouping; empty shows one flat list.
+  final List<LearningPhaseStep> steps;
   @override
   State<PhaseTaskPanel> createState() => _PhaseTaskPanelState();
 }
@@ -35,7 +43,6 @@ class PhaseTaskPanel extends StatefulWidget {
 class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
   late Future<(List<PhaseTask>, Map<String, PhaseAttemptEvidence>)> _data =
       _load();
-  List<LearningPhaseStep> _steps = const [];
   @override
   void initState() {
     super.initState();
@@ -66,10 +73,6 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
     final session = cloudWriteSessionController.current;
     final catalog = await PhaseTaskCatalog.load();
     final tasks = catalog.forPhase(widget.phaseId);
-    final phases = await LearningPhaseCatalog.load();
-    _steps =
-        phases.where((p) => p.id == widget.phaseId).firstOrNull?.steps ??
-        const [];
     if (tasks.isEmpty) {
       return (tasks, <String, PhaseAttemptEvidence>{});
     }
@@ -134,11 +137,11 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
       );
     }
 
-    if (_steps.isEmpty) {
+    if (widget.steps.isEmpty) {
       return [for (final task in tasks) card(task)];
     }
     final byId = {for (final task in tasks) task.id: task};
-    final complete = phaseStepCompletion(_steps, byId, history);
+    final complete = phaseStepCompletion(widget.steps, byId, history);
     final next = complete.indexOf(false);
     return [
       if (next >= 0)
@@ -146,49 +149,36 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
           key: const ValueKey('phase-next-step'),
           padding: const EdgeInsets.only(top: 8),
           child: Text(
-            _nextStep(lang, _steps[next].title.pick(lang)),
+            t.phaseStepNext(widget.steps[next].title.pick(lang)),
             style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
-      for (var i = 0; i < _steps.length; i++) ...[
+      for (var i = 0; i < widget.steps.length; i++) ...[
         Padding(
-          key: ValueKey('phase-step-${_steps[i].id}'),
+          key: ValueKey('phase-step-${widget.steps[i].id}'),
           padding: const EdgeInsets.only(top: 16, bottom: 4),
           child: Row(
             children: [
               Expanded(
                 child: Text(
-                  '${i + 1}. ${_steps[i].title.pick(lang)}',
+                  '${i + 1}. ${widget.steps[i].title.pick(lang)}',
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
               if (complete[i])
                 Icon(
                   Icons.check_circle,
-                  key: ValueKey('phase-step-done-${_steps[i].id}'),
-                  semanticLabel: _stepDone(lang),
+                  key: ValueKey('phase-step-done-${widget.steps[i].id}'),
+                  semanticLabel: t.phaseStepDone,
                   color: Theme.of(context).colorScheme.primary,
                 ),
             ],
           ),
         ),
-        for (final id in _steps[i].taskIds) card(byId[id]!),
+        for (final id in widget.steps[i].taskIds) card(byId[id]!),
       ],
     ];
   }
-
-  // Step chrome is new copy; kept local so no ARB regeneration is needed.
-  static String _stepDone(String lang) => switch (lang) {
-    'ko' => '단계 완료',
-    'de' => 'Schritt abgeschlossen',
-    _ => 'Step completed',
-  };
-
-  static String _nextStep(String lang, String title) => switch (lang) {
-    'ko' => '다음 단계: $title',
-    'de' => 'Nächster Schritt: $title',
-    _ => 'Next step: $title',
-  };
 
   @override
   Widget build(BuildContext context) {

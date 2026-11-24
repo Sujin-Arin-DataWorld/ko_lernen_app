@@ -10404,6 +10404,14 @@ class AppL10nEn extends AppL10n {
       'The recording stays in memory for this task and is not uploaded.';
 
   @override
+  String get phaseStepDone => 'Step completed';
+
+  @override
+  String phaseStepNext(String title) {
+    return 'Next step: $title';
+  }
+
+  @override
   String get phaseTaskHistory => 'Assessed criteria already met';
 
   @override
