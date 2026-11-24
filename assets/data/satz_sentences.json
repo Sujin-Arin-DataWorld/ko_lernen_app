@@ -1013,8 +1013,8 @@
       "id": "satz_a1_0041",
       "level": "a1",
       "targetKo": "앞으로 잘 부탁드려요.",
-      "promptDe": "Ich hoffe, wir kommen ab jetzt gut miteinander aus.",
-      "promptEn": "I hope we get along well from now on.",
+      "promptDe": "Auf gute Zusammenarbeit!",
+      "promptEn": "I look forward to working with you.",
       "distractors": [
         "한국어로",
         "이름은"
@@ -19532,9 +19532,9 @@
     {
       "id": "satz_a1_0294",
       "level": "a1",
-      "targetKo": "처음 뵙겠습니다. 잘 부탁드려요.",
-      "promptDe": "Freut mich.",
-      "promptEn": "Nice to meet you.",
+      "targetKo": "처음 뵙겠습니다. 김지수입니다.",
+      "promptDe": "Freut mich. Ich bin Kim Jisu.",
+      "promptEn": "Nice to meet you. I'm Kim Jisu.",
       "distractors": [
         "안녕하세요",
         "안녕"
@@ -19544,9 +19544,9 @@
     {
       "id": "satz_a1_0295",
       "level": "a1",
-      "targetKo": "정말 만나서 반가워요.",
-      "promptDe": "Freut mich wirklich.",
-      "promptEn": "Really nice to meet you.",
+      "targetKo": "만나서 반가워요. 저는 레나예요.",
+      "promptDe": "Schön, dich kennenzulernen. Ich bin Lena.",
+      "promptEn": "Nice to meet you. I'm Lena.",
       "distractors": [
         "안녕하세요",
         "안녕"
@@ -19557,8 +19557,8 @@
       "id": "satz_a1_0296",
       "level": "a1",
       "targetKo": "별말씀을요, 당연한 거예요.",
-      "promptDe": "Keine Ursache, gern.",
-      "promptEn": "Don't mention it.",
+      "promptDe": "Keine Ursache, das ist doch selbstverständlich.",
+      "promptEn": "Don't mention it, it's only natural.",
       "distractors": [
         "안녕하세요",
         "안녕"
@@ -30195,9 +30195,9 @@
     {
       "id": "satz_a1_0406",
       "level": "a1",
-      "targetKo": "저는 매일 인사를 해요.",
-      "promptDe": "Ich sage jeden Tag Hallo.",
-      "promptEn": "I greet people every day.",
+      "targetKo": "현우는 인사를 잘해요.",
+      "promptDe": "Hyunwoo grüßt immer freundlich.",
+      "promptEn": "Hyunwoo always greets people politely.",
       "distractors": [
         "문제없어요",
         "배불러요"
