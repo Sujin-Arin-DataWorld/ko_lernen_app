@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "note": "Hangul-Start: 14 short foundation lessons in 4 parts, then the 10-item Kurztest. Every syllable may only use letters introduced up to its lesson; finals only after their lesson. Romanization is derived at runtime and never stored. Content spec: docs/learning/lernpfad-v2/curriculum/FOUNDATION.psv; design: beginner-path redesign 2026-11-23.",
+  "kurztest": {
+    "passAt": 8,
+    "maxPlays": 2,
+    "items": [
+      {"audio": "방", "options": ["밥", "방", "박", "반"]},
+      {"audio": "옷", "options": ["옷", "옥", "온", "오"]},
+      {"audio": "낮", "options": ["낮", "낙", "난", "남"]},
+      {"audio": "집", "options": ["집", "짐", "진", "징"]},
+      {"audio": "문", "options": ["물", "문", "뭄", "무"]},
+      {"audio": "공", "options": ["곧", "곡", "공", "곤"]},
+      {"audio": "카", "options": ["가", "카", "까", "하"]},
+      {"audio": "따", "options": ["다", "타", "따", "나"]},
+      {"audio": "위", "options": ["위", "이", "우", "의"]},
+      {"audio": "서", "options": ["소", "서", "수", "스"]}
+    ]
+  },
+  "bands": [
+    {"id": "vowels", "title": {"ko": "모음", "de": "Vokale", "en": "Vowels"}},
+    {"id": "consonants", "title": {"ko": "자음", "de": "Konsonanten", "en": "Consonants"}},
+    {"id": "contrasts", "title": {"ko": "소리 대비와 겹모음", "de": "Klang & Doppelvokale", "en": "Sound contrasts & combined vowels"}},
+    {"id": "finals", "title": {"ko": "받침과 이어 읽기", "de": "Schlusslaute & Verbinden", "en": "Final consonants & linking"}}
+  ],
+  "lessons": [
+    {
+      "id": "F01", "band": "vowels", "sejongRef": "입문 2과", "foundationRefs": ["F0.1.sound-signs"],
+      "title": {"ko": "ㅇ과 ㅏ·ㅓ", "de": "ㅇ und ㅏ, ㅓ", "en": "ㅇ and ㅏ, ㅓ"},
+      "newJamo": ["ㅇ", "ㅏ", "ㅓ"], "newFinals": [],
+      "teach": [
+        {"target": "아", "explain": {"ko": "ㅇ은 음절 첫자리에서 소리가 없어요. ㅏ는 '아' 소리예요.", "de": "Am Silbenanfang ist ㅇ stumm. ㅏ klingt wie a in „Vater“.", "en": "At the start of a syllable ㅇ is silent. ㅏ sounds like a in “father”."}},
+        {"target": "어", "explain": {"ko": "ㅓ는 입을 편하게 벌리고 내는 '어' 소리예요.", "de": "ㅓ ist ein offenes o mit lockerem Mund, zwischen o und a.", "en": "ㅓ is an open o with a relaxed mouth, between o and a."}}
+      ],
+      "build": ["아", "어"],
+      "listen": [{"audio": "아", "options": ["아", "어"]}, {"audio": "어", "options": ["아", "어"]}],
+      "check": [{"audio": "어", "options": ["어", "아"]}, {"audio": "아", "options": ["아", "어"]}, {"audio": "어", "options": ["아", "어"]}]
+    },
+    {
+      "id": "F02", "band": "vowels", "sejongRef": "입문 2과", "foundationRefs": ["F0.1.above-below"],
+      "title": {"ko": "ㅗ·ㅜ", "de": "ㅗ und ㅜ", "en": "ㅗ and ㅜ"},
+      "newJamo": ["ㅗ", "ㅜ"], "newFinals": [],
+      "teach": [
+        {"target": "오", "explain": {"ko": "가로로 긴 모음은 ㅇ 아래에 써요. ㅗ는 입술을 둥글게 해요.", "de": "Waagerechte Vokale stehen unter ㅇ. Bei ㅗ rundest du die Lippen: o wie in „Ofen“.", "en": "Horizontal vowels go under ㅇ. For ㅗ round your lips: o as in “more”."}},
+        {"target": "우", "explain": {"ko": "ㅜ는 입술을 앞으로 내밀어요.", "de": "Bei ㅜ schiebst du die Lippen nach vorn: u wie in „gut“.", "en": "For ㅜ push your lips forward: oo as in “food”."}}
+      ],
+      "build": ["오", "우"],
+      "listen": [{"audio": "오", "options": ["오", "어"]}, {"audio": "우", "options": ["우", "오"]}],
+      "check": [{"audio": "어", "options": ["어", "오"]}, {"audio": "우", "options": ["오", "우"]}, {"audio": "오", "options": ["아", "오"]}]
+    },
+    {
+      "id": "F03", "band": "vowels", "sejongRef": "입문 2과", "foundationRefs": ["F0.1.straight-lines"],
+      "title": {"ko": "ㅡ·ㅣ", "de": "ㅡ und ㅣ", "en": "ㅡ and ㅣ"},
+      "newJamo": ["ㅡ", "ㅣ"], "newFinals": [],
+      "teach": [
+        {"target": "으", "explain": {"ko": "ㅡ는 입술을 둥글게 하지 않고 옆으로 펴요.", "de": "Bei ㅡ bleiben die Lippen breit und ungerundet, wie ein dumpfes u ohne Rundung.", "en": "For ㅡ keep your lips spread, not rounded, like a dull u without rounding."}},
+        {"target": "이", "explain": {"ko": "ㅣ는 '이' 소리예요.", "de": "ㅣ klingt wie i in „Igel“.", "en": "ㅣ sounds like ee in “see”."}}
+      ],
+      "build": ["으", "이"],
+      "listen": [{"audio": "으", "options": ["으", "우"]}, {"audio": "이", "options": ["이", "으"]}],
+      "check": [{"audio": "우", "options": ["우", "으"]}, {"audio": "이", "options": ["아", "이"]}, {"audio": "으", "options": ["으", "오"]}]
+    },
+    {
+      "id": "F04", "band": "vowels", "sejongRef": "입문 2과", "foundationRefs": ["F0.3.double-strokes", "F0.3.two-below"],
+      "title": {"ko": "ㅑ·ㅕ·ㅛ·ㅠ", "de": "ㅑ, ㅕ, ㅛ, ㅠ", "en": "ㅑ, ㅕ, ㅛ, ㅠ"},
+      "newJamo": ["ㅑ", "ㅕ", "ㅛ", "ㅠ"], "newFinals": [],
+      "teach": [
+        {"target": "야", "explain": {"ko": "짧은 획이 하나 더 있으면 앞에 'ㅣ' 소리가 붙어요.", "de": "Ein zweiter kurzer Strich setzt ein j davor: ㅑ klingt wie ja.", "en": "A second short stroke adds a y before the vowel: ㅑ sounds like ya."}},
+        {"target": "여", "explain": {"ko": "ㅕ는 ㅓ 앞에 'ㅣ' 소리가 붙어요.", "de": "ㅕ ist ㅓ mit j davor.", "en": "ㅕ is ㅓ with a y before it."}},
+        {"target": "요", "explain": {"ko": "ㅛ는 ㅗ 앞에 'ㅣ' 소리가 붙어요.", "de": "ㅛ ist ㅗ mit j davor: jo.", "en": "ㅛ is ㅗ with a y before it: yo."}},
+        {"target": "유", "explain": {"ko": "ㅠ는 ㅜ 앞에 'ㅣ' 소리가 붙어요.", "de": "ㅠ ist ㅜ mit j davor: ju.", "en": "ㅠ is ㅜ with a y before it: yu."}}
+      ],
+      "build": ["야", "여", "요", "유"],
+      "listen": [{"audio": "야", "options": ["야", "아"]}, {"audio": "요", "options": ["요", "오"]}, {"audio": "유", "options": ["유", "우"]}],
+      "check": [{"audio": "여", "options": ["여", "어"]}, {"audio": "요", "options": ["유", "요"]}, {"audio": "야", "options": ["야", "여"]}]
+    },
+    {
+      "id": "F05", "band": "consonants", "sejongRef": "입문 3과", "foundationRefs": ["F0.2.first-names", "F0.2.two-boxes"],
+      "title": {"ko": "ㄴ·ㅁ·ㄱ·ㄷ", "de": "ㄴ, ㅁ, ㄱ, ㄷ", "en": "ㄴ, ㅁ, ㄱ, ㄷ"},
+      "newJamo": ["ㄴ", "ㅁ", "ㄱ", "ㄷ"], "newFinals": [],
+      "teach": [
+        {"target": "나", "explain": {"ko": "ㄴ은 혀끝이 윗니 뒤에 닿는 모양이에요.", "de": "ㄴ zeigt die Zungenspitze hinter den Zähnen: n.", "en": "ㄴ shows the tongue tip behind the teeth: n."}},
+        {"target": "마", "explain": {"ko": "ㅁ은 입술을 닫았다가 여는 소리예요.", "de": "Bei ㅁ schließt du die Lippen: m.", "en": "For ㅁ you close your lips: m."}},
+        {"target": "가", "explain": {"ko": "ㄱ은 첫소리에서 부드럽게 나요.", "de": "ㄱ am Anfang klingt weich, zwischen g und k.", "en": "At the start ㄱ is soft, between g and k."}},
+        {"target": "다", "explain": {"ko": "ㄷ은 첫소리에서 부드럽게 나요.", "de": "ㄷ am Anfang klingt weich, zwischen d und t.", "en": "At the start ㄷ is soft, between d and t."}}
+      ],
+      "build": ["나", "모", "구", "디"],
+      "listen": [{"audio": "나", "options": ["나", "마"]}, {"audio": "고", "options": ["고", "도"]}, {"audio": "무", "options": ["무", "누"]}],
+      "check": [{"audio": "다", "options": ["다", "나"]}, {"audio": "기", "options": ["기", "디"]}, {"audio": "머", "options": ["머", "너"]}]
+    },
+    {
+      "id": "F06", "band": "consonants", "sejongRef": "입문 3과", "foundationRefs": ["F0.2.ribbon", "F0.2.two-tracks", "F0.2.warm-breath"],
+      "title": {"ko": "ㄹ·ㅂ·ㅅ·ㅈ·ㅎ", "de": "ㄹ, ㅂ, ㅅ, ㅈ, ㅎ", "en": "ㄹ, ㅂ, ㅅ, ㅈ, ㅎ"},
+      "newJamo": ["ㄹ", "ㅂ", "ㅅ", "ㅈ", "ㅎ"], "newFinals": [],
+      "teach": [
+        {"target": "라", "explain": {"ko": "ㄹ은 첫소리에서 혀끝을 가볍게 튕겨요.", "de": "ㄹ am Anfang ist ein kurz angetipptes r, fast wie l.", "en": "At the start ㄹ is a light tap, between r and l."}},
+        {"target": "바", "explain": {"ko": "ㅂ은 첫소리에서 부드럽게 나요.", "de": "ㅂ am Anfang klingt weich, zwischen b und p.", "en": "At the start ㅂ is soft, between b and p."}},
+        {"target": "사", "explain": {"ko": "ㅅ은 '스' 하는 바람 소리예요.", "de": "ㅅ klingt wie ein stimmloses s.", "en": "ㅅ sounds like s in “sun”."}},
+        {"target": "자", "explain": {"ko": "ㅈ은 첫소리에서 부드럽게 나요.", "de": "ㅈ am Anfang klingt weich, zwischen dsch und tsch.", "en": "At the start ㅈ is soft, between j and ch."}},
+        {"target": "하", "explain": {"ko": "ㅎ은 숨을 내쉬는 소리예요.", "de": "ㅎ klingt wie h in „Haus“.", "en": "ㅎ sounds like h in “house”."}}
+      ],
+      "build": ["라", "부", "소", "지", "후"],
+      "listen": [{"audio": "바", "options": ["바", "마"]}, {"audio": "자", "options": ["자", "사"]}, {"audio": "호", "options": ["호", "오"]}],
+      "check": [{"audio": "러", "options": ["러", "너"]}, {"audio": "수", "options": ["수", "주"]}, {"audio": "비", "options": ["비", "디"]}]
+    },
+    {
+      "id": "F07", "band": "consonants", "sejongRef": "입문 3과", "foundationRefs": ["F0.2.tree-and-hat", "F0.2.sea-and-bridge"],
+      "title": {"ko": "첫 단어", "de": "Erste Wörter", "en": "First words"},
+      "newJamo": [], "newFinals": [],
+      "teach": [
+        {"target": "나무", "explain": {"ko": "글자 블록 두 개가 한 단어가 돼요: 나 + 무.", "de": "Zwei Silbenblöcke ergeben ein Wort: 나 + 무.", "en": "Two syllable blocks make one word: 나 + 무."}},
+        {"target": "모자", "explain": {"ko": "모 + 자 = 모자.", "de": "모 + 자 = 모자.", "en": "모 + 자 = 모자."}},
+        {"target": "바다", "explain": {"ko": "바 + 다 = 바다.", "de": "바 + 다 = 바다.", "en": "바 + 다 = 바다."}},
+        {"target": "다리", "explain": {"ko": "다 + 리 = 다리. 여기서는 강 위의 다리예요.", "de": "다 + 리 = 다리. Hier ist es die Brücke über den Fluss.", "en": "다 + 리 = 다리. Here it is the bridge over the river."}}
+      ],
+      "build": ["무", "자"],
+      "words": [
+        {"ko": "나무", "de": "Baum", "en": "tree"},
+        {"ko": "모자", "de": "Mütze", "en": "hat"},
+        {"ko": "바다", "de": "Meer", "en": "sea"},
+        {"ko": "다리", "de": "Brücke", "en": "bridge"}
+      ],
+      "listen": [{"audio": "나무", "options": ["나무", "너무"]}, {"audio": "모자", "options": ["모자", "바지"]}, {"audio": "바다", "options": ["바다", "다리"]}],
+      "check": [{"audio": "다리", "options": ["다리", "나무"]}, {"audio": "모자", "options": ["모자", "바다"]}, {"audio": "나무", "options": ["나무", "다리"]}]
+    },
+    {
+      "id": "F08", "band": "contrasts", "sejongRef": "입문 4과·5과", "foundationRefs": ["F0.3.air-one", "F0.3.firm-one"],
+      "title": {"ko": "가·카·까", "de": "Weich, behaucht, gespannt: 가 카 까", "en": "Soft, aspirated, tense: 가 카 까"},
+      "newJamo": ["ㅋ", "ㄲ"], "newFinals": [],
+      "teach": [
+        {"target": "가", "explain": {"ko": "ㄱ: 부드러운 소리.", "de": "ㄱ: weich, ohne Luftstoß.", "en": "ㄱ: soft, no puff of air."}},
+        {"target": "카", "explain": {"ko": "ㅋ: 숨이 세게 나와요. 입 앞에 손을 대 보세요.", "de": "ㅋ: mit Luftstoß wie k in „Kuh“. Halte die Hand vor den Mund.", "en": "ㅋ: with a puff of air like k in “key”. Hold your hand in front of your mouth."}},
+        {"target": "까", "explain": {"ko": "ㄲ: 목에 힘을 주고 숨은 거의 안 나와요.", "de": "ㄲ: gespannt, fast ohne Luft, wie k in „Skala“.", "en": "ㄲ: tense, almost no air, like k in “sky”."}}
+      ],
+      "build": ["카", "꼬"],
+      "listen": [{"audio": "카", "options": ["가", "카", "까"]}, {"audio": "까", "options": ["가", "카", "까"]}, {"audio": "가", "options": ["가", "카", "까"]}],
+      "check": [{"audio": "코", "options": ["고", "코", "꼬"]}, {"audio": "끼", "options": ["기", "키", "끼"]}, {"audio": "쿠", "options": ["구", "쿠", "꾸"]}]
+    },
+    {
+      "id": "F09", "band": "contrasts", "sejongRef": "입문 4과·5과", "foundationRefs": ["F0.3.air-two", "F0.3.firm-two"],
+      "title": {"ko": "다·타·따 / 바·파·빠 / 자·차·짜 / 사·싸", "de": "Drei Klänge: ㄷㅌㄸ, ㅂㅍㅃ, ㅈㅊㅉ, ㅅㅆ", "en": "Three sounds: ㄷㅌㄸ, ㅂㅍㅃ, ㅈㅊㅉ, ㅅㅆ"},
+      "newJamo": ["ㅌ", "ㄸ", "ㅍ", "ㅃ", "ㅊ", "ㅉ", "ㅆ"], "newFinals": [],
+      "teach": [
+        {"target": "타", "explain": {"ko": "ㅌ: 숨이 세게 나와요.", "de": "ㅌ: t mit Luftstoß.", "en": "ㅌ: t with a puff of air."}},
+        {"target": "따", "explain": {"ko": "ㄸ: 힘을 주고 숨은 거의 없어요.", "de": "ㄸ: gespanntes t ohne Luftstoß.", "en": "ㄸ: tense t without a puff of air."}},
+        {"target": "파", "explain": {"ko": "ㅍ: 숨이 세게 나와요.", "de": "ㅍ: p mit Luftstoß.", "en": "ㅍ: p with a puff of air."}},
+        {"target": "빠", "explain": {"ko": "ㅃ: 힘을 주고 숨은 거의 없어요.", "de": "ㅃ: gespanntes p ohne Luftstoß.", "en": "ㅃ: tense p without a puff of air."}},
+        {"target": "차", "explain": {"ko": "ㅊ: 숨이 세게 나와요.", "de": "ㅊ: tsch mit Luftstoß.", "en": "ㅊ: ch with a puff of air."}},
+        {"target": "짜", "explain": {"ko": "ㅉ: 힘을 주고 숨은 거의 없어요.", "de": "ㅉ: gespanntes tsch ohne Luftstoß.", "en": "ㅉ: tense ch without a puff of air."}},
+        {"target": "싸", "explain": {"ko": "ㅆ: 힘을 준 날카로운 ㅅ이에요.", "de": "ㅆ: ein gespanntes, scharfes s.", "en": "ㅆ: a tense, sharp s."}}
+      ],
+      "build": ["토", "뻐", "찌"],
+      "listen": [{"audio": "타", "options": ["다", "타", "따"]}, {"audio": "파", "options": ["바", "파", "빠"]}, {"audio": "짜", "options": ["자", "차", "짜"]}, {"audio": "싸", "options": ["사", "싸"]}],
+      "check": [{"audio": "토", "options": ["도", "토", "또"]}, {"audio": "뿌", "options": ["부", "푸", "뿌"]}, {"audio": "치", "options": ["지", "치", "찌"]}]
+    },
+    {
+      "id": "F10", "band": "contrasts", "sejongRef": "입문 6과", "foundationRefs": ["F0.3.near-vowels", "F0.3.corner-vowels"],
+      "title": {"ko": "ㅐ·ㅔ·ㅘ·ㅝ", "de": "ㅐ, ㅔ, ㅘ, ㅝ", "en": "ㅐ, ㅔ, ㅘ, ㅝ"},
+      "newJamo": ["ㅐ", "ㅔ", "ㅘ", "ㅝ"], "newFinals": [],
+      "teach": [
+        {"target": "애", "explain": {"ko": "ㅐ와 ㅔ는 요즘 거의 같은 소리예요. 철자를 보고 구별해요.", "de": "ㅐ und ㅔ klingen heute fast gleich, wie e in „Bett“. Unterscheide sie an der Schreibung.", "en": "ㅐ and ㅔ sound almost the same today, like e in “bed”. Tell them apart by spelling."}},
+        {"target": "에", "explain": {"ko": "ㅔ도 '에' 소리예요.", "de": "ㅔ klingt ebenfalls wie e.", "en": "ㅔ also sounds like e."}},
+        {"target": "와", "explain": {"ko": "ㅘ = ㅗ + ㅏ를 빨리 이어서 '와'.", "de": "ㅘ = ㅗ + ㅏ, schnell verbunden: wa.", "en": "ㅘ = ㅗ + ㅏ said quickly: wa."}},
+        {"target": "워", "explain": {"ko": "ㅝ = ㅜ + ㅓ를 빨리 이어서 '워'.", "de": "ㅝ = ㅜ + ㅓ, schnell verbunden: wo.", "en": "ㅝ = ㅜ + ㅓ said quickly: wo."}}
+      ],
+      "build": ["개", "네", "과", "뭐"],
+      "listen": [{"audio": "와", "options": ["와", "워"]}, {"audio": "워", "options": ["와", "워"]}, {"audio": "배", "options": ["배", "바"]}],
+      "check": [{"audio": "과", "options": ["과", "거"]}, {"audio": "뭐", "options": ["뭐", "머"]}, {"audio": "세", "options": ["세", "사"]}]
+    },
+    {
+      "id": "F11", "band": "contrasts", "sejongRef": "입문 7과", "foundationRefs": ["F0.3.round-corner", "F0.4.wide-vowels", "F0.4.small-pair", "F0.4.last-vowel"],
+      "title": {"ko": "나머지 겹모음", "de": "Die übrigen Doppelvokale", "en": "The remaining combined vowels"},
+      "newJamo": ["ㅚ", "ㅟ", "ㅢ", "ㅒ", "ㅖ", "ㅙ", "ㅞ"], "newFinals": [],
+      "teach": [
+        {"target": "위", "explain": {"ko": "ㅟ = ㅜ + ㅣ, '위'.", "de": "ㅟ = ㅜ + ㅣ: wi.", "en": "ㅟ = ㅜ + ㅣ: wi."}},
+        {"target": "의", "explain": {"ko": "ㅢ = ㅡ + ㅣ를 빨리 이어요.", "de": "ㅢ = ㅡ + ㅣ, schnell verbunden.", "en": "ㅢ = ㅡ + ㅣ said quickly."}},
+        {"target": "외", "explain": {"ko": "ㅚ, ㅙ, ㅞ는 요즘 거의 같은 '웨' 소리예요.", "de": "ㅚ, ㅙ und ㅞ klingen heute fast gleich: we.", "en": "ㅚ, ㅙ and ㅞ sound almost the same today: we."}},
+        {"target": "왜", "explain": {"ko": "ㅙ = ㅗ + ㅐ.", "de": "ㅙ = ㅗ + ㅐ.", "en": "ㅙ = ㅗ + ㅐ."}},
+        {"target": "웨", "explain": {"ko": "ㅞ = ㅜ + ㅔ.", "de": "ㅞ = ㅜ + ㅔ.", "en": "ㅞ = ㅜ + ㅔ."}},
+        {"target": "얘", "explain": {"ko": "ㅒ와 ㅖ는 거의 같은 '예' 소리예요.", "de": "ㅒ und ㅖ klingen fast gleich: je.", "en": "ㅒ and ㅖ sound almost the same: ye."}},
+        {"target": "예", "explain": {"ko": "ㅖ는 '예'. 대답할 때 써요.", "de": "ㅖ klingt je. 예 heißt auch „ja“.", "en": "ㅖ sounds ye. 예 also means “yes”."}}
+      ],
+      "build": ["귀", "쥐", "의"],
+      "listen": [{"audio": "위", "options": ["위", "이"]}, {"audio": "의", "options": ["의", "이"]}, {"audio": "예", "options": ["예", "요"]}],
+      "check": [{"audio": "쉬", "options": ["쉬", "수"]}, {"audio": "회", "options": ["회", "호"]}, {"audio": "예", "options": ["예", "여"]}]
+    },
+    {
+      "id": "F12", "band": "finals", "sejongRef": "입문 8과", "foundationRefs": ["F0.3.first-finals", "F0.3.silent-or-sounding"],
+      "title": {"ko": "받침 ㄴ·ㅁ·ㅇ·ㄹ", "de": "Schlusslaute ㄴ, ㅁ, ㅇ, ㄹ", "en": "Finals ㄴ, ㅁ, ㅇ, ㄹ"},
+      "newJamo": [], "newFinals": ["ㄴ", "ㅁ", "ㅇ", "ㄹ"],
+      "teach": [
+        {"target": "산", "explain": {"ko": "아래에 오는 자음을 받침이라고 해요. ㄴ 받침은 'n' 소리예요.", "de": "Ein Konsonant unten heißt Batchim. ㄴ unten klingt wie n.", "en": "A consonant at the bottom is called batchim. ㄴ at the bottom sounds like n."}},
+        {"target": "감", "explain": {"ko": "ㅁ 받침은 입술을 닫고 끝나요.", "de": "ㅁ unten: Lippen schließen, m.", "en": "ㅁ at the bottom: close your lips, m."}},
+        {"target": "강", "explain": {"ko": "ㅇ은 위에서는 소리가 없지만 받침에서는 'ng' 소리예요.", "de": "ㅇ ist oben stumm, unten klingt es wie ng in „lang“.", "en": "ㅇ is silent on top but sounds like ng in “sing” at the bottom."}},
+        {"target": "말", "explain": {"ko": "ㄹ 받침은 맑은 'l' 소리예요.", "de": "ㄹ unten klingt wie ein helles l.", "en": "ㄹ at the bottom sounds like a clear l."}}
+      ],
+      "build": ["반", "숨", "공", "길"],
+      "listen": [{"audio": "반", "options": ["반", "방"]}, {"audio": "감", "options": ["감", "강"]}, {"audio": "물", "options": ["물", "문"]}],
+      "check": [{"audio": "산", "options": ["산", "상"]}, {"audio": "봄", "options": ["봄", "본"]}, {"audio": "길", "options": ["길", "김"]}]
+    },
+    {
+      "id": "F13", "band": "finals", "sejongRef": "입문 9과", "foundationRefs": ["F0.4.closed-endings"],
+      "title": {"ko": "받침 ㄱ·ㄷ·ㅂ과 대표음", "de": "Schlusslaute ㄱ, ㄷ, ㅂ", "en": "Finals ㄱ, ㄷ, ㅂ"},
+      "newJamo": [], "newFinals": ["ㄱ", "ㄷ", "ㅂ", "ㅅ", "ㅈ"],
+      "teach": [
+        {"target": "국", "explain": {"ko": "ㄱ 받침은 소리를 터뜨리지 않고 막아요.", "de": "ㄱ unten wird nicht gelöst: ein kurzes, verschlucktes k.", "en": "ㄱ at the bottom is not released: a short, swallowed k."}},
+        {"target": "밥", "explain": {"ko": "ㅂ 받침은 입술을 닫은 채 끝나요.", "de": "ㅂ unten: Lippen schließen und nicht wieder öffnen.", "en": "ㅂ at the bottom: close your lips and keep them closed."}},
+        {"target": "옷", "explain": {"ko": "ㅅ, ㅈ 받침은 [ㄷ]처럼 소리 나요.", "de": "ㅅ und ㅈ unten klingen wie ㄷ.", "en": "ㅅ and ㅈ at the bottom sound like ㄷ."}}
+      ],
+      "reading": [{"text": "옷", "sound": "옫"}, {"text": "낮", "sound": "낟"}, {"text": "밥", "sound": "밥"}, {"text": "국", "sound": "국"}],
+      "build": ["박", "곧", "집"],
+      "listen": [{"audio": "밥", "options": ["밥", "방"]}, {"audio": "박", "options": ["박", "반"]}, {"audio": "집", "options": ["집", "짐"]}],
+      "check": [{"audio": "국", "options": ["국", "군"]}, {"audio": "옷", "options": ["옷", "오"]}, {"audio": "낮", "options": ["낮", "남"]}]
+    },
+    {
+      "id": "F14", "band": "finals", "sejongRef": "입문 10과·12과", "foundationRefs": ["F0.4.linked-sounds", "F0.4.space-and-place"],
+      "title": {"ko": "이어 읽기와 인사", "de": "Verbinden und erste Grüße", "en": "Linking and first greetings"},
+      "newJamo": [], "newFinals": [],
+      "teach": [
+        {"target": "문이", "explain": {"ko": "뒤에 모음이 오면 받침이 다음 글자로 넘어가요: 문이 [무니].", "de": "Folgt ein Vokal, rutscht der Schlusslaut in die nächste Silbe: 문이 klingt [무니].", "en": "Before a vowel the final moves into the next syllable: 문이 sounds [무니]."}},
+        {"target": "밥이", "explain": {"ko": "밥이 [바비].", "de": "밥이 klingt [바비].", "en": "밥이 sounds [바비]."}}
+      ],
+      "reading": [{"text": "문이", "sound": "무니"}, {"text": "밥이", "sound": "바비"}, {"text": "옷이", "sound": "오시"}, {"text": "집에", "sound": "지베"}],
+      "build": ["안", "녕"],
+      "words": [
+        {"ko": "안녕하세요", "de": "Hallo", "en": "Hello"},
+        {"ko": "감사합니다", "de": "Danke", "en": "Thank you"},
+        {"ko": "고마워요", "de": "Danke (vertraut)", "en": "Thanks"},
+        {"ko": "미안해요", "de": "Entschuldigung", "en": "Sorry"},
+        {"ko": "네", "de": "Ja", "en": "Yes"},
+        {"ko": "아니요", "de": "Nein", "en": "No"},
+        {"ko": "안녕히 가세요", "de": "Auf Wiedersehen (zu jemandem, der geht)", "en": "Goodbye (to someone leaving)"},
+        {"ko": "다시 말해 주세요", "de": "Bitte noch einmal", "en": "Please say it again"}
+      ],
+      "listen": [{"audio": "안녕하세요", "options": ["안녕하세요", "감사합니다"]}, {"audio": "고마워요", "options": ["고마워요", "미안해요"]}, {"audio": "아니요", "options": ["네", "아니요"]}],
+      "check": [{"audio": "감사합니다", "options": ["감사합니다", "안녕하세요"]}, {"audio": "다시 말해 주세요", "options": ["다시 말해 주세요", "안녕히 가세요"]}, {"audio": "네", "options": ["네", "아니요"]}]
+    }
+  ]
+}
