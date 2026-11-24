@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../services/analytics_service.dart';
 import '../services/hangul_foundation_catalog.dart';
 import '../services/hangul_start_progress.dart';
 import '../services/hangul_util.dart';
@@ -291,12 +292,23 @@ class _HangulStartScreenState extends State<HangulStartScreen>
       _item = item;
       _view = _View.lesson;
     });
+    unawaited(
+      Analytics.lessonStarted(lessonType: 'hangul_start', lessonId: lesson.id),
+    );
   }
 
   Future<void> _advanceLesson() async {
     final lesson = _lesson!;
     if (_stage == 6) {
+      final firstTime = !_progress.completed.contains(lesson.id);
       if (await _save(() => _store.complete(lesson.id)) && mounted) {
+        unawaited(
+          Analytics.lessonCompleted(
+            lessonType: 'hangul_start',
+            lessonId: lesson.id,
+            firstTime: firstTime,
+          ),
+        );
         _show(_View.lessonResult);
       }
       return;
@@ -336,7 +348,14 @@ class _HangulStartScreenState extends State<HangulStartScreen>
     }
     final score =
         _testAnswers.where((answer) => answer).length + (correct ? 1 : 0);
-    if (score >= test.passAt && !await _save(_store.pass)) return;
+    final passed = score >= test.passAt;
+    if (passed && !await _save(_store.pass)) return;
+    unawaited(
+      Analytics.lessonCompleted(
+        lessonType: 'hangul_kurztest',
+        lessonId: passed ? 'pass' : 'fail',
+      ),
+    );
     if (!mounted) return;
     _testAnswers.add(correct);
     _show(_View.testResult);
