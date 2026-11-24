@@ -4797,6 +4797,15 @@
   "phaseTaskNeedsPractice": "Keep practicing: review the explanations.",
   "phaseTaskUnscored": "Attempt saved · meaning not automatically scored",
   "phaseTaskPlay": "Listen",
+  "phaseTaskRomanizationToggle": "Romanization",
+  "phaseTaskExampleListen": "Listen to example: {text}",
+  "@phaseTaskExampleListen": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
   "phaseTaskRecord": "Record",
   "phaseTaskStop": "Stop recording",
   "phaseTaskReplay": "Listen to recording",

@@ -10389,6 +10389,14 @@ class AppL10nEn extends AppL10n {
   String get phaseTaskPlay => 'Listen';
 
   @override
+  String get phaseTaskRomanizationToggle => 'Romanization';
+
+  @override
+  String phaseTaskExampleListen(String text) {
+    return 'Listen to example: $text';
+  }
+
+  @override
   String get phaseTaskRecord => 'Record';
 
   @override

@@ -1,11 +1,15 @@
 import 'dart:async';
 import 'dart:typed_data';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
+
 import '../l10n/generated/app_localizations.dart';
 import '../services/account/cloud_write_session.dart';
 import '../services/course_progress_service.dart';
+import '../services/korean_romanization.dart';
+import '../services/storage_service.dart';
 import '../services/phase_task_catalog.dart';
 import '../services/phase_task_drafts.dart';
 import '../services/pronunciation_recorder.dart';
@@ -71,6 +75,7 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
   int _byteCount = 0;
   Uint8List? _recorded;
   late final TabController _modes;
+  String _romanMode = Storage.phaseTaskRomanization;
   @override
   void initState() {
     super.initState();
@@ -233,6 +238,36 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
       }
     }
   }
+
+  /// Plays one teaching example. Shares the [_audioBusy] flow with [_listen]
+  /// but does not count as having heard the assessed passage.
+  Future<void> _listenExample(String text) async {
+    setState(() {
+      _audioBusy = true;
+      _error = null;
+    });
+    try {
+      _drafts!.assertCurrent();
+      final ok =
+          await (widget.playAudio ??
+              (text) => TtsService.speakPassage(text, voice: 'female'))(text);
+      if (!ok) {
+        throw StateError('Audio unavailable');
+      }
+    } catch (_) {
+      if (mounted) {
+        setState(() => _error = AppL10n.of(context).phaseTaskError);
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _audioBusy = false);
+      }
+    }
+  }
+
+  bool _romanizationShownFor(String phaseId) => _romanMode == 'auto'
+      ? phaseId == 'KP01' || phaseId == 'KP02'
+      : _romanMode == 'on';
 
   Future<void> _record() async {
     setState(() {
@@ -498,12 +533,54 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
             );
     }
     final disabled = _busy || _audioBusy || _recording || _result != null;
+    // Reading aid: never shown in assessment mode, so it cannot give away
+    // what the assessed passage sounds like.
+    final showRoman = !_assessment && _romanizationShownFor(task.phaseId);
+    final muted = Theme.of(context).textTheme.bodySmall
+        ?.copyWith(color: SoriSurfaces.of(context).textMuted);
     return ListView(
       padding: padding,
       children: [
+        if (!_assessment)
+          SwitchListTile(
+            key: const ValueKey('phase-task-romanization-toggle'),
+            contentPadding: EdgeInsets.zero,
+            title: Text(t.phaseTaskRomanizationToggle),
+            value: showRoman,
+            onChanged: (value) {
+              final mode = value ? 'on' : 'off';
+              setState(() => _romanMode = mode);
+              unawaited(Storage.setPhaseTaskRomanization(mode));
+            },
+          ),
         Text(task.teaching.pick(lang)),
         for (final example in task.examplesKo)
-          Padding(padding: const EdgeInsets.only(top: 8), child: Text(example)),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(example),
+                      if (showRoman)
+                        Text(romanizeKorean(example), style: muted),
+                    ],
+                  ),
+                ),
+                IconButton(
+                  key: ValueKey('phase-task-example-listen:$example'),
+                  tooltip: t.phaseTaskExampleListen(example),
+                  icon: const Icon(Icons.volume_up_outlined),
+                  onPressed: _audioBusy || _busy || _recording
+                      ? null
+                      : () => unawaited(_listenExample(example)),
+                ),
+              ],
+            ),
+          ),
         const SizedBox(height: 16),
         if (packet.sourceKind == 'audio')
           SoriButton.outlined(
@@ -514,7 +591,14 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
           Card(
             child: Padding(
               padding: const EdgeInsets.all(16),
-              child: Text(packet.sourceKo),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(packet.sourceKo),
+                  if (showRoman)
+                    Text(romanizeKorean(packet.sourceKo), style: muted),
+                ],
+              ),
             ),
           ),
         if (packet.sourceKind == 'audio' && !_listened)

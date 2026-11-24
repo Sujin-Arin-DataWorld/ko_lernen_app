@@ -4652,6 +4652,18 @@ class Storage {
   static Future<void> setFlashcardRomanizationOnFront(bool value) =>
       _sb('kl_flashcard_romanization_front', value);
 
+  /// Romanization aid on Phase task screens: 'auto' (on for KP01/KP02 only),
+  /// 'on' or 'off'. Unknown stored values fall back to 'auto'.
+  static String get phaseTaskRomanization {
+    final v = _prefs?.getString('kl_phase_task_romanization');
+    return v == 'on' || v == 'off' ? v! : 'auto';
+  }
+
+  static Future<void> setPhaseTaskRomanization(String value) => _ss(
+    'kl_phase_task_romanization',
+    value == 'on' || value == 'off' ? value : 'auto',
+  );
+
   // ───────── App / Streak ─────────
   static String get lastOpenDate => _s('kl_last_open_date'); // 'YYYY-MM-DD'
   static int get streakDays => _i('kl_streak_days');
