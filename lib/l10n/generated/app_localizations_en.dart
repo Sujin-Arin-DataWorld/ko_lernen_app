@@ -1174,6 +1174,12 @@ class AppL10nEn extends AppL10n {
   String get screenWordleTitle => 'Syllable puzzle';
 
   @override
+  String get silbenPlaceInstruction => 'Choose a cell · tap a syllable';
+
+  @override
+  String get silbenPoolTitle => 'Your syllables';
+
+  @override
   String get silbenEmptyBody =>
       'No syllable puzzles are ready for your learning level yet.';
 
@@ -12759,6 +12765,43 @@ class AppL10nEn extends AppL10n {
     });
     return '$_temp0';
   }
+
+  @override
+  String get approvedQuizTitle => 'Word Quiz';
+
+  @override
+  String approvedQuizCorrect(int count) {
+    return '$count correct';
+  }
+
+  @override
+  String get approvedQuizChooseMeaning => 'Choose the meaning.';
+
+  @override
+  String get approvedGameListen => 'Listen';
+
+  @override
+  String get approvedMatchingTitle => 'Find pairs';
+
+  @override
+  String get approvedMatchingInstruction => 'First Korean, then the meaning.';
+
+  @override
+  String approvedMatchingCounter(int count, int total) {
+    return '$count of $total pairs';
+  }
+
+  @override
+  String get approvedMatchingPickKorean => 'Tap a Korean word.';
+
+  @override
+  String get approvedMatchingPickMeaning => 'Now choose the matching meaning.';
+
+  @override
+  String get approvedMatchingRetry => 'Tap the matching meaning.';
+
+  @override
+  String get approvedMatchingFound => 'Pair found.';
 
   @override
   String get pronunciationPracticeRhythm => 'Practice sentence rhythm';

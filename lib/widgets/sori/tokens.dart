@@ -97,6 +97,9 @@ class SoriBreakpoints {
   /// Very narrow phone content where two comparison panels must stack.
   static const double narrowPhone = 360;
 
+  /// The full Syllable Crossword header needs room for title and controls.
+  static const double syllableFullChrome = 402;
+
   /// 기본 콘텐츠 컬럼 (홈·리스트·설정).
   static const double content = 480;
 

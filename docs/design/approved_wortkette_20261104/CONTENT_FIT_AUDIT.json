@@ -1,0 +1,6326 @@
+{
+  "schemaVersion": 1,
+  "generatedAtUtc": "2026-11-04T06:33:13.376567+00:00",
+  "scope": "Read-only source fit audit. No UI, source pool, translations, engine, or CEFR rules changed.",
+  "checkout": {
+    "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104",
+    "branch": "session/quiz-matching-figma-20261104",
+    "head": "b11c7ef838e6f18be72d7bed5404589c158d2b8f",
+    "note": "Screen source was active WIP at snapshot; source hashes define exact inspected bytes."
+  },
+  "sources": {
+    "assets/data/kkeunmari_pool.json": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\data\\kkeunmari_pool.json",
+      "sha256": "5d46d2f5029710bfdbca9bccf96efb4f61454e5bf77fdde73046518f0438a3f2",
+      "bytes": 541287
+    },
+    "assets/data/kkeunmari_nouns.json": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\data\\kkeunmari_nouns.json",
+      "sha256": "5cbcb49d9f77ff5f3f3dffb52ecce390d0cc13cd4c9d7815467e5169482c239e",
+      "bytes": 412631
+    },
+    "lib/services/kkeunmari_engine.dart": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\services\\kkeunmari_engine.dart",
+      "sha256": "e04d2eac3e0d89e1c2df83ebac089941388c887ce06bf44039c24ceb92b1d9d5",
+      "bytes": 12056
+    },
+    "lib/services/korean_noun_lexicon.dart": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\services\\korean_noun_lexicon.dart",
+      "sha256": "209cb7fd66b4592afb0d870636ace1f75d47b8cbe763b1cd3579e6e65a46152c",
+      "bytes": 911
+    },
+    "lib/services/kkeunmari_dictionary_service.dart": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\services\\kkeunmari_dictionary_service.dart",
+      "sha256": "61c0421908625d7aa7cc7abd00108d0a55d6cb086dbabf6612bb7a9e77648232",
+      "bytes": 4674
+    },
+    "lib/services/vocab_deck_source.dart": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\services\\vocab_deck_source.dart",
+      "sha256": "1dc48eb88badb80dc2c1c827d95befd4d3fc3cb1e41050ffa76897c6070369b6",
+      "bytes": 1476
+    },
+    "lib/screens/kkeunmari_screen.dart": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\screens\\kkeunmari_screen.dart",
+      "sha256": "b101cf6e2320a87b2294e123ff42d14b2235e53d5effd9af7b66bf3775ad28f5",
+      "bytes": 49806
+    },
+    "functions/analyze_korean_text/main.py": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\functions\\analyze_korean_text\\main.py",
+      "sha256": "699221d0459cad25cbccaea156a6b84036c5cd45b25130709ef6af9125b57e3f",
+      "bytes": 36680
+    },
+    "test/kkeunmari_gloss_locale_test.dart": {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\test\\kkeunmari_gloss_locale_test.dart",
+      "sha256": "9fb8912374f65e645e618194801337b2ba373697eb65a0331a5c34096ff44c04",
+      "bytes": 889
+    }
+  },
+  "countingMethod": {
+    "wordLength": "Count Unicode precomposed Hangul syllables. Every raw pool word is entirely U+AC00..U+D7A3, so Unicode character, grapheme, syllable and Dart UTF-16 length counts agree.",
+    "glossLength": "Source Unicode characters including whitespace/punctuation. Also record UTF-16 count. Character counts are not pixel-width measurements; final UI must use real font layout.",
+    "runtimeSelection": "Exact static reproduction of KkeunmariEngine.load predicate: noun whitelist membership AND word.length>=2 AND first==word[0] AND last==word[last]. No CEFR or word-length family heuristic applied.",
+    "assetMetadataTotal": 2662
+  },
+  "rawPool": {
+    "count": 2662,
+    "uniqueWordCount": 2662,
+    "wordSyllableDistribution": {
+      "2": 2223,
+      "3": 343,
+      "4": 85,
+      "5": 11
+    },
+    "minWordSyllables": 2,
+    "maxWordSyllables": 5,
+    "wordWhitespaceCount": 0,
+    "nonPrecomposedHangulWordCount": 0,
+    "levelLabelsAsStored": {
+      "A1": 1425,
+      "A2": 1051,
+      "B1": 61,
+      "B2": 69,
+      "C1": 28,
+      "C2": 28
+    },
+    "glosses": {
+      "german": {
+        "nonempty": 2662,
+        "emptyOrMissing": 0,
+        "characterLengthDistribution": {
+          "1": 2,
+          "2": 15,
+          "3": 89,
+          "4": 308,
+          "5": 400,
+          "6": 366,
+          "7": 281,
+          "8": 235,
+          "9": 217,
+          "10": 182,
+          "11": 131,
+          "12": 91,
+          "13": 65,
+          "14": 46,
+          "15": 47,
+          "16": 33,
+          "17": 23,
+          "18": 17,
+          "19": 13,
+          "20": 23,
+          "21": 10,
+          "22": 16,
+          "23": 10,
+          "24": 11,
+          "25": 4,
+          "26": 6,
+          "27": 6,
+          "28": 4,
+          "31": 4,
+          "33": 2,
+          "35": 2,
+          "39": 1,
+          "41": 1,
+          "52": 1
+        },
+        "minNonemptyCharacters": 1,
+        "maxCharacters": 52,
+        "longestEntries": [
+          {
+            "sourceJsonPointer": "/words/269",
+            "word": "검사",
+            "first": "검",
+            "last": "사",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "Untersuchung; Kontrolle; Staatsanwalt/Staatsanwältin",
+            "english": "inspection; examination; prosecutor",
+            "germanMetrics": {
+              "unicodeCharacters": 52,
+              "utf16CodeUnits": 52,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 27,
+              "hasWhitespace": true
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 35,
+              "utf16CodeUnits": 35,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 12,
+              "hasWhitespace": true
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "maxWhitespaceSeparatedTokenCharacters": 27,
+        "longestTokenEntries": [
+          {
+            "sourceJsonPointer": "/words/269",
+            "word": "검사",
+            "first": "검",
+            "last": "사",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "Untersuchung; Kontrolle; Staatsanwalt/Staatsanwältin",
+            "english": "inspection; examination; prosecutor",
+            "germanMetrics": {
+              "unicodeCharacters": 52,
+              "utf16CodeUnits": 52,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 27,
+              "hasWhitespace": true
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 35,
+              "utf16CodeUnits": 35,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 12,
+              "hasWhitespace": true
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "utf16AndUnicodeCountDifferEntries": 0
+      },
+      "english": {
+        "nonempty": 154,
+        "emptyOrMissing": 2508,
+        "characterLengthDistribution": {
+          "0": 2508,
+          "3": 8,
+          "4": 15,
+          "5": 14,
+          "6": 17,
+          "7": 7,
+          "8": 5,
+          "9": 5,
+          "10": 3,
+          "11": 14,
+          "12": 8,
+          "13": 6,
+          "14": 4,
+          "15": 7,
+          "16": 5,
+          "17": 5,
+          "18": 4,
+          "19": 6,
+          "20": 3,
+          "21": 2,
+          "22": 2,
+          "23": 1,
+          "24": 2,
+          "25": 3,
+          "28": 2,
+          "33": 1,
+          "35": 1,
+          "40": 1,
+          "42": 1,
+          "66": 1,
+          "67": 1
+        },
+        "minNonemptyCharacters": 3,
+        "maxCharacters": 67,
+        "longestEntries": [
+          {
+            "sourceJsonPointer": "/words/146",
+            "word": "언니",
+            "first": "언",
+            "last": "니",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "ältere Schwester (Sicht der Frau)",
+            "english": "older sister (used by a female); form of address for an older woman",
+            "germanMetrics": {
+              "unicodeCharacters": 33,
+              "utf16CodeUnits": 33,
+              "whitespaceSeparatedTokens": 5,
+              "longestWhitespaceSeparatedTokenCharacters": 9,
+              "hasWhitespace": true
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 67,
+              "utf16CodeUnits": 67,
+              "whitespaceSeparatedTokens": 13,
+              "longestWhitespaceSeparatedTokenCharacters": 8,
+              "hasWhitespace": true
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "maxWhitespaceSeparatedTokenCharacters": 13,
+        "longestTokenEntries": [
+          {
+            "sourceJsonPointer": "/words/216",
+            "word": "이해",
+            "first": "이",
+            "last": "해",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "Verständnis",
+            "english": "understanding",
+            "germanMetrics": {
+              "unicodeCharacters": 11,
+              "utf16CodeUnits": 11,
+              "whitespaceSeparatedTokens": 1,
+              "longestWhitespaceSeparatedTokenCharacters": 11,
+              "hasWhitespace": false
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 13,
+              "utf16CodeUnits": 13,
+              "whitespaceSeparatedTokens": 1,
+              "longestWhitespaceSeparatedTokenCharacters": 13,
+              "hasWhitespace": false
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "utf16AndUnicodeCountDifferEntries": 0
+      }
+    }
+  },
+  "runtimePool": {
+    "count": 1843,
+    "uniqueWordCount": 1843,
+    "wordSyllableDistribution": {
+      "2": 1570,
+      "3": 231,
+      "4": 38,
+      "5": 4
+    },
+    "minWordSyllables": 2,
+    "maxWordSyllables": 5,
+    "wordWhitespaceCount": 0,
+    "nonPrecomposedHangulWordCount": 0,
+    "levelLabelsAsStored": {
+      "A1": 927,
+      "A2": 770,
+      "B1": 54,
+      "B2": 65,
+      "C1": 14,
+      "C2": 13
+    },
+    "glosses": {
+      "german": {
+        "nonempty": 1843,
+        "emptyOrMissing": 0,
+        "characterLengthDistribution": {
+          "2": 4,
+          "3": 39,
+          "4": 182,
+          "5": 251,
+          "6": 249,
+          "7": 211,
+          "8": 179,
+          "9": 162,
+          "10": 140,
+          "11": 101,
+          "12": 72,
+          "13": 51,
+          "14": 28,
+          "15": 32,
+          "16": 29,
+          "17": 18,
+          "18": 13,
+          "19": 9,
+          "20": 17,
+          "21": 8,
+          "22": 10,
+          "23": 7,
+          "24": 7,
+          "25": 3,
+          "26": 4,
+          "27": 4,
+          "28": 3,
+          "31": 4,
+          "33": 2,
+          "35": 1,
+          "39": 1,
+          "41": 1,
+          "52": 1
+        },
+        "minNonemptyCharacters": 2,
+        "maxCharacters": 52,
+        "longestEntries": [
+          {
+            "sourceJsonPointer": "/words/269",
+            "word": "검사",
+            "first": "검",
+            "last": "사",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "Untersuchung; Kontrolle; Staatsanwalt/Staatsanwältin",
+            "english": "inspection; examination; prosecutor",
+            "germanMetrics": {
+              "unicodeCharacters": 52,
+              "utf16CodeUnits": 52,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 27,
+              "hasWhitespace": true
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 35,
+              "utf16CodeUnits": 35,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 12,
+              "hasWhitespace": true
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "maxWhitespaceSeparatedTokenCharacters": 27,
+        "longestTokenEntries": [
+          {
+            "sourceJsonPointer": "/words/269",
+            "word": "검사",
+            "first": "검",
+            "last": "사",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "Untersuchung; Kontrolle; Staatsanwalt/Staatsanwältin",
+            "english": "inspection; examination; prosecutor",
+            "germanMetrics": {
+              "unicodeCharacters": 52,
+              "utf16CodeUnits": 52,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 27,
+              "hasWhitespace": true
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 35,
+              "utf16CodeUnits": 35,
+              "whitespaceSeparatedTokens": 3,
+              "longestWhitespaceSeparatedTokenCharacters": 12,
+              "hasWhitespace": true
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "utf16AndUnicodeCountDifferEntries": 0
+      },
+      "english": {
+        "nonempty": 152,
+        "emptyOrMissing": 1691,
+        "characterLengthDistribution": {
+          "0": 1691,
+          "3": 8,
+          "4": 15,
+          "5": 14,
+          "6": 17,
+          "7": 6,
+          "8": 5,
+          "9": 5,
+          "10": 2,
+          "11": 14,
+          "12": 8,
+          "13": 6,
+          "14": 4,
+          "15": 7,
+          "16": 5,
+          "17": 5,
+          "18": 4,
+          "19": 6,
+          "20": 3,
+          "21": 2,
+          "22": 2,
+          "23": 1,
+          "24": 2,
+          "25": 3,
+          "28": 2,
+          "33": 1,
+          "35": 1,
+          "40": 1,
+          "42": 1,
+          "66": 1,
+          "67": 1
+        },
+        "minNonemptyCharacters": 3,
+        "maxCharacters": 67,
+        "longestEntries": [
+          {
+            "sourceJsonPointer": "/words/146",
+            "word": "언니",
+            "first": "언",
+            "last": "니",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "ältere Schwester (Sicht der Frau)",
+            "english": "older sister (used by a female); form of address for an older woman",
+            "germanMetrics": {
+              "unicodeCharacters": 33,
+              "utf16CodeUnits": 33,
+              "whitespaceSeparatedTokens": 5,
+              "longestWhitespaceSeparatedTokenCharacters": 9,
+              "hasWhitespace": true
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 67,
+              "utf16CodeUnits": 67,
+              "whitespaceSeparatedTokens": 13,
+              "longestWhitespaceSeparatedTokenCharacters": 8,
+              "hasWhitespace": true
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "maxWhitespaceSeparatedTokenCharacters": 13,
+        "longestTokenEntries": [
+          {
+            "sourceJsonPointer": "/words/216",
+            "word": "이해",
+            "first": "이",
+            "last": "해",
+            "syllables": 2,
+            "sourceLevelUnmodified": "A1",
+            "german": "Verständnis",
+            "english": "understanding",
+            "germanMetrics": {
+              "unicodeCharacters": 11,
+              "utf16CodeUnits": 11,
+              "whitespaceSeparatedTokens": 1,
+              "longestWhitespaceSeparatedTokenCharacters": 11,
+              "hasWhitespace": false
+            },
+            "englishMetrics": {
+              "unicodeCharacters": 13,
+              "utf16CodeUnits": 13,
+              "whitespaceSeparatedTokens": 1,
+              "longestWhitespaceSeparatedTokenCharacters": 13,
+              "hasWhitespace": false
+            },
+            "runtimeEligible": true
+          }
+        ],
+        "utf16AndUnicodeCountDifferEntries": 0
+      }
+    }
+  },
+  "runtimeFilter": {
+    "excludedCount": 819,
+    "reasonCounts": {
+      "not_in_offline_noun_lexicon": 819
+    },
+    "excludedWords": [
+      {
+        "word": "내가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "거야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "정말",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "여기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이제",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지금",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "우린",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "다시",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "당신",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오늘",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "누가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아주",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "진짜",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모두",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "어서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "위해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "바로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "알고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이거",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "계속",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제발",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "어디",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "안녕",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "만약",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "저기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "잠깐",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이미",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "절대",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "말은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "거기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "전부",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아무",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아마",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시간",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "먼저",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "수가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "방금",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자네",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "혼자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "물론",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "거의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "말도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "내일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "알지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "직접",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "위한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "언제",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지난",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보여",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "와서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "여보",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "서로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매우",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "별로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "후에",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일단",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "금방",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "결국",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하게",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "저희",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "어제",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "애가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "스스로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "앉아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "건가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "타고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "원래",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "얼른",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아까",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "분명",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "역시",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "조지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "잠시",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "그레이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "입고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "소리야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "헤이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "관한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보게",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "건지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "주고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "어이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "통해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "점점",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "죽인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "열어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "현재",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "잡고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마라",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "메러디스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "만난",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "약간",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "와요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "크리스티나",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자꾸",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "저리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "와우",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "다신",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "설마",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자식",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보통",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "원해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "만한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "분이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "데릭",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이래",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "거니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "적은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "신이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오직",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제임스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "착한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "죽여",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "차가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "죽고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이만",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "배가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가질",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "의해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "헨리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "종일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매번",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "고작",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "무척",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "버크",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "스티븐스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "만세",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "서서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "루시퍼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "달리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "번만",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "미첼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "달러",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "에이버리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "배리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "신은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비록",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "개의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지내",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "쉬어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자말",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "에이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가득",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일할",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "각자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "채로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "차려",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "남의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "향해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "실제",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "헌트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "존스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "조이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "바래",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아멘",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "그린",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "노아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지미",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "엘리엇",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "왓슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "명은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "카논",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "캡틴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "만일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "내고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "목이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해본",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "후로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "엘리스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "몰리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "부스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마리아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "윌슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "브라이언",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "게이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "속의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "내로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "성하",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "사라",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "머피",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "루이스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "대고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "심한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매년",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "열고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "양이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "잭슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "편이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "왕의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "토마스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "토니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하진",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "대충",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하든",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보네",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "알기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "종종",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "두지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "블랙",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "당한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "주로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오버",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "점이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "리디아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나간",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "구해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "졸라",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "집도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시애틀",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "총은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "번호",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "집어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "병이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보렴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마침",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "다니엘",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "말자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "먹자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하신",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "켈리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "속이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "브루스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "약이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "조용",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "안드레",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "뇌가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "입어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "문은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나치",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "알렌",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "거랑",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "사이먼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오렴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "루이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "피트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "바라",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "안고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "바라지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이안",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "무어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "주신",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모건",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "여태",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "펄스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "다요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "주실",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아유",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "포드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나나",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "화난",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "발이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "군요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "고든",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "남지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "번은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "왕은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "인마",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "수천",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "밀어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하워드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "조차",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "리즈",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "진작",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "패트릭",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보군",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "왜지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "양의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오우",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "와라",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오실",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마다",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "칼로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "분의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "셔먼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "베넷",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "데니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "쿠퍼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "글로리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "팔고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "캐리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "니들",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한단",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "싸구려",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "법이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로즈",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "내말",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "배로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "대략",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시카고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "스튜",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "내지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "막지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "스미스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "기가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "웨인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "포르노",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "칼리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "바랄",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "입이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "수백",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "구한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "와도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나이트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "주목",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "애비",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "감고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하려",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모조리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "계실",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매주",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "안가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "스펜서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "도니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "허드슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오스카",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "애디슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하필",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "카터",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "중의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "베스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아일랜드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자란",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "폭스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "타일러",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "거로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모여",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "브라이스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "대박",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한거",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "데이비스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "조가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "두면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "본인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "취한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "의역",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "소린",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "각각",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "웨스트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하하",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "토비",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "노란",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한명",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "웨이드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "번의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "열지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "베티",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "구나",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "신경이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마냥",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "피츠",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "프레스턴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "에리카",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가렴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "망칠",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "손도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "독을",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "케이지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "타면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "내서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "브라운",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "다가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "그랜트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가실",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "개리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "강해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "인제",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "받기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "편한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "타지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "유진",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하비",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모리스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "테리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자연",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "클라크",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제법",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "명만",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오역",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하렴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "적어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "길고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "치지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매디슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "전할",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "밀러",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "몽고메리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "취해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "파커",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "테일러",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "클램프",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "법적",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "풋볼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "피타",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "소피아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "챈들러",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가본",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시티",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "유다",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마신",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한달",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "블레이크",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "할거",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "망친",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "야야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "베스트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해리스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "말구",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "추운",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비숍",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "성이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "물고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "형의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "월리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "후안",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "먼로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "롤로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "빌게",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "윌리엄스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시저",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "주마",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "채프먼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자게",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "리치",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "워커",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "웨슬리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "독이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "에스더",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "길어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마구",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "세고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "액션",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "산사",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "크리스티",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모세",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "영영",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "돕지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "정작",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모니카",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "분도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "토드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "품고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마르코",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "군은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "버니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "집의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "선한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "건요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모양",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "신과",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "스튜어트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "실어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해선",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "웰스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이든",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아녀",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "러셀",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "히틀러",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "소피",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "포터",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가브리엘",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "카이사르",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "메인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하란",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "호도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "존슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "고스트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "프랭클린",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "파운드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "빅토리아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "케이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "알바",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "링컨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "감이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "후드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "토르",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "형도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "피셔",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마사",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "라이더",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "꾸지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "불과",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "주렴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "크리켓",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "투어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "부시",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "몰아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "멜리사",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "울프",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "레니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "다소",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "대개",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "의대",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비네",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "잠은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "케익",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "미미",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한창",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "리스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "피의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "게리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "테러리스트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "미터",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "타서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "봉합",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "문도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "약해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "터너",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가려",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "와이프",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "골드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "밀스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "도무지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "반이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아벨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "반경",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "말의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "산다",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "불은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보드카",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "좌현",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "살수",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "알리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "색이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "세운",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "등이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아이리스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "배의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "담고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "게다",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "지어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "야한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "렉스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보스턴",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "귀한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "레즈비언",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "설리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "페퍼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "베이커",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "선이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "트롤",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "형과",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "보진",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "마이애미",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "차야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "임상",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "피어스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "제로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "할리우드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "장이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시방",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "질러",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "함장",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "플로렌스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "무려",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "사울",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "할리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "추고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "콜린스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "액셀",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "갈수",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "리오",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이글",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "뱀파이어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "싱글",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "베로니카",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "피도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "페리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "토머스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "앤더슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "막상",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "개도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "홉스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "키드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "머저리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "푸딩",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "업로드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "메데인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로이스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "참지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "그리핀",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오리지널",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "게일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "발라",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하버드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "적과",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "매고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아그네스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로빈슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "팔면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이나",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "베어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "버질",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "헤더",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한발",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로키",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자켓",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "딕스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "버드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "위가",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하치",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "돌이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하우스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로렌",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "천만",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "고만",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "헤나",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "차서",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "본이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비해",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "넬슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오예",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비오",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한적",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "헌터",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "요한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "룸메이트",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "나기",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "텍스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "설령",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "램지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "불고",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "사야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "프레슬리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "버디",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "명과",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "산이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "로사",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "새미",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "서연",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "사무엘",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "고마",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "셰리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "어려",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "정이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오브라이언",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "스탠리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "경은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "군의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "린지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시리얼",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "울면",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "야호",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "곡이",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "올린",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "힉스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "델타",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가로",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "시뮬레이션",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "이분",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "방의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "브룩",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "닉스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "서요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "안토니우스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "달의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "와일드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "에피네프린",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "차렷",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "안드레아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "리타",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "인자",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "조지아",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "어니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "질려",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "통한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오바",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "배도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하질",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모드",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "과한",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "서지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "브래들리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가의",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "운도",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "속인",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "알콜",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "파파",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "통할",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "모스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "해리슨",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "한은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "클리닉",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오야",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "비어",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "휘트니",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "루스",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "진저",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아이다",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "에드워즈",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "니콜",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "코리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "체리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "공은",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "쓰리",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "데일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "남자친구",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "여자친구",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "하나",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "다섯",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "여섯",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "일곱",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "여덟",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "아홉",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "좋아요",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "팔로워",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "양극화",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "타자화",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "휴식권",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "표집틀",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "상관관계",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "편향",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "재현성",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오해석",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "의사결정권",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "재명명",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "철회권",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "오작동",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "소명",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "재검토",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "형식적",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자의적",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "대기표",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "약봉지",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "입주일",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "중개료",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "수도료",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "가스비",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "직무경력",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "면접관",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "인수인계",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "유연근무",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "공공주택",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "사회통합",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "접근장벽",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "합성물",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "출처표시",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "편향성",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "감독권",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "대표성",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "자동판단",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "수익배분",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "인구구조",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "정책효과",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "인과추론",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "담론틀",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "책임소재",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "구제책",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      },
+      {
+        "word": "권력차",
+        "reasons": [
+          "not_in_offline_noun_lexicon"
+        ]
+      }
+    ],
+    "note": "Existing loader filtering, not new rejection rules. Raw pool entries are not all available in the runtime tiger pool."
+  },
+  "maximumWordCases": {
+    "allRawMaxEntries": [
+      {
+        "sourceJsonPointer": "/words/185",
+        "word": "크리스티나",
+        "first": "크",
+        "last": "나",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A1",
+        "german": "Christina",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 9,
+          "utf16CodeUnits": 9,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 9,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": false
+      },
+      {
+        "sourceJsonPointer": "/words/227",
+        "word": "크리스마스",
+        "first": "크",
+        "last": "스",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A1",
+        "german": "Weihnachten",
+        "english": "Christmas",
+        "germanMetrics": {
+          "unicodeCharacters": 11,
+          "utf16CodeUnits": 11,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 11,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 9,
+          "utf16CodeUnits": 9,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 9,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      },
+      {
+        "sourceJsonPointer": "/words/1081",
+        "word": "다이아몬드",
+        "first": "다",
+        "last": "드",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A1",
+        "german": "Diamant",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 7,
+          "utf16CodeUnits": 7,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 7,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      },
+      {
+        "sourceJsonPointer": "/words/1088",
+        "word": "엘리베이터",
+        "first": "엘",
+        "last": "터",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A1",
+        "german": "Aufzug",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 6,
+          "utf16CodeUnits": 6,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 6,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      },
+      {
+        "sourceJsonPointer": "/words/1710",
+        "word": "테러리스트",
+        "first": "테",
+        "last": "트",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A2",
+        "german": "Terrorist",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 9,
+          "utf16CodeUnits": 9,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 9,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": false
+      },
+      {
+        "sourceJsonPointer": "/words/2177",
+        "word": "오브라이언",
+        "first": "오",
+        "last": "언",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A2",
+        "german": "O’Brien",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 7,
+          "utf16CodeUnits": 7,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 7,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": false
+      },
+      {
+        "sourceJsonPointer": "/words/2246",
+        "word": "시뮬레이션",
+        "first": "시",
+        "last": "션",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A2",
+        "german": "Simulation",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 10,
+          "utf16CodeUnits": 10,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 10,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": false
+      },
+      {
+        "sourceJsonPointer": "/words/2270",
+        "word": "안토니우스",
+        "first": "안",
+        "last": "스",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A2",
+        "german": "Antonius",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 8,
+          "utf16CodeUnits": 8,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 8,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": false
+      },
+      {
+        "sourceJsonPointer": "/words/2287",
+        "word": "에피네프린",
+        "first": "에",
+        "last": "린",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A2",
+        "german": "Adrenalin",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 9,
+          "utf16CodeUnits": 9,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 9,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": false
+      },
+      {
+        "sourceJsonPointer": "/words/2352",
+        "word": "스코틀랜드",
+        "first": "스",
+        "last": "드",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A2",
+        "german": "Schottland",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 10,
+          "utf16CodeUnits": 10,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 10,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      },
+      {
+        "sourceJsonPointer": "/words/2594",
+        "word": "의사결정권",
+        "first": "의",
+        "last": "권",
+        "syllables": 5,
+        "sourceLevelUnmodified": "C2",
+        "german": "Entscheidungsrecht",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 18,
+          "utf16CodeUnits": 18,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 18,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": false
+      }
+    ],
+    "allRuntimeMaxEntries": [
+      {
+        "sourceJsonPointer": "/words/227",
+        "word": "크리스마스",
+        "first": "크",
+        "last": "스",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A1",
+        "german": "Weihnachten",
+        "english": "Christmas",
+        "germanMetrics": {
+          "unicodeCharacters": 11,
+          "utf16CodeUnits": 11,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 11,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 9,
+          "utf16CodeUnits": 9,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 9,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      },
+      {
+        "sourceJsonPointer": "/words/1081",
+        "word": "다이아몬드",
+        "first": "다",
+        "last": "드",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A1",
+        "german": "Diamant",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 7,
+          "utf16CodeUnits": 7,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 7,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      },
+      {
+        "sourceJsonPointer": "/words/1088",
+        "word": "엘리베이터",
+        "first": "엘",
+        "last": "터",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A1",
+        "german": "Aufzug",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 6,
+          "utf16CodeUnits": 6,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 6,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      },
+      {
+        "sourceJsonPointer": "/words/2352",
+        "word": "스코틀랜드",
+        "first": "스",
+        "last": "드",
+        "syllables": 5,
+        "sourceLevelUnmodified": "A2",
+        "german": "Schottland",
+        "english": "",
+        "germanMetrics": {
+          "unicodeCharacters": 10,
+          "utf16CodeUnits": 10,
+          "whitespaceSeparatedTokens": 1,
+          "longestWhitespaceSeparatedTokenCharacters": 10,
+          "hasWhitespace": false
+        },
+        "englishMetrics": {
+          "unicodeCharacters": 0,
+          "utf16CodeUnits": 0,
+          "whitespaceSeparatedTokens": 0,
+          "longestWhitespaceSeparatedTokenCharacters": 0,
+          "hasWhitespace": false
+        },
+        "runtimeEligible": true
+      }
+    ]
+  },
+  "offlineNounLexicon": {
+    "count": 25938,
+    "uniqueCount": 25938,
+    "syllableDistribution": {
+      "1": 473,
+      "2": 12688,
+      "3": 9443,
+      "4": 2795,
+      "5": 432,
+      "6": 89,
+      "7": 16,
+      "8": 2
+    },
+    "minSyllables": 1,
+    "maxSyllables": 8,
+    "allLongestWords": [
+      "천상열차분야지도",
+      "카시오페이아자리"
+    ],
+    "invalidShapeCount": 0,
+    "note": "Positive-only offline dictionary evidence; missing words can still be valid through trusted dictionary validation."
+  },
+  "inputContract": {
+    "trimOuterWhitespace": true,
+    "internalWhitespaceAllowed": false,
+    "multiwordKoreanInputAllowed": false,
+    "allowedCharacters": "Precomposed Hangul syllables U+AC00..U+D7A3 only after trim.",
+    "minimumInputSyllables": 1,
+    "maximumInputSyllables": 20,
+    "curatedPoolMinimumSyllables": 2,
+    "dictionaryFallbackForOrdinaryGame": true,
+    "dictionaryFallbackForCustomPack": false,
+    "shapeDoesNotEstablishDictionaryValidity": true,
+    "validationOrder": [
+      "trim",
+      "empty -> not_in_pool (screen ignores empty)",
+      "non-Hangul or >20 UTF-16 units -> not_korean",
+      "wrong first syllable -> wrong_start",
+      "already used -> already_used",
+      "missing pool entry -> not_in_pool",
+      "exact pool match -> ok"
+    ],
+    "boundaryExamples": [
+      {
+        "input": " 사과 ",
+        "requiredFirst": "사",
+        "usedWords": [],
+        "expectedNormalized": "사과",
+        "engineReason": "ok"
+      },
+      {
+        "input": "사 과",
+        "requiredFirst": "사",
+        "usedWords": [],
+        "engineReason": "not_korean",
+        "note": "Inserted internal space; deliberately invalid input probe, not a new pool word."
+      },
+      {
+        "input": "천상열차분야지도",
+        "requiredFirst": "천",
+        "usedWords": [],
+        "engineReason": "not_in_pool",
+        "offlineDictionaryStatus": "valid"
+      }
+    ],
+    "twentySyllableBoundary": "The code permits 20 Hangul syllables, but no 20-syllable entry exists in the current bundled pool or noun index (max5/max8 respectively). Do not label fabricated 20-syllable strings as real vocabulary or valid dictionary answers."
+  },
+  "glossContract": {
+    "selection": "KkeunmariWord.meaning normalizes language variants; en selects English, all other UI locales select German.",
+    "missingEnglish": "Empty English remains empty; no fallback to German.",
+    "dictionaryOnlyWords": "KkeunmariWord.dictionary has blank German/English.",
+    "customPack": "VocabDeckSource.wordChainPool restricts exact selected Korean terms to the curated dictionary; meaningFor returns selected row translation. Custom glosses can exceed this fixed bundled corpus audit.",
+    "glossWhitespace": "Multiword German/English glosses are supported and must wrap; this does not imply spaces are accepted in Korean submitted words."
+  },
+  "realSourceBoundaryCases": [
+    {
+      "sourceJsonPointer": "/words/118",
+      "word": "아이",
+      "first": "아",
+      "last": "이",
+      "syllables": 2,
+      "sourceLevelUnmodified": "A1",
+      "german": "Kind",
+      "english": "child",
+      "germanMetrics": {
+        "unicodeCharacters": 4,
+        "utf16CodeUnits": 4,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 4,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 5,
+        "utf16CodeUnits": 5,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 5,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "shortest_pool_word",
+      "purpose": "Two-syllable pool minimum with short reviewed glosses.",
+      "expectedGlossLocales": {
+        "de": "Kind",
+        "en": "child"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/95",
+      "word": "이야기",
+      "first": "이",
+      "last": "기",
+      "syllables": 3,
+      "sourceLevelUnmodified": "A1",
+      "german": "Geschichte",
+      "english": "story; conversation",
+      "germanMetrics": {
+        "unicodeCharacters": 10,
+        "utf16CodeUnits": 10,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 10,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 19,
+        "utf16CodeUnits": 19,
+        "whitespaceSeparatedTokens": 2,
+        "longestWhitespaceSeparatedTokenCharacters": 12,
+        "hasWhitespace": true
+      },
+      "runtimeEligible": true,
+      "id": "three_syllables",
+      "purpose": "Three-syllable layout using source content.",
+      "expectedGlossLocales": {
+        "de": "Geschichte",
+        "en": "story; conversation"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/244",
+      "word": "할아버지",
+      "first": "할",
+      "last": "지",
+      "syllables": 4,
+      "sourceLevelUnmodified": "A1",
+      "german": "Großvater",
+      "english": "grandfather",
+      "germanMetrics": {
+        "unicodeCharacters": 9,
+        "utf16CodeUnits": 9,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 9,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 11,
+        "utf16CodeUnits": 11,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 11,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "four_syllables",
+      "purpose": "Four-syllable layout with reviewed German and English.",
+      "expectedGlossLocales": {
+        "de": "Großvater",
+        "en": "grandfather"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/227",
+      "word": "크리스마스",
+      "first": "크",
+      "last": "스",
+      "syllables": 5,
+      "sourceLevelUnmodified": "A1",
+      "german": "Weihnachten",
+      "english": "Christmas",
+      "germanMetrics": {
+        "unicodeCharacters": 11,
+        "utf16CodeUnits": 11,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 11,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 9,
+        "utf16CodeUnits": 9,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 9,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "maximum_pool_syllables_reviewed_english",
+      "purpose": "Five-syllable production maximum; both locales available.",
+      "expectedGlossLocales": {
+        "de": "Weihnachten",
+        "en": "Christmas"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/1081",
+      "word": "다이아몬드",
+      "first": "다",
+      "last": "드",
+      "syllables": 5,
+      "sourceLevelUnmodified": "A1",
+      "german": "Diamant",
+      "english": "",
+      "germanMetrics": {
+        "unicodeCharacters": 7,
+        "utf16CodeUnits": 7,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 7,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 0,
+        "utf16CodeUnits": 0,
+        "whitespaceSeparatedTokens": 0,
+        "longestWhitespaceSeparatedTokenCharacters": 0,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "maximum_pool_syllables_missing_english",
+      "purpose": "Five-syllable production maximum; English must be absent.",
+      "expectedGlossLocales": {
+        "de": "Diamant",
+        "en": ""
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/269",
+      "word": "검사",
+      "first": "검",
+      "last": "사",
+      "syllables": 2,
+      "sourceLevelUnmodified": "A1",
+      "german": "Untersuchung; Kontrolle; Staatsanwalt/Staatsanwältin",
+      "english": "inspection; examination; prosecutor",
+      "germanMetrics": {
+        "unicodeCharacters": 52,
+        "utf16CodeUnits": 52,
+        "whitespaceSeparatedTokens": 3,
+        "longestWhitespaceSeparatedTokenCharacters": 27,
+        "hasWhitespace": true
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 35,
+        "utf16CodeUnits": 35,
+        "whitespaceSeparatedTokens": 3,
+        "longestWhitespaceSeparatedTokenCharacters": 12,
+        "hasWhitespace": true
+      },
+      "runtimeEligible": true,
+      "id": "longest_german_gloss",
+      "purpose": "Longest runtime German gloss and longest whitespace-delimited German token.",
+      "expectedGlossLocales": {
+        "de": "Untersuchung; Kontrolle; Staatsanwalt/Staatsanwältin",
+        "en": "inspection; examination; prosecutor"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/146",
+      "word": "언니",
+      "first": "언",
+      "last": "니",
+      "syllables": 2,
+      "sourceLevelUnmodified": "A1",
+      "german": "ältere Schwester (Sicht der Frau)",
+      "english": "older sister (used by a female); form of address for an older woman",
+      "germanMetrics": {
+        "unicodeCharacters": 33,
+        "utf16CodeUnits": 33,
+        "whitespaceSeparatedTokens": 5,
+        "longestWhitespaceSeparatedTokenCharacters": 9,
+        "hasWhitespace": true
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 67,
+        "utf16CodeUnits": 67,
+        "whitespaceSeparatedTokens": 13,
+        "longestWhitespaceSeparatedTokenCharacters": 8,
+        "hasWhitespace": true
+      },
+      "runtimeEligible": true,
+      "id": "longest_english_gloss",
+      "purpose": "Longest runtime English gloss; allow complete wrapping.",
+      "expectedGlossLocales": {
+        "de": "ältere Schwester (Sicht der Frau)",
+        "en": "older sister (used by a female); form of address for an older woman"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/157",
+      "word": "오빠",
+      "first": "오",
+      "last": "빠",
+      "syllables": 2,
+      "sourceLevelUnmodified": "A1",
+      "german": "älterer Bruder (Sicht der Frau)",
+      "english": "older brother (used by a female); form of address for an older man",
+      "germanMetrics": {
+        "unicodeCharacters": 31,
+        "utf16CodeUnits": 31,
+        "whitespaceSeparatedTokens": 5,
+        "longestWhitespaceSeparatedTokenCharacters": 7,
+        "hasWhitespace": true
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 66,
+        "utf16CodeUnits": 66,
+        "whitespaceSeparatedTokens": 13,
+        "longestWhitespaceSeparatedTokenCharacters": 8,
+        "hasWhitespace": true
+      },
+      "runtimeEligible": true,
+      "id": "second_longest_english_gloss",
+      "purpose": "Long English gloss and a dead-end source entry; UI must preserve both states.",
+      "expectedGlossLocales": {
+        "de": "älterer Bruder (Sicht der Frau)",
+        "en": "older brother (used by a female); form of address for an older man"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/2521",
+      "word": "책임감",
+      "first": "책",
+      "last": "감",
+      "syllables": 3,
+      "sourceLevelUnmodified": "B1",
+      "german": "Verantwortungsbewusstsein",
+      "english": "",
+      "germanMetrics": {
+        "unicodeCharacters": 25,
+        "utf16CodeUnits": 25,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 25,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 0,
+        "utf16CodeUnits": 0,
+        "whitespaceSeparatedTokens": 0,
+        "longestWhitespaceSeparatedTokenCharacters": 0,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "long_german_compound",
+      "purpose": "Long single German word; measure and wrap without ellipsis.",
+      "expectedGlossLocales": {
+        "de": "Verantwortungsbewusstsein",
+        "en": ""
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/617",
+      "word": "사과",
+      "first": "사",
+      "last": "과",
+      "syllables": 2,
+      "sourceLevelUnmodified": "A1",
+      "german": "Apfel",
+      "english": "",
+      "germanMetrics": {
+        "unicodeCharacters": 5,
+        "utf16CodeUnits": 5,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 5,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 0,
+        "utf16CodeUnits": 0,
+        "whitespaceSeparatedTokens": 0,
+        "longestWhitespaceSeparatedTokenCharacters": 0,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "empty_english",
+      "purpose": "English missing; retain Korean without German fallback.",
+      "expectedGlossLocales": {
+        "de": "Apfel",
+        "en": ""
+      }
+    },
+    {
+      "id": "offline_dictionary_1_꽃",
+      "word": "꽃",
+      "syllables": 1,
+      "first": "꽃",
+      "last": "꽃",
+      "german": "",
+      "english": "",
+      "source": "assets/data/kkeunmari_nouns.json",
+      "sourceJsonPointer": "/words/3659",
+      "runtimePoolMember": false,
+      "offlineDictionaryMember": true,
+      "purpose": "Real dictionary-only accepted answer; no source gloss and no insertion into tiger pool.",
+      "validationExpectation": {
+        "requiredFirst": "꽃",
+        "usedWords": [],
+        "engineReason": "not_in_pool",
+        "offlineDictionaryStatus": "valid",
+        "afterDictionaryAcceptance": "KkeunmariWord.dictionary(word), blank German and English"
+      }
+    },
+    {
+      "id": "offline_dictionary_8_천상열차분야지도",
+      "word": "천상열차분야지도",
+      "syllables": 8,
+      "first": "천",
+      "last": "도",
+      "german": "",
+      "english": "",
+      "source": "assets/data/kkeunmari_nouns.json",
+      "sourceJsonPointer": "/words/21354",
+      "runtimePoolMember": false,
+      "offlineDictionaryMember": true,
+      "purpose": "Real dictionary-only accepted answer; no source gloss and no insertion into tiger pool.",
+      "validationExpectation": {
+        "requiredFirst": "천",
+        "usedWords": [],
+        "engineReason": "not_in_pool",
+        "offlineDictionaryStatus": "valid",
+        "afterDictionaryAcceptance": "KkeunmariWord.dictionary(word), blank German and English"
+      }
+    },
+    {
+      "id": "offline_dictionary_8_카시오페이아자리",
+      "word": "카시오페이아자리",
+      "syllables": 8,
+      "first": "카",
+      "last": "리",
+      "german": "",
+      "english": "",
+      "source": "assets/data/kkeunmari_nouns.json",
+      "sourceJsonPointer": "/words/22372",
+      "runtimePoolMember": false,
+      "offlineDictionaryMember": true,
+      "purpose": "Real dictionary-only accepted answer; no source gloss and no insertion into tiger pool.",
+      "validationExpectation": {
+        "requiredFirst": "카",
+        "usedWords": [],
+        "engineReason": "not_in_pool",
+        "offlineDictionaryStatus": "valid",
+        "afterDictionaryAcceptance": "KkeunmariWord.dictionary(word), blank German and English"
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/1189",
+      "word": "기름",
+      "first": "기",
+      "last": "름",
+      "syllables": 2,
+      "sourceLevelUnmodified": "A1",
+      "german": "Öl",
+      "english": "",
+      "germanMetrics": {
+        "unicodeCharacters": 2,
+        "utf16CodeUnits": 2,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 2,
+        "hasWhitespace": false
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 0,
+        "utf16CodeUnits": 0,
+        "whitespaceSeparatedTokens": 0,
+        "longestWhitespaceSeparatedTokenCharacters": 0,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "shortest_german_gloss",
+      "purpose": "Two-character German minimum Öl; English remains absent.",
+      "expectedGlossLocales": {
+        "de": "Öl",
+        "en": ""
+      }
+    },
+    {
+      "sourceJsonPointer": "/words/21",
+      "word": "엄마",
+      "first": "엄",
+      "last": "마",
+      "syllables": 2,
+      "sourceLevelUnmodified": "A1",
+      "german": "Mama (informell)",
+      "english": "mom",
+      "germanMetrics": {
+        "unicodeCharacters": 16,
+        "utf16CodeUnits": 16,
+        "whitespaceSeparatedTokens": 2,
+        "longestWhitespaceSeparatedTokenCharacters": 11,
+        "hasWhitespace": true
+      },
+      "englishMetrics": {
+        "unicodeCharacters": 3,
+        "utf16CodeUnits": 3,
+        "whitespaceSeparatedTokens": 1,
+        "longestWhitespaceSeparatedTokenCharacters": 3,
+        "hasWhitespace": false
+      },
+      "runtimeEligible": true,
+      "id": "shortest_english_gloss",
+      "purpose": "Three-character English minimum mom with a two-syllable Korean word.",
+      "expectedGlossLocales": {
+        "de": "Mama (informell)",
+        "en": "mom"
+      }
+    }
+  ],
+  "preservationRequirements": [
+    "Do not cap visible syllable tiles at five just because curated pool maximum is five; real accepted dictionary-only words reach eight, and engine input shape allows twenty.",
+    "Do not assign CEFR from syllable count. Stored level labels are reported unchanged and are not used for fit-family decisions.",
+    "Keep all letters and full German/English glosses visible through measured layout and responsive wrapping/scroll when necessary.",
+    "Preserve the 20-character input limit, external-whitespace trim, internal-whitespace rejection, exact first-syllable checks and used-word rejection.",
+    "Keep empty English hidden and dictionary-only blank glosses; do not invent translations.",
+    "Keep dynamic live next-count logic; asset next_count/is_dead_end fields describe the full persisted corpus and are not layout constraints."
+  ],
+  "verification": {
+    "kind": "Source/data audit only; not a Flutter render or device proof.",
+    "pythonReadOnlySourceAnalysis": true,
+    "sourceFilesModified": false,
+    "poolAndEngineHashesRecheckedBeforeWrite": true
+  }
+}

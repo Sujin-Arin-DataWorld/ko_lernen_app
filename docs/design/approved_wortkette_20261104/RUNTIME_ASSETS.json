@@ -1,0 +1,32 @@
+[
+  {
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\wortkette-figma-native-20261104\\assets\\wood_stand.png",
+    "path": "assets\\illustrations\\approved_games\\word_chain_wood_stand.png",
+    "sha256": "32a20c029cb2d017ac15dd405a5db6b6f0c4e33d4757594ef4491080f409c7c1"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\wortkette-figma-native-20261104\\assets\\syllable_ivory.png",
+    "path": "assets\\illustrations\\approved_games\\word_chain_syllable_ivory.png",
+    "sha256": "5c94ca1732f3d83c789405b24aa48dad5d7c9d354195fd9081fbf5ed84619a01"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\wortkette-figma-native-20261104\\assets\\syllable_jade.png",
+    "path": "assets\\illustrations\\approved_games\\word_chain_syllable_jade.png",
+    "sha256": "5a3699e13ea64ce209ec4289fe264bda2f33246e1d292268831db0ab87ba56bf"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\wortkette-figma-native-20261104\\assets\\wood_input.png",
+    "path": "assets\\illustrations\\approved_games\\word_chain_wood_input.png",
+    "sha256": "856817739998020c7e67d99ee249d8a959f8630d59ef594c8ef02814ca985e3c"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\wortkette-figma-native-20261104\\assets\\jade_borderless_v1.png",
+    "path": "assets\\illustrations\\approved_games\\word_chain_jade_borderless.png",
+    "sha256": "66f03828e7455baeb77ba867e898d609c5aca55449c9be8acf14dab7677a8871"
+  },
+  {
+    "source": "C:\\dev\\hangulsori\\_codex_artifacts\\wortkette-figma-native-20261104\\assets\\speaker_gold_v2.png",
+    "path": "assets\\illustrations\\approved_games\\word_chain_speaker_gold.png",
+    "sha256": "98512ce442f8cbcd04fdc277f8a9fa5b00facf21ddfbffe3207205d4e6e3bf99"
+  }
+]

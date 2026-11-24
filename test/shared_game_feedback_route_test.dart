@@ -24,10 +24,12 @@ import 'package:ko_lernen_app/models/content_feedback.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/game_reward.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_games/approved_quiz_view.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'support/sori_speech_stubs.dart';
+import 'support/viewport_pages.dart';
 
 const _packName =
     'private-name@example.com-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx';
@@ -258,9 +260,9 @@ void main() {
     await tester.pump();
 
     for (final word in _packWords) {
-      await tester.tap(find.text(word.korean));
+      await _tapGameTile(tester, word.korean);
       await tester.pump();
-      await tester.tap(find.text(word.translationDe));
+      await _tapGameTile(tester, word.translationDe);
       await tester.pump();
     }
 
@@ -291,9 +293,9 @@ void main() {
         await tester.pump();
         Future<void> finish() async {
           for (final word in _packWords) {
-            await tester.tap(find.text(word.korean));
+            await _tapGameTile(tester, word.korean);
             await tester.pump();
-            await tester.tap(find.text(word.translationDe));
+            await _tapGameTile(tester, word.translationDe);
             await tester.pump();
           }
         }
@@ -306,9 +308,9 @@ void main() {
         final t = AppL10n.of(tester.element(find.byType(GameOverCard)));
         await tester.tap(find.text(t.quizAgain));
         await tester.pump();
-        await tester.tap(find.text(_packWords.first.korean));
+        await _tapGameTile(tester, _packWords.first.korean);
         await tester.pump();
-        await tester.tap(find.text(_packWords.last.translationDe));
+        await _tapGameTile(tester, _packWords.last.translationDe);
         await tester.pump(const Duration(milliseconds: 451));
         await finish();
         expect(awarded, [_packWords.length * 4, _packWords.length * 3]);
@@ -365,7 +367,37 @@ void main() {
   });
 }
 
+/// Approved game tiles paint their text more than once (fitted art text plus
+/// measurement), so tap the tile's semantic button rather than a [Text].
+Future<void> _tapGameTile(WidgetTester tester, String label) async {
+  final tile = find.byWidgetPredicate(
+    (widget) =>
+        widget is Semantics &&
+        widget.properties.button == true &&
+        widget.properties.label == label,
+    description: 'game tile "$label"',
+  );
+  await showViewportSection(tester, tile);
+  await tester.tap(tile.hitTestable());
+}
+
 Future<void> _tapCorrectChoice(WidgetTester tester) async {
+  final approved = find.byType(ApprovedQuizView);
+  for (
+    var attempt = 0;
+    attempt < 20 &&
+        approved.evaluate().isEmpty &&
+        find.byType(QuizChoice).evaluate().isEmpty;
+    attempt++
+  ) {
+    await tester.pump(const Duration(milliseconds: 25));
+  }
+  if (approved.evaluate().isNotEmpty) {
+    final view = tester.widget<ApprovedQuizView>(approved);
+    await _tapGameTile(tester, view.correctOption);
+    await tester.pump();
+    return;
+  }
   final choice = find.byWidgetPredicate(
     (widget) => widget is QuizChoice && widget.isCorrect && !widget.revealed,
   );

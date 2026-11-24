@@ -1,0 +1,5268 @@
+[
+  {
+    "id": "274:2",
+    "name": "Quiz20261103 / Quiz / Choice",
+    "properties": {
+      "Label#274:0": {
+        "type": "TEXT",
+        "defaultValue": "Wort"
+      }
+    },
+    "nodes": [
+      {
+        "id": "274:2",
+        "parent": null,
+        "name": "Quiz20261103 / Quiz / Choice",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 0,
+        "w": 344,
+        "h": 60,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 3,
+            "boundVariables": {},
+            "color": {
+              "r": 0.1599999964237213,
+              "g": 0.07999999821186066,
+              "b": 0.014999999664723873,
+              "a": 0.3799999952316284
+            },
+            "offset": {
+              "x": 0,
+              "y": 3
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "274:3",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/00",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 28,
+        "h": 22,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.0791974663734436,
+                0,
+                0.022703273221850395
+              ],
+              [
+                0,
+                0.1204819306731224,
+                0.2759036123752594
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:4",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/01",
+        "type": "RECTANGLE",
+        "x": 28,
+        "y": 0,
+        "w": 288,
+        "h": 22,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.7961985468864441,
+                0,
+                0.10190074145793915
+              ],
+              [
+                0,
+                0.1204819306731224,
+                0.2759036123752594
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:5",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/02",
+        "type": "RECTANGLE",
+        "x": 316,
+        "y": 0,
+        "w": 28,
+        "h": 22,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.0791974663734436,
+                0,
+                0.8980992436408997
+              ],
+              [
+                0,
+                0.1204819306731224,
+                0.2759036123752594
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:6",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/10",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 22,
+        "w": 28,
+        "h": 16,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.0791974663734436,
+                0,
+                0.022703273221850395
+              ],
+              [
+                0,
+                0.16626505553722382,
+                0.3963855504989624
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:7",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/11",
+        "type": "RECTANGLE",
+        "x": 28,
+        "y": 22,
+        "w": 288,
+        "h": 16,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.7961985468864441,
+                0,
+                0.10190074145793915
+              ],
+              [
+                0,
+                0.16626505553722382,
+                0.3963855504989624
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:8",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/12",
+        "type": "RECTANGLE",
+        "x": 316,
+        "y": 22,
+        "w": 28,
+        "h": 16,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.0791974663734436,
+                0,
+                0.8980992436408997
+              ],
+              [
+                0,
+                0.16626505553722382,
+                0.3963855504989624
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:9",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/20",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 38,
+        "w": 28,
+        "h": 22,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.0791974663734436,
+                0,
+                0.022703273221850395
+              ],
+              [
+                0,
+                0.1204819306731224,
+                0.5626506209373474
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:10",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/21",
+        "type": "RECTANGLE",
+        "x": 28,
+        "y": 38,
+        "w": 288,
+        "h": 22,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.7961985468864441,
+                0,
+                0.10190074145793915
+              ],
+              [
+                0,
+                0.1204819306731224,
+                0.5626506209373474
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:11",
+        "parent": "274:2",
+        "name": "Art / quiz_tile/22",
+        "type": "RECTANGLE",
+        "x": 316,
+        "y": 38,
+        "w": 28,
+        "h": 22,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.0791974663734436,
+                0,
+                0.8980992436408997
+              ],
+              [
+                0,
+                0.1204819306731224,
+                0.5626506209373474
+              ]
+            ],
+            "imageHash": "e7ea33be03077704e46235763f9918e4f9383c62"
+          }
+        ]
+      },
+      {
+        "id": "274:12",
+        "parent": "274:2",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 5,
+        "y": 3,
+        "w": 334,
+        "h": 52,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.017999999225139618,
+              "g": 0.07500000298023224,
+              "b": 0.057999998331069946
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:273:2"
+              }
+            }
+          }
+        ],
+        "text": "Wort",
+        "font": {
+          "family": "Lora",
+          "style": "SemiBold",
+          "variationSettings": {
+            "wght": 600
+          }
+        },
+        "size": 28,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      }
+    ]
+  },
+  {
+    "id": "274:13",
+    "name": "Quiz20261103 / Pair / Neutral",
+    "properties": {
+      "Label#274:1": {
+        "type": "TEXT",
+        "defaultValue": "Wort"
+      }
+    },
+    "nodes": [
+      {
+        "id": "274:13",
+        "parent": null,
+        "name": "Quiz20261103 / Pair / Neutral",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 115,
+        "w": 180,
+        "h": 72,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 3,
+            "boundVariables": {},
+            "color": {
+              "r": 0.1599999964237213,
+              "g": 0.07999999821186066,
+              "b": 0.014999999664723873,
+              "a": 0.3799999952316284
+            },
+            "offset": {
+              "x": 0,
+              "y": 3
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "274:14",
+        "parent": "274:13",
+        "name": "Art / matching_tile/00",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.0359223298728466
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.14154653251171112
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:15",
+        "parent": "274:13",
+        "name": "Art / matching_tile/01",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 0,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6946601867675781,
+                0,
+                0.15242718160152435
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.14154653251171112
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:16",
+        "parent": "274:13",
+        "name": "Art / matching_tile/02",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 0,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.8470873832702637
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.14154653251171112
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:17",
+        "parent": "274:13",
+        "name": "Art / matching_tile/10",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 24,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.0359223298728466
+              ],
+              [
+                0,
+                0.28833553194999695,
+                0.35124507546424866
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:18",
+        "parent": "274:13",
+        "name": "Art / matching_tile/11",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 24,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6946601867675781,
+                0,
+                0.15242718160152435
+              ],
+              [
+                0,
+                0.28833553194999695,
+                0.35124507546424866
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:19",
+        "parent": "274:13",
+        "name": "Art / matching_tile/12",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 24,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.8470873832702637
+              ],
+              [
+                0,
+                0.28833553194999695,
+                0.35124507546424866
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:20",
+        "parent": "274:13",
+        "name": "Art / matching_tile/20",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 48,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.0359223298728466
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.6395806074142456
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:21",
+        "parent": "274:13",
+        "name": "Art / matching_tile/21",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 48,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6946601867675781,
+                0,
+                0.15242718160152435
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.6395806074142456
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:22",
+        "parent": "274:13",
+        "name": "Art / matching_tile/22",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 48,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.8470873832702637
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.6395806074142456
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:23",
+        "parent": "274:13",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 5,
+        "y": 3,
+        "w": 170,
+        "h": 64,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.017999999225139618,
+              "g": 0.07500000298023224,
+              "b": 0.057999998331069946
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:273:2"
+              }
+            }
+          }
+        ],
+        "text": "Wort",
+        "font": {
+          "family": "MaruBuriOTF",
+          "style": "Bold"
+        },
+        "size": 26,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      }
+    ]
+  },
+  {
+    "id": "274:24",
+    "name": "Quiz20261103 / Pair / Selected",
+    "properties": {
+      "Label#274:2": {
+        "type": "TEXT",
+        "defaultValue": "Wort"
+      }
+    },
+    "nodes": [
+      {
+        "id": "274:24",
+        "parent": null,
+        "name": "Quiz20261103 / Pair / Selected",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 230,
+        "w": 180,
+        "h": 72,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 3,
+            "boundVariables": {},
+            "color": {
+              "r": 0.1599999964237213,
+              "g": 0.07999999821186066,
+              "b": 0.014999999664723873,
+              "a": 0.3799999952316284
+            },
+            "offset": {
+              "x": 0,
+              "y": 3
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "274:25",
+        "parent": "274:24",
+        "name": "Art / jade_tile/00",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.1187530905008316,
+                0,
+                0.047006431967020035
+              ],
+              [
+                0,
+                0.2056555300951004,
+                0.13624678552150726
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:26",
+        "parent": "274:24",
+        "name": "Art / jade_tile/01",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 0,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6679861545562744,
+                0,
+                0.16575951874256134
+              ],
+              [
+                0,
+                0.2056555300951004,
+                0.13624678552150726
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:27",
+        "parent": "274:24",
+        "name": "Art / jade_tile/02",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 0,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.1187530905008316,
+                0,
+                0.8337456583976746
+              ],
+              [
+                0,
+                0.2056555300951004,
+                0.13624678552150726
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:28",
+        "parent": "274:24",
+        "name": "Art / jade_tile/10",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 24,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.1187530905008316,
+                0,
+                0.047006431967020035
+              ],
+              [
+                0,
+                0.2943444848060608,
+                0.34190231561660767
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:29",
+        "parent": "274:24",
+        "name": "Art / jade_tile/11",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 24,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6679861545562744,
+                0,
+                0.16575951874256134
+              ],
+              [
+                0,
+                0.2943444848060608,
+                0.34190231561660767
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:30",
+        "parent": "274:24",
+        "name": "Art / jade_tile/12",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 24,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.1187530905008316,
+                0,
+                0.8337456583976746
+              ],
+              [
+                0,
+                0.2943444848060608,
+                0.34190231561660767
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:31",
+        "parent": "274:24",
+        "name": "Art / jade_tile/20",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 48,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.1187530905008316,
+                0,
+                0.047006431967020035
+              ],
+              [
+                0,
+                0.2056555300951004,
+                0.6362468004226685
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:32",
+        "parent": "274:24",
+        "name": "Art / jade_tile/21",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 48,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6679861545562744,
+                0,
+                0.16575951874256134
+              ],
+              [
+                0,
+                0.2056555300951004,
+                0.6362468004226685
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:33",
+        "parent": "274:24",
+        "name": "Art / jade_tile/22",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 48,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.1187530905008316,
+                0,
+                0.8337456583976746
+              ],
+              [
+                0,
+                0.2056555300951004,
+                0.6362468004226685
+              ]
+            ],
+            "imageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d"
+          }
+        ]
+      },
+      {
+        "id": "274:34",
+        "parent": "274:24",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 5,
+        "y": 3,
+        "w": 170,
+        "h": 64,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 1,
+              "g": 0.9607843160629272,
+              "b": 0.8980392217636108
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7:5"
+              }
+            }
+          }
+        ],
+        "text": "Wort",
+        "font": {
+          "family": "MaruBuriOTF",
+          "style": "Bold"
+        },
+        "size": 26,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      },
+      {
+        "id": "274:35",
+        "parent": "274:24",
+        "name": "Selected indicator",
+        "type": "ELLIPSE",
+        "x": 159,
+        "y": 8,
+        "w": 10,
+        "h": 10,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 1,
+              "g": 0.9599999785423279,
+              "b": 0.8600000143051147
+            },
+            "boundVariables": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "274:36",
+    "name": "Quiz20261103 / Pair / Matched",
+    "properties": {
+      "Label#274:3": {
+        "type": "TEXT",
+        "defaultValue": "Wort"
+      }
+    },
+    "nodes": [
+      {
+        "id": "274:36",
+        "parent": null,
+        "name": "Quiz20261103 / Pair / Matched",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 345,
+        "w": 180,
+        "h": 72,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 3,
+            "boundVariables": {},
+            "color": {
+              "r": 0.1599999964237213,
+              "g": 0.07999999821186066,
+              "b": 0.014999999664723873,
+              "a": 0.3799999952316284
+            },
+            "offset": {
+              "x": 0,
+              "y": 3
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "274:37",
+        "parent": "274:36",
+        "name": "Art / matching_tile/00",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.0359223298728466
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.14154653251171112
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:38",
+        "parent": "274:36",
+        "name": "Art / matching_tile/01",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 0,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6946601867675781,
+                0,
+                0.15242718160152435
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.14154653251171112
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:39",
+        "parent": "274:36",
+        "name": "Art / matching_tile/02",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 0,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.8470873832702637
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.14154653251171112
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:40",
+        "parent": "274:36",
+        "name": "Art / matching_tile/10",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 24,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.0359223298728466
+              ],
+              [
+                0,
+                0.28833553194999695,
+                0.35124507546424866
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:41",
+        "parent": "274:36",
+        "name": "Art / matching_tile/11",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 24,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6946601867675781,
+                0,
+                0.15242718160152435
+              ],
+              [
+                0,
+                0.28833553194999695,
+                0.35124507546424866
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:42",
+        "parent": "274:36",
+        "name": "Art / matching_tile/12",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 24,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.8470873832702637
+              ],
+              [
+                0,
+                0.28833553194999695,
+                0.35124507546424866
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:43",
+        "parent": "274:36",
+        "name": "Art / matching_tile/20",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 48,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.0359223298728466
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.6395806074142456
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:44",
+        "parent": "274:36",
+        "name": "Art / matching_tile/21",
+        "type": "RECTANGLE",
+        "x": 30,
+        "y": 48,
+        "w": 120,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.6946601867675781,
+                0,
+                0.15242718160152435
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.6395806074142456
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:45",
+        "parent": "274:36",
+        "name": "Art / matching_tile/22",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 48,
+        "w": 30,
+        "h": 24,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11650485545396805,
+                0,
+                0.8470873832702637
+              ],
+              [
+                0,
+                0.20969855785369873,
+                0.6395806074142456
+              ]
+            ],
+            "imageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984"
+          }
+        ]
+      },
+      {
+        "id": "274:46",
+        "parent": "274:36",
+        "name": "Matched material veil",
+        "type": "RECTANGLE",
+        "x": 2,
+        "y": 1,
+        "w": 176,
+        "h": 67,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 0.1899999976158142,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.3199999928474426,
+              "g": 0.3100000023841858,
+              "b": 0.25999999046325684
+            },
+            "boundVariables": {}
+          }
+        ]
+      },
+      {
+        "id": "274:47",
+        "parent": "274:36",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 5,
+        "y": 3,
+        "w": 170,
+        "h": 64,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.017999999225139618,
+              "g": 0.07500000298023224,
+              "b": 0.057999998331069946
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:273:2"
+              }
+            }
+          }
+        ],
+        "text": "Wort",
+        "font": {
+          "family": "MaruBuriOTF",
+          "style": "Bold"
+        },
+        "size": 23,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      },
+      {
+        "id": "274:48",
+        "parent": "274:36",
+        "name": "Matched check",
+        "type": "TEXT",
+        "x": 155,
+        "y": 4,
+        "w": 17,
+        "h": 21,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.017999999225139618,
+              "g": 0.07500000298023224,
+              "b": 0.057999998331069946
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:273:2"
+              }
+            }
+          }
+        ],
+        "text": "✓",
+        "font": {
+          "family": "Lora",
+          "style": "SemiBold",
+          "variationSettings": {
+            "wght": 600
+          }
+        },
+        "size": 17,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      }
+    ]
+  },
+  {
+    "id": "274:49",
+    "name": "Quiz20261103 / Control / Jade",
+    "properties": {
+      "Label#274:4": {
+        "type": "TEXT",
+        "defaultValue": "Wort"
+      }
+    },
+    "nodes": [
+      {
+        "id": "274:49",
+        "parent": null,
+        "name": "Quiz20261103 / Control / Jade",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 460,
+        "w": 195,
+        "h": 48,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 3,
+            "boundVariables": {},
+            "color": {
+              "r": 0.1599999964237213,
+              "g": 0.07999999821186066,
+              "b": 0.014999999664723873,
+              "a": 0.3799999952316284
+            },
+            "offset": {
+              "x": 0,
+              "y": 3
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "286:700",
+        "parent": "274:49",
+        "name": "Art / approved jade gold bevel",
+        "type": "INSTANCE",
+        "x": -2,
+        "y": -1,
+        "w": 199,
+        "h": 56,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "componentId": "83:66"
+      },
+      {
+        "id": "I286:700;83:67",
+        "parent": "286:700",
+        "name": "Art 0/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 20.121952056884766,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:68",
+        "parent": "286:700",
+        "name": "Art 0/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 0,
+        "w": 158.756103515625,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:69",
+        "parent": "286:700",
+        "name": "Art 0/2",
+        "type": "RECTANGLE",
+        "x": 178.8780517578125,
+        "y": 0,
+        "w": 20.121952056884766,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:70",
+        "parent": "286:700",
+        "name": "Art 1/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 11.585366249084473,
+        "w": 20.121952056884766,
+        "h": 32.219512939453125,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:71",
+        "parent": "286:700",
+        "name": "Art 1/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 11.585366249084473,
+        "w": 158.756103515625,
+        "h": 32.219512939453125,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:72",
+        "parent": "286:700",
+        "name": "Art 1/2",
+        "type": "RECTANGLE",
+        "x": 178.8780517578125,
+        "y": 11.585366249084473,
+        "w": 20.121952056884766,
+        "h": 32.219512939453125,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:73",
+        "parent": "286:700",
+        "name": "Art 2/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 43.80487823486328,
+        "w": 20.121952056884766,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:74",
+        "parent": "286:700",
+        "name": "Art 2/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 43.80487823486328,
+        "w": 158.756103515625,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:700;83:75",
+        "parent": "286:700",
+        "name": "Art 2/2",
+        "type": "RECTANGLE",
+        "x": 178.8780517578125,
+        "y": 43.80487823486328,
+        "w": 20.121952056884766,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "274:59",
+        "parent": "274:49",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 10,
+        "y": 3,
+        "w": 175,
+        "h": 38,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 1,
+              "g": 0.9607843160629272,
+              "b": 0.8980392217636108
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7:5"
+              }
+            }
+          }
+        ],
+        "text": "Wort",
+        "font": {
+          "family": "Lora",
+          "style": "SemiBold",
+          "variationSettings": {
+            "wght": 600
+          }
+        },
+        "size": 22,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      }
+    ]
+  },
+  {
+    "id": "278:2",
+    "name": "Quiz20261103 / Control / Audio",
+    "properties": {
+      "Label#274:4": {
+        "type": "TEXT",
+        "defaultValue": "Wort"
+      }
+    },
+    "nodes": [
+      {
+        "id": "278:2",
+        "parent": null,
+        "name": "Quiz20261103 / Control / Audio",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 720,
+        "w": 195,
+        "h": 48,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 3,
+            "boundVariables": {},
+            "color": {
+              "r": 0.1599999964237213,
+              "g": 0.07999999821186066,
+              "b": 0.014999999664723873,
+              "a": 0.3799999952316284
+            },
+            "offset": {
+              "x": 0,
+              "y": 3
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "286:710",
+        "parent": "278:2",
+        "name": "Art / approved jade gold bevel",
+        "type": "INSTANCE",
+        "x": -2,
+        "y": -1,
+        "w": 199,
+        "h": 56,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "componentId": "83:66"
+      },
+      {
+        "id": "I286:710;83:67",
+        "parent": "286:710",
+        "name": "Art 0/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 20.121952056884766,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:68",
+        "parent": "286:710",
+        "name": "Art 0/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 0,
+        "w": 158.756103515625,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:69",
+        "parent": "286:710",
+        "name": "Art 0/2",
+        "type": "RECTANGLE",
+        "x": 178.8780517578125,
+        "y": 0,
+        "w": 20.121952056884766,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:70",
+        "parent": "286:710",
+        "name": "Art 1/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 11.585366249084473,
+        "w": 20.121952056884766,
+        "h": 32.219512939453125,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:71",
+        "parent": "286:710",
+        "name": "Art 1/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 11.585366249084473,
+        "w": 158.756103515625,
+        "h": 32.219512939453125,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:72",
+        "parent": "286:710",
+        "name": "Art 1/2",
+        "type": "RECTANGLE",
+        "x": 178.8780517578125,
+        "y": 11.585366249084473,
+        "w": 20.121952056884766,
+        "h": 32.219512939453125,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:73",
+        "parent": "286:710",
+        "name": "Art 2/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 43.80487823486328,
+        "w": 20.121952056884766,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:74",
+        "parent": "286:710",
+        "name": "Art 2/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 43.80487823486328,
+        "w": 158.756103515625,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "I286:710;83:75",
+        "parent": "286:710",
+        "name": "Art 2/2",
+        "type": "RECTANGLE",
+        "x": 178.8780517578125,
+        "y": 43.80487823486328,
+        "w": 20.121952056884766,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "278:12",
+        "parent": "278:2",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 51,
+        "y": 3,
+        "w": 132,
+        "h": 38,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 1,
+              "g": 0.9607843160629272,
+              "b": 0.8980392217636108
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7:5"
+              }
+            }
+          }
+        ],
+        "text": "Wort",
+        "font": {
+          "family": "Lora",
+          "style": "SemiBold",
+          "variationSettings": {
+            "wght": 600
+          }
+        },
+        "size": 22,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      },
+      {
+        "id": "286:722",
+        "parent": "278:2",
+        "name": "Icon / ivory speaker · source silhouette",
+        "type": "GROUP",
+        "x": 25,
+        "y": 12,
+        "w": 26,
+        "h": 21,
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 1,
+            "boundVariables": {},
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.4000000059604645
+            },
+            "offset": {
+              "x": 0,
+              "y": 1.2000000476837158
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "286:720",
+        "parent": "286:722",
+        "name": "Rectangle",
+        "type": "RECTANGLE",
+        "x": 25,
+        "y": 12,
+        "w": 26,
+        "h": 21,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.9305555820465088,
+                0,
+                0.0416666679084301
+              ],
+              [
+                0,
+                0.7777777910232544,
+                0.1111111119389534
+              ]
+            ],
+            "imageHash": "90d7049dcd99a79f37b065720503bbc678585f57"
+          }
+        ]
+      },
+      {
+        "id": "286:721",
+        "parent": "286:722",
+        "name": "Rectangle",
+        "type": "RECTANGLE",
+        "x": 25,
+        "y": 12,
+        "w": 26,
+        "h": 21,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "GRADIENT_LINEAR",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "gradientStops": [
+              {
+                "color": {
+                  "r": 1,
+                  "g": 0.9800000190734863,
+                  "b": 0.9100000262260437,
+                  "a": 1
+                },
+                "position": 0,
+                "boundVariables": {}
+              },
+              {
+                "color": {
+                  "r": 0.9200000166893005,
+                  "g": 0.7400000095367432,
+                  "b": 0.4300000071525574,
+                  "a": 1
+                },
+                "position": 1,
+                "boundVariables": {}
+              }
+            ],
+            "gradientTransform": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                -1,
+                0,
+                1
+              ]
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "274:60",
+    "name": "Quiz20261103 / Counter / Folio",
+    "properties": {
+      "Label#274:5": {
+        "type": "TEXT",
+        "defaultValue": "1 von 6"
+      }
+    },
+    "nodes": [
+      {
+        "id": "274:60",
+        "parent": null,
+        "name": "Quiz20261103 / Counter / Folio",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 575,
+        "w": 122,
+        "h": 34,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        }
+      },
+      {
+        "id": "274:61",
+        "parent": "274:60",
+        "name": "Art / folio/00",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 12,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11049723625183105,
+                0,
+                0.03867403417825699
+              ],
+              [
+                0,
+                0.2209944725036621,
+                0.12569060921669006
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:62",
+        "parent": "274:60",
+        "name": "Art / folio/01",
+        "type": "RECTANGLE",
+        "x": 16,
+        "y": 0,
+        "w": 90,
+        "h": 12,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.700276255607605,
+                0,
+                0.14917127788066864
+              ],
+              [
+                0,
+                0.2209944725036621,
+                0.12569060921669006
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:63",
+        "parent": "274:60",
+        "name": "Art / folio/02",
+        "type": "RECTANGLE",
+        "x": 106,
+        "y": 0,
+        "w": 16,
+        "h": 12,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11049723625183105,
+                0,
+                0.84944748878479
+              ],
+              [
+                0,
+                0.2209944725036621,
+                0.12569060921669006
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:64",
+        "parent": "274:60",
+        "name": "Art / folio/10",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 12,
+        "w": 16,
+        "h": 10,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11049723625183105,
+                0,
+                0.03867403417825699
+              ],
+              [
+                0,
+                0.2941989004611969,
+                0.3466850817203522
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:65",
+        "parent": "274:60",
+        "name": "Art / folio/11",
+        "type": "RECTANGLE",
+        "x": 16,
+        "y": 12,
+        "w": 90,
+        "h": 10,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.700276255607605,
+                0,
+                0.14917127788066864
+              ],
+              [
+                0,
+                0.2941989004611969,
+                0.3466850817203522
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:66",
+        "parent": "274:60",
+        "name": "Art / folio/12",
+        "type": "RECTANGLE",
+        "x": 106,
+        "y": 12,
+        "w": 16,
+        "h": 10,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11049723625183105,
+                0,
+                0.84944748878479
+              ],
+              [
+                0,
+                0.2941989004611969,
+                0.3466850817203522
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:67",
+        "parent": "274:60",
+        "name": "Art / folio/20",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 22,
+        "w": 16,
+        "h": 12,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11049723625183105,
+                0,
+                0.03867403417825699
+              ],
+              [
+                0,
+                0.2209944725036621,
+                0.6408839821815491
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:68",
+        "parent": "274:60",
+        "name": "Art / folio/21",
+        "type": "RECTANGLE",
+        "x": 16,
+        "y": 22,
+        "w": 90,
+        "h": 12,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.700276255607605,
+                0,
+                0.14917127788066864
+              ],
+              [
+                0,
+                0.2209944725036621,
+                0.6408839821815491
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:69",
+        "parent": "274:60",
+        "name": "Art / folio/22",
+        "type": "RECTANGLE",
+        "x": 106,
+        "y": 22,
+        "w": 16,
+        "h": 12,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.11049723625183105,
+                0,
+                0.84944748878479
+              ],
+              [
+                0,
+                0.2209944725036621,
+                0.6408839821815491
+              ]
+            ],
+            "imageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb"
+          }
+        ]
+      },
+      {
+        "id": "274:70",
+        "parent": "274:60",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 10,
+        "y": 3,
+        "w": 102,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.017999999225139618,
+              "g": 0.07500000298023224,
+              "b": 0.057999998331069946
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:273:2"
+              }
+            }
+          }
+        ],
+        "text": "1 von 6",
+        "font": {
+          "family": "Lora",
+          "style": "SemiBold",
+          "variationSettings": {
+            "wght": 600
+          }
+        },
+        "size": 18,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      }
+    ]
+  },
+  {
+    "id": "286:723",
+    "name": "Quiz20261103 / Counter / Matching",
+    "properties": {
+      "Label#274:5": {
+        "type": "TEXT",
+        "defaultValue": "1 von 6"
+      }
+    },
+    "nodes": [
+      {
+        "id": "286:723",
+        "parent": null,
+        "name": "Quiz20261103 / Counter / Matching",
+        "type": "COMPONENT",
+        "x": 1800,
+        "y": 850,
+        "w": 166,
+        "h": 34,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 3,
+            "boundVariables": {},
+            "color": {
+              "r": 0.1599999964237213,
+              "g": 0.07999999821186066,
+              "b": 0.014999999664723873,
+              "a": 0.3799999952316284
+            },
+            "offset": {
+              "x": 0,
+              "y": 3
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ]
+      },
+      {
+        "id": "286:742",
+        "parent": "286:723",
+        "name": "Art / plain counter/22",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 24,
+        "w": 16,
+        "h": 10,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.09622468054294586,
+                0,
+                0.8816758990287781
+              ],
+              [
+                0,
+                0.17955800890922546,
+                0.6146408915519714
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:741",
+        "parent": "286:723",
+        "name": "Art / plain counter/21",
+        "type": "RECTANGLE",
+        "x": 16,
+        "y": 24,
+        "w": 134,
+        "h": 10,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.7665745615959167,
+                0,
+                0.11510129272937775
+              ],
+              [
+                0,
+                0.17955800890922546,
+                0.6146408915519714
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:740",
+        "parent": "286:723",
+        "name": "Art / plain counter/20",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 24,
+        "w": 16,
+        "h": 10,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.09622468054294586,
+                0,
+                0.018876612186431885
+              ],
+              [
+                0,
+                0.17955800890922546,
+                0.6146408915519714
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:739",
+        "parent": "286:723",
+        "name": "Art / plain counter/12",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 10,
+        "w": 16,
+        "h": 14,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.09622468054294586,
+                0,
+                0.8816758990287781
+              ],
+              [
+                0,
+                0.27624309062957764,
+                0.3383978009223938
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:738",
+        "parent": "286:723",
+        "name": "Art / plain counter/11",
+        "type": "RECTANGLE",
+        "x": 16,
+        "y": 10,
+        "w": 134,
+        "h": 14,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.7665745615959167,
+                0,
+                0.11510129272937775
+              ],
+              [
+                0,
+                0.27624309062957764,
+                0.3383978009223938
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:737",
+        "parent": "286:723",
+        "name": "Art / plain counter/10",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 10,
+        "w": 16,
+        "h": 14,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.09622468054294586,
+                0,
+                0.018876612186431885
+              ],
+              [
+                0,
+                0.27624309062957764,
+                0.3383978009223938
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:736",
+        "parent": "286:723",
+        "name": "Art / plain counter/02",
+        "type": "RECTANGLE",
+        "x": 150,
+        "y": 0,
+        "w": 16,
+        "h": 10,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.09622468054294586,
+                0,
+                0.8816758990287781
+              ],
+              [
+                0,
+                0.17955800890922546,
+                0.15883977711200714
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:735",
+        "parent": "286:723",
+        "name": "Art / plain counter/01",
+        "type": "RECTANGLE",
+        "x": 16,
+        "y": 0,
+        "w": 134,
+        "h": 10,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.7665745615959167,
+                0,
+                0.11510129272937775
+              ],
+              [
+                0,
+                0.17955800890922546,
+                0.15883977711200714
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:734",
+        "parent": "286:723",
+        "name": "Art / plain counter/00",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 10,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.09622468054294586,
+                0,
+                0.018876612186431885
+              ],
+              [
+                0,
+                0.17955800890922546,
+                0.15883977711200714
+              ]
+            ],
+            "imageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea"
+          }
+        ]
+      },
+      {
+        "id": "286:733",
+        "parent": "286:723",
+        "name": "Label",
+        "type": "TEXT",
+        "x": 10,
+        "y": 3,
+        "w": 146,
+        "h": 24,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.017999999225139618,
+              "g": 0.07500000298023224,
+              "b": 0.057999998331069946
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:273:2"
+              }
+            }
+          }
+        ],
+        "text": "1 von 6",
+        "font": {
+          "family": "Lora",
+          "style": "SemiBold",
+          "variationSettings": {
+            "wght": 600
+          }
+        },
+        "size": 18,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      }
+    ]
+  },
+  {
+    "id": "83:66",
+    "name": "CBook/Rebuild/Jade gold CTA v2",
+    "properties": {},
+    "nodes": [
+      {
+        "id": "83:66",
+        "parent": null,
+        "name": "CBook/Rebuild/Jade gold CTA v2",
+        "type": "COMPONENT",
+        "x": 6100,
+        "y": 1930,
+        "w": 354,
+        "h": 51,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        }
+      },
+      {
+        "id": "83:67",
+        "parent": "83:66",
+        "name": "Art 0/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 20.121952056884766,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:68",
+        "parent": "83:66",
+        "name": "Art 0/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 0,
+        "w": 313.756103515625,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:69",
+        "parent": "83:66",
+        "name": "Art 0/2",
+        "type": "RECTANGLE",
+        "x": 333.8780517578125,
+        "y": 0,
+        "w": 20.121952056884766,
+        "h": 11.585366249084473,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.12483574450016022,
+                0.21813403069972992
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:70",
+        "parent": "83:66",
+        "name": "Art 1/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 11.585366249084473,
+        "w": 20.121952056884766,
+        "h": 27.219512939453125,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:71",
+        "parent": "83:66",
+        "name": "Art 1/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 11.585366249084473,
+        "w": 313.756103515625,
+        "h": 27.219512939453125,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:72",
+        "parent": "83:66",
+        "name": "Art 1/2",
+        "type": "RECTANGLE",
+        "x": 333.8780517578125,
+        "y": 11.585366249084473,
+        "w": 20.121952056884766,
+        "h": 27.219512939453125,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "STRETCH"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.2943495512008667,
+                0.34296977519989014
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:73",
+        "parent": "83:66",
+        "name": "Art 2/0",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 38.80487823486328,
+        "w": 20.121952056884766,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.020823244005441666
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:74",
+        "parent": "83:66",
+        "name": "Art 2/1",
+        "type": "RECTANGLE",
+        "x": 20.121952056884766,
+        "y": 38.80487823486328,
+        "w": 313.756103515625,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "STRETCH",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8014527559280396,
+                0,
+                0.10072639584541321
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      },
+      {
+        "id": "83:75",
+        "parent": "83:66",
+        "name": "Art 2/2",
+        "type": "RECTANGLE",
+        "x": 333.8780517578125,
+        "y": 38.80487823486328,
+        "w": 20.121952056884766,
+        "h": 12.195121765136719,
+        "constraints": {
+          "horizontal": "MAX",
+          "vertical": "MAX"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.07990314811468124,
+                0,
+                0.9021791815757751
+              ],
+              [
+                0,
+                0.1314060389995575,
+                0.6373193264007568
+              ]
+            ],
+            "imageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "300:766",
+    "name": "Quiz20261103 / Games / Shared Quiz Header",
+    "description": "User-requested shared Words Quiz header for Quiz and Matching, 2026-11-03. Exact Quiz jade texture crop, original cloud, standalone ivory back chevron and gear. Lora Bold36 title at x32,y42; brass divider y94. 402×104. Back/settings retain 48dp frames. Change only editable Title; preserve artwork proportions.",
+    "properties": {
+      "Title#300:0": {
+        "type": "TEXT",
+        "defaultValue": "Wörter-Quiz"
+      }
+    },
+    "nodes": [
+      {
+        "id": "300:766",
+        "parent": null,
+        "name": "Quiz20261103 / Games / Shared Quiz Header",
+        "type": "COMPONENT",
+        "x": 2250,
+        "y": 1000,
+        "w": 402,
+        "h": 104,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": []
+      },
+      {
+        "id": "300:767",
+        "parent": "300:766",
+        "name": "Art / jade_background",
+        "type": "RECTANGLE",
+        "x": 0,
+        "y": 0,
+        "w": 402,
+        "h": 874,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "FILL",
+            "scalingFactor": 0.5,
+            "rotation": 0,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                1,
+                0,
+                0
+              ],
+              [
+                0,
+                1,
+                0
+              ]
+            ],
+            "imageHash": "154478765d62e28a8e9a53a273d9046544edc972"
+          }
+        ]
+      },
+      {
+        "id": "300:768",
+        "parent": "300:766",
+        "name": "Brand and navigation",
+        "type": "FRAME",
+        "x": 0,
+        "y": 0,
+        "w": 402,
+        "h": 48,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": []
+      },
+      {
+        "id": "300:769",
+        "parent": "300:768",
+        "name": "Art / cloud",
+        "type": "RECTANGLE",
+        "x": 90,
+        "y": 17,
+        "w": 23,
+        "h": 11.699999809265137,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.8381180167198181,
+                0,
+                0.10366826504468918
+              ],
+              [
+                0,
+                0.4266347587108612,
+                0.2783094048500061
+              ]
+            ],
+            "imageHash": "5e2fc2519ae9243f3b0affba8c9fb159ba7386ff"
+          }
+        ]
+      },
+      {
+        "id": "300:770",
+        "parent": "300:768",
+        "name": "HANGUL SORI",
+        "type": "TEXT",
+        "x": 118,
+        "y": 9,
+        "w": 174,
+        "h": 27,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 1.2999999523162842,
+            "boundVariables": {},
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.550000011920929
+            },
+            "offset": {
+              "x": 0,
+              "y": 1.2000000476837158
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ],
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 1,
+              "g": 0.9607843160629272,
+              "b": 0.8980392217636108
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7:5"
+              }
+            }
+          }
+        ],
+        "text": "HANGUL SORI",
+        "font": {
+          "family": "Lora",
+          "style": "SemiBold",
+          "variationSettings": {
+            "wght": 600
+          }
+        },
+        "size": 14,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      },
+      {
+        "id": "300:771",
+        "parent": "300:768",
+        "name": "Back · 48dp",
+        "type": "FRAME",
+        "x": 12,
+        "y": 0,
+        "w": 48,
+        "h": 48,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": []
+      },
+      {
+        "id": "300:772",
+        "parent": "300:771",
+        "name": "Art / back",
+        "type": "RECTANGLE",
+        "x": 28,
+        "y": 36,
+        "w": 12,
+        "h": 19,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.38277512788772583,
+                0,
+                0.3213716149330139
+              ],
+              [
+                0,
+                0.6052631735801697,
+                0.20095694065093994
+              ]
+            ],
+            "imageHash": "a0e5d02dba1bbe068e2f492f7ff1023283c7c1ab"
+          }
+        ]
+      },
+      {
+        "id": "300:773",
+        "parent": "300:768",
+        "name": "Settings · 48dp",
+        "type": "FRAME",
+        "x": 344,
+        "y": 0,
+        "w": 48,
+        "h": 48,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": []
+      },
+      {
+        "id": "300:774",
+        "parent": "300:773",
+        "name": "Art / gear",
+        "type": "RECTANGLE",
+        "x": 13,
+        "y": 14,
+        "w": 28,
+        "h": 28,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "IMAGE",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "scaleMode": "CROP",
+            "scalingFactor": 1,
+            "filters": {
+              "exposure": 0,
+              "contrast": 0,
+              "saturation": 0,
+              "temperature": 0,
+              "tint": 0,
+              "highlights": 0,
+              "shadows": 0
+            },
+            "imageTransform": [
+              [
+                0.9346092343330383,
+                0,
+                0.03349282220005989
+              ],
+              [
+                0,
+                0.9074960350990295,
+                0.03987240791320801
+              ]
+            ],
+            "imageHash": "ae0718a2a0e7d9ef70dad8fbd3725db035113610"
+          }
+        ]
+      },
+      {
+        "id": "300:775",
+        "parent": "300:766",
+        "name": "Title",
+        "type": "TEXT",
+        "x": 32,
+        "y": 42,
+        "w": 338,
+        "h": 44,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "radius": 1.2999999523162842,
+            "boundVariables": {},
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.550000011920929
+            },
+            "offset": {
+              "x": 0,
+              "y": 1.2000000476837158
+            },
+            "spread": 0,
+            "blendMode": "NORMAL",
+            "showShadowBehindNode": true
+          }
+        ],
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 1,
+              "g": 0.9607843160629272,
+              "b": 0.8980392217636108
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:7:5"
+              }
+            }
+          }
+        ],
+        "text": "Wörter-Quiz",
+        "font": {
+          "family": "Lora",
+          "style": "Bold",
+          "variationSettings": {
+            "wght": 700
+          }
+        },
+        "size": 36,
+        "lineHeight": {
+          "unit": "PERCENT",
+          "value": 113.99999856948853
+        },
+        "align": "CENTER"
+      },
+      {
+        "id": "300:776",
+        "parent": "300:766",
+        "name": "Brass divider",
+        "type": "RECTANGLE",
+        "x": 32,
+        "y": 94,
+        "w": 338,
+        "h": 1.600000023841858,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "GRADIENT_LINEAR",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "gradientStops": [
+              {
+                "color": {
+                  "r": 0.44999998807907104,
+                  "g": 0.25,
+                  "b": 0.07000000029802322,
+                  "a": 1
+                },
+                "position": 0,
+                "boundVariables": {}
+              },
+              {
+                "color": {
+                  "r": 1,
+                  "g": 0.8999999761581421,
+                  "b": 0.6200000047683716,
+                  "a": 1
+                },
+                "position": 0.44999998807907104,
+                "boundVariables": {}
+              },
+              {
+                "color": {
+                  "r": 0.6000000238418579,
+                  "g": 0.36000001430511475,
+                  "b": 0.10000000149011612,
+                  "a": 1
+                },
+                "position": 1,
+                "boundVariables": {}
+              }
+            ],
+            "gradientTransform": [
+              [
+                0,
+                1,
+                0
+              ],
+              [
+                -1,
+                0,
+                1
+              ]
+            ]
+          }
+        ]
+      },
+      {
+        "id": "300:777",
+        "parent": "300:766",
+        "name": "Brass interwoven divider",
+        "type": "FRAME",
+        "x": 191,
+        "y": 85,
+        "w": 20,
+        "h": 20,
+        "constraints": {
+          "horizontal": "MIN",
+          "vertical": "MIN"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": false,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1
+            },
+            "boundVariables": {}
+          }
+        ]
+      },
+      {
+        "id": "300:778",
+        "parent": "300:777",
+        "name": "Vector",
+        "type": "VECTOR",
+        "x": 1,
+        "y": 1,
+        "w": 18,
+        "h": 18,
+        "constraints": {
+          "horizontal": "SCALE",
+          "vertical": "SCALE"
+        },
+        "fills": [
+          {
+            "type": "SOLID",
+            "visible": true,
+            "opacity": 1,
+            "blendMode": "NORMAL",
+            "color": {
+              "r": 0.95686274766922,
+              "g": 0.8235294222831726,
+              "b": 0.5176470875740051
+            },
+            "boundVariables": {}
+          }
+        ]
+      },
+      {
+        "id": "300:779",
+        "parent": "300:777",
+        "name": "Vector",
+        "type": "VECTOR",
+        "x": 6,
+        "y": 5,
+        "w": 9,
+        "h": 10,
+        "constraints": {
+          "horizontal": "SCALE",
+          "vertical": "SCALE"
+        },
+        "fills": []
+      }
+    ]
+  }
+]

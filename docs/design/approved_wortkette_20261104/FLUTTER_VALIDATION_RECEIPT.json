@@ -1,0 +1,96 @@
+{
+  "recordedAtUtc": "2026-11-04T07:16:11.9147311Z",
+  "checkout": "C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104",
+  "head": "b11c7ef838e6f18be72d7bed5404589c158d2b8f",
+  "status": "Uncommitted runtime integration; implementation and non-device verification complete",
+  "ownedFiles": [
+    "lib/screens/kkeunmari_screen.dart",
+    "lib/widgets/sori/approved_games/approved_word_chain_view.dart",
+    "test/approved_word_chain_lifecycle_test.dart",
+    "test/approved_word_chain_view_test.dart",
+    "test/timed_game_srs_recovery_test.dart",
+    "test/goldens/approved_word_chain_capture_test.dart",
+    "tool/visual_review/approved_word_chain_gallery.dart"
+  ],
+  "runs": [
+    {
+      "command": "flutter test --no-pub test/approved_word_chain_view_test.dart test/approved_word_chain_lifecycle_test.dart test/timed_game_srs_recovery_test.dart test/custom_pack_kkeunmari_test.dart --concurrency=1",
+      "result": "79 passed / 6 initial layout failures. All62 existing behavior cases and10 lifecycle cases passed; initial layout failures fixed and rerun below.",
+      "toolSession": 55257
+    },
+    {
+      "command": "flutter test --no-pub test/approved_word_chain_lifecycle_test.dart test/approved_word_chain_view_test.dart --concurrency=1",
+      "result": "26 passed:11 lifecycle plus15 view cases",
+      "toolSession": 33840,
+      "exitCode": 0
+    },
+    {
+      "command": "flutter test --no-pub test/approved_word_chain_view_test.dart test/goldens/approved_word_chain_capture_test.dart --concurrency=1 --dart-define=CAPTURE_APPROVED_WORD_CHAIN=C:/dev/hangulsori/_codex_artifacts/wortkette-figma-native-20261104/flutter-capture",
+      "result": "16 passed after final material, shadow and history-width corrections",
+      "toolSession": 40058,
+      "exitCode": 0
+    },
+    {
+      "command": "flutter analyze --no-pub [8 changed Dart targets including shared ApprovedArtButton]",
+      "result": "No issues found",
+      "toolSession": 68441,
+      "log": "flutter-analyze-final.log",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --check",
+      "result": "Exit0; only Git LF-to-CRLF notice for parent-owned shared material",
+      "exitCode": 0
+    },
+    {
+      "command": "flutter test --no-pub test/approved_word_chain_view_test.dart test/goldens/approved_word_chain_capture_test.dart --concurrency=1 --dart-define=CAPTURE_APPROVED_WORD_CHAIN=.../flutter-capture",
+      "result": "16 passed after empty-input baseline correction; B/C image hashes unchanged",
+      "exitCode": 0,
+      "log": "placeholder-baseline-tests.log",
+      "toolSession": 89667
+    },
+    {
+      "command": "flutter analyze --no-pub lib/widgets/sori/approved_games/approved_word_chain_view.dart",
+      "result": "No issues found after placeholder baseline correction",
+      "exitCode": 0,
+      "log": "placeholder-baseline-analyze.log",
+      "toolSession": 11025
+    }
+  ],
+  "captureManifest": "flutter-capture/CAPTURE_MANIFEST.json",
+  "captureKind": "Same production view, explicit presentation fixtures;402x874;German;100% text;zero safe-area insets;DPR1;real fonts",
+  "visualInspection": "Final A/B/C exported. B/C viewed after final material change; no observed clipping or geometry drift; CTA now approved wordChainAction with no duplicate shadow.",
+  "captureHashes": [
+    {
+      "name": "word-chain-a-flutter.png",
+      "sha256": "2D432CE91283588A213D09AFB866DAA29D560D084E7E13457FCADF97ABAC048F"
+    },
+    {
+      "name": "word-chain-b-flutter.png",
+      "sha256": "8D1BC7E15C88036728AD23A630B7EDF5A95C0D21747EBB05B8562FF55785BBB0"
+    },
+    {
+      "name": "word-chain-c-flutter.png",
+      "sha256": "2203C9E0DF9C7D2C1CA4E865F1E9F0DE7C00AA6639D1D3EC5585FA630AE97EBF"
+    }
+  ],
+  "deviceQA": "Not performed, per task scope",
+  "commit": "Not performed; parent owns final review and commit",
+  "placeholderBaseline": {
+    "figmaInkY": [
+      657,
+      674
+    ],
+    "beforeInkY": [
+      662,
+      679
+    ],
+    "afterInkY": [
+      657,
+      674
+    ],
+    "change": "Empty input uses LoraSemiBold24/58; filled input remains MaruBuri46/58; no transform",
+    "measurement": "placeholder-baseline-measurement.json",
+    "captureTimestamp": "2026-11-04T07:14:02.727828Z"
+  }
+}

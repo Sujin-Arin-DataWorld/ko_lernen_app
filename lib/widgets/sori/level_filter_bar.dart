@@ -18,12 +18,14 @@ import 'tokens.dart';
 ///
 /// The current value and zero-count values are intentionally non-interactive,
 /// so a non-null result always represents a real selection change.
+/// Games can provide [solvedFor] to show completed and total counts together.
 Future<String?> showSoriLevelFilterSheet({
   required BuildContext context,
   required String selected,
   required List<String> levels,
   required String allLabel,
   required int Function(String level) countFor,
+  int Function(String level)? solvedFor,
 }) {
   assert(levels.contains(selected), 'selected must be present in levels');
   assert(levels.toSet().length == levels.length, 'levels must be unique');
@@ -42,11 +44,14 @@ Future<String?> showSoriLevelFilterSheet({
                 final parsed = LearnerLevel.fromCode(level);
                 final label = parsed?.display ?? allLabel;
                 final count = countFor(level);
+                final solved = solvedFor?.call(level);
                 final isSelected = level == selected;
                 return SoriChip(
                   interfaceLabel: true,
                   key: ValueKey('sori-level-sheet-$level'),
-                  label: '$label · $count',
+                  label: solved == null
+                      ? '$label · $count'
+                      : '$label · $solved/$count',
                   accent: parsed == null
                       ? SoriColors.info
                       : HanokLevelPalette.of(parsed.code),

@@ -913,12 +913,11 @@ Future<VoidCallback> _answerAction(
   String chainWord = '과일',
 }) async {
   if (kind == 'chain') {
-    final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
     await tester.enterText(find.byType(TextField), chainWord);
-    return tester
-        .widgetList<SoriButton>(find.byType(SoriButton))
-        .singleWhere((b) => b.label == t.kkeunmariSubmit)
-        .onTap!;
+    final submit = tester
+        .widget<TextField>(find.byType(TextField))
+        .onSubmitted!;
+    return () => submit(chainWord);
   } else {
     await tester.tap(find.byKey(const ValueKey('speed-match-left-사과')));
     await tester.pump();

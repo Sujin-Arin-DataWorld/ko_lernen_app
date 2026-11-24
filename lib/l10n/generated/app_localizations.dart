@@ -2101,6 +2101,18 @@ abstract class AppL10n {
   /// **'Silben-Rätsel'**
   String get screenWordleTitle;
 
+  /// No description provided for @silbenPlaceInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Feld wählen · Silbe antippen'**
+  String get silbenPlaceInstruction;
+
+  /// No description provided for @silbenPoolTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Silben'**
+  String get silbenPoolTitle;
+
   /// No description provided for @silbenEmptyBody.
   ///
   /// In de, this message translates to:
@@ -21629,6 +21641,72 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{topic, select, a1_greetings{Grüßen und danken} a1_food{Essen und Getränke benennen} a1_home_daily{Über den Alltag sprechen} a1_transport{Verkehrsmittel benennen} a2_home{Räume beschreiben} a2_clothing{Kleidung benennen} a2_restaurant{Über Zutaten sprechen} a2_work{Arbeitstermine besprechen} b1_work_career{Berufserfahrungen schildern} b1_media_culture{Medieninhalte beschreiben} b1_tech_society{Über Beiträge sprechen} b1_city_places{Orte beschreiben} b2_society{Konflikte einordnen} b2_thinking{Standpunkte begründen} b2_environment{Umweltfolgen diskutieren} b2_work{Verträge besprechen} c1_evidence_reasoning{Studien beurteilen} c1_accessible_participation{Zugangshürden benennen} c1_risk_communication{Unsicherheit benennen} c1_sustainable_tradeoffs{Folgekosten abwägen} c2_language_framing{Framing erkennen} c2_narrative_perspective{Erinnerung reflektieren} c2_institutional_mediation{Interessen verhandeln} c2_technology_ethics{Entscheidungen prüfen} other{}}'**
   String wortpaketeTopicGoal(String topic);
+
+  /// No description provided for @approvedQuizTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter-Quiz'**
+  String get approvedQuizTitle;
+
+  /// No description provided for @approvedQuizCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} richtig'**
+  String approvedQuizCorrect(int count);
+
+  /// No description provided for @approvedQuizChooseMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle die Bedeutung.'**
+  String get approvedQuizChooseMeaning;
+
+  /// No description provided for @approvedGameListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get approvedGameListen;
+
+  /// No description provided for @approvedMatchingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Paare finden'**
+  String get approvedMatchingTitle;
+
+  /// No description provided for @approvedMatchingInstruction.
+  ///
+  /// In de, this message translates to:
+  /// **'Erst Koreanisch, dann die Bedeutung.'**
+  String get approvedMatchingInstruction;
+
+  /// No description provided for @approvedMatchingCounter.
+  ///
+  /// In de, this message translates to:
+  /// **'{count} von {total} Paaren'**
+  String approvedMatchingCounter(int count, int total);
+
+  /// No description provided for @approvedMatchingPickKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf ein koreanisches Wort.'**
+  String get approvedMatchingPickKorean;
+
+  /// No description provided for @approvedMatchingPickMeaning.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle jetzt die passende Bedeutung.'**
+  String get approvedMatchingPickMeaning;
+
+  /// No description provided for @approvedMatchingRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf die passende Bedeutung.'**
+  String get approvedMatchingRetry;
+
+  /// No description provided for @approvedMatchingFound.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Paar gefunden.'**
+  String get approvedMatchingFound;
 
   /// No description provided for @pronunciationPracticeRhythm.
   ///
