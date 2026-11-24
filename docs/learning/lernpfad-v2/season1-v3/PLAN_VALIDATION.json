@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-24 Europe/Berlin",
+  "scope": "plan/data structure only",
+  "passed": {
+    "units": 100,
+    "bands": 16,
+    "required_units": 99,
+    "optional_units": 1,
+    "original_goals_transfers_reviews_preserved": true,
+    "buildings_including_both_toilets": 11,
+    "authored_target_stages": 128,
+    "hook_candidates": 33,
+    "actual_hook_stage_bindings": 0,
+    "images_viewed_and_hash_checked": 9,
+    "v3_snapshot_byte_identical": true,
+    "input_hashes_current": true,
+    "all_tasks_T1_T12_present": true,
+    "local_markdown_links_checked": 55
+  },
+  "not_proven": [
+    "world rules author approval",
+    "actual 128-stage catalogue mapping",
+    "all lesson/media production",
+    "pedagogy/history approval",
+    "fun or learning efficacy",
+    "runtime/UI integration",
+    "device/store readiness"
+  ],
+  "deliverable_hashes": {
+    "docs/superpowers/plans/2026-10-24-ildu-season1-v3-curriculum.md": "38a012e74c8874b6d95465d8b792964d5d791208053f52a50e0adec33c7f3472",
+    "docs/learning/lernpfad-v2/season1-v3/UNIT_STORY_MAP.csv": "0fd0de12b39846ead5ffa116c9c128b885e7055a312caaeb10d1e299be9e89a1",
+    "docs/learning/lernpfad-v2/season1-v3/BUILDING_HOOKS.csv": "e93e21b8f405a7a62cafccc80cec4fddcb80f96c6ae202ca7f672b5d5d5ecf1f",
+    "docs/learning/lernpfad-v2/season1-v3/INPUT_EVIDENCE.json": "5defe889b209953a20cbee05201ccd58fd468e0b12f4a882e52d1e8ab9f0ba9c",
+    "docs/learning/lernpfad-v2/season1-v3/PLAN_REVIEW.json": "b5cadf836bfb1fcbd5179c2a0f7735284de9f6f3977fb20a2425046e0e31228c"
+  },
+  "verification_results": {
+    "existing_curriculum_structure_check": "PASS:100 units/356 grammar rows/40 jamo/48 bindings",
+    "existing_curriculum_regression_tests": "PASS:7 tests",
+    "fresh_builder_check": "nothing important left",
+    "preexisting_worktree_files_removed": 0,
+    "runtime_source_changes_this_task": []
+  },
+  "objective_audit": {
+    "user_v3_source_and_nine_images": "byte-identical snapshot and images inspected/hash-checked",
+    "prior_history_character_research": "primary links refreshed; live persona definitions and canonical source registry inspected",
+    "full_F0_to_C2_2_curriculum": "16-band expected actions plus100 exact source goals/transfer/review mappings",
+    "undecided_world_rules": "D1-D7 recommendations; T1 explicit author decisions and contradiction checks",
+    "story_gameplay_and_building": "4acts/P+10episodes/12clues and33hook candidates for game11 incl both toilets/128target",
+    "construction_reward_storage": "current limits and main/worktree drift identified; T2/T9/T10 contracts and migrations assigned",
+    "production_order_and_validation": "T1-T12 dependencies, deliverables, named test cases, human/media/QA and deferred design gates",
+    "scope": "production planning completed; future tasks intentionally pending, no application implementation claimed"
+  }
+}

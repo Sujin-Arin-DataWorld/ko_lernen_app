@@ -1,0 +1,161 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C1.1-01",
+      "sha256": "19ae15ae7c59c693fda54ea5ad7aa2f2778f607eaec73ec0dfed515ba8a788fa",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C11-01"
+      ]
+    },
+    {
+      "unitId": "C1.1-02",
+      "sha256": "fac6d3ba259ffab55ea92f3a7d085dd2451b11b552835d044167ed7d79fc190e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C11-02"
+      ]
+    },
+    {
+      "unitId": "C1.1-03",
+      "sha256": "9bbe9900eb47e0c787e6a6a407bd288ecd90223a48af9b6c425f3ce460dda7d7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C11-03"
+      ]
+    },
+    {
+      "unitId": "C1.1-04",
+      "sha256": "b4be8a54872e8874f2c1740aad9b2aaade33d94dcc9d30d62c832161dcfd69be",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C11-04"
+      ]
+    },
+    {
+      "unitId": "C1.1-05",
+      "sha256": "27bfd12e9818aa1ae768e324f75ebe9bb49bb014ae3c7a52527a5400b776bfab",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C11-05"
+      ]
+    },
+    {
+      "unitId": "C1.1-06",
+      "sha256": "a3eeb1decb09e703b0b0706a9a4bdd99ddd8621dd6ca585fe77d712e21225b01",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-C11-06",
+        "CUR-C11-07"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-C11-01",
+      "unitId": "C1.1-01",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 — 210-play/32-response case, '답안 핵심'",
+      "problem": "The explicitly independent task displays the essential answer or full model in KO/EN/DE directly with its prompt. A response after reading that key is not independent evidence; the learner needs access to the source material without the answer.",
+      "proposal": "Move all three-language answer/model content for this task into a collapsed check-after-attempt or facilitator block. Add KO '답과 해설을 모든 언어에서 가리고 문제와 자료만 보고 먼저 답해요. 답이나 도움을 본 뒤의 시도는 지원 연습으로 남겨요.' EN 'Hide answers and explanations in every language, and answer from the prompt and materials first. Record attempts after viewing answers or help as supported practice.' DE 'Decke Antworten und Erklärungen in allen Sprachen ab und antworte zuerst nur anhand von Aufgabe und Material. Versuche nach dem Ansehen von Antwort oder Hilfe gelten als unterstützte Übung.' Keep factual source material visible and natural alternative answers admissible.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C11-02",
+      "unitId": "C1.1-02",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 — Friday posting case, '답안 예'",
+      "problem": "The explicitly independent task displays the essential answer or full model in KO/EN/DE directly with its prompt. A response after reading that key is not independent evidence; the learner needs access to the source material without the answer.",
+      "proposal": "Move all three-language answer/model content for this task into a collapsed check-after-attempt or facilitator block. Add KO '답과 해설을 모든 언어에서 가리고 문제와 자료만 보고 먼저 답해요. 답이나 도움을 본 뒤의 시도는 지원 연습으로 남겨요.' EN 'Hide answers and explanations in every language, and answer from the prompt and materials first. Record attempts after viewing answers or help as supported practice.' DE 'Decke Antworten und Erklärungen in allen Sprachen ab und antworte zuerst nur anhand von Aufgabe und Material. Versuche nach dem Ansehen von Antwort oder Hilfe gelten als unterstützte Übung.' Keep factual source material visible and natural alternative answers admissible.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C11-03",
+      "unitId": "C1.1-03",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 — ten-of-twelve clarity case, '답'",
+      "problem": "The explicitly independent task displays the essential answer or full model in KO/EN/DE directly with its prompt. A response after reading that key is not independent evidence; the learner needs access to the source material without the answer.",
+      "proposal": "Move all three-language answer/model content for this task into a collapsed check-after-attempt or facilitator block. Add KO '답과 해설을 모든 언어에서 가리고 문제와 자료만 보고 먼저 답해요. 답이나 도움을 본 뒤의 시도는 지원 연습으로 남겨요.' EN 'Hide answers and explanations in every language, and answer from the prompt and materials first. Record attempts after viewing answers or help as supported practice.' DE 'Decke Antworten und Erklärungen in allen Sprachen ab und antworte zuerst nur anhand von Aufgabe und Material. Versuche nach dem Ansehen von Antwort oder Hilfe gelten als unterstützte Übung.' Keep factual source material visible and natural alternative answers admissible.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C11-04",
+      "unitId": "C1.1-04",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 — first-Wednesday trial, inline '모범 핵심'/EN/DE Example",
+      "problem": "The explicitly independent task displays the essential answer or full model in KO/EN/DE directly with its prompt. A response after reading that key is not independent evidence; the learner needs access to the source material without the answer.",
+      "proposal": "Move all three-language answer/model content for this task into a collapsed check-after-attempt or facilitator block. Add KO '답과 해설을 모든 언어에서 가리고 문제와 자료만 보고 먼저 답해요. 답이나 도움을 본 뒤의 시도는 지원 연습으로 남겨요.' EN 'Hide answers and explanations in every language, and answer from the prompt and materials first. Record attempts after viewing answers or help as supported practice.' DE 'Decke Antworten und Erklärungen in allen Sprachen ab und antworte zuerst nur anhand von Aufgabe und Material. Versuche nach dem Ansehen von Antwort oder Hilfe gelten als unterstützte Übung.' Keep factual source material visible and natural alternative answers admissible.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C11-05",
+      "unitId": "C1.1-05",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 — repair-shop receipt case, inline '예'/Example/Beispiel",
+      "problem": "The explicitly independent task displays the essential answer or full model in KO/EN/DE directly with its prompt. A response after reading that key is not independent evidence; the learner needs access to the source material without the answer.",
+      "proposal": "Move all three-language answer/model content for this task into a collapsed check-after-attempt or facilitator block. Add KO '답과 해설을 모든 언어에서 가리고 문제와 자료만 보고 먼저 답해요. 답이나 도움을 본 뒤의 시도는 지원 연습으로 남겨요.' EN 'Hide answers and explanations in every language, and answer from the prompt and materials first. Record attempts after viewing answers or help as supported practice.' DE 'Decke Antworten und Erklärungen in allen Sprachen ab und antworte zuerst nur anhand von Aufgabe und Material. Versuche nach dem Ansehen von Antwort oder Hilfe gelten als unterstützte Übung.' Keep factual source material visible and natural alternative answers admissible.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C11-06",
+      "unitId": "C1.1-06",
+      "severity": "required",
+      "location": "스몰토크·독립 확인·전이 — on-site/online question case, inline '답안 예'",
+      "problem": "The explicitly independent task displays the essential answer or full model in KO/EN/DE directly with its prompt. A response after reading that key is not independent evidence; the learner needs access to the source material without the answer.",
+      "proposal": "Move all three-language answer/model content for this task into a collapsed check-after-attempt or facilitator block. Add KO '답과 해설을 모든 언어에서 가리고 문제와 자료만 보고 먼저 답해요. 답이나 도움을 본 뒤의 시도는 지원 연습으로 남겨요.' EN 'Hide answers and explanations in every language, and answer from the prompt and materials first. Record attempts after viewing answers or help as supported practice.' DE 'Decke Antworten und Erklärungen in allen Sprachen ab und antworte zuerst nur anhand von Aufgabe und Material. Versuche nach dem Ansehen von Antwort oder Hilfe gelten als unterstützte Übung.' Keep factual source material visible and natural alternative answers admissible.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-C11-07",
+      "unitId": "C1.1-06",
+      "severity": "required",
+      "location": "independent model — '방문자 수와 이해도는 측정하지 않아' / 'We didn't measure visitor numbers or comprehension' / 'Besucherzahl und Verständnis wurden nicht erhoben'",
+      "problem": "The source states visitor counts and repeat questioners are unknown; it supplies no comprehension results. It does not establish that visitor counts or comprehension were never measured. The model converts absent/unknown information into an asserted history of non-measurement while teaching faithful question-led reporting.",
+      "proposal": "Replace the second model sentence and corresponding short summaries with KO '이 자료에는 방문자 수와 이해도 측정 결과가 없어 이해 향상을 확정할 수 없습니다.' EN 'The record provides neither visitor counts nor comprehension results, so we cannot establish improved understanding.' DE 'Die Unterlagen enthalten weder Besucherzahlen noch Ergebnisse zum Verständnis; eine Verbesserung lässt sich daraus nicht feststellen.' Preserve the observed 10→4 and 2→9 changes and proposed next checks.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

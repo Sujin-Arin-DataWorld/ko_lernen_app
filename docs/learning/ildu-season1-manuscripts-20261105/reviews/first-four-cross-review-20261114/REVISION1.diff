@@ -1,0 +1,711 @@
+# F0.1.sound-signs
+
+--- before/F0.1.sound-signs.md
++++ revision1/F0.1.sound-signs.md
+@@ -2,7 +2,7 @@
+ 
+ **The first sound in the book · Der erste Laut im Buch**
+ 
+-집필 상태: KO·EN 본문 및 DE 초고 작성. 독립 교차 검토 전. 이 문서는 읽는 원고이며 앱·음성 제작물이 아니다.
++교정 원고. 이번 검토 범위는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md) 참조. 실제 음가 청취·사람 감수는 별도. 이 문서는 읽는 원고이며 앱·음성 제작물이 아니다.
+ 
+ ## 이번에 만나는 것
+ 
+@@ -14,9 +14,9 @@
+ 
+ 입문 필수 범위는 **ㅇ·ㅏ·ㅓ → 아·어**다. 아·어는 여기서 뜻을 맞히는 단어가 아니라 소리와 글자 모양을 연결하는 음절이다. 앞 장면은 프롤로그의 고택 도착과 복원 의뢰, 다음 단원은 **F0.1.above-below**의 오·우다.
+ 
+-**EN** Here you practise **ㅇ·ㅏ·ㅓ → 아·어**. You connect the sounds of these syllables with their written shapes; you do not need to know any meanings they may have as words. This follows your arrival at the remembered house and the request to restore it. Next come 오 and 우 in **F0.1.above-below**.
++**EN** Here you practise **ㅇ·ㅏ·ㅓ → 아·어**. You connect the sounds of these syllables with their written shapes; you do not need to know any meanings they may have as words. This follows your arrival at the old house in the world of memories and the request to restore it. Next come 오 and 우 in **F0.1.above-below**.
+ 
+-**DE** Du übst hier **ㅇ·ㅏ·ㅓ → 아·어**. 아 und 어 sind in dieser Aufgabe Silben, deren Klang du mit der Schriftform verbindest; ihre Bedeutung als Wörter musst du nicht kennen. Davor stehen die Ankunft am erinnerten Haus und der Auftrag zur Wiederherstellung. Als Nächstes folgen 오 und 우 in **F0.1.above-below**.
++**DE** Du übst hier **ㅇ·ㅏ·ㅓ → 아·어**. 아 und 어 sind in dieser Aufgabe Silben, deren Klang du mit der Schriftform verbindest; ihre Bedeutung als Wörter musst du nicht kennen. Davor liegen die Ankunft beim alten Anwesen in der Erinnerungswelt und die Bitte, es wiederherzustellen. Als Nächstes folgen 오 und 우 in **F0.1.above-below**.
+ 
+ ## 첫 장을 펼치다 — 기억의 고택에서 읽는 이야기
+ 
+@@ -34,7 +34,7 @@
+ | 수진 · 새 연결 대사 | 책을 잡고 있을게. 조각은 하나씩 보자. | I’ll hold the book. Let’s look at one piece at a time. | Ich halte das Buch fest. Sehen wir uns ein Teil nach dem anderen an. |
+ | 안내 · 학습 시범 | ㅇ을 왼쪽에, ㅏ를 오른쪽에 놓아요. 두 조각이 한 음절 아가 돼요. | Put ㅇ on the left and ㅏ on the right. The two pieces make the syllable block 아. | Setze ㅇ nach links und ㅏ nach rechts. Zusammen bilden die beiden Teile den Silbenblock 아. |
+ 
+-시범을 보고 **아**를 복원한 뒤 다음 장면을 읽는다. 사용자의 실제 발화를 요구하거나 녹음하지 않아도 극중 아바타의 낭독은 이어진다.
++시범을 보고 **아**를 복원한 뒤 다음 장면을 읽어요. 직접 소리 내어 읽지 않아도 이야기 속 낭독은 이어져요. / After following the model to restore **아**, read the next scene. The character in the story reads aloud even if you do not. / Nachdem du **아** nach dem Vorbild zusammengesetzt hast, lies die nächste Szene. Die Figur in der Geschichte liest laut, auch wenn du selbst nichts sagst.
+ 
+ | 화자·구분 | KO | EN | DE |
+ |---|---|---|---|
+@@ -44,14 +44,14 @@
+ | 도깨비 · 정본 인용 P-7 | ……탈선비? | …TalSunbi? | …TalSunbi? |
+ | 탈선비 · 정본 인용 P-7 | 허허, 자네는 내가 잠든 새에도 아직 글공부를 안 했나? | Ha! Have you still not studied your letters, even while I was asleep? | Haha! Hast du dich während meines Schlafs noch immer nicht mit den Schriftzeichen beschäftigt? |
+ | 도깨비 · 정본 인용 P-7 | 이놈아!!! 지금 몇백 년 만에 눈을 떠 놓고 첫마디가 그거냐! | You rascal! You wake up after hundreds of years, and that is the first thing you say! | Du alter Schlingel! Du wachst nach Hunderten von Jahren auf, und das ist das Erste, was du sagst! |
+-| 서술 · 정본 연기 연결 | 도깨비는 발을 구르지만 눈시울은 붉어져 있다. 탈선비의 웃음이 조금 잦아든다. 그제야 낡은 집터와 작아진 친구가 눈에 들어온다. | Dokkaebi stamps his feet, but his eyes are red. TalSunbi’s laughter softens. Only now does he take in the ruined house and his diminished friend. | Dokkaebi stampft mit den Füßen, doch seine Augen sind gerötet. TalSunbis Lachen wird leiser. Erst jetzt nimmt er das verfallene Anwesen und seinen kleiner gewordenen Freund wahr. |
++| 서술 · 정본 연기 연결 | 도깨비는 발을 구르지만 눈시울은 붉어져 있다. 탈선비의 웃음이 조금 잦아든다. 그제야 낡은 집터와 작아진 친구가 눈에 들어온다. | Dokkaebi stamps his feet, but his eyes are red. TalSunbi’s laughter softens. Only now does he take in the ruined house and see how small his old friend has become. | Dokkaebi stampft mit den Füßen, doch seine Augen sind gerötet. TalSunbis Lachen wird leiser. Erst jetzt nimmt er das verfallene Anwesen und seinen kleiner gewordenen Freund wahr. |
+ | 탈선비 · 정본 인용 P-7 | ……집이 많이 낡았구먼. 자네는…… 내가 잠든 동안 줄곧 여기 혼자 있었나? ……많이 외로웠겠구먼. | …The house has fallen into such disrepair. Were you… here alone all the time I was asleep? …You must have been very lonely. | …Das Haus ist sehr verfallen. Warst du … die ganze Zeit hier allein, während ich geschlafen habe? …Du musst sehr einsam gewesen sein. |
+ | 서술 · 정본 연기와 새 연결 동작 | 도깨비는 고개를 휙 돌리고 코를 훌쩍인다. 친구를 바라보는 대신 새 제자 쪽으로 눈길을 돌린다. | Dokkaebi turns away sharply and sniffles. He glances toward the new pupil instead of meeting his old friend’s eyes. | Dokkaebi dreht den Kopf rasch weg und schnieft. Statt seinem alten Freund in die Augen zu sehen, blickt er zu {이름} hinüber. |
+ | 도깨비 · 정본 인용 P-7 | 시, 시끄럽네! 집 지키는 도깨비가 이 집을 두고 어디를 가겠느냐! 자네가 돌아왔으니 밀린 일부터 하게! 이 새 제자에게 공부를 가르쳐야 내 집을 고칠 수 있다고! | Q-quiet! Where would a Dokkaebi who guards this house go, leaving it behind? Now you’re back, see to the work that’s piled up! Teach this new pupil, so my house can be repaired! | S-sei still! Wohin sollte ein Dokkaebi, der dieses Haus bewacht, denn gehen und es zurücklassen? Jetzt bist du wieder da, also kümmere dich um die liegen gebliebene Arbeit! Du hast jetzt jemanden zum Unterrichten. Fang an, damit mein Haus repariert werden kann! |
+ | 탈선비 · 정본 인용 P-7, 책갈피 표지 제외 | 허허, 소리가 먼저이고 글자는 그 소리의 옷이라네. 자, {이름} 제자여, 오늘은 첫 글자부터 차근차근 살펴보세. | Ha ha, sound comes first, and letters are the clothes it wears. Now, {이름}, my pupil, let us begin with the first character, one step at a time. | Haha, zuerst kommt der Laut, und die Schrift ist sein Gewand. Nun, {이름}, beginnen wir unseren Unterricht mit dem ersten Zeichen, Schritt für Schritt. |
+ | 수진 · 새 연결 대사 | 내가 책을 잡고 있을게. 천천히 해도 돼. | I’ll hold the book. Take your time. | Ich halte das Buch fest. Lass dir Zeit. |
+ 
+-탈선비의 귀환은 이야기 사건이다. 정본의 새 제자 환영과 소리의 옷 비유는 번역으로 읽는 인물 대사이며 입문 문법·독해 과제로 바꾸지 않는다. 아를 도움받아 복원했다고 해서 혼자 읽기·발음에 합격한 것으로 쓰지 않는다. 복습할 때 친구가 다시 사라지거나 다시 깨어나는 사건을 만들지 않는다. `{이름}`은 독자가 선택한 이름이며 성별·국적을 덧붙이지 않는다.
++탈선비의 말은 번역으로 읽어도 괜찮아요. 긴 대사를 외우거나 직접 읽을 필요는 없어요. 복습하거나 잠시 쉬어도 돌아온 친구는 그대로예요. `{이름}`에는 원하는 이름을 넣어요. / You can read TalSunbi’s words in translation; you do not need to memorise or read the long Korean lines. Your friend stays with you when you review or take a break. Use a name of your choice for `{이름}`. / Du kannst TalSunbis Worte in der Übersetzung lesen; die langen koreanischen Sätze musst du weder auswendig lernen noch selbst lesen. Dein Freund bleibt da, auch wenn du wiederholst oder eine Pause machst. Setze bei `{이름}` einen Namen deiner Wahl ein.
+ 
+ ## 소리 조각과 첫 인사
+ 
+@@ -63,7 +63,7 @@
+ | 아 / 어 · 연습 음절 | 아와 어를 하나씩 듣고 글자를 봐요. 감탄사의 뜻은 묻지 않아요. | Listen to each syllable and look at its block. Their possible uses as interjections are outside this task. | Hör dir jede Silbe einzeln an und sieh dir den Silbenblock an. Mögliche Bedeutungen als Ausruf gehören nicht zu dieser Aufgabe. |
+ | 안녕하세요 · 인사 표현, 수용·선택 활동 | 처음 만난 사람에게: 안녕하세요. | To someone you are meeting: Hello. | Zu einer Person, die du gerade kennenlernst: Guten Tag. |
+ 
+-긴 설명과 인사는 번역 지원이다. 그 안의 미학습 글자를 읽게 요구하지 않는다. 첫자리 ㅇ의 설명을 받침 ㅇ까지 넓히지 않는다.
++설명과 인사는 번역을 보며 이해해도 돼요. 아직 배우지 않은 글자를 읽을 필요는 없어요. / Use the translations to understand the explanations and greeting. You do not need to read letters you have not learned yet. / Nutze die Übersetzungen für die Erklärungen und die Begrüßung. Noch nicht gelernte Zeichen musst du nicht lesen können.
+ 
+ ## 시범과 대조
+ 
+@@ -72,45 +72,59 @@
+ | 아와 어에서는 ㅇ이 왼쪽, 모음이 오른쪽이에요. 모음의 짧은 획 방향이 달라도 모음 자리 자체는 오른쪽이에요. | In both 아 and 어, ㅇ is on the left and the vowel on the right. The short stroke changes direction, but the vowel still goes on the right. | Sowohl bei 아 als auch bei 어 steht ㅇ links und der Vokal rechts. Die Richtung des kurzen Strichs ändert sich, nicht aber der Platz des Vokals. |
+ | 조각을 두 글자로 따로 쓰지 않고 한 음절 안에 모아요. | Bring the pieces into one syllable block rather than leaving them as two separate characters. | Füge die Teile zu einem Silbenblock zusammen, statt sie als zwei einzelne Zeichen stehen zu lassen. |
+ 
+-**도움 연습 P1:** 완성 모형 **아**와 조각 **ㅏ / ㅇ**을 본다. “시범처럼 한 글자를 만들어 봐요. / Make one syllable block like the example. / Bilde einen Silbenblock wie im Beispiel.” 답은 **ㅇ 왼쪽 + ㅏ 오른쪽 → 아**다.
++**도움 연습 P1·P2 / With a model / Mit Vorbild**
+ 
+-**도움 연습 P2:** 완성 모형 **어**와 조각 **ㅇ / ㅓ**을 본다. 같은 방식으로 **어**를 만든다. 모음을 왼쪽에 놓았다면 “획이 왼쪽으로 나 있어도 모음은 오른쪽 자리에 놓아요. / Even though its stroke points left, the vowel goes on the right. / Auch wenn sein Strich nach links zeigt, steht der Vokal rechts.”라고 설명하고 함께 다시 놓는다.
++모형을 보고 조각을 한 음절로 모아요. / Use the model to build one syllable block from each pair. / Bilde aus jedem Paar einen Silbenblock wie im Vorbild.
+ 
+-## 듣기 원고 — 현대의 소리표, 문장 듣기 전 단계
++| ID | 모형 / Model / Vorbild | 조각 / Pieces / Teile |
++|---|---|---|
++| P1 | 아 | ㅏ / ㅇ |
++| P2 | 어 | ㅇ / ㅓ |
+ 
+-장소는 현대의 조용한 책상, 자료는 글자 카드 두 장이다. 수진이 옆에서 카드를 정리하지만 **재생 대상은 기존 음가 표본 S-A와 S-EO뿐**이다. 고택 등장인물의 대사는 읽는 이야기이며 합성 대본으로 전용하지 않는다.
++## 듣기 준비 — 소리와 글자를 함께 보기
+ 
+-| 순서 | 제시할 표본·자료 | 학습자 안내 KO / EN / DE | 답·근거 |
+-|---|---|---|---|
+-| 시범 1 | S-A와 아를 함께 제시 | 먼저 소리와 글자를 함께 만나요. / First, hear the sound and see its block together. / Lerne zuerst Laut und Schriftzeichen zusammen kennen. | 표본 전사는 아. 이 단계는 시범이다. |
+-| 시범 2 | S-EO와 어를 함께 제시 | 이번에는 다른 소리예요. / This is a different sound. / Jetzt hörst du einen anderen Laut. | 표본 전사는 어. 이 단계도 시범이다. |
+-| 확인 1 | S-EO; 보기 **어 / 아**, 정답 전사 숨김 | 들은 소리와 맞는 글자를 골라요. / Choose the block that matches the sound. / Wähle den Silbenblock, der zum Laut passt. | **어**. 표본과 선택한 음절의 대응을 확인한다. |
+-| 확인 2 | S-A; 보기 **어 / 아** | 이번 소리와 맞는 글자를 골라요. / Match this sound too. / Ordne auch diesen Laut zu. | **아**. 정답 위치를 고정하지 않는다. |
+-
+-“다시 들을까요? / Would you like to hear it again? / Möchtest du es noch einmal hören?”에 다시 듣기를 선택하면 **바로 직전 표본을 반복**한다. 다른 소리를 대신 틀지 않는다. 표본을 사용할 수 없으면 “소리 확인은 나중에 하고 글자 조각을 계속 볼 수 있어요. / You can leave the sound check for later and continue with the letter pieces. / Du kannst den Lautvergleich später machen und mit den Schriftteilen weiterüben.”라고 안내한다. 이 원고가 음원 연결·청취 검증을 완료한 것은 아니다.
++현대의 연습 장면이에요. 수진과 소리 카드를 살펴봐요. 준비된 소리가 있으면 **아**, 다음 **어**를 하나씩 듣고 해당 글자를 봐요. 소리가 준비되지 않았다면 글자 활동부터 계속해도 돼요. / In this present-day practice scene, look at the sound cards with Sujin. If the samples are available, hear **아**, then **어**, and look at each matching block. If audio is unavailable, continue with the letter activities. / Diese Übung spielt in der Gegenwart: Sieh dir mit Sujin die Lautkarten an. Wenn die Lautbeispiele bereitstehen, höre zuerst **아**, dann **어** und sieh dir jeweils den passenden Silbenblock an. Ohne Ton kannst du mit den Schriftzeichen weiterüben.
+ 
+ ## 스몰토크 — 처음 인사해 보기
+ 
+-**현대 학습용 새 장면.** 친한 수진과 인사 연습을 해 본다. 수진은 친구를 처음 만나는 상황의 연습 상대다. 실제로 서로 처음 알게 된 것으로 정본 관계를 바꾸지 않는다.
++**현대 학습용 새 장면.** 친한 수진과 처음 만난 사람에게 인사하는 연습을 해요. / Practise greeting someone for the first time with your friend Sujin. / Übe mit deiner Freundin Sujin, jemanden zum ersten Mal zu begrüßen.
+ 
+ | 역할 | KO | EN | DE |
+ |---|---|---|---|
+-| 수진 · 시범 | 안녕하세요. | Hello. | Guten Tag. |
+-| 학습자 · 선택 A | 안녕하세요. | Hello. | Guten Tag. |
+-| 학습자 · 선택 B | 듣고 가볍게 인사한다. | Listen and acknowledge the greeting with a small nod. | Höre zu und erwidere die Begrüßung mit einem leichten Nicken. |
+-| 수진 · 반응 | 반가워. 이제 카드도 같이 보자. | Good to see you. Let’s look at the cards together. | Schön, dich zu sehen. Schauen wir uns die Karten zusammen an. |
++| 수진 · 시범 / Sujin · Model / Vorbild | 안녕하세요. | Hello. | Guten Tag. |
++| 학습자 · 선택 A / You · Choice A / Du · Auswahl A | 안녕하세요. | Hello. | Guten Tag. |
++| 학습자 · 선택 B / You · Choice B / Du · Auswahl B | 듣고 가볍게 인사한다. | Listen and acknowledge the greeting with a small nod. | Höre zu und erwidere die Begrüßung mit einem leichten Nicken. |
++| 수진 · 반응 / Sujin · Reply / Antwort | 반가워. 이제 카드도 같이 보자. | Good to see you. Let’s look at the cards together. | Schön, dich zu sehen. Schauen wir uns die Karten zusammen an. |
+ 
+-선택 A는 인사 표현을 따라 해 보는 기회, B는 말하기 없이 참여하는 선택이다. B를 한국어 발화로 기록하지 않는다. “안녕하세요!”처럼 다른 억양이나 미소를 곁들인 자연스러운 인사를 오류로 만들지 않는다.
++따라 인사하거나 말없이 고개를 끄덕여도 좋아요. / You can try the greeting or respond with a nod. / Du kannst die Begrüßung nachsprechen oder mit einem Nicken antworten.
+ 
+-## 혼자 확인하고 생활에서 다시 만나기
++## 혼자 조립해 보기 — 학습자 문제
+ 
+-**EN** Cover the model. Build one block from ㅓ and ㅇ, then another from ㅏ and ㅇ. For another try, swap the positions of the 어 and 아 cards. Take turns with Sujin pointing to each one. After learning ㄴ in F0.2.first-names, find the vowels again in 나 and 너.
++앞의 시범과 뒤의 답 부분을 가리고, 아래 문제만 보세요. 조각 한 쌍으로 한 음절을 만들어요. 도움이 필요하면 시범을 다시 봐도 괜찮아요. / Cover the examples and the answer section, leaving only the task below visible. Build one syllable block from each pair. You can look at a model again if you need help. / Decke die Vorbilder und den Lösungsteil ab, sodass nur die folgende Aufgabe sichtbar bleibt. Bilde aus jedem Paar einen Silbenblock. Wenn du Hilfe brauchst, kannst du dir ein Vorbild noch einmal ansehen.
+ 
+-**DE** Decke das Vorbild ab. Bilde aus ㅓ und ㅇ einen Block, danach aus ㅏ und ㅇ einen zweiten. Tausche für einen weiteren Versuch die Plätze der Karten 어 und 아. Zeige abwechselnd mit Sujin auf die Karten. Wenn du in F0.2.first-names ㄴ gelernt hast, suche die Vokale in 나 und 너.
++| ID | 조각 / Pieces / Teile |
++|---|---|
++| I1 | ㅓ / ㅇ |
++| I2 | ㅏ / ㅇ |
+ 
+-완성 모형을 가린 뒤 **I1: ㅓ / ㅇ**, **I2: ㅏ / ㅇ**을 각각 한 음절로 조립한다. 공통 지시: “이 조각들로 한 글자를 만들어 봐요. / Make one syllable block with these pieces. / Bilde aus diesen Teilen einen Silbenblock.” 답은 **I1 어, I2 아**이며 둘 다 ㅇ 왼쪽·모음 오른쪽이다. 모형을 다시 본 뒤의 성공은 도움 연습으로 구별한다.
++## 소리로 골라 보기 — 조립을 마친 뒤
+ 
+-생활 전이: 카드 위치를 바꿔 **어 / 아**를 놓고 수진과 한 번씩 가리킨다. 이미 배운 두 음절의 위치가 달라져도 찾는 연습이다. 아직 배우지 않은 단어의 뜻이나 새 조합을 읽었다고 판단하지 않는다. 나중에 F0.2.first-names에서 ㄴ을 배운 뒤 **나·너** 속 모음 자리를 다시 찾는다.
++소리가 준비되어 있으면 한 번에 하나씩 듣고 맞는 카드를 골라요. 시범과 답은 계속 가려 두세요. 다시 듣고 싶으면 말하거나 가리켜 알려 주세요. / If audio is available, hear one sample at a time and choose the matching card. Keep the examples and answers covered. Ask or gesture to hear the same sample again. / Wenn Ton bereitsteht, höre jeweils ein Lautbeispiel und wähle die passende Karte. Lass Vorbilder und Lösungen abgedeckt. Sage oder zeige, wenn du dasselbe Beispiel noch einmal hören möchtest.
++
++| ID | 보기 / Choices / Auswahl |
++|---|---|
++| L1 | 어 / 아 |
++| L2 | 어 / 아 |
++
++## 카드 위치를 바꿔 찾기 — 학습자 문제
++
++글자를 보고 찾는 T1과 소리로 찾는 T2 중 한 가지를 골라요. / Choose either T1 with written prompts or T2 with sounds. / Wähle entweder T1 mit geschriebenen Vorlagen oder T2 mit Lauten.
++
++**T1 · 글자를 보고 찾기.** 왼쪽에 **어**, 오른쪽에 **아**를 놓아요. 수진이 따로 보여 주는 글자와 같은 카드를 가리켜요. 한 장씩 찾은 뒤 카드 자리를 바꾸고 다시 해 봐요. / Put **어** on the left and **아** on the right. Point to the card matching the written prompt Sujin shows you, one at a time. Then swap the cards and try again. / Lege **어** nach links und **아** nach rechts. Zeige jeweils auf die Karte, die zu Sujins einzeln gezeigter Vorlage passt. Tausche danach die Plätze der Karten und versuche es erneut.
++
++**T2 · 소리로 찾기, 소리가 준비된 경우.** 왼쪽 **어**, 오른쪽 **아**로 시작해요. 목표 글자는 보지 않고 소리만 듣고 골라요. 필요하면 같은 소리를 다시 들어요. / Start with **어** on the left and **아** on the right. Choose by sound without a written prompt. Hear the same sample again if you need to. / Beginne mit **어** links und **아** rechts. Wähle nur nach dem Laut, ohne geschriebene Vorlage. Höre das Beispiel bei Bedarf noch einmal.
++
++나중에 **F0.2.first-names**에서 ㄴ을 배운 뒤 나·너 속 모음 자리를 다시 볼 거예요. / After learning ㄴ in **F0.2.first-names**, you will look again at the vowels in 나 and 너. / Wenn du in **F0.2.first-names** ㄴ gelernt hast, siehst du dir die Vokalplätze in 나 und 너 wieder an.
+ 
+ | 돌아가는 글 KO | EN | DE |
+ |---|---|---|
+@@ -118,10 +132,28 @@
+ 
+ 이 마무리는 새 연결 집필이다. 다음은 오·우이며, 새 단서·건물 완공·기억 회복 수치를 부여하지 않는다.
+ 
++## 진행자용 답과 운영 메모
++
++이 구획은 응답 전 학습자에게 보여 주지 않는다. 문제를 진행할 때 해당 문제표만 남기고 앞의 시범, 뒤의 카드 활동과 이 답 부분을 가린다. 도움을 요청하면 해당 모형을 보여 주며, 그 뒤 응답은 도움 연습으로 구별한다. 속도나 조각을 집는 순서는 정답 기준이 아니다.
++
++| ID | 자극·답·반응 |
++|---|---|
++| P1 / P2 | 모형을 따른 답은 아 / 어. 둘 다 ㅇ 왼쪽·모음 오른쪽. ㅓ의 짧은 획이 왼쪽을 향해도 모음 자리는 오른쪽이다. |
++| I1 / I2 | 어 / 아. 둘 다 ㅇ 왼쪽·모음 오른쪽. 로마자만 쓴 응답은 한글 조립으로 세지 않는다. |
++| 소리 시범 | 기존 참조 S-A와 아, 이어 S-EO와 어를 함께 제시한다. |
++| L1 / L2 | L1은 S-EO → 어, L2는 S-A → 아. 보기 어 / 아에서 첫째, 둘째. 참조 키·전사·답은 숨긴다. |
++| T1 | 별도 목표 카드 **아**, 다음 **어**를 한 장씩 보여 준다. 처음 배치 어 / 아에서는 오른쪽→왼쪽, 바꾼 배치 아 / 어에서는 왼쪽→오른쪽. 수진은 맞으면 해당 카드와 목표를 나란히 놓고, 다르면 목표와 두 카드를 함께 비교하도록 돕는다. 문자 형태 찾기다. |
++| T2 | 배치 어 / 아에서 S-A, 다음 S-EO만 들려준다. 답 아→어, 위치 오른쪽→왼쪽. T1의 목표 카드는 가린다. L1–L2와 다른 소리 차례이며, 이미 배운 음절의 소리 대응이다. T1 대신 고르는 대안이다. T1 목표·답을 이미 보았다면 T2를 새 독립 확인으로 세지 않고 노출 뒤 연습으로 구별한다. |
++| 반복·도움 | “다시 들을까요? / Would you like to hear it again? / Möchtest du es noch einmal hören?”라고 묻고 동의하면 **바로 직전 표본**을 반복한다. 다른 표본으로 바꾸지 않는다. 답이나 모형을 보여 준 뒤의 선택은 도움 연습이다. |
++
++- 소리가 없으면 L1–L2·T2를 미루고 I1–I2·T1을 진행한다. 안내: “소리 확인은 나중에 해도 돼요. / You can come back to the sound check later. / Du kannst den Lautvergleich später machen.” 실제 승인 파일과 키의 대응·재생·청취는 이번 원고 교정에서 검증하지 않았다.
++- 스몰토크의 따라 말하기·비언어 선택, 글자 조립, 형태 찾기, 소리 대응은 서로 다른 활동이다. 인사의 자연스러운 억양·미소를 오류로 판정하지 않는다. 카드 선택을 발화로, 문자 전사를 읽은 것을 청취로 기록하지 않는다.
++- 아의 도움 조립 뒤 탈선비가 한 번 돌아오는 사건은 독립 읽기·발음 인증이 아니다. 반복·중단·재개로 귀환을 취소하거나 다시 각성시키지 않는다. 첫자리 ㅇ 설명을 받침 ㅇ까지 넓히지 않는다. 수진과의 인사 역할극은 기존 관계를 바꾸지 않는다.
++
+ ## 집필자 메모 — 학습자 본문과 분리
+ 
+ - 직접 읽은 근거: `final/WORLD_AND_STORY_BIBLE.md`; `reference/STORY_V3_5.md` §0–7.1, 특히 P-7; `FOUNDATION.psv` 해당 행; `BAND_CONTRACTS.md`; `LEVEL_STORY_100.json` 해당 단원·CF01; 기존 `foundation-1-v35/01_FIRST_SOUND.md`; 현대 인물 정본의 수진 항목.
+-- 정본 인용은 표에서 표시했다. 영어·독일어는 이번 번역 초고다. 책을 잡는 동작, 도깨비가 새 제자 쪽으로 눈길을 돌리는 연결 동작, 현대 카드 장면, 마무리는 새 집필이다. 새 제자 환영→농담→홀로 기다린 친구를 알아봄→반가움을 숨기는 도깨비→배움으로 이어지는 정본 감정 순서를 유지한다.
++- 정본 인용은 표에서 표시했다. 영어·독일어는 이 원고의 번역이며 정본 한국어와 구분한다. 책을 잡는 동작, 도깨비가 새 제자 쪽으로 눈길을 돌리는 연결 동작, 현대 카드 장면, 마무리는 새 집필이다. 새 제자 환영→농담→홀로 기다린 친구를 알아봄→반가움을 숨기는 도깨비→배움으로 이어지는 정본 감정 순서를 유지한다.
+ - CF01의 해결대로 첫 범위는 아·어이고 오·우는 다음 단원이다. 이야기 초반에 책의 주인 이름, 가족 약속, 익명 물품의 발신인, 보호 동기를 밝히지 않는다.
+ - 음가 참조 키 S-A/S-EO는 기존 원고의 키를 유지했다. 실제 승인 파일과의 대응·재생·청취는 별도 확인 사항이며, 이번에는 녹음·합성·업로드하지 않았다. 긴 문장 듣기를 F0.1 필수 과제로 추가하지 않았다.
+-- KO–EN 집필자 자체 읽기 대상. DE 초고와 독립 KO–EN 교차 검토, 인간 교원·통번역 검수, 학습자 관찰은 아직 완료하지 않았다.
++- 교정 범위와 독립 재검토 상태는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md)에 기록한다. 모델 편집·검토이며 인간 교원·통번역 감수, 실제 청취·발음·학습자 관찰은 별도다. 학습자 `{이름}`의 성별·국적을 덧붙이지 않았다.
+
+# F0.1.above-below
+
+--- before/F0.1.above-below.md
++++ revision1/F0.1.above-below.md
+@@ -2,7 +2,7 @@
+ 
+ **Two sounds with a vowel below · Zwei Laute mit dem Vokal darunter**
+ 
+-집필 상태: KO·EN 본문 및 DE 초고 작성. 독립 교차 검토 전. 읽는 원고만 작성했으며 앱·음성은 변경하지 않았다.
++교정 원고. 이번 검토 범위는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md) 참조. 실제 음가 청취·사람 감수는 별도. 읽는 원고만 교정했으며 앱·음성은 변경하지 않았다.
+ 
+ ## 오늘의 자리
+ 
+@@ -23,7 +23,7 @@
+ 
+ | KO | EN | DE |
+ |---|---|---|
+-| 조이가 가져온 조각 하나가 책받침 옆으로 굴러간다. 수진이 조각을 주워 서안에 놓는다. 탈선비는 방금 만든 아 옆에 빈 종이를 펼친다. | One of the pieces Joy brought rolls beside the bookrest. Sujin picks it up and puts it on the desk. TalSunbi opens a blank sheet beside the 아 you have just built. | Eines der Teile, die Joy gebracht hat, rollt neben die Buchstütze. Sujin hebt es auf und legt es auf das Pult. TalSunbi breitet neben dem gerade gebildeten 아 ein leeres Blatt aus. |
++| 조이가 가져온 조각 하나가 책받침 옆으로 굴러간다. 수진이 조각을 주워 서안에 놓는다. 탈선비는 방금 만든 아 옆에 빈 종이를 펼친다. | One of the pieces Joy brought rolls beside the bookrest. Sujin picks it up and puts it on the desk. TalSunbi lays out a blank sheet beside the 아 you have just built. | Eines der Teile, die Joy gebracht hat, rollt neben die Buchstütze. Sujin hebt es auf und legt es auf das Pult. TalSunbi breitet neben dem gerade gebildeten 아 ein leeres Blatt aus. |
+ 
+ | 화자 | KO | EN | DE |
+ |---|---|---|---|
+@@ -56,62 +56,89 @@
+ | 우: ㅇ 위, ㅜ 아래. 짧은 획은 아래를 향해요. | 우: ㅇ above, ㅜ below. The short stroke points down. | 우: ㅇ oben, ㅜ unten. Der kurze Strich zeigt nach unten. |
+ | 아·어에서는 모음이 오른쪽이에요. 오·우에서는 아래쪽이에요. | The vowel goes on the right in 아 and 어, and below in 오 and 우. | Bei 아 und 어 steht der Vokal rechts, bei 오 und 우 darunter. |
+ 
+-**P1 도움 조립:** 모형 오, 조각 **ㅗ / ㅇ**. “모형을 보고 한 글자로 모아요. / Use the example to build one block. / Bilde nach dem Beispiel einen Silbenblock.” 답: **오**.
++**도움 조립 P1·P2 / With a model / Mit Vorbild**
+ 
+-**P2 도움 조립:** 모형 우, 조각 **ㅇ / ㅜ**. 같은 지시로 **우**를 만든다. ㅜ를 옆에 놓았다면 “이번 모음은 ㅇ 아래예요. / This vowel goes below ㅇ. / Dieser Vokal steht unter ㅇ.”라고 알려 주고 다시 조립한다. 아·어를 올바르게 좌우 배치한 응답에는 이 교정을 주지 않는다.
++모형을 보고 조각을 한 음절로 모아요. / Use the model to build one syllable block from each pair. / Bilde aus jedem Paar einen Silbenblock wie im Vorbild.
+ 
+-## 듣기 원고 — 현대 책상의 네 카드
++| ID | 모형 / Model / Vorbild | 조각 / Pieces / Teile |
++|---|---|---|
++| P1 | 오 | ㅗ / ㅇ |
++| P2 | 우 | ㅇ / ㅜ |
+ 
+-현대의 책상에서 수진과 **아 / 어 / 오 / 우** 카드를 펼친다. 아래 소리 확인은 기존 음가 키 **S-O, S-U**를 사용 대상으로 삼는다. 장면의 대화와 음가 표본은 별개다.
++## 듣기 준비 — 현대 책상의 네 카드
+ 
+-| 단계 | 자료·과제 | KO / EN / DE 안내 | 답·근거 |
+-|---|---|---|---|
+-| 시범 | S-O와 오, 이어 S-U와 우 | 하나씩 듣고 글자를 봐요. / Hear each sound and look at its block. / Hör jeden Laut einzeln und sieh dir den Silbenblock an. | 오와 우를 각각 소리·표기로 연결한다. |
+-| 연습 | S-U, 보기 오 / 우 | 같은 소리의 글자를 골라요. / Choose the block for this sound. / Wähle den Silbenblock zu diesem Laut. | 우. 정답을 보여 주고 다시 들을 수 있다. |
+-| 확인 1 | S-O, 보기 우 / 오; 전사 숨김 | 이번에는 어떤 글자예요? / Which block matches this time? / Welcher Silbenblock passt diesmal? | 오. 소리→표기 대응. |
+-| 확인 2 | S-U, 보기 우 / 오 | 다시 소리를 듣고 골라요. / Listen to the next sound and choose. / Hör den nächsten Laut und wähle. | 우. 소리→표기 대응. |
++수진과 아·어·오·우 카드를 펼쳐요. 준비된 소리가 있으면 **오**, 다음 **우**를 하나씩 듣고 해당 글자를 봐요. / Lay out the 아, 어, 오 and 우 cards with Sujin. If the samples are available, hear **오**, then **우**, and look at each matching block. / Lege mit Sujin die Karten 아, 어, 오 und 우 aus. Wenn die Lautbeispiele bereitstehen, höre zuerst **오**, dann **우** und sieh dir jeweils den passenden Silbenblock an.
+ 
+-확인 질문 “한 번 더 들을까요? / Shall we hear it again? / Hören wir es noch einmal?”에 동의하면 직전 표본을 반복한다. 오를 틀렸을 때에는 오의 모형과 표본을, 우를 틀렸을 때에는 우의 모형과 표본을 함께 제공한다. 듣지 못한 경우에는 글자 조립을 계속하고 음성 확인 결과를 만들지 않는다.
++**P3 · 소리 연습.** 보기 **오 / 우**에서 들은 소리와 맞는 카드를 골라요. 고른 뒤에는 맞는 글자를 보며 같은 소리를 다시 들어도 좋아요. / Choose the card matching the sound from **오 / 우**. Afterwards, you can see the matching block and hear the sample again. / Wähle aus **오 / 우** die Karte zum gehörten Laut. Danach kannst du dir den passenden Silbenblock ansehen und dasselbe Beispiel noch einmal hören.
++
++소리가 준비되지 않았다면 글자 활동부터 계속해도 돼요. / If audio is unavailable, continue with the letter activities. / Ohne Ton kannst du mit den Schriftzeichen weiterüben.
+ 
+ ## 스몰토크 — 돌려받은 카드
+ 
+-현대 생활의 학습용 새 장면이다. 친한 수진이 의자 아래 떨어진 카드를 돌려준다. 긴 문장은 번역으로 제공하며 **감사 표현만 선택적으로 따라 한다**.
++**현대 학습용 새 장면.** 친한 수진이 의자 아래 떨어진 카드를 주워 학습자 앞 책상에 놓아 돌려준다. / Your friend Sujin picks up a card from under the chair and returns it by placing it on the desk in front of you. / Deine Freundin Sujin hebt eine Karte unter dem Stuhl auf und gibt sie dir zurück, indem sie sie vor dich auf den Tisch legt.
+ 
+ | 역할 | KO | EN | DE |
+ |---|---|---|---|
+-| 수진 | 여기, 네 카드야. | Here, this is your card. | Hier, das ist deine Karte. |
+-| 학습자 · 선택 A | 감사합니다. | Thank you. | Danke. |
+-| 학습자 · 선택 B | 고마워. | Thanks. | Danke dir. |
+-| 수진 | 응. 책상 위에 둘게. | Sure. I’ll put it on the desk. | Gern. Ich lege sie auf den Tisch. |
++| 수진 / Sujin | 여기, 네 카드야. | Here, this is your card. | Hier, das ist deine Karte. |
++| 학습자 · 선택 A / You · Choice A / Du · Auswahl A | 감사합니다. | Thank you. | Danke. |
++| 학습자 · 선택 B / You · Choice B / Du · Auswahl B | 고마워. | Thanks. | Danke dir. |
++| 수진 / Sujin | 응. 여기 두면 잘 보이겠다. | You’re welcome. You can see it clearly here. | Gern. Hier kannst du sie gut sehen. |
+ 
+-A는 이번에 만나는 공손한 감사 표현, B는 친한 친구에게 할 수 있는 자연스러운 대안이다. B의 문법까지 필수로 익힌 것으로 세지 않는다. 말하지 않고 감사의 뜻을 번역으로 확인해도 참여할 수 있다. 물건을 건넨 뒤 응답을 듣는 흐름을 끝까지 유지한다.
++감사합니다는 공손한 감사, 고마워는 친한 친구에게 할 수 있는 감사예요. 둘 중 하나를 따라 해 보거나, 번역으로 뜻만 확인해도 좋아요. / 감사합니다 is a polite thank-you; 고마워 is a friendly one for someone close to you. Try either expression, or simply read its meaning in translation. / 감사합니다 ist ein höflicher Dank; 고마워 passt zu einer vertrauten Person. Du kannst einen der Ausdrücke nachsprechen oder seine Bedeutung in der Übersetzung nachlesen.
+ 
+-## 독립 확인과 생활 전이
++## 혼자 조립해 보기 — 학습자 문제
+ 
+-공통 지시: **“모형을 가리고 조각을 한 글자로 모아 봐요. / With the example hidden, put the pieces into one block. / Setze die Teile ohne sichtbares Muster zu einem Silbenblock zusammen.”**
++앞의 시범과 뒤의 답 부분을 가리고, 아래 문제만 보세요. 조각 한 쌍으로 한 음절을 만들어요. 아직 배우지 않은 글자는 먼저 시범을 보고 연습해도 돼요. / Cover the examples and the answer section, leaving only the task below visible. Build one syllable block from each pair. If you have not learned a letter yet, see its model first and practise with it. / Decke die Vorbilder und den Lösungsteil ab, sodass nur die folgende Aufgabe sichtbar bleibt. Bilde aus jedem Paar einen Silbenblock. Wenn du ein Zeichen noch nicht gelernt hast, sieh dir zuerst das Vorbild an und übe damit.
+ 
+-**EN** Make one block from each pair in order: ㅜ + ㅇ, ㅏ + ㅇ, ㅗ + ㅇ, ㅓ + ㅇ. If 아 and 어 are new to you, look at their models first. Then shuffle the four cards and find 우, 아, 오 and 어 in that order. Look at the written prompt, or match an available sound example to the card. Later, after learning ㄱ, look for the same lower vowel position in 고 and 구.
++| ID | 조각 / Pieces / Teile |
++|---|---|
++| I1 | ㅜ / ㅇ |
++| I2 | ㅏ / ㅇ |
++| I3 | ㅗ / ㅇ |
++| I4 | ㅓ / ㅇ |
+ 
+-**DE** Bilde der Reihe nach aus jedem Paar einen Silbenblock: ㅜ + ㅇ, ㅏ + ㅇ, ㅗ + ㅇ, ㅓ + ㅇ. Wenn 아 und 어 neu für dich sind, sieh dir zuerst die Vorbilder an. Mische dann die vier Karten und finde 우, 아, 오 und 어 in dieser Reihenfolge. Nutze die geschriebene Vorgabe oder ordne ein verfügbares Hörbeispiel zu. Wenn du später ㄱ gelernt hast, suche dieselbe Vokalposition unten in 고 und 구.
++## 소리로 골라 보기 — 조립을 마친 뒤
+ 
+-| 순서 | 처음 주는 조각 | 답 | 확인할 점 |
+-|---|---|---|---|
+-| I1 | ㅜ / ㅇ | 우 | ㅇ 위·ㅜ 아래 |
+-| I2 | ㅏ / ㅇ | 아 | ㅇ 왼쪽·ㅏ 오른쪽 |
+-| I3 | ㅗ / ㅇ | 오 | ㅇ 위·ㅗ 아래 |
+-| I4 | ㅓ / ㅇ | 어 | ㅇ 왼쪽·ㅓ 오른쪽 |
++소리가 준비되어 있으면 하나씩 듣고 맞는 카드를 골라요. 시범과 답은 계속 가려 두세요. 다시 듣고 싶으면 말하거나 가리켜 알려 주세요. / If audio is available, hear each sample and choose the matching card. Keep the examples and answers covered. Ask or gesture to hear the same sample again. / Wenn Ton bereitsteht, höre jeweils ein Beispiel und wähle die passende Karte. Lass Vorbilder und Lösungen abgedeckt. Sage oder zeige, wenn du dasselbe Beispiel noch einmal hören möchtest.
+ 
+-아·어를 아직 배우지 않았다면 I2/I4 전에 시범을 주고 도움 연습으로 바꾼다. 조각을 집는 순서나 조작 속도는 정답 기준이 아니다.
++| ID | 보기 / Choices / Auswahl |
++|---|---|
++| L1 | 우 / 오 |
++| L2 | 우 / 오 |
+ 
+-생활 전이: 네 카드의 위치를 섞은 뒤 **우 → 아 → 오 → 어**를 한 장씩 찾는다. 문자로 이름을 보여 주면 형태 찾기, 소리만 들려주면 해당 음가가 준비된 경우의 소리 대응 활동이다. 서로 다른 활동으로 기록한다. F0.2.two-boxes에서는 ㄱ을 배운 뒤 고·구의 아래 모음 자리를 다시 사용한다.
++## 네 카드를 다시 찾기 — 학습자 문제
++
++**T1.** 카드를 왼쪽부터 **어 / 우 / 아 / 오**로 놓아요. 수진이 한 장씩 보여 주는 목표 글자와 같은 카드를 찾아요. 소리가 준비되어 있다면 목표 글자를 가리고 소리로 찾는 방식으로 해도 돼요. 두 방식 중 하나를 골라요. / Lay out **어 / 우 / 아 / 오** from left to right. Find the card matching each written prompt Sujin shows you. If audio is available, you can choose by sound with the written prompts hidden instead. Use one of these two versions. / Lege **어 / 우 / 아 / 오** von links nach rechts aus. Finde jeweils die Karte zu Sujins einzeln gezeigter Vorlage. Wenn Ton bereitsteht, kannst du stattdessen nach dem Laut wählen; die geschriebenen Vorlagen bleiben dabei verdeckt. Wähle eine der beiden Varianten.
++
++나중에 **F0.2.two-boxes**에서 ㄱ을 배운 뒤 고·구의 아래 모음 자리를 다시 볼 거예요. / After learning ㄱ in **F0.2.two-boxes**, you will look again at the lower vowel position in 고 and 구. / Wenn du in **F0.2.two-boxes** ㄱ gelernt hast, siehst du dir den Vokalplatz unten in 고 und 구 wieder an.
+ 
+ ## 서안으로 돌아오며
+ 
+ | KO | EN | DE |
+ |---|---|---|
+-| 조이는 이번에는 조각을 내려놓기 전에 자리를 살핀다. “옆이 아니라 아래였네.” 탈선비는 책장을 서둘러 넘기지 않는다. “다음에는 짧은 획이 없는 두 선을 만나 보세.” | This time, Joy checks the space before putting down the piece. “Below, not beside it.” TalSunbi leaves the page open a little longer. “Next, let us meet two lines without a short stroke.” | Diesmal sieht Joy sich den Platz an, bevor er das Teil ablegt. „Darunter, nicht daneben.“ TalSunbi lässt die Seite noch einen Moment offen. „Als Nächstes lernen wir zwei Linien ohne kurzen Strich kennen.“ |
++| 조이는 이번에는 조각을 내려놓기 전에 자리를 살핀다. “옆이 아니라 아래였네.” 탈선비는 책장을 서둘러 넘기지 않는다. “다음에는 짧은 획이 없는 두 선을 만나 보세.” | This time, Joy checks the space before putting down the piece. “Below, not beside it.” TalSunbi leaves the page open a little longer. “Next, let us meet two lines without a short stroke.” | Diesmal prüft Joy vor dem Ablegen des Teils, wo es hingehört. „Darunter, nicht daneben.“ TalSunbi lässt die Seite noch einen Moment offen. „Als Nächstes lernen wir zwei Linien ohne kurzen Strich kennen.“ |
+ 
+ 새 연결 대사다. 글자 활동의 결과는 조각을 놓은 자리와 배운 범위로 설명하며 복원 공정이나 새로운 보상을 만들지 않는다.
++
++## 진행자용 답과 운영 메모
++
++이 구획은 응답 전 학습자에게 보여 주지 않는다. 혼자 조립할 때는 해당 문제표만 남기고 시범·카드 활동·답을 가린다. 아·어를 배우지 않았다면 I2·I4 전에 시범을 주고 도움 연습으로 바꾼다. 조각을 집는 순서나 속도는 정답 기준이 아니다.
++
++| ID | 자극·답·반응 |
++|---|---|
++| P1 / P2 | 오 / 우. 둘 다 ㅇ 위·모음 아래. ㅜ를 옆에 놓았다면 “이번 모음은 ㅇ 아래예요. / This vowel goes below ㅇ. / Dieser Vokal steht unter ㅇ.”라고 돕는다. 아·어의 올바른 좌우 배치에는 이 교정을 주지 않는다. |
++| I1 | 우: ㅇ 위·ㅜ 아래. |
++| I2 | 아: ㅇ 왼쪽·ㅏ 오른쪽. |
++| I3 | 오: ㅇ 위·ㅗ 아래. |
++| I4 | 어: ㅇ 왼쪽·ㅓ 오른쪽. |
++| 소리 시범 / P3 | 기존 참조 S-O와 오, 다음 S-U와 우를 함께 제시한다. P3은 S-U, 보기 오 / 우 → 우. 응답 뒤 모형과 같은 표본을 함께 보여 주는 도움 연습이다. |
++| L1 / L2 | L1은 S-O → 오, L2는 S-U → 우. 보기 우 / 오에서 둘째, 첫째. 키·전사·답은 숨긴다. |
++| T1 · 문자 | 배치 어 / 우 / 아 / 오. 별도 목표 카드 우→아→오→어를 한 번에 하나씩 제시한다. 답은 같은 글자, 위치 2→3→4→1. 문자 형태 찾기다. |
++| T1 · 소리 대안 | 같은 배치에서 S-U→S-A→S-O→S-EO를 하나씩 제공한다. 답 우→아→오→어, 위치 2→3→4→1. 목표 문자·참조 키·전사를 가린다. 네 표본이 준비된 경우에만 이 버전을 한다. 문자 버전을 먼저 했다면 같은 순서의 소리 응답은 노출 뒤 연습으로 구별한다. |
++
++- 수진은 T1 응답 뒤 맞으면 다음 목표를 제시하고, 다르면 현재 목표와 카드를 함께 비교하도록 돕는다. 소리 문항의 도움은 해당 표본과 글자를 함께 제공한다. 도움 뒤 선택은 독립 응답으로 바꾸지 않는다.
++- “한 번 더 들을까요? / Would you like to hear it again? / Möchtest du es noch einmal hören?”에 동의하면 직전 표본을 그대로 반복한다. 소리가 없으면 P3·L1–L2를 미루고 조립과 T1 문자 버전을 진행한다. 실제 소리 없이 듣기 결과를 만들지 않는다.
++- 스몰토크는 감사 표현을 선택적으로 따라 해 보는 활동이다. 고마워도 친한 관계에 맞는 응답이며 그 문법을 새 필수로 넣지 않는다. 비언어 참여·선택을 한국어 발화로 계수하지 않는다. 후속 고·구는 ㄱ을 배운 뒤의 참조이며 현재 평가가 아니다.
+ 
+ ## 집필자 메모
+ 
+@@ -119,4 +146,4 @@
+ - 이야기와 현대의 카드 전달은 새 학습 장면이다. 탈선비가 이미 깨어 있다는 사건 순서를 유지하고 정본의 새 인용 대사로 주장하지 않는다.
+ - 이 구간에는 심지의 발신인, 아이의 이름·가족 약속, 꽃씨의 주인에 관한 단서를 추가하지 않는다. 현대 장면에 도깨비를 데려오지 않는다.
+ - S-O/S-U는 기존 참조 키다. 실제 승인 파일 대응과 음향·청취 확인은 별도이며 합성을 실행하지 않았다. 기본 음절의 조립·소리 대응을 단어 이해나 독립 발화와 구별한다.
+-- DE 초고 및 독립 교차 검토가 남았다. 인간 승인·학습자 관찰·앱 구현 완료를 주장하지 않는다.
++- 교정 범위와 독립 재검토 상태는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md)에 기록한다. 모델 편집·검토이며 인간 감수·실제 청취·학습자 관찰·앱 구현을 완료한 것이 아니다.
+
+# F0.1.straight-lines
+
+--- before/F0.1.straight-lines.md
++++ revision1/F0.1.straight-lines.md
+@@ -2,7 +2,7 @@
+ 
+ **Two lines and a request to hear again · Zwei Linien und die Bitte um Wiederholung**
+ 
+-집필 상태: KO·EN 본문 및 DE 초고 작성. 독립 교차 검토 전. 원고 전용 산출물이다.
++교정 원고. 이번 검토 범위는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md) 참조. 실제 음가 청취·사람 감수는 별도. 원고 전용 산출물이다.
+ 
+ ## 익힌 것 위에 두 소리를 더하기
+ 
+@@ -31,7 +31,7 @@
+ | 수진 | 잠깐. 방향이 다르잖아. | Wait. They point in different directions. | Warte. Sie verlaufen in verschiedene Richtungen. |
+ | 탈선비 | 하나는 가로, 하나는 세로라네. 소리도 하나씩 만나 보세. | One is horizontal, the other vertical. Let us hear them one at a time too. | Eine verläuft waagerecht, die andere senkrecht. Hören wir uns auch ihre Laute einzeln an. |
+ 
+-고의로 음성을 빠르게 틀거나 잡음을 넣어 실패시키는 장면이 아니다. 듣기 속도와 반복은 학습자가 선택하며, 재요청은 실제로 같은 표본을 다시 들을 수 있는 행동으로 이어진다.
++천천히 해도 되고, 같은 소리를 다시 듣거나 쉬어도 괜찮아요. / Take your time. You can hear the same sample again or take a break. / Lass dir Zeit. Du kannst dasselbe Lautbeispiel noch einmal hören oder eine Pause machen.
+ 
+ ## 글자와 표현의 쓰임
+ 
+@@ -56,71 +56,115 @@
+ | 으는 ㅇ이 위, ㅡ가 아래예요. 우와 달리 ㅡ에는 짧은 세로획이 없어요. | In 으, ㅇ is above ㅡ. Unlike the vowel in 우, ㅡ has no short vertical stroke. | Bei 으 steht ㅇ über ㅡ. Anders als der Vokal in 우 hat ㅡ keinen kurzen senkrechten Strich. |
+ | 이는 ㅇ이 왼쪽, ㅣ가 오른쪽이에요. 아·어처럼 모음이 오른쪽 자리에 와요. | In 이, ㅇ is on the left and ㅣ on the right. The vowel goes on the right, as in 아 and 어. | Bei 이 steht ㅇ links und ㅣ rechts. Der Vokal steht wie bei 아 und 어 auf der rechten Seite. |
+ 
+-**P1:** 모형 **으**, 조각 **ㅡ / ㅇ**. “모형처럼 만들어 봐요. / Build it like the example. / Bilde den Silbenblock wie im Beispiel.” 답 **으**.
++**도움 조립 P1·P2 / With a model / Mit Vorbild**
+ 
+-**P2:** 모형 **이**, 조각 **ㅣ / ㅇ**. 같은 지시, 답 **이**. ㅣ를 아래에 놓았다면 “이번에는 세로선이 오른쪽이에요. / This time the vertical line goes on the right. / Diesmal steht die senkrechte Linie rechts.”라고 설명한다. ㅡ를 옆에 놓았다면 ㅡ의 아래 자리를 시범으로 보여 준다.
++모형을 보고 조각을 한 음절로 모아요. / Use the model to build one syllable block from each pair. / Bilde aus jedem Paar einen Silbenblock wie im Vorbild.
+ 
+-## 듣기 원고 — 같은 소리를 다시 듣기
++| ID | 모형 / Model / Vorbild | 조각 / Pieces / Teile |
++|---|---|---|
++| P1 | 으 | ㅡ / ㅇ |
++| P2 | 이 | ㅣ / ㅇ |
+ 
+-현대의 조용한 연습 자리다. 수진은 카드 위치를 바꾸고 학습자가 소리표를 다시 들을 시간을 준다. 사용 대상은 기존 음가 키 **S-EU(으), S-I(이)**와 이미 배운 모음의 표본이다. 아래 표본의 전사는 집필자가 답을 확인하기 위한 것으로, 소리 확인 때 정답 자막을 먼저 보여 주지 않는다.
++## 듣기 준비 — 같은 소리를 다시 듣기
+ 
+-| 단계 | 자료 | KO / EN / DE 안내 | 답·근거 |
+-|---|---|---|---|
+-| 시범 | S-EU와 으, 뒤이어 S-I와 이 | 한 소리씩 듣고 글자를 봐요. / Hear one sound at a time and look at its block. / Hör einen Laut nach dem anderen und sieh dir den Silbenblock an. | 으와 이의 연결 시범. |
+-| 확인 1 | S-I; 보기 으 / 이 | 소리와 맞는 글자를 골라요. / Choose the matching block. / Wähle den passenden Silbenblock. | 이. |
+-| 확인 2 | S-EU; 보기 으 / 우 | 이번 소리와 맞는 글자를 골라요. / Match the next sound. / Ordne den nächsten Laut zu. | 으. 우는 앞 단원에서 가르친 경우에만 비교한다. |
+-| 다시 요청 | 학습자가 “다시 말해 주세요” 또는 반복 선택 | 같은 소리를 다시 들려줘요. / Replay the same sound. / Spiele denselben Laut noch einmal vor. | 직전이 S-EU면 S-EU. 정답 칭찬만 하고 반복을 생략하지 않는다. |
+-
+-소리를 사용할 수 없으면 음성 문항을 미루고 아래 문자 조립을 진행한다. 반복 요청 표현을 이해했다는 사실과 실제로 으·이를 들었다는 사실을 구별한다.
++수진과 조용한 연습 자리에서 준비된 **으**, 다음 **이**의 소리를 하나씩 듣고 글자를 봐요. 원하면 같은 소리를 다시 들어요. 소리가 준비되지 않았다면 글자 조립부터 계속해도 돼요. / At a quiet practice table with Sujin, hear the available samples for **으**, then **이**, and look at each block. You can hear the same sample again. If audio is unavailable, continue with letter building. / Höre mit Sujin an einem ruhigen Übungsplatz die bereitstehenden Lautbeispiele für **으**, dann **이**, und sieh dir jeweils den Silbenblock an. Du kannst dasselbe Beispiel noch einmal hören. Ohne Ton kannst du mit dem Zusammensetzen der Schriftzeichen weiterüben.
+ 
+ ## 스몰토크 — 한 번 더 부탁해도 괜찮아
+ 
+-현대 학습용 새 장면이다. 수진과 학습자는 친한 사이이며, 오늘은 공손한 부탁 덩어리를 연습한다. 한국어의 주세요가 독일어 Sie를 자동으로 요구하는 것은 아니다.
++**현대의 지원 연습.** 친한 수진에게 같은 소리를 다시 들려 달라고 부탁해 봐요. / Practise asking your friend Sujin to play the same sound again. / Übe, deine Freundin Sujin um eine Wiederholung desselben Lautbeispiels zu bitten.
+ 
+ | 역할 | KO | EN | DE |
+ |---|---|---|---|
+-| 수진 | 이번 소리도 들어 보자. | Let’s hear this sound too. | Hören wir uns auch diesen Laut an. |
+-| 자료 | S-I 표본을 재생한다. | Play the S-I sample. | Das Lautbeispiel S-I wird abgespielt. |
+-| 학습자 · 선택 A | 다시 말해 주세요. | Please say that again. | Sag das bitte noch einmal. |
+-| 학습자 · 선택 B | 한 번 더 말해 주세요. | Please say it one more time. | Sag es bitte noch einmal. |
+-| 수진 | 응. 한 번 더. | Sure. Once more. | Klar. Noch einmal. |
+-| 자료·반응 | 같은 S-I 표본을 반복한다. 학습자는 이 카드를 가리킨다. | Replay the same S-I sample. The learner points to 이. | Dasselbe Lautbeispiel S-I wird wiederholt. Die lernende Person zeigt auf 이. |
++| 수진 / Sujin | 이번 소리도 들어 보자. | Let’s hear this sound too. | Hören wir uns auch diesen Laut an. |
++| 자료 | 준비된 이의 소리를 듣는다. | Hear the available sample for 이. | Höre das bereitstehende Lautbeispiel für 이. |
++| 학습자 · 선택 A / You · Choice A / Du · Auswahl A | 다시 말해 주세요. | Please say that again. | Sag das bitte noch einmal. |
++| 학습자 · 선택 B / You · Choice B / Du · Auswahl B | 한 번 더 말해 주세요. | Please say it one more time. | Sag es bitte noch einmal. |
++| 수진 / Sujin | 응. 한 번 더. | Sure. Once more. | Klar. Noch einmal. |
++| 자료·반응 | 같은 표본을 다시 듣고 이 카드를 가리킨다. | Hear the same sample again and point to 이. | Höre dasselbe Beispiel noch einmal und zeige auf 이. |
+ 
+-A와 B 모두 같은 말을 반복해 달라는 자연스러운 부탁이다. A는 이번 기본 덩어리, B는 선택 가능한 대안이다. 실제 소리 없이 번역만 읽었다면 이 장면의 의미를 연습한 것이며 청취 성공으로 세지 않는다. 말하지 않고 반복 기능을 선택해도 된다.
++A와 B 모두 다시 듣고 싶다는 부탁이에요. 말하지 않고 다시 듣기를 가리켜도 돼요. 소리가 없으면 번역으로 대화의 뜻을 살펴봐요. / Both A and B ask to hear something again. You can also indicate replay without speaking. Without audio, read the translations to follow the exchange. / Sowohl A als auch B bitten um eine Wiederholung. Du kannst auch ohne Worte zeigen, dass du das Beispiel noch einmal hören möchtest. Ohne Ton kannst du dem Gespräch mithilfe der Übersetzungen folgen.
+ 
+-**표현 선택 활동:** “같은 말을 한 번 더 듣고 싶어요. 어떤 말을 쓸까요? / You want to hear the same words again. What could you say? / Du möchtest dieselben Worte noch einmal hören. Was könntest du sagen?” 세 표현을 뜻과 함께 제공한다: **안녕하세요—Hello/Guten Tag**, **감사합니다—Thank you/Danke**, **다시 말해 주세요—Please say that again/Sag das bitte noch einmal**. 반복 요청에 맞는 것은 세 번째다. 다른 두 표현은 각각 인사와 감사에 자연스럽고, 한국어 자체가 틀린 문장은 아니다.
++**E1 · 뜻을 보며 고르기 / Choose with meaning support / Mit Bedeutungshilfe auswählen**
+ 
+-## 여섯 글자의 독립 확인
++같은 말을 한 번 더 듣고 싶어요. 어떤 말을 쓸까요? / You want to hear the same words again. What could you say? / Du möchtest dieselben Worte noch einmal hören. Was könntest du sagen?
+ 
+-모형을 가리고 한 항목씩 제시한다. 공통 지시: **“이 조각들을 한 글자로 모아요. / Put these pieces into one syllable block. / Setze diese Teile zu einem Silbenblock zusammen.”**
++| 보기 / Choice / Auswahl | 뜻 EN | Bedeutung DE |
++|---|---|---|
++| 안녕하세요 | Hello. | Guten Tag. |
++| 감사합니다 | Thank you. | Danke. |
++| 다시 말해 주세요 | Please say that again. | Sag das bitte noch einmal. |
+ 
+-**EN** Keep the models covered. Make one syllable block at a time, using these six pairs in order: ㅣ + ㅇ, ㅡ + ㅇ, ㅏ + ㅇ, ㅗ + ㅇ, ㅓ + ㅇ, ㅜ + ㅇ. Take a pause between pairs whenever you need one.
++## 여섯 글자를 혼자 조립하기 — 학습자 문제
+ 
+-**DE** Lass die Vorbilder abgedeckt. Bilde nacheinander je einen Silbenblock aus diesen sechs Paaren: ㅣ + ㅇ, ㅡ + ㅇ, ㅏ + ㅇ, ㅗ + ㅇ, ㅓ + ㅇ, ㅜ + ㅇ. Du kannst zwischen den Aufgaben jederzeit eine Pause machen.
++앞의 시범과 뒤의 답 부분을 가리고, 아래 문제만 보세요. 조각 한 쌍으로 한 음절을 만들어요. 한 항목씩 천천히 해도 돼요. / Cover the examples and the answer section, leaving only the task below visible. Build one syllable block from each pair. Take your time with each one. / Decke die Vorbilder und den Lösungsteil ab, sodass nur die folgende Aufgabe sichtbar bleibt. Bilde aus jedem Paar einen Silbenblock. Lass dir bei jeder Aufgabe Zeit.
+ 
+-| 순서 | 조각 | 답 | 배치 |
+-|---|---|---|---|
+-| I1 | ㅣ / ㅇ | 이 | ㅇ 왼쪽·ㅣ 오른쪽 |
+-| I2 | ㅡ / ㅇ | 으 | ㅇ 위·ㅡ 아래 |
+-| I3 | ㅏ / ㅇ | 아 | ㅇ 왼쪽·ㅏ 오른쪽 |
+-| I4 | ㅗ / ㅇ | 오 | ㅇ 위·ㅗ 아래 |
+-| I5 | ㅓ / ㅇ | 어 | ㅇ 왼쪽·ㅓ 오른쪽 |
+-| I6 | ㅜ / ㅇ | 우 | ㅇ 위·ㅜ 아래 |
++| ID | 조각 / Pieces / Teile |
++|---|---|
++| I1 | ㅣ / ㅇ |
++| I2 | ㅡ / ㅇ |
++| I3 | ㅏ / ㅇ |
++| I4 | ㅗ / ㅇ |
++| I5 | ㅓ / ㅇ |
++| I6 | ㅜ / ㅇ |
+ 
+-이것은 **배운 여섯 음절의 재구성**이다. 새 낱말의 의미·독해나 한글 전체 숙달을 확인하지 않는다. 아직 배우지 않은 앞 단원의 항목은 먼저 가르치고 연습으로 구분한다. 도움을 요청하면 해당 글자만 시범으로 보여 주고, 도움 뒤의 응답을 독립 응답으로 바꾸지 않는다.
++아직 배우지 않은 글자가 있거나 도움이 필요하면 해당 시범을 보고 연습해도 괜찮아요. / If a letter is new to you or you need help, look at its model and practise with it. / Wenn ein Zeichen neu für dich ist oder du Hilfe brauchst, sieh dir das Vorbild an und übe damit.
+ 
+-**EN** Here you rebuild **the six syllables you have practised**. This does not test new words or your command of the whole writing system. If you have not learned a letter yet, ask to see it first. Working with that example is supported practice, and that is fine.
++## 소리로 골라 보기 — 조립을 마친 뒤
+ 
+-**DE** Hier setzt du **die sechs bereits geübten Silben** erneut zusammen. Das ist noch keine Prüfung neuer Wörter oder der gesamten koreanischen Schrift. Wenn du ein Zeichen noch nicht gelernt hast, lass es dir zuerst zeigen. Nach einem solchen Beispiel übst du mit Hilfe; das ist völlig in Ordnung.
++소리가 준비되어 있으면 하나씩 듣고 맞는 카드를 골라요. 시범과 답은 계속 가려 두세요. 다시 듣고 싶으면 말하거나 가리켜 알려 주세요. / If audio is available, hear each sample and choose the matching card. Keep the examples and answers covered. Ask or gesture to hear the same sample again. / Wenn Ton bereitsteht, höre jeweils ein Beispiel und wähle die passende Karte. Lass Vorbilder und Lösungen abgedeckt. Sage oder zeige, wenn du dasselbe Beispiel noch einmal hören möchtest.
+ 
+-## 생활 전이와 다음 장
++| ID | 보기 / Choices / Auswahl |
++|---|---|
++| L1 | 으 / 이 |
++| L2 | 으 / 우 |
++
++## 배운 여섯 소리를 다른 순서로 — 학습자 문제
++
++**T1-1–T1-6.** 카드를 왼쪽부터 **이 / 우 / 아 / 으 / 어 / 오**로 놓아요. 소리를 하나씩 듣고 맞는 카드를 골라요. 필요하면 같은 소리를 다시 들어요. / Lay out **이 / 우 / 아 / 으 / 어 / 오** from left to right. Hear one sample at a time and choose the matching card. Hear the same sample again if you need to. / Lege **이 / 우 / 아 / 으 / 어 / 오** von links nach rechts aus. Höre jeweils ein Lautbeispiel und wähle die passende Karte. Höre dasselbe Beispiel bei Bedarf noch einmal.
++
++모르겠으면 도움을 요청하거나 잠시 쉬어도 돼요. 소리가 없으면 수진이 한 번에 하나씩 보여 주는 목표 글자와 카드를 맞춰요. / If you are unsure, ask for help or pause. Without audio, match the cards to the written prompts Sujin shows you one at a time. / Wenn du unsicher bist, bitte um Hilfe oder mache eine Pause. Ohne Ton ordnest du die Karten den Vorlagen zu, die Sujin dir einzeln zeigt.
++
++## 책으로 돌아오며
+ 
+ | KO | EN | DE |
+ |---|---|---|
+-| 다음에 낯선 소리를 들으면 전부 알아들은 척하지 않아도 돼요. 다시 듣기를 부탁하고, 지금 아는 글자와 연결해 봐요. | When a sound is unfamiliar, you do not have to pretend you understood it. Ask to hear it again and connect it with a block you know. | Bei einem unbekannten Laut musst du nicht so tun, als hättest du alles verstanden. Bitte um eine Wiederholung und verbinde den Laut mit einem bekannten Schriftzeichen. |
+ | 책으로 돌아오자 조이가 이번에는 먼저 묻는다. “이제 넘겨도 돼?” 탈선비는 빈자리를 남겨 둔다. “다음에는 이 모음들이 다른 첫소리도 만나게 될 걸세.” | Back at the book, Joy asks first this time. “Can I turn the page now?” TalSunbi leaves a space open. “Next, these vowels will meet other initial sounds.” | Zurück am Buch fragt Joy diesmal zuerst. „Darf ich jetzt weiterblättern?“ TalSunbi lässt einen Platz frei. „Als Nächstes begegnen diese Vokale anderen Anfangslauten.“ |
+ 
+-마지막 대사는 새 연결 집필이다. F0.2.first-names에서 ㄴ·ㅁ을 새로 가르친 다음 나·너·마·모와 니·무로 이어진다. 이 단원의 확인에 미학습 자음을 몰래 넣지 않는다. 잠시 쉬어도 책과 친구의 귀환은 그대로이며 다시 와서 이어갈 수 있다.
++잠시 쉬어도 책과 돌아온 친구는 그대로예요. 다음 **F0.2.first-names**에서는 ㄴ·ㅁ을 먼저 배울 거예요. / The book and your friend will still be there after a break. In **F0.2.first-names**, you will first learn ㄴ and ㅁ. / Auch nach einer Pause sind das Buch und dein Freund noch da. In **F0.2.first-names** lernst du zunächst ㄴ und ㅁ kennen.
++
++## 진행자용 답과 운영 메모
++
++이 구획은 응답 전 학습자에게 보여 주지 않는다. 혼자 조립할 때 해당 문제표만 남기고 시범·카드 활동·답을 가린다. 앞 단원의 글자가 미학습이면 먼저 가르치고 도움 연습으로 바꾼다. 속도나 집는 순서는 정답 기준이 아니다.
++
++| ID | 자극·답·반응 |
++|---|---|
++| P1 / P2 | 으 / 이. ㅡ는 ㅇ 아래, ㅣ는 ㅇ 오른쪽. 틀린 자리에 놓았다면 그 글자만 시범으로 보여 준다. |
++| E1 | 다시 말해 주세요. 반복 요청이라는 뜻이 상황에 맞는다. 다른 두 표현은 각각 인사와 감사이며 틀린 한국어 문장은 아니다. 뜻과 보기의 도움을 받은 선택이지 자유 발화·독립 해독이 아니다. |
++| I1 | 이: ㅇ 왼쪽·ㅣ 오른쪽. |
++| I2 | 으: ㅇ 위·ㅡ 아래. |
++| I3 | 아: ㅇ 왼쪽·ㅏ 오른쪽. |
++| I4 | 오: ㅇ 위·ㅗ 아래. |
++| I5 | 어: ㅇ 왼쪽·ㅓ 오른쪽. |
++| I6 | 우: ㅇ 위·ㅜ 아래. |
++| 소리 시범 | 기존 참조 S-EU와 으, 다음 S-I와 이를 함께 제시한다. |
++| L1 / L2 | L1은 S-I → 이, L2는 S-EU → 으. 우를 배우지 않았다면 L2 전에 우를 소개하고 지원 대조로 구별한다. 키·전사·답은 숨긴다. |
++| 스몰토크 | S-I를 들려주고 요청을 받으면 같은 S-I를 반복한다. 마지막 이 카드 선택은 답을 제공한 지원 시범이다. 말없이 반복을 선택해도 된다. |
++
++**T1 누적 대응의 한 가지 고정 순서.** 보기 배열은 이 / 우 / 아 / 으 / 어 / 오다. 소리 버전은 아래 키의 준비된 표본만 들려주며 전사와 키를 숨긴다. 문자 대안에서는 ‘목표·답’의 글자를 한 장씩 보여 준다. 두 방식은 대안 경로다. 문자 목표 차례를 먼저 본 뒤 같은 차례로 소리를 고르면 노출 뒤 연습으로 구별하며 새 독립 확인으로 세지 않는다.
++
++| ID | 소리 버전의 진행자용 자극 | 문자 대안의 목표·답 | 보기 위치 |
++|---|---|---|---|
++| T1-1 | S-U | 우 | 2 |
++| T1-2 | S-EO | 어 | 5 |
++| T1-3 | S-I | 이 | 1 |
++| T1-4 | S-A | 아 | 3 |
++| T1-5 | S-EU | 으 | 4 |
++| T1-6 | S-O | 오 | 6 |
++
++- 같은 소리를 다시 요청하면 **직전 표본만 그대로 반복**한다. 정답 칭찬으로 반복을 대신하지 않는다. 다시 듣기 요청은 학습자의 행동이고 재생은 진행자의 반응이다. 고의로 빨리 재생하거나 잡음을 넣지 않는다.
++- T1은 여섯 표본과 선행 글자가 준비된 경우의 누적 소리 대응이다. 표본이 없으면 문자 대안만 진행하고 소리 대응은 미실시로 남긴다. 배운 범위 밖의 낯선 소리를 여섯 카드에 억지로 맞추지 않는다. 정답·모형을 보여 준 뒤 응답은 도움 연습이다.
++- 수진은 응답 뒤 맞으면 다음 항목으로, 틀리거나 도움을 청하면 현재 표본과 글자를 함께 확인하는 연습으로 이어 간다. 반복·중단·재개가 이야기의 귀환이나 기존 결과를 취소하지 않는다.
++- 여섯 음절 재구성, 문자 형태 찾기, 소리 대응, 표현 선택, 따라 말하기는 각각 구별한다. 로마자 선택만으로 한글 인식을, 전사 독해로 청취를, 기능 선택으로 발화를 인증하지 않는다. 새 단어 뜻·한글 전체 숙달·발음 평가는 이 단원 범위가 아니다.
+ 
+ ## 집필자 메모
+ 
+@@ -128,4 +172,5 @@
+ - 고택 대사·현대 재요청 장면은 새 집필이다. 탈선비의 재각성, 새로운 편지·봉투·단서, 소유·보상·완공 조건을 만들지 않는다. 아직 공개되지 않은 인물의 이름과 행적은 본문에 넣지 않았다.
+ - 기존 원고의 실제 요청→같은 표본 반복, 문자 조립/소리 대응/발화의 구분을 유지했다. 옛 원고의 일반 Sie 번역을 친한 현대 수진 장면에서는 du로 맞췄다. 이는 관계에 따른 번역이며 한국어 높임 전체의 등식이 아니다.
+ - S-EU/S-I 및 선행 표본의 승인 파일 대응·실제 청취는 별도 확인 사항이다. 새 음성·이미지·코드·데이터는 만들지 않았다.
+-- 모델 집필 초고다. DE 및 다른 집필자의 독립 KO–EN 검토, 인간 교원·통번역 검수는 남아 있다.
++- FOUNDATION의 이 단원 `review_prompt`와 연결표의 후속 참조 씨앗은 ㄴ을 배운 뒤 **느·니**에서 ㅡ·ㅣ 차이를 다시 보는 것이다. 다음 F0.2.first-names의 실제 배정은 **나·너·마·모**를 가르친 뒤 **니·무**를 확인하며, 현재 다음 원고도 니·무를 사용한다. 두 목록은 목적이 다르다. 이번 교정은 다음 편을 수정하지 않았고 느·니 활동이 이미 마련됐다고 주장하지 않는다. ㄴ·ㅁ·느·니는 현재 단원의 평가에 넣지 않았다.
++- 마지막 고택 대사는 새 연결 집필이다. 교정 범위와 독립 재검토 상태는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md)에 기록한다. 모델 편집·검토이며 인간 감수·실제 청취·발음·학습자 관찰은 별도다.
+
+# A1.1-01
+
+--- before/A1.1-01.md
++++ revision1/A1.1-01.md
+@@ -2,14 +2,16 @@
+ 
+ **Introductions and asking again · Sich vorstellen und nachfragen**
+ 
+-상태: KO·EN·DE 모델 집필 초고. 독립 언어 검토·청취 검증 대기.
++교정 원고. 이번 검토 범위는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md) 참조. 실제 음성 청취·사람 감수는 별도. 앱·음성 제작물이 아닌 읽는 원고다.
+ 
+ ## 중문 앞의 역할놀이 / A game at the gate / Ein Rollenspiel am Tor
+ 
+ | KO | EN | DE |
+ |---|---|---|
+-| 도깨비는 이미 만난 일행을 잊은 것이 아니다. 오늘은 중문간채 중간 공정에서 문지기 놀이를 한다. “어이, 거기 너! 이름이 뭐냐?” 조이가 옆에서 말을 보태자 소개가 겹친다. 수진이 손을 든다. “한 사람씩 하자. 못 들었으면 다시 물어도 돼.” | Dokkaebi has not forgotten the group. During the middle stage of the gate building work, he plays gatekeeper. “Hey, you there! What’s your name?” Joy talks at the same time. Sujin raises a hand. “One at a time. You can ask again if you didn’t hear.” | Dokkaebi hat die Gruppe nicht vergessen. Während der mittleren Bauphase spielt er Torwächter. „He, du da! Wie heißt du?“ Joy spricht gleichzeitig. Sujin hebt die Hand. „Nacheinander. Wenn du etwas nicht gehört hast, frag noch einmal.“ |
+-| 목표: 인사하고 원하는 이름을 말하며, 못 들은 같은 이름을 다시 요청해 확인해요. 입문 인사·네를 재사용하고 예요/이에요를 새로 나누어 배워요. 실명 대신 연습 이름을 써도 돼요. | Aim: Greet, give a chosen name and request the same name again if missed. Reuse greetings and 네; learn 예요/이에요 separately. A practice name is welcome. | Ziel: Begrüßen, einen gewählten Namen nennen und einen überhörten Namen nochmals erfragen. Begrüßungen und 네 werden wiederverwendet; 예요/이에요 kommen gezielt hinzu. Ein Übungsname ist möglich. |
++| 도깨비는 이미 만난 일행을 잊은 것이 아니다. 오늘은 중문간채 중간 공정에서 문지기 놀이를 한다. “어이, 거기 너! 이름이 뭐냐?” 조이가 옆에서 말을 보태자 소개가 겹친다. 수진이 손을 든다. “한 사람씩 하자. 못 들었으면 다시 물어도 돼.” | Dokkaebi has not forgotten the group. During the middle stage of the gate building work, he plays gatekeeper. “Hey, you there! What’s your name?” Joy talks at the same time. Sujin raises a hand. “One at a time. You can ask again if you didn’t hear.” | Dokkaebi hat die Gruppe nicht vergessen. Während der mittleren Bauphase des inneren Torgebäudes spielt er Torwächter. „He, du da! Wie heißt du?“ Joy spricht gleichzeitig. Sujin hebt die Hand. „Nacheinander. Wenn du etwas nicht gehört hast, frag noch einmal.“ |
++| 인사하고 원하는 이름을 말해요. 이름을 놓쳤을 때 다시 부탁하고 확인해요. 인사·네를 다시 쓰고, 이름 뒤 예요·이에요를 배워요. 실명 대신 연습 이름을 써도 돼요. | Greet someone, give a name of your choice and ask them to repeat a name you did not catch. Reuse greetings and 네, and learn when to use 예요 and 이에요 after a name. You can use a practice name. | Begrüße dein Gegenüber, nenne einen Namen deiner Wahl und frage nach, wenn du einen Namen nicht verstanden hast. Verwende Begrüßungen und 네 erneut und lerne, wann nach einem Namen 예요 oder 이에요 steht. Du kannst einen Übungsnamen verwenden. |
++
++고택 이야기는 번역으로 읽어도 괜찮아요. 아래 현대 연습은 편한 모임에서 처음 소개하는 상황의 역할극이에요. 이 장면의 독일어는 서로 du로 말해요. / You can read the house story in translation. The present-day exercises below are a role-play of introductions at a relaxed gathering. The German dialogue uses informal du in this setting. / Du kannst die Geschichte im alten Anwesen in der Übersetzung lesen. Die folgenden Übungen spielen in der Gegenwart: Ihr übt, euch bei einem lockeren Treffen vorzustellen. In dieser Situation duzen sich die Beteiligten.
+ 
+ ## 단어와 짧은 예 / Vocabulary and examples / Wörter und Beispiele
+ 
+@@ -17,47 +19,150 @@
+ |---|---|---|---|
+ | 안녕하세요 · 인사 / hello / Guten Tag | 안녕하세요. | Hello. | Guten Tag. |
+ | 이름 · 명사 / name / Name | 이름이 뭐예요? | What’s your name? | Wie heißt du? |
+-| 누구 · 의문 대명사 / who / wer | 누구예요? | Who is it? | Wer ist das? |
+-| 다시 · 부사 / again / noch einmal | 다시 말해 주세요. | Please say that again. | Sag das bitte noch einmal. |
+-| 말하다 · 동사 / say, speak / sagen, sprechen | 이름을 말해 주세요. | Please say your name. | Sag bitte deinen Namen. |
++| 씨 · 이름 뒤의 공손한 호칭 / polite form of address after a name / höfliche Anrede nach einem Namen | 하린 씨예요? | Harin? (checking the name politely) | Harin? (höfliche Nachfrage zum Namen) |
++| 다시 · 부사 / again / noch einmal | 다시 말해 주세요. | Could you say that again? | Kannst du das bitte noch einmal sagen? |
++| 말하다 · 동사 / say, speak / sagen, sprechen | 이름을 말해 주세요. | Could you tell me your name? | Sag mir bitte deinen Namen. |
+ | 네 · 확인 응답 / yes / ja | 네, 수진이에요. | Yes, I’m Sujin. | Ja, ich bin Sujin. |
+ | 감사합니다 · 감사 표현 / thank you / danke | 감사합니다. | Thank you. | Danke. |
+ 
+-## 두 가지 작은 연습 / Two small practices / Zwei kleine Übungen
++씨는 여기서 다른 사람의 이름 뒤에 붙이는 호칭이에요. 자기소개하는 내 이름에는 붙이지 않아요. / Here 씨 is a polite form of address after another person’s name. Do not add it to your own name when introducing yourself. / Hier ist 씨 eine höfliche Anrede nach dem Namen einer anderen Person. Wenn du dich vorstellst, hängst du es nicht an deinen eigenen Namen.
++
++## 두 가지 짧은 연습 / Two short exercises / Zwei kurze Übungen
++
++### P1 · 이름을 바꾸어 소개하기 / Introduce yourself with a practice name / Sich mit einem Übungsnamen vorstellen
++
++연습 이름 **민수·하린·준·유나**는 먼저 소리로 들어 익혀요. 이름의 낯선 글자를 혼자 읽어야 참여할 수 있는 것은 아니에요. / First become familiar with the spoken practice names **민수, 하린, 준 and 유나**. You do not need to read unfamiliar name spellings on your own to take part. / Lerne zuerst die gesprochenen Übungsnamen **민수, 하린, 준 und 유나** kennen. Du musst unbekannte Namensschreibungen nicht allein lesen können, um mitzumachen.
+ 
+ | KO | EN | DE |
+ |---|---|---|
+-| 이름 소개: 연습 이름 민수·하린의 전체 소리를 먼저 들어요. “민수예요.”는 모음 끝 이름 뒤 예요, “하린이에요.”는 받침 끝 이름 뒤 이에요예요. “안녕하세요. 민수예요.”를 시범으로 듣고 하린 카드로 바꾸어 인사해요. | Introduction: Hear the practice names 민수 and 하린 first. 민수예요 uses 예요 after a vowel; 하린이에요 uses 이에요 after a consonant. Hear “Hello, I’m Minsu,” then greet with the Harin card. | Vorstellung: Höre zuerst die Übungsnamen 민수 und 하린. 민수예요 hat 예요 nach einem Vokal, 하린이에요 hat 이에요 nach einem Endkonsonanten. Höre das Vorbild mit Minsu und begrüße dann mit der Harin-Karte. |
+-| 도움 답: “안녕하세요. 하린이에요.” 저는을 앞에 넣어도 좋아요. 이름만 말해 뜻이 전해졌으면 의사소통과 목표 말끝을 따로 살펴봐요. | Supported answer: “안녕하세요. 하린이에요.” Adding 저는 is fine. If a bare name communicates the meaning, assess that separately from the target ending. | Gestützte Antwort: „안녕하세요. 하린이에요.“ 저는 darf davor stehen. Wird der Name allein verstanden, betrachte die Verständigung getrennt von der Zielendung. |
+-| 다시 요청: 이름을 못 들은 시범에서 “다시 말해 주세요.”를 통째로 써요. 상대는 다른 이름으로 바꾸지 않고 같은 이름을 다시 말해요. 들은 뒤 “하린 씨예요?”로 확인하고 “네”를 받아요. | Repair: Learn “Please say that again” as a whole phrase. The partner repeats the same name, not a different one. Confirm “Harin?” and receive “Yes.” | Nachfragen: Lerne „Sag das bitte noch einmal“ als ganzen Ausdruck. Das Gegenüber wiederholt denselben Namen. Bestätige „Harin?“ und höre „Ja“. |
++| 이름이 모음으로 끝나면 **예요**를 붙여요: **민수예요.** 받침으로 끝나면 **이에요**를 붙여요: **하린이에요.** | Use **예요** after a name ending in a vowel in Korean: **민수예요.** Use **이에요** after a name ending in a final consonant: **하린이에요.** | Nach einem Namen, der im Koreanischen auf einen Vokal endet, steht **예요**: **민수예요.** Nach einem Namen mit Endkonsonant steht **이에요**: **하린이에요.** |
++| “안녕하세요. 민수예요.”를 시범으로 들어요. 이제 **하린** 카드로 인사하고 자신을 소개해요. | Hear the model **“안녕하세요. 민수예요.”** (“Hello. I’m Minsu.”). Then greet your partner and introduce yourself using the **하린** card. | Höre das Vorbild **„안녕하세요. 민수예요.“** („Hallo. Ich bin Minsu.“). Begrüße dann dein Gegenüber und stelle dich mit dem Namen auf der **하린**-Karte vor. |
++| 함께 해 보기: **안녕하세요. 하린이에요.** 저는을 넣어 **안녕하세요. 저는 하린이에요.**라고 해도 좋아요. | Try **안녕하세요. 하린이에요.** Adding 저는 is also fine: **안녕하세요. 저는 하린이에요.** | Probiere **안녕하세요. 하린이에요.** Du kannst auch 저는 ergänzen: **안녕하세요. 저는 하린이에요.** |
+ 
+-씨는 이번에는 이름 뒤의 공손한 호칭이다. 입문 씨(식물의 씨)와 다른 쓰임. 처음 만난 성인끼리는 전체 이름이나 이름+씨를 상황에 맞게 쓴다. 상대가 원하는 호칭을 확인할 수 있다. / Here 씨 is an address term after a name, distinct from “seed.” / Hier ist 씨 eine Anrede nach dem Namen, nicht das Wort für Samen.
++소리가 없으면 이름과 예문을 보며 연습해요. / Without audio, practise with the written names and examples. / Ohne Ton übst du mit den geschriebenen Namen und Beispielen.
+ 
+-## 현대 듣기 — 이름을 놓쳤을 때 / Listening: a missed name / Hören: den Namen verpasst
++### P2 · 이름을 다시 부탁하기 / Ask for the name again / Noch einmal nach dem Namen fragen
++
++상대 이름을 놓친 상황을 연습해요. **다시 말해 주세요.**라고 부탁하고, 같은 이름을 다시 들으면 확인해요. / Practise missing a partner’s name. Ask **다시 말해 주세요.** (“Could you say that again?”), then check the repeated name. / Übe die Situation, dass du den Namen nicht verstanden hast. Bitte mit **다시 말해 주세요.** („Kannst du das bitte noch einmal sagen?“) um Wiederholung und frage dann zur Bestätigung nach dem Namen.
++
++| 차례·역할 / Turn / Rolle | KO | EN | DE |
++|---|---|---|---|
++| 1 · 상대 / Partner / Gegenüber | 안녕하세요. 하린이에요. | Hello. I’m Harin. | Hallo. Ich bin Harin. |
++| 2 · 학습자 / You / Du | 다시 말해 주세요. | Could you say that again? | Kannst du das bitte noch einmal sagen? |
++| 3 · 상대 / Partner / Gegenüber | 하린이에요. | I’m Harin. | Ich bin Harin. |
++| 4 · 학습자 / You / Du | 하린 씨예요? | Harin? | Harin? |
++| 5 · 상대 / Partner / Gegenüber | 네. | Yes. | Ja. |
++
++## 스몰토크 — 질문을 놓쳤을 때 / A missed question / Die Frage nicht verstanden
++
++**S1 · 도움을 보며 대화하기.** 연습 이름 **민수 / 하린** 중 하나를 골라요. 질문을 잘 들었으면 바로 이름을 말해요. 질문을 놓쳤으면 같은 질문을 다시 부탁해요. 아래는 민수를 고른 예예요. / Choose the practice name **민수** or **하린**. If you heard the question clearly, give your name straight away. If you missed it, ask for the same question again. The example below uses 민수. / Wähle den Übungsnamen **민수** oder **하린**. Wenn du die Frage verstanden hast, nenne direkt deinen Namen. Sonst bitte darum, dieselbe Frage noch einmal zu hören. Das folgende Beispiel verwendet 민수.
++
++| 차례·역할 / Turn / Rolle | KO | EN | DE |
++|---|---|---|---|
++| 1 · 상대 / Partner / Gegenüber | 이름이 뭐예요? | What’s your name? | Wie heißt du? |
++| 2 · 학습자 / You / Du · 질문을 놓친 경우만 / Only if you missed the question / Nur wenn du die Frage nicht verstanden hast | 다시 말해 주세요. | Could you say that again? | Kannst du das bitte noch einmal sagen? |
++| 3 · 상대 / Partner / Gegenüber · 요청을 받은 경우만 / Only if asked to repeat / Nur nach einer Bitte um Wiederholung | 이름이 뭐예요? | What’s your name? | Wie heißt du? |
++| 4 · 학습자 / You / Du | 민수예요. | I’m Minsu. | Ich bin Minsu. |
++| 5 · 상대 / Partner / Gegenüber | 민수 씨예요? | Minsu? | Minsu? |
++| 6 · 학습자 / You / Du | 네. | Yes. | Ja. |
++
++하린 카드를 골랐다면 **하린이에요. → 하린 씨예요? → 네.**로 이어져요. 말하기가 부담되면 이름 카드를 가리키고 확인에 고개를 끄덕여도 돼요. / With the 하린 card, continue with **하린이에요. → 하린 씨예요? → 네.** If you prefer not to speak, point to a name card and nod when your partner checks it. / Mit der 하린-Karte geht es so weiter: **하린이에요. → 하린 씨예요? → 네.** Wenn du nicht sprechen möchtest, zeige auf eine Namenskarte und nicke, wenn dein Gegenüber nachfragt.
++
++## 현대 듣기 — 이름을 놓쳤을 때 / Listening: a missed name / Hören: den Namen nicht verstanden
++
++수진과 크리스티안은 이미 아는 사이예요. 편한 모임에서 처음 소개하는 상황을 역할극으로 연습해요. 두 사람이 주고받는 말을 듣고 아래에 답해요. / Sujin and Christian already know each other. They role-play meeting for the first time at a relaxed gathering. Listen to their exchange and answer below. / Sujin und Christian kennen sich bereits. In einem Rollenspiel üben sie, sich bei einem lockeren Treffen zum ersten Mal vorzustellen. Höre ihr Gespräch und beantworte die Fragen.
++
++대본과 뒤의 답은 가려 두세요. 다시 듣고 싶으면 같은 대화를 다시 들어도 돼요. 소리가 없으면 진행자에게 대본을 받아 읽고 답해요. / Keep the script and answers covered. You can hear the same conversation again. Without audio, ask for the script and answer by reading it. / Lass den Dialogtext und die Lösungen abgedeckt. Du kannst dasselbe Gespräch noch einmal hören. Ohne Ton lässt du dir den Dialogtext geben und beantwortest die Fragen beim Lesen.
++
++| ID | KO | EN | DE |
++|---|---|---|---|
++| L1 | 누가 자기 이름을 다시 말했어요? **수진 / 크리스티안** | Who repeated their name? **Sujin / Christian** | Wer hat den Namen noch einmal gesagt? **Sujin / Christian** |
++| L2 | 다시 말한 이름은 무엇이에요? 이름을 말하거나 이름 카드를 골라도 돼요. | What name was repeated? Say it or choose a name card. | Welcher Name wurde wiederholt? Nenne ihn oder wähle eine Namenskarte. |
++| L3 | 두 번째에 이름이 바뀌었어요? **바뀜 / 같음** | Did the name change the second time? **Changed / Stayed the same** | Hat sich der Name beim zweiten Mal geändert? **Geändert / Gleich geblieben** |
++
++## 혼자 소개하고 확인하기 — 학습자 카드 / Your role card / Deine Rollenkarte
++
++앞의 시범과 대본, 상대 카드, 뒤의 답은 가리고 내 카드와 지시만 보세요. / Cover the examples, script, partner’s card and answers. Look only at your own card and the instructions. / Decke Vorbilder, Dialogtext, die Karte deines Gegenübers und die Lösungen ab. Sieh nur deine eigene Karte und die Anleitung an.
++
++| ID | KO | EN | DE |
++|---|---|---|---|
++| I1 | **내 연습 이름: 준.** 먼저 인사하고 자신을 소개해요. 상대가 소개하면, 이번에는 이름을 놓친 역할로 다시 부탁해요. 상대가 다시 말한 이름을 확인하고 답을 기다려요. | **Your practice name: 준.** Greet your partner and introduce yourself first. After your partner gives their name, play the part of someone who missed the name: ask for it again, check the repeated name and wait for a reply. | **Dein Übungsname: 준.** Begrüße dein Gegenüber und stelle dich zuerst vor. Wenn dein Gegenüber sich vorstellt, spielst du diesmal jemanden, der den Namen nicht verstanden hat: Bitte um Wiederholung, frage zur Bestätigung nach dem Namen und warte auf die Antwort. |
++| I2 | **내 카드를 민수로 바꿔요.** 인사와 자기소개만 한 번 더 해요. | **Change your card to 민수.** Give just the greeting and introduction once more. | **Tausche deine Karte gegen 민수.** Begrüße dein Gegenüber und stelle dich noch einmal vor. |
++
++실명은 말하지 않아도 돼요. 원하면 다른 연습 이름을 골라도 좋아요. 도움이 필요하면 시범을 다시 봐요. / You do not need to give your real name. You can choose another practice name. Look at a model again if you need help. / Du musst deinen echten Namen nicht nennen. Du kannst auch einen anderen Übungsnamen wählen. Wenn du Hilfe brauchst, sieh dir ein Vorbild noch einmal an.
++
++## 다른 상대에게 해 보기 — 학습자 카드 / Try with another partner / Mit einem anderen Gegenüber üben
++
++**T1 · 내 연습 이름: 하린.** 이번에는 다른 상대가 먼저 인사해요. 인사와 자기소개를 하고 상대 이름을 확인해요. 잘 들었으면 바로 확인하고, 놓쳤으면 같은 이름을 다시 부탁해요. 상대 카드와 모범답은 계속 가려 두세요. / **Your practice name: 하린.** This time another partner greets you first. Return the greeting, introduce yourself and check the name you hear. If you heard it clearly, check it straight away; if you missed it, ask for the same name again. Keep the partner’s card and model answers hidden. / **Dein Übungsname: 하린.** Diesmal begrüßt dich ein anderes Gegenüber zuerst. Erwidere die Begrüßung, stelle dich vor und frage zur Bestätigung nach dem gehörten Namen. Wenn du ihn verstanden hast, frage direkt nach; sonst bitte um Wiederholung desselben Namens. Die andere Rollenkarte und die Musterantworten bleiben verdeckt.
++
++다음 실제 만남에서도 원하는 이름으로 인사하고, 필요할 때 다시 부탁해 볼 수 있어요. / At a future meeting, you can greet someone using a name of your choice and ask again when you need to. / Bei einem späteren Treffen kannst du mit einem Namen deiner Wahl grüßen und bei Bedarf nachfragen.
++
++## 고택으로 돌아오며 / Back at the house / Zurück im alten Anwesen
+ 
+ | KO | EN | DE |
+ |---|---|---|
+-| 현대 모임의 첫 인사. 수진과 크리스티안은 이 역할극에서 처음 인사하는 상황을 연습해요. | At a modern meetup, Sujin and Christian role-play a first greeting. | Bei einem heutigen Treffen üben Sujin und Christian eine erste Begrüßung als Rollenspiel. |
+-| 수진: “안녕하세요. 수진이에요.” | Sujin: “Hello. I’m Sujin.” | Sujin: „Hallo. Ich bin Sujin.“ |
+-| 크리스티안: “안녕하세요. 크리스티안이에요.” | Christian: “Hello. I’m Christian.” | Christian: „Hallo. Ich bin Christian.“ |
+-| 수진: “다시 말해 주세요.” | Sujin: “Please say that again.” | Sujin: „Sag das bitte noch einmal.“ |
+-| 크리스티안: “크리스티안이에요.” | Christian: “I’m Christian.” | Christian: „Ich bin Christian.“ |
+-| 수진: “크리스티안 씨예요?” | Sujin: “Christian?” | Sujin: „Christian?“ |
+-| 크리스티안: “네.” 수진: “감사합니다.” | Christian: “Yes.” Sujin: “Thank you.” | Christian: „Ja.“ Sujin: „Danke.“ |
+-| 확인 1: 누가 다시 말했어요? 수진/크리스티안. 2: 다시 들은 이름은 무엇이에요? 3: 두 번째에 이름이 바뀌었어요? | Check 1: Who repeated their name? 2: What name was repeated? 3: Did it change the second time? | Aufgabe 1: Wer wiederholte den Namen? 2: Welcher Name war es? 3: Änderte er sich beim zweiten Mal? |
++| 고택에서 도깨비는 조이의 말을 잠깐 멈추게 하고 일행에게 차례를 내준다. 수진이 묻는다. “이름 말고도 소개하고 싶은 게 있어?” 다음에는 말할 정보와 비워 둘 정보를 고른다. | At the house, Dokkaebi asks Joy to pause and lets the others take their turn. Sujin asks, “Is there anything else you’d like to share?” Next comes choosing which information to give and which to leave out. | Im Haus bittet Dokkaebi Joy kurz zu warten und lässt die Gruppe sprechen. Sujin fragt: „Möchtest du noch etwas von dir erzählen?“ Als Nächstes wählst du, was du mitteilen oder weglassen möchtest. |
+ 
+-답 크리스티안, 크리스티안, 바뀌지 않음. 재요청 뒤 같은 이름과 “네”가 근거다. 크리스티안이라는 낯선 철자를 독립 해독해야 대화에 참여할 수 있는 것은 아니다.
++## 진행자용 답과 운영 메모
+ 
+-## 스몰토크·독립 확인·전이 / Small talk, check, transfer / Gespräch, Aufgabe, Anwendung
++이 구획은 응답 전에 학습자에게 보여 주지 않는다. 학습자에게는 해당 문제나 자기 역할 카드만 제공한다. 이름의 소리·표기는 사전에 익힐 수 있지만, 어느 이름이 상대 카드의 이름인지와 완성 답은 미리 보여 주지 않는다. 소리가 없으면 대본·상대 발화의 글을 제공해 문자 이해/대화 연습으로 진행하고, 청취 성공으로 기록하지 않는다.
+ 
+-| KO | EN | DE |
+-|---|---|---|
+-| 상대: “이름이 뭐예요?” 말해도 되면 “민수예요.”, 못 들었으면 “다시 말해 주세요.”, 공개하고 싶지 않으면 연습 이름 카드를 선택해요. 상대는 선택한 이름으로 확인해요. | Partner: “What’s your name?” Give “민수예요,” request repetition or choose a practice name for privacy. The partner confirms the name you chose. | Gegenüber: „Wie heißt du?“ Antworte mit „민수예요“, bitte um Wiederholung oder wähle einen Übungsnamen. Das Gegenüber bestätigt den gewählten Namen. |
+-| 새 확인: 상대 역할 카드 유나, 내 역할 카드 준. 두 이름은 먼저 음성으로 제공해요. ① 인사와 내 이름을 말해요. ② 상대가 유나라고 했지만 잘 못 들은 상황에서 다시 요청해요. ③ 반복한 이름을 확인해요. | New check: Partner card 유나; your card 준, with both names introduced orally. Greet and introduce yourself; request repetition of a missed 유나; confirm the repeated name. | Neue Aufgabe: Gegenüber 유나, du 준; beide Namen werden vorher vorgesprochen. Begrüße, stelle dich vor, bitte beim verpassten 유나 um Wiederholung und bestätige den Namen. |
+-| 가능한 답: “안녕하세요. 준이에요.” → “다시 말해 주세요.” → “유나 씨예요?” 상대: “네.” 실제 이름 선택도 가능해요. | Possible answer: “안녕하세요. 준이에요.” → “다시 말해 주세요.” → “유나 씨예요?” Partner: “네.” A chosen personal name also works. | Mögliche Antwort: „안녕하세요. 준이에요.“ → „다시 말해 주세요.“ → „유나 씨예요?“ Gegenüber: „네.“ Auch ein selbst gewählter Name ist möglich. |
+-| 생활 전이: 다음 만남에서 새 상대에게 인사하고, 들은 이름을 되말해 확인해요. 인사·소개·필요한 재요청·이름 일치가 기준이며 한 문장을 그대로 외울 필요는 없어요. 선택 응답은 말하기와 구별해요. | Transfer: At the next meeting, greet someone new and confirm their name. Look for greeting, introduction, needed repair and name accuracy, not one memorised sentence. Selection is distinct from speaking. | Anwendung: Begrüße beim nächsten Treffen eine neue Person und bestätige ihren Namen. Wichtig sind Begrüßung, Vorstellung, nötiges Nachfragen und der richtige Name; kein auswendig gelernter Satz. Auswahl ist nicht dasselbe wie Sprechen. |
+-| 고택에서 도깨비는 조이의 말을 잠깐 멈추게 하고 일행에게 차례를 내준다. 수진이 묻는다. “이름 말고도 소개하고 싶은 게 있어?” 다음에는 말할 정보와 비워 둘 정보를 고른다. | At the house, Dokkaebi pauses Joy and gives the group a turn. Sujin asks, “Is there anything else you’d like to share?” Next comes choosing which information to give and which to leave out. | Im Haus bittet Dokkaebi Joy kurz zu warten und lässt die Gruppe sprechen. Sujin fragt: „Möchtest du noch etwas von dir erzählen?“ Als Nächstes wählst du, was du mitteilen oder weglassen möchtest. |
++### 듣기 대본 — 한 화자 한 차례
++
++L1–L3의 자료다. 현재는 학습용 새 대본이며 실제 음원을 제작하거나 들은 것이 아니다. 수진·크리스티안의 기존 관계를 새 첫 만남으로 바꾸지 않는 역할극이다. 음성 없는 읽기 버전에서는 아래 대본만 별도로 제공하고 답표는 가린다.
++
++| 차례·화자 | KO | EN | DE |
++|---|---|---|---|
++| 1 · 수진 / Sujin | 안녕하세요. 수진이에요. | Hello. I’m Sujin. | Hallo. Ich bin Sujin. |
++| 2 · 크리스티안 / Christian | 안녕하세요. 크리스티안이에요. | Hello. I’m Christian. | Hallo. Ich bin Christian. |
++| 3 · 수진 / Sujin | 다시 말해 주세요. | Could you say that again? | Kannst du das bitte noch einmal sagen? |
++| 4 · 크리스티안 / Christian | 크리스티안이에요. | I’m Christian. | Ich bin Christian. |
++| 5 · 수진 / Sujin | 크리스티안 씨예요? | Christian? | Christian? |
++| 6 · 크리스티안 / Christian | 네. | Yes. | Ja. |
++| 7 · 수진 / Sujin | 감사합니다. | Thank you. | Danke. |
++
++L1–L2에 쓸 이름 카드: **수진 / 크리스티안**. 이름 철자 자체의 독립 해독·정확한 철자 입력을 조건으로 삼지 않는다. 다시 듣기를 요청하면 같은 대화를 다시 제공하고 내용을 바꾸지 않는다. 대본을 열어 본 버전은 읽기 지원으로 구별한다.
++
++### 비공개 상대 역할 카드
++
++아래 대사만 해당 차례에 말하거나 글로 제공한다. 한 번에 카드 전체를 학습자에게 공개하지 않는다. 상대 역할을 맡은 사람도 읽을 수 있도록 각 발화의 번역을 함께 둔다.
++
++| 과제·상황 | 상대의 KO 발화 | EN | DE |
++|---|---|---|---|
++| I1 · 학습자 소개 뒤 / After the learner’s introduction / Nach der Vorstellung der lernenden Person | 안녕하세요. 유나예요. | Hello. I’m Yuna. | Hallo. Ich bin Yuna. |
++| I1 · 반복 요청 뒤 / Asked to repeat / Nach einer Bitte um Wiederholung | 유나예요. | I’m Yuna. | Ich bin Yuna. |
++| I1 · 맞는 이름 확인 / Correct name checked / Richtiger Name nachgefragt | 네. | Yes. | Ja. |
++| I1 · 다른 이름 확인 / Wrong name checked / Anderer Name nachgefragt | 유나예요. | I’m Yuna. | Ich bin Yuna. |
++| I2 · 카드 교환 뒤 소개 / Introduction after the card change / Vorstellung nach dem Kartentausch | 안녕하세요. | Hello. | Hallo. |
++| T1 · 상대 먼저 / Partner starts / Das Gegenüber beginnt | 안녕하세요. 민수예요. | Hello. I’m Minsu. | Hallo. Ich bin Minsu. |
++| T1 · 반복 요청 뒤 / Asked to repeat / Nach einer Bitte um Wiederholung | 민수예요. | I’m Minsu. | Ich bin Minsu. |
++| T1 · 맞는 이름 확인 / Correct name checked / Richtiger Name nachgefragt | 네. | Yes. | Ja. |
++| T1 · 다른 이름 확인 / Wrong name checked / Anderer Name nachgefragt | 민수예요. | I’m Minsu. | Ich bin Minsu. |
++
++I1은 ‘이름을 놓친 상황’의 재요청 역할 연습이다. 실제로 못 들었다는 증거를 만들거나 잡음·빠른 발화로 실패를 유도하지 않는다. T1에서는 잘 들었다면 재요청을 생략할 수 있다. 잘못 확인한 이름에 정정 정보를 준 뒤 다시 맞춘 경우는 도움 뒤 이름 확인으로 구별하되, 대화를 회복한 행동 자체는 인정한다. 두 과제 모두 확인 뒤 실제 “네” 응답까지 기다린다.
++
++### 답과 열린 수락 기준
++
++| ID | 문자상 답·예시와 수락 기준 |
++|---|---|
++| P1 | 안녕하세요. 하린이에요. / 안녕하세요. 저는 하린이에요. 하린의 받침 ㄴ 뒤에는 이에요. 모형을 보며 하는 도움 연습이다. |
++| P2 | 상대 하린이에요 → 학습자 다시 말해 주세요 → 상대 하린이에요 → 학습자 하린 씨예요? → 상대 네. 완성 지원 대화의 차례를 연습한다. |
++| S1 · 질문을 들음 | 이름이 뭐예요? → 민수예요 → 민수 씨예요? → 네. 하린 선택 시 하린이에요 → 하린 씨예요? → 네. |
++| S1 · 질문을 놓침 | 이름이 뭐예요? → 다시 말해 주세요 → **이름이 뭐예요?** → 민수예요 → 민수 씨예요? → 네. 여기서 반복하는 것은 아직 듣지 못한 이름이 아니라 같은 질문이다. |
++| L1 | 크리스티안. 3번 수진의 요청 뒤 4번에서 이름을 다시 말한다. Christian이라는 답이나 해당 이름 카드 선택도 허용한다. |
++| L2 | 크리스티안. 2번과 4번의 이름이 같다. |
++| L3 | 같음 / 바뀌지 않음 / 아니요 / Stayed the same / Gleich geblieben. 새 부정 문법의 한국어 설명을 요구하지 않는다. |
++| I1 | 학습자 안녕하세요. 준이에요 → 상대 안녕하세요. 유나예요 → 학습자 다시 말해 주세요 → 상대 유나예요 → 학습자 유나 씨예요? → 상대 네. 준의 받침 ㄴ 뒤 이에요 적용과 역할 속 요청·확인이다. |
++| I2 | 안녕하세요. 민수예요. 모음 끝 이름에 직접 예요를 붙인다. 카드 교환 한 차례로 I1의 준이에요와 두 유형을 확인하며 전체 대화를 다시 시험하지 않는다. |
++| T1 · 잘 들음 | 상대 안녕하세요. 민수예요 → 학습자 안녕하세요. 하린이에요 → 학습자 민수 씨예요? → 상대 네. 자기소개와 이름 확인의 차례가 자연스럽게 달라도 목적을 달성하면 허용한다. |
++| T1 · 반복이 필요함 | 위 대화에서 이름 확인 전에 학습자 다시 말해 주세요 → 상대 민수예요를 넣은 뒤 민수 씨예요? → 네로 이어 간다. |
++
++- 이름 일치와 인사·요청·확인의 기능을 본다. 저는의 생략/추가, 한 번 더 말해 주세요, 이름을 되말하는 하린 씨?·유나예요? 같은 자연스러운 확인을 하나의 모범 문장과 다르다는 이유로 오답 처리하지 않는다. 다른 말끝을 사용한 의사소통 성공과 이번 목표 예요/이에요 산출은 구별한다. 이름만 말해도 뜻이 전해졌다면 전달 성공은 인정하되 목표 말끝을 썼다고 하지 않는다.
++- I1·I2에서 다른 연습 이름을 택하면 한 이름은 모음 끝, 다른 이름은 받침 끝이 되도록 카드 교환을 돕는다. 한 유형만 실제로 사용했다면 두 유형을 모두 확인했다고 기록하지 않는다. 상대 이름+씨예요의 예요는 씨 뒤의 형태이므로 모음 끝 이름으로 자기소개한 증거를 대신하지 않는다.
++- 말하기가 부담되면 연습 이름·응답 카드 선택이나 비언어 확인으로 참여할 수 있다. 선택·지목은 자유 발화 또는 말하기 인증이 아니다. 실제 자기 이름·성별·국적은 필요하지 않다. 정답이나 상대 카드를 미리 본 응답은 지원 연습으로 구별한다.
++- 씨는 여기서 상대 이름 뒤의 호칭이며 식물의 씨와 다른 쓰임이다. 모든 호칭·조사·의문문·높임 문법을 새 필수 범위로 늘리지 않는다. 독일어 du는 이 편한 모임의 관계에 맞춘 것이며 모든 첫 만남이나 한국어 주세요가 du/Sie 중 하나와 항상 같다는 규칙이 아니다.
++- 실제 소리·발음·학습자 관찰·생활 대화·24시간 뒤 회상은 이번 원고 검산으로 확인되지 않는다. 다음 실제 만남의 제안은 이미 생활 전이를 수행했다는 기록이 아니다.
+ 
+ ## 집필자 메모
+ 
+-UNITS A1.1-01, GRAMMAR_ALLOCATION 1, 원본 `a1-1-v35/01_A1.1-01.md`, LEVEL_STORY_100 LQ-05/중문간채 중간. `canonical_gate: "none"`, `this_scene_gate: "none"`. 도깨비 첫 질문은 연결표 인용, 나머지 새 집필. 문지기 역할놀이는 첫 만남·기억 상실 재설정이 아니다. 다음 A1.1-02, 재사용 A1.2-06. 고택 읽기 전용; 실제 음성·인간 검수 완료를 주장하지 않는다.
++UNITS A1.1-01, GRAMMAR_ALLOCATION 1, 원본 `a1-1-v35/01_A1.1-01.md`, LEVEL_STORY_100 LQ-05/중문간채 중간. `canonical_gate: "none"`, `this_scene_gate: "none"`. 도깨비 첫 질문은 연결표 인용, 나머지 새 집필. 문지기 역할놀이는 첫 만남·기억 상실 재설정이 아니다. 다음 A1.1-02, 재사용 A1.2-06. 고택 캐릭터 대사는 읽기 전용이다. 교정 범위와 독립 재검토 상태는 [네 단원 검토 기록](../reviews/first-four-cross-review-20261114/RESULT.md)에 기록한다. 모델 편집·검토이며 실제 음성·인간 감수 완료를 주장하지 않는다.

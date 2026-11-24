@@ -509,8 +509,10 @@ void main() {
           (t.hangulChipSyllables, '${t.atelierStructure} · 16', 16),
         ]) {
           final action = _nativeHangulButton(item.$2);
-          await tester.ensureVisible(action);
-          await tester.pumpAndSettle();
+          // One-screen overview (2026-11-21 mockup): the chips are on screen
+          // without scrolling. ensureVisible would instead scroll the
+          // TabBarView pager to the chip's left edge and change tabs.
+          expect(action.hitTestable(), findsOneWidget);
           expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
           expect(tester.widget<Text>(find.text(item.$2)).maxLines, isNull);
           expect(tester.widget<Text>(find.text(item.$2)).overflow, isNull);

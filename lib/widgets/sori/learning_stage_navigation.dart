@@ -9,6 +9,15 @@ import 'image_navigation_bar.dart';
 
 export 'image_navigation_bar.dart' show SoriLearningNavStyle;
 
+/// The phone folio leaves the smaller/large-type layouts their full body area.
+bool soriUsesLearningFolio(BuildContext context) {
+  final size = MediaQuery.sizeOf(context);
+  return size.width >= 390 &&
+      size.width < 540 &&
+      size.height >= 800 &&
+      MediaQuery.textScalerOf(context).scale(17) <= 19.55;
+}
+
 /// Reuses the real shell destinations for the approved mobile learning book.
 /// The existing shell owns state and refresh; this never creates a second shell.
 class SoriLearningStageNavigation extends StatelessWidget {
@@ -22,7 +31,12 @@ class SoriLearningStageNavigation extends StatelessWidget {
     this.canLeave,
     this.enabled = true,
     this.onDestinationSelected,
+    this.rail = false,
   });
+
+  /// A pushed study screen on a landscape phone has no shell rail behind it;
+  /// `true` renders the destinations as that rail instead of hiding them.
+  final bool rail;
   final bool woodenSurface;
   final bool expandedArtwork;
   final SoriLearningNavStyle? learningStyle;
@@ -37,16 +51,14 @@ class SoriLearningStageNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (SoriAdaptiveNavigation.usesRailForWidth(
+    final usesRail = SoriAdaptiveNavigation.usesRailForWidth(
       MediaQuery.sizeOf(context).width,
-    )) {
+    );
+    if (usesRail && !rail) {
       return const SizedBox.shrink();
     }
     final t = AppL10n.of(context);
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SoriAdaptiveNavigation(
+    final navigation = SoriAdaptiveNavigation(
           selectedIndex: 1,
           expandedArtwork: expandedArtwork,
           learningStyle: learningStyle,
@@ -100,8 +112,10 @@ class SoriLearningStageNavigation extends StatelessWidget {
               imageAsset: ApprovedChromeAssets.gye,
             ),
           ],
-        ),
-      ],
-    );
+        );
+    if (usesRail) {
+      return navigation;
+    }
+    return Column(mainAxisSize: MainAxisSize.min, children: [navigation]);
   }
 }

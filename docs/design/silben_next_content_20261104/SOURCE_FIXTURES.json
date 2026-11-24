@@ -1,0 +1,353 @@
+{
+  "date": "2026-11-04",
+  "observed_head": "b11c7ef838e6f18be72d7bed5404589c158d2b8f",
+  "source_sha256": "d26220adee5028e4723bb1e72f92ed156f75c0280f31b49601c54b0c6a62701c",
+  "stats": {
+    "A1": {
+      "count": 20,
+      "max_rows": 5,
+      "max_cols": 5,
+      "max_pool": 11
+    },
+    "A2": {
+      "count": 20,
+      "max_rows": 5,
+      "max_cols": 5,
+      "max_pool": 12
+    },
+    "B1": {
+      "count": 20,
+      "max_rows": 5,
+      "max_cols": 5,
+      "max_pool": 11
+    },
+    "B2": {
+      "count": 20,
+      "max_rows": 5,
+      "max_cols": 4,
+      "max_pool": 11
+    },
+    "C1": {
+      "count": 20,
+      "max_rows": 5,
+      "max_cols": 5,
+      "max_pool": 12
+    },
+    "C2": {
+      "count": 20,
+      "max_rows": 4,
+      "max_cols": 5,
+      "max_pool": 10
+    }
+  },
+  "total_puzzles": 120,
+  "selected": [
+    {
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\data\\silben_puzzles.json",
+      "level": "A1",
+      "puzzle": {
+        "id": "skz_a1_001",
+        "rows": 3,
+        "cols": 2,
+        "words": [
+          {
+            "dir": "h",
+            "row": 0,
+            "col": 0,
+            "answer": "어제",
+            "german": "gestern",
+            "exampleKo": "◯◯ 어디 갔어요?",
+            "exampleDe": "Wo bist du gestern hingegangen?",
+            "english": "yesterday",
+            "exampleEn": "Where did you go yesterday?"
+          },
+          {
+            "dir": "v",
+            "row": 0,
+            "col": 0,
+            "answer": "어렵다",
+            "german": "schwierig / schwer",
+            "exampleKo": "한국어가 어려워요.",
+            "exampleDe": "Koreanisch ist schwierig.",
+            "english": "difficult / hard",
+            "exampleEn": "Korean is difficult."
+          },
+          {
+            "dir": "h",
+            "row": 2,
+            "col": 0,
+            "answer": "다섯",
+            "german": "fünf (rein-koreanisch)",
+            "exampleKo": "◯◯ 시에 만나요.",
+            "exampleDe": "Wir treffen uns um fünf.",
+            "english": "five (native Korean)",
+            "exampleEn": "We meet at five."
+          }
+        ],
+        "pool": [
+          "제",
+          "렵",
+          "자",
+          "섯",
+          "어",
+          "검",
+          "든",
+          "다"
+        ]
+      },
+      "answer_key_for_review_only": [
+        [
+          "어",
+          "제"
+        ],
+        [
+          "렵",
+          null
+        ],
+        [
+          "다",
+          "섯"
+        ]
+      ],
+      "crossings": [
+        {
+          "row": 0,
+          "col": 0,
+          "word_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "word_indices": [
+            1,
+            2
+          ]
+        }
+      ],
+      "validation": "bounds/intersection consistency/pool multiplicity passed"
+    },
+    {
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\data\\silben_puzzles.json",
+      "level": "B1",
+      "puzzle": {
+        "id": "skz_b1_005",
+        "rows": 4,
+        "cols": 3,
+        "words": [
+          {
+            "dir": "h",
+            "row": 0,
+            "col": 0,
+            "answer": "책임",
+            "german": "Verantwortung",
+            "exampleKo": "이번 일은 제 ◯◯이에요.",
+            "exampleDe": "Das hier ist meine Verantwortung.",
+            "english": "responsibility",
+            "exampleEn": "This is my responsibility."
+          },
+          {
+            "dir": "v",
+            "row": 0,
+            "col": 0,
+            "answer": "책임감",
+            "german": "Verantwortungsbewusstsein",
+            "exampleKo": "그 사람은 ◯◯◯이 정말 강해요.",
+            "exampleDe": "Diese Person hat ein wirklich starkes Verantwortungsbewusstsein.",
+            "english": "sense of responsibility",
+            "exampleEn": "That person has a really strong sense of responsibility."
+          },
+          {
+            "dir": "h",
+            "row": 2,
+            "col": 0,
+            "answer": "감기약",
+            "german": "Erkältungsmedizin",
+            "exampleKo": "약국에서 ◯◯◯을 샀어요.",
+            "exampleDe": "Ich habe in der Apotheke Erkältungsmedizin gekauft.",
+            "english": "cold medicine",
+            "exampleEn": "I bought cold medicine at the pharmacy."
+          },
+          {
+            "dir": "v",
+            "row": 2,
+            "col": 1,
+            "answer": "기쁨",
+            "german": "Freude",
+            "exampleKo": "합격 소식은 큰 ◯◯이었어요.",
+            "exampleDe": "Die Nachricht vom Bestehen war eine große Freude.",
+            "english": "joy",
+            "exampleEn": "The news of passing was a great joy."
+          }
+        ],
+        "pool": [
+          "쁨",
+          "약",
+          "책",
+          "감",
+          "기",
+          "좋",
+          "글",
+          "임",
+          "외",
+          "임"
+        ]
+      },
+      "answer_key_for_review_only": [
+        [
+          "책",
+          "임",
+          null
+        ],
+        [
+          "임",
+          null,
+          null
+        ],
+        [
+          "감",
+          "기",
+          "약"
+        ],
+        [
+          null,
+          "쁨",
+          null
+        ]
+      ],
+      "crossings": [
+        {
+          "row": 0,
+          "col": 0,
+          "word_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "word_indices": [
+            1,
+            2
+          ]
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "word_indices": [
+            2,
+            3
+          ]
+        }
+      ],
+      "validation": "bounds/intersection consistency/pool multiplicity passed"
+    },
+    {
+      "source_path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\data\\silben_puzzles.json",
+      "level": "C2",
+      "puzzle": {
+        "id": "skz_c2_007",
+        "rows": 3,
+        "cols": 5,
+        "words": [
+          {
+            "dir": "h",
+            "row": 2,
+            "col": 0,
+            "answer": "개연성",
+            "german": "Plausibilität",
+            "exampleKo": "이야기의 ◯◯◯과 사실 여부는 다른 문제입니다.",
+            "exampleDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei.",
+            "english": "plausibility",
+            "exampleEn": "The plausibility of a story and whether it is true are separate questions."
+          },
+          {
+            "dir": "v",
+            "row": 0,
+            "col": 2,
+            "answer": "재구성",
+            "german": "Rekonstruktion",
+            "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
+            "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage.",
+            "english": "reconstruction",
+            "exampleEn": "Reconstruction of memory follows one's emotional state."
+          },
+          {
+            "dir": "h",
+            "row": 0,
+            "col": 2,
+            "answer": "재명명",
+            "german": "Umbenennung",
+            "exampleKo": "◯◯◯이 부담을 덜어 주면 누구의 부담인지 물어요.",
+            "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war.",
+            "english": "renaming",
+            "exampleEn": "If renaming lightens a burden, I ask whose burden it was."
+          }
+        ],
+        "pool": [
+          "성",
+          "명",
+          "세",
+          "구",
+          "계",
+          "통",
+          "연",
+          "재",
+          "명",
+          "개"
+        ]
+      },
+      "answer_key_for_review_only": [
+        [
+          null,
+          null,
+          "재",
+          "명",
+          "명"
+        ],
+        [
+          null,
+          null,
+          "구",
+          null,
+          null
+        ],
+        [
+          "개",
+          "연",
+          "성",
+          null,
+          null
+        ]
+      ],
+      "crossings": [
+        {
+          "row": 2,
+          "col": 2,
+          "word_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "word_indices": [
+            1,
+            2
+          ]
+        }
+      ],
+      "validation": "bounds/intersection consistency/pool multiplicity passed"
+    }
+  ],
+  "asset_sha256": {
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\illustrations\\tactile\\dokkaebi\\dokkaebi_ready.png": "facaa51a5a420fd57fa07a805607d083592e801cbc6e39ff049a32818f3f04ba",
+    "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\assets\\illustrations\\tactile\\dokkaebi\\dokkaebi_helping.png": "8161885cd8ce197176763385a503a3a5d89de1de471dd657ee8bc4ca6ad21665",
+    "C:\\Users\\vjinn\\.codex\\generated_images\\Spiele최종\\exec-f7a808e1-5c4c-4eba-a77d-79cbee60ab3a.png": "db50a1210d422d4e0fa239f01c13d998daf68056032ec863c4aa0b49ee523893"
+  },
+  "scope": "source-data verification only; no Flutter/image/device execution"
+}

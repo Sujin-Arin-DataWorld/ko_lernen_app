@@ -114,17 +114,25 @@ void main() {
               warnings: const [],
             ),
           );
-          await tester.scrollUntilVisible(
-            find.text(message),
-            220,
-            scrollable: find.byType(Scrollable).first,
-          );
-          await tester.pump();
-          expect(find.text(message), findsOneWidget);
-          expect(
-            find.bySemanticsLabel(RegExp(RegExp.escape(message))),
-            findsOneWidget,
-          );
+          final whole = find.text(message);
+          if (whole.evaluate().isNotEmpty) {
+            await _reachResultPage(tester, whole);
+            expect(
+              find.bySemanticsLabel(RegExp(RegExp.escape(message))),
+              findsOneWidget,
+            );
+          } else {
+            final chunks = find.byKey(ValueKey(('book-result-copy', message)));
+            final texts = tester
+                .widgetList<Text>(chunks)
+                .map((text) => text.data!);
+            expect(texts.join(' ').replaceAll(RegExp(r'\s+'), ' '), message);
+            await _reachResultPage(tester, chunks.first);
+            expect(
+              find.bySemanticsLabel(RegExp(RegExp.escape(texts.first))),
+              findsOneWidget,
+            );
+          }
           expect(tester.takeException(), isNull);
         }
       }
@@ -163,6 +171,10 @@ void main() {
           expect(find.text(t.bookResultTitle), findsOneWidget);
           expect(find.text(t.bookResultFoundN(1)), findsOneWidget);
           _expectLiveHeader(tester, t.bookResultFoundN(1));
+          expect(
+            find.widgetWithText(SoriButton, t.bookResultSave).hitTestable(),
+            findsOneWidget,
+          );
           expect(find.text(t.bookResultSectionWords), findsOneWidget);
           expect(find.text(t.bookResultSectionExpressions), findsOneWidget);
           expect(find.text(t.bookResultSectionGrammar), findsOneWidget);
@@ -187,11 +199,7 @@ void main() {
             SoriButton,
             t.bookResultOpenGrammar,
           );
-          await tester.scrollUntilVisible(
-            grammar,
-            280,
-            scrollable: find.byType(Scrollable).first,
-          );
+          await _reachResultPage(tester, grammar);
           await tester.pump();
           _expectEnabledButtonSemantics(
             tester,
@@ -199,11 +207,7 @@ void main() {
             t.bookResultOpenGrammar,
           );
           final save = find.widgetWithText(SoriButton, t.bookResultSave);
-          await tester.scrollUntilVisible(
-            save,
-            280,
-            scrollable: find.byType(Scrollable).first,
-          );
+          expect(save.hitTestable(), findsOneWidget);
           await tester.pump();
           _expectEnabledButtonSemantics(tester, save, t.bookResultSave);
           expect(tester.takeException(), isNull);
@@ -234,11 +238,7 @@ void main() {
         expect(warningData.flagsCollection.isLiveRegion, isTrue);
 
         final retake = find.widgetWithText(SoriButton, t.bookPreviewRetake);
-        await tester.scrollUntilVisible(
-          retake,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
+        expect(retake.hitTestable(), findsOneWidget);
         await tester.pump();
         _expectEnabledButtonSemantics(tester, retake, t.bookPreviewRetake);
         _expectOutlinedBoundaryContrast(tester, retake);
@@ -266,11 +266,7 @@ void main() {
     );
 
     final save = find.widgetWithText(SoriButton, t.bookResultSave);
-    await tester.scrollUntilVisible(
-      save,
-      280,
-      scrollable: find.byType(Scrollable).first,
-    );
+    expect(save.hitTestable(), findsOneWidget);
     await tester.tap(save);
     await tester.pump();
 
@@ -292,11 +288,7 @@ void main() {
       t.bookshelfCreatePackCta,
     );
     expect(createPack, findsOneWidget);
-    await tester.scrollUntilVisible(
-      createPack,
-      280,
-      scrollable: find.byType(Scrollable).first,
-    );
+    await _reachResultPage(tester, createPack);
     await tester.pump(const Duration(seconds: 3));
     final back = find.widgetWithText(SoriButton, t.bookResultBackToCapture);
     _expectEnabledButtonSemantics(tester, back, t.bookResultBackToCapture);
@@ -338,11 +330,7 @@ void main() {
       );
 
       final save = find.widgetWithText(SoriButton, t.bookResultSave);
-      await tester.scrollUntilVisible(
-        save,
-        280,
-        scrollable: find.byType(Scrollable).first,
-      );
+      expect(save.hitTestable(), findsOneWidget);
       await tester.tap(save);
       await tester.pumpAndSettle();
 
@@ -512,6 +500,35 @@ Future<void> _pumpResultWithAnalyzer(
   await tester.pump();
 }
 
+Future<void> _reachResultPage(WidgetTester tester, Finder target) async {
+  if (target.hitTestable().evaluate().isNotEmpty) {
+    return;
+  }
+  final localizations = MaterialLocalizations.of(
+    tester.element(find.byType(BookResultScreen)),
+  );
+  Finder arrow(String tooltip) => find
+      .byWidgetPredicate(
+        (widget) =>
+            widget is IconButton &&
+            widget.tooltip == tooltip &&
+            widget.onPressed != null,
+      )
+      .hitTestable();
+  final previous = arrow(localizations.previousPageTooltip);
+  while (previous.evaluate().isNotEmpty) {
+    await tester.tap(previous);
+    await tester.pumpAndSettle();
+  }
+  final next = arrow(localizations.nextPageTooltip);
+  while (target.hitTestable().evaluate().isEmpty &&
+      next.evaluate().isNotEmpty) {
+    await tester.tap(next);
+    await tester.pumpAndSettle();
+  }
+  expect(target.hitTestable(), findsOneWidget);
+}
+
 void _expectLiveHeader(WidgetTester tester, String label) {
   final finder = find.bySemanticsLabel(label);
   expect(finder, findsOneWidget);
@@ -528,11 +545,7 @@ Future<void> _expectEnabledIconSemantics(
     (widget) => widget is IconButton && widget.tooltip == label,
   );
   expect(icon, findsOneWidget);
-  await tester.scrollUntilVisible(
-    icon,
-    220,
-    scrollable: find.byType(Scrollable).first,
-  );
+  await _reachResultPage(tester, icon);
   await tester.pump();
   final finder = find.bySemanticsLabel(label);
   expect(finder, findsOneWidget);

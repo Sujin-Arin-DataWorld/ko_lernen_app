@@ -1,0 +1,140 @@
+00:00 +0: loading C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart
+00:00 +0: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: background keeps the current turn, typed Korean and countdown
+00:05 +1: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: IME submission and reduced motion keep one delayed companion reply after resume
+00:06 +2: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: winning dead-end waits in background then saves exactly once
+00:08 +3: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: covered route keeps draft and clock but rejects retained submit
+00:11 +4: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: covered pending turn continues=false resumes once
+00:13 +5: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: covered pending turn continues=true resumes once
+00:14 +6: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: opening speech waits for route visibility and plays only once
+00:15 +7: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: retired game cannot stop destination speech after route cover
+00:16 +8: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: accepted SRS write finishes under cover without losing progress
+00:18 +9: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: pending valid dictionary answer survives cover without audio
+00:20 +10: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_lifecycle_test.dart: dictionary completion in background stays silent while retaining the answer
+00:21 +11: loading C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart
+00:24 +11: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: (setUpAll)
+00:24 +11: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved A keeps reference geometry and real Korean input
+00:26 +12: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved A fits safe-area native height with full CTA gap
+00:27 +13: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved B keeps reference geometry and real Korean input
+00:27 +14: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved B fits safe-area native height with full CTA gap
+00:27 +15: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved C keeps reference geometry and real Korean input
+00:28 +16: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved C fits safe-area native height with full CTA gap
+00:28 +17: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 8 syllables and full gloss
+00:28 +18: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 2 syllables and full gloss
+00:29 +19: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 2 syllables and full gloss
+00:29 +20: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 3 syllables and full gloss
+00:29 +21: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 1 syllables and full gloss
+00:30 +22: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 20 syllables and full gloss
+00:30 +23: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 200% keeps the complete real 0.75× speed label inside its target
+00:31 +24: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 200% keeps the complete real 1.25× speed label inside its target
+00:31 +25: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: keyboard scroll exposes the editable input and submit together
+00:32 +26: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: (tearDownAll)
+00:32 +26: loading C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart
+00:35 +26: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct unknown card/log=false committed=false retries once
+Storage: SRS native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:38 +27: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct unknown card/log=false committed=true retries once
+Storage: SRS native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:39 +28: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct unknown card/log=true committed=false retries once
+Storage: history native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:39 +29: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct unknown card/log=true committed=true retries once
+Storage: history native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:40 +30: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct exit retires pending judgment and timers
+00:40 +31: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct unmount retires pending judgment and timers
+00:41 +32: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct reset retires pending judgment and timers
+00:41 +33: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct pop retires pending judgment and timers
+00:42 +34: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct popped route blocks retained answer before disposal
+00:42 +35: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct last-second write success=false holds expiry until confirmed
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+00:43 +36: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct last-second write success=true holds expiry until confirmed
+00:44 +37: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct retries native SRS rejection before progress
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+00:44 +38: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong unknown card/log=false committed=false retries once
+Storage: SRS native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:45 +39: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong unknown card/log=false committed=true retries once
+Storage: SRS native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:45 +40: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong unknown card/log=true committed=false retries once
+Storage: history native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:46 +41: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong unknown card/log=true committed=true retries once
+Storage: history native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:46 +42: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong exit retires pending judgment and timers
+00:46 +43: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong unmount retires pending judgment and timers
+00:47 +44: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong reset retires pending judgment and timers
+00:47 +45: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong pop retires pending judgment and timers
+00:47 +46: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong popped route blocks retained answer before disposal
+00:48 +47: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong last-second write success=false holds expiry until confirmed
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+00:48 +48: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong last-second write success=true holds expiry until confirmed
+00:49 +49: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-wrong retries native SRS rejection before progress
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+00:49 +50: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain unknown card/log=false committed=false retries once
+Storage: SRS native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:52 +51: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain unknown card/log=false committed=true retries once
+Storage: SRS native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:53 +52: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain unknown card/log=true committed=false retries once
+Storage: history native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:54 +53: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain unknown card/log=true committed=true retries once
+Storage: history native reply unavailable: Bad state: Native reply lost
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+Storage: SRS recovery retained for retry: Bad state: Native preferences unavailable
+00:56 +54: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain exit retires pending judgment and timers
+00:57 +55: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain unmount retires pending judgment and timers
+00:57 +56: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain reset retires pending judgment and timers
+00:58 +57: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain pop retires pending judgment and timers
+00:59 +58: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain popped route blocks retained answer before disposal
+00:59 +59: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain last-second write success=false holds expiry until confirmed
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+01:02 +60: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain last-second write success=true holds expiry until confirmed
+01:03 +61: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain retries native SRS rejection before progress
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+01:04 +62: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed correction preserves first negative evidence and one wrong diagnostic
+01:05 +63: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed miss holds rejected vocabulary progress until retry
+01:05 +64: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct lifecycle resume cannot restart clock during recovery
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+01:06 +65: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain lifecycle resume cannot restart clock during recovery
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+01:07 +66: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: dictionary KkeunmariDictionaryStatus.valid holds remaining time without creating a ghost card
+01:08 +67: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: dictionary KkeunmariDictionaryStatus.invalid holds remaining time without creating a ghost card
+01:09 +68: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: dictionary KkeunmariDictionaryStatus.unavailable holds remaining time without creating a ghost card
+01:10 +69: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: dictionary late valid reply after pop cannot accept a word
+01:11 +70: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: dictionary late valid reply after reset cannot accept a word
+01:12 +71: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed resize during pending evidence preserves the admitted pair
+01:12 +72: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed retired result actions cannot restart or close a replay
+01:13 +73: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed-correct late loader after pop cannot revive screen or replace chain pool
+01:13 +74: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain late loader after pop cannot revive screen or replace chain pool
+01:14 +75: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: dictionary exception keeps time paused and accepts a local recovery answer
+01:15 +76: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: dictionary timeout ignores a late success and survives backgrounding
+01:16 +77: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed resumes after retry when lifecycle returned while evidence was blocked
+Storage: SRS recovery retained for retry: SRS/history recovery is not confirmed.
+01:17 +78: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain prior-turn submit cannot consume a new turn input
+01:20 +79: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: chain retired result Home cannot pop a replay
+01:22 +80: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed old filter callback cannot open a sheet for the next presentation
+01:22 +81: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed old empty-state CTA cannot restart an active round
+01:22 +82: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/timed_game_srs_recovery_test.dart: speed old retry cannot target a subsequent failed load
+01:22 +83: loading C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/custom_pack_kkeunmari_test.dart
+01:28 +83: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/custom_pack_kkeunmari_test.dart: de empty, disconnected and unverified selections never start or award
+01:32 +84: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/custom_pack_kkeunmari_test.dart: de selection rejects outside answers without dictionary fallback and plays valid reply
+01:35 +85: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/custom_pack_kkeunmari_test.dart: en empty, disconnected and unverified selections never start or award
+01:36 +86: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/custom_pack_kkeunmari_test.dart: en selection rejects outside answers without dictionary fallback and plays valid reply
+01:37 +87: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/custom_pack_kkeunmari_test.dart: failed dictionary loading can retry the same selection without changing global pool
+01:38 +88: All tests passed!

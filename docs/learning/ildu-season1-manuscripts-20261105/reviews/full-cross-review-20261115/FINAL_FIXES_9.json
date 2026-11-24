@@ -1,0 +1,11 @@
+{
+  "status": "frozen_for_final_reread",
+  "supersedes": "FINAL_BATCH_3 C2.2-04 only",
+  "units": [
+    {
+      "unitId": "C2.2-04",
+      "sha256": "8e241c971c14631bf99c86c5b8e287c2c2562badd7705873532b10a4771ab36f",
+      "reason": "EN-FINAL-05"
+    }
+  ]
+}

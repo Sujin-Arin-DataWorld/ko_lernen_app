@@ -54,9 +54,9 @@ void main() {
     // exempt 남용 가드 — 늘려야 하면 사유를 코드 주석과 이 상한에 함께 남길 것.
     expect(
       exempt.length,
-      lessThanOrEqualTo(3),
+      lessThanOrEqualTo(4),
       reason:
-          '현재 exempt 3곳(캐릭터/홈/온보딩 영상 내장 트랙 상시 무음): '
+          '현재 exempt 4곳(캐릭터/홈/온보딩 및 무음 도깨비 소개 영상): '
           '${exempt.join(', ')}',
     );
   });

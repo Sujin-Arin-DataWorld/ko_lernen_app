@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../data/canonical_companion_art.dart';
 import '../widgets/sori/study_evidence_recovery.dart';
 import '../widgets/sori/game_result_recovery.dart';
@@ -16,17 +18,16 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/managed_media_image.dart';
-import '../widgets/sori/card.dart';
-import '../widgets/sori/chip.dart';
+import '../widgets/sori/approved_games/approved_game_material.dart';
+import '../widgets/sori/approved_games/approved_quiz_view.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/quiz_choice.dart';
+import '../widgets/sori/route_observer.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/tts_speed_control.dart';
 
 /// "나만의 단어장" 객관식 퀴즈 — 한국어를 보고 뜻 4지선다 (Quizlet/클래스카드 식).
 ///
@@ -42,6 +43,8 @@ class CustomPackQuizScreen extends StatefulWidget {
 
 class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     with
+        WidgetsBindingObserver,
+        RouteAware,
         ScreenCoachMixin<CustomPackQuizScreen>,
         GameResultRecovery<CustomPackQuizScreen>,
         StudyEvidenceRecovery<CustomPackQuizScreen> {
@@ -50,6 +53,9 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   int _presentation = 0;
   bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
   void _retireStudy() {
+    _autoAdvance?.cancel();
+    _remainingAdvance = null;
+    _stopSpeech();
     retireStudyEvidence();
     retireGameResult();
   }
@@ -63,6 +69,13 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   GameOutcome? _outcome;
   String _languageCode = 'de';
   bool _roundInitialized = false;
+  Timer? _autoAdvance;
+  Duration? _remainingAdvance;
+  DateTime? _advanceDeadline;
+  bool _foreground = true;
+  bool _routeVisible = true;
+  bool _ownsSpeech = false;
+  int _speechRequest = 0;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
@@ -90,6 +103,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     final loaded = CustomPackService.getById(widget.packId);
     final pack = loaded == null || widget.words == null
         ? loaded
@@ -101,6 +115,14 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) {
+      soriRouteObserver.subscribe(this, route);
+    }
+    if (SoriMotion.reduceMotion(context)) {
+      _autoAdvance?.cancel();
+      _remainingAdvance = null;
+    }
     if (_roundInitialized) {
       return;
     }
@@ -108,7 +130,86 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     _startRoundForLocale(Localizations.localeOf(context).languageCode);
   }
 
+  void _pauseAdvance() {
+    if (_autoAdvance?.isActive ?? false) {
+      final left = _advanceDeadline!.difference(DateTime.now());
+      _remainingAdvance = left.isNegative ? Duration.zero : left;
+    }
+    _autoAdvance?.cancel();
+    _stopSpeech();
+  }
+
+  void _stopSpeech() {
+    if (!_ownsSpeech) {
+      return;
+    }
+    _ownsSpeech = false;
+    _speechRequest++;
+    unawaited(TtsService.stop());
+  }
+
+  void _resumeAdvance() {
+    final remaining = _remainingAdvance;
+    if (!mounted ||
+        !_foreground ||
+        !_routeVisible ||
+        remaining == null ||
+        !_acceptsInput ||
+        _picked == null ||
+        SoriMotion.reduceMotion(context)) {
+      return;
+    }
+    final presentation = _presentation;
+    _autoAdvance?.cancel();
+    _advanceDeadline = DateTime.now().add(remaining);
+    _autoAdvance = Timer(remaining, () {
+      _remainingAdvance = null;
+      if (mounted && _foreground && _routeVisible) {
+        _advance(presentation);
+      }
+    });
+  }
+
+  @override
+  void didPushNext() {
+    _routeVisible = false;
+    _pauseAdvance();
+  }
+
+  @override
+  void didPopNext() {
+    _routeVisible = true;
+    _resumeAdvance();
+  }
+
+  @override
+  void didPop() {
+    _routeVisible = false;
+    _pauseAdvance();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _foreground = state == AppLifecycleState.resumed;
+    if (_foreground) {
+      _resumeAdvance();
+    } else {
+      _pauseAdvance();
+    }
+  }
+
+  @override
+  void dispose() {
+    _autoAdvance?.cancel();
+    WidgetsBinding.instance.removeObserver(this);
+    soriRouteObserver.unsubscribe(this);
+    _stopSpeech();
+    super.dispose();
+  }
+
   void _startRoundForLocale(String languageCode) {
+    _autoAdvance?.cancel();
+    _remainingAdvance = null;
     _presentation++;
     _languageCode = languageCode;
     final pack = _pack;
@@ -158,7 +259,9 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   Future<void> _pick(String option, int presentation) async {
-    if (!_acceptsInput ||
+    if (!_foreground ||
+        !_routeVisible ||
+        !_acceptsInput ||
         presentation != _presentation ||
         _qIdx >= _order.length ||
         _picked != null) {
@@ -189,26 +292,31 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     setState(() => _picked = option);
     if (isRight) {
       _score++;
-      SoundService.correct();
-    } else {
+      if (_foreground && _routeVisible) {
+        SoundService.correct();
+      }
+    } else if (_foreground && _routeVisible) {
       SoundService.wrong();
     }
     if (SoriMotion.reduceMotion(context)) {
       return;
     }
-    Future.delayed(const Duration(milliseconds: 900), () {
-      if (!_acceptsInput || presentation != _presentation) return;
-      _advance(presentation);
-    });
+    _remainingAdvance = const Duration(milliseconds: 900);
+    _resumeAdvance();
   }
 
   void _advance(int presentation) {
-    if (!_acceptsInput ||
+    if (!_foreground ||
+        !_routeVisible ||
+        !_acceptsInput ||
         presentation != _presentation ||
         _picked == null ||
         _qIdx >= _order.length) {
       return;
     }
+    _autoAdvance?.cancel();
+    _remainingAdvance = null;
+    _stopSpeech();
     _presentation++;
     setState(() {
       _qIdx++;
@@ -303,162 +411,59 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       return _buildDone(t);
     }
 
-    final s = SoriSurfaces.of(context);
-    final tt = SoriTextTheme.of(context);
     final reduceMotion = SoriMotion.reduceMotion(context);
     final word = _pool[_order[_qIdx]];
     final correct = word.translationFor(_languageCode).trim();
 
-    return SoriStudyFrame(
+    return ApprovedGameFrame(
+      title: t.approvedQuizTitle,
       onLeave: _retireStudy,
-      title: t.wbQuiz,
       homeEscape: SoriHomeEscape(confirmWhen: _qIdx > 0 || _picked != null),
-      actions: const [TtsSpeedAction()],
-      child: SoriAdaptiveStudyBody(
-        minHeight: 420,
-        // W10 T-V3(2026-09-05, Jin D-4): 문제 하나가 420dp 남짓이라 태블릿
-        // 세로 화면에서 위쪽에 뭉쳤다 — 뷰포트 전체를 채우고 세로 중앙
-        // 정렬한다(mainAxisAlignment 없이는 채워진 높이가 그냥 아래쪽에
-        // 빈 채로 남는다).
-        fillViewport: true,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              spacing: Spacing.sm,
-              runSpacing: Spacing.sm,
-              children: [
-                SoriChip(
-                  label: '${_qIdx + 1} / ${_order.length}',
-                  accent: SoriColors.accent,
-                ),
-                SoriChip(
-                  label: t.quizScore(_score, _order.length),
-                  accent: SoriColors.success,
-                ),
-              ],
-            ),
-            const SizedBox(height: Spacing.lg),
-            Text(
-              t.quizQuestion,
-              style: tt.caption.copyWith(color: s.textMuted),
-            ),
-            const SizedBox(height: Spacing.sm),
-            SoriCard(
-              variant: SoriCardVariant.hero,
-              accent: SoriColors.primary,
-              tinted: true,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                child: Column(
-                  children: [
-                    if (word.imagePath.isNotEmpty) ...[
-                      ManagedMediaImage(
-                        reference: word.imagePath,
-                        width: 220,
-                        height: 110,
-                        borderRadius: BorderRadius.circular(SoriRadius.md),
-                      ),
-                      const SizedBox(height: Spacing.md),
-                    ],
-                    Text(
-                      word.korean,
-                      textAlign: TextAlign.center,
-                      style: tt.display,
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    IconButton(
-                      tooltip: t.ttsListenTarget(word.korean),
-                      constraints: const BoxConstraints.tightFor(
-                        width: 48,
-                        height: 48,
-                      ),
-                      icon: const Icon(Icons.volume_up_rounded, size: 26),
-                      onPressed: () => TtsService.speak(word.korean),
-                    ),
-                  ],
-                ),
+      contentBuilder: (context, close) => ApprovedQuizView(
+        title: t.approvedQuizTitle,
+        topic: _pack!.displayName(),
+        scoreLabel: t.approvedQuizCorrect(_score),
+        progressLabel: t.scenarioQuestProgress(_qIdx + 1, _order.length),
+        question: t.quizQuestion,
+        instruction: t.approvedQuizChooseMeaning,
+        korean: word.korean,
+        options: _options,
+        correctOption: correct,
+        picked: _picked,
+        listenLabel: t.approvedGameListen,
+        correctFeedback: t.statsCorrect,
+        wrongFeedback: t.statsWrong,
+        nextLabel: t.btnNext,
+        leading: close,
+        optionsKey: _optionsKey,
+        onOption: (option) => _pick(option, presentation),
+        onListen: () {
+          if (_foreground &&
+              _routeVisible &&
+              _acceptsInput &&
+              presentation == _presentation) {
+            _ownsSpeech = true;
+            final request = ++_speechRequest;
+            unawaited(
+              TtsService.speak(word.korean).whenComplete(() {
+                if (request == _speechRequest) {
+                  _ownsSpeech = false;
+                }
+              }),
+            );
+          }
+        },
+        onNext: _picked != null && reduceMotion
+            ? () => _advance(presentation)
+            : null,
+        wordImage: word.imagePath.isEmpty
+            ? null
+            : ManagedMediaImage(
+                reference: word.imagePath,
+                width: 220,
+                height: 110,
+                borderRadius: BorderRadius.circular(SoriRadius.md),
               ),
-            ),
-            const SizedBox(height: Spacing.lg),
-            if (_picked != null) ...[
-              Semantics(
-                key: const ValueKey('custom-quiz-feedback'),
-                liveRegion: true,
-                label: _picked == correct ? t.statsCorrect : t.statsWrong,
-                child: Text(
-                  _picked == correct ? t.statsCorrect : t.statsWrong,
-                  textAlign: TextAlign.center,
-                  style: tt.h3.copyWith(
-                    color: _picked == correct
-                        ? SoriColors.primaryOnLight
-                        : SoriColors.danger,
-                  ),
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
-            ],
-            // Four choices can exceed a short device viewport once the
-            // prompt card is present. Keep the learning prompt visible
-            // and make only the answer list scroll, rather than letting
-            // the whole result route overflow below the fold.
-            //
-            // W10 PR-D(2026-09-06): `Expanded`(FlexFit.tight) forces this
-            // region to consume *all* remaining flex space even when the
-            // four choices are short — the options then sit pinned to the
-            // top of that oversized box with dead space below, which reads
-            // as "content stuck at the top" on a tall viewport (the same
-            // D-4 symptom this PR fixes elsewhere) even though the outer
-            // `SoriAdaptiveStudyBody(fillViewport:true)` is centering
-            // correctly. `Flexible`(FlexFit.loose, the default) lets this
-            // region size to its own content when there's room to spare —
-            // the outer `mainAxisAlignment.center` then centers the whole
-            // question block — while still shrinking to the available
-            // space (and therefore scrolling via `SingleChildScrollView`)
-            // when a short viewport can't fit everything.
-            Flexible(
-              child: SingleChildScrollView(
-                child: KeyedSubtree(
-                  key: _optionsKey,
-                  child: Column(
-                    children: [
-                      for (final option in _options)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: Spacing.sm),
-                          child: QuizChoice(
-                            text: option,
-                            isCorrect: option == correct,
-                            isSelected: _picked == option,
-                            revealed: _picked != null,
-                            minHeight: 56,
-                            idleBorderColor: SoriColors.primary,
-                            semanticTapEnabled: true,
-                            onSelected: _picked == null
-                                ? () => _pick(option, presentation)
-                                : null,
-                          ),
-                        ),
-                      if (_picked != null && reduceMotion)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: Spacing.sm),
-                          child: SoriButton(
-                            label: t.btnNext,
-                            icon: Icons.arrow_forward_rounded,
-                            variant: SoriButtonVariant.filled,
-                            accent: SoriColors.accent,
-                            fullWidth: true,
-                            onTap: () => _advance(presentation),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

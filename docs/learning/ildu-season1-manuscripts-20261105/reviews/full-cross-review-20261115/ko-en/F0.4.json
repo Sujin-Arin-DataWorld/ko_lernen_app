@@ -1,0 +1,13 @@
+{
+  "role":"ko-en","model":"gpt-6-astra","effort":"max",
+  "units":[
+    {"unitId":"F0.4.closed-endings","sha256":"aca91f2ef20dbcb7bf42015f0c99f7e9cbca641dc220518a7929621d1191f063","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.4.wide-vowels","sha256":"77a32bf3173897f07553cf5545b7645e3ca9206f27465a044d5c175c5ffd5b82","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.4.small-pair","sha256":"cb5c1c09ed47d4a7357c9cd0b7b3e48495eb5ffea68dedad67e99f8f62ddca7d","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.4.last-vowel","sha256":"fc340978d298bd12ff861251e2ac5e477b7ae0578407c7613ca40c9e5a43da98","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.4.linked-sounds","sha256":"d623578fcf158ea0ff1aba6da722527f824c118c52d3deea872a73ca8d3379b8","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.4.first-input","sha256":"cf1e5d882a4a8aefc3917ca78d198e7415a1b8330b24b89b3bdf2434d1275dac","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]},
+    {"unitId":"F0.4.space-and-place","sha256":"3cba428017571b421185900f09e1e39aca002f83f10ae9b9eba6f63da2d9c632","fullTextRead":true,"tasksSolvedAsText":true,"verdict":"PASS","findingIds":[]}
+  ],
+  "findings":[]
+}

@@ -1,0 +1,710 @@
+{
+  "date": "2026-11-03",
+  "fileKey": "7IHizFZMk5G3ahsuVKiYwb",
+  "pageId": "271:2",
+  "status": "user approved Figma 2026-11-04; native implementation pending",
+  "assets": [
+    {
+      "key": "plaque",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-10b34613-452b-4a97-89e6-ffcb8bbdcbe1.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\plaque.png",
+      "sha256": "b17e9dfc6def6189c12e85f94859a3ecff7a097e68b18830de35c8fc47cac98a",
+      "size": [
+        1922,
+        818
+      ],
+      "alpha16": [
+        44,
+        40,
+        1878,
+        790
+      ],
+      "alpha220": [
+        45,
+        42,
+        1876,
+        776
+      ],
+      "bytes": 1934010,
+      "figmaImageHash": "c3d6f0815a7946dd145bee7b2923c33373dcb0be",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/plaque.png"
+    },
+    {
+      "key": "quiz_tile",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-b4e784ea-558a-4f02-b932-15c0e68b0ac1.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\quiz_tile.png",
+      "sha256": "c6f0d3f1939d807373df29cdf89118ad1512eb9236b5f4a8893378015ee6c35f",
+      "size": [
+        1894,
+        830
+      ],
+      "alpha16": [
+        36,
+        203,
+        1861,
+        585
+      ],
+      "alpha220": [
+        43,
+        229,
+        1851,
+        567
+      ],
+      "bytes": 1066342,
+      "figmaImageHash": "e7ea33be03077704e46235763f9918e4f9383c62",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/quiz_tile.png"
+    },
+    {
+      "key": "matching_fabric",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-9d530a5f-c742-4110-8223-493821bf0a04.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\matching_fabric.png",
+      "sha256": "ddfeacdf087ad138df7e3ca74ed63a69df8cee40dd5a3697629a32f392a0d202",
+      "size": [
+        887,
+        1774
+      ],
+      "alpha16": [
+        0,
+        0,
+        887,
+        1774
+      ],
+      "alpha220": [
+        0,
+        0,
+        887,
+        1774
+      ],
+      "bytes": 2461219,
+      "figmaImageHash": "e866f69c3bfd25abfffd3ce83b548cbeb3faf726",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/matching_fabric.png"
+    },
+    {
+      "key": "paper",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-bbde55b0-097e-4c77-9796-6790cb40982b.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\paper.png",
+      "sha256": "03334dfba03220c91a65a4f0e15a4568ac68636f75dc26beb0692718b226f29a",
+      "size": [
+        851,
+        1848
+      ],
+      "alpha16": [
+        0,
+        0,
+        851,
+        1848
+      ],
+      "alpha220": [
+        0,
+        0,
+        851,
+        1848
+      ],
+      "bytes": 2090221,
+      "figmaImageHash": "4a10699f80e97924ac03a998609423e8231a2d47",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/paper.png"
+    },
+    {
+      "key": "jade_tile",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-a11f9e57-70bd-4ff5-9c86-51c5b4356255.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\jade_tile.png",
+      "sha256": "94421c3dc0b31d0cb1a868335c7883d70018a6494068f5ca8c72d020c817dde0",
+      "size": [
+        2021,
+        778
+      ],
+      "alpha16": [
+        93,
+        104,
+        1926,
+        668
+      ],
+      "alpha220": [
+        95,
+        106,
+        1925,
+        655
+      ],
+      "bytes": 1428149,
+      "figmaImageHash": "0575c872b0aff264eb16f32509b08b5ef3fb2d3d",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/jade_tile.png"
+    },
+    {
+      "key": "matching_tile",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-17fd6566-ec54-45b9-b9b4-658418ece239.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\matching_tile.png",
+      "sha256": "0c649ae3b4dd25ea8f128f09d09ae88611dd278a05ac736499ffeffdde9b8c1a",
+      "size": [
+        2060,
+        763
+      ],
+      "alpha16": [
+        68,
+        106,
+        1992,
+        659
+      ],
+      "alpha220": [
+        74,
+        108,
+        1985,
+        648
+      ],
+      "bytes": 1550232,
+      "figmaImageHash": "0bb03c2b15cc55ff5efa2b87a78e3271e55e3984",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/matching_tile.png"
+    },
+    {
+      "key": "folio",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-1d6ef6ab-b347-42c8-834e-f260f7ea1337.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\folio.png",
+      "sha256": "39b6bea960fdecc352391ce150ca7c349651da9281be7a3e350d4a12bfce04b2",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha16": [
+        82,
+        89,
+        2087,
+        625
+      ],
+      "alpha220": [
+        84,
+        91,
+        2085,
+        624
+      ],
+      "bytes": 1468510,
+      "figmaImageHash": "b370a596f89dd3e2da9429b4823d390a7996c2eb",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/folio.png"
+    },
+    {
+      "key": "cloud",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\einleitung_setting_rats확정\\exec-d84fefd7-5e20-4733-8c02-fe24e9b76956.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\cloud.png",
+      "sha256": "c728baced6dd3bff2729bf2a28dbf62e3954ad91a04594e04dc923fbd530f6a5",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha16": [
+        129,
+        348,
+        1182,
+        885
+      ],
+      "alpha220": [
+        130,
+        349,
+        1181,
+        884
+      ],
+      "bytes": 512974,
+      "figmaImageHash": "5e2fc2519ae9243f3b0affba8c9fb159ba7386ff",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/cloud.png"
+    },
+    {
+      "key": "jade_background",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\figma_components\\jade_background.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\jade_background.png",
+      "sha256": "897627d25a81810cc23e800b5b15225fe275085a29c115fd385ab130c19b439b",
+      "size": [
+        1206,
+        2574
+      ],
+      "alpha16": [
+        0,
+        0,
+        1206,
+        2574
+      ],
+      "alpha220": [
+        0,
+        0,
+        1206,
+        2573
+      ],
+      "bytes": 3236216,
+      "figmaImageHash": "cd95d9146cc0b028bf7502e6008b2c155e535517",
+      "usedInFinalScreens": false,
+      "sourceCopyVerified": true
+    },
+    {
+      "key": "gear",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_details\\settings-gold.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\gear.png",
+      "sha256": "bee0e7a48115fe34c1a1a6f3fba17d022c0bd978470004ae5e92a2bf378c068d",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha16": [
+        41,
+        49,
+        1215,
+        1189
+      ],
+      "alpha220": [
+        42,
+        50,
+        1214,
+        1188
+      ],
+      "bytes": 1799712,
+      "figmaImageHash": "ae0718a2a0e7d9ef70dad8fbd3725db035113610",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/gear.png"
+    },
+    {
+      "key": "back",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_details\\chevron-ivory.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\back.png",
+      "sha256": "d3a29d5361ecabfb2afd1a81a9c4b20e9cc28bf6b4d4f31807c3cfa7d347baf4",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha16": [
+        401,
+        250,
+        885,
+        1013
+      ],
+      "alpha220": [
+        403,
+        252,
+        883,
+        1011
+      ],
+      "bytes": 367228,
+      "figmaImageHash": "a0e5d02dba1bbe068e2f492f7ff1023283c7c1ab",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/back.png"
+    },
+    {
+      "key": "speaker",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\figma_components\\approved_filled_speaker.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\speaker.png",
+      "sha256": "9ce9e517ce3a0ad78fde487d7cc75541f9da9d48771ee69b8f319675b46e7ba4",
+      "size": [
+        72,
+        72
+      ],
+      "alpha16": [
+        2,
+        8,
+        71,
+        64
+      ],
+      "alpha220": [
+        3,
+        8,
+        70,
+        64
+      ],
+      "bytes": 1715,
+      "figmaImageHash": "90d7049dcd99a79f37b065720503bbc678585f57",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/speaker.png"
+    },
+    {
+      "key": "nav_heute",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_details\\nav-heute.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\nav_heute.png",
+      "sha256": "a8ef18b79cc93d75600f2fccb35d8830c2277e9d42151176c0e22d34eb6bf22a",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha16": [
+        59,
+        50,
+        1198,
+        1196
+      ],
+      "alpha220": [
+        61,
+        51,
+        1197,
+        1195
+      ],
+      "bytes": 2283006,
+      "figmaImageHash": "b77c235a2041977eada7e0148e887a1a2cc6ca90",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/nav_heute.png"
+    },
+    {
+      "key": "nav_lernen",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_details\\nav-lernen.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\nav_lernen.png",
+      "sha256": "c4db0fd39d3b16c79db99ce75b1fccbea1eaf9acda64c52ed40bb6c4c8fc0b42",
+      "size": [
+        1312,
+        1199
+      ],
+      "alpha16": [
+        154,
+        171,
+        1158,
+        1097
+      ],
+      "alpha220": [
+        155,
+        172,
+        1157,
+        1084
+      ],
+      "bytes": 1685124,
+      "figmaImageHash": "aeb68a34f8c784a739427e19bf62e148082e67c7",
+      "usedInFinalScreens": false,
+      "sourceCopyVerified": true
+    },
+    {
+      "key": "nav_spiele",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_details\\nav-spiele.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\nav_spiele.png",
+      "sha256": "11c9d9004f23cb9a4c63eb53fe546b3c745e7b5c10047996b94b724f9eabe5b1",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha16": [
+        77,
+        104,
+        1458,
+        932
+      ],
+      "alpha220": [
+        79,
+        105,
+        1457,
+        931
+      ],
+      "bytes": 2417100,
+      "figmaImageHash": "9e7b666c413baf4960b4e7565f8450c69d291787",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/nav_spiele.png"
+    },
+    {
+      "key": "nav_hanok",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_details\\nav-hanok.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\nav_hanok.png",
+      "sha256": "4c42fda8e624093c8ba39699492bbc5bf27efc1f3a04d9669b1d7d8720df61bf",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha16": [
+        39,
+        178,
+        1220,
+        1082
+      ],
+      "alpha220": [
+        40,
+        179,
+        1219,
+        1080
+      ],
+      "bytes": 1817279,
+      "figmaImageHash": "a7f58019da043fec8f6edadd716fec3c935d6031",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/nav_hanok.png"
+    },
+    {
+      "key": "nav_gye",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\approved_details\\nav-gye.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\nav_gye.png",
+      "sha256": "42c2618b59241ff79f5413471b7b4f2bd61ce6d8c18b6acbdee9fff4f51a19b5",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha16": [
+        56,
+        136,
+        1199,
+        1126
+      ],
+      "alpha220": [
+        58,
+        137,
+        1197,
+        1124
+      ],
+      "bytes": 2028175,
+      "figmaImageHash": "60b7c6b79a6b8260ceec8f5998eb88589a49e521",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "runtimePath": "assets/illustrations/approved_games/nav_gye.png"
+    },
+    {
+      "key": "counter_plain",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\counter_plain.png",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-4bed8f50-5368-4230-9b15-938d641f5e9f.png",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha220": [
+        41,
+        115,
+        2124,
+        575
+      ],
+      "sha256": "96a149dee500c3b3db1a2f6dc51a894a3d44db06f14cdc86e489b670e5340d5d",
+      "bytes": 1470201,
+      "figmaImageHash": "c484fa798f9959ab84bf0817aea57eeda44f6bea",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "alpha16": [
+        30,
+        114,
+        2138,
+        609
+      ],
+      "runtimePath": "assets/illustrations/approved_games/counter_plain.png"
+    },
+    {
+      "key": "nav_open_book",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\nav_open_book.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\assets\\illustrations\\concept_c\\games\\figma_components\\nav_lernen.png",
+      "size": [
+        176,
+        135
+      ],
+      "alpha220": [
+        1,
+        1,
+        175,
+        134
+      ],
+      "sha256": "8311b5221ba242333219bf9aea7a618414e8eb7a67cb72e2ec905c5e6d4c2d5c",
+      "bytes": 48493,
+      "figmaImageHash": "5c7d81db5e3403aae346658100acd5f911e2deb2",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "alpha16": [
+        0,
+        0,
+        176,
+        135
+      ],
+      "runtimePath": "assets/illustrations/approved_games/nav_open_book.png"
+    },
+    {
+      "key": "jade_organic_final",
+      "source": "C:\\Users\\vjinn\\.codex\\generated_images\\01a135a3-3b1d-7911-b3a5-263c7c902c57\\exec-93c06071-1b90-4829-ae2d-a74dddc0ffa3.png",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\jade_organic_final.png",
+      "sha256": "dfe38c98f1a86bbd4ebee8414783ebcaf3e9cb836b66ecd57ab5aabf48dbff05",
+      "nodeId": "288:766",
+      "bytes": 1982366,
+      "figmaImageHash": "154478765d62e28a8e9a53a273d9046544edc972",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "size": [
+        887,
+        1774
+      ],
+      "alpha16": [
+        0,
+        0,
+        887,
+        1774
+      ],
+      "alpha220": [
+        0,
+        0,
+        887,
+        1774
+      ],
+      "runtimePath": "assets/illustrations/approved_games/jade_organic_final.png"
+    },
+    {
+      "key": "jade_control_approved",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\jade_control_approved.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\docs\\design\\spiele-figma-first-20261018\\assets\\material-rebuild\\jade-cta-face-v2.png",
+      "sha256": "8efc7eb2fb95f34f28a9f8ea2071db0ea18fb24de11121d6f2f3dd995c3a6a6f",
+      "bytes": 1100703,
+      "figmaImageHash": "944a01a052ba3e656ede455aa4288c0e1af90b88",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "size": [
+        2065,
+        761
+      ],
+      "alpha16": [
+        57,
+        180,
+        2008,
+        568
+      ],
+      "alpha220": [
+        60,
+        182,
+        2002,
+        537
+      ],
+      "runtimePath": "assets/illustrations/approved_games/jade_control_approved.png"
+    },
+    {
+      "key": "jade_geometric_legacy",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\assets\\jade_geometric_legacy.png",
+      "source": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\spiele-figma-first-20261018\\docs\\design\\spiele-figma-first-20261018\\assets\\material-rebuild\\jade-geometric-background-v2.png",
+      "sha256": "bffe176bea99668fdd641b1280c492e273bc81f0445098e1ad2ceab590e3e437",
+      "bytes": 2379785,
+      "figmaImageHash": "33a0afc6829be4b3bdbc1bd652d0b10c8eb54f2b",
+      "usedInFinalScreens": true,
+      "sourceCopyVerified": true,
+      "size": [
+        1024,
+        1536
+      ],
+      "alpha16": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "alpha220": [
+        0,
+        0,
+        1024,
+        1536
+      ],
+      "runtimePath": "assets/illustrations/approved_games/jade_geometric_legacy.png"
+    }
+  ],
+  "screens": [
+    {
+      "name": "quiz-a",
+      "nodeId": "278:14",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\quiz-a-figma-v3.png",
+      "sha256": "2952f13d463c60abad89545470b1aeeced219f055b58a8fa202478e4d67315ab",
+      "size": [
+        402,
+        874
+      ],
+      "editableTextNodes": 15,
+      "cloudInstances": 1,
+      "figmaUrl": "https://www.figma.com/design/7IHizFZMk5G3ahsuVKiYwb/?node-id=278-14"
+    },
+    {
+      "name": "quiz-b",
+      "nodeId": "278:137",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\quiz-b-figma-v3.png",
+      "sha256": "24567316cb93280b7624f2db51f21b84b084db71a262a6e609c65e4cc07476e7",
+      "size": [
+        402,
+        874
+      ],
+      "editableTextNodes": 15,
+      "cloudInstances": 1,
+      "figmaUrl": "https://www.figma.com/design/7IHizFZMk5G3ahsuVKiYwb/?node-id=278-137"
+    },
+    {
+      "name": "quiz-c",
+      "nodeId": "278:260",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\quiz-c-figma-v3.png",
+      "sha256": "925b363888ee1880ebda6b6835a88c7ee2d12a3455fb44590dbfc6cd1f38fd6d",
+      "size": [
+        402,
+        874
+      ],
+      "editableTextNodes": 15,
+      "cloudInstances": 1,
+      "figmaUrl": "https://www.figma.com/design/7IHizFZMk5G3ahsuVKiYwb/?node-id=278-260"
+    },
+    {
+      "name": "matching-a",
+      "nodeId": "278:383",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\matching-a-figma-v5.png",
+      "sha256": "98e075134ac7cd2c05c88096830f2ae981e0056e24cbd108b9ed0b8dc1c5952c",
+      "size": [
+        402,
+        874
+      ],
+      "editableTextNodes": 22,
+      "cloudInstances": 1,
+      "figmaUrl": "https://www.figma.com/design/7IHizFZMk5G3ahsuVKiYwb/?node-id=278-383"
+    },
+    {
+      "name": "matching-b",
+      "nodeId": "278:580",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\matching-b-figma-v5.png",
+      "sha256": "ee8e0dfd6aa4c69f6a277000fcad7342562a276b9f1f30ecb875b2d00cd774dd",
+      "size": [
+        402,
+        874
+      ],
+      "editableTextNodes": 22,
+      "cloudInstances": 1,
+      "figmaUrl": "https://www.figma.com/design/7IHizFZMk5G3ahsuVKiYwb/?node-id=278-580"
+    },
+    {
+      "name": "matching-c",
+      "nodeId": "278:779",
+      "path": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\matching-c-figma-v5.png",
+      "sha256": "63992f8e9b66731bc3fd5f1bc9148e05e4e082d9823d47c98bd7331c66948e8f",
+      "size": [
+        402,
+        874
+      ],
+      "editableTextNodes": 24,
+      "cloudInstances": 1,
+      "figmaUrl": "https://www.figma.com/design/7IHizFZMk5G3ahsuVKiYwb/?node-id=278-779"
+    }
+  ],
+  "usedImageHashCount": 20,
+  "sourceReferences": "../spiele-quiz-matching-20261103/MANIFEST.json",
+  "geometrySha256": "db0c04f7327d4cd2be2142412de6d101ecc07c8d79bd6b09f4f3096696ed686b",
+  "componentsSha256": "ce8f982e147786ed9c7d11ffe7a613a1d33240548b198ec3101c675eed268365",
+  "vectorExports": [
+    {
+      "nodeId": "300:777",
+      "runtimePath": "assets/illustrations/approved_games/interwoven.svg",
+      "sha256": "e33bfcec3f12e31984b9e7276cfeaf6051ec252773ca5fa06ac62bae81b19b95",
+      "method": "Figma SVG_STRING exact export"
+    },
+    {
+      "nodeId": "287:767",
+      "runtimePath": "assets/illustrations/approved_games/wave.svg",
+      "sha256": "8b0760d2a0e6d58c1c4608988f6ee278b9d3215a105055f13fe2b9a9ad11720e",
+      "method": "Figma SVG_STRING exact export"
+    },
+    {
+      "nodeId": "274:48",
+      "runtimePath": "assets/illustrations/approved_games/matched_check.svg",
+      "sha256": "9ad4d3e548867a9e0b906edbcacc61f09afa2ae0b6007daba9ecb1e118ab96b8",
+      "method": "Figma SVG_STRING exact export"
+    }
+  ],
+  "fontAddition": {
+    "runtimePath": "assets/fonts/MaruBuri/MaruBuri-Bold.otf",
+    "sha256": "8226dcc1e975ba48d8b34cc97417e26712a5a5c3d25a8b18844d72c046d6f85b",
+    "license": "assets/fonts/MaruBuri/OFL.txt"
+  }
+}

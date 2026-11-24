@@ -1,0 +1,707 @@
+ M assets/data/can_do_content_authorities.json
+ M assets/data/can_do_segments.json
+ M assets/data/cloze.json
+ M assets/data/curriculum_manifest.json
+ M assets/data/grammar.csv
+ M assets/data/korean_vocab.csv
+ M assets/data/learning_phases.json
+ M assets/data/listening_lessons.json
+ M assets/data/phase_tasks.json
+ M assets/data/pronunciation_phrases.json
+ M assets/data/satz_sentences.json
+ M assets/data/scenarios_a1.json
+ M assets/data/scenarios_a2.json
+ M assets/data/scenarios_b1.json
+ M assets/data/scenarios_b2.json
+ M assets/data/scenarios_c1.json
+ M assets/data/scenarios_c2.json
+ M assets/data/silben_puzzles.json
+ M assets/data/smalltalk.json
+ M assets/data/smalltalk_lessons.json
+ M assets/data/word_relations.json
+ M docs/data/phase_objective_coverage_report.md
+ M functions/gye/cloud_backup_deletion_runtime.js
+ M functions/gye/cloud_backup_deletion_runtime.test.js
+ M graphify-out/manifest.json
+ M lib/controllers/listening_playback_controller.dart
+ M lib/data/hangul_data.dart
+ M lib/data/sori_activity_catalog.dart
+ M lib/features/study_library/study_library_production_adapters.dart
+ M lib/features/study_library/typed_study_bookmark_store.dart
+ M lib/l10n/app_de.arb
+ M lib/l10n/app_en.arb
+ M lib/l10n/generated/app_localizations.dart
+ M lib/l10n/generated/app_localizations_de.dart
+ M lib/l10n/generated/app_localizations_en.dart
+ M lib/main.dart
+ M lib/models/grammar.dart
+ M lib/models/gye.dart
+ M lib/models/yeopjeon_wallet.dart
+ M lib/screens/chosung_quiz_screen.dart
+ M lib/screens/cloze_game_screen.dart
+ M lib/screens/grammar_choice_quiz_screen.dart
+ M lib/screens/grammar_screen.dart
+ M lib/screens/gye_members_screen.dart
+ M lib/screens/gye_screen.dart
+ M lib/screens/kkeunmari_screen.dart
+ M lib/screens/listening_play_screen.dart
+ M lib/screens/phase_task_screen.dart
+ M lib/screens/profile_screen.dart
+ M lib/screens/review_session_screen.dart
+ M lib/screens/satz_arcade_screen.dart
+ M lib/screens/scenario_player_screen.dart
+ M lib/screens/scenarios_list_screen.dart
+ M lib/screens/silben_kreuz_screen.dart
+ M lib/screens/sori_stage/sori_stage_hanok_screen.dart
+ M lib/screens/sori_stage/sori_stage_preview_screens.dart
+ M lib/screens/sori_stage/sori_stage_today_screen.dart
+ M lib/screens/stats_screen.dart
+ M lib/screens/vocab_pack_result_screen.dart
+ M lib/screens/vocab_pack_screen.dart
+ M lib/services/account/account_reconciliation.dart
+ M lib/services/app_startup_coordinator.dart
+ M lib/services/auth_service.dart
+ M lib/services/cloud_sync.dart
+ M lib/services/course_mastery_service.dart
+ M lib/services/course_progress_service.dart
+ M lib/services/curriculum_catalog.dart
+ M lib/services/custom_pack_service.dart
+ M lib/services/grammar_choice_quiz.dart
+ M lib/services/gye_service.dart
+ M lib/services/pack_completion_owner.dart
+ M lib/services/pack_completion_record.dart
+ M lib/services/pack_completion_storage.dart
+ M lib/services/pack_progress_service.dart
+ M lib/services/sori_stage_reward_receipt_service.dart
+ M lib/services/storage_service.dart
+ M lib/services/tts_service.dart
+ M lib/services/vocab_pack_finish_coordinator.dart
+ M lib/services/word_relation_service.dart
+ M lib/services/yeopjeon_service.dart
+ M lib/services/yeopjeon_wallet_notifier.dart
+ M lib/widgets/sori/game_result_recovery.dart
+ M lib/widgets/sori/game_reward.dart
+ M lib/widgets/sori/stats_top_bar.dart
+ M lib/widgets/sori/week_progress.dart
+ M lib/widgets/sori/wordbook_add.dart
+ M pubspec.yaml
+ M test/cloze_source_vocab_test.dart
+ M test/course_mastery_test.dart
+ M test/features/study_library/typed_study_bookmark_store_test.dart
+ M test/game_result_durability_test.dart
+ M test/listening_play_layout_test.dart
+ M test/listening_playback_controller_test.dart
+ M test/listening_reward_claim_test.dart
+ M test/pack_completion_recovery_test.dart
+ M test/phase_objective_binding_test.dart
+ M test/scenarios_list_screen_ui_test.dart
+ M test/services/account/account_reconciliation_test.dart
+ M test/services/yeopjeon_service_test.dart
+ M test/sori_stage_adaptive_chrome_test.dart
+ M test/sori_stage_reward_receipt_service_test.dart
+ M test/stats_screen_test.dart
+ M test/support/real_fonts.dart
+ M test/yeopjeon_wallet_notifier_test.dart
+ M tool/author_listening_lessons.py
+ M tool/author_smalltalk_lessons_20260922.py
+ M tool/build_phase_tasks.py
+ M tool/cefr_lexicon.py
+ M tool/phase_objective_contract.py
+ M tool/test_phase_objective_contract.py
+ M tools/content_factory/audit_cloze_distractors.py
+ M tools/content_factory/audit_content_text.py
+ M tools/content_factory/build_can_do_segments.py
+ M tools/content_factory/canonical_scenarios/authored/a2.json
+ M tools/content_factory/canonical_scenarios/authored/b2.json
+ M tools/content_factory/canonical_scenarios/authored/c1.json
+ M tools/content_factory/cefr_matrix/phase_content/kp01.json
+ M tools/content_factory/cefr_matrix/phase_content/kp02.json
+ M tools/content_factory/cloze_distractor_rules.py
+ M tools/content_factory/data/packs/a2_weather_layer_1.json
+ M tools/content_factory/data/packs/c2_appeal_path_1.json
+ M tools/content_factory/data/packs/c2_automated_harm_1.json
+ M tools/content_factory/data/packs/c2_withdrawal_right_1.json
+ M tools/content_factory/distractor_rules.py
+ M tools/content_factory/lexicon/partner_family_rest2.py
+ M tools/content_factory/phase_task_authoring.py
+ M tools/content_factory/relevel_bundle.py
+ M tools/content_factory/scan_translation_pairs.py
+ M tools/content_factory/scenario_corpus_pipeline.py
+ M tools/content_factory/smalltalk_editorial_revisions.py
+ M tools/content_factory/test_audit_cloze_distractors.py
+ M tools/content_factory/test_audit_content_text.py
+ M tools/content_factory/test_batch03_reconciliation.py
+ M tools/content_factory/test_batch07_grammar_reconciliation.py
+ M tools/content_factory/test_batch19_reconciliation.py
+ M tools/content_factory/test_build_can_do_segments.py
+ M tools/content_factory/test_grammar_quiz_reconciliation.py
+ M tools/content_factory/test_relevel_bundle.py
+ M tools/content_factory/test_scan_translation_pairs.py
+ M tools/content_factory/test_scenario_corpus_pipeline.py
+ M tools/content_factory/test_validate_batch_01.py
+ M tools/content_factory/validate_batch_01.py
+ M tools/content_factory/validate_content.py
+ M tools/content_factory/validate_promoted_batch.py
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_00.mp3
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_01.mp3
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_02.mp3
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_03.mp3
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_04.mp3
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_05.mp3
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_06.mp3
+?? assets/audio/listening_gemini/v1/a1_w10_wayfinding_07.mp3
+?? assets/audio/listening_gemini/v1/clarify_repeat_00.mp3
+?? assets/audio/listening_gemini/v1/clarify_repeat_01.mp3
+?? assets/audio/listening_gemini/v1/clarify_repeat_02.mp3
+?? assets/audio/listening_gemini/v1/clarify_repeat_03.mp3
+?? assets/audio/listening_gemini/v1/clarify_repeat_04.mp3
+?? assets/audio/listening_gemini/v1/clarify_repeat_05.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_00.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_01.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_02.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_03.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_04.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_05.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_06.mp3
+?? assets/audio/listening_gemini/v1/first_class_meeting_07.mp3
+?? assets/audio/listening_gemini/v1/introduce_yourself_00.mp3
+?? assets/audio/listening_gemini/v1/introduce_yourself_01.mp3
+?? assets/audio/listening_gemini/v1/introduce_yourself_02.mp3
+?? assets/audio/listening_gemini/v1/introduce_yourself_03.mp3
+?? assets/audio/listening_gemini/v1/introduce_yourself_04.mp3
+?? assets/audio/listening_gemini/v1/introduce_yourself_05.mp3
+?? assets/audio/listening_gemini/v1/meeting_time_00.mp3
+?? assets/audio/listening_gemini/v1/meeting_time_01.mp3
+?? assets/audio/listening_gemini/v1/meeting_time_02.mp3
+?? assets/audio/listening_gemini/v1/meeting_time_03.mp3
+?? assets/audio/listening_gemini/v1/meeting_time_04.mp3
+?? assets/audio/listening_gemini/v1/meeting_time_05.mp3
+?? assets/data/lernpfad_foundation.json
+?? assets/data/lernpfad_v2.json
+?? assets/data/listening_audio_readiness.json
+?? assets/data/listening_recorded_v1.json
+?? assets/data/season1_runtime.json
+?? assets/fonts/SourceSans3/LICENSE.md
+?? assets/fonts/SourceSans3/SourceSans3-Variable.ttf
+?? assets/hanok_story/blank_book.png
+?? assets/hanok_story/character_dokkaebi.png
+?? assets/hanok_story/character_joy_standing.png
+?? assets/hanok_story/character_joy_two_wings.png
+?? assets/hanok_story/character_taego.png
+?? assets/hanok_story/character_taego_resting.png
+?? assets/hanok_story/character_talsunbi.png
+?? assets/hanok_story/courtyard.png
+?? assets/hanok_story/first_slice.json
+?? assets/illustrations/lernpfad/joy_guide.png
+?? assets/illustrations/lernpfad/joy_resolved.png
+?? docs/hanok_story_hub/CHARACTER_ORIGINAL_LOCK.json
+?? docs/hanok_story_hub/README.md
+?? docs/hanok_story_hub/SOURCE_MANIFEST.json
+?? docs/hanok_story_hub/VISIBILITY_CONTRACT.md
+?? docs/hanok_story_hub/bindings.json
+?? docs/learning/content-quality-20261104/HEADWORD_PROGRESS_POLICY.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/.gitattributes
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/COMMON_COPY.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/CONTENT_CONTRACT.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/EVIDENCE_AND_FLOW.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/GRAMMAR_CARD_LINKS.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/HANOK_CONTEXT_LINKS.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/INDEX.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/LEXICAL_SENSE_REVIEW.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/README.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/REFERENCE_DECISIONS.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/SOURCE_MANIFEST.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/TRANSLATION_PATCHES.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/UNIT_CONTENT_LINKS.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/VALIDATION.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/build_package.py
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.1-01.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.1-02.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.1-03.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.1-04.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.1-05.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.1-06.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.2-01.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.2-02.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.2-03.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.2-04.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.2-05.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A1.2-06.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.1-01.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.1-02.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.1-03.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.1-04.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.1-05.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.1-06.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.2-01.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.2-02.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.2-03.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.2-04.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.2-05.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/A2.2-06.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.1.above-below.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.1.sound-signs.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.1.straight-lines.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.2.first-names.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.2.ribbon.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.2.sea-and-bridge.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.2.tree-and-hat.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.2.two-boxes.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.2.two-tracks.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.2.warm-breath.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.air-one.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.air-two.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.corner-vowels.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.double-strokes.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.firm-one.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.firm-two.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.first-finals.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.near-vowels.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.round-corner.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.silent-or-sounding.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.3.two-below.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.4.closed-endings.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.4.first-input.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.4.last-vowel.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.4.linked-sounds.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.4.small-pair.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.4.space-and-place.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/review/F0.4.wide-vowels.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/reviews/A1.2_PEER_REVIEW.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/reviews/A2.1_PEER_REVIEW.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/reviews/A2.2_PEER_REVIEW.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/reviews/INTEGRATION_PEER_REVIEW.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/reviews/ROOT_COPY_REVIEW.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A1.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/A2.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.1.above-below.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.1.sound-signs.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.1.straight-lines.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.2.first-names.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.2.ribbon.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.2.sea-and-bridge.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.2.tree-and-hat.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.2.two-boxes.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.2.two-tracks.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.2.warm-breath.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.air-one.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.air-two.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.corner-vowels.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.double-strokes.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.firm-one.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.firm-two.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.first-finals.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.near-vowels.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.round-corner.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.silent-or-sounding.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.3.two-below.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.4.closed-endings.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.4.first-input.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.4.last-vowel.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.4.linked-sounds.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.4.small-pair.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.4.space-and-place.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/units/F0.4.wide-vowels.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261102/validate_package.py
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/UPPER_UNIT_LINKS.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-01/4113dddbaaa0044526259360540b9cc835b61e52bc20d0ffd4c31b2c633c43ff/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-01/4113dddbaaa0044526259360540b9cc835b61e52bc20d0ffd4c31b2c633c43ff/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-01/4113dddbaaa0044526259360540b9cc835b61e52bc20d0ffd4c31b2c633c43ff/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-02/83a34d73be2e6ffe1da668ddf64f26110a0a904738f7b981b22db4c5c89f3467/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-02/83a34d73be2e6ffe1da668ddf64f26110a0a904738f7b981b22db4c5c89f3467/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-02/83a34d73be2e6ffe1da668ddf64f26110a0a904738f7b981b22db4c5c89f3467/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-03/adcb7f5d84050b7c40c594fe849dd48fe5f96365c43caa2463082f7879ede345/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-03/adcb7f5d84050b7c40c594fe849dd48fe5f96365c43caa2463082f7879ede345/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-03/adcb7f5d84050b7c40c594fe849dd48fe5f96365c43caa2463082f7879ede345/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-04/a9cb4fb45d79062ab58ba346e2cc5533460e445b0092fb0e23a159013206ed35/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-04/a9cb4fb45d79062ab58ba346e2cc5533460e445b0092fb0e23a159013206ed35/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-04/a9cb4fb45d79062ab58ba346e2cc5533460e445b0092fb0e23a159013206ed35/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-05/ab90dee26d134f28ac51684472da140f2f75f92197bf97e84cc5f35bff715c85/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-05/ab90dee26d134f28ac51684472da140f2f75f92197bf97e84cc5f35bff715c85/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-05/ab90dee26d134f28ac51684472da140f2f75f92197bf97e84cc5f35bff715c85/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-06/7d9bf35dda1045b11270e7e5d0be3c1c98cbd8fec524070ea87e733ee330eb4f/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-06/7d9bf35dda1045b11270e7e5d0be3c1c98cbd8fec524070ea87e733ee330eb4f/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.1-06/7d9bf35dda1045b11270e7e5d0be3c1c98cbd8fec524070ea87e733ee330eb4f/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-01/a436d6149d09275a2e1839d612306013dbc0099c5dcf15dfb0b09b4cacdb5436/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-01/a436d6149d09275a2e1839d612306013dbc0099c5dcf15dfb0b09b4cacdb5436/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-01/a436d6149d09275a2e1839d612306013dbc0099c5dcf15dfb0b09b4cacdb5436/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-02/d1952dc8063c710345e63969fe9e676611c24b2b379f0515952f131fb6dc0593/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-02/d1952dc8063c710345e63969fe9e676611c24b2b379f0515952f131fb6dc0593/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-02/d1952dc8063c710345e63969fe9e676611c24b2b379f0515952f131fb6dc0593/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-04/e3a4e8d8c275f32e116733c924f9eb168f9d74075d8fb5805476979f2cb11681/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-04/e3a4e8d8c275f32e116733c924f9eb168f9d74075d8fb5805476979f2cb11681/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B1.2-04/e3a4e8d8c275f32e116733c924f9eb168f9d74075d8fb5805476979f2cb11681/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.1-01/4c4b010a556bc0f1a91db72babda0a5e5bdfa8bd73690adf0769bba0dbf9af92/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.1-01/4c4b010a556bc0f1a91db72babda0a5e5bdfa8bd73690adf0769bba0dbf9af92/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.1-01/4c4b010a556bc0f1a91db72babda0a5e5bdfa8bd73690adf0769bba0dbf9af92/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.1-05/bb9c2cf1891cac006e53f40cb763faccb587c709ed160e30bcc11ed4deed9d59/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.1-05/bb9c2cf1891cac006e53f40cb763faccb587c709ed160e30bcc11ed4deed9d59/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.1-05/bb9c2cf1891cac006e53f40cb763faccb587c709ed160e30bcc11ed4deed9d59/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.2-03/b820597159216e64762c6e90d7e2ed180461758fde3e8a0598ba3226d257d4fa/ko_de.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.2-03/b820597159216e64762c6e90d7e2ed180461758fde3e8a0598ba3226d257d4fa/ko_en.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/history/B2.2-03/b820597159216e64762c6e90d7e2ed180461758fde3e8a0598ba3226d257d4fa/packet.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/manuscripts/A1.1-01.md
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B1.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/B2.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C1.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_de/C2.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B1.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/B2.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C1.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/reviews/ko_en/C2.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B1.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/B2.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C1.2-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.1-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.1-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.1-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.1-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.1-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.1-06.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.2-01.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.2-02.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.2-03.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.2-04.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.2-05.json
+?? docs/learning/ildu-season1-content-20261030/integration-20261104/units/C2.2-06.json
+?? docs/learning/lernpfad-v2/CHARACTER_SOURCES.json
+?? docs/learning/lernpfad-v2/COVERAGE_AUDIT.json
+?? docs/learning/lernpfad-v2/DIMENSION_CROSSWALK.json
+?? docs/learning/lernpfad-v2/FOUNDATION_EPISODE_LEDGER.md
+?? docs/learning/lernpfad-v2/GRAMMAR_CROSSWALK.csv
+?? docs/learning/lernpfad-v2/IMPLEMENTATION.md
+?? docs/learning/lernpfad-v2/MASTER_PLAN.md
+?? docs/learning/lernpfad-v2/REFERENCE_MANIFEST.json
+?? docs/learning/lernpfad-v2/WORK_QUEUE.md
+?? docs/learning/lernpfad-v2/curriculum/ASSESSMENT_CONTRACT.md
+?? docs/learning/lernpfad-v2/curriculum/BAND_CONTRACTS.md
+?? docs/learning/lernpfad-v2/curriculum/COURSE_BINDINGS.psv
+?? docs/learning/lernpfad-v2/curriculum/DESIGN_AUDIT.json
+?? docs/learning/lernpfad-v2/curriculum/EXISTING_CONTENT_CANDIDATES.csv
+?? docs/learning/lernpfad-v2/curriculum/EXISTING_TASK_CANDIDATES.csv
+?? docs/learning/lernpfad-v2/curriculum/FIRST_PRODUCTION_PACK.md
+?? docs/learning/lernpfad-v2/curriculum/FOUNDATION.psv
+?? docs/learning/lernpfad-v2/curriculum/GRAMMAR_ALLOCATION.csv
+?? docs/learning/lernpfad-v2/curriculum/README.md
+?? docs/learning/lernpfad-v2/curriculum/STORY_LEARNING_LINKS.md
+?? docs/learning/lernpfad-v2/curriculum/SUPPLEMENTS.psv
+?? docs/learning/lernpfad-v2/curriculum/UNITS.psv
+?? docs/learning/lernpfad-v2/curriculum/UNIT_CATALOG.json
+?? docs/learning/lernpfad-v2/evidence/RENDER_REVIEW.json
+?? docs/learning/lernpfad-v2/evidence/audio-unavailable.png
+?? docs/learning/lernpfad-v2/evidence/c2-selected.png
+?? docs/learning/lernpfad-v2/evidence/catalog-error.png
+?? docs/learning/lernpfad-v2/evidence/de-320-text200.png
+?? docs/learning/lernpfad-v2/evidence/f0-assembly-320-text200.png
+?? docs/learning/lernpfad-v2/evidence/f0-assembly.png
+?? docs/learning/lernpfad-v2/evidence/f0-delayed-check.png
+?? docs/learning/lernpfad-v2/evidence/f0-goal.png
+?? docs/learning/lernpfad-v2/evidence/f0-help-320-text200.png
+?? docs/learning/lernpfad-v2/evidence/f0-incident.png
+?? docs/learning/lernpfad-v2/evidence/f0-prerequisite-help.png
+?? docs/learning/lernpfad-v2/evidence/f0-supported-result.png
+?? docs/learning/lernpfad-v2/evidence/f0-teaching.png
+?? docs/learning/lernpfad-v2/evidence/f0-typing-320-text200.png
+?? docs/learning/lernpfad-v2/evidence/f0-typing.png
+?? docs/learning/lernpfad-v2/evidence/source-changes-s1-v3-20261024.json
+?? docs/learning/lernpfad-v2/reference/.gitattributes
+?? docs/learning/lernpfad-v2/reference/CURRICULUM_FOUNDATION_TO_C2.md
+?? docs/learning/lernpfad-v2/reference/DESIGN.md
+?? docs/learning/lernpfad-v2/reference/EXISTING_GRAMMAR_INVENTORY.csv
+?? docs/learning/lernpfad-v2/reference/HISTORY_AND_FIRST_STEPS.md
+?? docs/learning/lernpfad-v2/reference/HISTORY_FLOW.mmd
+?? docs/learning/lernpfad-v2/reference/SEASON1_APPENDIX17_V3_1_20261024.md
+?? docs/learning/lernpfad-v2/reference/SEASON1_SIDE_RECORDS_DISCUSSION_20261024.txt
+?? docs/learning/lernpfad-v2/reference/SEASON1_V3_20261024.md
+?? docs/learning/lernpfad-v2/reference/SOURCE_SNAPSHOT.json
+?? docs/learning/lernpfad-v2/season1-v3/BUILDING_HOOKS.csv
+?? docs/learning/lernpfad-v2/season1-v3/EVIDENCE_CHAIN_V3_2.csv
+?? docs/learning/lernpfad-v2/season1-v3/HISTORY_RESEARCH_V3_2.md
+?? docs/learning/lernpfad-v2/season1-v3/INPUT_EVIDENCE.json
+?? docs/learning/lernpfad-v2/season1-v3/KNOWLEDGE_TIMELINE_V3_2.csv
+?? docs/learning/lernpfad-v2/season1-v3/PLAN_REVIEW.json
+?? docs/learning/lernpfad-v2/season1-v3/PLAN_VALIDATION.json
+?? docs/learning/lernpfad-v2/season1-v3/QUEST_ADAPTATION_NOTES_V3_2.md
+?? docs/learning/lernpfad-v2/season1-v3/QUEST_CURRICULUM_V3_2.csv
+?? docs/learning/lernpfad-v2/season1-v3/README.md
+?? docs/learning/lernpfad-v2/season1-v3/UNIT_STORY_MAP.csv
+?? docs/learning/lernpfad-v2/season1-v3/UNIT_WORLD_LINKS_V3_2.csv
+?? docs/learning/lernpfad-v2/season1-v3/WORLD_BIBLE_V3_2.md
+?? docs/learning/lernpfad-v2/season1-v3/WORLD_CONTRACT_V3_2.json
+?? docs/learning/lernpfad-v2/season1-v3/WORLD_INPUT_EVIDENCE_V3_2.json
+?? docs/learning/lernpfad-v2/season1-v3/WORLD_REVIEW_V3_2.json
+?? docs/learning/lernpfad-v2/season1-v3/WORLD_VALIDATION_V3_2.json
+?? docs/superpowers/plans/2026-11-03-listening-gemini-pilot.md
+?? docs/superpowers/plans/2026-11-03-season1-runtime.md
+?? docs/superpowers/plans/2026-11-03-yeopjeon-migration.md
+?? docs/superpowers/plans/2026-11-04-content-quality-overhaul.md
+?? lib/data/listening_audio_readiness.dart
+?? lib/models/activity_reward_receipt.dart
+?? lib/models/hanok_story_progress.dart
+?? lib/models/hanok_visibility.dart
+?? lib/models/lernpfad.dart
+?? lib/models/season1.dart
+?? lib/models/season1_portable.dart
+?? lib/models/season1_scene.dart
+?? lib/models/vocab_copy_identity.dart
+?? lib/screens/foundation_lesson_screen.dart
+?? lib/screens/hanok_story_notebook_screen.dart
+?? lib/screens/hanok_story_screen.dart
+?? lib/screens/lernpfad_screen.dart
+?? lib/screens/season1_journey_screen.dart
+?? lib/screens/season1_screen.dart
+?? lib/services/hanok_story_store.dart
+?? lib/services/hanok_visibility_service.dart
+?? lib/services/lernpfad_catalog.dart
+?? lib/services/lernpfad_lease.dart
+?? lib/services/listening_recorded_audio.dart
+?? lib/services/season1_activity_destination.dart
+?? lib/services/season1_portable_service.dart
+?? lib/services/yeopjeon_activity_reward.dart
+?? lib/services/yeopjeon_owner_recovery.dart
+?? lib/widgets/sori/foundation_assembly.dart
+?? lib/widgets/sori/hanok_character_assets.dart
+?? lib/widgets/sori/hanok_current_courtyard.dart
+?? lib/widgets/sori/hanok_ownership_gate.dart
+?? lib/widgets/sori/hanok_story_material.dart
+?? lib/widgets/sori/path_joy.dart
+?? lib/widgets/sori/season1_page.dart
+?? lib/widgets/sori/yeopjeon_learning_balance.dart
+?? test/activity_reward_recovery_test.dart
+?? test/game_context_routing_test.dart
+?? test/grammar_choice_context_test.dart
+?? test/grammar_current_asset_context_test.dart
+?? test/grammar_revision_history_test.dart
+?? test/gye_xp_retirement_test.dart
+?? test/hanok_story_screen_test.dart
+?? test/lernpfad_screen_test.dart
+?? test/lernpfad_storage_test.dart
+?? test/lernpfad_v2_test.dart
+?? test/listening_recorded_audio_test.dart
+?? test/phase_current_copy_ui_test.dart
+?? test/season1_portable_storage_test.dart
+?? test/season1_portable_test.dart
+?? test/season1_runtime_test.dart
+?? test/season1_scene_test.dart
+?? test/season1_screen_test.dart
+?? test/season1_story_gate_test.dart
+?? test/services/account/activity_reward_cloud_test.dart
+?? test/services/account/unpaid_pack_cloud_guard_test.dart
+?? test/services/hanok_story_store_test.dart
+?? test/services/yeopjeon_owner_startup_test.dart
+?? test/support/hanok_story_test_app.dart
+?? test/support/hanok_visibility_fixture.dart
+?? test/vocab_content_revision_test.dart
+?? tool/build_lernpfad_v2.py
+?? tool/build_listening_audio_readiness.py
+?? tool/build_season1_runtime.py
+?? tool/inventory_learning_text.dart
+?? tool/lernpfad_foundation_content.py
+?? tool/listening_gemini_pilot.py
+?? tool/listening_pilot_preview.dart
+?? tool/package_listening_pilot.py
+?? tool/phase_editorial_revisions.py
+?? tool/season1_copy_compatibility.json
+?? tool/test_inventory_learning_text.dart
+?? tool/test_lernpfad_v2_catalog.py
+?? tool/test_listening_audio_readiness.py
+?? tool/test_listening_gemini_pilot.py
+?? tool/test_phase_editorial_revisions.py
+?? tool/test_season1_runtime.py
+?? tools/content_factory/content_quality_test_support.py
+?? tools/content_factory/game_item_editorial_review.py
+?? tools/content_factory/grammar_educational_revisions.py
+?? tools/content_factory/grammar_review_overlay.py
+?? tools/content_factory/reconcile_content_quality_revisions.py
+?? tools/content_factory/review/content_quality_v1/LEVEL_RUBRIC.md
+?? tools/content_factory/review/content_quality_v1/build_relations.py
+?? tools/content_factory/review/content_quality_v1/build_review_index.py
+?? tools/content_factory/review/content_quality_v1/build_source_owners.py
+?? tools/content_factory/review/content_quality_v1/build_source_ownership.py
+?? tools/content_factory/review/content_quality_v1/dart/DART_SOURCE_FILES.json
+?? tools/content_factory/review/content_quality_v1/dart/DART_SUMMARY.json
+?? tools/content_factory/review/content_quality_v1/dart/DART_TEXT_OCCURRENCES.jsonl
+?? tools/content_factory/review/content_quality_v1/game_context_routes.json
+?? tools/content_factory/review/content_quality_v1/game_particle_review.json
+?? tools/content_factory/review/content_quality_v1/game_routes/candidate.json
+?? tools/content_factory/review/content_quality_v1/game_routes/ko_de.json
+?? tools/content_factory/review/content_quality_v1/game_routes/ko_en.json
+?? tools/content_factory/review/content_quality_v1/generated_source_ownership.json
+?? tools/content_factory/review/content_quality_v1/grammar264/candidate.json
+?? tools/content_factory/review/content_quality_v1/grammar264/ko_de_acceptance.json
+?? tools/content_factory/review/content_quality_v1/grammar264/ko_en_acceptance.json
+?? tools/content_factory/review/content_quality_v1/grammar_educational_revisions.json
+?? tools/content_factory/review/content_quality_v1/phase/index.json
+?? tools/content_factory/review/content_quality_v1/phase/kp01/bindings.json
+?? tools/content_factory/review/content_quality_v1/phase/kp01/candidate.json
+?? tools/content_factory/review/content_quality_v1/phase/kp01/ko-de.json
+?? tools/content_factory/review/content_quality_v1/phase/kp01/ko-en.json
+?? tools/content_factory/review/content_quality_v1/phase/kp02/bindings.json
+?? tools/content_factory/review/content_quality_v1/phase/kp02/candidate.json
+?? tools/content_factory/review/content_quality_v1/phase/kp02/ko-de.json
+?? tools/content_factory/review/content_quality_v1/phase/kp02/ko-en.json
+?? tools/content_factory/review/content_quality_v1/prior_review_reconciliation.jsonl
+?? tools/content_factory/review/content_quality_v1/promoted_revisions.json
+?? tools/content_factory/review/content_quality_v1/reconcile_prior_review.py
+?? tools/content_factory/review/content_quality_v1/relation_index.jsonl
+?? tools/content_factory/review/content_quality_v1/review_index.jsonl
+?? tools/content_factory/review/content_quality_v1/smalltalk-category-review/ko-de.json
+?? tools/content_factory/review/content_quality_v1/smalltalk-category-review/ko-en.json
+?? tools/content_factory/review/content_quality_v1/smalltalk-category-review/transit-card-candidate.json
+?? tools/content_factory/review/content_quality_v1/smalltalk_category_revisions.json
+?? tools/content_factory/review/content_quality_v1/smalltalk_copy_revisions.json
+?? tools/content_factory/review/content_quality_v1/source_owners.json
+?? tools/content_factory/review/content_quality_v1/translation_lint_review.json
+?? tools/content_factory/reviewed_game_practice_routes.py
+?? tools/content_factory/smalltalk_category_revisions.py
+?? tools/content_factory/test_content_quality_revision_chain.py
+?? tools/content_factory/test_content_quality_test_support.py
+?? tools/content_factory/test_grammar_educational_revisions.py
+?? tools/content_factory/test_grammar_review_overlay.py
+?? tools/content_factory/test_review_batch_grammar_overlay.py
+?? tools/content_factory/test_reviewed_game_practice_routes.py
+?? tools/content_factory/test_smalltalk_category_revisions.py
+?? tools/content_factory/test_smalltalk_copy_revisions.py

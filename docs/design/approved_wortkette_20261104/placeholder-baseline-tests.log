@@ -1,0 +1,21 @@
+00:00 +0: loading C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart
+00:00 +0: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: (setUpAll)
+00:00 +0: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved A keeps reference geometry and real Korean input
+00:03 +1: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved A fits safe-area native height with full CTA gap
+00:03 +2: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved B keeps reference geometry and real Korean input
+00:04 +3: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved B fits safe-area native height with full CTA gap
+00:04 +4: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved C keeps reference geometry and real Korean input
+00:04 +5: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: approved C fits safe-area native height with full CTA gap
+00:05 +6: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 8 syllables and full gloss
+00:05 +7: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 2 syllables and full gloss
+00:05 +8: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 2 syllables and full gloss
+00:06 +9: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 3 syllables and full gloss
+00:06 +10: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 1 syllables and full gloss
+00:06 +11: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 320px at 200% preserves 20 syllables and full gloss
+00:07 +12: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 200% keeps the complete real 0.75× speed label inside its target
+00:07 +13: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: 200% keeps the complete real 1.25× speed label inside its target
+00:07 +14: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: keyboard scroll exposes the editable input and submit together
+00:08 +15: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/approved_word_chain_view_test.dart: (tearDownAll)
+00:08 +15: loading C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/goldens/approved_word_chain_capture_test.dart
+00:11 +15: C:/dev/hangulsori/ko_lernen_app_worktrees/quiz-matching-figma-20261104/test/goldens/approved_word_chain_capture_test.dart: capture three approved word-chain presentation fixtures at 402x874
+00:18 +16: All tests passed!

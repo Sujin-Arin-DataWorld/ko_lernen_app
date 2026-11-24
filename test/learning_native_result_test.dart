@@ -168,37 +168,38 @@ void main() {
     },
   );
 
-  testWidgets(
-    'vocab XP below viewport stays eligible until the actual row is scrolled into view',
-    (tester) async {
-      final harness = await _journeyHarness(tester, size: const Size(390, 400));
-      final attempt = harness.journey.beginAttempt()..complete();
-      harness.nav.currentState!.push(
-        PageRouteBuilder<void>(
-          transitionDuration: Duration.zero,
-          pageBuilder: (_, __, ___) => _vocab(attempt),
-        ),
-      );
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 1000));
-      await tester.pump(const Duration(milliseconds: 1000));
-      expect(
-        harness.journey.unshown(_vocabReceipt).items.map((i) => i.kind),
-        contains(SoriRewardKind.xp),
-      );
-      await Scrollable.ensureVisible(
-        tester.element(find.byKey(const Key('vocab-result-xp'))),
-        alignment: .5,
-      );
-      await tester.pump();
-      expect(
-        harness.journey.unshown(_vocabReceipt).items.map((i) => i.kind),
-        isNot(contains(SoriRewardKind.xp)),
-      );
-      await tester.pumpWidget(const SizedBox());
+  testWidgets('vocab XP stays eligible until its result page is visible', (
+    tester,
+  ) async {
+    final harness = await _journeyHarness(tester, size: const Size(390, 400));
+    final attempt = harness.journey.beginAttempt()..complete();
+    harness.nav.currentState!.push(
+      PageRouteBuilder<void>(
+        transitionDuration: Duration.zero,
+        pageBuilder: (_, __, ___) => _vocab(attempt),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 1000));
+    await tester.pump(const Duration(milliseconds: 1000));
+    expect(
+      harness.journey.unshown(_vocabReceipt).items.map((i) => i.kind),
+      contains(SoriRewardKind.xp),
+    );
+    final xp = find.byKey(const Key('vocab-result-xp')).hitTestable();
+    final next = find.byKey(const Key('sori-viewport-next')).hitTestable();
+    for (var page = 0; page < 8 && xp.evaluate().isEmpty; page++) {
+      await tester.tap(next);
       await tester.pumpAndSettle();
-    },
-  );
+    }
+    expect(xp, findsOneWidget);
+    expect(
+      harness.journey.unshown(_vocabReceipt).items.map((i) => i.kind),
+      isNot(contains(SoriRewardKind.xp)),
+    );
+    await tester.pumpWidget(const SizedBox());
+    await tester.pumpAndSettle();
+  });
 
   testWidgets('legacy explicitly known zero reward remains visible', (
     tester,

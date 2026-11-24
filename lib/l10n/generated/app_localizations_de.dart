@@ -1176,6 +1176,12 @@ class AppL10nDe extends AppL10n {
   String get screenWordleTitle => 'Silben-Rätsel';
 
   @override
+  String get silbenPlaceInstruction => 'Feld wählen · Silbe antippen';
+
+  @override
+  String get silbenPoolTitle => 'Deine Silben';
+
+  @override
   String get silbenEmptyBody =>
       'Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.';
 
@@ -10433,6 +10439,14 @@ class AppL10nDe extends AppL10n {
   String get phaseTaskPlay => 'Anhören';
 
   @override
+  String get phaseTaskRomanizationToggle => 'Umschrift';
+
+  @override
+  String phaseTaskExampleListen(String text) {
+    return 'Beispiel anhören: $text';
+  }
+
+  @override
   String get phaseTaskRecord => 'Aufnehmen';
 
   @override
@@ -10452,6 +10466,14 @@ class AppL10nDe extends AppL10n {
   @override
   String get phaseTaskRecordingNotice =>
       'Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.';
+
+  @override
+  String get phaseStepDone => 'Schritt abgeschlossen';
+
+  @override
+  String phaseStepNext(String title) {
+    return 'Nächster Schritt: $title';
+  }
 
   @override
   String get phaseTaskHistory => 'Bewertete Kriterien bereits erfüllt';
@@ -12020,20 +12042,13 @@ class AppL10nDe extends AppL10n {
   String get atelierAutoOn => 'Auto weiter: An';
 
   @override
-  String get atelierChartHint =>
-      '19 Konsonanten · Im Feld nach oben oder unten wischen.';
-
-  @override
-  String get atelierDemo => 'Strichfolge zeigen';
+  String get atelierDemoShort => 'Vormachen';
 
   @override
   String get atelierDemoEnd => 'Vorführung beenden';
 
   @override
   String get atelierDemoNext => 'Nächster Strich';
-
-  @override
-  String get atelierDemoPhase => 'Schau zu';
 
   @override
   String get atelierDemoRestart => 'Neu vorführen';
@@ -12043,16 +12058,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get atelierDiscover => 'Silben entdecken';
-
-  @override
-  String get atelierDonePhase => 'Geschafft';
-
-  @override
-  String get atelierFeedHint =>
-      'Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.';
-
-  @override
-  String get atelierFinish => 'Übung abschließen';
 
   @override
   String get atelierFlipHint => 'Tippen zum Umdrehen';
@@ -12065,9 +12070,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get atelierNotYet => 'Nicht gewusst';
-
-  @override
-  String get atelierPracticePhase => 'Du bist dran';
 
   @override
   String get atelierRandom => 'Zufällige Karte';
@@ -12087,9 +12089,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get atelierStructure => 'Silbenaufbau';
-
-  @override
-  String get atelierSubtitle => 'Zeichen · Klang · Handschrift';
 
   @override
   String get atelierUseInChart => 'In der Silbentafel auswählen';
@@ -12821,6 +12820,45 @@ class AppL10nDe extends AppL10n {
     });
     return '$_temp0';
   }
+
+  @override
+  String get approvedQuizTitle => 'Wörter-Quiz';
+
+  @override
+  String approvedQuizCorrect(int count) {
+    return '$count richtig';
+  }
+
+  @override
+  String get approvedQuizChooseMeaning => 'Wähle die Bedeutung.';
+
+  @override
+  String get approvedGameListen => 'Anhören';
+
+  @override
+  String get approvedMatchingTitle => 'Paare finden';
+
+  @override
+  String get approvedMatchingInstruction =>
+      'Erst Koreanisch, dann die Bedeutung.';
+
+  @override
+  String approvedMatchingCounter(int count, int total) {
+    return '$count von $total Paaren';
+  }
+
+  @override
+  String get approvedMatchingPickKorean => 'Tippe auf ein koreanisches Wort.';
+
+  @override
+  String get approvedMatchingPickMeaning =>
+      'Wähle jetzt die passende Bedeutung.';
+
+  @override
+  String get approvedMatchingRetry => 'Tippe auf die passende Bedeutung.';
+
+  @override
+  String get approvedMatchingFound => 'Ein Paar gefunden.';
 
   @override
   String get pronunciationPracticeRhythm => 'Satzrhythmus üben';

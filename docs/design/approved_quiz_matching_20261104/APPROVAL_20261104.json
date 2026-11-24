@@ -1,0 +1,46 @@
+{
+  "approved_on": "2026-11-04",
+  "authority": "User: 좋아 승인. 그다음 작업 뭐해야하지?",
+  "scope": "Six Quiz/Matching Figma screens including the shared Words Quiz header; visual design approval, not native runtime validation",
+  "fileKey": "7IHizFZMk5G3ahsuVKiYwb",
+  "pageId": "271:2",
+  "headerMaster": "300:766",
+  "screens": [
+    {
+      "name": "quiz-a",
+      "nodeId": "278:14",
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\quiz-a-figma-v3.png",
+      "sha256": "2952f13d463c60abad89545470b1aeeced219f055b58a8fa202478e4d67315ab"
+    },
+    {
+      "name": "quiz-b",
+      "nodeId": "278:137",
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\quiz-b-figma-v3.png",
+      "sha256": "24567316cb93280b7624f2db51f21b84b084db71a262a6e609c65e4cc07476e7"
+    },
+    {
+      "name": "quiz-c",
+      "nodeId": "278:260",
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\quiz-c-figma-v3.png",
+      "sha256": "925b363888ee1880ebda6b6835a88c7ee2d12a3455fb44590dbfc6cd1f38fd6d"
+    },
+    {
+      "name": "matching-a",
+      "nodeId": "278:383",
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\matching-a-figma-v5.png",
+      "sha256": "98e075134ac7cd2c05c88096830f2ae981e0056e24cbd108b9ed0b8dc1c5952c"
+    },
+    {
+      "name": "matching-b",
+      "nodeId": "278:580",
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\matching-b-figma-v5.png",
+      "sha256": "ee8e0dfd6aa4c69f6a277000fcad7342562a276b9f1f30ecb875b2d00cd774dd"
+    },
+    {
+      "name": "matching-c",
+      "nodeId": "278:779",
+      "capture": "C:\\dev\\hangulsori\\_codex_artifacts\\spiele-quiz-matching-figma-20261103\\matching-c-figma-v5.png",
+      "sha256": "63992f8e9b66731bc3fd5f1bc9148e05e4e082d9823d47c98bd7331c66948e8f"
+    }
+  ]
+}

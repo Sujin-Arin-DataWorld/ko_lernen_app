@@ -1,0 +1,145 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "C1.2-01",
+      "sha256": "a84a2902549f3c1ca9cd2433eae82691b78ae9302f45801cd57c6d8ebf44f8eb",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Supported work-card request: only title by17:00 today, body tomorrow, ask availability without authority or inflated workload. Receptive -거라 is relationship-specific instruction to adult learner; -고말고 is strong agreement, not completed help; -네 evaluates observation, not assignment; -으려고? asks concerned intention, not permission. Productive -는걸 gently corrects a closed-applications assumption with notice evidence.\nHonorific two axes: professor arrives tomorrow15:00; formal 오십니다 and familiar 오셔 both honour the professor, differing only listener register; no gender assigned. Script: Hyuna promises availability around16:00, has not completed review; title today's scope; -시- refers to professor. Independent notice: applications remain until tomorrow17:00, not already closed. Receptive permission question answer no. Fresh director messages: 관장님께서 토요일 오전10시에 오십니다 / 관장님 토요일 아침열시에 오셔. Transfer three-sentence neighbour request moves only box to adjacent shelf before Saturday10:00 cleaning, no opening/disposal needed, timing negotiable. Natural alternatives accepted; no new authority. E08+E10 scene, E11/E12 excluded."
+    },
+    {
+      "unitId": "C1.2-02",
+      "sha256": "bf81df481a6a1ab8ffa8af0e2649e5915aa1770809f9b9d49b2da86f9ec6ae60",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C12-01"
+      ],
+      "solutions": "Concession support: convenience today does not erase missing reply; actual rain/briefing versus hypothetical delay distinguished. Addition support: larger print/lower cost does not prove comprehension; poster lacks date and unexpectedly even title. Receptive resolve is not an order; firm condition is not unconditional permission. New alternative: text today rather than rushing unready photos. Warning is not completed damage; interpretation of short reply is not verified intent; joint submission entails checking shared sources first.\nFresh productive rows254–272: rain despite many attendees; limited time despite completed two-person comparison; higher transport cost despite three chairs; hypothetical late start still check names; even expert failed symbol; title/date plus contact checked; A smaller file/larger print; small room plus insufficient chairs; prefer checked map later; candidate date not booking; longer meeting expected yet names checked; denominator explanation changes interpretation; short title may read clear/unhelpful, intention unknown; writer reports rushed omission; joint sending requires whole-message check; overwriting risks future loss only; rehearsal fictional figures exception does not cover real notice. All17 productive functions plus2 receptive are represented.\nScript: agreement from two people permits internal use only; today's agreed action is text drafting, not posting; tomorrow joint wording review, photos separately after replies. Independent two-sentence answer keeps public verified-only rule and internal hypothetical exception. Transfer three sentences acknowledge prompt notice and image-check needs, propose verified Tue/Fri days today with images after Saturday review, ask both for agreement; no invented consent. Translation wrongly counts two photos instead of photos of two people (flagged). Full text includes final five lines reread separately."
+    },
+    {
+      "unitId": "C1.2-03",
+      "sha256": "3d77b54c6e3e8b83ac2413b678156cdc16a6e96e7ed54434857bb35793a1ca5d",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "EN-C12-02"
+      ],
+      "solutions": "Chat support: brief acceptance and lack of typing time can coexist; no verified anger. Reply can state understood order agreement, ask for remaining points and allow a reply after travel. New17:00 deadline/16:30 overlap: risk of missing deadline, not completed failure; assign who merges which section now.\nFive functions: -게 생겼다 prospective assessment; pretending only from explicit self-report; only-looking/smiling limited to observed3/5minutes, no reason/hearing claim; 오늘따라 contrasts with prior pattern; email/voice-note examples are not exhaustive options. Fresh Jun report preserves his own admission, not inferred dishonesty; canonical profile identifies Jun as Andrea/Minho's son, so English male pronouns here have source support.\nScript: short reply due to train typing; order accepted but final-photo name still needs checking; Maya only promises checking, not completion. Independent: today's ‘Checked’ is shorter than daily2–3sentences; possible busyness or nothing to add, ask whether to proceed/any comments, do not infer emotion or blanket permission. Transfer: ‘준비를 좋게 보신 것일 수도 있고 공간에 비해 양이 많다고 걱정하신 것일 수도 있겠네요. 이 공간에 놓을 배치를 함께 확인해 주실 수 있을까요?’ retains praise/space-concern possibilities and asks layout without settled emotion. Model's question likewise leaves intention open. E08+E10 boundary preserved."
+    },
+    {
+      "unitId": "C1.2-04",
+      "sha256": "debcbd7b36c5c7d1f24cfe266d21c9d0cde7b9fbf5b54f48902050c294a2f530",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C12-03"
+      ],
+      "solutions": "Supported model: report prompted enquiry, not confirmed venue change; visiting desk does not establish staff meeting or registration. Receptive reported-instruction question is not a new order. Fresh list completion: express surprise at hearing, retain no personal verification.\nNew outputs: Jun heard shop closed→my unanswered call→closure unconfirmed; Lena suggested reading→read together→no application; own11:00 visit saw two signs→content accuracy unchecked;3 comments from50 do not establish all satisfaction; notice19:00→calendar updated→attendance undecided. Independent -는다는 것이: intended title shortening, also deleted body line, unrestored; compare earlier version, restore, then ask colleague to check. This supplies the seventh productive function; -다니 is practised in the earlier fresh case, -는다니1/-데 stay receptive.\nScript: Maya heard change plan but never inspected new-room readiness; Hyuna saw old room empty this morning only; neither establishes readiness. Maya asks by15:00 and shares reply or nonresponse, not guaranteed resolution. Transfer own four sentences: ‘현아는 어제 저녁 수도가 잠긴 것을 보았지만 이유는 모릅니다. 레나는 담당자에게 점검 중이라고 들었으나 종료 시각은 모릅니다. 마야는 내일 아침 물을 줄 수 있는지 알아야 합니다. 담당자에게 내일 사용 시간과 임시 물 공급을 물을 사람을 정하면 어떨까요?’ Proposed enquiry remains unassigned/uncompleted. TalSunbi's testimony does not extend after sleep; E08+E10 only."
+    },
+    {
+      "unitId": "C1.2-05",
+      "sha256": "270431b24804844ca92cfaf583f6669889e444b300b377ddf685264d8256be98",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C12-04",
+        "EN-C12-05"
+      ],
+      "solutions": "Supported source correction: Lena uploaded old file yesterday and replaced it today; old-version recipients unknown. ‘All users have latest’ is invented. Chat adds a request to check version, not completed verification; passive style is not inherently wrong but should not hide this uploader's responsibility. Fresh minutes: Maya understood explanation but could not agree to today's completion schedule, understanding≠agreement.\nScript: Andrea checked title/date only; Lena's tomorrow body review was agreed yesterday but not done. Independent two-sentence chat preserves Jun's discovery yesterday, Hyuna's promised correction tomorrow and unchanged post; ask to recheck after correction, not claim completion.\nTransfer: inspection tomorrow is promised, repairs undecided. First-person chat needs an explicit role as the resident who reported the issue; EN should retain that the concern concerns dark stairs. With that role: ‘계단이 어둡다는 의견을 제가 전했어요. 담당자가 내일 살펴본다고 했고 수리는 아직 정해지지 않았어요.’ Public two-sentence version can omit resident's name but keep dark-stair issue, management inspection plan and unknown repairs. Style explanation: personal first-person report becomes impersonal public notice while action stages and certainty stay unchanged. Modern MQ06 ungated, no new grammar."
+    },
+    {
+      "unitId": "C1.2-06",
+      "sha256": "384bc94411b0ea80fc02ae4532da1fad693683c6fd7e7aea9405b1373ce20f6b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-C12-06"
+      ],
+      "solutions": "Supported agreement: text first without photos; Lena checks preserved-meaning quotation before publication; Hyuna sends by Friday12:00, no pre-existing Lena reply deadline. Fresh correction: cover by Wednesday, interior images by Friday, all three agree, no all-images-Wednesday claim.\nScript creates a new agreed15:00 check/reply deadline; use only two sentences without photo; meaning-changing edits return to Lena, typo fixes merely notified. Independent: Monday summary sending and Maya Wednesday review already agreed; early Lena quotation Monday for Tuesday review is a question to all, not already agreed.\nTransfer public notice must be two sentences: Saturday10:00–11:00 sharing; no photography. Internal two sentences: Maya list by Friday, Hyuna space check Saturday09:30; leftovers jointly decided after event, no disposal/donation agreement. English public model currently compresses two required sentences into one (flagged). Smalltalk marks changes rather than testing memory. Nods do not verify every line or release E11/E12; next E06 rereading uses already public material."
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-C12-01",
+      "unitId": "C1.2-02",
+      "severity": "required",
+      "location": "Shared materials alternative EN ‘the two approved photos’; modern script Maya EN ‘only the two approved photos’",
+      "problem": "KO counts people (‘동의된 두 사람의 사진’, ‘답한 두 사람 사진’), not photos. EN/DE turn that into exactly two approved photographs. Consent is person- and scope-specific in this task; the number of photographs is never given.",
+      "proposal": "Alternative-card EN: ‘Either use only photos of the two people who agreed in an internal draft, or prepare text only. Neither option is agreed yet.’ Maya's first script row EN: ‘Posting today would be convenient. Shall we use only photos of the two people who have replied?’ Align DE ‘zwei freigegebenen Fotos’ to photos of the two people; retain internal-use-only limitation in the following reply.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C12-02",
+      "unitId": "C1.2-03",
+      "severity": "optional",
+      "location": "Opening EN ‘New dialogue suggests he may instead want a pause. His story-map line …’",
+      "problem": "Both Joy and Dokkaebi appear in the preceding sentence. Context points to Dokkaebi, but the two pronouns make the exact speaker less explicit than KO and can invite an unintended Joy reference.",
+      "proposal": "Use: ‘Sujin suggests Dokkaebi may instead want a pause. Dokkaebi’s line from the story map says that even “all right” can be queried.’",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-C12-03",
+      "unitId": "C1.2-04",
+      "severity": "required",
+      "location": "Listening Maya row EN ‘I only heard the organiser’s plan, not the room’s readiness.’",
+      "problem": "KO contrasts hearing a plan with not personally seeing the preparation state. The English elliptical ‘heard … not … readiness’ changes the second clause into absence of a report, losing the firsthand-observation limit central to this lesson. DE has the same heard/not-heard structure.",
+      "proposal": "Replace EN with: ‘I only heard the organiser’s plan to change rooms. I haven’t seen for myself whether the new room is ready.’ Align DE to ‘… den Vorbereitungsstand habe ich nicht selbst gesehen/geprüft’ rather than only not hearing it.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C12-04",
+      "unitId": "C1.2-05",
+      "severity": "required",
+      "location": "Transfer prompt ‘주민이 … 전했다’ followed by chat model ‘제가 전했어요’ / ‘I passed on …’",
+      "problem": "The data names an unspecified resident as sender, but the model switches to first-person without assigning that resident's role to the learner. In an exercise explicitly about preserving agency, this role needs to be stated rather than silently changing the speaker into the sender.",
+      "proposal": "Prepend the output instruction with KO ‘의견을 전한 주민의 입장에서’ and EN ‘Write from the perspective of the resident who passed on the concern.’ Align DE with the same role. The existing first-person model then has a supported speaker.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-C12-05",
+      "unitId": "C1.2-05",
+      "severity": "required",
+      "location": "Transfer EN chat model ‘I passed on the concern. Management will inspect tomorrow; repairs aren’t agreed.’",
+      "problem": "KO chat explicitly tells the new resident that the stairs are dark. EN removes the subject of the concern and leaves the inspection object implicit. The intended new reader cannot recover the central issue from the message itself, and factual content is lost during the style change.",
+      "proposal": "EN chat: ‘I told management that the stairs are dark. They said they would inspect them tomorrow; no repair has been agreed yet.’ For a self-contained public notice as well, use ‘A resident’s concern about the dark stairs has been passed to management. An inspection is planned for tomorrow; any repair remains undecided.’ The public KO/DE model can also name the dark-stair issue for reader clarity.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-C12-06",
+      "unitId": "C1.2-06",
+      "severity": "required",
+      "location": "Transfer prompt ‘two-sentence public notice’ versus EN model ‘Sharing runs Saturday 10–11, with no photography.’",
+      "problem": "The task requires two public-notice sentences and KO supplies two. EN (and DE) supplies only one, so learners following the model fail the stated output format.",
+      "proposal": "Replace EN notice with: ‘The sharing event runs from 10:00 to 11:00 on Saturday. There will be no photography.’ Keep the two internal-record sentences; align DE public notice to two sentences.",
+      "affectedLanguages": [
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

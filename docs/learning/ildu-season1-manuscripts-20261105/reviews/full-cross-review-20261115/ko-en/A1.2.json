@@ -1,0 +1,70 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A1.2-01",
+      "sha256": "5a553713b6fb0781afcea961dfa920b01e04b2f08fddf5e3e2a36b574b4e6a6c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.2-02",
+      "sha256": "e704ee40e14ff889a0ac75692eef837c07c95f7c19d5e64a4a449ec0247e215c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.2-03",
+      "sha256": "161453de0be32bbb6a84558078125f19cb027efac5c74555ac368a47fc268c21",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.2-04",
+      "sha256": "f6b5c6dcb3722a5691c1bad445a400f70566332e48d3c8f6f7e8a753fc91718e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.2-05",
+      "sha256": "ce5259976a3f8b0c62fc1f893ad9a1988feb913ff4c82eb3526902af2bc2c84d",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "A1.2-06",
+      "sha256": "dffc43f6ef1e36c7bbc90121ec348df4935a49b85ed961f5c4c3e50d0bb0c37d",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "EN-A12-01"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-A12-01",
+      "unitId": "A1.2-06",
+      "severity": "optional",
+      "location": "묶음 A, reason model EN: ‘Being late caused a call: 늦어서 연락했어요.’",
+      "problem": "‘Call’ unnecessarily selects a communication channel for 연락하다, which the Korean leaves open. The wider unit also uses messages; no key depends on a phone call.",
+      "proposal": "If you got in touch because you were running late: 늦어서 연락했어요.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    }
+  ]
+}

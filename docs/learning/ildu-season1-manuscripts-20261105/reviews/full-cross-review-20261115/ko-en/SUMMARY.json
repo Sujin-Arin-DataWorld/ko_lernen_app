@@ -1,0 +1,157 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "phase": "initial100_complete_final_changed_reread_in_progress",
+  "checkpointCommit": "174c449c173c0d00b90d5e86c4bf71c2e904b982",
+  "fullManuscriptsRead": 100,
+  "textualTaskSetsSolved": 100,
+  "unreadUnits": [],
+  "unreadCommonDocuments": [],
+  "initialPass": 67,
+  "initialNeedsFix": 33,
+  "requiredFindings": 44,
+  "optionalManuscriptFindings": 11,
+  "optionalCommonFindings": 1,
+  "allInitialHashesMatchBaseline": true,
+  "coverage": {
+    "F0.1": [
+      "F0.1.sound-signs",
+      "F0.1.above-below",
+      "F0.1.straight-lines"
+    ],
+    "F0.2": [
+      "F0.2.first-names",
+      "F0.2.two-boxes",
+      "F0.2.ribbon",
+      "F0.2.two-tracks",
+      "F0.2.warm-breath",
+      "F0.2.tree-and-hat",
+      "F0.2.sea-and-bridge"
+    ],
+    "F0.3": [
+      "F0.3.double-strokes",
+      "F0.3.two-below",
+      "F0.3.air-one",
+      "F0.3.air-two",
+      "F0.3.firm-one",
+      "F0.3.firm-two",
+      "F0.3.near-vowels",
+      "F0.3.corner-vowels",
+      "F0.3.round-corner",
+      "F0.3.first-finals",
+      "F0.3.silent-or-sounding"
+    ],
+    "F0.4": [
+      "F0.4.closed-endings",
+      "F0.4.wide-vowels",
+      "F0.4.small-pair",
+      "F0.4.last-vowel",
+      "F0.4.linked-sounds",
+      "F0.4.first-input",
+      "F0.4.space-and-place"
+    ],
+    "A1.1": [
+      "A1.1-01",
+      "A1.1-02",
+      "A1.1-03",
+      "A1.1-04",
+      "A1.1-05",
+      "A1.1-06"
+    ],
+    "A1.2": [
+      "A1.2-01",
+      "A1.2-02",
+      "A1.2-03",
+      "A1.2-04",
+      "A1.2-05",
+      "A1.2-06"
+    ],
+    "A2.1": [
+      "A2.1-01",
+      "A2.1-02",
+      "A2.1-03",
+      "A2.1-04",
+      "A2.1-05",
+      "A2.1-06"
+    ],
+    "A2.2": [
+      "A2.2-01",
+      "A2.2-02",
+      "A2.2-03",
+      "A2.2-04",
+      "A2.2-05",
+      "A2.2-06"
+    ],
+    "B1.1": [
+      "B1.1-01",
+      "B1.1-02",
+      "B1.1-03",
+      "B1.1-04",
+      "B1.1-05",
+      "B1.1-06"
+    ],
+    "B1.2": [
+      "B1.2-01",
+      "B1.2-02",
+      "B1.2-03",
+      "B1.2-04",
+      "B1.2-05",
+      "B1.2-06"
+    ],
+    "B2.1": [
+      "B2.1-01",
+      "B2.1-02",
+      "B2.1-03",
+      "B2.1-04",
+      "B2.1-05",
+      "B2.1-06"
+    ],
+    "B2.2": [
+      "B2.2-01",
+      "B2.2-02",
+      "B2.2-03",
+      "B2.2-04",
+      "B2.2-05",
+      "B2.2-06"
+    ],
+    "C1.1": [
+      "C1.1-01",
+      "C1.1-02",
+      "C1.1-03",
+      "C1.1-04",
+      "C1.1-05",
+      "C1.1-06"
+    ],
+    "C1.2": [
+      "C1.2-01",
+      "C1.2-02",
+      "C1.2-03",
+      "C1.2-04",
+      "C1.2-05",
+      "C1.2-06"
+    ],
+    "C2.1": [
+      "C2.1-01",
+      "C2.1-02",
+      "C2.1-03",
+      "C2.1-04",
+      "C2.1-05",
+      "C2.1-06"
+    ],
+    "C2.2": [
+      "C2.2-01",
+      "C2.2-02",
+      "C2.2-03",
+      "C2.2-04",
+      "C2.2-05",
+      "C2.2-06"
+    ]
+  },
+  "limitations": [
+    "AI model review, not human certification",
+    "Script comprehension only; no audio playback or synthesis",
+    "No app changes, runtime QA or learner testing",
+    "Final current-hash decisions require changed-file rereads; initial findings are not silently promoted"
+  ]
+}

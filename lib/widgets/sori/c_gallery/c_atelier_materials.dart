@@ -20,6 +20,12 @@ abstract final class CAtelier {
   static const muted = Color(0xff566056);
   static const gold = Color(0xffcfa15c);
   static const edge = Color(0xffc7b18f);
+  static const quietFill = Color(0xfffffaf0);
+  static const quietDisabledFill = Color(0xffebe4d6);
+  static const quietDisabledEdge = Color(0xffc9bda6);
+
+  /// 6.3:1 on [quietDisabledFill]; disabled labels stay legible.
+  static const quietDisabledInk = Color(0xff4f5249);
   static TextStyle text(
     BuildContext context,
     double size, {
@@ -64,7 +70,10 @@ abstract final class CAtelier {
       );
 }
 
-enum CAtelierFace { paper, jade, gold }
+/// `quiet` is the flat hanji control approved in the 2026-11-21 Hangul atelier
+/// mockup: no gradient or bevel, one hairline edge, so the photographic
+/// artwork stays the only rich material on screen.
+enum CAtelierFace { paper, jade, gold, quiet }
 
 /// The Atelier's single public tab chrome; large text keeps the same choices.
 class CAtelierTabs extends StatelessWidget {
@@ -98,6 +107,15 @@ abstract final class CAtelierSpacing {
 
 abstract final class CAtelierType {
   static const controlLabel = 12.0;
+
+  /// Action labels in the Hangul atelier (2026-11-21 mockup approval): the
+  /// condensed Latin face needs 17/600 to read like iOS body text and the
+  /// Material label role.
+  static const actionLabel = 17.0;
+
+  /// One height for every action row, so rows align and budgets add up.
+  static const actionHeight = 52.0;
+  static const actionRadius = 14.0;
 }
 
 /// Original material textures and the intact approved gold plate. Each plate
@@ -134,6 +152,26 @@ class CAtelierSurface extends StatelessWidget {
         ],
       );
     }
+    if (face == CAtelierFace.quiet) {
+      return DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(radius),
+          color: enabled ? CAtelier.quietFill : CAtelier.quietDisabledFill,
+          border: framed
+              ? Border.all(
+                  color: enabled ? CAtelier.edge : CAtelier.quietDisabledEdge,
+                  width: 1.5,
+                )
+              : null,
+          boxShadow: depth && enabled
+              ? const [
+                  BoxShadow(color: Color(0x1f5a4628), offset: Offset(0, 1)),
+                ]
+              : null,
+        ),
+        child: Padding(padding: padding, child: child),
+      );
+    }
     final colors = !enabled
         ? const [Color(0xffe1ddcf), Color(0xffe1ddcf)]
         : switch (face) {
@@ -148,6 +186,7 @@ class CAtelierSurface extends StatelessWidget {
               Color(0xffbd8740),
             ],
             CAtelierFace.jade => const [CAtelier.jade, CAtelier.deep],
+            CAtelierFace.quiet => const [CAtelier.quietFill, CAtelier.quietFill],
           };
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -322,7 +361,9 @@ class CAtelierButton extends StatefulWidget {
     this.bold,
     this.padding = const EdgeInsets.all(CAtelierSpacing.cutoutGutter),
     this.bare = false,
+    this.radius = 9,
   });
+  final double radius;
   final String label;
   final String? semanticLabel;
   final VoidCallback? onTap;
@@ -392,7 +433,7 @@ class _CAtelierButtonState extends State<CAtelierButton> {
                   enabled: enabled,
                   framed: widget.framed,
                   transparent: widget.bare,
-                  radius: 9,
+                  radius: widget.radius,
                   depth: widget.depth && !_pressed,
                   child: ConstrainedBox(
                     constraints: const BoxConstraints(
@@ -420,7 +461,9 @@ class _CAtelierButtonState extends State<CAtelierButton> {
                                     widget.bold ??
                                     widget.face == CAtelierFace.jade,
                                 color: !enabled
-                                    ? const Color(0xff69685f)
+                                    ? widget.face == CAtelierFace.quiet
+                                          ? CAtelier.quietDisabledInk
+                                          : const Color(0xff69685f)
                                     : widget.face == CAtelierFace.jade
                                     ? CAtelier.paper
                                     : CAtelier.ink,

@@ -1,0 +1,80 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "F0.2.first-names",
+      "sha256": "2489adcad9cdc76cc41d2fd8ca8c596594107bd08ebf6031fba9c1a8adc7b869",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-F02-01"
+      ]
+    },
+    {
+      "unitId": "F0.2.two-boxes",
+      "sha256": "d593e9ebaa68344f4400f9d26573d86fac759a221b1c2bc157d7e1a40dae23d1",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.ribbon",
+      "sha256": "838b17518b2b46760c4e6582c319a40234278aed4b230858239e4c3fe82ec60e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.two-tracks",
+      "sha256": "ab166b74708e4a84ec3b8e8c3ab9150e8d8eb6ddd0d80d4a19bc2b384c2e0a8b",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.warm-breath",
+      "sha256": "2dbbd2c63946f3aa083f33acdba7e9e8cdde658dcb4329cbe3c3988fb18f2aeb",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.tree-and-hat",
+      "sha256": "3a0d2a512b267e600f431c454a17b2d8f7af9bfc921f4de5977f3df98b61d61f",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    },
+    {
+      "unitId": "F0.2.sea-and-bridge",
+      "sha256": "b0f2567c9aadf8f4fe92ae6edadd173f6a821efc956542d9eb7925bb8fc64795",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-F02-01",
+      "unitId": "F0.2.first-names",
+      "severity": "required",
+      "location": "독립 확인·다른 자리에서 사용하기 — EN/DE instructions ending with 'two sound labels 니 and 무' and 'I1 ... 답 니 ... I2 ... 답 무'",
+      "problem": "The explicitly independent reconstruction block prints target blocks 니/무 in its EN/DE instructions and each answer beside I1/I2. Only models are to be covered. This cannot support no-model reconstruction as laid out.",
+      "proposal": "Replace the subsection's independent task with: '### 혼자 조립하기 — 학습자 문제\\n앞의 시범·소리 선택과 뒤의 답·상자 활동을 가리고 아래 두 줄만 보세요. 각 조각을 한 음절로 모으세요. / Cover the earlier examples and sound choices, and the answers and box activity below. Look only at the two rows and build one syllable block from each pair. / Decke die bisherigen Vorbilder und Lautaufgaben sowie die folgenden Lösungen und die Kistenübung ab. Sieh nur die beiden Zeilen an und bilde aus jedem Paar einen Silbenblock.\\nI1: ㅣ / ㄴ\\nI2: ㅜ / ㅁ\\n### 진행자용 답 — 응답 전에 가림\\nI1 니: ㄴ 왼쪽·ㅣ 오른쪽. I2 무: ㅁ 위·ㅜ 아래. 이미 소리 선택에서 본 음절을 모형 없이 재구성한 결과이며, 새로운 첫 노출·독립 발음·뜻 이해 증거는 아니다. 도움이나 답을 보여 준 뒤의 응답은 도움 연습으로 기록한다.' Move the existing translated 니/무 box activity after this boundary; reveal only after I1/I2.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

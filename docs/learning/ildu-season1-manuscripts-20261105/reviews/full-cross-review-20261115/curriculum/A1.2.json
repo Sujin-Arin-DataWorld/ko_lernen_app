@@ -1,0 +1,175 @@
+{
+  "role": "curriculum",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "A1.2-01",
+      "sha256": "5a553713b6fb0781afcea961dfa920b01e04b2f08fddf5e3e2a36b574b4e6a6c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A12-01"
+      ]
+    },
+    {
+      "unitId": "A1.2-02",
+      "sha256": "e704ee40e14ff889a0ac75692eef837c07c95f7c19d5e64a4a449ec0247e215c",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A12-02",
+        "CUR-A12-07"
+      ]
+    },
+    {
+      "unitId": "A1.2-03",
+      "sha256": "161453de0be32bbb6a84558078125f19cb027efac5c74555ac368a47fc268c21",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A12-03"
+      ]
+    },
+    {
+      "unitId": "A1.2-04",
+      "sha256": "f6b5c6dcb3722a5691c1bad445a400f70566332e48d3c8f6f7e8a753fc91718e",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A12-04"
+      ]
+    },
+    {
+      "unitId": "A1.2-05",
+      "sha256": "ce5259976a3f8b0c62fc1f893ad9a1988feb913ff4c82eb3526902af2bc2c84d",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A12-05"
+      ]
+    },
+    {
+      "unitId": "A1.2-06",
+      "sha256": "dffc43f6ef1e36c7bbc90121ec348df4935a49b85ed961f5c4c3e50d0bb0c37d",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "CUR-A12-06",
+        "CUR-A12-08"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "CUR-A12-01",
+      "unitId": "A1.2-01",
+      "severity": "required",
+      "location": "새 일정과 전이 / 독립 확인 / 가능한 답 A",
+      "problem": "The check explicitly claims independence but prints the target answer directly beside/below the prompt, with no instruction to conceal it. Correct reading/copying would not establish independent performance.",
+      "proposal": "Before the independent check insert KO ‘앞의 시범과 아래 가능한 답은 가리고, 새 자료와 역할 정보만 보고 답해요. 도움을 열면 도움받은 수행으로 기록해요.’ EN ‘Hide the earlier models and the possible answers below. Respond using only the new material and role information; opening help makes this a supported attempt.’ DE ‘Decke die bisherigen Vorbilder und die folgenden möglichen Antworten ab. Antworte nur anhand des neuen Materials und der Rollenangaben; mit geöffneter Hilfe zählt der Versuch als gestützt.’ Move this check's possible-answer row out of the learner table into a facilitator-only subsection revealed after the attempt. Keep all valid variants.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A12-02",
+      "unitId": "A1.2-02",
+      "severity": "required",
+      "location": "새 지도와 전이 / 독립 확인 / 답 맞음",
+      "problem": "The check explicitly claims independence but prints the target answer directly beside/below the prompt, with no instruction to conceal it. Correct reading/copying would not establish independent performance.",
+      "proposal": "Before the independent check insert KO ‘앞의 시범과 아래 가능한 답은 가리고, 새 자료와 역할 정보만 보고 답해요. 도움을 열면 도움받은 수행으로 기록해요.’ EN ‘Hide the earlier models and the possible answers below. Respond using only the new material and role information; opening help makes this a supported attempt.’ DE ‘Decke die bisherigen Vorbilder und die folgenden möglichen Antworten ab. Antworte nur anhand des neuen Materials und der Rollenangaben; mit geöffneter Hilfe zählt der Versuch als gestützt.’ Move this check's possible-answer row out of the learner table into a facilitator-only subsection revealed after the attempt. Keep all valid variants.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A12-03",
+      "unitId": "A1.2-03",
+      "severity": "required",
+      "location": "새 기록과 전이 / 독립 확인 / 가능한 답 사진을 보고",
+      "problem": "The check explicitly claims independence but prints the target answer directly beside/below the prompt, with no instruction to conceal it. Correct reading/copying would not establish independent performance.",
+      "proposal": "Before the independent check insert KO ‘앞의 시범과 아래 가능한 답은 가리고, 새 자료와 역할 정보만 보고 답해요. 도움을 열면 도움받은 수행으로 기록해요.’ EN ‘Hide the earlier models and the possible answers below. Respond using only the new material and role information; opening help makes this a supported attempt.’ DE ‘Decke die bisherigen Vorbilder und die folgenden möglichen Antworten ab. Antworte nur anhand des neuen Materials und der Rollenangaben; mit geöffneter Hilfe zählt der Versuch als gestützt.’ Move this check's possible-answer row out of the learner table into a facilitator-only subsection revealed after the attempt. Keep all valid variants.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A12-04",
+      "unitId": "A1.2-04",
+      "severity": "required",
+      "location": "새로운 주문 / 독립 확인: 메모의 수량 ... 가능한 답",
+      "problem": "The check explicitly claims independence but prints the target answer directly beside/below the prompt, with no instruction to conceal it. Correct reading/copying would not establish independent performance.",
+      "proposal": "Before the independent check insert KO ‘앞의 시범과 아래 가능한 답은 가리고, 새 자료와 역할 정보만 보고 답해요. 도움을 열면 도움받은 수행으로 기록해요.’ EN ‘Hide the earlier models and the possible answers below. Respond using only the new material and role information; opening help makes this a supported attempt.’ DE ‘Decke die bisherigen Vorbilder und die folgenden möglichen Antworten ab. Antworte nur anhand des neuen Materials und der Rollenangaben; mit geöffneter Hilfe zählt der Versuch als gestützt.’ Move this check's possible-answer row out of the learner table into a facilitator-only subsection revealed after the attempt. Keep all valid variants.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A12-05",
+      "unitId": "A1.2-05",
+      "severity": "required",
+      "location": "새 선택과 전이 / 독립 확인 / 가능한 답 사진을 찍고 싶어요",
+      "problem": "The check explicitly claims independence but prints the target answer directly beside/below the prompt, with no instruction to conceal it. Correct reading/copying would not establish independent performance.",
+      "proposal": "Before the independent check insert KO ‘앞의 시범과 아래 가능한 답은 가리고, 새 자료와 역할 정보만 보고 답해요. 도움을 열면 도움받은 수행으로 기록해요.’ EN ‘Hide the earlier models and the possible answers below. Respond using only the new material and role information; opening help makes this a supported attempt.’ DE ‘Decke die bisherigen Vorbilder und die folgenden möglichen Antworten ab. Antworte nur anhand des neuen Materials und der Rollenangaben; mit geöffneter Hilfe zählt der Versuch als gestützt.’ Move this check's possible-answer row out of the learner table into a facilitator-only subsection revealed after the attempt. Keep all valid variants.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A12-06",
+      "unitId": "A1.2-06",
+      "severity": "required",
+      "location": "새 충돌을 해결하기 / 통합 독립 확인 / 가능한 교환",
+      "problem": "The check explicitly claims independence but prints the target answer directly beside/below the prompt, with no instruction to conceal it. Correct reading/copying would not establish independent performance.",
+      "proposal": "Before the independent check insert KO ‘앞의 시범과 아래 가능한 답은 가리고, 새 자료와 역할 정보만 보고 답해요. 도움을 열면 도움받은 수행으로 기록해요.’ EN ‘Hide the earlier models and the possible answers below. Respond using only the new material and role information; opening help makes this a supported attempt.’ DE ‘Decke die bisherigen Vorbilder und die folgenden möglichen Antworten ab. Antworte nur anhand des neuen Materials und der Rollenangaben; mit geöffneter Hilfe zählt der Versuch als gestützt.’ Move this check's possible-answer row out of the learner table into a facilitator-only subsection revealed after the attempt. Keep all valid variants.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A12-07",
+      "unitId": "A1.2-02",
+      "severity": "required",
+      "location": "새 지도와 전이 / 같은 장소 배치에서 나는 X에서 남쪽을 봐요",
+      "problem": "The claimed new map check repeats the exact south-facing X/right-to-western-stop relation already taught in model 4. It does not test the source transfer requirement of a changed map and viewpoint; the later unspecified new map supplies no text-solvable replacement.",
+      "proposal": "Keep the old south-facing example as supported practice. Replace the independent material with a complete rearranged map: KO ‘새 지도: 북쪽 정류장, 동쪽 도서관, 남쪽 카페, 서쪽 다리, 중앙 X. 나는 X에서 북쪽을 봐요. 상대는 동쪽 도서관 앞에서 기다려요. 오른쪽으로 가요가 맞나요? 목적지와 대기 장소를 각각 말해요.’ EN ‘New map: bus stop north, library east, café south, bridge west, X in the centre. Face north at X. Your partner waits in front of the eastern library. Is “go right” correct? State destination and waiting place separately.’ DE ‘Neue Karte: Haltestelle im Norden, Bibliothek im Osten, Café im Süden, Brücke im Westen, X in der Mitte. Blicke am X nach Norden. Das Gegenüber wartet vor der östlichen Bibliothek. Stimmt „rechts“? Nenne Ziel und Warteort getrennt.’ Hidden key: yes; 도서관에 가요 / 도서관 앞에서 기다려요. Destination/place language is familiar; spatial arrangement is changed.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "CUR-A12-08",
+      "unitId": "A1.2-06",
+      "severity": "required",
+      "location": "묶음 C / 새 확인 C: ... 흐린 하늘의 비 예상과 그 자원 발화를 구별해요",
+      "problem": "GRAMMAR_ALLOCATION row46 assigns conjectural 겠 as productive. Models and checks only choose/identify which supplied sentence is conjecture, while the learner produces a commitment. The productive forecast target lacks a learner utterance.",
+      "proposal": "Append a short separate turn, with answer hidden until attempted: KO ‘다음 카드에는 어두운 구름이 보여요. 아직 비는 오지 않아요. 비가 올 것 같다는 추측을 -겠-으로 한 문장 말해요. 관찰된 비나 확정 예보로 말하지 않아요.’ EN ‘The next card shows dark clouds; it is not raining yet. Use -겠- to say one sentence predicting rain. Present it as a guess, not observed rain or a confirmed forecast.’ DE ‘Die nächste Karte zeigt dunkle Wolken; noch regnet es nicht. Vermute mit -겠- in einem Satz, dass Regen kommt. Formuliere es als Vermutung, nicht als beobachteten Regen oder sichere Vorhersage.’ Hidden possible response 비가 오겠어요. Keep this separate from 제가 연락하겠어요 and from the integrated plan task.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

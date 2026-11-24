@@ -279,14 +279,20 @@ void main() {
       expect(find.text('2 / 34'), findsOneWidget);
     });
 
-    testWidgets('필기 선택과 이동·지우기·더 보기 조작은 한 행과 48dp 영역을 유지한다', (tester) async {
+    testWidgets('필기 선택과 이동·더 보기 조작은 한 행, 지우기는 종이 위에서 48dp 영역을 유지한다', (
+      tester,
+    ) async {
       await pumpScreen(tester, tab: 2);
       final t = _l10n(tester);
+      // 2026-11-21 mockup: clearing sits on the paper it clears.
+      final clear = tester.getRect(_button(t.hangulClearBtn));
+      final paper = tester.getRect(find.byKey(const Key('trace-canvas')));
+      expect(math.min(clear.width, clear.height), greaterThanOrEqualTo(48));
+      expect(clear.bottom, lessThan(paper.bottom));
       final controls = [
         _button(t.btnPrev),
         find.byKey(const Key('hangul-writing-selection')),
         _button(t.btnNext),
-        _button(t.hangulClearBtn),
         _button(t.atelierMore),
       ];
       final centerY = tester.getRect(controls.first).center.dy;

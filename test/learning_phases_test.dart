@@ -94,6 +94,7 @@ void main() {
               as Map<String, dynamic>;
       final changed = jsonDecode(jsonEncode(raw)) as Map<String, dynamic>;
       changed['phases'][0]['taskIds'] = ['KP01:missing'];
+      changed['phases'][0].remove('steps');
       final changedPhases = LearningPhaseCatalog.parse(changed, units);
       expect(
         () => LearningPhaseCatalog.validateTasks(changed, changedPhases, tasks),

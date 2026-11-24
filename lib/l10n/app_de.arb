@@ -541,6 +541,8 @@
   "screenVocabTitle": "Karteikarten",
   "screenGrammarTitle": "Grammatik",
   "screenWordleTitle": "Silben-Rätsel",
+  "silbenPlaceInstruction": "Feld wählen · Silbe antippen",
+  "silbenPoolTitle": "Deine Silben",
   "silbenEmptyBody": "Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.",
   "silbenCellPosition": "Zeile {row}, Spalte {column}",
   "@silbenCellPosition": {
@@ -4977,12 +4979,30 @@
   "phaseTaskNeedsPractice": "Noch üben: Prüfe die Erklärungen.",
   "phaseTaskUnscored": "Versuch gespeichert · Bedeutung nicht automatisch bewertet",
   "phaseTaskPlay": "Anhören",
+  "phaseTaskRomanizationToggle": "Umschrift",
+  "phaseTaskExampleListen": "Beispiel anhören: {text}",
+  "@phaseTaskExampleListen": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
   "phaseTaskRecord": "Aufnehmen",
   "phaseTaskStop": "Aufnahme beenden",
   "phaseTaskReplay": "Aufnahme anhören",
   "phaseTaskError": "Das hat nicht geklappt. Prüfe Ton, Mikrofon und Verbindung und versuche es erneut.",
   "phaseTaskAccountChanged": "Dein Konto hat sich geändert. Öffne die Aufgabe erneut.",
   "phaseTaskRecordingNotice": "Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.",
+  "phaseStepDone": "Schritt abgeschlossen",
+  "phaseStepNext": "Nächster Schritt: {title}",
+  "@phaseStepNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "phaseTaskHistory": "Bewertete Kriterien bereits erfüllt",
   "phaseTaskAudioRequired": "Höre zuerst die Aufnahme an.",
   "phaseTaskPracticeComplete": "Übung gespeichert. Der Punktwert gilt für diese Übung.",
@@ -5731,29 +5751,22 @@
   "grammarBookExample": "Beispiel",
   "atelierAutoOff": "Auto weiter: Aus",
   "atelierAutoOn": "Auto weiter: An",
-  "atelierChartHint": "19 Konsonanten · Im Feld nach oben oder unten wischen.",
-  "atelierDemo": "Strichfolge zeigen",
+  "atelierDemoShort": "Vormachen",
   "atelierDemoEnd": "Vorführung beenden",
   "atelierDemoNext": "Nächster Strich",
-  "atelierDemoPhase": "Schau zu",
   "atelierDemoRestart": "Neu vorführen",
   "atelierDifficult": "Schwierige",
   "atelierDiscover": "Silben entdecken",
-  "atelierDonePhase": "Geschafft",
-  "atelierFeedHint": "Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.",
-  "atelierFinish": "Übung abschließen",
   "atelierFlipHint": "Tippen zum Umdrehen",
   "atelierKnown": "Gewusst",
   "atelierMore": "Mehr",
   "atelierNotYet": "Nicht gewusst",
-  "atelierPracticePhase": "Du bist dran",
   "atelierRandom": "Zufällige Karte",
   "atelierRemember": "Merken",
   "atelierSaveFailed": "Noch nicht gespeichert. Bitte erneut versuchen.",
   "atelierShare": "Teilen",
   "atelierSkip": "Überspringen",
   "atelierStructure": "Silbenaufbau",
-  "atelierSubtitle": "Zeichen · Klang · Handschrift",
   "atelierUseInChart": "In der Silbentafel auswählen",
   "atelierWatchBrush": "Zuerst ansehen. Dann selbst schreiben.",
   "cHangulCardsReceipt": "{count, plural, =1{1 Kartenaktion in dieser Übung} other{{count} Kartenaktionen in dieser Übung}}",
@@ -6077,6 +6090,34 @@
       }
     }
   },
+  "approvedQuizTitle": "Wörter-Quiz",
+  "approvedQuizCorrect": "{count} richtig",
+  "@approvedQuizCorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedQuizChooseMeaning": "Wähle die Bedeutung.",
+  "approvedGameListen": "Anhören",
+  "approvedMatchingTitle": "Paare finden",
+  "approvedMatchingInstruction": "Erst Koreanisch, dann die Bedeutung.",
+  "approvedMatchingCounter": "{count} von {total} Paaren",
+  "@approvedMatchingCounter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedMatchingPickKorean": "Tippe auf ein koreanisches Wort.",
+  "approvedMatchingPickMeaning": "Wähle jetzt die passende Bedeutung.",
+  "approvedMatchingRetry": "Tippe auf die passende Bedeutung.",
+  "approvedMatchingFound": "Ein Paar gefunden.",
   "pronunciationPracticeRhythm": "Satzrhythmus üben",
   "pronunciationCompareVoices": "Stimmen vergleichen",
   "pronunciationModelListen": "Satz hören",

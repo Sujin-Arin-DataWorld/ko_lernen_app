@@ -1,0 +1,56 @@
+{
+  "role": "ko-de",
+  "humanApprovalClaim": false,
+  "audioListened": false,
+  "status": "MODEL_KO_DE_DELTA_ACCEPTED_WITH_OPEN_LEARNER_SUPPORT_QUEUE",
+  "reviewScope": "Prior full three-file reading reused at exact hashes; all ten changed DE spans and added EN support directly reread; reversing declared DE/EN edits reconstructs original whole-file hashes. No unseen unit claimed.",
+  "files": [
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.sound-signs.md",
+      "currentSha256": "648f6f1a9da9bd28f7ecafbbba0f82e3b2b56f57e81f223b5bd528435eb2a850",
+      "priorFullReadSha256": "ead9eb91f1f3cff768127e234c0a33a8efc229014dd8a48218b219098c45013d",
+      "reconstructedPriorSha256Matches": true,
+      "acceptedDEProposals": [
+        "F01-KODE-001",
+        "F01-KODE-002",
+        "F01-KODE-003",
+        "F01-KODE-004",
+        "F01-KODE-005"
+      ],
+      "newEnglishSupportReadForAlignment": [
+        "**EN** Here you practise **ㅇ·ㅏ·ㅓ → 아·어**. You connect the sounds of these syllables with their written shapes; you do not need to know any meanings they may have as words. This follows your arrival at the remembered house and the request to restore it. Next come 오 and 우 in **F0.1.above-below**."
+      ]
+    },
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.above-below.md",
+      "currentSha256": "236464531b4282b273de73fdde4537d8e24f02678ef15f4bbdea5bfe9cc14ffb",
+      "priorFullReadSha256": "b574edd29ffdc4c16cc870fdcebf06e3b55d5428bda528e5696eb08e2a0df076",
+      "reconstructedPriorSha256Matches": true,
+      "acceptedDEProposals": [
+        "F01-KODE-006",
+        "F01-KODE-007"
+      ],
+      "newEnglishSupportReadForAlignment": [
+        "**EN** As before, ㅇ in the first position adds no consonant sound. Learn ㅗ and ㅜ as two separate letters. Notice the direction of each stroke rather than just turning a piece around. A picture of the lips or a single Roman letter cannot replace a Korean sound example.",
+        "**EN** In **F0.1.sound-signs**, you met ㅇ, ㅏ and ㅓ in 아 and 어. The new symbols here are **ㅗ·ㅜ → 오·우**. Next come ㅡ and ㅣ in **F0.1.straight-lines**. If the earlier letters are unfamiliar, you can have a short introduction before joining in."
+      ]
+    },
+    {
+      "file": "C:\\dev\\hangulsori\\_codex_artifacts\\season1-manuscripts-20261105\\manuscripts\\F0.1.straight-lines.md",
+      "currentSha256": "64c4f8c54fe7f1ccfe6e92f4cba9e9b751f4ae61c6ee7cb7b0bb9d1212bcbb26",
+      "priorFullReadSha256": "fb699fa881a251bbf518964a467a0249b3cb0e44bc46b77ff8554c76b7acbc92",
+      "reconstructedPriorSha256Matches": true,
+      "acceptedDEProposals": [
+        "F01-KODE-008",
+        "F01-KODE-009",
+        "F01-KODE-010"
+      ],
+      "newEnglishSupportReadForAlignment": [
+        "**EN** Here you rebuild **the six syllables you have practised**. This does not test new words or your command of the whole writing system. If you have not learned a letter yet, ask to see it first. Working with that example is supported practice, and that is fine.",
+        "**EN** Do not treat the spelling eu as an English sound guide for 으. 으 is not the same sound as German ü either. Listen to the Korean example and connect it with 으. A picture alone cannot tell us how you actually pronounce it.",
+        "**EN** This follows **F0.1.above-below** and leads to **F0.2.first-names**. The new symbols are **ㅡ·ㅣ → 으·이**. You are not being asked about other meanings of 이, such as the number two or a tooth. You will learn ㄴ and ㅁ in the next unit."
+      ]
+    }
+  ],
+  "remaining": "Other learner-facing instructions and transition tasks still partly KO-only, as documented in reviews/ko-en/F0_A1_AUTHOR_FOLLOWUPS.md. These are not closed by the ten accepted changes. Final complete three-language manuscript acceptance remains pending."
+}

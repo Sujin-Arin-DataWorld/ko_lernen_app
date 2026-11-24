@@ -1,0 +1,118 @@
+{
+  "role": "ko-en",
+  "model": "gpt-6-astra",
+  "effort": "max",
+  "units": [
+    {
+      "unitId": "B2.1-01",
+      "sha256": "b2b8ee51732b6a6ee7263f918e82954d68ab5a36173a7fa8de0ea87021b66ea0",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Six groups: A=120 visits, B=80 distinct visitors; video 70 plays/40 viewers not equivalent. Mon40 Tue60 => +20 visits; Fri30 Sat45 rentals => +15 rentals, Sat25 distinct borrowers another metric. Record orders/check payments with -으며 and nouns drinks/quantities/prices with -이며. Volunteer role -으로서; duplicate check by reservation numbers -으로써. Map:route and recipe sequence:cooking process analogy -듯이. Practice60/70/80 and hours1/2/3 association; users10/20/30 vs waits2/4/6 association only, staff count absent. Script: misread120visits as120people; growth/satisfaction unavailable; repeat reasons unknown. Independent B: June40/100members40%, July30/50invitees60%, unequal populations. Transfer 6/10courses60% online but80/200learners40%; no claim majoritylearners online. Open variants and help/independent separation pass."
+    },
+    {
+      "unitId": "B2.1-02",
+      "sha256": "9a59de9d090858e70405e623f9f0c19330b67e058442a2d3790530f1a0e60898",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "Five groups: observed clouds then rain versus completed packing then moved box; new video saved, screen flickered then off, restarted; no fault cause. Support correct reversal: blocked passage caused late entry; new leak wet floor (-는 바람에), wet floor motivated raising boxes (-기에). Only Lena's reported missed guidance supported, not intentional disruption; new Minho reported notifications prevented hearing, 탓에 attribution/통에 confusion with no culprit. Inspection-time departures not caused by inspection; new cable damage confirmed screen failure, two departed during replacement for unknown reasons. -는 김에 original sign update/additional tablecheck; new 책을 돌려주러 가는 김에 다음 독서 모임 날짜도 알아봐 줄래요? Script: rename cause box possibilities to check; retain known sendtime separate from lateevaluation; report asked/answered populations. Independent B, +15 applicants following notice and extension with separateeffects unknown. Four-sentence transfer: hours extended and racks10→20; uses90→130 same rule; separateeffects and need unknown; while checking hours tomorrow ask investigationplan. Reply unknown≠noeffect. Smalltalk accepts empathy/preparation time, rejects rainblame. Full initial output middle truncated; omitted §5다–마 separately read in full."
+    },
+    {
+      "unitId": "B2.1-03",
+      "sha256": "3cfb6eecd06c0eac53a33063a1f5655ed236b6b9b2c70e33dcdbf028fe9612c7",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [
+        "EN-B21-01"
+      ],
+      "solutions": "§5 support facts Lena received samequestion3times/Maya finishedpacking, feelings fatigue/relief attributed separately. New joke6times impedesfocus -어 대다, completed postponedtidying relieved -어 버리다; no deliberateintent. Umbrella almostleft but retrieved; Daniel almostleftbag but tookit, tiredness his tentative -어서인지 cause. Door Aopening -고 있다/Bopen -어 있다; new Lena attachingposter11:00, posterattached11:05 with no motive. Script: wrongaddressdispatch avoided; addresscheck≠sent; writingcomplete stilldoesnotestablishdispatch. Smalltalk allows rest/readiness, lossreport wrong. Independent B (unbrokenplate rests;shelfcleaningongoing), Afalsebreakage/Cfalsecompletion. Transfer3sentences: ball nearlybrokewindow buthitwall/windowintact; someone searching norecoveryreport; motiveunknown. Reply -어 버리다 conveyscompletion/attitude notproofintent. Models and EN scope sound; optional precision to KO answer attribution."
+    },
+    {
+      "unitId": "B2.1-04",
+      "sha256": "5370c540700db3050006c60f85d4cc89e45fce9aff720e2facd60b46369397fa",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-B21-04"
+      ],
+      "solutions": "§3 correct notice retains attendance without reading, borrowable pencils/optionalquestions,18prior materialsquestions with newnotice unsent/noeffectknown. §5 table20→12min shared evidence -다시피, onlineapplications added -거니와 no causation; freshmap larger streetnames plus restmarkers, no navigationoutcome. Correct42applicants/30seats/twosessions; new24people18umbrellas=>6short, source 에의하면 plus reason 으므로, norainforecast. Rule-based 에의하여 distinct receptive contrast. Labelsrecommended notmandatory, hope≠success. Newwordlist sent to examinewords 고자; nomemorisation/test. 따름 gratitude recognition answer① notfutureobligation. Script: purposemisread asprior-readingcondition; pencil/advancequestions optional; leadwithparticipation/optionality retainingpurpose. Independent C,12questionsreceived no waitingmeasurement; Afalseeffect+obligation/Bfalsezeroquestions. Transfertwosentencepermission/on-sitepaperchoice, threesentencenotice startswithchoice retainswastereductionpurpose and optionaladvancepreference; reply unmeasured≠ineffective. Smalltalkactualpartialreading reciprocalhelp bothaccepted."
+    },
+    {
+      "unitId": "B2.1-05",
+      "sha256": "b869521bc84b21bf83aa777e2e544020b7ac5b4501da4a770db6bf389babe265",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "NEEDS_FIX",
+      "findingIds": [
+        "EN-B21-02",
+        "EN-B21-03"
+      ],
+      "solutions": "§5 tentative staffleft/noonevisible notproof; theatre perhapsended orinterval, peopleappearpreparingleave, backdrop impliespossible tomorrowshow unconfirmed. Regret choice 어제확인할걸; fresh 어제배터리를충전해둘걸 notfuturepromise. Files A title/date survive bodyabsent; B date survives body/titleabsent; 마저 notallmaterials. Fourfresh: 관객까지chairs; 남은지도마저wet; 표지판이야visiblebutnodetailedguidance; 설명은커녕방번호도no. Support Maya misunderstanding/Lena persistentquestions separate; fresh applicant 듣고도 misunderstood, observer 느꼈어요 따지고들다 attributed, motiveunknown. Support Maya applied, Lena noapplication busy+far and futurefilereceiptpromise. Fresh proposal예약하고보자 notbooking, highcost+clash 고해서, coordinator reply 확인하는대로 future. Script4: notcheckingyesterdayregret; nextdoorpreparation notthisroomavailability; severalconstraints; no definitecancellation/unavailable/reply. Smalltalk wait/shareumbrella alternatives no weatherpromise. Independent B (guide/list gone suppliesremain). Transfer4sentences: proposalnotapplication; highcost+clash pending; questionsentnoreply; shareonreceipt. Reject record-as-done; openvariants."
+    },
+    {
+      "unitId": "B2.1-06",
+      "sha256": "58c20a45b161b4c3b5f491431a751993dd676141241774090d946ca6e9de1abe",
+      "fullTextRead": true,
+      "tasksSolvedAsText": true,
+      "verdict": "PASS",
+      "findingIds": [],
+      "solutions": "§3 20→30distinctmonthlypeople,2→3sessions. Cannot recover actualsessionattendance as10 from distinctmonthlytotal dividedbysessions; unknownrepeatpatterns. Article'sgrowinginterest interpretation≠populationstudy/formatcause. Support photoscommonbluehat, Aholdsbox/Bemptyhands; identity/returnunconfirmed. Fresh12inpersonsignups+8onlinebookers cannotclaim20actualparticipants because overlap+attendance unknown. Script:50→70applications +20notnewpeople;45distincteachtime, differencenotcontradiction; repeatapplicationreasons unknown/noticeboardcausationunknown. Independent C: June900/20=45perday, July1200/30=40; totalsupdailyaveragedown. Four-sentence freshwalkreport:24→36people2→4sessions;article interpretsnoticeeffect; reasonsunaskedcausationunconfirmed;Junecountundecided/no continuinggrowthproof. Replybothcause+futureunknown. Transfer30seatsstairsversus20seatslift25people =>old5short,newenoughseatsbutaccessneedsunknown; ask beforedeciding alternatives. No fabricatedaccessneed oronesolution."
+    }
+  ],
+  "findings": [
+    {
+      "id": "EN-B21-01",
+      "unitId": "B2.1-03",
+      "severity": "optional",
+      "location": "§6 답·근거 ② ‘주소 확인만 끝났는데 발송·작성까지 묶었다’",
+      "problem": "Maya initially equates address checking with dispatch; she never explicitly bundles address writing into the initial finished claim. English explains the actual states accurately, but the KO key slightly overattributes her error.",
+      "proposal": "KO: ‘② 주소 확인 완료를 발송 완료로 넓혔다(마야 첫·세 번째 발화). 새 주소 작성은 아직 진행 중이다.’ EN: ‘(2) She treated completion of the address check as completion of dispatch. The new address is still being written.’",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    },
+    {
+      "id": "EN-B21-02",
+      "unitId": "B2.1-05",
+      "severity": "required",
+      "location": "§5 라 새 예 EN ‘You felt pressured questioning; motives are unknown.’",
+      "problem": "The English fragment is ungrammatical and can make the observer the person pressured to ask questions. KO says the observer judged the applicant's questioning to be forceful. This reverses the perspective being practised.",
+      "proposal": "Replace that sentence with: ‘You felt the applicant was pressing the issue; their motives are unknown.’",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-B21-03",
+      "unitId": "B2.1-05",
+      "severity": "required",
+      "location": "§9 잘못 줄인 문장 EN ‘After delaying only because of cost, we applied and received the answer.’",
+      "problem": "‘Only’ adds an explicit exclusive-cause assertion absent from KO ‘비용 때문에 미뤘다가’. In a unit devoted to scope and multiple reasons, the faulty draft itself should have the same claim across languages.",
+      "proposal": "Replace EN with: ‘After postponing because of the cost, we completed the application and received the coordinator’s reply.’ This preserves the erroneous completion claims without adding an extra exclusivity marker.",
+      "affectedLanguages": [
+        "EN"
+      ]
+    },
+    {
+      "id": "EN-B21-04",
+      "unitId": "B2.1-04",
+      "severity": "required",
+      "location": "§5 나 ‘이번 새 예의 생산 목표는 출처를 밝히는 에 의하면이며, 에 의하여는 이 대조 문맥에서 이해한다.’; §10 allocation claim",
+      "problem": "Live GRAMMAR_ALLOCATION row217 assigns 에 의하여 as productive_target with function ‘규정·행위자·근거에 의한 결과를 말하기’. The manuscript explicitly downgrades it to recognition and substitutes 에 의하면 source citation. The source/under distinction is correctly explained, but no independent output practises the assigned form/function; the claim all five productive allocations are covered is therefore inaccurate.",
+      "proposal": "Keep the useful source contrast, but replace the final contrast sentence with KO ‘에 의하여의 규정에 따른 실행을 직접 산출하며, 에 의하면은 정보 출처를 나타내는 대조 표현으로 함께 살펴본다.’ EN ‘The productive target is action under an explicit rule with 에 의하여. 에 의하면 is a contrasting way to identify an information source.’ Add supported identification: KO ‘운영 규정에 의하여 신청 순서대로 자리를 배정한다’에서 근거 규정과 실행을 나누어 표시한다. EN ‘Mark the governing rule and the action separately in the seating example.’ Add fresh production before its model: KO ‘모임의 대여 규정에는 장비를 반납하기 전에 상태를 확인한다고 적혀 있다. 이 규정에 따라 하는 행동을 에 의하여로 한 문장 쓴다.’ EN ‘The group’s borrowing rules require equipment to be checked before return. Describe that rule-based action in one Korean sentence using 에 의하여.’ Collapsed model KO ‘대여 규정에 의하여 반납 전에 장비 상태를 확인합니다.’ EN ‘Under the borrowing rules, the equipment’s condition is checked before it is returned.’ Accept equivalent subjects and natural wording preserving the rule; update DE and §10 to reflect actual productive coverage.",
+      "affectedLanguages": [
+        "KO",
+        "EN",
+        "DE"
+      ]
+    }
+  ]
+}

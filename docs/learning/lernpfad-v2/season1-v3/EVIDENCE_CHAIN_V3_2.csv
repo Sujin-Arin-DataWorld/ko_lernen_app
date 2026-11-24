@@ -1,0 +1,13 @@
+﻿clue_id,name,default_episode,observed,source_lineage,not_proven,correlation_not_identity,duplicate_copy_is_not_independent,fallback
+S1-E01,메달,S1-P,메달을 받았고 반응함,medal_object,문양으로 과거 소유자·노인 신원을 확정하지 않음,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E02,심지,S1-01,집에서 심지를 받아 실제로 썼음,house_receipts,선물 발신인은 아직 모름,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E03,빈 상자·포장,S1-01,남은 포장과 수령 흔적을 보관함,house_receipts,소모품 전체가 500년 실물 보존된 것은 아님,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E04,인영,S1-02,급히 문을 지나는 사람의 제한된 모습,bounded_past_memory,도둑·의도·신원 확정 아님,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E05,책 꾸러미,S1-03,연이가 책을 들고 떠남,private_text_corpus,운반=작성·소유·절도라고 단정하지 않음,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E06,가족의 말,S1-04,연이와 도깨비의 가족 대화,direct_conversation_memory,수진의 과거 목격 증언 아님,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E07,씨앗,S1-05,발신인 없는 씨앗을 심었음,house_receipts,계절·꽃·매듭만으로 신원 확정 금지,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E08,집 안 수령 장부,S1-07,"물품·수령 시기·중간 전달자, 별도 수탁 기록과의 대응",house_receipts;external_receipts,한 원문의 복제는 독립 증거 아님,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E09,탈·공부책,S1-08,탈선비의 탄생과 연이의 공부,study_book_and_talsunbi_experience,떠난 뒤 연이의 생애는 책이 알지 못함,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E10,구출 기억,S1-09,태고·조이가 마지막 힘으로 연이를 구했고 직후 살아 있었음,two_guardians_bounded_memory,긴 생애·물품 발신인은 별도 확인,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E11,발송·수령·전승 경로,S1-10,외부 사본과 별도 기록을 식별해 연이의 긴 생애와 선물 연결 확인,yeoni_dispatch;external_receipts;house_receipts;copy_colophon,필체·계절·포장만으로 판정하지 않음,true,true,translated_or_picture_journal_no_language_or_building_gate
+S1-E12,마지막 편지,S1-10,출처 경위를 밝힌 창작 편지 사본의 말,yeoni_letter_via_copy,국가 사료·마법 인증·늦춘 해독 잠금 아님,true,true,translated_or_picture_journal_no_language_or_building_gate

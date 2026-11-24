@@ -249,6 +249,13 @@ void main() {
       find.byKey(const ValueKey('sarangchae-stage-artwork-8')),
       findsOneWidget,
     );
+    // The culture-stories entry card sits above the lesson, so the reloaded
+    // lesson title can start below the lazily built viewport.
+    await tester.scrollUntilVisible(
+      find.text('Title 8'),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Title 8'), findsOneWidget);
   });
 

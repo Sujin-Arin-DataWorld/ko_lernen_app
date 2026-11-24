@@ -167,6 +167,13 @@ SURFACES: tuple[ContentSurface, ...] = (
         "DE/EN pattern names and explanations",
     ),
     ContentSurface(
+        "hangul_foundation.json",
+        "Hangul-Start foundation track and Kurztest",
+        "HangulFoundationCatalog",
+        ("lessons",),
+        "KO syllables/words and KO/DE/EN lesson titles, explanations and glosses",
+    ),
+    ContentSurface(
         "kkeunmari_pool.json",
         "word-chain pool",
         "KkeunmariEngine",

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -21,9 +22,10 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_games/approved_game_material.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
+import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
@@ -31,6 +33,7 @@ import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/sori_speech_stubs.dart';
+import 'support/viewport_pages.dart';
 
 const _safeInsets = EdgeInsets.only(top: 44, bottom: 34);
 late ByteData _assetManifest;
@@ -402,8 +405,12 @@ void main() {
 
           expect(game.ready, findsOneWidget, reason: game.name);
           expect(find.byType(SoriStudyFrame), findsOneWidget);
+          // Approved game surfaces replace the chrome home action with the
+          // shared game navigation; legacy surfaces keep SoriHomeAction.
           expect(
-            find.byType(SoriHomeAction),
+            find.byWidgetPredicate(
+              (w) => w is SoriHomeAction || w is ApprovedGameNavigation,
+            ),
             findsOneWidget,
             reason: game.name,
           );
@@ -422,8 +429,10 @@ void main() {
           // §B2(2026-09-03): every SoriStudyFrame screen now shares the same
           // frame-owned close (X) icon — the per-screen arrow-back/close
           // split this used to check is gone.
+          // Approved game surfaces draw their own close artwork; the
+          // frame-owned SoriCloseAction remains the single close control.
           expect(
-            find.byIcon(Icons.close_rounded),
+            find.byType(SoriCloseAction),
             findsOneWidget,
             reason: game.name,
           );
@@ -447,8 +456,11 @@ void main() {
             'speed' => find.byKey(const ValueKey('speed-match-left-가방')),
             _ => throw StateError(game.name),
           };
+          // A focused field scrolls its caret on screen; let that settle so
+          // the target is measured where a learner would actually tap it.
+          await _settleScrolls(tester);
           await tester.ensureVisible(target.first);
-          await tester.pump();
+          await _settleScrolls(tester);
           expect(target, findsWidgets, reason: game.name);
           await _tapWithFatalHitTest(tester, target.first);
           expect(tester.takeException(), isNull, reason: game.name);
@@ -720,7 +732,7 @@ void main() {
         );
       }
       if (key != 'assets/data/kkeunmari_pool.json') {
-        return null;
+        return _diskAsset(key);
       }
       poolReads += 1;
       final raw = poolReads == 1
@@ -778,7 +790,7 @@ void main() {
         return _assetManifest;
       }
       if (key != 'assets/data/silben_puzzles.json') {
-        return null;
+        return _diskAsset(key);
       }
       puzzleReads += 1;
       final raw = puzzleReads == 1
@@ -904,12 +916,22 @@ void main() {
       textScale: 1.3,
     );
     // The initial clue is meaning only. The new sentence belongs to requested help.
-    final clue = find.bySemanticsLabel('Ghana');
-    await _pumpUntil(tester, clue);
+    // The approved clue list reads number, direction and meaning together.
+    // Enlarged text pages the board, and off-page sections leave the
+    // semantics tree, so bring each target's page forward before reading it.
+    await _pumpUntil(tester, find.byKey(const ValueKey('silben-clue-0')));
+    await showViewportSection(
+      tester,
+      find.byKey(const ValueKey('silben-clue-0')),
+    );
+    final clue = find.bySemanticsLabel(RegExp(r'^1\. Waagerecht\. Ghana$'));
     _expectButton(tester, clue);
     expect(find.text('Ich fahre nach Ghana.'), findsNothing);
-    _expectButton(tester, find.bySemanticsLabel(de.filterLevel), minHeight: 48);
-    final silbenLevelButton = find.byIcon(Icons.tune_rounded);
+    // The approved header shows the level code; its label carries progress.
+    final silbenLevelButton = find.bySemanticsLabel(
+      RegExp('^${RegExp.escape(de.filterLevel)}: A1 · '),
+    );
+    _expectButton(tester, silbenLevelButton, minHeight: 48);
     await tester.ensureVisible(silbenLevelButton);
     await tester.tap(silbenLevelButton);
     await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
@@ -920,10 +942,18 @@ void main() {
     );
     await tester.binding.handlePopRoute();
     await tester.pump(const Duration(milliseconds: 300));
+    await showViewportSection(
+      tester,
+      find.byKey(const ValueKey('silben-cell-0-0')),
+    );
     _expectButton(tester, find.byKey(const ValueKey('silben-cell-0-0')));
     final syllableTile = find.bySemanticsLabel('가');
+    await showViewportSection(tester, syllableTile);
     _expectButton(tester, syllableTile);
-    expect(tester.getSize(syllableTile), const Size(48, 48));
+    // Approved syllable tiles widen with enlarged text; keep the 48 dp floor.
+    final syllableSize = tester.getSize(syllableTile);
+    expect(syllableSize.width, greaterThanOrEqualTo(48));
+    expect(syllableSize.height, greaterThanOrEqualTo(48));
 
     await _pumpPhone(
       tester,
@@ -1144,6 +1174,18 @@ Future<void> _tapVisible(WidgetTester tester, Finder finder) async {
   await tester.pump();
 }
 
+/// Pumps until no [Scrollable] is running a driven or ballistic scroll.
+/// Scrollables ignore pointers while such an activity is active.
+Future<void> _settleScrolls(WidgetTester tester) async {
+  for (var frame = 0; frame < 40; frame++) {
+    await tester.pump(const Duration(milliseconds: 50));
+    final busy = tester
+        .stateList<ScrollableState>(find.byType(Scrollable))
+        .any((state) => state.position.isScrollingNotifier.value);
+    if (!busy) return;
+  }
+}
+
 Future<void> _tapWithFatalHitTest(WidgetTester tester, Finder finder) async {
   final previous = WidgetController.hitTestWarningShouldBeFatal;
   WidgetController.hitTestWarningShouldBeFatal = true;
@@ -1178,7 +1220,7 @@ Finder _soriButton(String label) => find.byWidgetPredicate(
 );
 
 SoriHomeEscape _homeEscape(WidgetTester tester) =>
-    tester.widget<SoriHomeAction>(find.byType(SoriHomeAction)).escape;
+    tester.widget<SoriStudyFrame>(find.byType(SoriStudyFrame)).homeEscape;
 
 void _expectLiveRegion(WidgetTester tester, String label) {
   final finder = _liveRegionWidget(label);
@@ -1237,4 +1279,17 @@ void _expectSelectedDisabledChoice(
   expect(data.flagsCollection.isSelected, ui.Tristate.isTrue);
   expect(data.hasAction(ui.SemanticsAction.tap), isFalse);
   expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
+}
+
+/// Approved game artwork still loads from disk while a test overrides one
+/// data asset. Data files stay unavailable as before: large JSON is decoded
+/// on a background isolate, which never completes under the fake test clock.
+ByteData? _diskAsset(String key) {
+  final file = File(key);
+  if (!key.startsWith('assets/') ||
+      key.startsWith('assets/data/') ||
+      !file.existsSync()) {
+    return null;
+  }
+  return ByteData.sublistView(file.readAsBytesSync());
 }

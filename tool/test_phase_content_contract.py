@@ -6,6 +6,7 @@ import shutil
 from pathlib import Path
 
 from tool.build_phase_tasks import build, validate_task, fingerprint
+from tool import build_learning_phase_catalog as catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -173,3 +174,36 @@ class PhaseContentContractTest(unittest.TestCase):
                 review_path.write_text(json.dumps(review),encoding='utf-8')
                 with self.assertRaises(ValueError):
                     build(root)
+
+
+class PhaseStepsContractTests(unittest.TestCase):
+    def _published(self):
+        return json.loads((ROOT / 'assets/data/learning_phases.json').read_text(encoding='utf-8'))
+
+    def test_kp01_steps_partition_phase_tasks_in_order(self):
+        phases = {p['id']: p for p in self._published()['phases']}
+        kp01 = phases['KP01']
+        self.assertEqual([s['id'] for s in kp01['steps']], ['KP01.1', 'KP01.2', 'KP01.3', 'KP01.4'])
+        flat = [t for s in kp01['steps'] for t in s['taskIds']]
+        self.assertEqual(len(flat), len(set(flat)))
+        self.assertEqual(set(flat), set(kp01['taskIds']))
+        self.assertTrue(all(set(s['title']) == {'ko', 'de', 'en'} for s in kp01['steps']))
+        self.assertTrue(all('steps' not in p for pid, p in phases.items() if pid != 'KP01'))
+        self.assertIn('stepsSourceSha256', self._published())
+
+    def test_invalid_steps_fail_closed(self):
+        output = [{'id': 'KP01', 'taskIds': ['KP01:a', 'KP01:b']}]
+        title = {'ko': 'a', 'de': 'a', 'en': 'a'}
+
+        def source(*groups):
+            return {'phases': [{'phaseId': 'KP01', 'steps': [
+                {'id': f'KP01.{i}', 'title': title, 'tasks': g} for i, g in enumerate(groups, 1)]}]}
+
+        catalog.apply_steps(output, source(['a'], ['b']))
+        self.assertEqual(output[0]['steps'][1]['taskIds'], ['KP01:b'])
+        for bad in (source(['a']), source(['a', 'b'], ['b']), source(['a', 'x'], ['b']), source(['a', 'b'], [])):
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                catalog.apply_steps([{'id': 'KP01', 'taskIds': ['KP01:a', 'KP01:b']}], bad)
+
+    def test_published_catalog_is_fresh_and_leaves_task_asset_alone(self):
+        self.assertEqual(self._published(), catalog.build(ROOT))

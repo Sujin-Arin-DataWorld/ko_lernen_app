@@ -1,0 +1,1006 @@
+{
+  "appMutationAllowed": false,
+  "synthesisAllowed": false,
+  "units": [
+    {
+      "unitId": "F0.1.sound-signs",
+      "band": "F0.1",
+      "title": "첫자리 ㅇ과 모음의 역할을 알고 아·어를 구별한다",
+      "storyTitle": "서안에서 난 작은 소리",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.1.sound-signs.md",
+      "sha256": "b7bb84466a1cde340dd866977556caea08757cf3b680e34efcbc730ca1ea6a52",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.1.above-below",
+      "band": "F0.1",
+      "title": "가로 모음이 아래에 오는 음절을 조립한다",
+      "storyTitle": "굴러간 모음 받침대",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.1.above-below.md",
+      "sha256": "cb6a1d917a5d1cfbd689b34bb905fa9a809d5fd2a6aa3d49acd53a41375f690f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.1.straight-lines",
+      "band": "F0.1",
+      "title": "ㅡ·ㅣ를 구별하고 여섯 모음을 다시 조립한다",
+      "storyTitle": "너무 빨리 넘긴 책장",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.1.straight-lines.md",
+      "sha256": "f14d42148bb33bf202c0f7e8a4a4a0feff156f4b43f7916a8a865e3d717c5b4a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.2.first-names",
+      "band": "F0.2",
+      "title": "ㄴ·ㅁ을 기본 모음과 결합한다",
+      "storyTitle": "이름 대신 소리표",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.2.first-names.md",
+      "sha256": "e9b96c43ea7419a7928cadf0211e74b731e586ef9623be384edb0f980d250b74",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.2.two-boxes",
+      "band": "F0.2",
+      "title": "ㄱ·ㄷ을 익힌 모음과 결합한다",
+      "storyTitle": "상자 두 개의 배달 경주",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.2.two-boxes.md",
+      "sha256": "3ba06846963b0af2c31f195595e91f359048b478f84e6a1ea6087906ab806135",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.2.ribbon",
+      "band": "F0.2",
+      "title": "ㄹ·ㅂ을 익힌 모음과 결합한다",
+      "storyTitle": "새 정리 끈의 작은 꼬리표",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.2.ribbon.md",
+      "sha256": "838b17518b2b46760c4e6582c319a40234278aed4b230858239e4c3fe82ec60e",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.2.two-tracks",
+      "band": "F0.2",
+      "title": "ㅅ·ㅈ을 모음과 결합한다",
+      "storyTitle": "조이의 두 줄 선반",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.2.two-tracks.md",
+      "sha256": "40f5036c15627daa621e06cc9194edccecc71c1f1c38cfa1c5de70202fd580a4",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.2.warm-breath",
+      "band": "F0.2",
+      "title": "ㅎ이 있는 음절을 읽고 기본 자음 결합을 재사용한다",
+      "storyTitle": "창가의 후와 히",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.2.warm-breath.md",
+      "sha256": "2dbbd2c63946f3aa083f33acdba7e9e8cdde658dcb4329cbe3c3988fb18f2aeb",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.2.tree-and-hat",
+      "band": "F0.2",
+      "title": "배운 글자로 나무·모자를 읽고 뜻·소리와 연결한다",
+      "storyTitle": "모자 쓴 나무는 어디에",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.2.tree-and-hat.md",
+      "sha256": "fd628358357d569257e75525b2d485d535b17b57c98148720d621a567da5df3a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.2.sea-and-bridge",
+      "band": "F0.2",
+      "title": "바다·다리의 소리·표기를 뜻과 연결한다",
+      "storyTitle": "물 위의 길, 물 너머 그림",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.2.sea-and-bridge.md",
+      "sha256": "b0f2567c9aadf8f4fe92ae6edadd173f6a821efc956542d9eb7925bb8fc64795",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.double-strokes",
+      "band": "F0.3",
+      "title": "ㅑ·ㅕ의 소리를 듣고 블록 안 획을 구분한다",
+      "storyTitle": "문패에 한 획이 더",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.double-strokes.md",
+      "sha256": "220cb1f6ac97da085da6d198e5302f89c204edf33e99143d28b05683313a9276",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.two-below",
+      "band": "F0.3",
+      "title": "ㅛ·ㅠ의 음성과 가로 배치를 구별한다",
+      "storyTitle": "아래로 벌어진 두 획",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.two-below.md",
+      "sha256": "3102761f409181dc9b1424d4770b4a101671a9a5fdf4ea296ee3f58909adf3b3",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.air-one",
+      "band": "F0.3",
+      "title": "ㅋ·ㅌ을 ㄱ·ㄷ과 한 쌍씩 대비한다",
+      "storyTitle": "문 앞 한지 실험",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.air-one.md",
+      "sha256": "344ea709700d6ffdfa0b86a5848ad12bdbc83f72fe7142352c65bc2012ddf104",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.air-two",
+      "band": "F0.3",
+      "title": "ㅍ·ㅊ을 ㅂ·ㅈ과 차례로 대비한다",
+      "storyTitle": "찻잔 그림의 자리",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.air-two.md",
+      "sha256": "6e59e3244675c2e16bf657a3bcb4149857ca4b96d4207f21ff4738a4187ce5ba",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.firm-one",
+      "band": "F0.3",
+      "title": "ㄲ·ㄸ을 익힌 대응 자음과 비교한다",
+      "storyTitle": "두 장을 붙인 글자",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.firm-one.md",
+      "sha256": "0f8f6792ba949da55675519f283accd9804c575764184f4520957aee92519736",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.firm-two",
+      "band": "F0.3",
+      "title": "ㅃ·ㅆ·ㅉ을 각각 익히고 대응 소리를 비교한다",
+      "storyTitle": "한 번에 한 서랍",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.firm-two.md",
+      "sha256": "b6e2146b2f82c09c9a13108e191489dbda2bc8ec4dc4b9fe1c254d14ba827ce2",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.near-vowels",
+      "band": "F0.3",
+      "title": "ㅐ·ㅔ의 표기를 구분하고 익힌 단어와 연결한다",
+      "storyTitle": "같이 들려도 다른 표기",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.near-vowels.md",
+      "sha256": "a8a94842c6804457e936eee41d231d0f4c3ab875b532a6fe132f39a4fc59dce9",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.corner-vowels",
+      "band": "F0.3",
+      "title": "ㅘ·ㅝ의 블록 결합을 이해한다",
+      "storyTitle": "모퉁이를 도는 모음",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.corner-vowels.md",
+      "sha256": "b29b55296093107d56f627101d6e195770c759a2a2b2fbba7fbedf754fe63fbf",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.round-corner",
+      "band": "F0.3",
+      "title": "ㅟ·ㅚ의 표기를 익히고 음성을 경험한다",
+      "storyTitle": "위에 놓인 위 카드",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.round-corner.md",
+      "sha256": "d734c015f37c93c189d22d08de261a1dc54a2d180c1f51395f931dbb064434e0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.first-finals",
+      "band": "F0.3",
+      "title": "ㅁ·ㄴ·ㄹ 받침을 아래에 놓고 읽는다",
+      "storyTitle": "받침이 생긴 문패",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.first-finals.md",
+      "sha256": "79c7ec4883859024c3d5fee0897bdb51c3db07cd7bbf98047a0644aac049d552",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.3.silent-or-sounding",
+      "band": "F0.3",
+      "title": "ㅇ이 첫자리와 받침에서 하는 일을 구분한다",
+      "storyTitle": "동그라미의 두 자리",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.3.silent-or-sounding.md",
+      "sha256": "6bb1eeec1af6909a15a3f8a087dbc97561774b6c7fda1a1e02cfd769dcb05260",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.4.closed-endings",
+      "band": "F0.4",
+      "title": "ㄱ·ㄷ·ㅂ 계열 기본 받침의 닫힘을 경험한다",
+      "storyTitle": "등불 아래 닫히는 소리",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.4.closed-endings.md",
+      "sha256": "aca91f2ef20dbcb7bf42015f0c99f7e9cbca641dc220518a7929621d1191f063",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.4.wide-vowels",
+      "band": "F0.4",
+      "title": "ㅙ·ㅞ의 표기를 익히고 소리를 경험한다",
+      "storyTitle": "왜와 웨의 빈 칸",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.4.wide-vowels.md",
+      "sha256": "77a32bf3173897f07553cf5545b7645e3ca9206f27465a044d5c175c5ffd5b82",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.4.small-pair",
+      "band": "F0.4",
+      "title": "ㅒ·ㅖ를 기본·이중 모음과 비교한다",
+      "storyTitle": "예라고 답하는 자리",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.4.small-pair.md",
+      "sha256": "cb5c1c09ed47d4a7357c9cd0b7b3e48495eb5ffea68dedad67e99f8f62ddca7d",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.4.last-vowel",
+      "band": "F0.4",
+      "title": "ㅢ 표기와 의의 소리를 문맥별로 경험한다",
+      "storyTitle": "마지막 모음의 여러 소리",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.4.last-vowel.md",
+      "sha256": "23c024e610906bc4fd23b8af0fa227262e3d5132e12f46ffa9997f6ad0ddaa51",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.4.linked-sounds",
+      "band": "F0.4",
+      "title": "쉬운 받침과 모음 시작 음절의 이어짐을 이해한다",
+      "storyTitle": "붙어서 들리는 두 낱말",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.4.linked-sounds.md",
+      "sha256": "d623578fcf158ea0ff1aba6da722527f824c118c52d3deea872a73ca8d3379b8",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.4.first-input",
+      "band": "F0.4",
+      "title": "익힌 음절·단어를 입력하고 오타를 고친다",
+      "storyTitle": "내 손으로 남긴 집",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.4.first-input.md",
+      "sha256": "ae9103bd75d924e31251b49fc4c18cc481a0ada641daebe98c84f9ef39dfb4ae",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "F0.4.space-and-place",
+      "band": "F0.4",
+      "title": "짧은 익힌 문구에서 단어 경계를 알아보고 응답한다",
+      "storyTitle": "한 칸 띄어 건넨 부탁",
+      "gate": "none",
+      "manuscript": "manuscripts/F0.4.space-and-place.md",
+      "sha256": "5742678618bae951f342c9edd354f53f22cf00e7a222ef22ef75d11d5f21840f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.1-01",
+      "band": "A1.1",
+      "title": "처음 만난 사람과 다시 묻기",
+      "storyTitle": "목소리가 겹친 문 앞",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.1-01.md",
+      "sha256": "c0d8decedb50dbca3e9ffc0e00b06adb4bb258f34fbf701eca76ba13f5fd35b1",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.1-02",
+      "band": "A1.1",
+      "title": "나를 조금 더 소개하기",
+      "storyTitle": "소개판의 빈 칸 하나",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.1-02.md",
+      "sha256": "8f34fb725b910541d77bce38dcf1523859c0eb37d98ab8aca63119f8ddbb9ce0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.1-03",
+      "band": "A1.1",
+      "title": "무엇이 어디에 있나요",
+      "storyTitle": "사라진 듯한 모자",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.1-03.md",
+      "sha256": "d50a3110c1b6c46dec64f99612f86f5f9a0951cc2b268502397a0d9f3b50a026",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.1-04",
+      "band": "A1.1",
+      "title": "필요한 것을 부탁하기",
+      "storyTitle": "말없이 바라본 물컵",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.1-04.md",
+      "sha256": "c3a31ade3b47cb11e9938394c619948234847b682c8bda8dabaefaad097bd88a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.1-05",
+      "band": "A1.1",
+      "title": "내 것과 함께 있는 사람",
+      "storyTitle": "둘이 왔지만 주인은 한 명",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.1-05.md",
+      "sha256": "863d464b5758898b5e23e22f81f71fcf7680cace631d4a729d267a505a8c7b0f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.1-06",
+      "band": "A1.1",
+      "title": "아니에요, 이거예요",
+      "storyTitle": "아니에요 뒤에 놓인 진짜 모자",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.1-06.md",
+      "sha256": "c560db41938522ca76eefab96d7652872ff0ef37e20eb79bb3e7ebd182b9c187",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.2-01",
+      "band": "A1.2",
+      "title": "몇 시부터 몇 시까지",
+      "storyTitle": "새벽에만 열린 시간표",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.2-01.md",
+      "sha256": "83b7187c7734314b02057a9eedaad551ae05799adcba615bf9cb6a510ffac429",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.2-02",
+      "band": "A1.2",
+      "title": "여기에서 어디로",
+      "storyTitle": "맞은편에서 손 흔드는 현아",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.2-02.md",
+      "sha256": "4eff585534c8fd674d0d42e9ba1ac1ff0a9aae1fd546100e3a02a186d93c7e0b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.2-03",
+      "band": "A1.2",
+      "title": "어제와 오늘의 일",
+      "storyTitle": "어제 사진을 오늘로 보낸 날",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.2-03.md",
+      "sha256": "9c0b77d5ba66da1574ef12effb0564797ecc0deac780fedff2d7bb64feb3028e",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.2-04",
+      "band": "A1.2",
+      "title": "얼마나, 누구에게",
+      "storyTitle": "두 병은 누구에게",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.2-04.md",
+      "sha256": "12e6b91970d0d05d530b685c1deaab3f04d0960f5bab2df8ef677c15eb9855c0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.2-05",
+      "band": "A1.2",
+      "title": "하고 싶은 일과 가능한 일",
+      "storyTitle": "원하는 사진과 가능한 사진",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.2-05.md",
+      "sha256": "8b7dce39ffa569ee6604f9f55d7b79e810593e9e71ef3c6265c8ccbdf28d0723",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A1.2-06",
+      "band": "A1.2",
+      "title": "약속이 달라졌어요",
+      "storyTitle": "비가 바꾼 만남",
+      "gate": "none",
+      "manuscript": "manuscripts/A1.2-06.md",
+      "sha256": "f371c6fe5299d12193f0027e3fe8e4640cebb053c6c6f8c1fe7b52c7fb269cbb",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.1-01",
+      "band": "A2.1",
+      "title": "예약을 바꾸기",
+      "storyTitle": "쉴 자리 예약의 조건",
+      "gate": "none",
+      "manuscript": "manuscripts/A2.1-01.md",
+      "sha256": "1f98eb4ffec270b660d4e4e82b9a3f735f99b3abef6ae81143b63d00fdea6310",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.1-02",
+      "band": "A2.1",
+      "title": "바꾸거나 돌려주기",
+      "storyTitle": "맞지 않는 모자의 주인",
+      "gate": "none",
+      "manuscript": "manuscripts/A2.1-02.md",
+      "sha256": "82dcbd7c7f8ed07a6eb15ab07df99b81c60e1b159abafc0d156e1193e39295b3",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.1-03",
+      "band": "A2.1",
+      "title": "여행 중 필요한 안내",
+      "storyTitle": "한 시간마다 오는 버스",
+      "gate": "none",
+      "manuscript": "manuscripts/A2.1-03.md",
+      "sha256": "2f5100d700871a4a4620359c324e6045595a282146a3c45f95d6c8e467dcbe57",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.1-04",
+      "band": "A2.1",
+      "title": "해도 되는 일과 해야 하는 일",
+      "storyTitle": "배탈보다 먼저 묻는 허가",
+      "gate": "none",
+      "manuscript": "manuscripts/A2.1-04.md",
+      "sha256": "1b6dd7c5b419d749a43f4db7c304acd48df0afa402e40582d528cc1317594d70",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.1-05",
+      "band": "A2.1",
+      "title": "누가 무엇을 하는지 설명하기",
+      "storyTitle": "어제 보낸 사진은 어느 것",
+      "gate": "none",
+      "manuscript": "manuscripts/A2.1-05.md",
+      "sha256": "c88b2a67f2410eaf896da19708db87d7d05fb7f21ac10ba5414f61560bb4cec8",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.1-06",
+      "band": "A2.1",
+      "title": "사람에게 맞게 부탁하기",
+      "storyTitle": "선생님께 건네는 말",
+      "gate": "none",
+      "manuscript": "manuscripts/A2.1-06.md",
+      "sha256": "a3bb877dab6b07d1a6046bca55cfaad2bbcdcd5af8c37f2c917ceaf21981350c",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.2-01",
+      "band": "A2.2",
+      "title": "해 본 일, 계속한 일",
+      "storyTitle": "처음 만난 날과 지낸 날",
+      "gate": "S1-E06.middle",
+      "manuscript": "manuscripts/A2.2-01.md",
+      "sha256": "b0af22868ec40e7ccc7156bdafd89d67ca4089a8174c37765778804147d95bea",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.2-02",
+      "band": "A2.2",
+      "title": "하다가 생긴 일",
+      "storyTitle": "사진을 보다가 놓친 이름",
+      "gate": "S1-E06.middle",
+      "manuscript": "manuscripts/A2.2-02.md",
+      "sha256": "5b2e3d01882d5684bb19b178725d99a6709bc5859a7f78ad1880fe32e83a8381",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.2-03",
+      "band": "A2.2",
+      "title": "마음을 듣고 반응하기",
+      "storyTitle": "고개를 돌린 도깨비",
+      "gate": "S1-E06.middle",
+      "manuscript": "manuscripts/A2.2-03.md",
+      "sha256": "f4bbed7c9b45d5a4f66736de0f41f57ff707b4d70129cc85a859b3406c551b69",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.2-04",
+      "band": "A2.2",
+      "title": "약속과 의향을 조정하기",
+      "storyTitle": "연락할게요와 연락하고 싶어요",
+      "gate": "none",
+      "manuscript": "manuscripts/A2.2-04.md",
+      "sha256": "837666d6729825c86443092270921c9ec2731bd2b12ed42f2e1952c09466cfa0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.2-05",
+      "band": "A2.2",
+      "title": "보이는 것과 짐작한 것",
+      "storyTitle": "닫힌 문은 빈집인가",
+      "gate": "S1-E06.middle",
+      "manuscript": "manuscripts/A2.2-05.md",
+      "sha256": "6d262434b34a17962fcc1467afc18a4ff02dce24aaf35a54e6fdf11825769293",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "A2.2-06",
+      "band": "A2.2",
+      "title": "오해를 풀고 돌려주기",
+      "storyTitle": "돌려주는 말부터",
+      "gate": "S1-E06.middle",
+      "manuscript": "manuscripts/A2.2-06.md",
+      "sha256": "dd339eb1bfea4a780c74028b2fffb3dbd1bab5ac76e86c027ad3cf28480f1abb",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.1-01",
+      "band": "B1.1",
+      "title": "기억의 시간선",
+      "storyTitle": "꽃이 없던 자리, 꽃이 핀 자리",
+      "gate": "S1-E07",
+      "manuscript": "manuscripts/B1.1-01.md",
+      "sha256": "3a894afde776f9dcd85c7c01970e58443bc30893b3a2c373a8bac499b0a0ec6f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.1-02",
+      "band": "B1.1",
+      "title": "순서가 뒤섞인 사건",
+      "storyTitle": "꽃보다 먼저 열린 봉투",
+      "gate": "S1-E07",
+      "manuscript": "manuscripts/B1.1-02.md",
+      "sha256": "dd6c26de06bee390e4214191994d8a98431e501656fa8a0b4154dafb1c68b97d",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.1-03",
+      "band": "B1.1",
+      "title": "원인과 남은 결과",
+      "storyTitle": "젖은 우산과 마른 씨앗",
+      "gate": "S1-E07",
+      "manuscript": "manuscripts/B1.1-03.md",
+      "sha256": "a3d96cb2d988f645784148e9dfdfa81f63de96af79081bf004f561cbed9f50c4",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.1-04",
+      "band": "B1.1",
+      "title": "친해져도 확인하기",
+      "storyTitle": "친구가 되어도 먼저 묻기",
+      "gate": "none",
+      "manuscript": "manuscripts/B1.1-04.md",
+      "sha256": "10eda0dd3606e32d0eb3082e614215cb7c179c3bb54153569bfd2e89bf479c6c",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.1-05",
+      "band": "B1.1",
+      "title": "부담을 덜어 주는 도움",
+      "storyTitle": "읽기 쉬운 표가 도움일 때",
+      "gate": "none",
+      "manuscript": "manuscripts/B1.1-05.md",
+      "sha256": "062ae0348ae160d4c7a886b3373728eed71b383d9e84cb2acd4dd7d74a891aed",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.1-06",
+      "band": "B1.1",
+      "title": "조건에 맞는 해결책",
+      "storyTitle": "오늘 돌려주려면",
+      "gate": "none",
+      "manuscript": "manuscripts/B1.1-06.md",
+      "sha256": "2f0e761d4c3319bb2799d122c52a033eaaf3524d8a85b519b5220362925e78c9",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.2-01",
+      "band": "B1.2",
+      "title": "누가 그렇게 말했나요",
+      "storyTitle": "누가 한 말이 종이에 남았나",
+      "gate": "S1-E07+S1-E08.started",
+      "manuscript": "manuscripts/B1.2-01.md",
+      "sha256": "09fd34d5f55166110eb2932d775483488fecb72c547e80139018b742229f886b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.2-02",
+      "band": "B1.2",
+      "title": "왜 그렇게 생각해요",
+      "storyTitle": "닮은 매듭 뒤의 아직",
+      "gate": "S1-E07+S1-E08.started",
+      "manuscript": "manuscripts/B1.2-02.md",
+      "sha256": "690283f9c62dfab65d0755ea436d1e0f7c5929eb5e73674adcfe2d59d1b407c3",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.2-03",
+      "band": "B1.2",
+      "title": "비슷해도 같은 것은 아니에요",
+      "storyTitle": "세 장처럼 보이는 한 기록",
+      "gate": "S1-E07+S1-E08.started",
+      "manuscript": "manuscripts/B1.2-03.md",
+      "sha256": "b19a01961b14b01b933d53f35987b0b22cad7d6a8841224f2b075b6d6df7b791",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.2-04",
+      "band": "B1.2",
+      "title": "한쪽 말만 듣지 않기",
+      "storyTitle": "찾기 쉽지만 젖기 쉬운 자리",
+      "gate": "S1-E07+S1-E08.started",
+      "manuscript": "manuscripts/B1.2-04.md",
+      "sha256": "74826b90f3e426b68f3db39aa59021c2962b63423213a2b274a9751ab6cddf1a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.2-05",
+      "band": "B1.2",
+      "title": "행동 주체가 빠진 안내",
+      "storyTitle": "맡겨졌다는 말의 빈 주어",
+      "gate": "S1-E07+S1-E08.started",
+      "manuscript": "manuscripts/B1.2-05.md",
+      "sha256": "5f3b34ab416132081fd67100f55a1a8cfbbcfbc52d4bc441a2704fa28b6c6d35",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B1.2-06",
+      "band": "B1.2",
+      "title": "첫 조사 결과를 설명하기",
+      "storyTitle": "훔쳤다에서 맡겼다로",
+      "gate": "S1-E07+S1-E08.middle",
+      "manuscript": "manuscripts/B1.2-06.md",
+      "sha256": "ccba13da7edea451a455df847474eed27f505e1e3b13727eaaa8101d3e07f6f6",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.1-01",
+      "band": "B2.1",
+      "title": "자료의 기준부터 읽기",
+      "storyTitle": "서로 다른 수를 세는 표",
+      "gate": "S1-E08+S1-E09",
+      "manuscript": "manuscripts/B2.1-01.md",
+      "sha256": "a3587f10bee3d8638802a3c12acd7cfef0333c2cb96757db3a95765ca66d757f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.1-02",
+      "band": "B2.1",
+      "title": "원인이라고 말하기 전에",
+      "storyTitle": "비가 왔다고 모두 비 탓인가",
+      "gate": "none",
+      "manuscript": "manuscripts/B2.1-02.md",
+      "sha256": "aa1f0879ee10ba2e09ad9fbc5b9d715d7040c57bc260f7eda3247fb7e7c3cb80",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.1-03",
+      "band": "B2.1",
+      "title": "일어난 일과 평가",
+      "storyTitle": "잠든 날을 버린 날로 쓰지 않기",
+      "gate": "S1-E08+S1-E09",
+      "manuscript": "manuscripts/B2.1-03.md",
+      "sha256": "d33fb50c0e40e63e5ca03428a3a3e81e25a49ddea192202767afd026e9e9d7f5",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.1-04",
+      "band": "B2.1",
+      "title": "글의 근거와 목적",
+      "storyTitle": "설명문은 무엇을 하려는가",
+      "gate": "S1-E08+S1-E09",
+      "manuscript": "manuscripts/B2.1-04.md",
+      "sha256": "b62b15998fd51646f66649eb985a190b2d9b0eda8267f23f3670e0b616772739",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.1-05",
+      "band": "B2.1",
+      "title": "앞뒤 맥락이 바꾸는 뜻",
+      "storyTitle": "이름은커녕, 어디까지 없는가",
+      "gate": "S1-E08+S1-E09",
+      "manuscript": "manuscripts/B2.1-05.md",
+      "sha256": "4a68e155f28a41e93b8d4a6303ba2dff8481dc2f3b6c5a33649b61247ea27fdc",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.1-06",
+      "band": "B2.1",
+      "title": "자료 두 개로 설명하기",
+      "storyTitle": "아는 만큼만 나란히",
+      "gate": "S1-E08+S1-E09",
+      "manuscript": "manuscripts/B2.1-06.md",
+      "sha256": "e5175dc5bac1e61b010f6c0430e42ff3322c9fbe776f371f60fcb00c50bb42e1",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.2-01",
+      "band": "B2.2",
+      "title": "조건을 맞추는 협상",
+      "storyTitle": "오늘의 발표, 내일의 확인",
+      "gate": "S1-E05; E08 전후 분기",
+      "manuscript": "manuscripts/B2.2-01.md",
+      "sha256": "8911729d01ad2b9bf200a73115988ba0c8aa4a24ac0a59660904b6402be47a7e",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.2-02",
+      "band": "B2.2",
+      "title": "가정해도 달라지지 않는 것",
+      "storyTitle": "비가 와도 남는 약속",
+      "gate": "S1-E05; E08 전후 분기",
+      "manuscript": "manuscripts/B2.2-02.md",
+      "sha256": "ed7d257c0c600a0793578198395ca0411f51df46b33ba9895949551b1836e2b1",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.2-03",
+      "band": "B2.2",
+      "title": "듣고 본 것을 다시 확인하기",
+      "storyTitle": "조이가 들었다는 말",
+      "gate": "S1-E05; E08 전후 분기",
+      "manuscript": "manuscripts/B2.2-03.md",
+      "sha256": "0512d46326b4cfb3ee1f43f8590210c9838440e4dee354bbb6826a87e43b6c42",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.2-04",
+      "band": "B2.2",
+      "title": "오해를 고치는 대화",
+      "storyTitle": "좋은 뜻으로 잘못 붙인 이름",
+      "gate": "none",
+      "manuscript": "manuscripts/B2.2-04.md",
+      "sha256": "dc7cc21ca9f3089840bfa75cb95b0ceaad3b5b87f893295f722d87e273816f82",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.2-05",
+      "band": "B2.2",
+      "title": "누구에게 공개할까요",
+      "storyTitle": "보관 동의와 공개 동의",
+      "gate": "none",
+      "manuscript": "manuscripts/B2.2-05.md",
+      "sha256": "aa7aa7ca0cbae2e8762da2c58680d70ce174932779653ae4c2bd9a59fa23e539",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "B2.2-06",
+      "band": "B2.2",
+      "title": "합의를 기록으로 남기기",
+      "storyTitle": "같이 적는 보류 한 줄",
+      "gate": "S1-E05; E08 전후 분기",
+      "manuscript": "manuscripts/B2.2-06.md",
+      "sha256": "353db80aa6ea4b48c98df1e449c57660c679bfed95ac1a597c76008d18dff720",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.1-01",
+      "band": "C1.1",
+      "title": "복잡한 자료의 구조",
+      "storyTitle": "같은 계절, 다른 기록 방식",
+      "gate": "S1-E08",
+      "manuscript": "manuscripts/C1.1-01.md",
+      "sha256": "4e9ea4058461bbf314a14ddb46da0801379443e2556b2e0c94df9766778333b4",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.1-02",
+      "band": "C1.1",
+      "title": "인용과 요약의 책임",
+      "storyTitle": "짧게 쓰다가 바뀐 주인",
+      "gate": "S1-E08",
+      "manuscript": "manuscripts/C1.1-02.md",
+      "sha256": "fe07efe75d2c6162c2d3edefdf72a536b68788d8abcec0bb6c2aebf9ee285c6a",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.1-03",
+      "band": "C1.1",
+      "title": "주장의 강도를 조절하기",
+      "storyTitle": "희망을 확신으로 쓰지 않기",
+      "gate": "S1-E08",
+      "manuscript": "manuscripts/C1.1-03.md",
+      "sha256": "4e37661050bbf533d5c192dbbe9438e0a7d3af4dea0f36880356b60ea1978d96",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.1-04",
+      "band": "C1.1",
+      "title": "읽는 사람을 위한 보고",
+      "storyTitle": "한 조사, 두 가지 보고",
+      "gate": "S1-E08",
+      "manuscript": "manuscripts/C1.1-04.md",
+      "sha256": "a95f0995862b47bdd63659f0c030760face9b5d148780c9a3991d1672289a894",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.1-05",
+      "band": "C1.1",
+      "title": "다른 분야의 설명을 배우기",
+      "storyTitle": "원본이라는 낯익은 낯선 말",
+      "gate": "none",
+      "manuscript": "manuscripts/C1.1-05.md",
+      "sha256": "fb0817abf3d6ce36a9836e2a03916e87141ab8e9cb396c86a7f77943180656c2",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.1-06",
+      "band": "C1.1",
+      "title": "질문을 받아 다시 설명하기",
+      "storyTitle": "도깨비의 예고 없는 질문",
+      "gate": "S1-E08",
+      "manuscript": "manuscripts/C1.1-06.md",
+      "sha256": "dbcbdcd7f7f5236462fccf4a2e9864ecfd9935679639fb0eb08aff21b5eabb97",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.2-01",
+      "band": "C1.2",
+      "title": "관계에 맞게 같은 뜻 말하기",
+      "storyTitle": "사당 앞 같은 부탁 세 번",
+      "gate": "S1-E08+S1-E10",
+      "manuscript": "manuscripts/C1.2-01.md",
+      "sha256": "2bf39290ccf33f2863c74062d27d11c3a017c39426b340eea6a6017aafc365f3",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.2-02",
+      "band": "C1.2",
+      "title": "양보하면서 지키는 조건",
+      "storyTitle": "편리함이 지우지 못하는 조건",
+      "gate": "S1-E08+S1-E10",
+      "manuscript": "manuscripts/C1.2-02.md",
+      "sha256": "bb3b8de77c681d46f2107bebf18f65a3c25569042773da2e8cd8101b0f0317fd",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.2-03",
+      "band": "C1.2",
+      "title": "말하지 않은 의도 살피기",
+      "storyTitle": "괜찮다는 말의 두 거리",
+      "gate": "S1-E08+S1-E10",
+      "manuscript": "manuscripts/C1.2-03.md",
+      "sha256": "c60c73b07ff4363ca96b9704e3c9b453811591b2f699bf9bbdf8c9ef1d91baab",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.2-04",
+      "band": "C1.2",
+      "title": "다른 관점을 중개하기",
+      "storyTitle": "누구의 기억을 대신 말하는가",
+      "gate": "S1-E08+S1-E10",
+      "manuscript": "manuscripts/C1.2-04.md",
+      "sha256": "5e964f44ae4a603be582b0019fde482a38dd2c4390402ca750a1c30499b55472",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.2-05",
+      "band": "C1.2",
+      "title": "문체를 바꿔도 남아야 할 뜻",
+      "storyTitle": "보고서에서 사라진 사람",
+      "gate": "none",
+      "manuscript": "manuscripts/C1.2-05.md",
+      "sha256": "93f314254900793c35ea2c7e02153e5eb35277f9abcd58883724c9bf35aa7504",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C1.2-06",
+      "band": "C1.2",
+      "title": "복잡한 협의를 끝맺기",
+      "storyTitle": "끝맺음에 남기는 미확인",
+      "gate": "S1-E08+S1-E10",
+      "manuscript": "manuscripts/C1.2-06.md",
+      "sha256": "a0e1e132e50fa7b4e1742fd9996b25320ea94ef9c601c6a77f5024719b27499b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.1-01",
+      "band": "C2.1",
+      "title": "한 문장의 여러 읽기",
+      "storyTitle": "가족이라는 한마디의 여러 결",
+      "gate": "S1-E06",
+      "manuscript": "manuscripts/C2.1-01.md",
+      "sha256": "46583085084bc964ddc2a2afd3d813b3429b0d5c2f4009d8310374917f22a503",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.1-02",
+      "band": "C2.1",
+      "title": "복잡한 논리의 빈틈",
+      "storyTitle": "한 약속으로 모든 기다림을 말할까",
+      "gate": "S1-E06",
+      "manuscript": "manuscripts/C2.1-02.md",
+      "sha256": "0d590757ff565ee205553ca3c5954c94704aecdac43b6ee477285d2125f07b75",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.1-03",
+      "band": "C2.1",
+      "title": "서술의 시선과 평가",
+      "storyTitle": "남겨진 자의 서술",
+      "gate": "S1-E06",
+      "manuscript": "manuscripts/C2.1-03.md",
+      "sha256": "8d0c0571bdaca82e20fa8e5a3871fd08b8b36c317ec9376b292b06ed4f663ba7",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.1-04",
+      "band": "C2.1",
+      "title": "극단적 조건과 선택",
+      "storyTitle": "기다림을 의무로 만들지 않기",
+      "gate": "S1-E06",
+      "manuscript": "manuscripts/C2.1-04.md",
+      "sha256": "8ae902b63a53b5a82c338cece179c4f8791fd0bdfa7ea95344856b32423b3ea5",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.1-05",
+      "band": "C2.1",
+      "title": "관계와 인용의 여러 층",
+      "storyTitle": "말한 이, 전한 이, 듣는 이",
+      "gate": "S1-E06",
+      "manuscript": "manuscripts/C2.1-05.md",
+      "sha256": "a0af4fc6ca114233f1be1e96cb636b5caeb8239e4990ad1df05edff3a90cf7e0",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.1-06",
+      "band": "C2.1",
+      "title": "낯선 문체를 읽는 선택 심화",
+      "storyTitle": "펼쳐도 접어도 되는 책갈피",
+      "gate": "S1-E06",
+      "manuscript": "manuscripts/C2.1-06.md",
+      "sha256": "3abaf53c67bb4079fbc749dbf79e1b78c6ae96f7f13f45c2064fc6857d6790be",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.2-01",
+      "band": "C2.2",
+      "title": "서로 다른 자료로 하나의 논증",
+      "storyTitle": "결말 뒤에도 자료는 다르게 말한다",
+      "gate": "S1-END",
+      "manuscript": "manuscripts/C2.2-01.md",
+      "sha256": "21b833c3d5680873915d4e142e2141e2fb7cad7c0b224926a834c49c1ca99b17",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.2-02",
+      "band": "C2.2",
+      "title": "창작하고 편집하기",
+      "storyTitle": "기록의 설명과 내가 만든 장면",
+      "gate": "S1-END",
+      "manuscript": "manuscripts/C2.2-02.md",
+      "sha256": "5f9bca9a86f3146a33d8a17e476d71b6aa3ea5bbd3d44c6155d490b990f7bf64",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.2-03",
+      "band": "C2.2",
+      "title": "다른 청자에게 다시 만들기",
+      "storyTitle": "다음 사람에게 첫 장부터",
+      "gate": "S1-END",
+      "manuscript": "manuscripts/C2.2-03.md",
+      "sha256": "ea71e4ff78b7e2cbbf9579a8ead2f46ef0ae9a1136c7b3bab48b3eb676a359d6",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.2-04",
+      "band": "C2.2",
+      "title": "합의가 어려운 대화 중개",
+      "storyTitle": "하나의 결말, 남는 다른 생각",
+      "gate": "S1-END",
+      "manuscript": "manuscripts/C2.2-04.md",
+      "sha256": "8e241c971c14631bf99c86c5b8e287c2c2562badd7705873532b10a4771ab36f",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.2-05",
+      "band": "C2.2",
+      "title": "즉석에서 바꾸어 말하기",
+      "storyTitle": "긴 글에서 짧은 답장으로",
+      "gate": "none",
+      "manuscript": "manuscripts/C2.2-05.md",
+      "sha256": "547e4f00820f8d230b65de4f941fa6f05bb69edb0ceceb74a7fb23f98ac6031b",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    },
+    {
+      "unitId": "C2.2-06",
+      "band": "C2.2",
+      "title": "다음 고택으로 가져갈 능력",
+      "storyTitle": "다음 고택으로 가져갈 방법",
+      "gate": "S1-END",
+      "manuscript": "manuscripts/C2.2-06.md",
+      "sha256": "0553f902cbd33d4af70ea402e2af4508f00e623c857b33ae87ecea5d9551a068",
+      "status": "MODEL_CROSS_REVIEW_PASS_HUMAN_PENDING"
+    }
+  ]
+}
