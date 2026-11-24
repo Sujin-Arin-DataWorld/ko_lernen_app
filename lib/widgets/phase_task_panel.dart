@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'sori/button.dart';
 import 'sori/hangul_start_material.dart';
+import 'sori/tokens.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../screens/phase_task_screen.dart';
 import '../services/course_progress_service.dart';
@@ -226,10 +227,10 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
             key: const ValueKey('phase-next-step'),
             decoration: BoxDecoration(
               color: HangulStartStyle.mist,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(SoriRadius.xs),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(9),
+              padding: const EdgeInsets.all(Spacing.sm),
               child: Text(
                 t.phaseStepNext(widget.steps[next].title.pick(lang)),
                 style: HangulStartStyle.body(
@@ -244,11 +245,13 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
           Padding(
             padding: const EdgeInsets.only(top: 8),
             child: HangulStartPanel(
-              padding: const EdgeInsets.symmetric(horizontal: 7),
+              padding: const EdgeInsets.symmetric(horizontal: Spacing.tight),
               child: ExpansionTile(
                 key: ValueKey('phase-step-${step.id}'),
                 initiallyExpanded: i == 0,
-                tilePadding: const EdgeInsets.symmetric(horizontal: 5),
+                tilePadding: const EdgeInsets.symmetric(
+                  horizontal: Spacing.dense,
+                ),
                 shape: const Border(),
                 collapsedShape: const Border(),
                 leading: Icon(

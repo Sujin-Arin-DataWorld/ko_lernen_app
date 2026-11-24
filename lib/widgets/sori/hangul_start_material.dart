@@ -18,6 +18,7 @@ abstract final class HangulStartStyle {
   static const mist = Color(0xffdceee8);
   static const rose = Color(0xfff0d9d5);
   static const wrong = Color(0xffa0524a);
+  static const compactWidth = 344.0;
   static const minTouch = 48.0;
   static const footerGap = 16.0;
   static const press = Duration(milliseconds: 120);
@@ -27,7 +28,7 @@ abstract final class HangulStartStyle {
 
   static bool compact(BuildContext context) =>
       MediaQuery.sizeOf(context).height <= 690 ||
-      MediaQuery.sizeOf(context).width <= 344;
+      MediaQuery.sizeOf(context).width <= compactWidth;
 
   static bool largeText(BuildContext context) =>
       MediaQuery.textScalerOf(context).scale(16) >= 24;
@@ -149,7 +150,10 @@ class HangulStartPanel extends StatelessWidget {
             : null,
       ),
       child: wood
-          ? Padding(padding: const EdgeInsets.all(6), child: sheet)
+          ? Padding(
+              padding: const EdgeInsets.all(Spacing.compact),
+              child: sheet,
+            )
           : sheet,
     );
   }
@@ -180,7 +184,7 @@ class HangulStartAction extends StatelessWidget {
         : gold
         ? HangulStartStyle.ink
         : HangulStartStyle.deep;
-    final radius = BorderRadius.circular(10);
+    final radius = BorderRadius.circular(SoriRadius.c5DetailAction);
     final body = Text(
       label,
       textAlign: TextAlign.center,
@@ -258,7 +262,7 @@ class HangulStartAction extends StatelessWidget {
             ),
             padding: EdgeInsets.symmetric(
               horizontal: link ? 4 : 10,
-              vertical: 7,
+              vertical: Spacing.tight,
             ),
             child: Align(
               alignment: Alignment.center,
@@ -267,7 +271,7 @@ class HangulStartAction extends StatelessWidget {
               child: gold
                   ? Row(
                       children: [
-                        const SizedBox(width: 18),
+                        const SizedBox(width: Spacing.comfortable),
                         Expanded(child: body),
                         const Icon(
                           Icons.chevron_right,
@@ -282,7 +286,7 @@ class HangulStartAction extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(icon, size: 19, color: color),
-                        const SizedBox(width: 7),
+                        const SizedBox(width: Spacing.tight),
                         Flexible(child: body),
                       ],
                     ),
@@ -354,7 +358,7 @@ class HangulStartTile extends StatelessWidget {
           alignment: Alignment.center,
           padding: EdgeInsets.all(wood ? 3 : 0),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(SoriRadius.xs),
             image: wood
                 ? DecorationImage(
                     image: AssetImage(
@@ -370,7 +374,10 @@ class HangulStartTile extends StatelessWidget {
           child: Container(
             width: double.infinity,
             alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 2),
+            padding: const EdgeInsets.symmetric(
+              vertical: 4,
+              horizontal: Spacing.hairline,
+            ),
             constraints: BoxConstraints(minHeight: minHeight - (wood ? 6 : 0)),
             decoration: BoxDecoration(
               color: face,
@@ -640,10 +647,10 @@ class _HangulStartHeader extends StatelessWidget {
                   'HANGUL SORI',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: 'Paperlogy',
+                    fontFamily: SoriFonts.interface,
                     fontWeight: FontWeight.w600,
                     color: HangulStartStyle.gold,
-                    fontSize: 11,
+                    fontSize: 13,
                     letterSpacing: 1.8,
                   ),
                 ),
@@ -667,7 +674,7 @@ class _HangulStartHeader extends StatelessWidget {
             heading
           else if (HangulStartStyle.largeText(context)) ...[
             heading,
-            const SizedBox(height: 6),
+            const SizedBox(height: Spacing.compact),
             meta,
           ] else
             Row(

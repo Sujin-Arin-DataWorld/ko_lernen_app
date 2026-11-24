@@ -10,6 +10,7 @@ import '../services/korean_romanization.dart';
 import '../services/learning_phase_catalog.dart';
 import '../services/tts_recorded_jamo.dart';
 import '../services/tts_service.dart';
+import '../widgets/sori/button.dart';
 import '../widgets/sori/hangul_start_material.dart';
 import '../widgets/sori/route_observer.dart';
 import '../widgets/sori/speakable.dart';
@@ -348,7 +349,9 @@ class _HangulStartScreenState extends State<HangulStartScreen>
         title: t.hangulStartTitle,
         onBack: _back,
         body: _loading
-            ? const Center(child: CircularProgressIndicator())
+            ? const Center(
+                child: SoriLoadingIndicator(color: HangulStartStyle.deep),
+              )
             : Text(
                 t.hangulStartLoadError,
                 style: HangulStartStyle.body(context, 16),
@@ -470,7 +473,12 @@ class _HangulStartScreenState extends State<HangulStartScreen>
     FoundationBand band,
     FoundationLesson? next,
   ) => HangulStartPanel(
-    padding: const EdgeInsets.fromLTRB(9, 4, 9, 5),
+    padding: const EdgeInsets.fromLTRB(
+      Spacing.sm,
+      4,
+      Spacing.sm,
+      Spacing.dense,
+    ),
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 3,
@@ -609,6 +617,7 @@ class _HangulStartScreenState extends State<HangulStartScreen>
             Wrap(
               alignment: WrapAlignment.center,
               children: [
+                // l10n: exempt — the Korean teaching formula is identical in both locales.
                 if (first) Text('ㅇ + ㅏ = ', style: HangulStartStyle.korean(32)),
                 Column(
                   mainAxisSize: MainAxisSize.min,
@@ -646,7 +655,10 @@ class _HangulStartScreenState extends State<HangulStartScreen>
   Widget _hero(Widget child) => HangulStartPanel(
     wood: true,
     padding: HangulStartStyle.compact(context)
-        ? const EdgeInsets.symmetric(horizontal: 10, vertical: 6)
+        ? const EdgeInsets.symmetric(
+            horizontal: Spacing.control,
+            vertical: Spacing.compact,
+          )
         : const EdgeInsets.all(12),
     child: ConstrainedBox(
       constraints: BoxConstraints(
@@ -925,7 +937,7 @@ class _HangulStartScreenState extends State<HangulStartScreen>
       : Row(
           children: [
             Expanded(child: first),
-            const SizedBox(width: 6),
+            const SizedBox(width: Spacing.compact),
             Expanded(child: second),
           ],
         );
@@ -940,14 +952,14 @@ class _HangulStartScreenState extends State<HangulStartScreen>
     return Semantics(
       liveRegion: true,
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(SoriRadius.xs),
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: correct ? HangulStartStyle.mist : HangulStartStyle.rose,
             border: Border(left: BorderSide(color: tint, width: 4)),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(9),
+            padding: const EdgeInsets.all(Spacing.sm),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               spacing: 5,
@@ -969,7 +981,7 @@ class _HangulStartScreenState extends State<HangulStartScreen>
                         color: tint,
                       ),
                     ),
-                    const SizedBox(width: 7),
+                    const SizedBox(width: Spacing.tight),
                     Expanded(
                       child: Text(
                         message,
@@ -1195,10 +1207,10 @@ class _SpeedChip extends StatelessWidget {
         child: Container(
           constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
           alignment: Alignment.center,
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+          padding: const EdgeInsets.symmetric(horizontal: Spacing.dense),
           decoration: BoxDecoration(
             color: HangulStartStyle.paper,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(SoriRadius.xs),
             border: Border.all(color: HangulStartStyle.seam),
           ),
           child: Text(

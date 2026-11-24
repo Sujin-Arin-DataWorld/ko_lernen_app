@@ -6,6 +6,8 @@ import '../../services/hangul_start_progress.dart';
 import 'approved_chrome_assets.dart';
 import 'hangul_start_material.dart';
 import 'pressable.dart';
+import 'toast.dart';
+import 'tokens.dart';
 
 class HangulStartCourseCard extends StatelessWidget {
   const HangulStartCourseCard({super.key, required this.onReturn});
@@ -91,8 +93,7 @@ Future<void> _openA11AndRefresh(
     if (context.mounted) onReturn();
   } catch (_) {
     if (!context.mounted) return;
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(t.hangulStartLoadError)));
+    soriToast(context, t.hangulStartLoadError);
   }
 }
 
@@ -130,7 +131,7 @@ class HangulStartTodayCard extends StatelessWidget {
                 height: compact ? 35 : 44,
                 decoration: BoxDecoration(
                   color: HangulStartStyle.wrong,
-                  borderRadius: BorderRadius.circular(3),
+                  borderRadius: BorderRadius.circular(SoriRadius.micro),
                 ),
               ),
               const SizedBox(width: 8),
@@ -158,7 +159,7 @@ class HangulStartTodayCard extends StatelessWidget {
                 ),
               ),
               if (!large) ...[
-                const SizedBox(width: 6),
+                const SizedBox(width: Spacing.compact),
                 HangulStartArt(
                   'celadon-a',
                   width: compact ? 62 : 96,
@@ -261,8 +262,7 @@ class HangulStartTodayLinks extends StatelessWidget {
         if (context.mounted) onReturn();
       } catch (_) {
         if (!context.mounted) return;
-        ScaffoldMessenger.of(context)
-            .showSnackBar(SnackBar(content: Text(t.hangulStartLoadError)));
+        soriToast(context, t.hangulStartLoadError);
       }
     }
 
@@ -419,7 +419,7 @@ class _Shortcut extends StatelessWidget {
           ),
           decoration: BoxDecoration(
             color: HangulStartStyle.paper,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(SoriRadius.c5DetailAction),
             border: Border.all(color: HangulStartStyle.seam),
             boxShadow: const [
               BoxShadow(color: Color(0xffac8a56), offset: Offset(0, 2)),
@@ -446,7 +446,7 @@ class _Shortcut extends StatelessWidget {
               : Row(
                   children: [
                     artwork,
-                    const SizedBox(width: 5),
+                    const SizedBox(width: Spacing.dense),
                     Expanded(child: label),
                     arrow,
                   ],
