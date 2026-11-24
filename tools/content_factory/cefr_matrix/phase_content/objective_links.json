@@ -6,7 +6,7 @@
       "objectiveId": "KP01:objective:grammar/G1:이다:R",
       "taskId": "KP01:grammar:01",
       "sourceHash": "62442fda47e5004f289b87f24627e24811c7166e1a3a7a32c4b40ec35980389c",
-      "taskHash": "c658e4faf67fa819020b9cee3dd9342f9f52cfd9e28a4df42c814f5f98941692",
+      "taskHash": "af0b0277f161621dd7a52d82ea0b076b89f3af09b9f6e1f4497cd2455a988f57",
       "criterionIds": [
         "answer"
       ],
@@ -28,7 +28,7 @@
       "objectiveId": "KP01:objective:grammar/G1:은1:R",
       "taskId": "KP01:grammar:03",
       "sourceHash": "c811eb8f45aeeb6d687981a67077ed7e120f77dd1f0d4c067a428038d0f9bcda",
-      "taskHash": "e2423ce8509fb283a45748e1b2771b5449b0a634eecdaf8e0c9e8710a4374b59",
+      "taskHash": "4aa2f4f7c0ea88c649e94a5a14c608254a260e151d4fbc19b3ca3d10734ac79f",
       "criterionIds": [
         "answer"
       ],
@@ -61,7 +61,7 @@
       "objectiveId": "KP01:objective:grammar/G1:의:R",
       "taskId": "KP01:grammar:06",
       "sourceHash": "e94c5f75015e412085401d52d2d8bf105de663a3ddab4494ae7a3e9e81770ed0",
-      "taskHash": "c66499fc41477db946d7c1fca5e5a51b7fa56c35901c6352fcdf19ea05badb38",
+      "taskHash": "a44de602b0e1399f868d821cc6d316ce2ed850a34f4c76c2c252ae08473fe818",
       "criterionIds": [
         "answer"
       ],
@@ -72,7 +72,7 @@
       "objectiveId": "KP01:objective:grammar/G1:과:R",
       "taskId": "KP01:grammar:07",
       "sourceHash": "a7559907e18a7e3461ebbd9f30f605a8063a1e211b5786a67baffcecc3c7c94f",
-      "taskHash": "99a2c209f53dd63c17f739ef39bec7131a345ea1eb5e1efd4a88e14785efd9a9",
+      "taskHash": "b61cd6c2f7572a18acb56b4315a78611ea6b885292f718481b66b9e2e09f46c8",
       "criterionIds": [
         "answer"
       ],
@@ -83,7 +83,7 @@
       "objectiveId": "KP01:objective:grammar/G1:이랑:R",
       "taskId": "KP01:grammar:08",
       "sourceHash": "67df1ce323bb53e5e9822bc691ef44a187c7aa9492d6e362c280733de13ced2f",
-      "taskHash": "87a31a1c052ade4ddb32fbce3054bcb280922de58c43d00a2344c6613cd62c6c",
+      "taskHash": "7ac9078721c3a821e9077887fc993a46e4333eebeb421c24a5033b062a33caad",
       "criterionIds": [
         "answer"
       ],
@@ -94,7 +94,7 @@
       "objectiveId": "KP01:objective:grammar/G1:하고:R",
       "taskId": "KP01:grammar:09",
       "sourceHash": "5c33067e8c7f199a737c6c6f0f92461d8d72d2bdb4bb20edd787e147492a2228",
-      "taskHash": "bfc73ca62ecbae41100dfed38ec7442b5915748cb65b71b1c22a8f03f2cd4f53",
+      "taskHash": "54d417289e8d7b8ee2b7cfd389147c9a1fb77dfa150dbb11aa7dcb1233537786",
       "criterionIds": [
         "answer"
       ],
@@ -105,7 +105,7 @@
       "objectiveId": "KP01:objective:grammar/G1:-어2:R",
       "taskId": "KP01:grammar:10",
       "sourceHash": "4eae6d2e498489d809908c9c708bc7f8678dbbe487364781107d43fc58eb1d44",
-      "taskHash": "df7a5098f1cecd7348fa3945373407ec0904f1c7ed390c611942b2e2a1b92b88",
+      "taskHash": "c8c15656ad08acf657222620f8d1fe46bde7b3cb71a3b70009a54c677b581d6a",
       "criterionIds": [
         "answer"
       ],
@@ -127,7 +127,7 @@
       "objectiveId": "KP01:objective:grammar/G1:-습니까:R",
       "taskId": "KP01:grammar:12",
       "sourceHash": "0814308c8bb258df516e78a957bc7de33575e991bb5e508a548828403ab6aa9e",
-      "taskHash": "255727c5093a0a5de059ae2192ca2e86b5224b12136c3361bb5378604844e6da",
+      "taskHash": "36a5183e557421f3cb0c464c4f8d73cb5259e80a1309e8c6c1bc4b83bc4a8ee5",
       "criterionIds": [
         "answer"
       ],
@@ -1062,7 +1062,7 @@
       "objectiveId": "KP01:objective:listening/core:R",
       "taskId": "KP01:listening:01",
       "sourceHash": "332891175536ed4802b53bffcaaea742d6f269959dc3df0bf3096065d8a55ec7",
-      "taskHash": "a995013dcd94e61eb4099ec35e625769106c5521f0c8201b4a779df7556bd906",
+      "taskHash": "d597498062d346a8e85f3a0348e8c2cef4bece6ff2bc6375f9ce8104758057db",
       "criterionIds": [
         "name",
         "role",
@@ -1075,7 +1075,7 @@
       "objectiveId": "KP01:objective:reading/core:R",
       "taskId": "KP01:reading:01",
       "sourceHash": "605ea929a827f6741da729e27c4ea08fdb6f2a4ee03de3b8d897b22eda56a5a8",
-      "taskHash": "89eee1b392575cdd6588c83e6d19e9abe7a6f4fa41096eff0f9202cbb77d26c1",
+      "taskHash": "a00c81806c080a480deba5e8eb23810676b5aaad7082bf6f6f696104f0895e8c",
       "criterionIds": [
         "room",
         "name",
@@ -1103,7 +1103,7 @@
       "objectiveId": "KP01:objective:writing/core:P",
       "taskId": "KP01:writing:02",
       "sourceHash": "240658f53ac82e15e24f5d12cb213c0ab417f18d9e3ad36d34b6b80fca3daa63",
-      "taskHash": "484d7e56af7986e60d3c1f40f7f633675ae420ca42cf43f978dfffb66b2ef50f",
+      "taskHash": "c6a9a37aa6a8545d9f8e859937514b6abc1dc820f5fc3a86c05164db804ce2f0",
       "criterionIds": [
         "name",
         "optional",
@@ -1782,7 +1782,7 @@
       "objectiveId": "KP01:objective:grammar/G1:은1:P",
       "taskId": "KP01:production:03",
       "sourceHash": "c811eb8f45aeeb6d687981a67077ed7e120f77dd1f0d4c067a428038d0f9bcda",
-      "taskHash": "b65cb94b0fe668ac4636097b6c61ae258042dc4234ad55d7b70989064fe11864",
+      "taskHash": "d3b8ad9196347f0bc9481707ad105bfa35a9d86f3180c3a0c31725217044a39a",
       "criterionIds": [
         "sentence"
       ],
@@ -1815,7 +1815,7 @@
       "objectiveId": "KP01:objective:grammar/G1:의:P",
       "taskId": "KP01:production:06",
       "sourceHash": "e94c5f75015e412085401d52d2d8bf105de663a3ddab4494ae7a3e9e81770ed0",
-      "taskHash": "439d1f2419ac0558fe129dedf80090b42d5349b8db216f545e8e46e93f615da6",
+      "taskHash": "bd031e331814b69550b8e4be2ad78b2cfc68b672fe7e6379c9acb3506119c502",
       "criterionIds": [
         "sentence"
       ],
@@ -2266,7 +2266,7 @@
       "objectiveId": "KP01:objective:listening/genre/dialogue_face_to_face:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "11bb85b088f49dc281f45f13fc76cd51e1e1bbd7e91cb153e153b46dc97113c4",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2282,7 +2282,7 @@
       "objectiveId": "KP01:objective:reading/genre/sign_notice_short:R",
       "taskId": "KP01:reading:02",
       "sourceHash": "f26a8fed9e54a469852447afb6392ba6a21d63ebce459e84956d32b246514258",
-      "taskHash": "2454c82d55ac13db9cf44147b466bc15615050a365bb97308a6c1a5bec067770",
+      "taskHash": "07f46c33a51cf74b8156f3ab67ce5e235f97239257c8942000c3878a164cbb4d",
       "criterionIds": [
         "place",
         "permission",
@@ -2295,7 +2295,7 @@
       "objectiveId": "KP01:objective:speaking/genre/dialogue_face_to_face:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "dd9747b8bbfffad258ff98079f36519b2f4abcc280490b76f08ebc3a193cc84e",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 speaking/genre/dialogue_face_to_face:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2304,7 +2304,7 @@
       "objectiveId": "KP01:objective:writing/genre/form_application:P",
       "taskId": "KP01:writing:02",
       "sourceHash": "49fb68090633543967a748fed7d6e4449d22458dd580b634db980c9c6aaab046",
-      "taskHash": "484d7e56af7986e60d3c1f40f7f633675ae420ca42cf43f978dfffb66b2ef50f",
+      "taskHash": "c6a9a37aa6a8545d9f8e859937514b6abc1dc820f5fc3a86c05164db804ce2f0",
       "criterionIds": [
         "name",
         "optional",
@@ -2317,7 +2317,7 @@
       "objectiveId": "KP01:objective:functions/greet_introduce_self:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "acabb8f5ad645d18f762b94185b377eb29b95b46493f9142868b502a06c25ccb",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2333,7 +2333,7 @@
       "objectiveId": "KP01:objective:functions/greet_introduce_self:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "acabb8f5ad645d18f762b94185b377eb29b95b46493f9142868b502a06c25ccb",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 functions/greet_introduce_self:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2342,7 +2342,7 @@
       "objectiveId": "KP01:objective:functions/ask_give_personal_information:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "35e040edb1893ddb3981f485aa56f7edde16c8869ef1f9086c94c08c36e76d4a",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2358,7 +2358,7 @@
       "objectiveId": "KP01:objective:functions/ask_give_personal_information:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "35e040edb1893ddb3981f485aa56f7edde16c8869ef1f9086c94c08c36e76d4a",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 functions/ask_give_personal_information:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2367,7 +2367,7 @@
       "objectiveId": "KP01:objective:functions/ask_for_information_confirm:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "3564148c09b6a81889844a613d862b66c951d548dfea0485f367a69bc0bba2ab",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2383,7 +2383,7 @@
       "objectiveId": "KP01:objective:functions/ask_for_information_confirm:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "3564148c09b6a81889844a613d862b66c951d548dfea0485f367a69bc0bba2ab",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 functions/ask_for_information_confirm:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2392,7 +2392,7 @@
       "objectiveId": "KP01:objective:functions/thank_apologise_respond:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "cafd66154560487818b5d0456a9ddab48a4cf0be81f3e22f3988296161943cb0",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2408,7 +2408,7 @@
       "objectiveId": "KP01:objective:functions/thank_apologise_respond:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "cafd66154560487818b5d0456a9ddab48a4cf0be81f3e22f3988296161943cb0",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 functions/thank_apologise_respond:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2417,7 +2417,7 @@
       "objectiveId": "KP01:objective:functions/clarify_repair_ask_to_repeat:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "3f828208b5e437fb84441a6195f8be334582e5254aa9956f2865e206a51bd59c",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2433,7 +2433,7 @@
       "objectiveId": "KP01:objective:functions/clarify_repair_ask_to_repeat:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "3f828208b5e437fb84441a6195f8be334582e5254aa9956f2865e206a51bd59c",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 functions/clarify_repair_ask_to_repeat:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2442,7 +2442,7 @@
       "objectiveId": "KP01:objective:vocabDomains/family_kinship_address_terms:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "7185a6cced48c3cea26a3b5cd2644e39aa299d3d673ea63631146e20003b1637",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2458,7 +2458,7 @@
       "objectiveId": "KP01:objective:vocabDomains/family_kinship_address_terms:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "7185a6cced48c3cea26a3b5cd2644e39aa299d3d673ea63631146e20003b1637",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/family_kinship_address_terms:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2467,7 +2467,7 @@
       "objectiveId": "KP01:objective:vocabDomains/professions_workplace:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "33b68b8a14d64d4073ee2e48cb816af9b120503af040ff056a5b116e4db37c5b",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2483,7 +2483,7 @@
       "objectiveId": "KP01:objective:vocabDomains/professions_workplace:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "33b68b8a14d64d4073ee2e48cb816af9b120503af040ff056a5b116e4db37c5b",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/professions_workplace:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2492,7 +2492,7 @@
       "objectiveId": "KP01:objective:vocabDomains/school_study_terms:R",
       "taskId": "KP01:reading:01",
       "sourceHash": "5bdf29f5a13f4ca9a8511ed23e12abe84cc27e6c37b755017d4f54f350ae6471",
-      "taskHash": "89eee1b392575cdd6588c83e6d19e9abe7a6f4fa41096eff0f9202cbb77d26c1",
+      "taskHash": "a00c81806c080a480deba5e8eb23810676b5aaad7082bf6f6f696104f0895e8c",
       "criterionIds": [
         "room",
         "name",
@@ -2505,7 +2505,7 @@
       "objectiveId": "KP01:objective:vocabDomains/school_study_terms:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "5bdf29f5a13f4ca9a8511ed23e12abe84cc27e6c37b755017d4f54f350ae6471",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/school_study_terms:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2514,7 +2514,7 @@
       "objectiveId": "KP01:objective:vocabDomains/etiquette_honorific_lexis:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "bf323415e7ae4f1cc85ac0dada4d7c5e65044f367bf620de2fd786c4f1ea44fd",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2530,7 +2530,7 @@
       "objectiveId": "KP01:objective:vocabDomains/etiquette_honorific_lexis:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "bf323415e7ae4f1cc85ac0dada4d7c5e65044f367bf620de2fd786c4f1ea44fd",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/etiquette_honorific_lexis:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2539,7 +2539,7 @@
       "objectiveId": "KP01:objective:vocabDomains/fixed_expressions_collocations:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "2d7132127a2f863d4de817a25673d547c7de143343449f9c83de22922a26b94a",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2555,7 +2555,7 @@
       "objectiveId": "KP01:objective:vocabDomains/fixed_expressions_collocations:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "2d7132127a2f863d4de817a25673d547c7de143343449f9c83de22922a26b94a",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2564,7 +2564,7 @@
       "objectiveId": "KP01:objective:phonology/0:R",
       "taskId": "KP01:listening:02",
       "sourceHash": "3614a5bfc39c7f9fa5a4eb45629a976fbd5a544194d6aaae728d40964d583673",
-      "taskHash": "993356a538fe43de11ae2dc12386edf836c366ecd3aa2b1cd0fee2492094402d",
+      "taskHash": "b1e5d3e3dae90084e61f72b6f1e16daeb2c341ceb1800b109edf024ba85c7e2d",
       "criterionIds": [
         "sounds",
         "name"
@@ -2576,7 +2576,7 @@
       "objectiveId": "KP01:objective:phonology/0:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "3614a5bfc39c7f9fa5a4eb45629a976fbd5a544194d6aaae728d40964d583673",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2585,7 +2585,7 @@
       "objectiveId": "KP01:objective:phonology/1:R",
       "taskId": "KP01:listening:03",
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
-      "taskHash": "5a5d79d350f9cf0fa113d8b683bbd2d3dae3f6d863782bfc6b5e4c757bf8f5a0",
+      "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "criterionIds": [
         "repair",
         "relationship",
@@ -2601,7 +2601,7 @@
       "objectiveId": "KP01:objective:phonology/1:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
@@ -2621,7 +2621,7 @@
       "objectiveId": "KP01:objective:register/haeyo_polite:P",
       "taskId": "KP01:speaking:02",
       "sourceHash": "9d369c81a081a5bfa7ad528cb9233fb40f1353cca271cd44713027ec0ea40363",
-      "taskHash": "360612a12b33f49f8ed51460b5fb79a8b1b0971dc484e18c428de589b9f95668",
+      "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
       "reviewer": "Astra",
       "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."

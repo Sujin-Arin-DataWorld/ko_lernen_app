@@ -13,7 +13,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "이다",
@@ -32,7 +32,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "저는 의사___ .",
+        "sourceKo": "저는 의사___.",
         "questions": [
           {
             "id": "answer",
@@ -66,7 +66,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "저는 회사원___ .",
+        "sourceKo": "저는 회사원___.",
         "questions": [
           {
             "id": "answer",
@@ -207,7 +207,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "은/는",
@@ -221,7 +221,7 @@
       },
       "examplesKo": [
         "저는 학생이에요. 동생은 회사원이에요.",
-        "민수는 학생이에요. 지현은 선생님이에요."
+        "현우는 학생이에요. 지현은 선생님이에요."
       ],
       "minimumScore": 1,
       "practice": {
@@ -260,7 +260,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "민수___ 학생이에요.",
+        "sourceKo": "현우___ 학생이에요.",
         "questions": [
           {
             "id": "answer",
@@ -498,7 +498,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "의",
@@ -511,13 +511,13 @@
         "de": "의 verbindet Nomen und drückt Besitz oder Zugehörigkeit aus."
       },
       "examplesKo": [
-        "민수의 책이에요.",
+        "현우의 책이에요.",
         "선생님의 가방이에요."
       ],
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "민수의 책이에요. 책은 누구 것이에요?",
+        "sourceKo": "현우의 책이에요. 이 책은 누구 거예요?",
         "questions": [
           {
             "id": "answer",
@@ -530,7 +530,7 @@
             "options": [
               {
                 "id": "0",
-                "text": "민수"
+                "text": "현우"
               },
               {
                 "id": "1",
@@ -551,7 +551,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "유나의 가방이에요. 가방은 누구 것이에요?",
+        "sourceKo": "유나의 가방이에요. 이 가방은 누구 거예요?",
         "questions": [
           {
             "id": "answer",
@@ -564,7 +564,7 @@
             "options": [
               {
                 "id": "0",
-                "text": "민수"
+                "text": "현우"
               },
               {
                 "id": "1",
@@ -595,7 +595,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "과/와",
@@ -648,7 +648,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "민수: 교실에 무엇이 있어요?\n유나: 의자___ 책상이에요.",
+        "sourceKo": "현우: 교실에 뭐가 있어요?\n유나: 의자___ 책상이 있어요.",
         "questions": [
           {
             "id": "answer",
@@ -692,7 +692,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "이랑/랑",
@@ -711,7 +711,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "민수: 누구랑 가요?\n유나: 동생이랑 가요.\n읽은 내용을 완성하세요: 동생___ 가요.",
+        "sourceKo": "현우: 누구랑 가요?\n유나: 동생이랑 가요.\n읽은 내용을 완성하세요: 동생___ 가요.",
         "questions": [
           {
             "id": "answer",
@@ -789,7 +789,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "하고",
@@ -808,7 +808,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "책하고 공책이에요. 무엇이 있어요?",
+        "sourceKo": "책하고 공책이 있어요. 뭐가 있어요?",
         "questions": [
           {
             "id": "answer",
@@ -842,7 +842,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "물하고 커피예요. 무엇이 있어요?",
+        "sourceKo": "물하고 커피가 있어요. 뭐가 있어요?",
         "questions": [
           {
             "id": "answer",
@@ -886,7 +886,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "-아/어요",
@@ -905,7 +905,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "민수: 날씨가 어때요?\n유나: 좋아요.\n처음 만난 동료에게 공손하게 답해요. 좋다 →",
+        "sourceKo": "현우: 날씨가 어때요?\n유나: 좋아요.\n처음 만난 동료에게 공손하게 답해요. 좋다 →",
         "questions": [
           {
             "id": "answer",
@@ -939,7 +939,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "처음 만난 동료: 아침에 빵을 먹어요?\n지수: 네, 빵을 ___.\n먹다를 일상적인 공손한 말끝으로 바꾸세요.",
+        "sourceKo": "동료: 아침에 빵을 먹어요?\n지수: 네, 빵을 ___.\n처음 만난 동료에게 공손하게 답해요. 먹다 →",
         "questions": [
           {
             "id": "answer",
@@ -1080,7 +1080,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "-습니까/ㅂ니까",
@@ -1099,7 +1099,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "격식 있는 교실 대화\n교사: 학교에 갑니까?\n학생: 네, 갑니다.\n가다를 격식을 갖춘 질문으로 바꾸세요.",
+        "sourceKo": "기숙사 안내\n담당자: 내일 학교에 갑니까?\n학생: 네, 갑니다.\n가다를 격식을 갖춘 질문으로 바꾸세요.",
         "questions": [
           {
             "id": "answer",
@@ -1133,7 +1133,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "격식 있는 식사 확인\n담당자: 아침에 밥을 ___\n학생: 네, 먹습니다.\n먹다를 격식을 갖춘 질문으로 바꾸세요.",
+        "sourceKo": "기숙사 식사 확인\n담당자: 내일 아침에 밥을 ___\n학생: 네, 먹습니다.\n먹다를 격식을 갖춘 질문으로 바꾸세요.",
         "questions": [
           {
             "id": "answer",
@@ -1175,7 +1175,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "교실 표지 읽기",
@@ -1191,7 +1191,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "sign",
-        "sourceKo": "한국어 교실: 201호\n명찰\n이름: 민수\n직업: 학생",
+        "sourceKo": "한국어 교실: 201호\n명찰\n이름: 현우\n직업: 학생",
         "questions": [
           {
             "id": "room",
@@ -1232,7 +1232,7 @@
             "options": [
               {
                 "id": "0",
-                "text": "민수"
+                "text": "현우"
               },
               {
                 "id": "1",
@@ -1244,9 +1244,9 @@
             ],
             "required": true,
             "explanation": {
-              "ko": "명찰에 민수라고 적혀 있어요.",
-              "en": "The badge says 민수.",
-              "de": "Auf dem Namensschild steht 민수."
+              "ko": "명찰에 현우라고 적혀 있어요.",
+              "en": "The badge says 현우.",
+              "de": "Auf dem Namensschild steht 현우."
             }
           },
           {
@@ -1326,7 +1326,7 @@
               },
               {
                 "id": "1",
-                "text": "민수"
+                "text": "현우"
               }
             ],
             "acceptedAnswers": [
@@ -1379,7 +1379,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "소개 듣기",
@@ -1485,7 +1485,7 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "안녕하세요. 저는 유나예요. 저는 선생님이에요. 민수는 제 동생이에요.",
+        "sourceKo": "안녕하세요. 저는 유나예요. 저는 선생님이에요. 현우는 제 동생이에요.",
         "questions": [
           {
             "id": "name",
@@ -1502,7 +1502,7 @@
               },
               {
                 "id": "1",
-                "text": "민수"
+                "text": "현우"
               }
             ],
             "acceptedAnswers": [
@@ -1546,9 +1546,9 @@
           {
             "id": "relation",
             "prompt": {
-              "ko": "민수는 어떤 관계예요?",
-              "en": "How is 민수 related to the speaker?",
-              "de": "In welcher Beziehung steht 민수 zur sprechenden Person?"
+              "ko": "현우는 어떤 관계예요?",
+              "en": "How is 현우 related to the speaker?",
+              "de": "In welcher Beziehung steht 현우 zur sprechenden Person?"
             },
             "kind": "choice",
             "options": [
@@ -1903,7 +1903,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "교실과 도서관 표지",
@@ -1973,7 +1973,7 @@
               "0"
             ],
             "explanation": {
-              "ko": "가능은 물 마시기, 금지는 음식 먹기이에요.",
+              "ko": "가능은 물 마시기, 금지는 음식 먹기예요.",
               "en": "물 마시기 is allowed; 음식 먹기 is prohibited.",
               "de": "물 마시기 ist erlaubt; 음식 먹기 ist verboten."
             }
@@ -2063,7 +2063,7 @@
               "0"
             ],
             "explanation": {
-              "ko": "가능은 책 읽기, 금지는 전화하기이에요.",
+              "ko": "가능은 책 읽기, 금지는 전화하기예요.",
               "en": "책 읽기 is allowed; 전화하기 is prohibited.",
               "de": "책 읽기 ist erlaubt; 전화하기 ist verboten."
             }
@@ -2107,7 +2107,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "달·딸·탈과 이름의 끝소리",
@@ -2149,7 +2149,7 @@
               "0"
             ],
             "explanation": {
-              "ko": "순서는 달 → 딸 → 탈예요. ㄷ·ㄸ·ㅌ은 평음·경음·격음의 구별이에요.",
+              "ko": "순서는 달 → 딸 → 탈이에요. ㄷ·ㄸ·ㅌ은 평음·경음·격음의 구별이에요.",
               "en": "The order is 달 → 딸 → 탈. ㄷ, ㄸ and ㅌ contrast lax, tense and aspirated consonants.",
               "de": "Die Reihenfolge ist 달 → 딸 → 탈. ㄷ, ㄸ und ㅌ unterscheiden ungespannte, gespannte und aspirierte Konsonanten."
             }
@@ -2211,7 +2211,7 @@
               "0"
             ],
             "explanation": {
-              "ko": "순서는 탈 → 달 → 딸예요. ㄷ·ㄸ·ㅌ은 평음·경음·격음의 구별이에요.",
+              "ko": "순서는 탈 → 달 → 딸이에요. ㄷ·ㄸ·ㅌ은 평음·경음·격음의 구별이에요.",
               "en": "The order is 탈 → 달 → 딸. ㄷ, ㄸ and ㅌ contrast lax, tense and aspirated consonants.",
               "de": "Die Reihenfolge ist 탈 → 달 → 딸. ㄷ, ㄸ und ㅌ unterscheiden ungespannte, gespannte und aspirierte Konsonanten."
             }
@@ -2255,7 +2255,7 @@
       "requirementKeys": [],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "필수·선택·모르는 정보",
@@ -2297,7 +2297,7 @@
             "id": "optional",
             "kind": "choice",
             "prompt": {
-              "ko": "모르는 선택 항목 이메일는 어떻게 해요?",
+              "ko": "모르는 선택 항목 이메일은 어떻게 해요?",
               "en": "What do you do with the unknown optional field 이메일?",
               "de": "Was machst du mit dem unbekannten freiwilligen Feld 이메일?"
             },
@@ -2412,7 +2412,7 @@
               "죄송해요. 이메일 주소가 뭐예요?"
             ],
             "rejectedAnswers": [
-              "이메일는 몰라도 괜찮아요."
+              "이메일은 몰라도 괜찮아요."
             ],
             "explanation": {
               "ko": "예: 이메일 주소가 뭐예요? 아직 모르는 필수 정보를 지어내지 않아요.",
@@ -2431,7 +2431,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "첫 만남에서 다시 묻고 확인하기",
@@ -2448,7 +2448,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n동료: 네, 미나 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사예요.\n동료: 한국어 수업은 어디예요?\n학생: 201호예요.\n동료: 201호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n동료: 네, 미나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사예요.\n동료: 한국어 수업은 어디예요?\n학생: 201호예요.\n동료: 201호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
         "questions": [
           {
             "id": "repair",
@@ -2622,7 +2622,7 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "학생: 안녕하세요. 저는 유나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 유나예요.\n동료: 네, 유나 씨. 저는 민수예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 회사원이에요.\n동료: 한국어 수업은 어디예요?\n학생: 302호예요.\n동료: 302호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "sourceKo": "학생: 안녕하세요. 저는 유나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 유나예요.\n동료: 네, 유나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 회사원이에요.\n동료: 한국어 수업은 어디예요?\n학생: 302호예요.\n동료: 302호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
         "questions": [
           {
             "id": "repair",
@@ -2803,7 +2803,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "이름 소리와 소개 대화",
@@ -2820,7 +2820,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "가상 인물: 지민 / 학생. 가족: 동생은 의사. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 민수예요. 수업은 201호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
+        "sourceKo": "가상 인물: 지민 / 학생. 가족: 동생은 의사. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 현우예요. 수업은 201호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
         "questions": []
       },
       "assessment": {
@@ -3007,7 +3007,7 @@
       ],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "은/는 문장 만들기",
@@ -3026,7 +3026,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "form",
-        "sourceKo": "민수: 학생. 대조할 사람 지아: 의사. 지아에 관해 해요체로 쓰기",
+        "sourceKo": "현우: 학생. 대조할 사람 지아: 의사. 지아에 관해 해요체로 쓰기",
         "questions": [
           {
             "id": "sentence",
@@ -3259,7 +3259,7 @@
       ],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "의 문장 만들기",
@@ -3306,7 +3306,7 @@
       },
       "assessment": {
         "sourceKind": "form",
-        "sourceKo": "공책의 주인: 민수. 이것 / 민수 / 공책 / 해요체",
+        "sourceKo": "공책의 주인: 현우. 이것 / 현우 / 공책 / 해요체",
         "questions": [
           {
             "id": "sentence",
@@ -3319,15 +3319,15 @@
             "required": true,
             "options": [],
             "acceptedAnswers": [
-              "이것은 민수의 공책이에요."
+              "이것은 현우의 공책이에요."
             ],
             "rejectedAnswers": [
               "이것은 제 공책이에요."
             ],
             "explanation": {
-              "ko": "예: 이것은 민수의 공책이에요. 의미가 다른 예: 이것은 제 공책이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
-              "en": "Example: 이것은 민수의 공책이에요. Meaning or register error: 이것은 제 공책이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
-              "de": "Beispiel: 이것은 민수의 공책이에요. Fehler bei Bedeutung oder Register: 이것은 제 공책이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
+              "ko": "예: 이것은 현우의 공책이에요. 의미가 다른 예: 이것은 제 공책이에요. 지정된 정보·관계·말투를 유지하세요. 다른 적절한 표현은 미채점으로 남을 수 있어요.",
+              "en": "Example: 이것은 현우의 공책이에요. Meaning or register error: 이것은 제 공책이에요. Preserve the given facts, relationships and register. Other valid wording may remain unscored.",
+              "de": "Beispiel: 이것은 현우의 공책이에요. Fehler bei Bedeutung oder Register: 이것은 제 공책이에요. Behalte Angaben, Beziehungen und Sprachstil bei. Andere passende Formulierungen können unbewertet bleiben."
             }
           }
         ]
