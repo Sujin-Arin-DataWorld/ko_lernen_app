@@ -12,6 +12,7 @@ import 'services/pack_completion_owner.dart';
 import 'services/vocab_pack_finish_coordinator.dart';
 import 'services/learning_journey.dart';
 import 'screens/phase_task_screen.dart';
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -55,8 +56,10 @@ import 'services/splash_gate.dart';
 import 'services/notification_service.dart';
 import 'services/privacy_consent_service.dart';
 import 'services/push_service.dart';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+
 import 'firebase_options.dart';
 import 'services/account/account_failure_diagnostics.dart';
 import 'services/account/account_ui_operations.dart';
@@ -124,6 +127,8 @@ import 'screens/sarangbang_furnish_screen.dart';
 import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
+import 'screens/hangul_start_screen.dart';
+import 'services/hangul_start_progress.dart';
 import 'screens/stats_screen.dart';
 import 'screens/study_library_screen.dart';
 import 'screens/onboarding_v2/onboarding_v2_journey_screen.dart';
@@ -1038,6 +1043,16 @@ class _KoLernenAppState extends State<KoLernenApp> with WidgetsBindingObserver {
                 (_) => const KkeunmariScreen(),
                 settings: settings,
               );
+            case '/hangul-start':
+              final entry = settings.arguments;
+              return SoriTransitions.page(
+                (_) => HangulStartScreen(
+                  entry: entry is HangulStartEntry
+                      ? entry
+                      : HangulStartEntry.map,
+                ),
+                settings: settings,
+              );
             case '/hangul':
               final destination = settings.arguments;
               return SoriTransitions.page(
@@ -1461,9 +1476,17 @@ class _KoLernenAppState extends State<KoLernenApp> with WidgetsBindingObserver {
             case '/course/phase':
               final phase = settings.arguments;
               return SoriTransitions.page(
-                (_) => phase is LearningPhase
-                    ? LearningPhaseDetailScreen(phase: phase)
-                    : const LearningPhasesScreen(),
+                (_) => switch (phase) {
+                  final HangulStartPhaseDestination beginner =>
+                    LearningPhaseDetailScreen(
+                      phase: beginner.phase,
+                      hangulStart: true,
+                    ),
+                  final LearningPhase existing => LearningPhaseDetailScreen(
+                    phase: existing,
+                  ),
+                  _ => const LearningPhasesScreen(),
+                },
                 settings: settings,
               );
             case '/learning-phase/task':

@@ -21791,6 +21791,390 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Erneut aufnehmen'**
   String get pronunciationRecordAgainShort;
+
+  /// No description provided for @hangulStartTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Start'**
+  String get hangulStartTitle;
+
+  /// No description provided for @hangulStartOverviewLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Start · 14 kurze Lektionen'**
+  String get hangulStartOverviewLabel;
+
+  /// No description provided for @hangulStartResume.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterlernen'**
+  String get hangulStartResume;
+
+  /// No description provided for @hangulStartAlreadyRead.
+  ///
+  /// In de, this message translates to:
+  /// **'Ich kann Hangul schon lesen → Kurztest'**
+  String get hangulStartAlreadyRead;
+
+  /// No description provided for @hangulStartNextLetters.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes:'**
+  String get hangulStartNextLetters;
+
+  /// No description provided for @hangulStartDurationWithAudio.
+  ///
+  /// In de, this message translates to:
+  /// **'ca. 6 Minuten · mit Ton'**
+  String get hangulStartDurationWithAudio;
+
+  /// No description provided for @hangulStartTodayAtelier.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Atelier'**
+  String get hangulStartTodayAtelier;
+
+  /// No description provided for @hangulStartTodayAtelierDetail.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören & schreiben'**
+  String get hangulStartTodayAtelierDetail;
+
+  /// No description provided for @hangulStartTodayDirectA11.
+  ///
+  /// In de, this message translates to:
+  /// **'A1.1 direkt'**
+  String get hangulStartTodayDirectA11;
+
+  /// No description provided for @hangulStartA11CardTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Sich vorstellen'**
+  String get hangulStartA11CardTitle;
+
+  /// No description provided for @hangulStartA11Steps.
+  ///
+  /// In de, this message translates to:
+  /// **'4 Schritte'**
+  String get hangulStartA11Steps;
+
+  /// No description provided for @hangulStartTodayHanok.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Hanok'**
+  String get hangulStartTodayHanok;
+
+  /// No description provided for @hangulStartMapSummary.
+  ///
+  /// In de, this message translates to:
+  /// **'14 Lektionen · Reihenfolge empfohlen'**
+  String get hangulStartMapSummary;
+
+  /// No description provided for @hangulStartBandTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Teil {number} · {title}'**
+  String hangulStartBandTitle(int number, String title);
+
+  /// No description provided for @hangulStartFirstSyllableExplanation.
+  ///
+  /// In de, this message translates to:
+  /// **'ㅏ ist ein Vokal. Am Silbenanfang ist ㅇ stumm.'**
+  String get hangulStartFirstSyllableExplanation;
+
+  /// No description provided for @hangulStartLessonNoun.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion'**
+  String get hangulStartLessonNoun;
+
+  /// No description provided for @hangulStartGoal.
+  ///
+  /// In de, this message translates to:
+  /// **'Was du lernst'**
+  String get hangulStartGoal;
+
+  /// No description provided for @hangulStartBeginLesson.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion starten'**
+  String get hangulStartBeginLesson;
+
+  /// No description provided for @hangulStartNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get hangulStartNext;
+
+  /// No description provided for @hangulStartLessonDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion abgeschlossen'**
+  String get hangulStartLessonDone;
+
+  /// No description provided for @hangulStartAllDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Start abgeschlossen'**
+  String get hangulStartAllDone;
+
+  /// No description provided for @hangulStartAssemblyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Setze die Silbe zusammen'**
+  String get hangulStartAssemblyTitle;
+
+  /// No description provided for @hangulStartAssemblyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf die Zeichen und setze sie in die freien Felder.'**
+  String get hangulStartAssemblyBody;
+
+  /// No description provided for @hangulStartAssemblyReset.
+  ///
+  /// In de, this message translates to:
+  /// **'Teile neu legen'**
+  String get hangulStartAssemblyReset;
+
+  /// No description provided for @hangulStartAssemblyHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeig mir einen Hinweis'**
+  String get hangulStartAssemblyHint;
+
+  /// No description provided for @hangulStartListenSound.
+  ///
+  /// In de, this message translates to:
+  /// **'Laut anhören'**
+  String get hangulStartListenSound;
+
+  /// No description provided for @hangulStartListenWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort anhören'**
+  String get hangulStartListenWord;
+
+  /// No description provided for @hangulStartContrastTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Welche Silbe hörst du?'**
+  String get hangulStartContrastTitle;
+
+  /// No description provided for @hangulStartReplaySlow.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut anhören · 0,75×'**
+  String get hangulStartReplaySlow;
+
+  /// No description provided for @hangulStartCorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig:'**
+  String get hangulStartCorrect;
+
+  /// No description provided for @hangulStartIncorrect.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nicht richtig'**
+  String get hangulStartIncorrect;
+
+  /// No description provided for @hangulStartReplayHeard.
+  ///
+  /// In de, this message translates to:
+  /// **'Gehört:'**
+  String get hangulStartReplayHeard;
+
+  /// No description provided for @hangulStartReplaySelected.
+  ///
+  /// In de, this message translates to:
+  /// **'Gewählt:'**
+  String get hangulStartReplaySelected;
+
+  /// No description provided for @hangulStartAspiratedFeedback.
+  ///
+  /// In de, this message translates to:
+  /// **'Bei ㅋ kommt ein Luftstoß hinterher. Halte die Hand vor den Mund.'**
+  String get hangulStartAspiratedFeedback;
+
+  /// No description provided for @hangulStartSoundPlain.
+  ///
+  /// In de, this message translates to:
+  /// **'weich'**
+  String get hangulStartSoundPlain;
+
+  /// No description provided for @hangulStartSoundAspirated.
+  ///
+  /// In de, this message translates to:
+  /// **'behaucht'**
+  String get hangulStartSoundAspirated;
+
+  /// No description provided for @hangulStartSoundTense.
+  ///
+  /// In de, this message translates to:
+  /// **'gespannt'**
+  String get hangulStartSoundTense;
+
+  /// No description provided for @hangulStartFinalTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'So klingt der Schlusslaut'**
+  String get hangulStartFinalTitle;
+
+  /// No description provided for @hangulStartCheckAnswer.
+  ///
+  /// In de, this message translates to:
+  /// **'Antwort prüfen'**
+  String get hangulStartCheckAnswer;
+
+  /// No description provided for @hangulStartTestTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Kurztest'**
+  String get hangulStartTestTitle;
+
+  /// No description provided for @hangulStartTestLead.
+  ///
+  /// In de, this message translates to:
+  /// **'Kannst du schon Hangul lesen?'**
+  String get hangulStartTestLead;
+
+  /// No description provided for @hangulStartTestCount.
+  ///
+  /// In de, this message translates to:
+  /// **'10 Fragen'**
+  String get hangulStartTestCount;
+
+  /// No description provided for @hangulStartTestNoRomanization.
+  ///
+  /// In de, this message translates to:
+  /// **'Ohne Umschrift'**
+  String get hangulStartTestNoRomanization;
+
+  /// No description provided for @hangulStartTestPassing.
+  ///
+  /// In de, this message translates to:
+  /// **'Ab 8 richtig geht es mit A1.1 weiter.'**
+  String get hangulStartTestPassing;
+
+  /// No description provided for @hangulStartTestAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Test starten'**
+  String get hangulStartTestAction;
+
+  /// No description provided for @hangulStartPreferLessons.
+  ///
+  /// In de, this message translates to:
+  /// **'Lieber erst den Hangul-Start machen'**
+  String get hangulStartPreferLessons;
+
+  /// No description provided for @hangulStartTestPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Hör zu und wähle das Wort.'**
+  String get hangulStartTestPrompt;
+
+  /// No description provided for @hangulStartTestListen.
+  ///
+  /// In de, this message translates to:
+  /// **'Anhören'**
+  String get hangulStartTestListen;
+
+  /// No description provided for @hangulStartTestPassed.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurztest bestanden'**
+  String get hangulStartTestPassed;
+
+  /// No description provided for @hangulStartTestPractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe weiter'**
+  String get hangulStartTestPractice;
+
+  /// No description provided for @hangulStartReviewTopic.
+  ///
+  /// In de, this message translates to:
+  /// **'Zum Wiederholen'**
+  String get hangulStartReviewTopic;
+
+  /// No description provided for @hangulStartContinueA11.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter mit A1.1'**
+  String get hangulStartContinueA11;
+
+  /// No description provided for @hangulStartSkipToA11.
+  ///
+  /// In de, this message translates to:
+  /// **'Trotzdem mit A1.1 beginnen'**
+  String get hangulStartSkipToA11;
+
+  /// No description provided for @hangulStartGoMap.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Lernkarte'**
+  String get hangulStartGoMap;
+
+  /// No description provided for @hangulStartRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get hangulStartRetry;
+
+  /// No description provided for @hangulStartLoadError.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Start konnte nicht geladen werden.'**
+  String get hangulStartLoadError;
+
+  /// No description provided for @hangulStartAudioError.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Ton konnte nicht abgespielt werden. Versuche es erneut.'**
+  String get hangulStartAudioError;
+
+  /// No description provided for @hangulStartSaveError.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt konnte nicht gespeichert werden. Versuche es erneut.'**
+  String get hangulStartSaveError;
+
+  /// No description provided for @hangulStartPlaysLeft.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch {remaining} von {maximum}'**
+  String hangulStartPlaysLeft(int remaining, int maximum);
+
+  /// No description provided for @hangulStartDoneCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{done} von {total} abgeschlossen'**
+  String hangulStartDoneCount(int done, int total);
+
+  /// No description provided for @hangulStartChooseLesson.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion auswählen'**
+  String get hangulStartChooseLesson;
+
+  /// No description provided for @hangulStartTryParts.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfe die Reihenfolge der Zeichen.'**
+  String get hangulStartTryParts;
+
+  /// No description provided for @hangulStartAudioBusy.
+  ///
+  /// In de, this message translates to:
+  /// **'Ton wird geladen …'**
+  String get hangulStartAudioBusy;
+
+  /// No description provided for @hangulStartReplayLesson.
+  ///
+  /// In de, this message translates to:
+  /// **'Lektion wiederholen'**
+  String get hangulStartReplayLesson;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

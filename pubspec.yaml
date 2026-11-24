@@ -149,6 +149,7 @@ flutter:
     - assets/illustrations/approved_games/
     - assets/illustrations/einleitung_generated/
     - assets/data/
+    - assets/illustrations/concept_c/hangul_start/
     # Approved R16 renders, losslessly packaged with exact process identities.
     - assets/illustrations/ildu_r16/
     # Same approved standalone geometry, foreground + separate contact shadow.

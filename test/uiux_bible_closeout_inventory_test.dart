@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(88));
+    expect(registered, hasLength(89));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(88));
+    expect(documented, hasLength(89));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -76,9 +76,10 @@ void main() {
     );
     expect(indirectSectionStart, greaterThan(sectionStart));
     final indirectInventory = lock.substring(indirectSectionStart, sectionEnd);
-    final indirectOwners = RegExp(
-      r'`([^`]+)`',
-    ).allMatches(indirectInventory).map((match) => match.group(1)!).toSet();
+    final indirectOwners = RegExp(r'`([^`]+)`')
+        .allMatches(indirectInventory)
+        .map((match) => match.group(1)!)
+        .toSet();
     expect(indirectOwners, isNot(contains('GrammarChoiceQuizScreen')));
     expect(indirectOwners, isNot(contains('ReviewHubScreen')));
     final surfaceNamePattern = RegExp(
@@ -111,8 +112,8 @@ void main() {
     }
 
     // Includes the C5 overview, R16 reference and existing indirect owners.
-    expect(seen, hasLength(130));
-    expect(documented, hasLength(130));
+    expect(seen, hasLength(131));
+    expect(documented, hasLength(131));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -135,9 +136,9 @@ void main() {
         continue;
       }
       listed.addAll(
-        RegExp(
-          r'`([^`]+)`',
-        ).allMatches(cells[2]).map((match) => match.group(1)!),
+        RegExp(r'`([^`]+)`')
+            .allMatches(cells[2])
+            .map((match) => match.group(1)!),
       );
     }
 
@@ -163,9 +164,9 @@ void main() {
     // +2: approved Dokkaebi introduction and its separately owned flame frame.
     // +7: approved game materials, measured art metrics and presentation views.
     // +2: culture-stories entry card and scenario culture card (#449).
-    expect(actual, hasLength(194));
+    expect(actual, hasLength(196));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(194));
+    expect(listed, hasLength(196));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

@@ -12,10 +12,12 @@ abstract final class OnboardingLearningStart {
   static Future<bool> shouldOfferHangul({
     required CourseMasterySnapshot? course,
     OnboardingJourneyRepository? repository,
+    bool resumeHangul = false,
   }) async {
     final lease = CatalogHistoryLease.capture();
     try {
-      if (_hasPriorLearning(course)) {
+      if (course?.placementLevel != 'a1' ||
+          (!resumeHangul && _hasPriorLearning(course))) {
         return false;
       }
       final state =
@@ -25,7 +27,7 @@ abstract final class OnboardingLearningStart {
           state?.phase == OnboardingPhase.complete &&
           state?.beginnerDraft == true &&
           state?.levelDraft == LearnerLevel.a1 &&
-          !_hasPriorLearning(course);
+          (resumeHangul || !_hasPriorLearning(course));
     } catch (_) {
       // Optional introductory copy must never hide a valid course mission.
       return false;

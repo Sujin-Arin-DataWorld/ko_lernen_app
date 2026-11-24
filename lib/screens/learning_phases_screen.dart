@@ -6,6 +6,7 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/phase_task_panel.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/hangul_start_material.dart';
 import '../widgets/sori/illustrated_card.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/standard_page.dart';
@@ -117,16 +118,60 @@ class _LearningPhasesScreenState extends State<LearningPhasesScreen> {
   }
 }
 
+class HangulStartPhaseDestination {
+  const HangulStartPhaseDestination(this.phase);
+  final LearningPhase phase;
+}
+
 class LearningPhaseDetailScreen extends StatelessWidget {
-  const LearningPhaseDetailScreen({super.key, required this.phase});
+  const LearningPhaseDetailScreen({
+    super.key,
+    required this.phase,
+    this.hangulStart = false,
+  });
 
   final LearningPhase phase;
+  final bool hangulStart;
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final type = SoriTextTheme.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    if (hangulStart && phase.id == 'KP01') {
+      return HangulStartScaffold(
+        title: '${phase.levelPhase} · ${t.hangulStartA11CardTitle}',
+        onBack: () => Navigator.of(context).pop(),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            PhaseTaskPanel(
+              phaseId: phase.id,
+              steps: phase.steps,
+              hangulStart: true,
+            ),
+            ExpansionTile(
+              title: Text(t.learningPhasePracticeTitle),
+              children: [
+                Text(phase.practiceFocus.pick(lang), style: type.body),
+                Text(t.learningPhasePracticeScope, style: type.bodySmall),
+                for (final unit in phase.practiceUnits)
+                  ListTile(
+                    key: ValueKey('phase-mission-${unit.id}'),
+                    title: Text(unit.title.pick(lang)),
+                    subtitle: Text(unit.canDo.pick(lang)),
+                    onTap: () => Navigator.of(context).pushNamed(
+                      '/scenario',
+                      arguments: learningPhaseScenarioId(unit),
+                    ),
+                  ),
+              ],
+            ),
+            const SizedBox(height: 16),
+          ],
+        ),
+      );
+    }
     return SoriStandardFrame(
       appBarTitle: phase.levelPhase,
       maxWidth: SoriMaxWidth.prose,

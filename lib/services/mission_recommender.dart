@@ -2,6 +2,7 @@ import '../models/curriculum.dart';
 import '../models/pack_progress.dart';
 import '../models/scenario.dart';
 import '../models/vocab_pack.dart';
+import 'hangul_start_progress.dart';
 
 /// 홈 블록 3 "미션 히어로" 추천 엔진 — **순수 함수** (계획 §6.1·§10.1).
 ///
@@ -17,7 +18,9 @@ sealed class MissionPick {
 /// A completed beginner onboarding's first real activity, before the course.
 /// Admission belongs to the shared Today loader, never the course graph.
 final class HangulIntroPick extends MissionPick {
-  const HangulIntroPick();
+  const HangulIntroPick({this.start});
+
+  final HangulStartHome? start;
 }
 
 final class CoursePick extends MissionPick {

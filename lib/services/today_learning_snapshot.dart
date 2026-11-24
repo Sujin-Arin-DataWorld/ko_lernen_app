@@ -11,6 +11,8 @@ import '../models/scenario.dart';
 import '../models/vocab_pack.dart';
 import 'course_progress_service.dart';
 import 'curriculum_catalog.dart';
+import 'hangul_foundation_catalog.dart';
+import 'hangul_start_progress.dart';
 import 'mission_recommender.dart';
 import 'pack_progress_service.dart';
 import 'review_deck_service.dart';
@@ -40,6 +42,12 @@ class TodayLearningDestination {
 /// Pure route contract for the existing recommendation engine.
 TodayLearningDestination? todayLearningDestinationFor(MissionPick? pick) =>
     switch (pick) {
+      HangulIntroPick(start: final start?) => TodayLearningDestination(
+        route: '/hangul-start',
+        arguments: start.progress.started
+            ? HangulStartEntry.resume
+            : HangulStartEntry.map,
+      ),
       HangulIntroPick() => const TodayLearningDestination(route: '/hangul'),
       CoursePick() => const TodayLearningDestination(route: '/course/mission'),
       PackPick(:final pack) => TodayLearningDestination(
@@ -180,6 +188,7 @@ class TodayLearningSnapshot {
   final TodayLearningUnavailableReason? unavailableReason;
   final Set<TodayLearningSource> unavailableSources;
   final List<ContentDailyProgress> contentDaily;
+  final bool showHangulA11;
 
   const TodayLearningSnapshot({
     required this.pick,
@@ -192,6 +201,7 @@ class TodayLearningSnapshot {
     this.unavailableReason,
     this.unavailableSources = const {},
     this.contentDaily = const [],
+    this.showHangulA11 = false,
   }) : assert(
          availability == TodayLearningAvailability.ready
              ? unavailableReason == null
@@ -207,6 +217,8 @@ class TodayLearningSnapshot {
   factory TodayLearningSnapshot.fromInputs(
     TodayLearningInputs inputs, {
     bool startWithHangul = false,
+    HangulStartHome? hangulStart,
+    bool hangulStartFinished = false,
     int hardCount = 0,
     TodayLearningAvailability availability = TodayLearningAvailability.ready,
     TodayLearningUnavailableReason? unavailableReason,
@@ -214,7 +226,7 @@ class TodayLearningSnapshot {
     List<ContentDailyProgress> contentDaily = const [],
   }) {
     final pick = startWithHangul
-        ? const HangulIntroPick()
+        ? HangulIntroPick(start: hangulStart)
         : recommendMission(
             courseUnits: inputs.courseUnits,
             currentCourseUnitId: inputs.currentCourseUnitId,
@@ -237,6 +249,11 @@ class TodayLearningSnapshot {
       unavailableReason: unavailableReason,
       unavailableSources: Set.unmodifiable(unavailableSources),
       contentDaily: List.unmodifiable(contentDaily),
+      showHangulA11:
+          hangulStartFinished &&
+          pick is CoursePick &&
+          pick.unit.id == 'a1_01_greetings_hangul' &&
+          !pick.started,
     );
   }
 }
@@ -335,14 +352,43 @@ class TodayLearningSnapshotLoader {
         ? TodayLearningUnavailableReason.localData
         : null;
 
-    final startWithHangul =
-        unavailableReason == null &&
+    final firstActivity =
         review.value.dueCount == 0 &&
         review.value.hardCount == 0 &&
-        (nowNode.value?.progress.progressFraction ?? 0) == 0 &&
-        await OnboardingLearningStart.shouldOfferHangul(
-          course: course.value.snapshot,
-        );
+        (nowNode.value?.progress.progressFraction ?? 0) == 0;
+    HangulStartHome? hangulStart;
+    var startWithHangul = false;
+    var hangulStartFinished = false;
+    if (unavailableReason == null &&
+        course.value.snapshot?.placementLevel == 'a1') {
+      try {
+        final progress = await HangulStartProgressStore().load();
+        final continuable = progress.started || progress.passed;
+        if (firstActivity || continuable) {
+          final eligible = await OnboardingLearningStart.shouldOfferHangul(
+            course: course.value.snapshot,
+            resumeHangul: continuable,
+          );
+          if (eligible && progress.passed) {
+            hangulStartFinished = true;
+          } else if (eligible) {
+            hangulStart = HangulStartHome(
+              await HangulFoundationCatalog.load(),
+              progress,
+            );
+            hangulStartFinished = hangulStart.finished;
+            startWithHangul = !hangulStartFinished;
+          }
+        }
+      } catch (_) {
+        // Keep the established first-letter route available on load failure.
+        startWithHangul =
+            firstActivity &&
+            await OnboardingLearningStart.shouldOfferHangul(
+              course: course.value.snapshot,
+            );
+      }
+    }
     return TodayLearningSnapshot.fromInputs(
       TodayLearningInputs(
         courseUnits: course.value.units,
@@ -360,6 +406,8 @@ class TodayLearningSnapshotLoader {
       hardCount: review.value.hardCount,
       contentDaily: contentDaily.value,
       startWithHangul: startWithHangul,
+      hangulStart: hangulStart,
+      hangulStartFinished: hangulStartFinished,
       availability: unavailableReason == null
           ? TodayLearningAvailability.ready
           : TodayLearningAvailability.unavailable,

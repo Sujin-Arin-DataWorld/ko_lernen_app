@@ -5945,5 +5945,89 @@
   "pronunciationFocusLink": "Sound linking",
   "pronunciationHeader": "Pronunciation",
   "pronunciationRecordShort": "Record",
-  "pronunciationRecordAgainShort": "Record again"
+  "pronunciationRecordAgainShort": "Record again",
+  "hangulStartTitle": "Hangul Start",
+  "hangulStartOverviewLabel": "Hangul Start · 14 short lessons",
+  "hangulStartResume": "Keep learning",
+  "hangulStartAlreadyRead": "I can already read Hangul → Quick check",
+  "hangulStartNextLetters": "Up next:",
+  "hangulStartDurationWithAudio": "about 6 minutes · with audio",
+  "hangulStartTodayAtelier": "Hangul Studio",
+  "hangulStartTodayAtelierDetail": "Listen & write",
+  "hangulStartTodayDirectA11": "Go to A1.1",
+  "hangulStartA11CardTitle": "Introduce yourself",
+  "hangulStartA11Steps": "4 steps",
+  "hangulStartTodayHanok": "Your Hanok",
+  "hangulStartMapSummary": "14 lessons · suggested order",
+  "hangulStartBandTitle": "Part {number} · {title}",
+  "hangulStartFirstSyllableExplanation": "ㅏ is a vowel. ㅇ is silent at the start of a syllable.",
+  "hangulStartLessonNoun": "Lesson",
+  "hangulStartGoal": "What you’ll learn",
+  "hangulStartBeginLesson": "Start lesson",
+  "hangulStartNext": "Continue",
+  "hangulStartLessonDone": "Lesson complete",
+  "hangulStartAllDone": "Hangul Start complete",
+  "hangulStartAssemblyTitle": "Build the syllable",
+  "hangulStartAssemblyBody": "Tap the letters to place them in the slots.",
+  "hangulStartAssemblyReset": "Reset pieces",
+  "hangulStartAssemblyHint": "Show me a hint",
+  "hangulStartListenSound": "Listen to the sound",
+  "hangulStartListenWord": "Listen to the word",
+  "hangulStartContrastTitle": "Which syllable do you hear?",
+  "hangulStartReplaySlow": "Listen again · 0.75×",
+  "hangulStartCorrect": "Correct:",
+  "hangulStartIncorrect": "Not quite",
+  "hangulStartReplayHeard": "You heard:",
+  "hangulStartReplaySelected": "You chose:",
+  "hangulStartAspiratedFeedback": "With ㅋ, there is a puff of air. Hold your hand in front of your mouth.",
+  "hangulStartSoundPlain": "plain",
+  "hangulStartSoundAspirated": "aspirated",
+  "hangulStartSoundTense": "tense",
+  "hangulStartFinalTitle": "How the final sound is pronounced",
+  "hangulStartCheckAnswer": "Check answer",
+  "hangulStartTestTitle": "Hangul check",
+  "hangulStartTestLead": "Can you already read Hangul?",
+  "hangulStartTestCount": "10 questions",
+  "hangulStartTestNoRomanization": "Without romanization",
+  "hangulStartTestPassing": "Get 8 right to continue to A1.1.",
+  "hangulStartTestAction": "Start check",
+  "hangulStartPreferLessons": "I’d rather do Hangul Start first",
+  "hangulStartTestPrompt": "Listen and choose the word.",
+  "hangulStartTestListen": "Listen",
+  "hangulStartTestPassed": "Hangul check passed",
+  "hangulStartTestPractice": "Keep practicing",
+  "hangulStartReviewTopic": "To review",
+  "hangulStartContinueA11": "Continue to A1.1",
+  "hangulStartSkipToA11": "Start A1.1 anyway",
+  "hangulStartGoMap": "Back to the lesson map",
+  "hangulStartRetry": "Try again",
+  "hangulStartLoadError": "Couldn’t load Hangul Start.",
+  "hangulStartAudioError": "The audio couldn’t play. Try again.",
+  "hangulStartSaveError": "Couldn’t save your progress. Try again.",
+  "hangulStartPlaysLeft": "{remaining} of {maximum} plays left",
+  "hangulStartDoneCount": "{done} of {total} completed",
+  "hangulStartChooseLesson": "Choose a lesson",
+  "hangulStartTryParts": "Check the order of the letters.",
+  "hangulStartAudioBusy": "Loading audio…",
+  "hangulStartReplayLesson": "Repeat lesson",
+  "@hangulStartPlaysLeft": {
+    "placeholders": {
+      "remaining": {
+        "type": "int"
+      },
+      "maximum": {
+        "type": "int"
+      }
+    }
+  },
+  "@hangulStartDoneCount": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  }
 }

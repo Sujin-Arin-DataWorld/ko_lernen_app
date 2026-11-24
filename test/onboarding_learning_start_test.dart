@@ -13,10 +13,12 @@ import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
-import 'package:ko_lernen_app/screens/hangul_screen.dart';
+import 'package:ko_lernen_app/screens/hangul_start_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_shell.dart';
 import 'package:ko_lernen_app/services/course_mission_navigation.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/hangul_start_progress.dart';
+import 'package:ko_lernen_app/services/hangul_foundation_catalog.dart';
 import 'package:ko_lernen_app/services/learning_focus.dart';
 import 'package:ko_lernen_app/services/learning_journey.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
@@ -26,12 +28,13 @@ import 'package:ko_lernen_app/features/content_learning/content_learning_catalog
 import 'package:ko_lernen_app/features/content_learning/content_learning_models.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hangul_start_today.dart';
 
 import 'support/sori_stage_pump.dart';
 import 'support/sori_speech_stubs.dart';
 
 const _course = CourseUnit(
-  id: 'a1_intro',
+  id: 'a1_01_greetings_hangul',
   level: 'a1',
   order: 1,
   title: CurriculumText(ko: '인사', de: 'Begrüßung', en: 'Greetings'),
@@ -39,7 +42,7 @@ const _course = CourseUnit(
 );
 const _placement = CourseMasterySnapshot(
   placementLevel: 'a1',
-  currentCourseUnitId: 'a1_intro',
+  currentCourseUnitId: 'a1_01_greetings_hangul',
 );
 final _link = ContentLink(
   id: 'intro-grammar',
@@ -106,10 +109,12 @@ Future<LearningFocus> _focus() => LearningFocus.load(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  late HangulFoundation foundation;
   setUpAll(() async {
     // The production wallet bootstrap loads these before opening a route.
     // Keep bundle I/O outside the widget's fake clock in this route fixture.
     await CurriculumCatalog.load();
+    foundation = await HangulFoundationCatalog.load();
     for (final kind in LearningContentKind.values) {
       await ContentLearningCatalog.load(kind);
     }
@@ -135,13 +140,39 @@ void main() {
         expect(focus.today.pick, isA<HangulIntroPick>());
         expect(
           focus.destination,
-          const TodayLearningDestination(route: '/hangul'),
+          const TodayLearningDestination(
+            route: '/hangul-start',
+            arguments: HangulStartEntry.map,
+          ),
         );
-        expect(focus.activityId, 'hangul');
+        expect(focus.activityId, isNull);
         expect(focus.brief, isNull);
         expect(focus.ready, isTrue);
       }
       expect({for (final key in prefs.getKeys()) key: prefs.get(key)}, before);
+    },
+  );
+
+  test(
+    'a passed foundation sends the beginner to the first A1.1 course',
+    () async {
+      await HangulStartProgressStore().pass();
+      final focus = await _focus();
+      expect(focus.today.showHangulA11, isTrue);
+      expect(focus.today.pick, isA<CoursePick>());
+    },
+  );
+
+  test(
+    'a completed beginner choice never changes another placement level',
+    () async {
+      for (final level in ['a2', 'b1', 'b2', 'c1', 'c2']) {
+        final today = await _today(
+          course: _placement.copyWith(placementLevel: level),
+        );
+        expect(today.pick, isNot(isA<HangulIntroPick>()), reason: level);
+        expect(today.showHangulA11, isFalse, reason: level);
+      }
     },
   );
 
@@ -225,7 +256,7 @@ void main() {
 
   for (final locale in ['de', 'en']) {
     testWidgets(
-      '$locale first CTA opens real Hangul; Back and restart restore course',
+      '$locale first CTA opens Hangul Start and returning and restart resume the lesson',
       (tester) async {
         tester.view.physicalSize = const Size(720, 1152);
         tester.view.devicePixelRatio = 1;
@@ -262,10 +293,10 @@ void main() {
               opened.add(settings.name);
               return MaterialPageRoute<void>(
                 settings: settings,
-                builder: (_) => settings.name == '/hangul'
-                    ? HangulScreen(
-                        textPrefetcher: (_) async {},
-                        speechPlayer: (_) async => true,
+                builder: (_) => settings.name == '/hangul-start'
+                    ? HangulStartScreen(
+                        entry: settings.arguments as HangulStartEntry,
+                        loadCatalog: () async => foundation,
                       )
                     : const Scaffold(body: Text('course activity')),
               );
@@ -274,9 +305,8 @@ void main() {
         );
         await pumpSoriStage(tester, frames: 4);
         final t = lookupAppL10n(Locale(locale));
-        final focusCard = find
-            .byKey(const ValueKey('today-learning-card'))
-            .first;
+        final focusCard = find.byType(HangulStartTodayCard);
+        await pumpUntilFound(tester, focusCard);
         expect(
           find.descendant(
             of: focusCard,
@@ -291,34 +321,50 @@ void main() {
         await tester.ensureVisible(start);
         await tester.tap(start);
         await pumpSoriStage(tester, frames: 3);
-        expect(opened, ['/hangul']);
-        expect(find.byType(HangulScreen), findsOneWidget);
-        expect(Storage.recentCatalogActivityId(SoriStageTab.learn), 'hangul');
+        expect(opened, ['/hangul-start']);
+        final startScreen = find.byType(HangulStartScreen);
+        expect(startScreen, findsOneWidget);
+        final startLesson = find.descendant(
+          of: startScreen,
+          matching: find.text(t.todayStartHangul),
+        );
+        await tester.ensureVisible(startLesson);
+        await tester.tap(startLesson);
+        await pumpSoriStage(tester, frames: 3);
+        expect(find.text(t.hangulStartBeginLesson), findsOneWidget);
+        expect(Storage.recentCatalogActivityId(SoriStageTab.learn), isNull);
         expect(Storage.xp, 0);
         nav.currentState!.popUntil((route) => route.isFirst);
         await pumpSoriStage(tester, frames: 4);
-        expect(find.byType(HangulScreen), findsNothing);
+        expect(startScreen, findsNothing);
+        await pumpUntilFound(tester, find.text(t.hangulStartResume));
         expect(
           find.descendant(
             of: focusCard,
-            matching: find.text(locale == 'de' ? 'Begrüßung' : 'Greetings'),
+            matching: find.text(t.hangulStartResume),
           ),
           findsOneWidget,
         );
-        expect((await _focus()).destination?.route, '/grammar');
+        expect(
+          (await _focus()).destination?.arguments,
+          HangulStartEntry.resume,
+        );
         final state = await SharedPreferencesOnboardingJourneyRepository()
             .load();
         expect(
           state?.beginnerDraft,
           isTrue,
           reason:
-              'The learner preference is retained; activity history consumes the offer.',
+              'The learner preference is retained along with lesson progress.',
         );
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pump();
         Storage.resetForTesting();
         await Storage.init();
-        expect((await _focus()).today.pick, isA<CoursePick>());
+        expect(
+          (await _focus()).destination?.arguments,
+          HangulStartEntry.resume,
+        );
         expect(Storage.xp, 0);
         expect(tester.takeException(), isNull);
       },
