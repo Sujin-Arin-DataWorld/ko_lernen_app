@@ -1,0 +1,52 @@
+{
+  "capturedAtUtc": "2026-11-04T02:03:34.146282Z",
+  "evidenceKind": "Flutter presentation fixtures using production view widgets",
+  "fixtureLineBreaks": "Approved Figma text overrides in gallery only; no production per-word lookup",
+  "engineValidation": "Separate widget and recovery tests; not established by these images",
+  "viewport": [
+    402,
+    874
+  ],
+  "devicePixelRatio": 1,
+  "textScale": 1,
+  "locale": "de",
+  "safeAreaNormalization": "zero insets for approved Figma comparison",
+  "files": [
+    {
+      "fixture": 0,
+      "name": "quiz-a-flutter.png",
+      "bytes": 500000,
+      "sha256": "1a15ca31d1e1b436b4bc41d66dc294d035626efb1688f976efa0619f236bf177"
+    },
+    {
+      "fixture": 1,
+      "name": "quiz-b-flutter.png",
+      "bytes": 513016,
+      "sha256": "9fe418fbc68329260bdaa52841ef7b5824b3b1df9e6119c150b775898b9e8b4f"
+    },
+    {
+      "fixture": 2,
+      "name": "quiz-c-flutter.png",
+      "bytes": 521615,
+      "sha256": "b320d9c2181438ec97c33596707d1bfbf7a1d6ab1c78ea8619c9c46c51123a1d"
+    },
+    {
+      "fixture": 3,
+      "name": "matching-a-flutter.png",
+      "bytes": 513892,
+      "sha256": "645d2420d0cefb9cbf1c44ca7aefafddcfa23731e5bba1a2395c34c647cca9ad"
+    },
+    {
+      "fixture": 4,
+      "name": "matching-b-flutter.png",
+      "bytes": 521030,
+      "sha256": "1ee4dc21907be799db86551c66181d049af1073cc8d622a65a818c6facd4d227"
+    },
+    {
+      "fixture": 5,
+      "name": "matching-c-flutter.png",
+      "bytes": 508879,
+      "sha256": "b0d8a97f1eef7f2a9b93f9113eb29c9306288c7016f790765033be08d24f648b"
+    }
+  ]
+}

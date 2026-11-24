@@ -22,6 +22,7 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/sori_stage_pump.dart';
+import 'support/viewport_pages.dart';
 
 Widget host(Widget home, String language) => MaterialApp(
   theme: AppTheme.light,
@@ -55,15 +56,12 @@ Widget host(Widget home, String language) => MaterialApp(
 );
 
 Future<void> tap(WidgetTester tester, Finder finder) async {
-  await tester.drag(find.byType(Scrollable).first, const Offset(0, 4000));
-  await tester.pump();
-  await tester.scrollUntilVisible(
-    finder,
-    180,
-    scrollable: find.byType(Scrollable).first,
-  );
-  await tester.ensureVisible(finder);
-  await tester.pump();
+  final scrollable = find.byType(Scrollable);
+  if (scrollable.evaluate().isNotEmpty) {
+    // Start each scroll search from the top of a scrolling screen.
+    await tester.drag(scrollable.first, const Offset(0, 4000));
+  }
+  await revealForTap(tester, finder);
   await tester.tap(finder);
   await pumpSoriStage(tester);
 }

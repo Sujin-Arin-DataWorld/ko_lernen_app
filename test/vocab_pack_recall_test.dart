@@ -18,6 +18,8 @@ import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 
+import 'support/real_fonts.dart';
+
 Vocab _word(int index, {bool boss = false}) => Vocab(
   id: 'recall-$index',
   korean: index == 1 ? '하나' : '둘',
@@ -36,6 +38,7 @@ Vocab _word(int index, {bool boss = false}) => Vocab(
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadSoriRealFonts);
 
   setUp(() async {
     Storage.resetForTesting();
@@ -118,6 +121,47 @@ void main() {
       expect(find.byType(SoriStudyFrame), findsOneWidget);
       expect(
         find.byKey(const Key('vocab-recall-back-to-result')),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
+    'large recall keeps Korean IME input and submit above the keyboard',
+    (tester) async {
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.viewInsets = const FakeViewPadding(bottom: 260);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetViewInsets);
+      final pack = VocabPack(
+        id: 'a1_recall_1',
+        level: 'A1',
+        words: [_word(1, boss: true)],
+      );
+      await _pumpRecall(tester, pack, textScale: 2);
+      final field = find.byKey(const Key('vocab-recall-input'));
+      final submit = find.byKey(const Key('vocab-recall-submit'));
+      expect(find.text('eins').hitTestable(), findsOneWidget);
+      expect(field.hitTestable(), findsOneWidget);
+      expect(tester.getRect(submit).bottom, lessThanOrEqualTo(380));
+      expect(tester.getSize(submit).height, greaterThanOrEqualTo(48));
+      expect(
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is Scrollable &&
+              axisDirectionToAxis(widget.axisDirection) == Axis.vertical,
+        ),
+        findsNothing,
+      );
+      await tester.enterText(field, '하나');
+      await tester.testTextInput.receiveAction(TextInputAction.done);
+      await tester.pump();
+      await tester.pump();
+      expect(
+        find.byKey(const Key('vocab-recall-next')).hitTestable(),
         findsOneWidget,
       );
       expect(tester.takeException(), isNull);

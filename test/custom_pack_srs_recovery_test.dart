@@ -19,7 +19,8 @@ import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
-import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_games/approved_game_material.dart';
+import 'package:ko_lernen_app/widgets/sori/approved_games/approved_quiz_view.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'support/reward_preferences_platform.dart';
@@ -100,7 +101,7 @@ void main() {
       final oldAnswer = tester
           .widget<SoriContentFeed>(find.byType(SoriContentFeed))
           .onNext!;
-      final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+      final t = AppL10n.of(tester.element(_studyFrame()));
       final oldEdit = tester
           .widget<TextButton>(
             find.widgetWithText(TextButton, t.savedAddTranslation),
@@ -151,7 +152,7 @@ void main() {
     tester,
   ) async {
     await _pump(tester, _Flow.matching);
-    final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+    final t = AppL10n.of(tester.element(_studyFrame()));
     final wrongLabel = _words[1].translationEn;
     String? feedback() => tester
         .widgetList<Semantics>(find.byType(Semantics))
@@ -183,7 +184,7 @@ void main() {
       (tester) async {
         await _pump(tester, flow, pushed: true);
         await _completeRound(tester, flow);
-        final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+        final t = AppL10n.of(tester.element(_studyFrame()));
         final oldAgain = _button(
           tester,
           flow == _Flow.play ? t.customPackResultAgain : t.quizAgain,
@@ -204,7 +205,7 @@ void main() {
         oldAgain();
         oldBack();
         await _settle(tester);
-        expect(find.byType(SoriStudyFrame), findsOneWidget);
+        expect(_studyFrame(), findsOneWidget);
         expect(find.byKey(const Key('wordbook-destination')), findsNothing);
         await _completeRound(tester, flow);
         expect(Storage.xp, xp * 2);
@@ -274,7 +275,7 @@ void main() {
         } else if (retirement == 'unmount') {
           await tester.pumpWidget(const SizedBox());
         } else if (retirement == 'pop') {
-          Navigator.of(tester.element(find.byType(SoriStudyFrame))).pop();
+          Navigator.of(tester.element(_studyFrame())).pop();
         } else {
           reset = Storage.resetAllStrict();
         }
@@ -296,7 +297,7 @@ void main() {
     ) async {
       await _pump(tester, flow, pushed: true);
       final action = await _acceptedAction(tester, flow);
-      final context = tester.element(find.byType(SoriStudyFrame));
+      final context = tester.element(_studyFrame());
       Navigator.of(context).pop();
       expect(context.mounted, isTrue);
       action();
@@ -315,11 +316,8 @@ void main() {
       await _settle(tester);
       VoidCallback? oldNext;
       if (flow == _Flow.quiz || flow == _Flow.typing) {
-        final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
-        oldNext = tester
-            .widgetList<SoriButton>(find.byType(SoriButton))
-            .singleWhere((button) => button.label == t.btnNext)
-            .onTap!;
+        final t = AppL10n.of(tester.element(_studyFrame()));
+        oldNext = _button(tester, t.btnNext);
         oldNext();
         await tester.pump();
       } else if (flow == _Flow.matching) {
@@ -403,14 +401,13 @@ Future<VoidCallback> _acceptedAction(WidgetTester tester, _Flow flow) async {
           .widget<SoriContentFeed>(find.byType(SoriContentFeed))
           .onHard!;
     case _Flow.quiz:
-      return tester
-          .widgetList<QuizChoice>(find.byType(QuizChoice))
-          .firstWhere((choice) => !choice.isCorrect)
-          .onSelected!;
+      return _quizChoices(
+        tester,
+      ).firstWhere((choice) => !choice.isCorrect).onSelected!;
     case _Flow.typing:
       await tester.enterText(find.byType(SoriTextField), '틀린답');
       await tester.pump();
-      final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+      final t = AppL10n.of(tester.element(_studyFrame()));
       return tester
           .widgetList<SoriButton>(find.byType(SoriButton))
           .singleWhere((button) => button.label == t.btnSubmit)
@@ -479,10 +476,9 @@ Future<String> _answer(WidgetTester tester, _Flow flow) async {
       word = _words
           .firstWhere((word) => find.text(word.korean).evaluate().isNotEmpty)
           .korean;
-      tester
-          .widgetList<QuizChoice>(find.byType(QuizChoice))
-          .firstWhere((choice) => !choice.isCorrect)
-          .onSelected!();
+      _quizChoices(
+        tester,
+      ).firstWhere((choice) => !choice.isCorrect).onSelected!();
     case _Flow.typing:
       word = _words
           .firstWhere(
@@ -491,16 +487,16 @@ Future<String> _answer(WidgetTester tester, _Flow flow) async {
           .korean;
       await tester.enterText(find.byType(SoriTextField), '틀린답');
       await tester.pump();
-      final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+      final t = AppL10n.of(tester.element(_studyFrame()));
       tester
           .widgetList<SoriButton>(find.byType(SoriButton))
           .singleWhere((button) => button.label == t.btnSubmit)
           .onTap!();
     case _Flow.matching:
       word = _words.first.korean;
-      await tester.tap(find.text(word));
+      _tileAction(tester, word)();
       await tester.pump();
-      await tester.tap(find.text(_words[1].translationEn));
+      _tileAction(tester, _words[1].translationEn)();
   }
   await tester.pump();
   return word;
@@ -512,10 +508,34 @@ Future<void> _settle(WidgetTester tester) async {
   }
 }
 
-VoidCallback _button(WidgetTester tester, String label) => tester
-    .widgetList<SoriButton>(find.byType(SoriButton))
-    .singleWhere((button) => button.label == label)
-    .onTap!;
+Finder _studyFrame() => find.byType(SoriStudyFrame);
+
+List<({String text, bool isCorrect, VoidCallback? onSelected})> _quizChoices(
+  WidgetTester tester,
+) {
+  final view = tester.widget<ApprovedQuizView>(find.byType(ApprovedQuizView));
+  return [
+    for (final option in view.options)
+      (
+        text: option,
+        isCorrect: option == view.correctOption,
+        onSelected: view.picked == null ? () => view.onOption(option) : null,
+      ),
+  ];
+}
+
+VoidCallback _button(WidgetTester tester, String label) {
+  final approved = tester
+      .widgetList<ApprovedArtButton>(find.byType(ApprovedArtButton))
+      .where((button) => button.label == label);
+  if (approved.isNotEmpty) {
+    return approved.single.onTap!;
+  }
+  return tester
+      .widgetList<SoriButton>(find.byType(SoriButton))
+      .singleWhere((button) => button.label == label)
+      .onTap!;
+}
 
 Future<void> _completeRound(WidgetTester tester, _Flow flow) async {
   for (var i = 0; i < _words.length; i++) {
@@ -525,17 +545,16 @@ Future<void> _completeRound(WidgetTester tester, _Flow flow) async {
         await tester.pump();
         tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onNext!();
       case _Flow.quiz:
-        tester
-            .widgetList<QuizChoice>(find.byType(QuizChoice))
-            .singleWhere((choice) => choice.isCorrect)
-            .onSelected!();
+        _quizChoices(
+          tester,
+        ).singleWhere((choice) => choice.isCorrect).onSelected!();
       case _Flow.typing:
         final word = _words.firstWhere(
           (word) => find.text(word.translationEn).evaluate().isNotEmpty,
         );
         await tester.enterText(find.byType(SoriTextField), word.korean);
         await tester.pump();
-        final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+        final t = AppL10n.of(tester.element(_studyFrame()));
         _button(tester, t.btnSubmit)();
       case _Flow.matching:
         final word = _words[i];
@@ -545,7 +564,7 @@ Future<void> _completeRound(WidgetTester tester, _Flow flow) async {
     }
     await _settle(tester);
     if (flow == _Flow.quiz || flow == _Flow.typing) {
-      final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
+      final t = AppL10n.of(tester.element(_studyFrame()));
       _button(tester, t.btnNext)();
       await _settle(tester);
     }

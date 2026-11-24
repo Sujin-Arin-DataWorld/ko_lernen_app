@@ -532,6 +532,8 @@
   "screenVocabTitle": "Flashcards",
   "screenGrammarTitle": "Grammar",
   "screenWordleTitle": "Syllable puzzle",
+  "silbenPlaceInstruction": "Choose a cell · tap a syllable",
+  "silbenPoolTitle": "Your syllables",
   "silbenEmptyBody": "No syllable puzzles are ready for your learning level yet.",
   "silbenCellPosition": "Row {row}, column {column}",
   "@silbenCellPosition": {
@@ -4795,6 +4797,15 @@
   "phaseTaskNeedsPractice": "Keep practicing: review the explanations.",
   "phaseTaskUnscored": "Attempt saved · meaning not automatically scored",
   "phaseTaskPlay": "Listen",
+  "phaseTaskRomanizationToggle": "Romanization",
+  "phaseTaskExampleListen": "Listen to example: {text}",
+  "@phaseTaskExampleListen": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      }
+    }
+  },
   "phaseTaskRecord": "Record",
   "phaseTaskStop": "Stop recording",
   "phaseTaskReplay": "Listen to recording",
@@ -5897,6 +5908,34 @@
       }
     }
   },
+  "approvedQuizTitle": "Word Quiz",
+  "approvedQuizCorrect": "{count} correct",
+  "@approvedQuizCorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedQuizChooseMeaning": "Choose the meaning.",
+  "approvedGameListen": "Listen",
+  "approvedMatchingTitle": "Find pairs",
+  "approvedMatchingInstruction": "First Korean, then the meaning.",
+  "approvedMatchingCounter": "{count} of {total} pairs",
+  "@approvedMatchingCounter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedMatchingPickKorean": "Tap a Korean word.",
+  "approvedMatchingPickMeaning": "Now choose the matching meaning.",
+  "approvedMatchingRetry": "Tap the matching meaning.",
+  "approvedMatchingFound": "Pair found.",
   "pronunciationPracticeRhythm": "Practice sentence rhythm",
   "pronunciationCompareVoices": "Compare voices",
   "pronunciationModelListen": "Listen to sentence",

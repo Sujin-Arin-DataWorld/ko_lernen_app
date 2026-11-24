@@ -4,20 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/config/tester_feedback_feature.dart';
 import 'package:ko_lernen_app/data/hangul_strokes.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
+import 'package:ko_lernen_app/services/content_feedback_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 import 'package:ko_lernen_app/widgets/trace_canvas.dart';
 
+import 'support/real_fonts.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(loadSoriRealFonts);
 
   setUp(() async {
     Storage.resetForTesting();
@@ -28,6 +33,7 @@ void main() {
   for (final locale in const [Locale('de'), Locale('en')]) {
     for (final viewport in const <({Size size, double textScale})>[
       (size: Size(320, 640), textScale: 2),
+      (size: Size(360, 640), textScale: 1),
       (size: Size(360, 400), textScale: 1),
       (size: Size(390, 844), textScale: 1.3),
       (size: Size(720, 1024), textScale: 1.3),
@@ -51,15 +57,11 @@ void main() {
         final screen = find.byType(DailyCalligraphyRouteScreen);
         final context = tester.element(screen);
         final t = AppL10n.of(context);
-        final page = tester.widget<SoriStandardPage>(
-          find.byType(SoriStandardPage),
-        );
-        expect(page.eyebrow, t.soriStageActivityTitle('calligraphy'));
-        expect(page.headline, 'ㄷ');
-        expect(page.description, t.dailyCharSubtitle);
+        expect(find.text(t.dailyCharTitle), findsOneWidget);
+        expect(find.text(t.dailyCharSubtitle), findsOneWidget);
+        expect(find.byType(Scrollable), findsNothing);
 
         final content = find.byKey(const Key('daily-calligraphy-content'));
-        await _scrollUntilBuilt(tester, content);
         expect(content, findsOneWidget);
         final guide = tester.widget<StrokeCanvas>(find.byType(StrokeCanvas));
         expect(guide.letter, 'ㄷ');
@@ -92,6 +94,13 @@ void main() {
         );
         expect(finish, findsOneWidget);
         expect(tester.getSize(finish).height, greaterThanOrEqualTo(48));
+        expect(
+          tester.getRect(finish).bottom,
+          lessThanOrEqualTo(viewport.size.height - 34 - 16),
+        );
+        final canvas = find.byKey(const Key('daily-character-trace-canvas'));
+        expect(canvas.hitTestable(), findsOneWidget);
+        expect(tester.getSize(canvas).shortestSide, greaterThanOrEqualTo(92));
         expect(tester.widget<SoriButton>(finish).onTap, isNull);
         expect(tester.takeException(), isNull);
       });
@@ -113,16 +122,10 @@ void main() {
       final t = AppL10n.of(
         tester.element(find.byType(DailyCalligraphyRouteScreen)),
       );
-      final page = tester.widget<SoriStandardPage>(
-        find.byType(SoriStandardPage),
-      );
-      expect(page.description, t.dailyCharFallbackSubtitle);
-      await _scrollUntilBuilt(
-        tester,
-        find.byKey(const Key('daily-calligraphy-content')),
-      );
+      expect(find.text(t.dailyCharFallbackSubtitle), findsOneWidget);
       expect(find.byType(StrokeCanvas), findsNothing);
-      expect(find.text('가'), findsNWidgets(2));
+      expect(find.text('가'), findsOneWidget);
+      expect(find.byType(Scrollable), findsNothing);
       expect(tester.takeException(), isNull);
     });
   }
@@ -130,21 +133,15 @@ void main() {
   testWidgets(
     'two failures reveal the active stroke hint and tracing gates finish',
     (tester) async {
-      _configureView(tester, const Size(390, 844));
+      _configureView(tester, const Size(320, 640));
       await tester.pumpWidget(
         _host(
           locale: const Locale('en'),
-          textScale: 1,
+          textScale: 2,
           child: const DailyCalligraphyRouteScreen(character: 'ㄷ'),
         ),
       );
       await tester.pump();
-      await _scrollUntilBuilt(
-        tester,
-        find.byKey(const Key('daily-calligraphy-content')),
-      );
-      await tester.pump();
-
       expect(find.byType(TraceCanvas), findsOneWidget);
       final t = AppL10n.of(
         tester.element(find.byType(DailyCalligraphyRouteScreen)),
@@ -184,35 +181,56 @@ void main() {
     },
   );
 
-  testWidgets('route completion keeps the existing daily storage contract', (
-    tester,
-  ) async {
-    _configureView(tester, const Size(390, 844));
+  testWidgets(
+    'large-text route completion keeps storage and feedback reachable',
+    (tester) async {
+      _configureView(tester, const Size(320, 640));
 
-    await tester.pumpWidget(
-      _host(
-        locale: const Locale('en'),
-        textScale: 1,
-        child: const DailyCalligraphyRouteScreen(character: '가'),
-      ),
-    );
-    await tester.pump();
+      await tester.pumpWidget(
+        ContentFeedbackControllerScope(
+          featureGate: const TesterFeedbackFeatureGate(enabled: true),
+          submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+            status: ContentFeedbackSubmitStatus.accepted,
+          ),
+          resumePending: () async => const ContentFeedbackResumeResult(),
+          child: _host(
+            locale: const Locale('en'),
+            textScale: 2,
+            child: const DailyCalligraphyRouteScreen(character: '가'),
+          ),
+        ),
+      );
+      await tester.pump();
 
-    final t = AppL10n.of(
-      tester.element(find.byType(DailyCalligraphyRouteScreen)),
-    );
-    final finish = find.byWidgetPredicate(
-      (widget) => widget is SoriButton && widget.label == t.dailyCharFinish,
-    );
-    tester.widget<SoriButton>(finish).onTap!();
-    await tester.pump();
-    await tester.pump(const Duration(seconds: 1));
+      final t = AppL10n.of(
+        tester.element(find.byType(DailyCalligraphyRouteScreen)),
+      );
+      final finish = find.byWidgetPredicate(
+        (widget) => widget is SoriButton && widget.label == t.dailyCharFinish,
+      );
+      await tester.tap(finish);
+      await tester.pump();
+      await tester.pump(const Duration(seconds: 1));
 
-    expect(Storage.calligraphyDoneToday, isTrue);
-    expect(Storage.calligraphyTotalDays, 1);
-    expect(find.text(t.dailyCharGreatJob), findsOneWidget);
-    expect(tester.takeException(), isNull);
-  });
+      expect(Storage.calligraphyDoneToday, isTrue);
+      expect(Storage.calligraphyTotalDays, 1);
+      expect(find.text(t.dailyCharGreatJob), findsOneWidget);
+      final feedback = find
+          .byKey(const Key('content-feedback-open'))
+          .hitTestable();
+      if (feedback.evaluate().isEmpty) {
+        final labels = MaterialLocalizations.of(
+          tester.element(find.byType(DailyCalligraphyRouteScreen)),
+        );
+        await tester.tap(find.byTooltip(labels.nextPageTooltip).hitTestable());
+        await tester.pumpAndSettle();
+      }
+      expect(feedback, findsOneWidget);
+      expect(find.text(t.btnClose).hitTestable(), findsOneWidget);
+      expect(find.byType(Scrollable), findsNothing);
+      expect(tester.takeException(), isNull);
+    },
+  );
 }
 
 void _configureView(WidgetTester tester, Size size) {
@@ -220,18 +238,6 @@ void _configureView(WidgetTester tester, Size size) {
   addTearDown(tester.view.resetDevicePixelRatio);
   tester.view.devicePixelRatio = 1;
   tester.view.physicalSize = size;
-}
-
-Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
-  final scrollable = find.byType(Scrollable).first;
-  for (var attempt = 0; attempt < 12 && target.evaluate().isEmpty; attempt++) {
-    await tester.drag(scrollable, const Offset(0, -160));
-    await tester.pump();
-  }
-  if (target.evaluate().isNotEmpty) {
-    await tester.ensureVisible(target);
-    await tester.pump();
-  }
 }
 
 Widget _host({

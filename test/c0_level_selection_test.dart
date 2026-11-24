@@ -305,7 +305,7 @@ void main() {
 
       await tester.pumpWidget(_screenApp(const SilbenKreuzScreen()));
       await _pumpUntil(tester, find.byType(SoriChromeRow));
-      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await tester.tap(_silbenLevelControl('B2'));
       await _pumpUntil(
         tester,
         find.byKey(const ValueKey('sori-level-sheet-B2')),
@@ -347,7 +347,7 @@ void main() {
         );
         await _pumpUntil(tester, find.byType(SoriChromeRow));
 
-        expect(find.textContaining('A1 ·'), findsOneWidget);
+        expect(_silbenLevelControl('A1'), findsOneWidget);
         final cellFinder = find.byKey(
           ValueKey('silben-cell-${cell.$1}-${cell.$2}'),
         );
@@ -361,10 +361,11 @@ void main() {
         await tester.ensureVisible(cellFinder);
         await tester.tap(cellFinder);
         await tester.ensureVisible(find.bySemanticsLabel(wrongTile).first);
-        expect(
-          tester.getSize(find.bySemanticsLabel(wrongTile).first),
-          const Size(48, 48),
-        );
+        // Approved tiles grow with enlarged text so the syllable is never
+        // clipped; the touch target must stay at least 48 dp and square.
+        final tileSize = tester.getSize(find.bySemanticsLabel(wrongTile).first);
+        expect(tileSize.width, greaterThanOrEqualTo(48));
+        expect(tileSize.height, closeTo(tileSize.width, 0.01));
         await tester.tap(find.bySemanticsLabel(wrongTile).first);
         await tester.pump();
 
@@ -408,6 +409,16 @@ Future<void> _setStoredLevel(String level) async {
   });
   await Storage.init();
 }
+
+/// The approved Silben header shows only the level code; its semantic label
+/// carries the full "level: A1 · solved/total" summary.
+Finder _silbenLevelControl(String level) => find.byWidgetPredicate(
+  (widget) =>
+      widget is Semantics &&
+      widget.properties.button == true &&
+      RegExp(': $level · ' r'\d+/\d+$').hasMatch(widget.properties.label ?? ''),
+  description: 'Silben level control for $level',
+);
 
 Widget _screenApp(Widget home) => MaterialApp(
   theme: AppTheme.light,

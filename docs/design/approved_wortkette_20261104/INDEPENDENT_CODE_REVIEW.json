@@ -1,0 +1,64 @@
+{
+  "reviewedAtUtc": "2026-11-04T06:57:45.437180+00:00",
+  "baselineHead": "b11c7ef838e6f18be72d7bed5404589c158d2b8f",
+  "scope": "Read-only independent WIP review of Wortkette state, save/SRS/XP, TTS ownership, route suspension/resume, keyboard and measurable view constraints.",
+  "snapshots": [
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\screens\\kkeunmari_screen.dart",
+      "sha256": "bc4b0c0e58575b48c805152e59d369a1d5f9f9aeae2fe810fe4e12082d7e795d"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\lib\\widgets\\sori\\approved_games\\approved_word_chain_view.dart",
+      "sha256": "4e276c2e05b57f851e586bad8dd6f9fe49aba23309aee47e24f7538d8417c778"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\test\\approved_word_chain_lifecycle_test.dart",
+      "sha256": "b53adfb212a80909e76175f9928e063bcdef88e2d790392aa9778dea61bafa4e"
+    },
+    {
+      "path": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\quiz-matching-figma-20261104\\test\\approved_word_chain_view_test.dart",
+      "sha256": "09ad0ba780b50032b871e34261901cdf1aaddee63b1878a3c7c8518d7c6f8231"
+    }
+  ],
+  "openImportantFindings": [],
+  "resolvedDuringReview": [
+    {
+      "priority": "P2",
+      "title": "Suppress ephemeral feedback when asynchronous work completes offscreen",
+      "file": "lib/screens/kkeunmari_screen.dart",
+      "initialAffectedLines": [
+        605,
+        675,
+        678,
+        757
+      ],
+      "cause": "The new preserved-route flow allowed a pending dictionary/SRS/result write to finish under cover while still emitting correctness sound or haptics; TTS alone was visibility-gated.",
+      "resolution": "Implementation owner added _isVisible guards around dictionary reply haptic605-607, accepted answer sound/haptic677-682, and persisted-result haptic761-763. Persistence and accepted state changes remain outside the visibility gate.",
+      "verification": "Current source re-read; lifecycle test sound assertions added by implementation owner. Their updated regression suite is still the owner's separate check."
+    }
+  ],
+  "clearedSuspicions": [
+    {
+      "title": "Long speed preset clipping at large text",
+      "result": "Loaded-font external widget probe passed all actual speed presets at320x640 and200% text.0.75x and1.25x used176px with176px allocated before the extra measurement safeguard.",
+      "probe": "C:/dev/hangulsori/_codex_artifacts/wortkette-figma-native-20261104/review_probe_test.dart",
+      "command": "flutter test --no-pub C:/dev/hangulsori/_codex_artifacts/wortkette-figma-native-20261104/review_probe_test.dart --reporter expanded",
+      "status": "passed1test"
+    }
+  ],
+  "preservedInSourceComparison": [
+    "Exact validation/dictionary/custom-pack source behavior unchanged.",
+    "SRS accepted-attempt write ownership and late-completion generation checks unchanged.",
+    "XP formula remains(chain.length*10).clamp(20,500); reward/win/result recovery still saves before publishing result.",
+    "Route cover/background pauses countdown and pending tiger/dead-end delays; typed controller retained.",
+    "TTS has ownership latch, queued hidden accepted word and no stop of destination speech after ownership release.",
+    "Real SoriTextField preserves20-character input, done action, controller and focus node.",
+    "Whole Korean word is exposed as one semantic label; timer remains urgent live region; native editable field semantics retained."
+  ],
+  "limitations": [
+    "Read-only code and loaded-font geometry probe; not a claim of complete visual identity or physical-device validation.",
+    "No new heavy test compilation after implementation owner requested reduced host contention.",
+    "Full updated lifecycle, recovery and view suites remain separate owner validation."
+  ],
+  "repositoryFilesModifiedByReviewer": false
+}

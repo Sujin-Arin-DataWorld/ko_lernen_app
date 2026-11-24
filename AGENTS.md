@@ -400,6 +400,8 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 사용(가드: `sori_stage_pump_guard_test`).
 
 ### Sori 디자인 시스템 (레이아웃 계약)
+- Lernen의 각 학습·목록 상태는 시스템 영역과 키보드를 반영한 가용 높이에 맞춘다. 주요 버튼은 화면 안에 두고 긴 레벨별 콘텐츠와 목록은 앞뒤 버튼이 있는 페이지로 나눈다.
+- iOS 본문 기본 17pt, 최소 11pt와 Dynamic Type을, Android는 Material 3 본문 16sp·주요 라벨 14sp 및 최대 200% 비선형 확대를 기준으로 한다. 사용자 글자 확대를 제한하지 않고 신규 조작 영역은 두 플랫폼에서 48 논리 픽셀 이상을 확보한다. [Apple 타이포그래피](https://developer.apple.com/design/human-interface-guidelines/typography) · [Apple 접근성](https://developer.apple.com/design/human-interface-guidelines/accessibility) · [Android Material 3](https://developer.android.com/develop/ui/compose/designsystems/material3) · [Android 글자 확대](https://developer.android.com/about/versions/14/features#non-linear-font-scaling)
 - 루트 헤더 hero 제목은 390dp de/en ≤3줄, 접힌 바 제목은 nav 라벨(`soriStageNav*`,
   required) — 카피 변경 시 `sori_stage_root_header_lines_test`.
 - 고정 높이 그리드 셀의 텍스트는 렌더와 같은 스타일·같은 문자열 형식으로 TextPainter

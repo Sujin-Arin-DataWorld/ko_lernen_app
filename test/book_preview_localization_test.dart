@@ -220,7 +220,16 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.textContaining(entry.$2), findsOneWidget);
+      final warning = find.textContaining(entry.$2);
+      if (warning.evaluate().isEmpty) {
+        await tester.tap(find.byKey(const Key('book-preview-details')));
+        await tester.pumpAndSettle();
+        expect(warning, findsOneWidget);
+        await tester.tap(find.byType(CloseButton));
+        await tester.pumpAndSettle();
+      } else {
+        expect(warning, findsOneWidget);
+      }
     }
   });
 

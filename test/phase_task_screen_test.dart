@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:typed_data';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -7,11 +8,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences_platform_interface/shared_preferences_platform_interface.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/phase_task_screen.dart';
+import 'package:ko_lernen_app/services/korean_romanization.dart';
 import 'package:ko_lernen_app/services/phase_task_catalog.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/pronunciation_recorder.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+
 import 'support/privacy_preferences_platform.dart';
+
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 
 class FakeRecorder implements PronunciationRecorder {
@@ -85,9 +90,8 @@ void main() {
         localizationsDelegates: AppL10n.localizationsDelegates,
         supportedLocales: AppL10n.supportedLocales,
         builder: (context, child) => MediaQuery(
-          data: MediaQuery.of(
-            context,
-          ).copyWith(textScaler: TextScaler.linear(scale)),
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: TextScaler.linear(scale)),
           child: child!,
         ),
         home: child,
@@ -794,5 +798,105 @@ void main() {
     } finally {
       semantics.dispose();
     }
+  });
+
+  group('reading aid', () {
+    PhaseTask withExamples(String phase) => catalog.tasks.firstWhere(
+      (t) => t.phaseId == phase && t.examplesKo.isNotEmpty,
+    );
+    Future<void> open(
+      WidgetTester tester,
+      PhaseTask task, {
+      bool assessment = false,
+      Future<bool> Function(String)? playAudio,
+    }) async {
+      await tester.pumpWidget(
+        host(
+          PhaseTaskScreen(
+            arguments: PhaseTaskRoute(
+              task.phaseId,
+              task.id,
+              assessment: assessment,
+            ),
+            loader: () async => catalog,
+            playAudio: playAudio,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+    }
+
+    setUp(() async {
+      SharedPreferences.setMockInitialValues({});
+      await Storage.init();
+    });
+
+    testWidgets('KP01 shows romanization by default', (tester) async {
+      final task = withExamples('KP01');
+      await open(tester, task);
+      expect(find.text(romanizeKorean(task.examplesKo.first)), findsWidgets);
+    });
+
+    testWidgets('KP05 hides romanization by default', (tester) async {
+      final task = withExamples('KP05');
+      await open(tester, task);
+      expect(find.text(romanizeKorean(task.examplesKo.first)), findsNothing);
+    });
+
+    testWidgets('toggle off persists and hides romanization', (tester) async {
+      final task = withExamples('KP01');
+      await open(tester, task);
+      await tester.tap(
+        find.byKey(const ValueKey('phase-task-romanization-toggle')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text(romanizeKorean(task.examplesKo.first)), findsNothing);
+      expect(Storage.phaseTaskRomanization, 'off');
+    });
+
+    testWidgets('toggle on in KP05 persists and shows romanization', (
+      tester,
+    ) async {
+      final task = withExamples('KP05');
+      await open(tester, task);
+      await tester.tap(
+        find.byKey(const ValueKey('phase-task-romanization-toggle')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text(romanizeKorean(task.examplesKo.first)), findsWidgets);
+      expect(Storage.phaseTaskRomanization, 'on');
+    });
+
+    testWidgets('assessment mode shows no romanization or toggle', (
+      tester,
+    ) async {
+      final task = withExamples('KP01');
+      await open(tester, task, assessment: true);
+      expect(find.text(romanizeKorean(task.examplesKo.first)), findsNothing);
+      expect(
+        find.byKey(const ValueKey('phase-task-romanization-toggle')),
+        findsNothing,
+      );
+    });
+
+    testWidgets('example listen button speaks that example', (tester) async {
+      final task = withExamples('KP01');
+      final spoken = <String>[];
+      await open(
+        tester,
+        task,
+        playAudio: (text) async {
+          spoken.add(text);
+          return true;
+        },
+      );
+      final example = task.examplesKo.first;
+      expect(find.byTooltip('Listen to example: $example'), findsOneWidget);
+      await tester.tap(
+        find.byKey(ValueKey('phase-task-example-listen:$example')),
+      );
+      await tester.pumpAndSettle();
+      expect(spoken, [example]);
+    });
   });
 }

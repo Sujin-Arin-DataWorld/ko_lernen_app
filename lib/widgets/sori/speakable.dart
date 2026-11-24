@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -30,6 +31,8 @@ import 'tokens.dart';
 /// 그 요청이 끝나는 순간 이미 채워져 있기 때문이다.
 class SoriSpeech {
   SoriSpeech._();
+
+  static ValueListenable<double> get speed => TtsService.speedNotifier;
 
   /// text(+voice) 키 → 그 키의 유일한 진행 중 요청. 값은 "재생됐는가" —
   /// prefetch 전용 요청은 재생하지 않으므로 완료 시 false 로 채운다.

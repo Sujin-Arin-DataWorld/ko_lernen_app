@@ -8,6 +8,8 @@ import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
+import 'support/sori_viewport_page.dart';
+
 /// [pathVisibleLevel] is the single source of truth for which CEFR level the
 /// Lernpfad renders. It must never return an empty/invalid level (the path
 /// would be blank) and must map onboarding codes to the upper-case pack code.
@@ -97,8 +99,7 @@ void main() {
       expect(find.byKey(const ValueKey('path-course-row-a2_02')), findsOne);
       expect(find.byKey(const ValueKey('path-course-row-a1_03')), findsNothing);
       final phases = find.byKey(const ValueKey('path-learning-phases'));
-      await tester.scrollUntilVisible(phases, 240);
-      await tester.ensureVisible(phases);
+      await showSoriViewportSection(tester, phases);
       await tester.tap(phases);
       await tester.pumpAndSettle();
       expect(openedRoute, '/course/phases');
@@ -107,7 +108,7 @@ void main() {
       await tester.pumpAndSettle();
 
       final currentMission = find.byKey(const ValueKey('path-current-mission'));
-      await tester.scrollUntilVisible(currentMission, 240);
+      await showSoriViewportSection(tester, currentMission);
       await tester.tap(currentMission);
       await tester.pumpAndSettle();
       expect(openedRoute, '/course/mission');
@@ -174,12 +175,7 @@ void main() {
     await expectLater(tester, meetsGuideline(textContrastGuideline));
 
     final currentMission = find.byKey(const ValueKey('path-current-mission'));
-    await tester.scrollUntilVisible(
-      currentMission,
-      240,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.ensureVisible(currentMission);
+    await showSoriViewportSection(tester, currentMission);
     await tester.pump();
     await tester.tap(currentMission);
     await tester.pumpAndSettle();
@@ -200,15 +196,8 @@ void main() {
     );
 
     final toggle = find.byKey(const ValueKey('path-legacy-practice-toggle'));
-    await tester.scrollUntilVisible(toggle, 300);
-    // scrollUntilVisible stops as soon as any part of the widget intersects
-    // the viewport — its center can still land outside it (2026-08-19: the
-    // SoriTypeScale migration made comfort-scaled text a touch shorter here,
-    // which was enough to move the tap point off-screen). ensureVisible
-    // scrolls it fully into view before we tap.
-    await tester.ensureVisible(toggle);
-    await tester.pump();
-    expect(toggle, findsOneWidget);
+    await showSoriViewportSection(tester, toggle);
+    expect(find.byType(Scrollable), findsNothing);
     expect(find.text('Weitere Übungen anzeigen'), findsOneWidget);
     expect(
       find.byKey(const ValueKey('path-legacy-practice-content')),
@@ -247,8 +236,7 @@ void main() {
 
     expect(find.byType(SoriStandardFrame), findsOneWidget);
     final toggle = find.byKey(const ValueKey('path-legacy-practice-toggle'));
-    await tester.scrollUntilVisible(toggle, 200);
-    await tester.ensureVisible(toggle);
+    await showSoriViewportSection(tester, toggle);
     await tester.pump();
 
     expect(find.text('Weitere Übungen anzeigen'), findsOneWidget);

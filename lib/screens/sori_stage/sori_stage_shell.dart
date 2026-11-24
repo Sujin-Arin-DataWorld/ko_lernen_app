@@ -34,6 +34,7 @@ class SoriStageShell extends StatefulWidget {
     super.key,
     required this.replayHomeTour,
     this.requestedTab,
+    this.onResumeGame,
     this.loadTodaySnapshot,
     this.loadLearningFocus,
     this.loadReceiptNetworkBefore,
@@ -42,6 +43,9 @@ class SoriStageShell extends StatefulWidget {
 
   final ValueListenable<int> replayHomeTour;
   final ValueNotifier<int>? requestedTab;
+
+  /// Returns to a suspended game route without reconstructing its round.
+  final VoidCallback? onResumeGame;
 
   /// Test seam for the Today tab's snapshot loader — see
   /// [SoriStageTodayScreen.loadSnapshot]. Production leaves this null (the
@@ -321,6 +325,10 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
   }
 
   void _select(int index) {
+    if (index == 2 && widget.onResumeGame != null) {
+      widget.onResumeGame!();
+      return;
+    }
     if (_index == index) {
       reselectTabScroll(
         _scrollControllers[index],

@@ -25,12 +25,12 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/consent_invite_sheet.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/window_class.dart';
+import '../widgets/sori/viewport_pages.dart';
 
 /// **Vocab Pack Result Screen** — Phase 2 의 클리어 결과 화면.
 ///
@@ -319,242 +319,245 @@ class _VocabPackResultScreenState extends State<VocabPackResultScreen> {
     final motif = motifForPackId(packId);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
 
+    final nextPack = nextUnlockedPackId;
+    final statusColor = _cleared ? SoriColors.success : SoriColors.warning;
+    final back = _CtaButton(
+      label: t.vocabPackResultBackToGrid,
+      icon: Icons.grid_view_rounded,
+      variant: SoriButtonVariant.outlined,
+      accent: SoriColors.info,
+      // The result replaces the study route. Pop once to its actual origin.
+      onTap: () => _navigate(context, () => Navigator.of(context).pop()),
+    );
+    final primary = !_cleared
+        ? _CtaButton(
+            label: t.vocabPackResultRetryCta,
+            icon: Icons.refresh_rounded,
+            variant: SoriButtonVariant.filled,
+            accent: SoriColors.warning,
+            onTap: () => _navigate(
+              context,
+              () => Navigator.of(context).pushReplacementNamed(
+                '/vocab/pack',
+                arguments: vocabPackRouteArguments(
+                  packId: packId,
+                  courseContext: courseContext,
+                ),
+              ),
+            ),
+          )
+        : nextPack == null
+        ? back
+        : _CtaButton(
+            label: t.vocabPackResultNextPack(
+              VocabPackService.displayLabel(nextPack, lang: lang),
+            ),
+            icon: Icons.arrow_forward_rounded,
+            variant: SoriButtonVariant.filled,
+            accent: SoriColors.success,
+            onTap: () => _navigate(
+              context,
+              () => Navigator.of(context).pushReplacementNamed(
+                '/vocab/pack',
+                arguments: vocabPackRouteArguments(packId: nextPack),
+              ),
+              targetPackId: nextPack,
+            ),
+          );
+    final secondary = [
+      if (bossTotal > 0)
+        _CtaButton(
+          label: t.vocabPackResultRecallCta,
+          icon: Icons.keyboard_alt_outlined,
+          variant: SoriButtonVariant.outlined,
+          accent: SoriColors.accent,
+          onTap: () => _navigate(
+            context,
+            () => Navigator.of(context).pushNamed(
+              '/vocab/recall',
+              arguments: <String, dynamic>{
+                'packId': packId,
+                'recallSession': recallSession,
+              },
+            ),
+          ),
+        ),
+      if (showHardWordsCta)
+        _CtaButton(
+          label: t.vocabPackResultHardWordsCta,
+          icon: Icons.bolt_rounded,
+          variant: SoriButtonVariant.outlined,
+          accent: SoriColors.danger,
+          onTap: () => _navigate(
+            context,
+            () => Navigator.of(context).pushNamed('/hard_words'),
+          ),
+        ),
+      if (primary != back) back,
+    ];
+
     final result = SoriStudyFrame(
       title: t.vocabPackResultTitle,
-      // 짧은 결과 콘텐츠가 태블릿 상단에 쏠려 아래가 텅 비지 않도록,
-      // 세로 중앙 정렬 + 넘치면 스크롤(작은 폰·큰 글자 안전). 폰 무변화.
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       child: LayoutBuilder(
-        builder: (context, c) => SingleChildScrollView(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: c.maxHeight),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: Spacing.md),
-                Semantics(
-                  key: const Key('vocab-result-pack-title'),
-                  header: true,
-                  child: Text(title, textAlign: TextAlign.center, style: tt.h3),
-                ),
-                const SizedBox(height: Spacing.lg),
-                // Hero: 클리어 시 호랑이+까치가 단청 도장을 함께 둘러싸는 축하,
-                //       미클리어 시 격려 마스코트.
-                _cleared
-                    ? _CelebrationSequence(
+        builder: (context, box) {
+          final compact =
+              box.maxHeight < 365 ||
+              (box.maxWidth < SoriBreakpoints.vocabResultAccessibleCompact &&
+                  MediaQuery.textScalerOf(context).scale(1) >= 1.5);
+          Widget panel(Widget child) => Padding(
+            padding: const EdgeInsets.only(bottom: Spacing.sm),
+            child: SoriCard(
+              variant: SoriCardVariant.compact,
+              accent: statusColor,
+              tinted: true,
+              child: child,
+            ),
+          );
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Expanded(
+                child: SoriViewportPages(
+                  centerContent: true,
+                  sections: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: Spacing.sm),
+                      child: Semantics(
+                        key: const Key('vocab-result-pack-title'),
+                        header: true,
+                        child: Text(
+                          title,
+                          textAlign: TextAlign.center,
+                          style: tt.h3,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: Spacing.sm),
+                      child: Semantics(
+                        header: true,
+                        child: Text(
+                          _cleared
+                              ? (justCleared
+                                    ? t.vocabPackResultCleared
+                                    : t.vocabPackResultClearedAgain)
+                              : t.vocabPackResultRetry,
+                          textAlign: TextAlign.center,
+                          style: compact
+                              ? tt.h3.copyWith(color: statusColor)
+                              : tt.h2,
+                        ),
+                      ),
+                    ),
+                    panel(
+                      _StatLine(
+                        icon: Icons.bolt,
+                        label: t.vocabPackResultBossLabel,
+                        value:
+                            '$bossCorrect / $bossTotal (${(bossAccuracy * 100).round()}%)',
+                      ),
+                    ),
+                    if (quizTotal > 0)
+                      panel(
+                        _StatLine(
+                          icon: Icons.quiz_outlined,
+                          label: t.vocabPackResultQuizLabel,
+                          value: '$quizCorrect / $quizTotal',
+                        ),
+                      ),
+                    if (_hasAwardedXp)
+                      panel(
+                        _cleared
+                            ? _XpPayoffLine(
+                                label: t.vocabPackResultXpLabel,
+                                xp: _xpAwarded(),
+                                learningAttempt: learningAttempt,
+                              )
+                            : LearningRewardPresentation(
+                                attempt: learningAttempt,
+                                kind: SoriRewardKind.xp,
+                                amount: _xpAwarded(),
+                                child: _StatLine(
+                                  icon: Icons.workspace_premium_outlined,
+                                  label: t.vocabPackResultXpLabel,
+                                  value: '+${_xpAwarded()} XP',
+                                ),
+                              ),
+                      ),
+                    if (_cleared)
+                      _CelebrationSequence(
                         motif: motif,
                         learningAttempt: learningAttempt,
                         justCleared: justCleared && !recovered,
                         mascotKind: MascotPreference.selectedKind,
                       )
-                    : SoriEntrance(
-                        child: SizedBox(
-                          height: 160,
-                          child: Center(
-                            child: CompanionBuilder(
-                              builder: (context, kind) => Mascot(
-                                kind: kind,
-                                emotion: MascotEmotion.worry,
-                                size: 130,
-                              ),
-                              noneBuilder: (context) => const Icon(
-                                Icons.insights_rounded,
-                                size: 104,
-                                color: SoriColors.warning,
-                              ),
-                            ),
+                    else
+                      Center(
+                        child: CompanionBuilder(
+                          builder: (context, kind) => Mascot(
+                            kind: kind,
+                            emotion: MascotEmotion.worry,
+                            size: compact ? 80 : 110,
+                          ),
+                          noneBuilder: (context) => const Icon(
+                            Icons.insights_rounded,
+                            size: 72,
+                            color: SoriColors.warning,
                           ),
                         ),
                       ),
-                if (_cleared) ...[
-                  const SizedBox(height: Spacing.md),
-                  SoriEntrance(
-                    delay: const Duration(milliseconds: 700),
-                    child: Text(
-                      t.vocabPackResultGeschafft,
-                      textAlign: TextAlign.center,
-                      style: tt.h3.copyWith(color: SoriColors.success),
-                    ),
-                  ),
-                ],
-                const SizedBox(height: Spacing.lg),
-                // Stats card
-                SoriEntrance(
-                  delay: Duration(milliseconds: _cleared ? 780 : 120),
-                  child: SoriCard(
-                    variant: SoriCardVariant.hero,
-                    accent: _cleared ? SoriColors.success : SoriColors.warning,
-                    tinted: true,
-                    child: Column(
-                      children: [
-                        Semantics(
-                          header: true,
-                          child: Text(
-                            _cleared
-                                ? (justCleared
-                                      ? t.vocabPackResultCleared
-                                      : t.vocabPackResultClearedAgain)
-                                : t.vocabPackResultRetry,
-                            textAlign: TextAlign.center,
-                            style: tt.h2,
-                          ),
+                    if (_cleared)
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: Spacing.sm),
+                        child: Text(
+                          t.vocabPackResultGeschafft,
+                          textAlign: TextAlign.center,
+                          style: tt.h3.copyWith(color: SoriColors.success),
                         ),
-                        const SizedBox(height: Spacing.md),
-                        _StatLine(
-                          icon: Icons.bolt,
-                          label: t.vocabPackResultBossLabel,
-                          value:
-                              '$bossCorrect / $bossTotal '
-                              '(${(bossAccuracy * 100).round()}%)',
+                      ),
+                    if (compact)
+                      for (final action in secondary)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: Spacing.sm),
+                          child: action,
                         ),
-                        if (quizTotal > 0)
-                          _StatLine(
-                            icon: Icons.quiz_outlined,
-                            label: t.vocabPackResultQuizLabel,
-                            value: '$quizCorrect / $quizTotal',
-                          ),
-                        if (_hasAwardedXp && _cleared)
-                          _XpPayoffLine(
-                            label: t.vocabPackResultXpLabel,
-                            xp: _xpAwarded(),
-                            learningAttempt: learningAttempt,
-                          )
-                        else if (_hasAwardedXp)
-                          LearningRewardPresentation(
-                            attempt: learningAttempt,
-                            kind: SoriRewardKind.xp,
-                            amount: _xpAwarded(),
-                            child: _StatLine(
-                              icon: Icons.workspace_premium_outlined,
-                              label: t.vocabPackResultXpLabel,
-                              value: '+${_xpAwarded()} XP',
-                            ),
-                          ),
-                      ],
-                    ),
-                  ),
+                    if (feedbackContext != null &&
+                        feedbackScope != null &&
+                        feedbackScope.featureGate.isEnabled)
+                      ContentFeedbackCard(
+                        feedbackContext: feedbackContext!,
+                        featureGate: feedbackScope.featureGate,
+                        submitFeedback: feedbackScope.submitFeedback,
+                        completedMissionIds: feedbackScope.completedMissionIds,
+                        mascotKind: compact
+                            ? null
+                            : MascotPreference.selectedKind,
+                      ),
+                  ],
                 ),
-                if (feedbackContext != null &&
-                    feedbackScope != null &&
-                    feedbackScope.featureGate.isEnabled) ...[
-                  const SizedBox(height: Spacing.xl),
-                  ContentFeedbackCard(
-                    feedbackContext: feedbackContext!,
-                    featureGate: feedbackScope.featureGate,
-                    submitFeedback: feedbackScope.submitFeedback,
-                    completedMissionIds: feedbackScope.completedMissionIds,
-                  ),
-                ],
-                const SizedBox(height: Spacing.xl),
-                if (_cleared && nextUnlockedPackId != null)
-                  SoriEntrance(
-                    delay: const Duration(milliseconds: 920),
-                    child: _CtaButton(
-                      label: t.vocabPackResultNextPack(
-                        VocabPackService.displayLabel(
-                          nextUnlockedPackId!,
-                          lang: lang,
-                        ),
-                      ),
-                      icon: Icons.arrow_forward_rounded,
-                      variant: SoriButtonVariant.filled,
-                      accent: SoriColors.success,
-                      onTap: () => _navigate(
-                        context,
-                        () => Navigator.of(context).pushReplacementNamed(
-                          '/vocab/pack',
-                          arguments: vocabPackRouteArguments(
-                            packId: nextUnlockedPackId!,
-                          ),
-                        ),
-                        targetPackId: nextUnlockedPackId,
-                      ),
-                    ),
-                  ),
-                if (!_cleared)
-                  SoriEntrance(
-                    delay: const Duration(milliseconds: 200),
-                    child: _CtaButton(
-                      label: t.vocabPackResultRetryCta,
-                      icon: Icons.refresh_rounded,
-                      variant: SoriButtonVariant.filled,
-                      accent: SoriColors.warning,
-                      onTap: () => _navigate(
-                        context,
-                        () => Navigator.of(context).pushReplacementNamed(
-                          '/vocab/pack',
-                          arguments: vocabPackRouteArguments(
-                            packId: packId,
-                            courseContext: courseContext,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                if (bossTotal > 0) ...[
-                  const SizedBox(height: Spacing.sm),
-                  SoriEntrance(
-                    delay: Duration(milliseconds: _cleared ? 960 : 240),
-                    child: _CtaButton(
-                      label: t.vocabPackResultRecallCta,
-                      icon: Icons.keyboard_alt_outlined,
-                      variant: SoriButtonVariant.outlined,
-                      accent: SoriColors.accent,
-                      onTap: () => _navigate(
-                        context,
-                        () => Navigator.of(context).pushNamed(
-                          '/vocab/recall',
-                          arguments: <String, dynamic>{
-                            'packId': packId,
-                            'recallSession': recallSession,
-                          },
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-                if (showHardWordsCta) ...[
-                  const SizedBox(height: Spacing.sm),
-                  SoriEntrance(
-                    delay: Duration(milliseconds: _cleared ? 980 : 260),
-                    child: _CtaButton(
-                      label: t.vocabPackResultHardWordsCta,
-                      icon: Icons.bolt_rounded,
-                      variant: SoriButtonVariant.outlined,
-                      accent: SoriColors.danger,
-                      onTap: () => _navigate(
-                        context,
-                        () => Navigator.of(context).pushNamed('/hard_words'),
-                      ),
-                    ),
-                  ),
-                ],
+              ),
+              if (!compact && secondary.isNotEmpty) ...[
                 const SizedBox(height: Spacing.sm),
-                SoriEntrance(
-                  delay: Duration(milliseconds: _cleared ? 1000 : 280),
-                  child: _CtaButton(
-                    label: t.vocabPackResultBackToGrid,
-                    icon: Icons.grid_view_rounded,
-                    variant: SoriButtonVariant.outlined,
-                    accent: SoriColors.info,
-                    // VocabPackScreen 은 항상 pushReplacementNamed 로
-                    // '/vocab/result' 에 도달한다 — 즉 이 결과 화면은 그
-                    // 스택 위치를 그대로 물려받는다. 그러므로 진입 경로
-                    // (그리드 '/vocab', 코스 미션, 홈 "계속하기" 카드,
-                    // '/path' 학습 경로 등)에 상관없이 정확히 1단계
-                    // pop 하면 항상 그 진입 화면으로 돌아간다. 이름 기반
-                    // popUntil('/vocab' || isFirst) 은 '/vocab' 이 스택에
-                    // 없는 진입 경로(코스 미션, '/path')에서 isFirst 까지
-                    // 밀려나 잘못된 화면(Home)에 도착했다 — 아래에 아무것도
-                    // 없으면 pop() 은 안전한 no-op.
-                    onTap: () =>
-                        _navigate(context, () => Navigator.of(context).pop()),
-                  ),
-                ),
+                if (box.maxWidth >= SoriBreakpoints.vocabResultActionRow)
+                  Row(
+                    spacing: Spacing.sm,
+                    children: [
+                      for (final action in secondary) Expanded(child: action),
+                    ],
+                  )
+                else
+                  for (final action in secondary)
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: Spacing.xs),
+                      child: action,
+                    ),
               ],
-            ),
-          ),
-        ),
+              const SizedBox(height: Spacing.sm),
+              primary,
+            ],
+          );
+        },
       ),
     );
     // The V2 journey itself never asks for tracking. Reuse the existing
@@ -751,6 +754,7 @@ class _CelebrationSequenceState extends State<_CelebrationSequence>
                 child: Transform.scale(
                   scale: (0.6 + 0.4 * _stampIn.value).clamp(0.0, 1.3),
                   child: Semantics(
+                    key: const Key('vocab-result-stamp'),
                     image: true,
                     label: dancheongMotifName(
                       AppL10n.of(context),
@@ -875,6 +879,7 @@ class _CtaButton extends StatelessWidget {
         icon: icon,
         variant: variant,
         accent: accent,
+        cMaterial: true,
         fullWidth: true,
         onTap: onTap,
       ),

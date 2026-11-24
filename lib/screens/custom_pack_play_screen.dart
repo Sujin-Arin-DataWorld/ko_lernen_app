@@ -19,6 +19,7 @@ import '../widgets/flip_card.dart';
 import '../widgets/flashcard_romanization_action.dart';
 import '../widgets/managed_media_image.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/approved_games/approved_game_material.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
@@ -51,6 +52,9 @@ import '../widgets/sori/tts_speed_control.dart';
 /// 일반 vocab pack 의 3단계 (learn/quiz/boss) 와는 의도적으로 다름 —
 /// 사용자 정의 단어는 양이 작고, 어휘 마스터 보다는 "이 페이지의 단어가 뭐였지?"
 /// 빠르게 훑는 용도.
+///
+/// The Karten candidates headed "Meine Wörter" map to this /custom_pack/play
+/// route. MyWordsScreen is the separate search/shelf/difficult-words hub.
 class CustomPackPlayScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
@@ -77,12 +81,17 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   int _learned = 0;
   bool _editing = false;
   int _translationGeneration = 0;
-  bool _canUseCard(int presentation) =>
+  // Accepted writes must finish even when a tab visit covers this route.
+  // Visibility gates new input separately from the accepted card's lifetime.
+  bool _cardIsCurrent(int presentation) =>
       studyEvidenceAcceptsInput &&
       !_editing &&
       presentation == _serve &&
       _pack != null &&
       _idx < _pack!.words.length;
+  bool _canUseCard(int presentation) =>
+      _cardIsCurrent(presentation) &&
+      (ModalRoute.of(context)?.isCurrent ?? true);
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   late final ConfirmedChoiceActionOwner _choiceOwner;
 
@@ -227,7 +236,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
           }
           return progress.save();
         }) ||
-        !_canUseCard(presentation)) {
+        !_cardIsCurrent(presentation)) {
       return;
     }
     HapticService.lightImpact();
@@ -249,7 +258,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
           }
           return progress.save();
         }) ||
-        !_canUseCard(presentation)) {
+        !_cardIsCurrent(presentation)) {
       return;
     }
     HapticService.selectionClick();
@@ -298,6 +307,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
   }
 
   Future<void> _shareCurrent() async {
+    if (!_canUseCard(_serve)) {
+      return;
+    }
     final pack = _pack;
     if (pack == null || _idx >= pack.words.length) {
       return;
@@ -405,6 +417,21 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     return SoriStudyFrame(
       onLeave: retireStudyEvidence,
       title: pack.displayName(),
+      bottomNavigationBar: ColoredBox(
+        color: const Color(0xff003e30),
+        child: SafeArea(
+          top: false,
+          child: Center(
+            heightFactor: 1,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 600),
+              child: ApprovedGameNavigation(
+                onSelected: (index) => openApprovedGameTab(context, index),
+              ),
+            ),
+          ),
+        ),
+      ),
       actions: [
         FlashcardRomanizationAction(
           onFront: _romanizationOnFront,

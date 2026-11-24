@@ -1,0 +1,64 @@
+{
+  "capturedAtUtc": "2026-11-04T02:04:11.441661Z",
+  "evidenceKind": "Flutter presentation fixtures using production view widgets",
+  "fixtureLineBreaks": "Approved Figma text overrides in gallery only; no production per-word lookup",
+  "engineValidation": "Separate widget and recovery tests; not established by these images",
+  "viewport": [
+    392.72727272727275,
+    872.7272727272727
+  ],
+  "devicePixelRatio": 2.75,
+  "textScale": 1,
+  "locale": "de",
+  "safeAreaNormalization": "Android-like top27/bottom54dp, production Frame and navigation; widget-render evidence, not an OS screenshot",
+  "files": [
+    {
+      "fixture": 0,
+      "name": "quiz-a-safe-area-flutter.png",
+      "bytes": 3068202,
+      "minimumTargetHeightDp": 56.93181818181813,
+      "lastTargetToNavigationDp": 19.0,
+      "scrollExtentDp": 0.0
+    },
+    {
+      "fixture": 1,
+      "name": "quiz-b-safe-area-flutter.png",
+      "bytes": 3093450,
+      "minimumTargetHeightDp": 59.991640543364724,
+      "lastTargetToNavigationDp": 18.999999999999886,
+      "scrollExtentDp": 0.0
+    },
+    {
+      "fixture": 2,
+      "name": "quiz-c-safe-area-flutter.png",
+      "bytes": 3119274,
+      "minimumTargetHeightDp": 58.68181818181813,
+      "lastTargetToNavigationDp": 19.0,
+      "scrollExtentDp": 0.0
+    },
+    {
+      "fixture": 3,
+      "name": "matching-a-safe-area-flutter.png",
+      "bytes": 3126402,
+      "minimumTargetHeightDp": 52.88513513513516,
+      "lastTargetToNavigationDp": 64.8851351351351,
+      "scrollExtentDp": 0.0
+    },
+    {
+      "fixture": 4,
+      "name": "matching-b-safe-area-flutter.png",
+      "bytes": 3099908,
+      "minimumTargetHeightDp": 60.4736842105263,
+      "lastTargetToNavigationDp": 53.370813397129155,
+      "scrollExtentDp": 0.0
+    },
+    {
+      "fixture": 5,
+      "name": "matching-c-safe-area-flutter.png",
+      "bytes": 2979459,
+      "minimumTargetHeightDp": 60.456799398948164,
+      "lastTargetToNavigationDp": 46.0,
+      "scrollExtentDp": 0.0
+    }
+  ]
+}

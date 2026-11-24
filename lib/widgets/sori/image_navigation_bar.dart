@@ -9,7 +9,8 @@ import 'tokens.dart';
 enum SoriLearningNavStyle {
   vocabulary(68, Size(70, 56), 62),
   review(70, Size(57, 53), 58),
-  pronunciation(79, Size(69, 63), 64);
+  pronunciation(79, Size(69, 63), 64),
+  folio(69, Size(62, 54), 60);
 
   const SoriLearningNavStyle(this.barHeight, this.selection, this.artSize);
   final double barHeight;
@@ -77,11 +78,13 @@ class _SoriImageNavigationBarState extends State<SoriImageNavigationBar>
       child: Padding(
         padding: EdgeInsets.fromLTRB(
           10,
-          0,
+          widget.learningStyle == SoriLearningNavStyle.folio ? 2 : 0,
           10,
-          widget.learningStyle == null
-              ? 6
-              : 80 - widget.learningStyle!.barHeight,
+          switch (widget.learningStyle) {
+            null => 6,
+            SoriLearningNavStyle.folio => 5,
+            final style => 80 - style.barHeight,
+          },
         ),
         child: CPaperPanel(
           radius: 18,
