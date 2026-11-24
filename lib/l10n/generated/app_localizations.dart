@@ -20448,17 +20448,11 @@ abstract class AppL10n {
   /// **'Auto weiter: An'**
   String get atelierAutoOn;
 
-  /// No description provided for @atelierChartHint.
+  /// No description provided for @atelierDemoShort.
   ///
   /// In de, this message translates to:
-  /// **'19 Konsonanten · Im Feld nach oben oder unten wischen.'**
-  String get atelierChartHint;
-
-  /// No description provided for @atelierDemo.
-  ///
-  /// In de, this message translates to:
-  /// **'Strichfolge zeigen'**
-  String get atelierDemo;
+  /// **'Vormachen'**
+  String get atelierDemoShort;
 
   /// No description provided for @atelierDemoEnd.
   ///
@@ -20471,12 +20465,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Nächster Strich'**
   String get atelierDemoNext;
-
-  /// No description provided for @atelierDemoPhase.
-  ///
-  /// In de, this message translates to:
-  /// **'Schau zu'**
-  String get atelierDemoPhase;
 
   /// No description provided for @atelierDemoRestart.
   ///
@@ -20495,24 +20483,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Silben entdecken'**
   String get atelierDiscover;
-
-  /// No description provided for @atelierDonePhase.
-  ///
-  /// In de, this message translates to:
-  /// **'Geschafft'**
-  String get atelierDonePhase;
-
-  /// No description provided for @atelierFeedHint.
-  ///
-  /// In de, this message translates to:
-  /// **'Oben / unten: nächste / vorige Karte.\nZweimal tippen: merken. Einmal tippen: umdrehen.'**
-  String get atelierFeedHint;
-
-  /// No description provided for @atelierFinish.
-  ///
-  /// In de, this message translates to:
-  /// **'Übung abschließen'**
-  String get atelierFinish;
 
   /// No description provided for @atelierFlipHint.
   ///
@@ -20537,12 +20507,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Nicht gewusst'**
   String get atelierNotYet;
-
-  /// No description provided for @atelierPracticePhase.
-  ///
-  /// In de, this message translates to:
-  /// **'Du bist dran'**
-  String get atelierPracticePhase;
 
   /// No description provided for @atelierRandom.
   ///
@@ -20579,12 +20543,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Silbenaufbau'**
   String get atelierStructure;
-
-  /// No description provided for @atelierSubtitle.
-  ///
-  /// In de, this message translates to:
-  /// **'Zeichen · Klang · Handschrift'**
-  String get atelierSubtitle;
 
   /// No description provided for @atelierUseInChart.
   ///

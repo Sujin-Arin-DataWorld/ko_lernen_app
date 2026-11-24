@@ -6,8 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/guide_contract.dart';
 import 'package:ko_lernen_app/models/smalltalk_context_case.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
+import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/smalltalk_context_screen.dart';
 import 'package:ko_lernen_app/services/smalltalk_context_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -24,6 +26,10 @@ import 'support/sori_viewport_page.dart';
 const _nav = 'sori-image-navigation-bar';
 const _navRect = Rect.fromLTWH(10, 800, 382, 69);
 const _headerRect = Rect.fromLTWH(0, 0, 402, 80);
+
+/// The Hangul atelier bar is 56dp below the (here zero) top inset since the
+/// 2026-11-21 mockup approval.
+const _hangulHeaderRect = Rect.fromLTWH(0, 0, 402, 56);
 const _captureKey = ValueKey('lernen-folio-capture');
 
 void main() {
@@ -68,6 +74,66 @@ void main() {
         _key('daily-folio-finish'),
         const Rect.fromLTWH(148, 727, 238, 51),
       ),
+    });
+  });
+
+  testWidgets('Hangul writing · Figma 280:889 at 402×874', (tester) async {
+    await _mount(
+      tester,
+      HangulScreen(
+        initialTarget: HangulTarget.write,
+        speechPlayer: (_) async => true,
+        textPrefetcher: (_) async {},
+      ),
+    );
+    await tester.tap(_key('hangul-writing-selection'));
+    await pumpSoriStage(tester);
+    final letter = _key('hangul-writing-letter-ㅘ');
+    await showSoriViewportSection(tester, letter);
+    await tester.tap(letter);
+    await pumpSoriStage(tester);
+    for (var stroke = 0; stroke < 4; stroke++) {
+      await tester.tap(_key('hangul-demonstrate'));
+      await pumpSoriStage(tester);
+    }
+    // 2026-11-21 approved mockup replaces Figma 280:889's control rows: a
+    // 56dp bar, then one 52dp picker row and one 52dp action row inside the
+    // 16dp page margins, directly above the image tab bar.
+    await _compare(tester, 'hangul-writing', {
+      '280:890': (_key('hangul-atelier-header'), _hangulHeaderRect),
+      '280:895': (_key(_nav), _navRect),
+    });
+    final actions = [
+      'hangul-demonstrate',
+      'hangul-writing-listen',
+      'hangul-finish-writing',
+    ].map((key) => tester.getRect(_key(key))).toList();
+    final picker = tester.getRect(_key('hangul-writing-selection'));
+    for (final rect in actions) {
+      expect(rect.height, 52);
+      expect(rect.top, actions.first.top);
+    }
+    expect(picker.height, 52);
+    expect(actions.first.top - picker.bottom, 8);
+    expect(actions.first.left, 16);
+    expect(actions.last.right, closeTo(386, .01));
+    expect(_navRect.top - actions.first.bottom, greaterThanOrEqualTo(12));
+    expect(find.byKey(const Key('hangul-auto-advance')), findsNothing);
+  });
+
+  testWidgets('Hangul overview chrome · Figma 280:845 at 402×874', (
+    tester,
+  ) async {
+    await _mount(
+      tester,
+      HangulScreen(
+        speechPlayer: (_) async => true,
+        textPrefetcher: (_) async {},
+      ),
+    );
+    await _compare(tester, 'hangul-overview', {
+      '280:846': (_key('hangul-atelier-header'), _hangulHeaderRect),
+      '280:853': (_key(_nav), _navRect),
     });
   });
 

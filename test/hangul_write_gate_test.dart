@@ -58,6 +58,9 @@ void main() {
   ) async {
     await _openWriteTab(tester);
     await _goToLetter(tester, 'ㅂ');
+    // Auto-advance lives in the ⋯ dialog since the 2026-11-21 mockup.
+    await tester.tap(find.byKey(const Key('hangul-writing-more')));
+    await tester.pumpAndSettle();
     await tester.tap(find.byKey(const Key('hangul-auto-advance')));
     await _settlePreferenceIO(tester);
     await tester.pumpAndSettle();

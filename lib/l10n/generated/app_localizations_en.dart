@@ -11986,20 +11986,13 @@ class AppL10nEn extends AppL10n {
   String get atelierAutoOn => 'Auto advance: On';
 
   @override
-  String get atelierChartHint =>
-      'Tap to listen. All 19 consonants are available below.';
-
-  @override
-  String get atelierDemo => 'Demonstrate';
+  String get atelierDemoShort => 'Show me';
 
   @override
   String get atelierDemoEnd => 'Finish demonstration';
 
   @override
   String get atelierDemoNext => 'Next stroke';
-
-  @override
-  String get atelierDemoPhase => 'Demonstration';
 
   @override
   String get atelierDemoRestart => 'Show again';
@@ -12009,16 +12002,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get atelierDiscover => 'Discover syllables';
-
-  @override
-  String get atelierDonePhase => 'Complete';
-
-  @override
-  String get atelierFeedHint =>
-      'Swipe up: next card · Swipe down: previous\nDouble tap to like';
-
-  @override
-  String get atelierFinish => 'Finish practice';
 
   @override
   String get atelierFlipHint => 'Tap to flip';
@@ -12031,9 +12014,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get atelierNotYet => 'Not yet';
-
-  @override
-  String get atelierPracticePhase => 'Your turn';
 
   @override
   String get atelierRandom => 'Random card';
@@ -12052,9 +12032,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get atelierStructure => 'Syllable building';
-
-  @override
-  String get atelierSubtitle => 'Script. Sound. Meaning.';
 
   @override
   String get atelierUseInChart => 'Select in the syllable chart';

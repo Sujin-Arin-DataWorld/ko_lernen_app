@@ -94,6 +94,9 @@ class SoriBreakpoints {
   /// Vocab pack result secondary actions sit side by side from this width.
   static const double vocabResultActionRow = 490;
 
+  /// The Hangul atelier vowel board uses its two-pane tablet layout here.
+  static const double hangulAtelierTablet = 680;
+
   /// Very narrow phone content where two comparison panels must stack.
   static const double narrowPhone = 360;
 
