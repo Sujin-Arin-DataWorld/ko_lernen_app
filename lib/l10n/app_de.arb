@@ -4994,6 +4994,15 @@
   "phaseTaskError": "Das hat nicht geklappt. Prüfe Ton, Mikrofon und Verbindung und versuche es erneut.",
   "phaseTaskAccountChanged": "Dein Konto hat sich geändert. Öffne die Aufgabe erneut.",
   "phaseTaskRecordingNotice": "Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.",
+  "phaseStepDone": "Schritt abgeschlossen",
+  "phaseStepNext": "Nächster Schritt: {title}",
+  "@phaseStepNext": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
   "phaseTaskHistory": "Bewertete Kriterien bereits erfüllt",
   "phaseTaskAudioRequired": "Höre zuerst die Aufnahme an.",
   "phaseTaskPracticeComplete": "Übung gespeichert. Der Punktwert gilt für diese Übung.",

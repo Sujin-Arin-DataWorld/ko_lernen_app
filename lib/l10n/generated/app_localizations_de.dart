@@ -10468,6 +10468,14 @@ class AppL10nDe extends AppL10n {
       'Die Aufnahme bleibt nur für diese Aufgabe im Speicher und wird nicht hochgeladen.';
 
   @override
+  String get phaseStepDone => 'Schritt abgeschlossen';
+
+  @override
+  String phaseStepNext(String title) {
+    return 'Nächster Schritt: $title';
+  }
+
+  @override
   String get phaseTaskHistory => 'Bewertete Kriterien bereits erfüllt';
 
   @override

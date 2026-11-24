@@ -4812,6 +4812,8 @@
   "phaseTaskError": "That did not work. Check audio, microphone and connection, then try again.",
   "phaseTaskAccountChanged": "Your account changed. Reopen this task.",
   "phaseTaskRecordingNotice": "The recording stays in memory for this task and is not uploaded.",
+  "phaseStepDone": "Step completed",
+  "phaseStepNext": "Next step: {title}",
   "phaseTaskHistory": "Assessed criteria already met",
   "phaseTaskAudioRequired": "Listen to the audio first.",
   "phaseTaskPracticeComplete": "Practice saved. The score applies to this practice attempt.",

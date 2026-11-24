@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "note": "Editorial grouping of existing phase tasks into ordered steps. Task IDs omit the 'KPnn:' prefix. Never locks; never changes task content or hashes.",
+  "phases": [
+    {
+      "phaseId": "KP01",
+      "steps": [
+        {
+          "id": "KP01.1",
+          "title": {"ko": "이에요/예요로 나 소개하기", "de": "Mich vorstellen mit 이에요/예요", "en": "Introducing myself with 이에요/예요"},
+          "tasks": ["grammar:01", "production:01", "grammar:02", "production:02", "reading:01", "listening:01"]
+        },
+        {
+          "id": "KP01.2",
+          "title": {"ko": "은/는·이/가", "de": "Thema und Subjekt: 은/는 und 이/가", "en": "Topic and subject: 은/는 and 이/가"},
+          "tasks": ["grammar:03", "production:03", "grammar:04", "production:04", "speaking:01", "writing:01"]
+        },
+        {
+          "id": "KP01.3",
+          "title": {"ko": "을/를·의·하고·과/와·이랑", "de": "Objekt, Besitz und „und“: 을/를, 의, 하고, 과/와, 이랑", "en": "Object, possession and “and”: 을/를, 의, 하고, 과/와, 이랑"},
+          "tasks": ["grammar:05", "production:05", "grammar:06", "production:06", "grammar:07", "production:07", "grammar:08", "production:08", "grammar:09", "production:09", "reading:02", "listening:02"]
+        },
+        {
+          "id": "KP01.4",
+          "title": {"ko": "-아/어요·-습니다·-습니까", "de": "Höflich sprechen: -아/어요, -습니다, -습니까", "en": "Speaking politely: -아/어요, -습니다, -습니까"},
+          "tasks": ["grammar:10", "production:10", "grammar:11", "production:11", "grammar:12", "production:12", "writing:02", "listening:03", "speaking:02"]
+        }
+      ]
+    }
+  ]
+}
