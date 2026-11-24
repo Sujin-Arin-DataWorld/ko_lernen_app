@@ -6,6 +6,9 @@ Future<void> showViewportSection(
   Finder target, {
   Finder? within,
 }) async {
+  // SoriViewportPages counts its pages after layout and shows the pager on
+  // the following frame; render that frame before deciding where we are.
+  await tester.pump();
   if (target.hitTestable().evaluate().isNotEmpty) {
     return;
   }
@@ -19,22 +22,31 @@ Future<void> showViewportSection(
 
   final previous = control('sori-viewport-previous');
   final next = control('sori-viewport-next');
+  final indicator = find.byKey(const ValueKey('sori-viewport-page'));
+  String? page() => indicator.evaluate().length == 1
+      ? tester.widget<Text>(indicator).data
+      : null;
   bool enabled(Finder button) =>
       button.evaluate().isNotEmpty &&
       tester.widget<IconButton>(button.last).onPressed != null;
-  while (enabled(previous)) {
+  final pageCount = int.tryParse(page()?.split('/').last ?? '') ?? 100;
+  for (var index = 0; index < pageCount && enabled(previous); index++) {
+    final lastPage = page();
     await tester.tap(previous.last);
     await tester.pumpAndSettle();
     if (target.hitTestable().evaluate().isNotEmpty) {
       return;
     }
+    if (lastPage != null && lastPage == page()) break;
   }
-  while (enabled(next)) {
+  for (var index = 0; index < pageCount && enabled(next); index++) {
+    final lastPage = page();
     await tester.tap(next.last);
     await tester.pumpAndSettle();
     if (target.hitTestable().evaluate().isNotEmpty) {
       return;
     }
+    if (lastPage != null && lastPage == page()) break;
   }
   expect(target.hitTestable(), findsOneWidget);
 }

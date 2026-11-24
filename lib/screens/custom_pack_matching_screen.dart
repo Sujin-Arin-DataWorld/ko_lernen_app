@@ -21,14 +21,15 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/route_observer.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/approved_games/approved_game_material.dart';
+import '../widgets/sori/approved_games/approved_matching_view.dart';
 
-/// A3 — "짝 맞추기"(Matching). 한국어 ↔ 뜻 카드를 짝지어 없앤다.
+/// A3 — "짝 맞추기"(Matching). 한국어 ↔ 뜻 카드를 짝짓고 완료한 자리에 남긴다.
 /// 가벼운 인출 강화 게임. 한 라운드 최대 6쌍.
 class CustomPackMatchingScreen extends StatefulWidget {
   final String packId;
@@ -51,6 +52,8 @@ class CustomPackMatchingScreen extends StatefulWidget {
 
 class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     with
+        WidgetsBindingObserver,
+        RouteAware,
         ScreenCoachMixin<CustomPackMatchingScreen>,
         GameResultRecovery<CustomPackMatchingScreen>,
         StudyEvidenceRecovery<CustomPackMatchingScreen> {
@@ -59,6 +62,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   int _presentation = 0;
   bool get _acceptsInput => studyEvidenceAcceptsInput && gameResultAcceptsInput;
   void _retireStudy() {
+    _stopSpeech();
     retireStudyEvidence();
     retireGameResult();
   }
@@ -66,6 +70,10 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   List<ExtractedWord> _pool = const [];
   String _languageCode = 'de';
   bool _roundInitialized = false;
+  bool _foreground = true;
+  bool _routeVisible = true;
+  bool _ownsSpeech = false;
+  int _speechRequest = 0;
 
   List<ExtractedWord> _round = const [];
   List<String> _leftKo = const []; // 한국어 열 (셔플)
@@ -107,6 +115,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     Analytics.gameStarted(gameType: 'matching');
     _abandonTracker = QuestAbandonTracker(
       questType: 'matching',
@@ -124,6 +133,10 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) {
+      soriRouteObserver.subscribe(this, route);
+    }
     if (_roundInitialized) {
       return;
     }
@@ -180,7 +193,13 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   }
 
   void _tapLeft(int i, int presentation) {
-    if (!_acceptsInput || presentation != _presentation || _roundDone) return;
+    if (!_foreground ||
+        !_routeVisible ||
+        !_acceptsInput ||
+        presentation != _presentation ||
+        _roundDone) {
+      return;
+    }
     final ko = _leftKo[i];
     if (_matched.contains(ko)) {
       return;
@@ -192,11 +211,21 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       _wrongRight = null;
       _statusMessage = null;
     });
-    TtsService.speak(ko);
+    _ownsSpeech = true;
+    final request = ++_speechRequest;
+    unawaited(
+      TtsService.speak(ko).whenComplete(() {
+        if (request == _speechRequest) {
+          _ownsSpeech = false;
+        }
+      }),
+    );
   }
 
   Future<void> _tapRight(String meaning, int presentation) async {
-    if (!_acceptsInput ||
+    if (!_foreground ||
+        !_routeVisible ||
+        !_acceptsInput ||
         presentation != _presentation ||
         _roundDone ||
         _selLeft == null) {
@@ -232,7 +261,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       return;
     }
     if (meaning == expected) {
-      SoundService.correct();
+      if (_foreground && _routeVisible) {
+        SoundService.correct();
+      }
       // Eine spätere Korrektur darf XP und den Spielfortschritt abschließen,
       // aber keine positive SRS-Evidenz über den vorherigen Fehlversuch legen.
       setState(() {
@@ -245,7 +276,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         _finish();
       }
     } else {
-      SoundService.wrong();
+      if (_foreground && _routeVisible) {
+        SoundService.wrong();
+      }
       _misses++;
       // Pro Wort/Runde genau ein negativer Lernnachweis. Wiederholte Taps auf
       // dieselbe falsche Zuordnung dürfen den Zähler nicht künstlich aufblasen.
@@ -255,7 +288,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         _statusMessage = AppL10n.of(context).statsWrong;
       });
       Future.delayed(const Duration(milliseconds: 450), () {
-        if (_acceptsInput && judgment == _presentation) {
+        if (mounted && _acceptsInput && judgment == _presentation) {
           setState(() => _wrongRight = null);
         }
       });
@@ -313,8 +346,45 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    soriRouteObserver.unsubscribe(this);
+    _stopSpeech();
     _abandonTracker.dispose();
     super.dispose();
+  }
+
+  void _stopSpeech() {
+    if (!_ownsSpeech) {
+      return;
+    }
+    _ownsSpeech = false;
+    _speechRequest++;
+    unawaited(TtsService.stop());
+  }
+
+  @override
+  void didPushNext() {
+    _routeVisible = false;
+    _stopSpeech();
+  }
+
+  @override
+  void didPopNext() {
+    _routeVisible = true;
+  }
+
+  @override
+  void didPop() {
+    _routeVisible = false;
+    _stopSpeech();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    _foreground = state == AppLifecycleState.resumed;
+    if (!_foreground) {
+      _stopSpeech();
+    }
   }
 
   bool get _roundDone => _round.isNotEmpty && _matched.length >= _round.length;
@@ -362,114 +432,71 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       );
     }
 
-    final s = SoriSurfaces.of(context);
-    final tt = SoriTextTheme.of(context);
+    if (_roundDone) {
+      return SoriStudyFrame(
+        onLeave: _retireStudy,
+        title: t.wbMatching,
+        child: _buildDone(t),
+      );
+    }
 
-    return SoriStudyFrame(
-      onLeave: _retireStudy,
+    final matchedMeanings = {
+      for (final word in _round)
+        if (_matched.contains(word.korean))
+          word.translationFor(_languageCode).trim(),
+    };
+    return ApprovedGameFrame(
+      navigationArt: 'jade_geometric_legacy',
       title: t.wbMatching,
+      onLeave: _retireStudy,
       homeEscape: SoriHomeEscape(
         confirmWhen: !_roundDone && (_matched.isNotEmpty || _misses > 0),
       ),
-      actions: const [TtsSpeedAction()],
-      padding: EdgeInsets.zero,
-      child: _roundDone
-          ? _buildDone(t)
-          // W10 T-V3(2026-09-05, Jin D-4): 판이 560dp 남짓이라 태블릿 세로
-          // 화면에서 위쪽에 뭉쳤다. `SoriAdaptiveStudyBody(fillViewport:
-          // true)`는 내부 IntrinsicHeight가 세로 Expanded(타일 보드)와 함께
-          // 쓰이면 보드가 자기 내용 높이로만 굳어버려(2026-09-05 실측 —
-          // Expanded 콘텐츠는 IntrinsicHeight의 "필요한 높이" 계산에서
-          // 늘어나지 않는다) 못 쓴다. 대신 LayoutBuilder로 뷰포트 높이를
-          // 직접 재서 ConstrainedBox(minHeight)+Column(center)로 채우고,
-          // 보드는 Expanded 없이 평범한 자식으로 둔다(넘치면 스크롤).
-          // W10 PR-D(2026-09-06): `SoriMinHeightScroll(intrinsic: false)` 로
-          // 손레시피를 공용 헬퍼로 교체.
-          : SoriMinHeightScroll(
-              minHeight: 0,
-              fillViewport: true,
-              intrinsic: false,
-              child: Padding(
-                padding: const EdgeInsets.all(Spacing.lg),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      t.wbMatchingHint,
-                      style: tt.caption.copyWith(color: s.textMuted),
-                    ),
-                    if (_statusMessage != null) ...[
-                      const SizedBox(height: Spacing.sm),
-                      Semantics(
-                        key: const ValueKey('custom-matching-feedback'),
-                        liveRegion: true,
-                        label: _statusMessage,
-                        child: Text(
-                          _statusMessage!,
-                          textAlign: TextAlign.center,
-                          style: tt.h3.copyWith(
-                            color: _statusMessage == t.statsCorrect
-                                ? SoriColors.primaryOnLight
-                                : SoriColors.danger,
-                          ),
-                        ),
-                      ),
-                    ],
-                    const SizedBox(height: Spacing.md),
-                    KeyedSubtree(
-                      key: _boardKey,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // 한국어 열
-                          Expanded(
-                            child: Column(
-                              children: [
-                                for (var i = 0; i < _leftKo.length; i++)
-                                  _Tile(
-                                    label: _leftKo[i],
-                                    matched: _matched.contains(_leftKo[i]),
-                                    selected: _selLeft == i,
-                                    accent: SoriColors.primary,
-                                    enabled: !_matched.contains(_leftKo[i]),
-                                    onTap: () => _tapLeft(i, presentation),
-                                  ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: Spacing.md),
-                          // 뜻 열
-                          Expanded(
-                            child: Column(
-                              children: [
-                                for (final meaning in _rightMeanings)
-                                  _Tile(
-                                    label: meaning,
-                                    matched: _matched.any(
-                                      (ko) =>
-                                          _round
-                                              .firstWhere((w) => w.korean == ko)
-                                              .translationFor(_languageCode)
-                                              .trim() ==
-                                          meaning,
-                                    ),
-                                    wrong: _wrongRight == meaning,
-                                    accent: SoriColors.accent,
-                                    enabled: _selLeft != null,
-                                    onTap: () =>
-                                        _tapRight(meaning, presentation),
-                                  ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+      contentBuilder: (context, close) => ApprovedMatchingView(
+        title: t.wbMatching,
+        topic: pack.name,
+        counter: t.approvedMatchingCounter(_matched.length, _round.length),
+        koreanLabel: t.wbFieldKorean,
+        meaningLabel: t.wbFieldMeaning,
+        instruction: _selLeft == null
+            ? t.approvedMatchingPickKorean
+            : t.approvedMatchingPickMeaning,
+        footer: _statusMessage == t.statsWrong
+            ? t.statsWrong
+            : _selLeft != null
+            ? t.approvedMatchingRetry
+            : _matched.isNotEmpty
+            ? t.approvedMatchingFound
+            : t.approvedMatchingInstruction,
+        statusMessage: _statusMessage,
+        leading: close,
+        boardKey: _boardKey,
+        leftTiles: [
+          for (var i = 0; i < _leftKo.length; i++)
+            ApprovedMatchingTile(
+              label: _leftKo[i],
+              matched: _matched.contains(_leftKo[i]),
+              selected: _selLeft == i,
+              onTap: _acceptsInput && !_matched.contains(_leftKo[i])
+                  ? () => _tapLeft(i, presentation)
+                  : null,
             ),
+        ],
+        rightTiles: [
+          for (final meaning in _rightMeanings)
+            ApprovedMatchingTile(
+              label: meaning,
+              matched: matchedMeanings.contains(meaning),
+              wrong: _wrongRight == meaning,
+              onTap:
+                  _acceptsInput &&
+                      _selLeft != null &&
+                      !matchedMeanings.contains(meaning)
+                  ? () => _tapRight(meaning, presentation)
+                  : null,
+            ),
+        ],
+      ),
     );
   }
 
@@ -516,109 +543,6 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
             onTap: () => _closeResult(presentation),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class _Tile extends StatelessWidget {
-  final String label;
-  final bool matched;
-  final bool selected;
-  final bool wrong;
-  final bool enabled;
-  final Color accent;
-  final VoidCallback? onTap;
-  const _Tile({
-    required this.label,
-    required this.accent,
-    required this.onTap,
-    this.enabled = true,
-    this.matched = false,
-    this.selected = false,
-    this.wrong = false,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    Color border = enabled
-        ? (s.brightness == Brightness.light
-              ? SoriColors.lightBorderStrong
-              : SoriColors.darkBorderStrong)
-        : s.border;
-    Color bg = s.surface;
-    double opacity = 1;
-    IconData? stateIcon;
-    String? semanticValue;
-    if (matched) {
-      opacity = 0.25;
-      border = SoriColors.success;
-      stateIcon = Icons.check_circle_rounded;
-      semanticValue = AppL10n.of(context).statsCorrect;
-    } else if (wrong) {
-      border = SoriColors.danger;
-      bg = SoriColors.danger.withValues(alpha: 0.12);
-      stateIcon = Icons.cancel_rounded;
-      semanticValue = AppL10n.of(context).statsWrong;
-    } else if (selected) {
-      border = accent;
-      bg = accent.withValues(alpha: 0.12);
-      stateIcon = Icons.radio_button_checked_rounded;
-      semanticValue = AppL10n.of(context).questAnswerSelected;
-    }
-    final canTap = enabled && !matched && onTap != null;
-    return Semantics(
-      button: true,
-      enabled: canTap,
-      selected: selected,
-      label: label,
-      value: semanticValue,
-      onTap: canTap ? onTap : null,
-      excludeSemantics: true,
-      child: Opacity(
-        opacity: opacity,
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: Spacing.sm),
-          child: Material(
-            color: bg,
-            borderRadius: BorderRadius.circular(SoriRadius.md),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-              onTap: canTap ? onTap : null,
-              child: Container(
-                width: double.infinity,
-                constraints: const BoxConstraints(minHeight: 56),
-                alignment: Alignment.center,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.sm,
-                  vertical: Spacing.sm,
-                ),
-                decoration: BoxDecoration(
-                  border: Border.all(color: border, width: 1.5),
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Flexible(
-                      child: Text(
-                        label,
-                        textAlign: TextAlign.center,
-                        style: SoriTextTheme.of(context).label,
-                      ),
-                    ),
-                    if (stateIcon != null) ...[
-                      const SizedBox(width: Spacing.xs),
-                      Icon(stateIcon, size: 20, color: border),
-                    ],
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
       ),
     );
   }

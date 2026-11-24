@@ -541,6 +541,8 @@
   "screenVocabTitle": "Karteikarten",
   "screenGrammarTitle": "Grammatik",
   "screenWordleTitle": "Silben-Rätsel",
+  "silbenPlaceInstruction": "Feld wählen · Silbe antippen",
+  "silbenPoolTitle": "Deine Silben",
   "silbenEmptyBody": "Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.",
   "silbenCellPosition": "Zeile {row}, Spalte {column}",
   "@silbenCellPosition": {
@@ -6070,6 +6072,34 @@
       }
     }
   },
+  "approvedQuizTitle": "Wörter-Quiz",
+  "approvedQuizCorrect": "{count} richtig",
+  "@approvedQuizCorrect": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedQuizChooseMeaning": "Wähle die Bedeutung.",
+  "approvedGameListen": "Anhören",
+  "approvedMatchingTitle": "Paare finden",
+  "approvedMatchingInstruction": "Erst Koreanisch, dann die Bedeutung.",
+  "approvedMatchingCounter": "{count} von {total} Paaren",
+  "@approvedMatchingCounter": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "approvedMatchingPickKorean": "Tippe auf ein koreanisches Wort.",
+  "approvedMatchingPickMeaning": "Wähle jetzt die passende Bedeutung.",
+  "approvedMatchingRetry": "Tippe auf die passende Bedeutung.",
+  "approvedMatchingFound": "Ein Paar gefunden.",
   "pronunciationPracticeRhythm": "Satzrhythmus üben",
   "pronunciationCompareVoices": "Stimmen vergleichen",
   "pronunciationModelListen": "Satz hören",

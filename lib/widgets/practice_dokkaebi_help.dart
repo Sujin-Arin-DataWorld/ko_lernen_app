@@ -16,19 +16,23 @@ class PracticeDokkaebiHelp extends StatelessWidget {
     super.key,
     required this.child,
     this.compact = false,
+    this.inset = true,
   });
   final Widget child;
   final bool compact;
+  final bool inset;
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: EdgeInsets.fromLTRB(
-      Spacing.lg,
-      compact ? Spacing.xs : Spacing.sm,
-      Spacing.lg,
-      compact ? Spacing.sm : Spacing.lg,
-    ),
-    child: child,
-  );
+  Widget build(BuildContext context) => !inset
+      ? child
+      : Padding(
+          padding: EdgeInsets.fromLTRB(
+            Spacing.lg,
+            compact ? Spacing.xs : Spacing.sm,
+            Spacing.lg,
+            compact ? Spacing.sm : Spacing.lg,
+          ),
+          child: child,
+        );
 }
 
 /// The action belongs to the puzzle's edge, rather than to the help text.
@@ -41,11 +45,13 @@ class PracticeDokkaebiStage extends StatelessWidget {
     this.size = 176,
     this.onRequested,
     this.onImpact,
+    this.restingArt,
   });
   final int requestId;
   final bool play, helping;
   final double size;
   final VoidCallback? onRequested, onImpact;
+  final Widget? restingArt;
   @override
   Widget build(BuildContext context) => PracticeViewportGate(
     requireFullVisibility: true,
@@ -56,6 +62,7 @@ class PracticeDokkaebiStage extends StatelessWidget {
       size: size,
       onRequested: onRequested,
       onImpact: onImpact,
+      restingArt: restingArt,
     ),
   );
 }
@@ -68,11 +75,13 @@ class _DokkaebiStage extends StatefulWidget {
     required this.size,
     this.onRequested,
     this.onImpact,
+    this.restingArt,
   });
   final int requestId;
   final bool play, helping;
   final double size;
   final VoidCallback? onRequested, onImpact;
+  final Widget? restingArt;
   @override
   State<_DokkaebiStage> createState() => _DokkaebiStageState();
 }
@@ -132,12 +141,13 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
                 switchInCurve: Curves.easeOut,
                 switchOutCurve: Curves.easeOut,
                 child: widget.requestId == 0
-                    ? PracticeDokkaebiRestingArt(
-                        key: const ValueKey('dokkaebi-idle-art'),
-                        pose: widget.helping
-                            ? PracticeDokkaebiPose.helping
-                            : PracticeDokkaebiPose.ready,
-                      )
+                    ? widget.restingArt ??
+                          PracticeDokkaebiRestingArt(
+                            key: const ValueKey('dokkaebi-idle-art'),
+                            pose: widget.helping
+                                ? PracticeDokkaebiPose.helping
+                                : PracticeDokkaebiPose.ready,
+                          )
                     : PracticeDokkaebiCanvas(
                         key: ValueKey('dokkaebi-canvas-${widget.requestId}'),
                         child: PracticeCharacterClip(
@@ -155,7 +165,11 @@ class _DokkaebiStageState extends State<_DokkaebiStage>
                       ),
               ),
             ),
-            for (var i = 0; i < 2; i++)
+            for (
+              var i = 0;
+              i < (widget.restingArt != null && request == 0 ? 0 : 2);
+              i++
+            )
               Positioned(
                 left: widget.size * (i == 0 ? .16 : .79),
                 top: widget.size * (i == 0 ? .45 : .57),
@@ -235,14 +249,17 @@ Future<void> showPracticeDokkaebiIntroduction(BuildContext context) {
 
 /// The fire opens the game introduction without reserving a header paragraph.
 class PracticeDokkaebiFireAction extends StatelessWidget {
-  const PracticeDokkaebiFireAction({super.key});
+  const PracticeDokkaebiFireAction({super.key, this.artSize = 28});
+  final double artSize;
+
   @override
   Widget build(BuildContext context) =>
-      const PracticeViewportGate(child: _FireAction());
+      PracticeViewportGate(child: _FireAction(artSize: artSize));
 }
 
 class _FireAction extends StatefulWidget {
-  const _FireAction();
+  const _FireAction({required this.artSize});
+  final double artSize;
   @override
   State<_FireAction> createState() => _FireActionState();
 }
@@ -291,8 +308,8 @@ class _FireActionState extends State<_FireAction>
                   animation: _orbit,
                   child: Image.asset(
                     'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
-                    width: 28,
-                    height: 28,
+                    width: widget.artSize,
+                    height: widget.artSize,
                     cacheWidth: 128,
                     excludeFromSemantics: true,
                   ),

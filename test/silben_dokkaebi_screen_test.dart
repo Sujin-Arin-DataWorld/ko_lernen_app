@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
 import 'package:ko_lernen_app/services/practice_history_store.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'support/sori_speech_stubs.dart';
 import 'support/sori_stage_pump.dart';
 
@@ -102,8 +103,15 @@ void main() {
       final arena = tester.getRect(
         find.byKey(const ValueKey('dokkaebi-arena-fire')),
       );
-      final help = tester.getRect(find.byType(PracticeDokkaebiHelp));
-      expect(help.top - arena.bottom, greaterThanOrEqualTo(16));
+      // Below the narrow-phone width the board pages its controls and keeps
+      // the help panel behind the hint action until the learner asks for it.
+      if (size.width < SoriBreakpoints.narrowPhone) {
+        expect(find.byType(PracticeDokkaebiHelp), findsNothing);
+        expect(find.byKey(const ValueKey('dokkaebi-hint')), findsOneWidget);
+      } else {
+        final help = tester.getRect(find.byType(PracticeDokkaebiHelp));
+        expect(help.top - arena.bottom, greaterThanOrEqualTo(16));
+      }
       expect(tester.takeException(), isNull);
       await tap(tester, find.byKey(const ValueKey('dokkaebi-introduction')));
       expect(find.text('도깨비'), findsOneWidget);

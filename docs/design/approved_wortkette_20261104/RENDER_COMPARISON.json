@@ -1,0 +1,266 @@
+{
+  "method": "Same 402x874 images; mean absolute RGB channel difference and fraction with all RGB differences <=8. No pixel-identity or perceptual approval threshold. Fonts use different rendering engines.",
+  "frames": [
+    {
+      "variant": "a",
+      "figma_sha256": "30fb9b066fa9c3ee32c999b5e41366839bdd95bfeebe22b5c1499a795776f3c2",
+      "flutter_sha256": "2d432ce91283588a213d09afb866daa29d560d084e7e13457fcadf97abac048f",
+      "regions": {
+        "header": {
+          "rect": [
+            0,
+            0,
+            402,
+            110
+          ],
+          "mean_absolute_rgb": 3.134,
+          "within_8_rgb_fraction": 0.9431
+        },
+        "history": {
+          "rect": [
+            16,
+            224,
+            370,
+            63
+          ],
+          "mean_absolute_rgb": 2.221,
+          "within_8_rgb_fraction": 0.9473
+        },
+        "tray": {
+          "rect": [
+            16,
+            296,
+            370,
+            164
+          ],
+          "mean_absolute_rgb": 5.121,
+          "within_8_rgb_fraction": 0.8269
+        },
+        "meaning": {
+          "rect": [
+            18,
+            465,
+            366,
+            40
+          ],
+          "mean_absolute_rgb": 1.494,
+          "within_8_rgb_fraction": 0.9696
+        },
+        "audio": {
+          "rect": [
+            50,
+            516,
+            302,
+            54
+          ],
+          "mean_absolute_rgb": 6.75,
+          "within_8_rgb_fraction": 0.792
+        },
+        "input": {
+          "rect": [
+            16,
+            630,
+            370,
+            76
+          ],
+          "mean_absolute_rgb": 2.54,
+          "within_8_rgb_fraction": 0.8838
+        },
+        "submit": {
+          "rect": [
+            28,
+            713,
+            346,
+            56
+          ],
+          "mean_absolute_rgb": 6.544,
+          "within_8_rgb_fraction": 0.8194
+        },
+        "navigation": {
+          "rect": [
+            0,
+            792,
+            402,
+            82
+          ],
+          "mean_absolute_rgb": 2.705,
+          "within_8_rgb_fraction": 0.8665
+        }
+      }
+    },
+    {
+      "variant": "b",
+      "figma_sha256": "7c3db2cccdcdabd7f72ab89b2c4e0107b795061b063e776274d6515c6614d579",
+      "flutter_sha256": "8d1bc7e15c88036728ad23a630b7edf5a95c0d21747ebb05b8562ff55785bbb0",
+      "regions": {
+        "header": {
+          "rect": [
+            0,
+            0,
+            402,
+            110
+          ],
+          "mean_absolute_rgb": 3.134,
+          "within_8_rgb_fraction": 0.9431
+        },
+        "history": {
+          "rect": [
+            16,
+            224,
+            370,
+            63
+          ],
+          "mean_absolute_rgb": 3.655,
+          "within_8_rgb_fraction": 0.8855
+        },
+        "tray": {
+          "rect": [
+            16,
+            296,
+            370,
+            164
+          ],
+          "mean_absolute_rgb": 4.354,
+          "within_8_rgb_fraction": 0.8081
+        },
+        "meaning": {
+          "rect": [
+            18,
+            465,
+            366,
+            40
+          ],
+          "mean_absolute_rgb": 1.649,
+          "within_8_rgb_fraction": 0.9647
+        },
+        "audio": {
+          "rect": [
+            50,
+            516,
+            302,
+            54
+          ],
+          "mean_absolute_rgb": 6.75,
+          "within_8_rgb_fraction": 0.792
+        },
+        "input": {
+          "rect": [
+            16,
+            630,
+            370,
+            76
+          ],
+          "mean_absolute_rgb": 7.009,
+          "within_8_rgb_fraction": 0.8666
+        },
+        "submit": {
+          "rect": [
+            28,
+            713,
+            346,
+            56
+          ],
+          "mean_absolute_rgb": 6.544,
+          "within_8_rgb_fraction": 0.8194
+        },
+        "navigation": {
+          "rect": [
+            0,
+            792,
+            402,
+            82
+          ],
+          "mean_absolute_rgb": 2.705,
+          "within_8_rgb_fraction": 0.8665
+        }
+      }
+    },
+    {
+      "variant": "c",
+      "figma_sha256": "c8216d81c4b3ed0f9ef9dd9c4b425f50271ab477370fa214a7f58a796b55f07d",
+      "flutter_sha256": "2203c9e0df9c7d2c1ca4e865f1e9f0de7c00aa6639d1d3ec5585fa630ae97ebf",
+      "regions": {
+        "header": {
+          "rect": [
+            0,
+            0,
+            402,
+            110
+          ],
+          "mean_absolute_rgb": 3.134,
+          "within_8_rgb_fraction": 0.9431
+        },
+        "history": {
+          "rect": [
+            16,
+            224,
+            370,
+            63
+          ],
+          "mean_absolute_rgb": 4.38,
+          "within_8_rgb_fraction": 0.8592
+        },
+        "tray": {
+          "rect": [
+            16,
+            296,
+            370,
+            164
+          ],
+          "mean_absolute_rgb": 7.293,
+          "within_8_rgb_fraction": 0.7865
+        },
+        "meaning": {
+          "rect": [
+            18,
+            465,
+            366,
+            40
+          ],
+          "mean_absolute_rgb": 3.098,
+          "within_8_rgb_fraction": 0.9158
+        },
+        "audio": {
+          "rect": [
+            50,
+            516,
+            302,
+            54
+          ],
+          "mean_absolute_rgb": 6.75,
+          "within_8_rgb_fraction": 0.792
+        },
+        "input": {
+          "rect": [
+            16,
+            630,
+            370,
+            76
+          ],
+          "mean_absolute_rgb": 7.04,
+          "within_8_rgb_fraction": 0.8671
+        },
+        "submit": {
+          "rect": [
+            28,
+            713,
+            346,
+            56
+          ],
+          "mean_absolute_rgb": 6.544,
+          "within_8_rgb_fraction": 0.8194
+        },
+        "navigation": {
+          "rect": [
+            0,
+            792,
+            402,
+            82
+          ],
+          "mean_absolute_rgb": 2.705,
+          "within_8_rgb_fraction": 0.8665
+        }
+      }
+    }
+  ]
+}

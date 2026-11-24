@@ -24,6 +24,7 @@ const _introLatinFaces = [
   'assets/fonts/RobotoCondensed/RobotoCondensed-Variable.ttf',
   'assets/fonts/Lora/Lora-Variable.ttf',
   'assets/fonts/NotoSerif/NotoSerif-Variable.ttf',
+  'assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf',
 ];
 
 const _localeLatinWeights = {
@@ -41,6 +42,7 @@ const _localeLatinWeights = {
 const _introKoreanDisplayFaces = [
   'assets/fonts/MaruBuri/MaruBuri-Regular.otf',
   'assets/fonts/MaruBuri/MaruBuri-SemiBold.otf',
+  'assets/fonts/MaruBuri/MaruBuri-Bold.otf',
 ];
 
 void main() {
@@ -114,6 +116,7 @@ void main() {
       'assets/fonts/Chubbo/FFL.txt',
       'assets/fonts/Supreme/FFL.txt',
       'assets/fonts/Belgrano/OFL.txt',
+      'assets/fonts/IBMPlexSans/OFL.txt',
       'assets/fonts/EncodeSansCondensed/OFL.txt',
     ]) {
       expect(File(path).readAsStringSync(), contains('License'));

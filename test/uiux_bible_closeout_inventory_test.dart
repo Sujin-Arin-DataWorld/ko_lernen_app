@@ -161,10 +161,11 @@ void main() {
     // 2026-10-31: +2 — live Today card and semantic subject-art mapping.
     // 2026-11-04: +5 — approved grammar, nuance, scenario and stage navigation.
     // +2: approved Dokkaebi introduction and its separately owned flame frame.
+    // +7: approved game materials, measured art metrics and presentation views.
     // +2: culture-stories entry card and scenario culture card (#449).
-    expect(actual, hasLength(187));
+    expect(actual, hasLength(194));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(187));
+    expect(listed, hasLength(194));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();
