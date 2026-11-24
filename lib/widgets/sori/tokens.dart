@@ -77,6 +77,23 @@ class SoriBreakpoints {
   /// sizes below this content width, preserving the approved phone layout.
   static const double introAccessibleStack = 340;
 
+  /// The wordbook search page shows its open-book backdrop only from this
+  /// body width, where the page art still frames the result list.
+  static const double wordbookOpenBook = 338;
+
+  /// Review cards reserve a labelled skip action from this window width.
+  static const double reviewSkipLabel = 390;
+
+  /// Completion feedback cards show the chosen companion from this width.
+  static const double feedbackCompanion = 340;
+
+  /// Vocab pack results switch to their compact panel below this width
+  /// when enlarged text is active.
+  static const double vocabResultAccessibleCompact = 430;
+
+  /// Vocab pack result secondary actions sit side by side from this width.
+  static const double vocabResultActionRow = 490;
+
   /// Very narrow phone content where two comparison panels must stack.
   static const double narrowPhone = 360;
 

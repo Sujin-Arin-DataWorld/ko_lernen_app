@@ -280,13 +280,17 @@ void main() {
         );
 
         final finalCta = find.text(t.vocabPackResultBackToGrid);
-        await tester.scrollUntilVisible(
-          finalCta,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.pump();
-        expect(finalCta, findsOneWidget);
+        final next = find.byKey(const Key('sori-viewport-next')).hitTestable();
+        for (
+          var page = 0;
+          page < 8 && finalCta.hitTestable().evaluate().isEmpty;
+          page++
+        ) {
+          await tester.tap(next);
+          await tester.pumpAndSettle();
+        }
+        expect(finalCta.hitTestable(), findsOneWidget);
+        expect(find.byType(Scrollable), findsNothing);
         expect(
           tester.renderObject<RenderParagraph>(finalCta).didExceedMaxLines,
           isFalse,

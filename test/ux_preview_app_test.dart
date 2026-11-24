@@ -34,6 +34,8 @@ import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/sticker_image.dart';
 import 'package:ko_lernen_app/widgets/sori/scenario_c.dart';
 
+import 'support/viewport_pages.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -306,13 +308,7 @@ void main() {
         await tester.pump();
         await tester.pump(const Duration(milliseconds: 150));
         final action = find.byKey(ValueKey(entry.key));
-        await tester.scrollUntilVisible(
-          action,
-          240,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.ensureVisible(action);
-        await tester.pump();
+        await revealForTap(tester, action, delta: 240);
         await tester.tap(action);
         await tester.pumpAndSettle();
 

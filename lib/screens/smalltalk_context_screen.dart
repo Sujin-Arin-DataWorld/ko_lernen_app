@@ -18,11 +18,15 @@ import '../widgets/practice_motion.dart';
 import '../widgets/practice_layout.dart';
 import '../widgets/practice_scholar_explanation.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/c_learning_surface.dart';
+import '../widgets/sori/learning_stage_navigation.dart';
 import '../widgets/sori/speakable.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/viewport_pages.dart';
 
 class SmalltalkContextScreen extends StatefulWidget {
   const SmalltalkContextScreen({
@@ -62,10 +66,12 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
   bool _effectVisible = false;
   bool _playScholar = false;
   int _scholarGesture = 0;
-  final _effectAnchor = GlobalKey();
   final _answerKey = GlobalKey();
-  final _completionAnchor = GlobalKey();
-  final _scroll = ScrollController();
+  static const _effectSection = ValueKey('context-effect-section');
+  static const _completionSection = ValueKey('context-complete-section');
+  static const _assemblySection = ValueKey('context-assembly-section');
+  Key? _targetSection;
+  int _targetRevision = 0;
   final Map<int, GlobalKey> _tokenKeys = {};
   final Set<OverlayEntry> _flights = {};
   int _flightEpoch = 0;
@@ -160,15 +166,13 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
         _intent = null;
         _expression = null;
         _effectVisible = false;
+        _targetSection = null;
         _playScholar = false;
         _scholarGesture = 0;
         _selected.clear();
         _complete = false;
         _help = !transfer;
         _attempt = null;
-      });
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && _scroll.hasClients) _scroll.jumpTo(0);
       });
     },
   );
@@ -188,6 +192,8 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
     setState(() {
       _expression = expression;
       _effectVisible = false;
+      _targetSection = _assemblySection;
+      _targetRevision++;
       _playScholar = false;
       _scholarGesture = 0;
       _pool = tokens;
@@ -199,32 +205,14 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
   }
 
   void _showEffect() {
-    if (_locked) {
-      return;
-    }
-    final expression = _expression;
     _edit(() {
+      _clearFlights();
       _help = true;
       _effectVisible = true;
-    });
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      final anchor = _effectAnchor.currentContext;
-      if (!mounted || _locked || anchor == null || _expression != expression) {
-        return;
-      }
-      await Scrollable.ensureVisible(
-        anchor,
-        alignment: 0.08,
-        duration: Storage.reducedMotion
-            ? Duration.zero
-            : SoriMotion.respect(context, SoriMotion.medium),
-      );
-      if (mounted && !_locked && _expression == expression) {
-        setState(() {
-          _scholarGesture++;
-          _playScholar = true;
-        });
-      }
+      _targetSection = _effectSection;
+      _targetRevision++;
+      _scholarGesture++;
+      _playScholar = true;
     });
   }
 
@@ -342,33 +330,24 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
       }
       if (mounted && _session.isCurrent) {
         _clearFlights();
-        setState(() => _complete = true);
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          final anchor = _completionAnchor.currentContext;
-          if (mounted && _complete && anchor != null) {
-            unawaited(
-              Scrollable.ensureVisible(
-                anchor,
-                alignment: .1,
-                duration: Storage.reducedMotion
-                    ? Duration.zero
-                    : SoriMotion.respect(context, SoriMotion.slow),
-              ),
-            );
-          }
+        setState(() {
+          _complete = true;
+          _targetSection = _completionSection;
+          _targetRevision++;
         });
       }
     });
   }
 
-  Widget _text(LocalizedText value, {bool korean = false}) => Text(
-    korean ? value.ko : value.pick(_lang),
-    style: korean
-        ? SoriTextTheme.of(
-            context,
-          ).body.copyWith(fontFamily: SoriFonts.learningKorean)
-        : SoriTextTheme.of(context).body,
-  );
+  Widget _text(LocalizedText value) {
+    final body = SoriTextTheme.of(context).body;
+    final ios = Theme.of(context).platform == TargetPlatform.iOS;
+    return Text(
+      value.pick(_lang),
+      style: ios ? body.copyWith(fontSize: 17) : body,
+    );
+  }
+
   Widget _dialog(LocalizedText value) {
     final profile = ScenarioCharacterCatalog.profileFor(_scene.characterId);
     return PracticeMotionSurface(
@@ -376,27 +355,34 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
       enter: true,
       child: PracticeMagicFrame(
         child: PracticeDialogueBubble(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: Row(
             children: [
-              Text(
-                profile?.nameFor(_lang) ?? _scene.characterId,
-                style: SoriTextTheme.of(context).eyebrow,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      profile?.nameFor(_lang) ?? _scene.characterId,
+                      style: SoriTextTheme.of(context).eyebrow,
+                    ),
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      value.ko,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).h3.copyWith(fontFamily: SoriFonts.learningKorean),
+                    ),
+                    const SizedBox(height: Spacing.xs),
+                    _text(value),
+                  ],
+                ),
               ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                value.ko,
-                style: SoriTextTheme.of(
-                  context,
-                ).h3.copyWith(fontFamily: SoriFonts.learningKorean),
-              ),
-              const SizedBox(height: Spacing.sm),
-              _text(value),
-              const SizedBox(height: Spacing.lg),
-              SoriButton.ghost(
-                label: AppL10n.of(context).contentLearningAudio,
-                icon: Icons.volume_up_outlined,
-                onTap: () => SoriSpeech.speak(
+              const SizedBox(width: Spacing.sm),
+              IconButton(
+                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                tooltip: AppL10n.of(context).contentLearningAudio,
+                icon: const Icon(Icons.volume_up_outlined),
+                onPressed: () => SoriSpeech.speak(
                   value.ko,
                   voice: profile?.voice ?? 'female',
                 ),
@@ -409,7 +395,7 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
   }
 
   Widget _effect(AppL10n t) => Padding(
-    key: _effectAnchor,
+    key: _effectSection,
     padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
     child: PracticeScholarExplanation(
       key: ValueKey('scholar-effect-${_expression!.id}-$_complete'),
@@ -438,350 +424,409 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final folio = soriUsesLearningFolio(context);
+    final escape = SoriHomeEscape(
+      confirmWhen: !_complete && (_expression != null || _busy),
+    );
+    void leave() {
+      _clearFlights();
+      unawaited(SoriSpeech.stop());
+    }
+
     return SoriStudyFrame(
       adaptTitleAtNormalScale: true,
       title: t.practiceToneTitle,
-      homeEscape: SoriHomeEscape(
-        confirmWhen: !_complete && (_expression != null || _busy),
+      homeEscape: escape,
+      onLeave: leave,
+      headerBuilder: folio
+          ? (context, leading, actions) => SoriAppBar(
+              title: t.smalltalkTitle,
+              leading: leading,
+              actions: actions,
+              textScale: MediaQuery.textScalerOf(context).scale(1),
+              viewportWidth: MediaQuery.sizeOf(context).width,
+              appearance: const SoriAppBarAppearance(
+                toolbarHeight: 80,
+                centerTitle: false,
+                foregroundColor: SoriCLearningTokens.paper,
+                titleStyle: TextStyle(
+                  fontFamily: SoriCLearningFonts.heading,
+                  fontSize: 26,
+                  fontWeight: FontWeight.w600,
+                  color: SoriCLearningTokens.paper,
+                ),
+                background: SoriCMaterialSurface(
+                  material: SoriCMaterial.jade,
+                  raised: false,
+                  borderRadius: BorderRadius.zero,
+                  child: SizedBox.expand(),
+                ),
+              ),
+            )
+          : null,
+      bottomNavigationBar: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (_actionFooter(t, folio: folio) case final footer?) footer,
+          if (folio)
+            SoriLearningStageNavigation(
+              learningStyle: SoriLearningNavStyle.folio,
+              escape: escape,
+              onLeave: leave,
+              canLeave: () => !_busy,
+            ),
+        ],
       ),
-      onLeave: () {
-        _clearFlights();
-        unawaited(SoriSpeech.stop());
-      },
-      bottomNavigationBar: _actionFooter(t),
       child: _loading
           ? const AppLoading()
-          : NotificationListener<ScrollNotification>(
-              onNotification: (notification) {
-                if (notification is ScrollUpdateNotification &&
-                        notification.dragDetails != null ||
-                    notification is UserScrollNotification &&
-                        notification.direction != ScrollDirection.idle) {
-                  _clearFlights();
-                }
-                return false;
-              },
-              child: ListView(
-                controller: _scroll,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      if (_feedback != null &&
-                          (_case == null || _expression == null || _complete))
-                        Semantics(
-                          liveRegion: true,
-                          child: Text(
-                            _feedback!,
-                            style: SoriTextTheme.of(context).body,
-                          ),
-                        ),
-                      if (_retry != null)
-                        PracticeRaisedAction(
-                          child: SoriButton.outlined(
-                            label: t.practiceRetrySave,
-                            onTap: _busy
-                                ? null
-                                : () {
-                                    final retry = _retry;
-                                    if (_busy ||
-                                        retry == null ||
-                                        !_session.isCurrent) {
-                                      return;
-                                    }
-                                    if (_case == null && _cases.isEmpty) {
-                                      setState(() {
-                                        _loading = true;
-                                        _retry = null;
-                                      });
-                                      unawaited(_load());
-                                    } else {
-                                      unawaited(_run(retry));
-                                    }
-                                  },
-                          ),
-                        ),
-                      if (!_session.isCurrent) Text(t.practiceUnavailable),
-                      if (_case == null) ...[
-                        PracticeGuide(
-                          dokkaebi: false,
-                          scholarPose: PracticeScholarPose.welcome,
-                          child: Text(
-                            t.practiceToneTitle,
-                            style: SoriTextTheme.of(context).menuTitle,
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.lg),
-                        for (final c in _cases.where(
-                          (c) =>
-                              widget.request.level == null ||
-                              c.level == widget.request.level,
-                        ))
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: Spacing.md),
-                            child: PracticeMotionSurface(
-                              enter: true,
-                              child: SoriCard(
-                                key: ValueKey('context-case-${c.id}'),
-                                raised: true,
-                                onTap: _busy ? null : () => _open(c, false),
-                                semanticLabel: c.title.pick(_lang),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.stretch,
-                                  children: [
-                                    Text(
-                                      c.level.toUpperCase(),
-                                      style: SoriTextTheme.of(context).eyebrow,
-                                    ),
-                                    Text(
-                                      c.title.pick(_lang),
-                                      style: SoriTextTheme.of(context).menuItem,
-                                    ),
-                                  ],
-                                ),
+          : SoriViewportPages(
+              key: ValueKey((
+                _case?.id,
+                _transfer,
+                _intent?.id,
+                _expression?.id,
+                _complete,
+              )),
+              targetSectionKey: _targetSection,
+              targetRevision: _targetRevision,
+              sections: [
+                if (_feedback != null &&
+                    (_case == null || _expression == null || _complete))
+                  Semantics(
+                    liveRegion: true,
+                    child: Text(
+                      _feedback!,
+                      style: SoriTextTheme.of(context).body,
+                    ),
+                  ),
+                if (_retry != null)
+                  PracticeRaisedAction(
+                    child: SoriButton.outlined(
+                      label: t.practiceRetrySave,
+                      onTap: _busy
+                          ? null
+                          : () {
+                              final retry = _retry;
+                              if (_busy ||
+                                  retry == null ||
+                                  !_session.isCurrent) {
+                                return;
+                              }
+                              if (_case == null && _cases.isEmpty) {
+                                setState(() {
+                                  _loading = true;
+                                  _retry = null;
+                                });
+                                unawaited(_load());
+                              } else {
+                                unawaited(_run(retry));
+                              }
+                            },
+                    ),
+                  ),
+                if (!_session.isCurrent) Text(t.practiceUnavailable),
+                if (_case == null) ...[
+                  PracticeGuide(
+                    dokkaebi: false,
+                    scholarPose: PracticeScholarPose.welcome,
+                    child: Text(
+                      t.practiceToneTitle,
+                      style: SoriTextTheme.of(context).menuTitle,
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                  for (final c in _cases.where(
+                    (c) =>
+                        widget.request.level == null ||
+                        c.level == widget.request.level,
+                  ))
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: Spacing.md),
+                      child: PracticeMotionSurface(
+                        enter: true,
+                        child: SoriCard(
+                          key: ValueKey('context-case-${c.id}'),
+                          raised: true,
+                          onTap: _busy ? null : () => _open(c, false),
+                          semanticLabel: c.title.pick(_lang),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Text(
+                                c.level.toUpperCase(),
+                                style: SoriTextTheme.of(context).eyebrow,
                               ),
-                            ),
+                              Text(
+                                c.title.pick(_lang),
+                                style: SoriTextTheme.of(context).menuItem,
+                              ),
+                            ],
                           ),
-                      ] else ...[
-                        PracticeGuide(
-                          dokkaebi: false,
-                          scholarPose: _complete
+                        ),
+                      ),
+                    ),
+                ] else ...[
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 46,
+                        height: 66,
+                        child: PracticeScholarArt(
+                          pose: _complete
                               ? PracticeScholarPose.calm
                               : _expression != null
                               ? PracticeScholarPose.point
                               : _intent != null
                               ? PracticeScholarPose.thinking
                               : PracticeScholarPose.inviting,
-                          child: Text(
-                            _case!.title.pick(_lang),
-                            style: SoriTextTheme.of(context).menuTitle,
-                          ),
                         ),
-                        const SizedBox(height: Spacing.lg),
-                        if (_expression == null) ...[
-                          Text(
-                            t.practiceSituation,
-                            style: SoriTextTheme.of(context).eyebrow,
-                          ),
-                          const SizedBox(height: Spacing.sm),
-                          _text(_scene.context),
-                          const SizedBox(height: Spacing.xl),
-                          _dialog(_scene.prompt),
-                        ] else
-                          ExpansionTile(
-                            key: ValueKey(
-                              'context-situation-${_scene.characterId}-${_scene.prompt.ko}',
-                            ),
-                            tilePadding: EdgeInsets.zero,
-                            title: Text(
-                              t.practiceSituation,
-                              style: SoriTextTheme.of(context).meta,
-                            ),
-                            children: [
-                              _text(_scene.context),
-                              const SizedBox(height: Spacing.lg),
-                              _dialog(_scene.prompt),
-                            ],
-                          ),
-                        const SizedBox(height: Spacing.xxl),
-                        if (_complete) ...[
-                          PracticeMotionSurface(
-                            key: _completionAnchor,
-                            enter: true,
-                            interactive: false,
-                            child: PracticeGuide(
-                              dokkaebi: true,
-                              dokkaebiPose: PracticeDokkaebiPose.celebrate,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Semantics(
-                                    liveRegion: true,
-                                    child: Text(
-                                      t.practiceSaved,
-                                      key: const ValueKey('context-complete'),
-                                      style: SoriTextTheme.of(
-                                        context,
-                                      ).menuTitle,
-                                    ),
-                                  ),
-                                  const SizedBox(height: Spacing.md),
-                                  Text(
-                                    _help
-                                        ? t.practiceAssisted
-                                        : t.practiceIndependent,
-                                    style: SoriTextTheme.of(context).body,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: Spacing.md),
-                          _effect(t),
-                          PracticeActionArea(
-                            children: [
-                              SoriButton.ghost(
-                                label: t.practiceBackCases,
-                                onTap: () => setState(() => _case = null),
-                              ),
-                            ],
-                          ),
-                        ] else if (_intent == null) ...[
-                          Text(
-                            t.practiceIntent,
-                            style: SoriTextTheme.of(context).menuItem,
-                          ),
-                          for (final intent in _case!.intents)
-                            Padding(
-                              padding: const EdgeInsets.only(top: Spacing.lg),
-                              child: PracticeRaisedAction(
-                                child: SoriButton.outlined(
-                                  key: ValueKey('context-intent-${intent.id}'),
-                                  label: intent.label.pick(_lang),
-                                  fullWidth: true,
-                                  onTap: _busy || !_session.isCurrent
-                                      ? null
-                                      : () => _edit(() => _intent = intent),
-                                ),
-                              ),
-                            ),
-                        ] else if (_expression == null) ...[
-                          Text(
-                            t.practiceExpression,
-                            style: SoriTextTheme.of(context).menuItem,
-                          ),
-                          for (final e in _intent!.expressions)
-                            Padding(
-                              padding: const EdgeInsets.only(top: Spacing.lg),
-                              child: PracticeRaisedAction(
-                                child: SoriButton.outlined(
-                                  key: ValueKey('context-expression-${e.id}'),
-                                  label: '${e.text.ko}\n${e.text.pick(_lang)}',
-                                  textRole: SoriButtonTextRole.learning,
-                                  fullWidth: true,
-                                  onTap: () => _pickExpression(e),
-                                ),
-                              ),
-                            ),
-                          SoriButton.ghost(
-                            label: t.practiceChooseAgain,
-                            onTap: () => _edit(() => _intent = null),
-                          ),
-                        ] else ...[
-                          Text(
-                            _expression!.text.ko,
-                            style: SoriTextTheme.of(
-                              context,
-                            ).h3.copyWith(fontFamily: SoriFonts.learningKorean),
-                          ),
-                          const SizedBox(height: Spacing.xl),
-                          if (_effectVisible)
-                            _effect(t)
-                          else
-                            PracticeRaisedAction(
-                              child: SoriButton.outlined(
-                                key: const ValueKey('context-help'),
-                                label: t.practiceShowEffect,
-                                onTap: _locked ? null : _showEffect,
-                              ),
-                            ),
-                          const SizedBox(height: Spacing.xl),
-                          _dialog(_expression!.partnerReply),
-                          const SizedBox(height: Spacing.xxl),
-                          Text(
-                            t.practiceAssemble,
-                            style: SoriTextTheme.of(context).menuItem,
-                          ),
-                          const SizedBox(height: Spacing.sm),
-                          _text(_expression!.followUp),
-                          const SizedBox(height: Spacing.xl),
-                          SoriCard(
-                            selectable: true,
-                            selected: _selected.isNotEmpty,
-                            padding: const EdgeInsets.all(Spacing.xl),
-                            child: ConstrainedBox(
-                              constraints: const BoxConstraints(minHeight: 48),
-                              child: Semantics(
-                                liveRegion: true,
-                                child: Text(
-                                  key: _answerKey,
-                                  _selected.map((i) => _pool[i]).join(' '),
-                                  style: SoriTextTheme.of(context).h2.copyWith(
-                                    fontFamily: SoriFonts.learningKorean,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: Spacing.xl),
-                          Wrap(
-                            spacing: Spacing.sm,
-                            runSpacing: Spacing.sm,
-                            children: [
-                              for (var index = 0; index < _pool.length; index++)
-                                KeyedSubtree(
-                                  key: _tokenKeys.putIfAbsent(
-                                    index,
-                                    GlobalKey.new,
-                                  ),
-                                  child: IntrinsicWidth(
-                                    child: PracticeRaisedAction(
-                                      child: SoriButton.outlined(
-                                        key: ValueKey('context-token-$index'),
-                                        label: _pool[index],
-                                        textRole: SoriButtonTextRole.learning,
-                                        onTap:
-                                            _locked || _selected.contains(index)
-                                            ? null
-                                            : () => _chooseToken(index),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                            ],
-                          ),
-                          PracticeActionArea(
-                            children: [
-                              SoriButton.ghost(
-                                label: t.practiceReset,
-                                onTap: _locked
-                                    ? null
-                                    : () {
-                                        _clearFlights();
-                                        _edit(() => _selected.clear());
-                                      },
-                              ),
-                              SoriButton.ghost(
-                                label: t.practiceChooseAgain,
-                                onTap: _locked
-                                    ? null
-                                    : () => _edit(() {
-                                        _intent = null;
-                                        _expression = null;
-                                        _attempt = null;
-                                        _feedback = null;
-                                      }),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ],
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: Text(
+                          _case!.title.pick(_lang),
+                          style: SoriTextTheme.of(context).menuTitle,
+                        ),
+                      ),
                     ],
                   ),
+                  const SizedBox(height: Spacing.sm),
+                  if (_expression == null) ...[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          t.practiceSituation,
+                          style: SoriTextTheme.of(context).eyebrow,
+                        ),
+                        const SizedBox(height: Spacing.xs),
+                        _text(_scene.context),
+                      ],
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    _dialog(_scene.prompt),
+                  ] else
+                    ExpansionTile(
+                      key: ValueKey(
+                        'context-situation-${_scene.characterId}-${_scene.prompt.ko}',
+                      ),
+                      tilePadding: EdgeInsets.zero,
+                      title: Text(
+                        t.practiceSituation,
+                        style: SoriTextTheme.of(context).meta,
+                      ),
+                      children: [
+                        _text(_scene.context),
+                        const SizedBox(height: Spacing.lg),
+                        _dialog(_scene.prompt),
+                      ],
+                    ),
+                  const SizedBox(height: Spacing.md),
+                  if (_complete) ...[
+                    PracticeMotionSurface(
+                      key: _completionSection,
+                      enter: true,
+                      interactive: false,
+                      child: PracticeGuide(
+                        dokkaebi: true,
+                        dokkaebiPose: PracticeDokkaebiPose.celebrate,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Semantics(
+                              liveRegion: true,
+                              child: Text(
+                                t.practiceSaved,
+                                key: const ValueKey('context-complete'),
+                                style: SoriTextTheme.of(context).menuTitle,
+                              ),
+                            ),
+                            const SizedBox(height: Spacing.md),
+                            Text(
+                              _help
+                                  ? t.practiceAssisted
+                                  : t.practiceIndependent,
+                              style: SoriTextTheme.of(context).body,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    _effect(t),
+                    PracticeActionArea(
+                      children: [
+                        SoriButton.ghost(
+                          label: t.practiceBackCases,
+                          onTap: () => setState(() {
+                            _case = null;
+                            _targetSection = null;
+                          }),
+                        ),
+                      ],
+                    ),
+                  ] else if (_intent == null) ...[
+                    Text(
+                      t.practiceIntent,
+                      style: SoriTextTheme.of(context).menuItem,
+                    ),
+                    for (final intent in _case!.intents)
+                      Padding(
+                        padding: const EdgeInsets.only(top: Spacing.sm),
+                        child: PracticeRaisedAction(
+                          child: SoriButton.outlined(
+                            key: ValueKey('context-intent-${intent.id}'),
+                            label: intent.label.pick(_lang),
+                            fullWidth: true,
+                            onTap: _busy || !_session.isCurrent
+                                ? null
+                                : () => _edit(() => _intent = intent),
+                          ),
+                        ),
+                      ),
+                  ] else if (_expression == null) ...[
+                    Text(
+                      t.practiceExpression,
+                      style: SoriTextTheme.of(context).menuItem,
+                    ),
+                    for (final e in _intent!.expressions)
+                      Padding(
+                        padding: const EdgeInsets.only(top: Spacing.sm),
+                        child: PracticeRaisedAction(
+                          child: SoriButton.outlined(
+                            key: ValueKey('context-expression-${e.id}'),
+                            label: '${e.text.ko}\n${e.text.pick(_lang)}',
+                            textRole: SoriButtonTextRole.learning,
+                            fullWidth: true,
+                            onTap: () => _pickExpression(e),
+                          ),
+                        ),
+                      ),
+                    SoriButton.ghost(
+                      label: t.practiceChooseAgain,
+                      onTap: () => _edit(() => _intent = null),
+                    ),
+                  ] else ...[
+                    Text(
+                      _expression!.text.ko,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).h3.copyWith(fontFamily: SoriFonts.learningKorean),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    if (_effectVisible)
+                      _effect(t)
+                    else
+                      PracticeRaisedAction(
+                        child: SoriButton.outlined(
+                          key: const ValueKey('context-help'),
+                          label: t.practiceShowEffect,
+                          onTap: _locked ? null : _showEffect,
+                        ),
+                      ),
+                    const SizedBox(height: Spacing.md),
+                    _dialog(_expression!.partnerReply),
+                    const SizedBox(height: Spacing.md),
+                    Column(
+                      key: _assemblySection,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          t.practiceAssemble,
+                          style: SoriTextTheme.of(context).menuItem,
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                        _text(_expression!.followUp),
+                        const SizedBox(height: Spacing.sm),
+                        SoriCard(
+                          selectable: true,
+                          selected: _selected.isNotEmpty,
+                          padding: const EdgeInsets.all(Spacing.md),
+                          child: ConstrainedBox(
+                            constraints: const BoxConstraints(minHeight: 48),
+                            child: Semantics(
+                              liveRegion: true,
+                              child: Text(
+                                key: _answerKey,
+                                _selected.map((i) => _pool[i]).join(' '),
+                                style: SoriTextTheme.of(context).h2.copyWith(
+                                  fontFamily: SoriFonts.learningKorean,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                        Wrap(
+                          spacing: Spacing.sm,
+                          runSpacing: Spacing.sm,
+                          children: [
+                            for (var index = 0; index < _pool.length; index++)
+                              KeyedSubtree(
+                                key: _tokenKeys.putIfAbsent(
+                                  index,
+                                  GlobalKey.new,
+                                ),
+                                child: IntrinsicWidth(
+                                  child: PracticeRaisedAction(
+                                    child: SoriButton.outlined(
+                                      key: ValueKey('context-token-$index'),
+                                      label: _pool[index],
+                                      textRole: SoriButtonTextRole.learning,
+                                      onTap:
+                                          _locked || _selected.contains(index)
+                                          ? null
+                                          : () => _chooseToken(index),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Wrap(
+                      spacing: Spacing.sm,
+                      runSpacing: Spacing.xs,
+                      children: [
+                        SoriButton.ghost(
+                          label: t.practiceReset,
+                          onTap: _locked
+                              ? null
+                              : () {
+                                  _clearFlights();
+                                  _edit(() => _selected.clear());
+                                },
+                        ),
+                        SoriButton.ghost(
+                          label: t.practiceChooseAgain,
+                          onTap: _locked
+                              ? null
+                              : () => _edit(() {
+                                  _intent = null;
+                                  _expression = null;
+                                  _attempt = null;
+                                  _targetSection = null;
+                                  _feedback = null;
+                                }),
+                        ),
+                      ],
+                    ),
+                  ],
                 ],
-              ),
+              ],
             ),
     );
   }
 
-  Widget? _actionFooter(AppL10n t) {
+  Widget? _actionFooter(AppL10n t, {required bool folio}) {
     if (_loading || _case == null || _expression == null) return null;
     return SafeArea(
       top: false,
       child: Container(
         color: SoriCard.resolvedBackground(context),
-        padding: const EdgeInsets.fromLTRB(16, 24, 16, 16),
+        padding: EdgeInsets.fromLTRB(16, 8, 16, folio ? 11 : 16),
         child: Center(
           heightFactor: 1,
           child: ConstrainedBox(
@@ -806,16 +851,19 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
                 ],
                 PracticeRaisedAction(
                   primary: true,
-                  child: SoriButton.filled(
-                    key: _complete ? null : const ValueKey('context-check'),
-                    label: _complete ? t.practiceTransfer : t.practiceCheck,
-                    loading: _busy,
-                    fullWidth: true,
-                    onTap: _complete
-                        ? (_busy ? null : () => _open(_case!, true))
-                        : (_locked || _selected.length != _pool.length
-                              ? null
-                              : _check),
+                  child: SizedBox(
+                    height: folio ? 51 : null,
+                    child: SoriButton.filled(
+                      key: _complete ? null : const ValueKey('context-check'),
+                      label: _complete ? t.practiceTransfer : t.practiceCheck,
+                      loading: _busy,
+                      fullWidth: true,
+                      onTap: _complete
+                          ? (_busy ? null : () => _open(_case!, true))
+                          : (_locked || _selected.length != _pool.length
+                                ? null
+                                : _check),
+                    ),
                   ),
                 ),
                 if (_complete) ...[
@@ -840,7 +888,6 @@ class _SmalltalkContextScreenState extends State<SmalltalkContextScreen> {
   @override
   void dispose() {
     _clearFlights();
-    _scroll.dispose();
     unawaited(SoriSpeech.stop());
     super.dispose();
   }

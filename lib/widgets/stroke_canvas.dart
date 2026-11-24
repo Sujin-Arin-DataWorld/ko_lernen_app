@@ -19,6 +19,7 @@ class StrokeCanvas extends StatefulWidget {
   final VoidCallback? onCompleted;
   final String? semanticsLabel;
   final String? semanticsHint;
+  final bool paperGuide;
 
   /// 지금 그려야 할 획을 강조한다. null 이면 강조 없음(기존 동작).
   ///
@@ -38,6 +39,7 @@ class StrokeCanvas extends StatefulWidget {
     this.semanticsLabel,
     this.semanticsHint,
     this.highlightIndex,
+    this.paperGuide = false,
   });
 
   @override
@@ -174,6 +176,7 @@ class _StrokeCanvasState extends State<StrokeCanvas>
                 letter: widget.letter,
                 source: strokeCanvas,
                 highlightIndex: widget.highlightIndex,
+                paperGuide: widget.paperGuide,
               ),
             );
           },
@@ -191,6 +194,7 @@ class _Painter extends CustomPainter {
   final String letter;
   final Size source; // 220×220 reference
   final int? highlightIndex;
+  final bool paperGuide;
 
   _Painter({
     required this.strokes,
@@ -200,6 +204,7 @@ class _Painter extends CustomPainter {
     required this.letter,
     required this.source,
     this.highlightIndex,
+    required this.paperGuide,
   });
 
   @override
@@ -209,6 +214,26 @@ class _Painter extends CustomPainter {
     final scale = math.min(scaleX, scaleY);
 
     Offset s(Offset o) => Offset(o.dx * scale, o.dy * scale);
+
+    if (paperGuide) {
+      final guide = Paint()
+        ..strokeWidth = 12 * scale
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
+        ..style = PaintingStyle.stroke;
+      for (var i = 0; i < strokes.length; i++) {
+        guide.color = i == highlightIndex
+            ? const Color(0xff197d66)
+            : const Color(0xffc3b59d);
+        _drawStroke(canvas, strokes[i], guide, s, 1, scale);
+      }
+      if (showNumbers) {
+        for (var i = 0; i < strokes.length; i++) {
+          _drawNumber(canvas, strokes[i], i + 1, s, scale);
+        }
+      }
+      return;
+    }
 
     // Hintergrund-Geist (zeigt Endform schwach)
     final ghostP = Paint()
@@ -344,21 +369,48 @@ class _Painter extends CustomPainter {
     } else {
       return;
     }
+    final selected = n - 1 == highlightIndex;
+    if (paperGuide) {
+      // Keep the marker next to its stroke start, off the tracing line.
+      const waOffsets = [
+        Offset(-14, -23),
+        Offset(-20, 4),
+        Offset(0, -18),
+        Offset(27, 25),
+      ];
+      final startsDown =
+          st is LineStroke &&
+          (st.points[1] - st.points.first).dy.abs() >
+              (st.points[1] - st.points.first).dx.abs();
+      final offset = (letter == 'ㅘ' && n <= waOffsets.length)
+          ? waOffsets[n - 1]
+          : startsDown
+          ? const Offset(0, -16)
+          : const Offset(-16, 1);
+      pos += offset * scale;
+    }
     final tp = TextPainter(
       text: TextSpan(
         text: '$n',
         style: TextStyle(
-          color: Colors.white,
-          fontSize: 13 * scale,
+          color: paperGuide && !selected ? color : Colors.white,
+          fontFamily: paperGuide ? 'Manrope' : null,
+          fontSize: (paperGuide ? 11 : 13) * scale,
           fontWeight: FontWeight.w800,
         ),
       ),
       textDirection: TextDirection.ltr,
     )..layout();
 
-    final r = 13 * scale;
-    canvas.drawCircle(pos, r, Paint()..color = color);
+    final r = (paperGuide ? 10 : 13) * scale;
+    canvas.drawCircle(
+      pos,
+      r,
+      Paint()
+        ..color = paperGuide && !selected ? const Color(0xffe6dac5) : color,
+    );
     tp.paint(canvas, pos - Offset(tp.width / 2, tp.height / 2));
+    tp.dispose();
   }
 
   @override
@@ -366,5 +418,7 @@ class _Painter extends CustomPainter {
       old.progress != progress ||
       old.letter != letter ||
       old.color != color ||
+      old.showNumbers != showNumbers ||
+      old.paperGuide != paperGuide ||
       old.highlightIndex != highlightIndex;
 }

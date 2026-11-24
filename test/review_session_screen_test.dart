@@ -9,8 +9,11 @@ import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/speakable.dart';
+
+import 'support/sori_viewport_page.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -103,6 +106,126 @@ void main() {
     expect(_feed(tester).physics, FeedPhysics.snap);
   });
 
+  testWidgets('short review places word audio beside the other fixed actions', (
+    tester,
+  ) async {
+    await _pumpReview(tester, size: const Size(360, 400));
+    final audio = find.byType(SoriSpeechIndicator);
+    final card = find.byKey(const ValueKey('deck-card-slot'));
+    expect(audio.hitTestable(), findsOneWidget);
+    expect(_currentCardText('학교').hitTestable(), findsOneWidget);
+    expect(
+      tester.getTopLeft(audio).dy,
+      greaterThan(tester.getBottomLeft(card).dy),
+    );
+    expect(find.byKey(deckActionKey('know')).hitTestable(), findsOneWidget);
+    expect(find.byType(Scrollable), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets(
+    'at 200% a long card pages while rating and Close stay reachable',
+    (tester) async {
+      const size = Size(320, 640);
+      tester.view.physicalSize = size;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final example = List.filled(
+        12,
+        '한국어 수업이 끝나면 친구와 도서관에서 같이 공부해요.',
+      ).join(' ');
+      final german = [
+        ...List.filled(
+          12,
+          'Nach dem Unterricht lerne ich mit einem Freund in der Bibliothek.',
+        ),
+        'Ende.',
+      ].join(' ');
+      final word = Vocab(
+        id: 'long-review',
+        korean: '학교',
+        romanization: 'hakgyo',
+        german: 'Schule',
+        level: 'A1',
+        posDe: 'N.',
+        exampleKorean: example,
+        exampleGerman: german,
+        topic: 'Bildung',
+      );
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) => MediaQuery(
+            data: const MediaQueryData(
+              size: size,
+              textScaler: TextScaler.linear(2),
+              disableAnimations: true,
+              padding: EdgeInsets.only(top: 24, bottom: 20),
+            ),
+            child: child!,
+          ),
+          home: Scaffold(
+            body: Builder(
+              builder: (context) => TextButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute<void>(
+                    builder: (_) => ReviewSessionScreen(
+                      deck: [word],
+                      cultureNotesLoader: () async {},
+                    ),
+                  ),
+                ),
+                child: const Text('Wiederholen öffnen'),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('Wiederholen öffnen'));
+      await _settleTransition(tester);
+      expect(find.byType(Scrollable), findsNothing);
+      final hard = find.byKey(deckActionKey('dontknow'));
+      final know = find.byKey(deckActionKey('know'));
+      final flip = find.byKey(deckActionKey('flip'));
+      for (final action in [hard, know, flip]) {
+        expect(action.hitTestable(), findsOneWidget);
+        expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+      }
+      final initialReviewCount = Storage.srsCard(word.korean)?.reviewCount;
+      await tester.tap(know);
+      await tester.pump();
+      expect(Storage.srsCard(word.korean)?.reviewCount, initialReviewCount);
+
+      await tester.tap(flip);
+      await _settleTransition(tester);
+      expect(find.byKey(const ValueKey('sori-viewport-next')), findsOneWidget);
+      final endOfExample = find.textContaining('Ende.');
+      expect(endOfExample, findsOneWidget);
+      await showSoriViewportSection(tester, endOfExample);
+      expect(endOfExample.hitTestable(), findsOneWidget);
+      expect(know.hitTestable(), findsOneWidget);
+      await tester.tap(know);
+      await _settleTransition(tester);
+      expect(find.byType(Scrollable), findsNothing);
+      final close = find.byKey(const ValueKey('review-session-result-action'));
+      expect(close.hitTestable(), findsOneWidget);
+      expect(tester.getSize(close).height, greaterThanOrEqualTo(48));
+      expect(tester.getRect(close).bottom, lessThanOrEqualTo(size.height - 20));
+      await showSoriViewportSection(tester, find.text('+2 XP'));
+      expect(close.hitTestable(), findsOneWidget);
+      expect(Storage.srsCard(word.korean)?.reviewCount, 1);
+      await tester.tap(close);
+      await tester.pumpAndSettle();
+      expect(find.text('Wiederholen öffnen'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
   testWidgets(
     'history exposes semantic navigation and oldest-card downward fling stays put',
     (tester) async {
@@ -133,9 +256,13 @@ void main() {
       expect(semanticActionLabels(), contains(t.legacyVocabPrevious));
       expect(semanticActionLabels(), isNot(contains(t.btnNext)));
 
+      final slot = find.byKey(const ValueKey('deck-card-slot'));
+      final presentSize = tester.getSize(slot);
       _feed(tester).onPrevious!();
       await _settleTransition(tester);
       expect(_currentCardText('선생님'), findsOneWidget);
+      expect(tester.getSize(slot), presentSize);
+      expect(find.byKey(deckActionKey('know')).hitTestable(), findsNothing);
       expect(
         semanticActionLabels(),
         containsAll(<String>[t.legacyVocabPrevious, t.btnNext]),
@@ -162,8 +289,11 @@ void main() {
   );
 }
 
-Future<void> _pumpReview(WidgetTester tester) async {
-  tester.view.physicalSize = const Size(400, 800);
+Future<void> _pumpReview(
+  WidgetTester tester, {
+  Size size = const Size(400, 800),
+}) async {
+  tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
@@ -176,10 +306,7 @@ Future<void> _pumpReview(WidgetTester tester) async {
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: MediaQuery(
-        data: const MediaQueryData(
-          size: Size(400, 800),
-          disableAnimations: true,
-        ),
+        data: MediaQueryData(size: size, disableAnimations: true),
         child: ReviewSessionScreen(
           deck: _deck,
           cultureNotesLoader: () async {},

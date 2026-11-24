@@ -20,6 +20,8 @@ import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/real_fonts.dart';
 
+import 'support/sori_viewport_page.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -90,12 +92,7 @@ void main() {
           of: find.byKey(const ValueKey('path-legacy-load-error')),
           matching: find.byType(SoriButton),
         );
-        await tester.scrollUntilVisible(
-          retry,
-          300,
-          scrollable: find.byType(Scrollable).first,
-        );
-        await tester.ensureVisible(retry);
+        await showSoriViewportSection(tester, retry);
         await tester.pump();
         await tester.tap(retry);
         await tester.runAsync(
@@ -196,12 +193,7 @@ void main() {
         of: find.byKey(const ValueKey('path-legacy-load-error')),
         matching: find.byType(SoriButton),
       );
-      await tester.scrollUntilVisible(
-        retry,
-        300,
-        scrollable: find.byType(Scrollable).first,
-      );
-      await tester.ensureVisible(retry);
+      await showSoriViewportSection(tester, retry);
       await tester.pump();
       await tester.tap(retry);
       await tester.runAsync(
@@ -253,16 +245,21 @@ void main() {
     );
     expect(find.textContaining('private course canary'), findsNothing);
 
-    await tester.tap(find.byKey(const ValueKey('path-legacy-practice-toggle')));
+    final morePractice = find.byKey(
+      const ValueKey('path-legacy-practice-toggle'),
+    );
+    await showSoriViewportSection(tester, morePractice);
+    await tester.tap(morePractice);
     await tester.pump();
-    expect(find.byType(SoriPathTrail), findsOneWidget);
+    expect(find.byType(SoriPathTrail), findsWidgets);
 
     failCourse = false;
     final retry = find.descendant(
       of: find.byKey(const ValueKey('path-course-load-error')),
       matching: find.byType(SoriButton),
     );
-    await tester.ensureVisible(retry);
+    await showSoriViewportSection(tester, retry);
+    await showSoriViewportSection(tester, retry);
     await tester.tap(retry);
     await _pumpUntilVisible(
       tester,
@@ -314,7 +311,7 @@ void main() {
   );
 
   testWidgets(
-    'course completion revealing legacy practice scrolls to its target',
+    'course completion revealing legacy practice opens its target page',
     (tester) async {
       _configureView(tester, const Size(390, 420));
       await _seed(const {});
@@ -348,13 +345,12 @@ void main() {
       );
       await tester.pump(const Duration(milliseconds: 600));
 
-      final pathScrollable = tester.state<ScrollableState>(
-        find.descendant(
-          of: find.byType(RefreshIndicator),
-          matching: find.byType(Scrollable),
-        ),
-      );
-      expect(pathScrollable.position.pixels, greaterThan(0));
+      expect(find.byType(Scrollable), findsNothing);
+      final current = tester
+          .widgetList<SoriPathTrail>(find.byType(SoriPathTrail))
+          .expand((trail) => trail.stops)
+          .singleWhere((stop) => stop.isNow);
+      expect(find.byKey(current.nodeKey!).hitTestable(), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );
@@ -388,7 +384,7 @@ void main() {
     );
     expect(courseReads, 1);
 
-    tester.state<RefreshIndicatorState>(find.byType(RefreshIndicator)).show();
+    await tester.tap(find.byKey(const ValueKey('path-refresh')));
     for (var attempt = 0; attempt < 20 && courseReads < 2; attempt++) {
       await tester.pump(const Duration(milliseconds: 50));
     }
@@ -481,12 +477,7 @@ void main() {
       of: find.byKey(const ValueKey('path-legacy-load-error')),
       matching: find.byType(SoriButton),
     );
-    await tester.scrollUntilVisible(
-      retry,
-      300,
-      scrollable: find.byType(Scrollable).first,
-    );
-    await tester.ensureVisible(retry);
+    await showSoriViewportSection(tester, retry);
     await tester.pump();
 
     final pendingRetry = Completer<ByteData?>();
