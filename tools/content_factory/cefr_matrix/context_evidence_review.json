@@ -5727,12 +5727,42 @@
       "jsonPointer": "/tasks/8/practice/sourceKo",
       "sourceLevel": "A1",
       "quote": "버스가 없어서 학교에 가지 못했어요.",
-      "contextSha256": "d7fe94679c7d57a2a913bc7d0b70758edda24a2651c956ab09fca36b2c7803d2",
+      "contextSha256": "50f71422912f1be3096988d9aaa82c21fee47a6874035647c0ac1ccdbb635a3d",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "버스 부재로 실제 이동이 불가능했던 맥락이다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다."
+      "rationaleKo": "버스 부재로 실제 이동이 불가능했던 맥락이다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.",
+      "originalReview": {
+        "phaseId": "KP02",
+        "grammarKey": "G1:-지 못하다",
+        "sourcePath": "tools/content_factory/cefr_matrix/phase_content/kp02.json",
+        "recordId": "KP02:grammar:09",
+        "jsonPointer": "/tasks/8/practice/sourceKo",
+        "sourceLevel": "A1",
+        "quote": "버스가 없어서 학교에 가지 못했어요.",
+        "contextSha256": "d7fe94679c7d57a2a913bc7d0b70758edda24a2651c956ab09fca36b2c7803d2",
+        "decision": "accepted",
+        "mode": "R",
+        "status": "MODEL_QA_PASS",
+        "reviewer": "Astra",
+        "rationaleKo": "버스 부재로 실제 이동이 불가능했던 맥락이다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다."
+      },
+      "sourceRevalidation": {
+        "reviewer": "Claude",
+        "status": "MODEL_QA_PASS",
+        "reviewedOn": "2026-11-25",
+        "checks": [
+          "exact-quote",
+          "adjacent-context",
+          "grammar-function"
+        ],
+        "previousContextSha256": "d7fe94679c7d57a2a913bc7d0b70758edda24a2651c956ab09fca36b2c7803d2",
+        "contextSha256": "50f71422912f1be3096988d9aaa82c21fee47a6874035647c0ac1ccdbb635a3d",
+        "quote": "버스가 없어서 학교에 가지 못했어요.",
+        "originalReviewSha256": "d524cf264298d35b63743cb640b6ae2d082f28f7c0ffe67d30494da61a08a5f1",
+        "note": "인용 구절과 해당 문장 불변, 인접 평가 지문 어순만 바뀜. 문법 기능 판정 유지."
+      }
     },
     {
       "phaseId": "KP03",

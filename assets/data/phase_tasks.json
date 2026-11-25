@@ -4201,7 +4201,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "까지",
@@ -4254,7 +4254,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "버스는 역에서 학교까지 가요.",
+        "sourceKo": "이 버스는 역에서 학교까지 가요.",
         "questions": [
           {
             "id": "meaning",
@@ -4286,7 +4286,7 @@
           }
         ]
       },
-      "contentHash": "ea7efac3c9feb613bc930ac934e4d5618ec225b9dc4d76cb8b5ea38ddde012be"
+      "contentHash": "e1ef2068abafe65a7bae6edc2c403386b0934e036a144ef3b8c2aad3a33f469a"
     },
     {
       "id": "KP02:grammar:05",
@@ -4686,7 +4686,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "-지 못하다",
@@ -4739,7 +4739,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "아파서 어제 일하지 못했어요.",
+        "sourceKo": "어제 아파서 일하지 못했어요.",
         "questions": [
           {
             "id": "meaning",
@@ -4771,7 +4771,7 @@
           }
         ]
       },
-      "contentHash": "d1c70fe7c8ba24e83a508e26d0273dfcd2327ef2af5a44872644f7356774bffb"
+      "contentHash": "c488795a462320a9c7d97d994b7f924bb60e6bb41a8e4e5945913b0b266c5f90"
     },
     {
       "id": "KP02:grammar:10",
@@ -4783,7 +4783,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "도",
@@ -4836,7 +4836,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "민수는 버스로 가요. 지수도 버스로 가요.",
+        "sourceKo": "현우는 버스로 가요. 지수도 버스로 가요.",
         "questions": [
           {
             "id": "meaning",
@@ -4868,7 +4868,7 @@
           }
         ]
       },
-      "contentHash": "bd9cb0869595e80907dc64ad3087ec42d159d5830c14aa59d50e33dbd9ab730f"
+      "contentHash": "c378792cc64362d525a69cc1a190af6a641ea6148409da0dc2923a182eb11616"
     },
     {
       "id": "KP02:grammar:11",
@@ -5958,7 +5958,7 @@
       "requirementKeys": [],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "물건 위치와 다음 행동 메모",
@@ -5975,7 +5975,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "form",
-        "sourceKo": "가상 인물에게 메모를 남겨요.\n받는 사람: 유나\n물건: 책\n물건 위치: 교실\n다음 행동 요청: 학교에 가져다 주기",
+        "sourceKo": "가상 인물에게 메모를 남겨요.\n받는 사람: 유나\n물건: 책\n물건 위치: 책상 위\n다음 행동 요청: 학교에 가져다 주기",
         "questions": [
           {
             "id": "information",
@@ -5988,16 +5988,16 @@
             "required": true,
             "options": [],
             "acceptedAnswers": [
-              "유나 씨, 책은 교실에 있어요.",
-              "유나 씨, 책은 지금 교실에 있어요."
+              "유나 씨, 책은 책상 위에 있어요.",
+              "유나 씨, 책은 지금 책상 위에 있어요."
             ],
             "rejectedAnswers": [
               "유나 씨, 책은 집에 있어요."
             ],
             "explanation": {
-              "ko": "예: 유나 씨, 책은 교실에 있어요. 물건 위치를 다른 장소로 바꾸지 않아요.",
-              "en": "Example: 유나 씨, 책은 교실에 있어요. Keep the item’s location.",
-              "de": "Beispiel: 유나 씨, 책은 교실에 있어요. Behalte den Ort des Gegenstands bei."
+              "ko": "예: 유나 씨, 책은 책상 위에 있어요. 물건 위치를 다른 장소로 바꾸지 않아요.",
+              "en": "Example: 유나 씨, 책은 책상 위에 있어요. Keep the item’s location.",
+              "de": "Beispiel: 유나 씨, 책은 책상 위에 있어요. Behalte den Ort des Gegenstands bei."
             }
           },
           {
@@ -6027,7 +6027,7 @@
       },
       "assessment": {
         "sourceKind": "form",
-        "sourceKo": "가상 인물에게 메모를 남겨요.\n받는 사람: 민수\n물건: 가방\n물건 위치: 도서관\n다음 행동 요청: 집에 가져다 주기",
+        "sourceKo": "가상 인물에게 메모를 남겨요.\n받는 사람: 현우\n물건: 가방\n물건 위치: 도서관\n다음 행동 요청: 집에 가져다 주기",
         "questions": [
           {
             "id": "information",
@@ -6040,16 +6040,16 @@
             "required": true,
             "options": [],
             "acceptedAnswers": [
-              "민수 씨, 가방은 도서관에 있어요.",
-              "민수 씨, 가방은 지금 도서관에 있어요."
+              "현우 씨, 가방은 도서관에 있어요.",
+              "현우 씨, 가방은 지금 도서관에 있어요."
             ],
             "rejectedAnswers": [
-              "민수 씨, 가방은 역에 있어요."
+              "현우 씨, 가방은 역에 있어요."
             ],
             "explanation": {
-              "ko": "예: 민수 씨, 가방은 도서관에 있어요. 물건 위치를 다른 장소로 바꾸지 않아요.",
-              "en": "Example: 민수 씨, 가방은 도서관에 있어요. Keep the item’s location.",
-              "de": "Beispiel: 민수 씨, 가방은 도서관에 있어요. Behalte den Ort des Gegenstands bei."
+              "ko": "예: 현우 씨, 가방은 도서관에 있어요. 물건 위치를 다른 장소로 바꾸지 않아요.",
+              "en": "Example: 현우 씨, 가방은 도서관에 있어요. Keep the item’s location.",
+              "de": "Beispiel: 현우 씨, 가방은 도서관에 있어요. Behalte den Ort des Gegenstands bei."
             }
           },
           {
@@ -6077,7 +6077,7 @@
           }
         ]
       },
-      "contentHash": "cb26eb498a71d8f17533a305a1a5af7c27508c055a0aacc57d4da65ac02a9ed4"
+      "contentHash": "b3152b86bf49bdefea437e2625b45dc656503099c01133b5928626c865bef0db"
     },
     {
       "id": "KP02:listening:03",
@@ -6236,7 +6236,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "교실 변경 안내 방송",
@@ -6253,7 +6253,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 101호에서 201호로 바뀌었습니다. 수업은 아홉 시부터 열한 시까지입니다. 수업이 끝나면 집에 갑니다. 질문이 있으면 안내 데스크에 와 주세요.",
+        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 101호에서 201호로 바뀌었습니다. 수업은 아홉 시부터 열한 시까지입니다. 수업이 끝나면 교실 문을 닫아 주세요. 질문이 있으면 안내 데스크에 와 주세요.",
         "questions": [
           {
             "id": "room",
@@ -6343,7 +6343,7 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 202호에서 302호로 바뀌었습니다. 수업은 두 시부터 네 시까지입니다. 수업이 끝나면 집에 갑니다. 질문이 있으면 안내 데스크에 와 주세요.",
+        "sourceKo": "한국어 학교에서 알려 드립니다. 오늘 수업은 202호에서 302호로 바뀌었습니다. 수업은 두 시부터 네 시까지입니다. 수업이 끝나면 교실 문을 닫아 주세요. 질문이 있으면 안내 데스크에 와 주세요.",
         "questions": [
           {
             "id": "room",
@@ -6431,7 +6431,7 @@
           }
         ]
       },
-      "contentHash": "0990a9f6166135a7a027fe5431842b071d32fbd93acf6af048084929e9f0df7d"
+      "contentHash": "ba7bcc514e0c8b4e600780d78e500619c06f8eb5867d8ea1d00c876ba7499a17"
     },
     {
       "id": "KP02:reading:02",
@@ -6441,7 +6441,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "집 안 물건과 어제의 일",
@@ -6548,7 +6548,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "민수 씨에게\n가방은 소파 옆에 있어요. 방은 작지만 조용해요. 어제 가게에서 물을 샀어요. 오늘은 집에서 공부해요. 물건을 못 찾으면 저한테 전화해 주세요.",
+        "sourceKo": "현우 씨에게\n가방은 소파 옆에 있어요. 방은 작지만 조용해요. 어제 가게에서 물을 샀어요. 오늘은 집에서 공부해요. 물건을 못 찾으면 저한테 전화해 주세요.",
         "questions": [
           {
             "id": "location",
@@ -6636,7 +6636,7 @@
           }
         ]
       },
-      "contentHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566"
+      "contentHash": "2e8e42257244e2b178fdff387ffaffa39b4bc8ddea19cbc4a93f92f1e5935337"
     },
     {
       "id": "KP02:speaking:02",
@@ -6646,7 +6646,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "위치·일과를 확인하는 음성 메시지",
@@ -6663,15 +6663,15 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "같은 반 동료에게 해요체로 말해요.\n가방: 책상 위. 방: 작고 조용함. 어제: 집에서 쉼. 오늘: 버스로 학교에 감. 학교에서 아홉 시부터 열한 시까지 공부한 뒤 집에 감.\n상대도 열한 시에 끝나는지 아직 몰라요. 확인하세요.",
+        "sourceKo": "같은 반 친구에게 해요체로 말해요.\n가방: 책상 위. 방: 작고 조용함. 어제: 집에서 쉼. 오늘: 버스로 학교에 감. 학교에서 아홉 시부터 열한 시까지 공부한 뒤 집에 감.\n상대도 열한 시에 끝나는지 아직 몰라요. 확인하세요.",
         "questions": []
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "같은 반 동료에게 해요체로 말해요.\n공책: 소파 옆. 방: 크고 밝음. 어제: 집에서 책을 읽음. 오늘: 지하철로 학교에 감. 학교에서 두 시부터 네 시까지 공부한 뒤 집에 감.\n상대도 네 시에 끝나는지 아직 몰라요. 확인하세요.",
+        "sourceKo": "같은 반 친구에게 해요체로 말해요.\n공책: 소파 옆. 방: 크고 밝음. 어제: 집에서 책을 읽음. 오늘: 지하철로 학교에 감. 학교에서 두 시부터 네 시까지 공부한 뒤 집에 감.\n상대도 네 시에 끝나는지 아직 몰라요. 확인하세요.",
         "questions": []
       },
-      "contentHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9"
+      "contentHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed"
     },
     {
       "id": "KP02:production:01",
@@ -7448,7 +7448,7 @@
       ],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "도 문장 만들기",
@@ -7495,7 +7495,7 @@
       },
       "assessment": {
         "sourceKind": "form",
-        "sourceKo": "민수는 회사원. 나 역시 회사원 / 도 / 해요체",
+        "sourceKo": "현우는 회사원. 나 역시 회사원 / 도 / 해요체",
         "questions": [
           {
             "id": "sentence",
@@ -7521,7 +7521,7 @@
           }
         ]
       },
-      "contentHash": "77d19b1e76f6f4814e14d82396e00d3d5de892570714ce04bbab5908375fd01b"
+      "contentHash": "a050d665d609d14fca491a6c220434333ce91c99def64866ea39aaec72600695"
     },
     {
       "id": "KP02:production:11",
@@ -103182,7 +103182,7 @@
       "bindings": [
         {
           "taskId": "KP02:grammar:04",
-          "taskHash": "ea7efac3c9feb613bc930ac934e4d5618ec225b9dc4d76cb8b5ea38ddde012be",
+          "taskHash": "e1ef2068abafe65a7bae6edc2c403386b0934e036a144ef3b8c2aad3a33f469a",
           "materialIds": [
             "KP02:grammar:04/practice/material",
             "KP02:grammar:04/assessment/material"
@@ -103452,7 +103452,7 @@
       "bindings": [
         {
           "taskId": "KP02:grammar:09",
-          "taskHash": "d1c70fe7c8ba24e83a508e26d0273dfcd2327ef2af5a44872644f7356774bffb",
+          "taskHash": "c488795a462320a9c7d97d994b7f924bb60e6bb41a8e4e5945913b0b266c5f90",
           "materialIds": [
             "KP02:grammar:09/practice/material",
             "KP02:grammar:09/assessment/material"
@@ -103506,7 +103506,7 @@
       "bindings": [
         {
           "taskId": "KP02:grammar:10",
-          "taskHash": "bd9cb0869595e80907dc64ad3087ec42d159d5830c14aa59d50e33dbd9ab730f",
+          "taskHash": "c378792cc64362d525a69cc1a190af6a641ea6148409da0dc2923a182eb11616",
           "materialIds": [
             "KP02:grammar:10/practice/material",
             "KP02:grammar:10/assessment/material"
@@ -103533,7 +103533,7 @@
       "bindings": [
         {
           "taskId": "KP02:production:10",
-          "taskHash": "77d19b1e76f6f4814e14d82396e00d3d5de892570714ce04bbab5908375fd01b",
+          "taskHash": "a050d665d609d14fca491a6c220434333ce91c99def64866ea39aaec72600695",
           "materialIds": [
             "KP02:production:10/practice/material",
             "KP02:production:10/assessment/material"
@@ -103646,7 +103646,7 @@
       "bindings": [
         {
           "taskId": "KP02:listening:04",
-          "taskHash": "0990a9f6166135a7a027fe5431842b071d32fbd93acf6af048084929e9f0df7d",
+          "taskHash": "ba7bcc514e0c8b4e600780d78e500619c06f8eb5867d8ea1d00c876ba7499a17",
           "materialIds": [
             "KP02:listening:04/practice/material",
             "KP02:listening:04/assessment/material"
@@ -103815,7 +103815,7 @@
       "bindings": [
         {
           "taskId": "KP02:writing:02",
-          "taskHash": "cb26eb498a71d8f17533a305a1a5af7c27508c055a0aacc57d4da65ac02a9ed4",
+          "taskHash": "b3152b86bf49bdefea437e2625b45dc656503099c01133b5928626c865bef0db",
           "materialIds": [
             "KP02:writing:02/practice/material",
             "KP02:writing:02/assessment/material"
@@ -103871,7 +103871,7 @@
       "bindings": [
         {
           "taskId": "KP02:reading:02",
-          "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+          "taskHash": "2e8e42257244e2b178fdff387ffaffa39b4bc8ddea19cbc4a93f92f1e5935337",
           "materialIds": [
             "KP02:reading:02/practice/material",
             "KP02:reading:02/assessment/material"
@@ -103900,7 +103900,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -103925,7 +103925,7 @@
       "bindings": [
         {
           "taskId": "KP02:reading:02",
-          "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+          "taskHash": "2e8e42257244e2b178fdff387ffaffa39b4bc8ddea19cbc4a93f92f1e5935337",
           "materialIds": [
             "KP02:reading:02/practice/material",
             "KP02:reading:02/assessment/material"
@@ -103954,7 +103954,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -103979,7 +103979,7 @@
       "bindings": [
         {
           "taskId": "KP02:reading:02",
-          "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+          "taskHash": "2e8e42257244e2b178fdff387ffaffa39b4bc8ddea19cbc4a93f92f1e5935337",
           "materialIds": [
             "KP02:reading:02/practice/material",
             "KP02:reading:02/assessment/material"
@@ -104008,7 +104008,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104062,7 +104062,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104119,7 +104119,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104176,7 +104176,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104201,7 +104201,7 @@
       "bindings": [
         {
           "taskId": "KP02:reading:02",
-          "taskHash": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
+          "taskHash": "2e8e42257244e2b178fdff387ffaffa39b4bc8ddea19cbc4a93f92f1e5935337",
           "materialIds": [
             "KP02:reading:02/practice/material",
             "KP02:reading:02/assessment/material"
@@ -104230,7 +104230,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104287,7 +104287,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104344,7 +104344,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104397,7 +104397,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104422,7 +104422,7 @@
       "bindings": [
         {
           "taskId": "KP02:listening:04",
-          "taskHash": "0990a9f6166135a7a027fe5431842b071d32fbd93acf6af048084929e9f0df7d",
+          "taskHash": "ba7bcc514e0c8b4e600780d78e500619c06f8eb5867d8ea1d00c876ba7499a17",
           "materialIds": [
             "KP02:listening:04/practice/material",
             "KP02:listening:04/assessment/material"
@@ -104451,7 +104451,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -104476,7 +104476,7 @@
       "bindings": [
         {
           "taskId": "KP02:speaking:02",
-          "taskHash": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+          "taskHash": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
           "materialIds": [
             "KP02:speaking:02/practice/material",
             "KP02:speaking:02/assessment/material"
@@ -147966,24 +147966,24 @@
         "KP02:grammar:01": "786cf75573de75a83f50832127aee7ad86b8b6dc2ecafc5326956479e7a63de5",
         "KP02:grammar:02": "b7528ac13b8e8024ca28a2bd4f931edfcd211586e3d0547c8b199495773373fa",
         "KP02:grammar:03": "a28dbca8a39d8fba3b58f19f98f15c99590235641ed21c6caa3310c782d6394d",
-        "KP02:grammar:04": "ea7efac3c9feb613bc930ac934e4d5618ec225b9dc4d76cb8b5ea38ddde012be",
+        "KP02:grammar:04": "e1ef2068abafe65a7bae6edc2c403386b0934e036a144ef3b8c2aad3a33f469a",
         "KP02:grammar:05": "ccac9d1e3e190519a975930bf06cd6befbf25669b21e3e3b3f113c33877168ec",
         "KP02:grammar:06": "2e834153b540f2a60e187941045cc5b00b28e72432748a1c615f09816d35e270",
         "KP02:grammar:07": "235296adae2a833d826ecf78bd247683cd50896e0e6676556158eddd464fe59b",
         "KP02:grammar:08": "9725bf39c983dc57c6e0674f60643bfa73a95259593943534dc23ec9b77d160d",
-        "KP02:grammar:09": "d1c70fe7c8ba24e83a508e26d0273dfcd2327ef2af5a44872644f7356774bffb",
-        "KP02:grammar:10": "bd9cb0869595e80907dc64ad3087ec42d159d5830c14aa59d50e33dbd9ab730f",
+        "KP02:grammar:09": "c488795a462320a9c7d97d994b7f924bb60e6bb41a8e4e5945913b0b266c5f90",
+        "KP02:grammar:10": "c378792cc64362d525a69cc1a190af6a641ea6148409da0dc2923a182eb11616",
         "KP02:grammar:11": "8a3f3f901b72f0e15319d667201867867eb2a4bf900276c81312ad329ede296a",
         "KP02:listening:01": "dc01421708e1c7e4d96d97003cfdf6030647e54296a1c18d76c08406afbc3427",
         "KP02:reading:01": "8a4fb730f5c98097f0ffe1d304bc5b6be87e0edd5730bfe32f467c85b089c7bb",
         "KP02:writing:01": "ecfc1dd32a06dbed077838c91ed8db9d3a73e4e36ae3f6375a319b704462ed9e",
         "KP02:speaking:01": "6a33d51bbee068681afef44db7b57fc1a198b2f8e2b8c3fcc5f43b4aabe4e26c",
         "KP02:listening:02": "0c8ffacb65938870589ed8b528d0b5cc41717336ed30fc1242600a9de5bb4d61",
-        "KP02:writing:02": "cb26eb498a71d8f17533a305a1a5af7c27508c055a0aacc57d4da65ac02a9ed4",
+        "KP02:writing:02": "b3152b86bf49bdefea437e2625b45dc656503099c01133b5928626c865bef0db",
         "KP02:listening:03": "053df203f7d14016e3d215835c0a96e34a66eeddc87f09ab29bcff1e06ec7fba",
-        "KP02:listening:04": "0990a9f6166135a7a027fe5431842b071d32fbd93acf6af048084929e9f0df7d",
-        "KP02:reading:02": "4e8a6607b9f919cd0faea916dd6f7367a8cf5d21849b7ff1e73654fd66c16566",
-        "KP02:speaking:02": "530defc0f36118e234dde32b4e2fb0352dd70a79acab17df76f7d2290feae2b9",
+        "KP02:listening:04": "ba7bcc514e0c8b4e600780d78e500619c06f8eb5867d8ea1d00c876ba7499a17",
+        "KP02:reading:02": "2e8e42257244e2b178fdff387ffaffa39b4bc8ddea19cbc4a93f92f1e5935337",
+        "KP02:speaking:02": "a7380a7364f46aae5144d9b906ba3d88267df23a150668bc8d41f55546b792ed",
         "KP02:production:01": "05af689a81adc6e8b6b145d401e47599974111292be95d4d3c7eb1e2f31ef096",
         "KP02:production:02": "063753bdca6fcf2580cabbc8f7780894b2737576f1177f48dce15d991c4cede9",
         "KP02:production:03": "aa6223907ae4ba4992f508350b5f72062c182afa839133ce129d8e06a65e613e",
@@ -147993,10 +147993,10 @@
         "KP02:production:07": "e67765297fa4a794823ef993923d2e80325ce53db34dd49e90ba0b43f17aa5ad",
         "KP02:production:08": "948c8b8956410704abc0f7a61f08e9836b3ad916e3eac22e9e468b663d5d4a43",
         "KP02:production:09": "71db5c9e8fc8caa3f7d674b1ac58c5674165c278ecda06c46ae5133450560ca8",
-        "KP02:production:10": "77d19b1e76f6f4814e14d82396e00d3d5de892570714ce04bbab5908375fd01b",
+        "KP02:production:10": "a050d665d609d14fca491a6c220434333ce91c99def64866ea39aaec72600695",
         "KP02:production:11": "c73d8e1746fe499e5f13f55e6e4148460f67f98acbd1311c00c014e244a2b869"
       },
-      "contentHash": "92f8112acc645f3514822b2db341e63d517937983da18b03b287570586a60ed9"
+      "contentHash": "73edacd59b67e79d09b93cbc46178ddaad0ead55ab7cf40ee941c3d08c11248a"
     },
     {
       "phaseId": "KP03",
