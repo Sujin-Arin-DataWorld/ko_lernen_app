@@ -4,7 +4,9 @@ import '../../widgets/sori/top_chrome.dart';
 import '../../models/course_mastery.dart';
 import '../../services/catalog_history_lease.dart';
 import '../../widgets/sori/toast.dart';
+
 import 'dart:async';
+
 import '../../services/learning_focus.dart';
 import '../../services/learning_journey.dart';
 import '../../services/course_attempt_companion.dart';
@@ -15,6 +17,7 @@ import '../../services/sori_stage_progression_service.dart';
 import '../../services/sori_stage_reward_receipt_service.dart';
 import '../../widgets/sori/learning_focus.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
@@ -122,9 +125,14 @@ class _SoriStageShellState extends State<SoriStageShell> with RouteAware {
     if (!_focus.claimLaunch()) {
       return;
     }
-    // Today's aggregate may replace the originating focus subtree while away.
-    // The shell owns this journey and remains the presentation anchor.
-    final context = this.context;
+    // Root tabs can rebuild while an activity is open. A pushed Lernen
+    // shelf instead remains the return destination for its own launches.
+    final shellContext = this.context;
+    final shellRoute = ModalRoute.of(shellContext);
+    final callerRoute = ModalRoute.of(callerContext);
+    final context = callerRoute != shellRoute && callerRoute?.isCurrent == true
+        ? callerContext
+        : shellContext;
     final origin = ModalRoute.of(context);
     final observer = LearningJourneyObserver.forContext(context);
     final account = cloudWriteSessionController.current;

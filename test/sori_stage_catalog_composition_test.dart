@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:async';
 import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +21,7 @@ import 'package:ko_lernen_app/widgets/sori/activity_illustration.dart';
 import 'package:ko_lernen_app/widgets/sori/approved_figma_scene.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+
 import 'support/catalog_test_support.dart';
 import 'support/real_fonts.dart';
 
@@ -44,6 +46,82 @@ void main() {
     tester.view.physicalSize = size;
     addTearDown(tester.view.resetDevicePixelRatio);
     addTearDown(tester.view.resetPhysicalSize);
+  }
+
+  for (final (size, scale) in [
+    (const Size(390, 844), 1.0),
+    (const Size(320, 640), 2.0),
+  ]) {
+    testWidgets('Lernen shelf opens preserved activities at $size / $scale', (
+      tester,
+    ) async {
+      await viewport(tester, size);
+      final controller = LearningFocusController()..value = focus;
+      addTearDown(controller.dispose);
+      final opened = <(String?, String)>[];
+      await tester.pumpWidget(
+        catalogTestApp(
+          locale: 'de',
+          scale: scale,
+          showAll: false,
+          controller: controller,
+          onOpen: (destination, id) => opened.add((id, destination.route)),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final direct = find.byKey(const ValueKey('c5-category-listen'));
+      await tester.ensureVisible(direct);
+      await tester.pumpAndSettle();
+      await tester.tap(direct);
+      await tester.pumpAndSettle();
+      final listening = soriActivityCatalog.singleWhere(
+        (entry) => entry.id == 'listening',
+      );
+      expect(opened, [(listening.id, listening.route)]);
+
+      final shelfAction = find.byKey(const ValueKey('c-all-learning-offers'));
+      await tester.ensureVisible(shelfAction);
+      await tester.pumpAndSettle();
+      expect(shelfAction.hitTestable(), findsOneWidget);
+      expect(tester.getSize(shelfAction).height, greaterThanOrEqualTo(48));
+      await tester.tap(shelfAction);
+      await tester.pumpAndSettle();
+      final shelf = find.byKey(const ValueKey('c-free-learning-screen'));
+      expect(shelf, findsOneWidget);
+
+      for (final entry in soriActivityCatalog.where(
+        (entry) => entry.tab == SoriStageTab.learn && entry.id != 'course',
+      )) {
+        final tile = find.byKey(ValueKey('free-learning-tile-${entry.id}'));
+        expect(tile, findsOneWidget);
+        await tester.ensureVisible(tile);
+        await tester.pumpAndSettle();
+        expect(tile.hitTestable(), findsOneWidget, reason: entry.id);
+      }
+
+      final review = soriActivityCatalog.singleWhere(
+        (entry) => entry.id == 'srs',
+      );
+      final reviewTile = find.byKey(const ValueKey('free-learning-tile-srs'));
+      await tester.ensureVisible(reviewTile);
+      await tester.pumpAndSettle();
+      await tester.tap(reviewTile);
+      await tester.pumpAndSettle();
+      expect(opened.last, (review.id, review.route));
+      expect(shelf, findsOneWidget);
+      final back = find.descendant(
+        of: shelf,
+        matching: find.byType(BackButton),
+      );
+      await tester.ensureVisible(back);
+      await tester.pumpAndSettle();
+      await tester.tap(back);
+      await tester.pumpAndSettle();
+      expect(shelf, findsNothing);
+      expect(shelfAction, findsOneWidget);
+      expect(tester.takeException(), isNull);
+    });
   }
 
   for (final state in ['loading', 'error', 'empty', 'ready']) {

@@ -112,8 +112,8 @@ void main() {
     }
 
     // Includes the C5 overview, R16 reference and existing indirect owners.
-    expect(seen, hasLength(131));
-    expect(documented, hasLength(131));
+    expect(seen, hasLength(132));
+    expect(documented, hasLength(132));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -164,9 +164,9 @@ void main() {
     // +2: approved Dokkaebi introduction and its separately owned flame frame.
     // +7: approved game materials, measured art metrics and presentation views.
     // +2: culture-stories entry card and scenario culture card (#449).
-    expect(actual, hasLength(196));
+    expect(actual, hasLength(197));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(196));
+    expect(listed, hasLength(197));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();
