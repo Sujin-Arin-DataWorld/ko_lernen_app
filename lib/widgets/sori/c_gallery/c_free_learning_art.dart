@@ -137,7 +137,7 @@ class CFreeLearningArt extends StatelessWidget {
                 text,
                 textScaler: TextScaler.noScaling,
                 style: TextStyle(
-                  fontFamily: 'NotoSansKR',
+                  fontFamily: SoriFonts.korean,
                   fontSize: size * scale,
                   height: 1,
                   fontWeight: FontWeight.w600,

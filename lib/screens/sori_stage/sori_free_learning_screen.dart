@@ -21,6 +21,7 @@ import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/study_library_button.dart';
 import '../../widgets/sori/toast.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import 'c_stage_chrome.dart' show CStageBackground, CStageHeader;
 
 class SoriFreeLearningScreen extends StatefulWidget {
@@ -182,9 +183,12 @@ class _SoriFreeLearningScreenState extends State<SoriFreeLearningScreen> {
                 LayoutBuilder(
                   builder: (context, bounds) {
                     final scale = MediaQuery.textScalerOf(context).scale(16);
+                    final narrow =
+                        bounds.maxWidth <
+                        SoriAdaptiveWidth.freeLearningShelfThreeColumns;
                     final columns = scale >= 26
                         ? 1
-                        : bounds.maxWidth < 340 || scale >= 21
+                        : narrow || scale >= 21
                         ? 2
                         : 3;
                     final width =
