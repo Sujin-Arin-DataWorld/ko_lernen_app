@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:math' as math;
-
 import '../../widgets/sori/window_class.dart';
 
 import 'package:flutter/material.dart';
@@ -272,8 +271,9 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       // Capture does not award progress. Keep it usable even when the shared
       // learning/reward snapshot is still loading or has failed.
       if (entry.id == 'book_capture') {
-        await Navigator.of(context)
-            .pushNamed<void>(entry.route, arguments: entry.arguments);
+        await Navigator.of(
+          context,
+        ).pushNamed<void>(entry.route, arguments: entry.arguments);
         await Storage.recordCatalogActivity(entry.id, lease: lease);
         return;
       }
@@ -296,8 +296,9 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
           if (!mounted || !lease.isCurrent) {
             return;
           }
-          final returned = Navigator.of(context)
-              .pushNamed(entry.route, arguments: entry.arguments);
+          final returned = Navigator.of(
+            context,
+          ).pushNamed(entry.route, arguments: entry.arguments);
           unawaited(Storage.recordCatalogActivity(entry.id, lease: lease));
           await returned;
         },
@@ -881,8 +882,9 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                                 : FontWeight.w400,
                                             color: _selected == section
                                                 ? Colors.white
-                                                : Theme.of(context)
-                                                          .brightness ==
+                                                : Theme.of(
+                                                        context,
+                                                      ).brightness ==
                                                       Brightness.dark
                                                 ? SoriColors.primaryOnDark
                                                 : SoriColors.primary,
