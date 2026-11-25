@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:async';
 import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -20,6 +21,7 @@ import 'package:ko_lernen_app/widgets/sori/activity_illustration.dart';
 import 'package:ko_lernen_app/widgets/sori/approved_figma_scene.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+
 import 'support/catalog_test_support.dart';
 import 'support/real_fonts.dart';
 
@@ -100,6 +102,48 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('Spiele overview shows recorded bests and keeps Details', (
+    tester,
+  ) async {
+    await viewport(tester, const Size(390, 844));
+    final t = lookupAppL10n(const Locale('de'));
+    await tester.pumpWidget(
+      catalogTestApp(
+        tab: SoriStageTab.games,
+        locale: 'de',
+        showAll: false,
+        loadSnapshot: () async => catalogSnapshot(
+          bests: const {'daily': 9, 'chosung': 0, 'cp_quiz': 7},
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final daily = find.byKey(const ValueKey('c5-game-daily_game'));
+    expect(daily.hitTestable(), findsOneWidget);
+    expect(
+      find.descendant(
+        of: daily,
+        matching: find.textContaining(
+          t.catalogBestScore(9),
+          findRichText: true,
+        ),
+      ),
+      findsWidgets,
+    );
+    expect(
+      find.textContaining(t.catalogBestScore(0), findRichText: true),
+      findsNothing,
+    );
+    expect(
+      find.textContaining(t.catalogBestScore(7), findRichText: true),
+      findsNothing,
+    );
+    await tester.tap(daily);
+    await tester.pumpAndSettle();
+    expect(find.byType(SoriSheetShell), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 
   for (final language in ['de', 'en']) {
     for (final tab in [SoriStageTab.learn, SoriStageTab.games]) {

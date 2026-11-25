@@ -1,5 +1,7 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
+
 import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/tokens.dart';
 
@@ -9,9 +11,11 @@ class C5OverviewTile {
     required this.label,
     required this.art,
     required this.onTap,
+    this.status,
   });
   final Key key;
   final String label;
+  final String? status;
   final Widget art;
   final VoidCallback? onTap;
 }
@@ -61,15 +65,28 @@ class C5CatalogOverview extends StatelessWidget {
     );
     String copy(String value) =>
         value.replaceAll('Tageschallenge', 'Tages\u00adchallenge');
-    Widget label(String value, {TextAlign align = TextAlign.center}) =>
-        Text(copy(value), textAlign: align, style: labelStyle);
+    final statusStyle = SoriTextTheme.of(context).bodySmall
+        .copyWith(color: CPalette.deepJade);
+    TextSpan tileCopy(C5OverviewTile item) => TextSpan(
+      style: labelStyle,
+      text: copy(item.label),
+      children: [
+        if (item.status case final status?)
+          TextSpan(text: '\n$status', style: statusStyle),
+      ],
+    );
+    Widget tileLabel(C5OverviewTile item, TextAlign alignment) =>
+        Text.rich(tileCopy(item), textAlign: alignment);
     Widget tile(
       C5OverviewTile item, {
       bool horizontal = false,
       double? labelHeight,
     }) => CImageTap(
       key: item.key,
-      label: item.label,
+      label: [
+        item.label,
+        if (item.status case final status?) status,
+      ].join('. '),
       onTap: item.onTap,
       child: Container(
         constraints: const BoxConstraints(minHeight: 48),
@@ -96,7 +113,7 @@ class C5CatalogOverview extends StatelessWidget {
                     child: item.art,
                   ),
                   const SizedBox(width: 8),
-                  Expanded(child: label(item.label, align: TextAlign.start)),
+                  Expanded(child: tileLabel(item, TextAlign.start)),
                 ],
               )
             : Column(
@@ -108,7 +125,7 @@ class C5CatalogOverview extends StatelessWidget {
                     height: labelHeight,
                     child: Align(
                       alignment: Alignment.bottomCenter,
-                      child: label(item.label),
+                      child: tileLabel(item, TextAlign.center),
                     ),
                   ),
                 ],
@@ -123,7 +140,7 @@ class C5CatalogOverview extends StatelessWidget {
       var height = 0.0;
       for (var i = start; i < start + columns && i < tiles.length; i++) {
         final painter = TextPainter(
-          text: TextSpan(text: copy(tiles[i].label), style: labelStyle),
+          text: tileCopy(tiles[i]),
           textDirection: Directionality.of(context),
           textScaler: scaler,
           locale: Localizations.localeOf(context),
@@ -235,11 +252,8 @@ class C5CatalogOverview extends StatelessWidget {
               ),
               child: Text(
                 detailsLabel!,
-                style: SoriTextTheme.of(context).body.copyWith(
-                  fontSize: 16,
-                  height: 1.15,
-                  color: CPalette.ink,
-                ),
+                style: SoriTextTheme.of(context).body
+                    .copyWith(fontSize: 16, height: 1.15, color: CPalette.ink),
               ),
             ),
           ),
