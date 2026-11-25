@@ -3,29 +3,29 @@
   "reviews": [
     {
       "taskId": "KP03:grammar:01",
-      "sha256": "ab625120923ee6f3e7d9ad369cf20f91fde320be2ce10e6095e1d138d3c86b98",
+      "sha256": "13cb8476193450c64b5ddff422c06eea4b265755c307d668a30366f747f9f0ed",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for giver/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+      "note": "KO meaning and EN/DE explanation reviewed for giver/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:grammar:02",
-      "sha256": "f85de13608ce017a3021c387fe840aa2a944375b1e7a086fe638b8a088f77e99",
+      "sha256": "f350c5301ebe820a47616426d65ed0321001b1dc49a70efdee126ea012cd5bd4",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for caller/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+      "note": "KO meaning and EN/DE explanation reviewed for caller/recipient. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:grammar:03",
@@ -42,42 +42,42 @@
     },
     {
       "taskId": "KP03:grammar:04",
-      "sha256": "0325b960074f821c60cf982771015f1a668925f688c0f70523d507114164d877",
+      "sha256": "b9ba3c36699648f414791fe21a558a82aa786370c7d8346295772c8381c576b7",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for intention versus completion. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+      "note": "KO meaning and EN/DE explanation reviewed for intention versus completion. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:grammar:05",
-      "sha256": "b59ace30c99d2725be4f3d18ea8126445f843aed1348cee1f456415c7a53c962",
+      "sha256": "2f1ac519895c24116f48b48fbe429113fdc8dfef24e104b93df3ce142e3cbad9",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for wish versus availability. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+      "note": "KO meaning and EN/DE explanation reviewed for wish versus availability. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:grammar:06",
-      "sha256": "04f9762b898ba2589df7064510b8688309b62492e9c718551aa509707abc8a99",
+      "sha256": "75864a7693b2f642f05d674fcbfb734056e739deae6852dd23d6b7e9c0513989",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for ongoing versus completed. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+      "note": "KO meaning and EN/DE explanation reviewed for ongoing versus completed. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:grammar:07",
@@ -146,29 +146,29 @@
     },
     {
       "taskId": "KP03:grammar:12",
-      "sha256": "64c1240c151b50c62864ac5338fe153920a15e615acfdb978031e80b6c6b1548",
+      "sha256": "1944ec8c3b864f82327e2e5ea08c759af1690bba8a7a7a14233e44cd133a4ea8",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO meaning and EN/DE explanation reviewed for inclusive proposal versus listener-only demand. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history."
+      "note": "KO meaning and EN/DE explanation reviewed for inclusive proposal versus listener-only demand. Different practice/evaluation sentences; recognition only, no productive mastery claim. Astra holdout review: study examples now contain only this task’s already-reviewed practice source; assessment text and key, KO/EN/DE teaching and rubric are unchanged. Content revision advanced; prior evidence remains history. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:listening:01",
-      "sha256": "0707c740358c572b35283b5c0bc33c39cf24b5597aff611fd4f6fa8c13f1a079",
+      "sha256": "0c7b7191d9b5c7fb2bdda04581d914cd1cbdfdeecc288fa6b8364a7fee44f4e5",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Original wish/unavailability and actual quantity distinguished: juice unavailable, one water; milk unavailable, three teas."
+      "note": "Original wish/unavailability and actual quantity distinguished: juice unavailable, one water; milk unavailable, three teas. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:reading:01",
@@ -185,29 +185,29 @@
     },
     {
       "taskId": "KP03:writing:01",
-      "sha256": "2eaa2253a666959918282dc301a4383ac9d734427d7f1bf6234e7f2ef23514f3",
+      "sha256": "a4b7bcdb27f578886574718f462369b6f3b1a82d7a55362adec3ca9d36da8919",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Reviewed time/place/activity in two proposals; alternatives retain -(으)ㄹ까요 and no invented agreement or obligation."
+      "note": "Reviewed time/place/activity in two proposals; alternatives retain -(으)ㄹ까요 and no invented agreement or obligation. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:speaking:01",
-      "sha256": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "sha256": "45c05b1d5e9ad4e0ed6f2e317a4801ca0b813c20e60ddd2fc081334fbfeff8e4",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Staff request and classmate proposal kept as separate roles; absent agreement is explicit; speech unscored."
+      "note": "Staff request and classmate proposal kept as separate roles; absent agreement is explicit; speech unscored. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:listening:02",
@@ -328,16 +328,16 @@
     },
     {
       "taskId": "KP03:production:09",
-      "sha256": "e242f9c248f263227932209b4da9b534a15e9de603553db3dccb069bd2181e1a",
+      "sha256": "a1fbdb48cde83d8568a1719c4d94b6bf5d8711b61c5ecd9b880901b19aa17c0e",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: polite request, not unlicensed casual command. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: polite request, not unlicensed casual command. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:production:10",
@@ -354,16 +354,16 @@
     },
     {
       "taskId": "KP03:production:11",
-      "sha256": "0ad604f22b10fa8ab3ba71bb1890e984d878217744367e150ff84004c315ec2a",
+      "sha256": "9af05c64b7537281412cb80720d93e18c926bcd199ec3104f13260d508825eb6",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: open shared proposal, not obligation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: open shared proposal, not obligation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:production:12",
@@ -380,42 +380,42 @@
     },
     {
       "taskId": "KP03:reading:02",
-      "sha256": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "sha256": "81e4df93a2c10a7c0c199e00b8b98fd2413f5cebf895f92da5499b150d2e9be3",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim."
+      "note": "Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:speaking:02",
-      "sha256": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "sha256": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody."
+      "note": "Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP03:reading:03",
-      "sha256": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "sha256": "f2531729be45881ce675547046d3ba6a94769fd1d0d29c1687fb4dfd4297d036",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다."
+      "note": "Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 같은 반 학습자 호칭 동료→친구, 어색한 연결·주문 대화 자연화, 정답·오답 판정 불변."
     }
   ]
 }

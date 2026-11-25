@@ -259,22 +259,22 @@
       "objectiveId": "KP03:objective:grammar/G1:에게:R",
       "taskId": "KP03:grammar:01",
       "sourceHash": "f9c686e6c67baf5f071a7311f5433d769c0ba79f62ff3b86116a9c5e10f5d4bc",
-      "taskHash": "ab625120923ee6f3e7d9ad369cf20f91fde320be2ce10e6095e1d138d3c86b98",
+      "taskHash": "13cb8476193450c64b5ddff422c06eea4b265755c307d668a30366f747f9f0ed",
       "criterionIds": [
         "meaning"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:한테:R",
       "taskId": "KP03:grammar:02",
       "sourceHash": "e23b839eee21c3d059277d64eff767ffec38dce3b8ca3c94e109108b764284e1",
-      "taskHash": "f85de13608ce017a3021c387fe840aa2a944375b1e7a086fe638b8a088f77e99",
+      "taskHash": "f350c5301ebe820a47616426d65ed0321001b1dc49a70efdee126ea012cd5bd4",
       "criterionIds": [
         "meaning"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -292,33 +292,33 @@
       "objectiveId": "KP03:objective:grammar/G1:-으려고1:R",
       "taskId": "KP03:grammar:04",
       "sourceHash": "6993ac642e7fe39a64f6181144af9465b2ce63b09551223d233ab55d3bb73196",
-      "taskHash": "0325b960074f821c60cf982771015f1a668925f688c0f70523d507114164d877",
+      "taskHash": "b9ba3c36699648f414791fe21a558a82aa786370c7d8346295772c8381c576b7",
       "criterionIds": [
         "meaning"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-고 싶다:R",
       "taskId": "KP03:grammar:05",
       "sourceHash": "f1803463b64e22b5de5984cdbe403f34db6d361d1d0133b3219ce73a30d9a1f5",
-      "taskHash": "b59ace30c99d2725be4f3d18ea8126445f843aed1348cee1f456415c7a53c962",
+      "taskHash": "2f1ac519895c24116f48b48fbe429113fdc8dfef24e104b93df3ce142e3cbad9",
       "criterionIds": [
         "meaning"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:grammar/G1:-고 있다:R",
       "taskId": "KP03:grammar:06",
       "sourceHash": "16d2a21352e507988be0eb09798b98ab40bc55a80aae034e84cf09a70aa4562e",
-      "taskHash": "04f9762b898ba2589df7064510b8688309b62492e9c718551aa509707abc8a99",
+      "taskHash": "75864a7693b2f642f05d674fcbfb734056e739deae6852dd23d6b7e9c0513989",
       "criterionIds": [
         "meaning"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -380,11 +380,11 @@
       "objectiveId": "KP03:objective:grammar/G1:-읍시다:R",
       "taskId": "KP03:grammar:12",
       "sourceHash": "621d3746dc4fd130ac7d48be334a3bc7ca2194ecbff3a986de27c5a2c1ee185a",
-      "taskHash": "64c1240c151b50c62864ac5338fe153920a15e615acfdb978031e80b6c6b1548",
+      "taskHash": "1944ec8c3b864f82327e2e5ea08c759af1690bba8a7a7a14233e44cd133a4ea8",
       "criterionIds": [
         "meaning"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -1175,13 +1175,13 @@
       "objectiveId": "KP03:objective:listening/core:R",
       "taskId": "KP03:listening:01",
       "sourceHash": "1d9632643553746ca5fec26d32b1431c928d5d6929491c68e73758b8446fae4a",
-      "taskHash": "0707c740358c572b35283b5c0bc33c39cf24b5597aff611fd4f6fa8c13f1a079",
+      "taskHash": "0c7b7191d9b5c7fb2bdda04581d914cd1cbdfdeecc288fa6b8364a7fee44f4e5",
       "criterionIds": [
         "wish",
         "order",
         "available"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
     },
     {
@@ -1201,20 +1201,20 @@
       "objectiveId": "KP03:objective:writing/core:P",
       "taskId": "KP03:writing:01",
       "sourceHash": "a0c5ca776fc4e5d88fafb0c12f8b1d90ea9dc43080794394dd10289524c0ad17",
-      "taskHash": "2eaa2253a666959918282dc301a4383ac9d734427d7f1bf6234e7f2ef23514f3",
+      "taskHash": "a4b7bcdb27f578886574718f462369b6f3b1a82d7a55362adec3ca9d36da8919",
       "criterionIds": [
         "proposal"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:speaking/core:P",
       "taskId": "KP03:speaking:01",
       "sourceHash": "787214262ea68ccd5d40604b43fa50d0d0eef091a30cce81e0d5eb65c468d227",
-      "taskHash": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "taskHash": "45c05b1d5e9ad4e0ed6f2e317a4801ca0b813c20e60ddd2fc081334fbfeff8e4",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
     },
     {
@@ -2101,11 +2101,11 @@
       "objectiveId": "KP03:objective:grammar/G1:-으세요:P",
       "taskId": "KP03:production:09",
       "sourceHash": "6e0084d955e6e1d5374889ce75cd6621a3c2bfb81554ba5a0100dcc1d2bb4d34",
-      "taskHash": "e242f9c248f263227932209b4da9b534a15e9de603553db3dccb069bd2181e1a",
+      "taskHash": "a1fbdb48cde83d8568a1719c4d94b6bf5d8711b61c5ecd9b880901b19aa17c0e",
       "criterionIds": [
         "sentence"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. polite request, not unlicensed casual command. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
@@ -2123,11 +2123,11 @@
       "objectiveId": "KP03:objective:grammar/G1:-을까:P",
       "taskId": "KP03:production:11",
       "sourceHash": "36b91ebdaa9903025d6eb06657e329a417786018166f64a92213d4265011a385",
-      "taskHash": "0ad604f22b10fa8ab3ba71bb1890e984d878217744367e150ff84004c315ec2a",
+      "taskHash": "9af05c64b7537281412cb80720d93e18c926bcd199ec3104f13260d508825eb6",
       "criterionIds": [
         "sentence"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. open shared proposal, not obligation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
@@ -2955,22 +2955,22 @@
       "objectiveId": "KP03:objective:listening/genre/service_encounter_counter:R",
       "taskId": "KP03:listening:01",
       "sourceHash": "834aa703f221fc8b902b0a91cc7954e8352b3ea79745026ee6baf32c2ed46ddf",
-      "taskHash": "0707c740358c572b35283b5c0bc33c39cf24b5597aff611fd4f6fa8c13f1a079",
+      "taskHash": "0c7b7191d9b5c7fb2bdda04581d914cd1cbdfdeecc288fa6b8364a7fee44f4e5",
       "criterionIds": [
         "wish",
         "order",
         "available"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 listening/genre/service_encounter_counter:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:speaking/genre/service_encounter_counter:P",
       "taskId": "KP03:speaking:01",
       "sourceHash": "88c045857435c87dd827e5f1cb5a8706a6d5945e0cd638e16190f1ca4c0c0eea",
-      "taskHash": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "taskHash": "45c05b1d5e9ad4e0ed6f2e317a4801ca0b813c20e60ddd2fc081334fbfeff8e4",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 speaking/genre/service_encounter_counter:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2990,55 +2990,55 @@
       "objectiveId": "KP03:objective:writing/genre/instant_message_chat:P",
       "taskId": "KP03:writing:01",
       "sourceHash": "8d4df60583fddeb41275e8764a96ca338faf0bd8b8acce34606736e47df2987a",
-      "taskHash": "2eaa2253a666959918282dc301a4383ac9d734427d7f1bf6234e7f2ef23514f3",
+      "taskHash": "a4b7bcdb27f578886574718f462369b6f3b1a82d7a55362adec3ca9d36da8919",
       "criterionIds": [
         "proposal"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 writing/genre/instant_message_chat:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/express_preference_taste:R",
       "taskId": "KP03:reading:02",
       "sourceHash": "163a3c39eaf72ea02c723682d0828d69cf5318a0e1121490e706d9313d667dab",
-      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "taskHash": "81e4df93a2c10a7c0c199e00b8b98fd2413f5cebf895f92da5499b150d2e9be3",
       "criterionIds": [
         "preference",
         "purchase",
         "budget"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/express_preference_taste:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/express_preference_taste:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "163a3c39eaf72ea02c723682d0828d69cf5318a0e1121490e706d9313d667dab",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/express_preference_taste:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/order_buy_pay:R",
       "taskId": "KP03:reading:02",
       "sourceHash": "fae57166858ef378defcf89699682c8f1925cabc5a974772b8f55160541ceca2",
-      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "taskHash": "81e4df93a2c10a7c0c199e00b8b98fd2413f5cebf895f92da5499b150d2e9be3",
       "criterionIds": [
         "preference",
         "purchase",
         "budget"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/order_buy_pay:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/order_buy_pay:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "fae57166858ef378defcf89699682c8f1925cabc5a974772b8f55160541ceca2",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/order_buy_pay:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -3057,66 +3057,66 @@
       "objectiveId": "KP03:objective:functions/request_ask_someone_to_do:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "74028f621c6698dbca4dde7ff63062c205d9093e9e8ae942979171676c00b3b0",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/request_ask_someone_to_do:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/suggest_propose:R",
       "taskId": "KP03:reading:03",
       "sourceHash": "54b47f923949bb7b0178d17774d0cee8b4a66853eec600b0e372343cf6140aca",
-      "taskHash": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "taskHash": "f2531729be45881ce675547046d3ba6a94769fd1d0d29c1687fb4dfd4297d036",
       "criterionIds": [
         "old",
         "new",
         "place"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/suggest_propose:R의 학습 경로를 검수했다. Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/suggest_propose:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "54b47f923949bb7b0178d17774d0cee8b4a66853eec600b0e372343cf6140aca",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/suggest_propose:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/make_change_cancel_appointments:R",
       "taskId": "KP03:reading:03",
       "sourceHash": "e2414688dec86a8c55da5d243bbe363e23cab7c1208e241cd1e6c48d8fe883a1",
-      "taskHash": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "taskHash": "f2531729be45881ce675547046d3ba6a94769fd1d0d29c1687fb4dfd4297d036",
       "criterionIds": [
         "old",
         "new",
         "place"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:R의 학습 경로를 검수했다. Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/make_change_cancel_appointments:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "e2414688dec86a8c55da5d243bbe363e23cab7c1208e241cd1e6c48d8fe883a1",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/make_change_cancel_appointments:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:functions/express_intention_plan_wish:R",
       "taskId": "KP03:reading:03",
       "sourceHash": "5b21c55d2858216a69452d8b4b84cf8a2d95c6d238fe52840eadd024f107300f",
-      "taskHash": "285a35feb13e314ea3ba03c7046a39a785bc9414028c0506b052bb2ae30c1919",
+      "taskHash": "f2531729be45881ce675547046d3ba6a94769fd1d0d29c1687fb4dfd4297d036",
       "criterionIds": [
         "old",
         "new",
         "place"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/express_intention_plan_wish:R의 학습 경로를 검수했다. Old appointment versus agreed new time distinct; unanswered place question remains unconfirmed. A1 wording avoids unnecessary 기로하다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -3134,22 +3134,22 @@
       "objectiveId": "KP03:objective:vocabDomains/numbers_quantity_units:R",
       "taskId": "KP03:reading:02",
       "sourceHash": "bf5994256d5450a7bdb21f978328386829e05c9772f8e663164d24cae956663d",
-      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "taskHash": "81e4df93a2c10a7c0c199e00b8b98fd2413f5cebf895f92da5499b150d2e9be3",
       "criterionIds": [
         "preference",
         "purchase",
         "budget"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/numbers_quantity_units:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:vocabDomains/numbers_quantity_units:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "bf5994256d5450a7bdb21f978328386829e05c9772f8e663164d24cae956663d",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/numbers_quantity_units:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -3169,53 +3169,53 @@
       "objectiveId": "KP03:objective:vocabDomains/food_cooking:P",
       "taskId": "KP03:speaking:01",
       "sourceHash": "3b8308c115aca4e651f3b1a23c1c690cb1af37450ce1a276e1c052daf7a1b234",
-      "taskHash": "ebfa824a80b6428a825a0902f805d4e36a02a7c444a3dd0d80feab63cf9666a6",
+      "taskHash": "45c05b1d5e9ad4e0ed6f2e317a4801ca0b813c20e60ddd2fc081334fbfeff8e4",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/food_cooking:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:vocabDomains/transport_travel_vocab:R",
       "taskId": "KP03:reading:02",
       "sourceHash": "4f504e855b5520574ff76a53315d1e0948ff2618dc40c2d37fc84c9d068d3317",
-      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "taskHash": "81e4df93a2c10a7c0c199e00b8b98fd2413f5cebf895f92da5499b150d2e9be3",
       "criterionIds": [
         "preference",
         "purchase",
         "budget"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:vocabDomains/transport_travel_vocab:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "4f504e855b5520574ff76a53315d1e0948ff2618dc40c2d37fc84c9d068d3317",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/transport_travel_vocab:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:vocabDomains/fixed_expressions_collocations:R",
       "taskId": "KP03:reading:02",
       "sourceHash": "4cf6ba8822782848933fddbe20de12ad4d72209f70744c00fa4689daafee438a",
-      "taskHash": "d2858c2b9f8ed816417f2819958e0b570d7ebaf8432f590187739f77381a4b05",
+      "taskHash": "81e4df93a2c10a7c0c199e00b8b98fd2413f5cebf895f92da5499b150d2e9be3",
       "criterionIds": [
         "preference",
         "purchase",
         "budget"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:R의 학습 경로를 검수했다. Ticket-counter preference differs from final purchase; 8000<10000 and 9000<12000 budget conditions correct; no real fare claim. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:vocabDomains/fixed_expressions_collocations:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "4cf6ba8822782848933fddbe20de12ad4d72209f70744c00fa4689daafee438a",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -3234,9 +3234,9 @@
       "objectiveId": "KP03:objective:phonology/0:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "bdd82958c16a00ab1e23e3df140bf02c2d38dae04360036268f657ef13dee6d4",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -3255,18 +3255,18 @@
       "objectiveId": "KP03:objective:phonology/1:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
       "objectiveId": "KP03:objective:register/haeyo_polite:P",
       "taskId": "KP03:speaking:02",
       "sourceHash": "e5b091d72d9ad4cc182cd9be37c0fa333cbad576ed47567f79d02d15d33e883f",
-      "taskHash": "ee0829428c09da5e79091b39a85722d5642543cb3c8ec0d57ffef13d3a11b796",
+      "taskHash": "d724b92324a10e6a2f42faf37944c3beb67c6f8c2d23bec7d3d0bbe7f1cecc7f",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. Staff and peer roles separate; preference/purchase/confirmation/thanks and changed-time proposal preserve missing agreement. Three speech-act ending drill, unscored meaning/prosody. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
