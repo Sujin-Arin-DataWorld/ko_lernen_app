@@ -284,6 +284,34 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('Silben header has no plum branch and keeps Dokkaebi help', (
+    tester,
+  ) async {
+    await open(tester, 'skz_a1_001');
+    final header = find.byType(SilbenHeader);
+    expect(
+      find.descendant(
+        of: header,
+        matching: find.byWidgetPredicate(
+          (widget) =>
+              widget is Image &&
+              widget.image is AssetImage &&
+              (widget.image as AssetImage).assetName.endsWith(
+                '/intro-plum-branch.png',
+              ),
+        ),
+      ),
+      findsNothing,
+    );
+    expect(
+      find.descendant(
+        of: header,
+        matching: find.byKey(const ValueKey('dokkaebi-introduction')),
+      ).hitTestable(),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('level and speed controls use persisted game settings', (
     tester,
   ) async {
@@ -334,7 +362,6 @@ void main() {
           for (final path in [
             silbenWoodAsset,
             silbenTileAsset,
-            silbenFlowerAsset,
             PracticeDokkaebiPose.ready.asset,
             'assets/illustrations/decorations/decoration_dokkaebi_fire.png',
             for (final name in [
