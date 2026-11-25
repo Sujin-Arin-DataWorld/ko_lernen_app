@@ -126,7 +126,6 @@
     "vocab_a2_0601": "maya",
     "vocab_a2_0610": "sujin",
     "vocab_a2_0617": "lena",
-    "vocab_a2_0619": "jun",
     "vocab_a2_0620": "hyuna",
     "vocab_a2_0625": "hyuna"
   },
@@ -143,5 +142,6 @@
     "tts": false,
     "firebase": false
   },
-  "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 목소리 now uses the leading vocative '수진 씨,' and no unlicensed 대박, so the row is attributed to addressee sujin rather than speaker maya; 학원 gloss broadened to private Bildungseinrichtung/private institute so the taekwondo example is in range. IDs, statuses, packs, and gap arithmetic are unchanged; MODEL_QA only."
+  "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 목소리 now uses the leading vocative '수진 씨,' and no unlicensed 대박, so the row is attributed to addressee sujin rather than speaker maya; 학원 gloss broadened to private Bildungseinrichtung/private institute so the taekwondo example is in range. IDs, statuses, packs, and gap arithmetic are unchanged; MODEL_QA only.",
+  "claudeReviewCorrectionNote20261125": "2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only. Rows: 허리: 의자에 오래 앉아서 허리가 아파요. -> 의자에 오래 앉아서 허리가 아파요.; 손가락: 레나 씨, 제 손가락이 길어요. -> 레나 씨, 피아노를 오래 쳐서 손가락이 아파요.; 관광객: 이 거리에는 관광객이 사진을 많이 찍어요. -> 이 거리에서는 관광객이 사진을 많이 찍어요.; 초등학생: 크리스티안, 나 초등학생이야. 3학년! -> 제 동생은 올해 초등학생이 됐어요."
 }

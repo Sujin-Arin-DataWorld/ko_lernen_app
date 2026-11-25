@@ -39,8 +39,8 @@
     {
       "id": "cloze_a2_0378",
       "sourceVocabId": "vocab_a2_0571",
-      "fullKo": "레나 씨, 제 손가락이 길어요.",
-      "sentenceKo": "레나 씨, 제 ＿＿＿ 길어요.",
+      "fullKo": "레나 씨, 피아노를 오래 쳐서 손가락이 아파요.",
+      "sentenceKo": "레나 씨, 피아노를 오래 쳐서 ＿＿＿ 아파요.",
       "answer": "손가락이",
       "distractors": [
         "유치원이",
@@ -435,8 +435,8 @@
     {
       "id": "cloze_a2_0411",
       "sourceVocabId": "vocab_a2_0604",
-      "fullKo": "이 거리에는 관광객이 사진을 많이 찍어요.",
-      "sentenceKo": "이 거리에는 ＿＿＿ 사진을 많이 찍어요.",
+      "fullKo": "이 거리에서는 관광객이 사진을 많이 찍어요.",
+      "sentenceKo": "이 거리에서는 ＿＿＿ 사진을 많이 찍어요.",
       "answer": "관광객이",
       "distractors": [
         "일기가",
@@ -615,8 +615,8 @@
     {
       "id": "cloze_a2_0426",
       "sourceVocabId": "vocab_a2_0619",
-      "fullKo": "크리스티안, 나 초등학생이야. 3학년!",
-      "sentenceKo": "크리스티안, 나 ＿＿＿야. 3학년!",
+      "fullKo": "제 동생은 올해 초등학생이 됐어요.",
+      "sentenceKo": "제 동생은 올해 ＿＿＿ 됐어요.",
       "answer": "초등학생이",
       "distractors": [
         "가다",

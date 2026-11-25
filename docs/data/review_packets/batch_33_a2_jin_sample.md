@@ -6,13 +6,22 @@
 
 판정 3항목(F8): ① 한국인이 봐도 자연스러운가 ② DE·EN이 같은 사건인가(정답 누설 없음) ③ 레벨 안인가(A2 = 국제통용 1·2급 어휘·문법, 2급 밖 단어 ≤1문장).
 
+## R9 개정 (2026-11-25, Claude 자연화·정본 재검수 — 승인 전)
+
+| 단어 | 이전 예문 | 이후 예문 |
+|---|---|---|
+| 붙이다 | 엄마, 나 3학년 교실 벽에 그림 붙였어! | 엄마, 나 1학년 교실 벽에 그림 붙였어! |
+| 부장 | 안드레아 씨, 저희 팀 부장은 회의를 짧게 해요. | 안드레아 씨, 저희 팀 부장님은 회의를 짧게 끝내세요. |
+
+사유는 `tools/content_factory/repair_batches_32_34_naturalness_20261125.py` 독스트링. 2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only.
+
 ## A2 규칙 (테스트로 인코딩됨)
 
 - 예문 ≤10어절, 1·2급 문법만(`test_batch_33_draft.py::TestBatch33A2GrammarScan` — `scan_grammar_level.py --level A2`의 CefrLexicon 탐지기를 직접 재사용, grade≥3 히트 0건). GrammarIndex 구조적 사각지대(잖아/뿐/만큼/대로/-어도/-어야/-는다)와 A2에서 손이 가기 쉬운 3급 어미(-구나/-으려고)는 손으로 grep해 확인했고 0건이었다.
 - 어휘 등급 ≤2급, **2급 밖 단어 0건**(`test_helper_words_resolve_to_grade2_or_live_with_zero_exceptions` — NIKL grade≤2 ∪ 라이브 어휘 전체 ∪ 본 배치 표제어 안에서 전원 해석). 불규칙 활용형(빨개요/폈어요/건넜어요/이겼어요 등)은 `conjugation_overrides`로 사전형에 매핑했다. 1차 초안의 'N 때문에' 2건은 때문이 어휘 표제어가 아니라 문법 항목이어서 스캐너가 못 풀기에 문장을 고쳐 썼다(감기에 걸려서 / 행사 준비가 있어서).
 - 반말: 2행 — 붙이다(준→엄마, 준 고유 예외 '부모·크리스티안에게만, A2부터 반말'), 휴게실(수진→크리스티안, 정본 커플 규칙). 그 외 62행은 해요체/-세요.
 - 우리 같이 0건(cap 6), 반응 개시어(와/아/음/네/좋아요) 0건, 대시 0건, '진짜' 0건(정말 4회).
-- 페르소나 10건(≥8), 인물당 ≤2회 — 마야 2회, 준·동선·수진·현아·안드레아·크리스티안·다니엘·레나 각 1회. 귀속은 (a) 화자 고유 표지(대박=마야, 3학년=준, 우리 크리스티안=동선) 또는 (b) 선두 호격만 인정(`test_persona_attribution_is_speaker_cue_or_leading_vocative`).
+- 페르소나 10건(≥8), 인물당 ≤2회 — 마야 2회, 준·동선·수진·현아·안드레아·크리스티안·다니엘·레나 각 1회. 귀속은 (a) 화자 고유 표지(대박=마야, 1학년=준, 우리 크리스티안=동선) 또는 (b) 선두 호격만 인정(`test_persona_attribution_is_speaker_cue_or_leading_vocative`).
 - Sino 수사 vs 고유어 수사: 살 앞 Sino 수사 사용 없음. '두 번', '두 손' = 고유어 수사.
 - 보스 단어(`is_review_boss`): 12/12 팩마다 3개, 부분 팩(8/12) 2개, Batch 32 팩 완성분(8행)에 3개(Batch 32의 4행은 전부 false라 팩 합계 3) — 라이브 A2 팩 관례(12단어 팩 3·미만 팩 2)와 동일. Batch 31·32는 0개였으므로 이번 배치부터 브리프 지시로 채웠다.
 - 게임 계약: cloze 정답 ≥2음절(1음절 표제어 화/줄/팀은 조사 폴드 화가/줄을/팀은), satz 목표 ≥3어절(최소 4어절 '이가 아파서 치과에 예약을 했어요'류 전부 통과).
@@ -42,10 +51,10 @@
 
 | 표제어 | ID | 인물 | 귀속 근거 | 예문 KO |
 |---|---|---|---|---|
-| 붙이다 | `vocab_a2_0637` | 준 | (a) 준 고유 표지 '3학년' (배경 '초등학교 3학년 학생'), 엄마에게 반말 | 엄마, 나 3학년 교실 벽에 그림 붙였어! |
+| 붙이다 | `vocab_a2_0637` | 준 | (a) 준 고유 표지 '1학년' (배경 '고등학교 1학년 학생'), 엄마에게 반말 | 엄마, 나 1학년 교실 벽에 그림 붙였어! |
 | 자신 | `vocab_a2_0653` | 수진 | (b) 선두 호격 '수진 씨,' | 수진 씨, 먼저 자신을 믿으세요. |
 | 비밀 | `vocab_a2_0661` | 현아 | (b) 선두 호격 '현아 씨,' | 현아 씨, 이건 우리 둘만의 비밀이에요. |
-| 부장 | `vocab_a2_0676` | 안드레아 | (b) 선두 호격 '안드레아 씨,' | 안드레아 씨, 저희 팀 부장은 회의를 짧게 해요. |
+| 부장 | `vocab_a2_0676` | 안드레아 | (b) 선두 호격 '안드레아 씨,' | 안드레아 씨, 저희 팀 부장님은 회의를 짧게 끝내세요. |
 | 휴게실 | `vocab_a2_0682` | 크리스티안 | (b) 선두 호격 '크리스티안,' (수진→크리스티안 반말) | 크리스티안, 우리 휴게실에서 커피 마실래? |
 | 박수 | `vocab_a2_0688` | 다니엘 | (b) 선두 호격 '다니엘 씨,' | 다니엘 씨, 공연이 끝나면 박수를 크게 쳐 주세요. |
 | 자리 | `vocab_a2_0689` | 동선 | (a) 동선 고유 표지 '우리 크리스티안' (speechStyle.ko.markers '친근한 호칭: 우리 크리스티안') | 우리 크리스티안, 이 자리에 앉아요. |
@@ -53,7 +62,7 @@
 | 대회 | `vocab_a2_0693` | 마야 | (a) 마야 고유 표지 '대박' (speechStyle.byLevel.A2) | 대박, 우리 팀이 대회에서 이겼어요! |
 | 초대장 | `vocab_a2_0695` | 마야 | (b) 선두 호격 '마야 씨,' | 마야 씨, 결혼식 초대장을 받았어요? |
 
-반말 2행: `붙이다`(준→엄마 '엄마, 나 3학년 교실 벽에 그림 붙였어!' — 준의 정본 예외), `휴게실`(수진→크리스티안 '크리스티안, 우리 휴게실에서 커피 마실래?' — 정본 커플 규칙). 동선의 `자리` 행은 정본대로 크리스티안에게 해요체('이 자리에 앉아요'). 고정 사실 충돌 없음(수진=데이터 분석가 → '수진 씨 계산은 항상 정확해요'는 페르소나 행으로 세지 않는 중립 행이지만 배경과 일치; 준=초3; 크리스티안=교환학생).
+반말 2행: `붙이다`(준→엄마 '엄마, 나 1학년 교실 벽에 그림 붙였어!' — 준의 정본 예외), `휴게실`(수진→크리스티안 '크리스티안, 우리 휴게실에서 커피 마실래?' — 정본 커플 규칙). 동선의 `자리` 행은 정본대로 크리스티안에게 해요체('이 자리에 앉아요'). 고정 사실 충돌 없음(수진=데이터 분석가 → '수진 씨 계산은 항상 정확해요'는 페르소나 행으로 세지 않는 중립 행이지만 배경과 일치; 준=고1; 크리스티안=교환학생).
 
 ## 개시어 분포
 
@@ -159,7 +168,7 @@
 |  | vocab_a2_0634 | 밀다 | milda | Verb | a2_daily_actions_1 | 7 |  | schieben, aufdrücken (Tür) | to push | 무거운 문을 두 손으로 밀었어요. | Ich habe die schwere Tür mit beiden Händen aufgeschoben. | I pushed the heavy door with both hands. |  |
 |  | vocab_a2_0635 | 접다 | jeopda | Verb | a2_daily_actions_1 | 8 |  | falten | to fold | 종이를 접어서 비행기를 만들었어요. | Ich habe Papier gefaltet und ein Flugzeug gemacht. | I folded paper and made an airplane. |  |
 |  | vocab_a2_0636 | 펴다 | pyeoda | Verb | a2_daily_actions_1 | 9 |  | aufspannen, ausbreiten | to open (umbrella), to unfold | 비가 와서 우산을 폈어요. | Es hat geregnet, deshalb habe ich den Regenschirm aufgespannt. | It rained, so I opened my umbrella. |  |
-|  | vocab_a2_0637 | 붙이다 | buchida | Verb | a2_daily_actions_1 | 10 | ★ | ankleben, anbringen | to stick, to attach | 엄마, 나 3학년 교실 벽에 그림 붙였어! | Mama, ich habe im Klassenzimmer der dritten Klasse ein Bild an die Wand geklebt! | Mom, I stuck a picture on the wall of the third-grade classroom! | jun |
+|  | vocab_a2_0637 | 붙이다 | buchida | Verb | a2_daily_actions_1 | 10 | ★ | ankleben, anbringen | to stick, to attach | 엄마, 나 1학년 교실 벽에 그림 붙였어! | Mama, ich habe in unserem Klassenzimmer ein Bild an die Wand geklebt! | Mom, I stuck a picture on our classroom wall! | jun |
 |  | vocab_a2_0638 | 지우다 | jiuda | Verb | a2_daily_actions_1 | 11 |  | wegwischen, löschen | to erase | 틀린 글자를 지우고 다시 썼어요. | Ich habe den falschen Buchstaben weggewischt und ihn noch einmal geschrieben. | I erased the wrong letter and wrote it again. |  |
 |  | vocab_a2_0639 | 바르다 | bareuda | Verb | a2_daily_actions_1 | 12 |  | auftragen (Salbe, Creme) | to apply (ointment) | 상처에 이 약을 하루에 두 번 바르세요. | Tragen Sie diese Salbe zweimal am Tag auf die Wunde auf. | Apply this ointment to the wound twice a day. |  |
 |  | vocab_a2_0640 | 기침 | gichim | Nomen | a2_health_symptoms_1 | 1 | ★ | Husten | cough | 감기에 걸려서 기침이 계속 나요. | Ich habe mich erkältet, deshalb muss ich ständig husten. | I caught a cold, so I keep coughing. |  |
@@ -198,7 +207,7 @@
 |  | vocab_a2_0673 | 동쪽 | dongjjok | Nomen | a2_directions_1 | 10 |  | Osten | east | 아침에 해는 동쪽에서 떠요. | Morgens geht die Sonne im Osten auf. | In the morning, the sun rises in the east. |  |
 |  | vocab_a2_0674 | 서쪽 | seojjok | Nomen | a2_directions_1 | 11 |  | Westen | west | 저녁에 서쪽 하늘이 빨개요. | Am Abend ist der Himmel im Westen rot. | In the evening, the western sky is red. |  |
 |  | vocab_a2_0675 | 위치 | wichi | Nomen | a2_directions_1 | 12 |  | Lage, Standort | location | 이 카페는 위치가 정말 좋아요. | Dieses Café hat eine wirklich gute Lage. | This cafe has a really good location. |  |
-|  | vocab_a2_0676 | 부장 | bujang | Nomen | a2_workplace_1 | 1 | ★ | Abteilungsleiter/in | department head | 안드레아 씨, 저희 팀 부장은 회의를 짧게 해요. | Andrea, unser Abteilungsleiter hält die Besprechungen kurz. | Andrea, our team's department head keeps meetings short. | andrea |
+|  | vocab_a2_0676 | 부장 | bujang | Nomen | a2_workplace_1 | 1 | ★ | Abteilungsleiter/in | department head | 안드레아 씨, 저희 팀 부장님은 회의를 짧게 끝내세요. | Andrea, unser Abteilungsleiter hält die Besprechungen kurz. | Andrea, our team's department head keeps meetings short. | andrea |
 | **표본** | vocab_a2_0677 | 선배 | seonbae | Nomen | a2_workplace_1 | 2 |  | dienstälteres Teammitglied | senior (colleague) | 회사 선배가 점심을 사 줬어요. | Ein Teammitglied, das schon länger in der Firma ist, hat mir das Mittagessen bezahlt. | A senior colleague bought me lunch. |  |
 |  | vocab_a2_0678 | 후배 | hubae | Nomen | a2_workplace_1 | 3 |  | jüngere/r Kollege/in, Junior | junior (colleague) | 새로 온 후배에게 일을 가르쳐 줬어요. | Ich habe dem neuen jüngeren Kollegen die Arbeit gezeigt. | I taught the new junior colleague the work. |  |
 |  | vocab_a2_0679 | 팀 | tim | Nomen | a2_workplace_1 | 4 |  | Team | team | 우리 팀은 매주 월요일에 회의를 해요. | Unser Team hat jeden Montag eine Besprechung. | Our team has a meeting every Monday. |  |
@@ -242,9 +251,9 @@
 | `cloze_a2_0443` | 펴다 | intr | 비가 와서 우산을 잤어요. | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
 | `cloze_a2_0443` | 펴다 | intr | 비가 와서 우산을 섰어요. | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
 | `cloze_a2_0443` | 펴다 | intr | 비가 와서 우산을 웃었어요. | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
-| `cloze_a2_0444` | 붙이다 | intr | 엄마, 나 3학년 교실 벽에 그림 앉았어! | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
-| `cloze_a2_0444` | 붙이다 | intr | 엄마, 나 3학년 교실 벽에 그림 울었어! | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
-| `cloze_a2_0444` | 붙이다 | intr | 엄마, 나 3학년 교실 벽에 그림 웃었어! | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
+| `cloze_a2_0444` | 붙이다 | intr | 엄마, 나 1학년 교실 벽에 그림 앉았어! | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
+| `cloze_a2_0444` | 붙이다 | intr | 엄마, 나 1학년 교실 벽에 그림 울었어! | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
+| `cloze_a2_0444` | 붙이다 | intr | 엄마, 나 1학년 교실 벽에 그림 웃었어! | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
 | `cloze_a2_0445` | 지우다 | intr | 틀린 글자를 앉고 다시 썼어요. | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
 | `cloze_a2_0445` | 지우다 | intr | 틀린 글자를 울고 다시 썼어요. | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
 | `cloze_a2_0445` | 지우다 | intr | 틀린 글자를 자고 다시 썼어요. | ✗(구조 비문: 목적어가 있는데 자동사가 옴) |
@@ -359,9 +368,9 @@
 | `cloze_a2_0482` | 위치 | jota | 이 카페는 수술이 정말 좋아요. | ✗(의미 불성립: 카페의 속성이 될 수 없는 의료·증상 명사) |
 | `cloze_a2_0482` | 위치 | jota | 이 카페는 입원이 정말 좋아요. | ✗(의미 불성립: 카페의 속성이 될 수 없는 의료·증상 명사) |
 | `cloze_a2_0482` | 위치 | jota | 이 카페는 퇴원이 정말 좋아요. | ✗(의미 불성립: 카페의 속성이 될 수 없는 의료·증상 명사) |
-| `cloze_a2_0483` | 부장 | agent | 안드레아 씨, 저희 팀 편지는 회의를 짧게 해요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
-| `cloze_a2_0483` | 부장 | agent | 안드레아 씨, 저희 팀 초대장은 회의를 짧게 해요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
-| `cloze_a2_0483` | 부장 | agent | 안드레아 씨, 저희 팀 대회는 회의를 짧게 해요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
+| `cloze_a2_0483` | 부장 | agent | 안드레아 씨, 저희 팀 편지님은 회의를 짧게 끝내세요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
+| `cloze_a2_0483` | 부장 | agent | 안드레아 씨, 저희 팀 초대장님은 회의를 짧게 끝내세요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
+| `cloze_a2_0483` | 부장 | agent | 안드레아 씨, 저희 팀 대회님은 회의를 짧게 끝내세요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
 | `cloze_a2_0484` | 선배 | agent | 회사 새벽이 점심을 사 줬어요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
 | `cloze_a2_0484` | 선배 | agent | 회사 행사가 점심을 사 줬어요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |
 | `cloze_a2_0484` | 선배 | agent | 회사 박수가 점심을 사 줬어요. | ✗(의미 불성립: 행위 주체가 될 수 없는 사물·증상·행사 -- 조직 환유 가능한 매표소/휴게실 제외) |

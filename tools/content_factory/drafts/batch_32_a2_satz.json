@@ -34,7 +34,7 @@
       "id": "satz_a2_0563",
       "sourceVocabId": "vocab_a2_0571",
       "vocabKo": "손가락",
-      "targetKo": "레나 씨, 제 손가락이 길어요.",
+      "targetKo": "레나 씨, 피아노를 오래 쳐서 손가락이 아파요.",
       "distractors": [
         "유치원이",
         "관광객이"
@@ -364,7 +364,7 @@
       "id": "satz_a2_0596",
       "sourceVocabId": "vocab_a2_0604",
       "vocabKo": "관광객",
-      "targetKo": "이 거리에는 관광객이 사진을 많이 찍어요.",
+      "targetKo": "이 거리에서는 관광객이 사진을 많이 찍어요.",
       "distractors": [
         "일기가",
         "계획이"
@@ -514,7 +514,7 @@
       "id": "satz_a2_0611",
       "sourceVocabId": "vocab_a2_0619",
       "vocabKo": "초등학생",
-      "targetKo": "크리스티안, 나 초등학생이야. 3학년!",
+      "targetKo": "제 동생은 올해 초등학생이 됐어요.",
       "distractors": [
         "가다",
         "오다"

@@ -212,7 +212,7 @@
       "id": "satz_a2_0704",
       "sourceVocabId": "vocab_a2_0712",
       "vocabKo": "센터",
-      "targetKo": "센터에 전화해서 수리비를 물어봤어요.",
+      "targetKo": "서비스 센터에 전화해서 수리비를 물어봤어요.",
       "distractors": [
         "시간을",
         "알려줬어요"
@@ -303,13 +303,13 @@
       "id": "satz_a2_0711",
       "sourceVocabId": "vocab_a2_0719",
       "vocabKo": "떡",
-      "targetKo": "엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어!",
+      "targetKo": "엄마, 오늘 1학년 친구들하고 떡을 나눠 먹었어!",
       "distractors": [
         "어제",
         "선생님하고"
       ],
-      "promptDe": "Mama, heute habe ich Reiskuchen mit meinen Freunden aus der dritten Klasse geteilt!",
-      "promptEn": "Mom, I shared rice cakes with my third-grade friends today!",
+      "promptDe": "Mama, heute habe ich mit Freunden aus meinem Jahrgang Reiskuchen geteilt!",
+      "promptEn": "Mom, I shared rice cakes with friends from my year today!",
       "level": "a2"
     },
     {

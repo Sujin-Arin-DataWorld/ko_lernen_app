@@ -2,6 +2,15 @@
 
 상태: **예문 64개 / 빈칸 64세트·문장 조립 64세트 모델 검토 완료** (`MODEL_QA_PASS`). 의미 검토와 구조 검토를 별도로 수행했다. 사람 검수 전이며 모든 review ledger는 `pending`이다.
 
+## R9 개정 (2026-11-25, Claude 자연화·정본 재검수 — 승인 전)
+
+| 단어 | 이전 예문 | 이후 예문 |
+|---|---|---|
+| 떡 | 엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어! | 엄마, 오늘 1학년 친구들하고 떡을 나눠 먹었어! |
+| 센터 | 센터에 전화해서 수리비를 물어봤어요. | 서비스 센터에 전화해서 수리비를 물어봤어요. |
+
+사유는 `tools/content_factory/repair_batches_32_34_naturalness_20261125.py` 독스트링. 2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only.
+
 ## 이번 예문의 기준
 
 - A2: 최대 12어절·2절. 상한을 채우려고 길게 쓰지 않고, 단어를 실제로 쓸 장면과 한 가지 의도를 먼저 정했다.
@@ -115,14 +124,14 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | 14 | vocab_a2_0709 | 막히다 | 길이 막혔어요. 지하철로 갈까요? | Es gibt einen Stau. Nehmen wir die U-Bahn? | There's a traffic jam. Shall we take the subway? |
 | 15 | vocab_a2_0710 | 전기 | 전기가 나가서 촛불을 켰어요. | Der Strom ist ausgefallen, also habe ich eine Kerze angezündet. | The power went out, so I lit a candle. |
 | 16 | vocab_a2_0711 | 유리 | 이 컵은 유리로 만들었어요. 안이 잘 보여요. | Dieser Becher ist aus Glas. Man kann gut hineinsehen. | This cup is made of glass. You can see inside clearly. |
-| 17 | vocab_a2_0712 | 센터 | 센터에 전화해서 수리비를 물어봤어요. | Ich habe beim Servicecenter angerufen und nach den Reparaturkosten gefragt. | I called the service center to ask about the repair cost. |
+| 17 | vocab_a2_0712 | 센터 | 서비스 센터에 전화해서 수리비를 물어봤어요. | Ich habe beim Servicecenter angerufen und nach den Reparaturkosten gefragt. | I called the service center to ask about the repair cost. |
 | 18 | vocab_a2_0713 | 서비스 | 이 식당은 서비스가 정말 좋아요. | Der Service in diesem Restaurant ist wirklich gut. | The service at this restaurant is really good. |
 | 19 | vocab_a2_0714 | 안전 | 운전할 때는 안전이 제일 중요해요. | Beim Autofahren ist Sicherheit am wichtigsten. | When you drive, safety matters most. |
 | 20 | vocab_a2_0715 | 급하다 | 급한 일이 생겼어요. | Es ist etwas Dringendes dazwischengekommen. | Something urgent has come up. |
 | 21 | vocab_a2_0716 | 알아보다 | 기차 시간을 알아봤어요. 아직 한 시간 남았어요. | Ich habe die Zugzeiten nachgesehen. Wir haben noch eine Stunde. | I checked the train times. We've still got an hour. |
 | 22 | vocab_a2_0717 | 잘못하다 | 제가 계산을 잘못해서 천 원을 더 냈어요. | Ich habe mich verrechnet und tausend Won zu viel bezahlt. | I got the calculation wrong and paid a thousand won too much. |
 | 23 | vocab_a2_0718 | 만두 | 만두를 너무 많이 쪘어요. 같이 먹어요. | Ich habe zu viele Mandu gedämpft. Essen Sie mit! | I steamed too many dumplings. Come and share them! |
-| 24 | vocab_a2_0719 | 떡 | 엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어! | Mama, heute habe ich Reiskuchen mit meinen Freunden aus der dritten Klasse geteilt! | Mom, I shared rice cakes with my third-grade friends today! |
+| 24 | vocab_a2_0719 | 떡 | 엄마, 오늘 1학년 친구들하고 떡을 나눠 먹었어! | Mama, heute habe ich mit Freunden aus meinem Jahrgang Reiskuchen geteilt! | Mom, I shared rice cakes with friends from my year today! |
 | 25 | vocab_a2_0720 | 김 | 이 김은 별로 안 짜요. 밥이랑 같이 드세요. | Diese Algenblätter sind nicht besonders salzig. Essen Sie sie doch mit Reis. | This dried seaweed isn't very salty. Try it with rice. |
 | 26 | vocab_a2_0721 | 찌개 | 오늘은 따뜻한 찌개가 먹고 싶어요. | Heute habe ich Lust auf einen warmen koreanischen Eintopf. | I feel like having a warm Korean stew today. |
 | 27 | vocab_a2_0722 | 튀김 | 튀김을 방금 해서 아직 뜨거워요. | Das Essen ist frisch frittiert und noch heiß. | The food has just been deep-fried, so it is still hot. |
@@ -184,7 +193,7 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | 막히다 | 교통 체증 때문에 지하철 이용을 제안 | 4 |
 | 전기 | 정전 때 한 행동을 이야기함 | 4 |
 | 유리 | 컵의 재료와 투명한 모습을 설명 | 7 |
-| 센터 | 수리 센터에 비용을 문의 | 4 |
+| 센터 | 수리 센터에 비용을 문의 | 5 |
 | 서비스 | 식당에서 받은 서비스에 만족하며 이야기함 | 5 |
 | 안전 | 운전할 때 가장 중요한 것을 말함 | 5 |
 | 급하다 | 급한 일이 생겼다고 알림 | 3 |
@@ -291,9 +300,9 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | `cloze_a2_0518` | 유리 | 유리로 | 나무로 | 이 컵은 나무로 만들었어요. 안이 잘 보여요. | 나무로 만듦; 요구 뜻: 컵을 만든 재료가 유리임 |
 | `cloze_a2_0518` | 유리 | 유리로 | 종이로 | 이 컵은 종이로 만들었어요. 안이 잘 보여요. | 종이로 만듦; 요구 뜻: 컵을 만든 재료가 유리임 |
 | `cloze_a2_0518` | 유리 | 유리로 | 천으로 | 이 컵은 천으로 만들었어요. 안이 잘 보여요. | 천으로 만듦; 요구 뜻: 컵을 만든 재료가 유리임 |
-| `cloze_a2_0519` | 센터 | 센터에 | 가게에 | 가게에 전화해서 수리비를 물어봤어요. | 가게에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
-| `cloze_a2_0519` | 센터 | 센터에 | 회사에 | 회사에 전화해서 수리비를 물어봤어요. | 회사에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
-| `cloze_a2_0519` | 센터 | 센터에 | 공장에 | 공장에 전화해서 수리비를 물어봤어요. | 공장에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
+| `cloze_a2_0519` | 센터 | 센터에 | 가게에 | 서비스 가게에 전화해서 수리비를 물어봤어요. | 가게에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
+| `cloze_a2_0519` | 센터 | 센터에 | 회사에 | 서비스 회사에 전화해서 수리비를 물어봤어요. | 회사에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
+| `cloze_a2_0519` | 센터 | 센터에 | 공장에 | 서비스 공장에 전화해서 수리비를 물어봤어요. | 공장에 전화함; 요구 뜻: 수리 관련 센터에 전화함 |
 | `cloze_a2_0520` | 서비스 | 서비스가 | 가격이 | 이 식당은 가격이 정말 좋아요. | 가격이 좋음; 요구 뜻: 식당의 서비스가 좋음 |
 | `cloze_a2_0520` | 서비스 | 서비스가 | 음식이 | 이 식당은 음식이 정말 좋아요. | 음식이 좋음; 요구 뜻: 식당의 서비스가 좋음 |
 | `cloze_a2_0520` | 서비스 | 서비스가 | 위치가 | 이 식당은 위치가 정말 좋아요. | 위치가 좋음; 요구 뜻: 식당의 서비스가 좋음 |
@@ -312,9 +321,9 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | `cloze_a2_0525` | 만두 | 만두를 | 감자를 | 감자를 너무 많이 쪘어요. 같이 먹어요. | 감자를 찜; 요구 뜻: 찐 음식이 만두임 |
 | `cloze_a2_0525` | 만두 | 만두를 | 고기를 | 고기를 너무 많이 쪘어요. 같이 먹어요. | 고기를 찜; 요구 뜻: 찐 음식이 만두임 |
 | `cloze_a2_0525` | 만두 | 만두를 | 생선을 | 생선을 너무 많이 쪘어요. 같이 먹어요. | 생선을 찜; 요구 뜻: 찐 음식이 만두임 |
-| `cloze_a2_0526` | 떡 | 떡을 | 빵을 | 엄마, 오늘 3학년 친구들하고 빵을 나눠 먹었어! | 빵을 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
-| `cloze_a2_0526` | 떡 | 떡을 | 과자를 | 엄마, 오늘 3학년 친구들하고 과자를 나눠 먹었어! | 과자를 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
-| `cloze_a2_0526` | 떡 | 떡을 | 과일을 | 엄마, 오늘 3학년 친구들하고 과일을 나눠 먹었어! | 과일을 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
+| `cloze_a2_0526` | 떡 | 떡을 | 빵을 | 엄마, 오늘 1학년 친구들하고 빵을 나눠 먹었어! | 빵을 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
+| `cloze_a2_0526` | 떡 | 떡을 | 과자를 | 엄마, 오늘 1학년 친구들하고 과자를 나눠 먹었어! | 과자를 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
+| `cloze_a2_0526` | 떡 | 떡을 | 과일을 | 엄마, 오늘 1학년 친구들하고 과일을 나눠 먹었어! | 과일을 나눠 먹음; 요구 뜻: 나눠 먹은 간식이 떡임 |
 | `cloze_a2_0527` | 김 | 김은 | 오이는 | 이 오이는 별로 안 짜요. 밥이랑 같이 드세요. | 오이의 맛; 요구 뜻: 밥과 함께 먹을 김의 맛 |
 | `cloze_a2_0527` | 김 | 김은 | 김치는 | 이 김치는 별로 안 짜요. 밥이랑 같이 드세요. | 김치의 맛; 요구 뜻: 밥과 함께 먹을 김의 맛 |
 | `cloze_a2_0527` | 김 | 김은 | 간장은 | 이 간장은 별로 안 짜요. 밥이랑 같이 드세요. | 간장의 맛; 요구 뜻: 밥과 함께 먹을 김의 맛 |
@@ -479,8 +488,8 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | `satz_a2_0702` | 전기 | 켰어요 | 껐어요 | 전기가 나가서 촛불을 껐어요. | 켜기에서 끄기로 바뀜 |
 | `satz_a2_0703` | 유리 | 컵은 | 그릇은 | 이 그릇은 유리로 만들었어요. 안이 잘 보여요. | 만든 물건이 바뀜 |
 | `satz_a2_0703` | 유리 | 안이 | 밖이 | 이 컵은 유리로 만들었어요. 밖이 잘 보여요. | 보이는 쪽이 바뀜 |
-| `satz_a2_0704` | 센터 | 수리비를 | 시간을 | 센터에 전화해서 시간을 물어봤어요. | 물어본 정보가 비용에서 시간으로 바뀜 |
-| `satz_a2_0704` | 센터 | 물어봤어요 | 알려줬어요 | 센터에 전화해서 수리비를 알려줬어요. | 비용을 묻기에서 알려주기로 바뀜 |
+| `satz_a2_0704` | 센터 | 수리비를 | 시간을 | 서비스 센터에 전화해서 시간을 물어봤어요. | 물어본 정보가 비용에서 시간으로 바뀜 |
+| `satz_a2_0704` | 센터 | 물어봤어요 | 알려줬어요 | 서비스 센터에 전화해서 수리비를 알려줬어요. | 비용을 묻기에서 알려주기로 바뀜 |
 | `satz_a2_0705` | 서비스 | 좋아요 | 나빠요 | 이 식당은 서비스가 정말 나빠요. | 평가가 반대로 바뀜 |
 | `satz_a2_0705` | 서비스 | 식당은 | 호텔은 | 이 호텔은 서비스가 정말 좋아요. | 평가하는 장소가 바뀜 |
 | `satz_a2_0706` | 안전 | 운전할 | 운동할 | 운동할 때는 안전이 제일 중요해요. | 안전이 필요한 활동이 바뀜 |
@@ -493,8 +502,8 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | `satz_a2_0709` | 잘못하다 | 천 | 만 | 제가 계산을 잘못해서 만 원을 더 냈어요. | 초과 지불액이 바뀜 |
 | `satz_a2_0710` | 만두 | 쪘어요 | 구웠어요 | 만두를 너무 많이 구웠어요. 같이 먹어요. | 찌기에서 굽기로 조리법이 바뀜 |
 | `satz_a2_0710` | 만두 | 많이 | 조금 | 만두를 너무 조금 쪘어요. 같이 먹어요. | 만든 양이 바뀜 |
-| `satz_a2_0711` | 떡 | 오늘 | 어제 | 엄마, 어제 3학년 친구들하고 떡을 나눠 먹었어! | 간식을 나눈 날이 바뀜 |
-| `satz_a2_0711` | 떡 | 친구들하고 | 선생님하고 | 엄마, 오늘 3학년 선생님하고 떡을 나눠 먹었어! | 함께 먹은 상대가 바뀜 |
+| `satz_a2_0711` | 떡 | 오늘 | 어제 | 엄마, 어제 1학년 친구들하고 떡을 나눠 먹었어! | 간식을 나눈 날이 바뀜 |
+| `satz_a2_0711` | 떡 | 친구들하고 | 선생님하고 | 엄마, 오늘 1학년 선생님하고 떡을 나눠 먹었어! | 함께 먹은 상대가 바뀜 |
 | `satz_a2_0712` | 김 | 짜요 | 매워요 | 이 김은 별로 안 매워요. 밥이랑 같이 드세요. | 짠맛에서 매운맛으로 바뀜 |
 | `satz_a2_0712` | 김 | 밥이랑 | 빵이랑 | 이 김은 별로 안 짜요. 빵이랑 같이 드세요. | 함께 먹으라는 음식이 바뀜 |
 | `satz_a2_0713` | 찌개 | 따뜻한 | 차가운 | 오늘은 차가운 찌개가 먹고 싶어요. | 원하는 음식의 온도가 바뀜 |

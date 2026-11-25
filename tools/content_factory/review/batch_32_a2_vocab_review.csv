@@ -1,7 +1,7 @@
 id,level,ko,de,en,field_notes,상태,jin_memo
 vocab_a2_0568,A2,어깨,Schulter,shoulder,rights: original_clean_room; pack=a2_body_1; order=1; boss=false; C3 Batch 32 A2 reinforcement,pending,
 vocab_a2_0569,A2,가슴,Brust,chest,rights: original_clean_room; pack=a2_body_1; order=2; boss=false; C3 Batch 32 A2 reinforcement,pending,
-vocab_a2_0570,A2,허리,Taille,waist,rights: original_clean_room; pack=a2_body_1; order=3; boss=false; C3 Batch 32 A2 reinforcement,pending,
+vocab_a2_0570,A2,허리,"Kreuz, unterer Rücken","lower back, waist",rights: original_clean_room; pack=a2_body_1; order=3; boss=false; C3 Batch 32 A2 reinforcement,pending,
 vocab_a2_0571,A2,손가락,Finger,finger,rights: original_clean_room; pack=a2_body_1; order=4; boss=false; C3 Batch 32 A2 reinforcement,pending,
 vocab_a2_0572,A2,손바닥,Handfläche,palm,rights: original_clean_room; pack=a2_body_1; order=5; boss=false; C3 Batch 32 A2 reinforcement,pending,
 vocab_a2_0573,A2,발가락,Zeh,toe,rights: original_clean_room; pack=a2_body_1; order=6; boss=false; C3 Batch 32 A2 reinforcement,pending,

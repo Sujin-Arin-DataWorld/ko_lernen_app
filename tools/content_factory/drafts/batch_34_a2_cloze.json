@@ -259,8 +259,8 @@
     {
       "id": "cloze_a2_0519",
       "sourceVocabId": "vocab_a2_0712",
-      "fullKo": "센터에 전화해서 수리비를 물어봤어요.",
-      "sentenceKo": "＿＿＿ 전화해서 수리비를 물어봤어요.",
+      "fullKo": "서비스 센터에 전화해서 수리비를 물어봤어요.",
+      "sentenceKo": "서비스 ＿＿＿ 전화해서 수리비를 물어봤어요.",
       "answer": "센터에",
       "distractors": [
         "가게에",
@@ -371,16 +371,16 @@
     {
       "id": "cloze_a2_0526",
       "sourceVocabId": "vocab_a2_0719",
-      "fullKo": "엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어!",
-      "sentenceKo": "엄마, 오늘 3학년 친구들하고 ＿＿＿ 나눠 먹었어!",
+      "fullKo": "엄마, 오늘 1학년 친구들하고 떡을 나눠 먹었어!",
+      "sentenceKo": "엄마, 오늘 1학년 친구들하고 ＿＿＿ 나눠 먹었어!",
       "answer": "떡을",
       "distractors": [
         "빵을",
         "과자를",
         "과일을"
       ],
-      "de": "Mama, heute habe ich Reiskuchen mit meinen Freunden aus der dritten Klasse geteilt!",
-      "en": "Mom, I shared rice cakes with my third-grade friends today!",
+      "de": "Mama, heute habe ich mit Freunden aus meinem Jahrgang Reiskuchen geteilt!",
+      "en": "Mom, I shared rice cakes with friends from my year today!",
       "level": "a2",
       "topic": "Essen & Trinken"
     },

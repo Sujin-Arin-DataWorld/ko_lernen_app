@@ -166,5 +166,6 @@
     "firebase": false,
     "note": "DRAFT ONLY per level-canon program hard rule -- no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
   },
-  "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 선배 DE now encodes longer tenure without inventing age or gender; 노력 DE now uses 'das eigene Koreanisch'. KO/EN, IDs, statuses, packs, and historical gap arithmetic are unchanged; MODEL_QA only."
+  "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 선배 DE now encodes longer tenure without inventing age or gender; 노력 DE now uses 'das eigene Koreanisch'. KO/EN, IDs, statuses, packs, and historical gap arithmetic are unchanged; MODEL_QA only.",
+  "claudeReviewCorrectionNote20261125": "2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only. Rows: 붙이다: 엄마, 나 3학년 교실 벽에 그림 붙였어! -> 엄마, 나 1학년 교실 벽에 그림 붙였어!; 부장: 안드레아 씨, 저희 팀 부장은 회의를 짧게 해요. -> 안드레아 씨, 저희 팀 부장님은 회의를 짧게 끝내세요."
 }

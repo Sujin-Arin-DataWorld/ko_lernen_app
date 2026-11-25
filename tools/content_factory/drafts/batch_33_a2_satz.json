@@ -54,7 +54,7 @@
       "id": "satz_a2_0629",
       "sourceVocabId": "vocab_a2_0637",
       "vocabKo": "붙이다",
-      "targetKo": "엄마, 나 3학년 교실 벽에 그림 붙였어!",
+      "targetKo": "엄마, 나 1학년 교실 벽에 그림 붙였어!",
       "distractors": [
         "앉았어",
         "울었어"
@@ -444,10 +444,10 @@
       "id": "satz_a2_0668",
       "sourceVocabId": "vocab_a2_0676",
       "vocabKo": "부장",
-      "targetKo": "안드레아 씨, 저희 팀 부장은 회의를 짧게 해요.",
+      "targetKo": "안드레아 씨, 저희 팀 부장님은 회의를 짧게 끝내세요.",
       "distractors": [
-        "편지는",
-        "초대장은"
+        "편지",
+        "초대장"
       ]
     },
     {

@@ -127,7 +127,7 @@ OVERRIDES = {
     "보낼게요": "보내다", "막혔어요": "막히다",
     "모르겠어요": "모르다", "갈까요": "가다",
     "나와요": "나오다", "나와서": "나오다", "무거운": "무겁다", "와서": "오다", "온": "오다", "올": "오다",
-    "폈어요": "펴다", "붙였어": "붙이다", "3학년": "학년", "틀린": "틀리다", "썼어요": "쓰다",
+    "폈어요": "펴다", "붙였어": "붙이다", "3학년": "학년", "1학년": "학년", "틀린": "틀리다", "썼어요": "쓰다",
     "나요": "나다", "났어요": "나다", "나서": "나다", "봄에는": "봄", "해요": "하다", "했어요": "하다", "해서": "하다",
     "넘어져서": "넘어지다", "생겼어요": "생기다", "다쳐서": "다치다", "퇴원이라서": "퇴원", "아파서": "아프다",
     "갔어요": "가다", "전에는": "전", "돼요": "되다", "느껴요": "느끼다", "느낄": "느끼다", "봐서": "보다", "흘렸어요": "흘리다",
@@ -597,13 +597,15 @@ class TestBatch34VocabRows(unittest.TestCase):
             self.assertEqual(declared[vid]["addressee"], addressee)
 
     def test_jun_fixed_facts_not_contradicted(self):
-        """준 is 초등학교 3학년 / 9살 (character_profiles.json). No row may put
-        him in another grade or age."""
+        """준 is 고등학교 1학년 / 16살 (character_profiles.json; the profile
+        changed from 초등학교 3학년 / 9살 after this batch was drafted -- the
+        2026-11-25 Claude review moved his rows to 1학년). No row may put him
+        in another grade or age."""
         for row in self.rows:
             ex = row["example_korean"]
             if "준" in ex:
-                self.assertNotRegex(ex, r"[1245-6]학년|[일이사오육]학년", f"{row['id']}: contradicts 준's 3학년 fixed fact")
-                self.assertNotRegex(ex, r"(열|여덟|일곱|여섯)\s*살", f"{row['id']}: contradicts 준's 9살 fixed fact")
+                self.assertNotRegex(ex, r"[2-6]학년|[이삼사오육]학년", f"{row['id']}: contradicts 준's 1학년 fixed fact")
+                self.assertNotRegex(ex, r"(아홉|여덟|일곱|열일곱|열다섯)\s*살|(?<!열)여섯\s*살", f"{row['id']}: contradicts 준's 16살 fixed fact")
 
 
 class TestBatch34A2GrammarScan(unittest.TestCase):
