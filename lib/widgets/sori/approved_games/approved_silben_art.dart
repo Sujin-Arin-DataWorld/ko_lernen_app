@@ -13,8 +13,6 @@ const silbenTileAsset =
     'assets/illustrations/concept_c/spiele_preview/silben_tile.png';
 const silbenWoodAsset =
     'assets/illustrations/concept_c/spiele_preview/wood_tray.png';
-const silbenFlowerAsset =
-    'assets/illustrations/einleitung_generated/intro-plum-branch.png';
 
 TextStyle silbenType(double size, {Color color = silbenInk}) => TextStyle(
   fontFamily: _silbenFont,
@@ -76,31 +74,6 @@ class SilbenHeader extends StatelessWidget {
                 child: GameArtwork(
                   'word_chain_jade_borderless',
                   fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                top: -13,
-                right: -11,
-                width: 87,
-                height: 61,
-                child: IgnorePointer(
-                  child: ClipRect(
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          left: -1.97,
-                          top: -2.78,
-                          width: 197.73,
-                          height: 69.32,
-                          child: Image.asset(
-                            silbenFlowerAsset,
-                            fit: BoxFit.fill,
-                            excludeFromSemantics: true,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ),
               if (compact)
