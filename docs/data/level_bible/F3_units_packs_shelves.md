@@ -57,7 +57,7 @@
 | c2_05_relationship_narratives | c2 | 5 | 기억·관점·관계 서사 조정하기 | Negotiating memory, perspective, and relationship narratives |
 | c2_06_fandom_discourse_power | c2 | 6 | 미디어 프레이밍과 지역 영향 논증하기 | Arguing media framing and local impact |
 
-## 팩 base id -> 코스유닛 매핑 (222개)
+## 팩 base id -> 코스유닛 매핑 (235개)
 
 | pack base id | courseUnitId |
 |---|---|
@@ -106,17 +106,24 @@
 | a1_transport | a1_06_transport_directions |
 | a1_verbs_daily | a1_12_daily_negation |
 | a1_weekend_promise | a1_09_home_daily_life |
+| a2_body | a2_04_feelings_health |
 | a2_change_verbs | a2_01_haeyo_transition |
 | a2_clothing | a2_05_delivery_services |
 | a2_daily | a2_01_haeyo_transition |
+| a2_daily_actions | a2_01_haeyo_transition |
 | a2_descriptions | a2_01_haeyo_transition |
+| a2_directions | a2_07_travel_repair |
+| a2_dishes | a2_05_delivery_services |
 | a2_education | a2_06_study_work |
+| a2_events | a2_02_plans_proposals |
 | a2_feelings | a2_04_feelings_health |
 | a2_food | a2_05_delivery_services |
 | a2_food_more | a2_05_delivery_services |
 | a2_gym_class | a2_04_feelings_health |
 | a2_health_misc | a2_04_feelings_health |
+| a2_health_symptoms | a2_04_feelings_health |
 | a2_home | a2_08_home_money |
+| a2_home_routines | a2_08_home_money |
 | a2_household | a2_08_home_money |
 | a2_messenger_phone | a2_03_chat_relationships |
 | a2_money | a2_08_home_money |
@@ -132,17 +139,23 @@
 | a2_people_jobs | a2_06_study_work |
 | a2_pharmacy_ask | a2_04_feelings_health |
 | a2_plans_proposals | a2_02_plans_proposals |
+| a2_problems_help | a2_07_travel_repair |
 | a2_restaurant | a2_05_delivery_services |
 | a2_salon_visit | a2_05_delivery_services |
+| a2_school | a2_06_study_work |
 | a2_school_supplies | a2_06_study_work |
 | a2_school_uni | a2_06_study_work |
 | a2_shopping | a2_05_delivery_services |
 | a2_subway_card | a2_07_travel_repair |
+| a2_time_span | a2_02_plans_proposals |
 | a2_transport | a2_07_travel_repair |
+| a2_travel | a2_07_travel_repair |
 | a2_wearing_verbs | a2_05_delivery_services |
 | a2_weather | a2_03_chat_relationships |
 | a2_weather_layer | a2_04_feelings_health |
+| a2_weather_sky | a2_03_chat_relationships |
 | a2_work | a2_06_study_work |
+| a2_workplace | a2_06_study_work |
 | b1_apt_rules | b1_06_life_capstone |
 | b1_bank_counter | b1_05_complaint_resolution |
 | b1_character_feelings | b1_04_relationships |

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 254,
+  "packCount": 270,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -1887,7 +1887,7 @@
       "rewardMotif": "lotus",
       "primaryAsset": "assets/illustrations/packs/a1_greetings_2.webp",
       "subjectKo": "잘 지내요? · 처음 뵙겠습니다 · 만나서 반가워요 · 잘 부탁드려요",
-      "subjectPromptEn": "a modern still life expressing How've you been?, Nice to meet you (formal), Nice to meet you, Hope we get along",
+      "subjectPromptEn": "a modern still life expressing How've you been?, Nice to meet you (formal), Nice to meet you, I look forward to working with you",
       "evidenceWordIds": [
         "vocab_a1_0168",
         "vocab_a1_0169",
@@ -4105,8 +4105,8 @@
       "level": "B2",
       "rewardMotif": "munbangsau",
       "primaryAsset": "assets/illustrations/packs/b2_reading_response_1.webp",
-      "subjectKo": "여운 · 함축 · 묘사 · 시선",
-      "subjectPromptEn": "a modern still life expressing lingering impression, implication, description, perspective",
+      "subjectKo": "여운 · 숨은 뜻 · 묘사 · 시선",
+      "subjectPromptEn": "a modern still life expressing lingering impression, hidden meaning, description, perspective",
       "evidenceWordIds": [
         "vocab_b2_0241",
         "vocab_b2_0242",
@@ -4143,7 +4143,7 @@
       "level": "B2",
       "rewardMotif": "chilbo",
       "primaryAsset": "assets/illustrations/packs/b2_language_society_1.webp",
-      "subjectKo": "어감 · 말투 · 용례 · 관용어",
+      "subjectKo": "어감 · 말투 · 사용 예 · 관용어",
       "subjectPromptEn": "a modern still life expressing connotation, tone of voice, usage example, idiomatic expression",
       "evidenceWordIds": [
         "vocab_b2_0253",
@@ -5168,7 +5168,7 @@
       "rewardMotif": "yeopjeon",
       "primaryAsset": "assets/illustrations/packs/b2_partner_family_money_1.webp",
       "subjectKo": "세뱃돈 사양 · 용돈 드리다 · 더치페이 오해 · 축의금",
-      "subjectPromptEn": "a modern still life expressing declining New Year money, to give pocket money to elders, split-bill misunderstanding, wedding congratulatory money",
+      "subjectPromptEn": "a modern still life expressing declining New Year money, to give money to parents or older relatives, split-bill misunderstanding, wedding cash gift",
       "evidenceWordIds": [
         "vocab_a2_0283",
         "vocab_b2_0479",
@@ -5397,8 +5397,8 @@
       "level": "A2",
       "rewardMotif": "mountain",
       "primaryAsset": "assets/illustrations/packs/a2_partner_hometown_trip_1.webp",
-      "subjectKo": "고속버스 · 휴게소 · 명절 기차 · 짐 부치다",
-      "subjectPromptEn": "a modern still life expressing express bus, highway rest stop, holiday train, to check a bag",
+      "subjectKo": "고속버스 · 휴게소 · 명절 기차표 · 짐 부치다",
+      "subjectPromptEn": "a modern still life expressing express bus, highway rest stop, holiday train ticket, to check a bag",
       "evidenceWordIds": [
         "vocab_a2_0341",
         "vocab_a2_0342",
@@ -5665,7 +5665,7 @@
       "rewardMotif": "bok",
       "primaryAsset": "assets/illustrations/packs/b2_partner_inlaws_1.webp",
       "subjectKo": "며느리 역할 · 사위 사랑 · 양가 눈치 · 시월드",
-      "subjectPromptEn": "a modern still life expressing daughter-in-law role, fondness for a son-in-law, reading both families, in-law land",
+      "subjectPromptEn": "a modern still life expressing daughter-in-law role, fondness for a son-in-law, navigating both families' expectations, “in-law world” (humorous term for a husband's family)",
       "evidenceWordIds": [
         "vocab_b2_0433",
         "vocab_b2_0434",
@@ -5739,7 +5739,7 @@
       "rewardMotif": "taegeuk",
       "primaryAsset": "assets/illustrations/packs/b2_partner_honorific_trap_1.webp",
       "subjectKo": "가족 호칭 · 어른 앞에서 · 낮춰 부르다 · 높여 부르다",
-      "subjectPromptEn": "a modern still life expressing family address terms, in front of elders, to address too casually, to address too highly",
+      "subjectPromptEn": "a modern still life expressing family address terms, in front of elders, to refer to someone using a humble form, to refer to someone using an honorific form",
       "evidenceWordIds": [
         "vocab_b2_0455",
         "vocab_b2_0456",
@@ -5777,7 +5777,7 @@
       "rewardMotif": "mugunghwa",
       "primaryAsset": "assets/illustrations/packs/b2_partner_ancestral_rite_1.webp",
       "subjectKo": "제사상 · 지방 쓰기 · 술잔 올리기 · 재배",
-      "subjectPromptEn": "a modern still life expressing ancestral offering table, writing the ancestral name paper, offering the cup, double ritual bow",
+      "subjectPromptEn": "a modern still life expressing ancestral offering table, writing the paper ancestral tablet, offering a cup of alcohol, double ritual bow",
       "evidenceWordIds": [
         "vocab_b2_0467",
         "vocab_b2_0468",
@@ -5815,7 +5815,7 @@
       "rewardMotif": "mountain",
       "primaryAsset": "assets/illustrations/packs/b2_partner_boundary_1.webp",
       "subjectKo": "선을 긋다 · 사생활 · 연락 빈도 · 거절 문장",
-      "subjectPromptEn": "a modern still life expressing to draw a line, privacy, how often to contact, a line for saying no",
+      "subjectPromptEn": "a modern still life expressing to draw a line, private life, frequency of contact, wording for a refusal",
       "evidenceWordIds": [
         "vocab_b2_0503",
         "vocab_b2_0504",
@@ -5853,7 +5853,7 @@
       "rewardMotif": "bamboo",
       "primaryAsset": "assets/illustrations/packs/b2_partner_public_intro_1.webp",
       "subjectKo": "공식 소개 · 자리 배치 · 사진 공개 · 호칭 공개",
-      "subjectPromptEn": "a modern still life expressing formal introduction, public seating order, posting a photo publicly, public form of address",
+      "subjectPromptEn": "a modern still life expressing formal introduction, seating arrangement, posting a photo publicly, public form of address",
       "evidenceWordIds": [
         "vocab_b2_0515",
         "vocab_b2_0516",
@@ -5891,7 +5891,7 @@
       "rewardMotif": "taegeuk",
       "primaryAsset": "assets/illustrations/packs/taegeuk.webp",
       "subjectKo": "우리 며느리 · 손님으로 두다 · 소속 프레임 · 역할 언어",
-      "subjectPromptEn": "a modern still life expressing our daughter-in-law, to leave someone as a guest, belonging frame, role language",
+      "subjectPromptEn": "a modern still life expressing our daughter-in-law, to continue treating someone as a guest, framing of belonging, role-based language",
       "evidenceWordIds": [
         "vocab_c1_0049",
         "vocab_c1_0050",
@@ -5966,8 +5966,8 @@
       "level": "C2",
       "rewardMotif": "manja",
       "primaryAsset": "assets/illustrations/packs/manja.webp",
-      "subjectKo": "의사결정권 · 침묵 압력 · 대리 발화 · 체면 경제",
-      "subjectPromptEn": "a modern still life expressing decision rights, pressure through silence, speaking on someone's behalf, economy of face",
+      "subjectKo": "의사결정권 · 침묵 압력 · 대리 발화 · 체면을 지키다",
+      "subjectPromptEn": "a modern still life expressing decision-making power, pressure to remain silent, speaking on someone's behalf, to save face",
       "evidenceWordIds": [
         "vocab_c2_0049",
         "vocab_c2_0050",
@@ -6005,7 +6005,7 @@
       "rewardMotif": "peony",
       "primaryAsset": "assets/illustrations/packs/peony.webp",
       "subjectKo": "이름 호명 · 기억의 편집 · 서사의 주인 · 호칭의 정치",
-      "subjectPromptEn": "a modern still life expressing calling by name, editing of memory, owner of the story, politics of address",
+      "subjectPromptEn": "a modern still life expressing calling by name, editing of memory, owner of the narrative, politics of address",
       "evidenceWordIds": [
         "vocab_c2_0061",
         "vocab_c2_0062",
@@ -6728,8 +6728,8 @@
       "level": "B1",
       "rewardMotif": "crane",
       "primaryAsset": "assets/illustrations/packs/b1_insurance_claim_1.webp",
-      "subjectKo": "사고 접수 · 보장 범위 · 자기부담금 · 진단서",
-      "subjectPromptEn": "a modern still life expressing claim filing, coverage scope, deductible, medical note",
+      "subjectKo": "사고 접수 · 보장 범위 · 내가 내는 금액 · 진단서",
+      "subjectPromptEn": "a modern still life expressing claim filing, coverage scope, amount I pay myself, medical note",
       "evidenceWordIds": [
         "vocab_b1_0392",
         "vocab_b1_0393",
@@ -6767,7 +6767,7 @@
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/b2_public_office_1.webp",
       "subjectKo": "민원실 · 구비 서류 · 접수증 · 처리 기한",
-      "subjectPromptEn": "a modern still life expressing civil affairs desk, required papers, intake slip, processing time",
+      "subjectPromptEn": "a modern still life expressing public service desk, required papers, intake slip, processing time",
       "evidenceWordIds": [
         "vocab_b1_0404",
         "vocab_b1_0405",
@@ -6843,7 +6843,7 @@
       "rewardMotif": "lotus",
       "primaryAsset": "assets/illustrations/packs/b1_parent_school_1.webp",
       "subjectKo": "학부모 면담 · 알림장 · 상담 시간 · 학습 태도",
-      "subjectPromptEn": "a modern still life expressing parent meeting, home note, office hour, study attitude",
+      "subjectPromptEn": "a modern still life expressing parent meeting, home note, parent-teacher meeting time, study attitude",
       "evidenceWordIds": [
         "vocab_b1_0428",
         "vocab_b1_0429",
@@ -6919,7 +6919,7 @@
       "rewardMotif": "bamboo",
       "primaryAsset": "assets/illustrations/packs/b2_performance_review_1.webp",
       "subjectKo": "성과 면담 · 목표 대비 · 개선 과제 · 자기 평가",
-      "subjectPromptEn": "a modern still life expressing performance talk, target versus actual, growth task, self-review",
+      "subjectPromptEn": "a modern still life expressing performance review, compared with the target, improvement task, self-assessment",
       "evidenceWordIds": [
         "vocab_b2_0527",
         "vocab_b2_0528",
@@ -6957,7 +6957,7 @@
       "rewardMotif": "changsal",
       "primaryAsset": "assets/illustrations/packs/b2_housing_dispute_1.webp",
       "subjectKo": "내용증명 · 원상복구 · 하자 보수 · 관리단",
-      "subjectPromptEn": "a modern still life expressing content-certified mail, restoration, defect repair, owners' group",
+      "subjectPromptEn": "a modern still life expressing letter with officially certified content (Korean postal procedure), restoration to the original condition, defect repair, owners' association",
       "evidenceWordIds": [
         "vocab_b2_0539",
         "vocab_b2_0540",
@@ -6995,7 +6995,7 @@
       "rewardMotif": "chilbo",
       "primaryAsset": "assets/illustrations/packs/b2_media_literacy_1.webp",
       "subjectKo": "원문 대조 · 선택 편집 · 후원 표시 · 비교 기준",
-      "subjectPromptEn": "a modern still life expressing source check, selective edit, sponsorship label, comparison criterion",
+      "subjectPromptEn": "a modern still life expressing comparison with the original source, selective editing, sponsorship label, comparison criterion",
       "evidenceWordIds": [
         "vocab_b2_0551",
         "vocab_b2_0552",
@@ -7033,7 +7033,7 @@
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/b2_civic_meeting_1.webp",
       "subjectKo": "주민 의견 · 안건 순서 · 발언권 · 회의 기록문",
-      "subjectPromptEn": "a modern still life expressing resident input, agenda order, the floor, minutes",
+      "subjectPromptEn": "a modern still life expressing residents' views, agenda order, the floor, minutes",
       "evidenceWordIds": [
         "vocab_b2_0563",
         "vocab_b2_0564",
@@ -7109,7 +7109,7 @@
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/b2_policy_brief_1.webp",
       "subjectKo": "한 장 요약 · 선택지 비교 · 가정 명시 · 영향 집단",
-      "subjectPromptEn": "a modern still life expressing one-pager, option compare, stated assumption, affected group",
+      "subjectPromptEn": "a modern still life expressing one-pager, comparison of options, explicit statement of assumptions, affected group",
       "evidenceWordIds": [
         "vocab_b2_0587",
         "vocab_b2_0588",
@@ -7146,8 +7146,8 @@
       "level": "B2",
       "rewardMotif": "wave",
       "primaryAsset": "assets/illustrations/packs/b2_customer_escalation_1.webp",
-      "subjectKo": "상위 담당 · 사건 번호 · 약속 불이행 · 보상 한도",
-      "subjectPromptEn": "a modern still life expressing next-level owner, case id, broken promise, goodwill limit",
+      "subjectKo": "상위 담당자 · 사건 번호 · 약속 불이행 · 보상 한도",
+      "subjectPromptEn": "a modern still life expressing more senior staff member, case number, failure to keep a promise, compensation limit",
       "evidenceWordIds": [
         "vocab_b2_0599",
         "vocab_b2_0600",
@@ -7185,7 +7185,7 @@
       "rewardMotif": "munbangsau",
       "primaryAsset": "assets/illustrations/packs/b2_research_summary_1.webp",
       "subjectKo": "연구 질문 · 표본 크기 · 한계 문장 · 교차 확인",
-      "subjectPromptEn": "a modern still life expressing research question, sample size, limitation line, cross-check",
+      "subjectPromptEn": "a modern still life expressing research question, sample size, statement of limitations, cross-checking",
       "evidenceWordIds": [
         "vocab_b2_0611",
         "vocab_b2_0612",
@@ -7261,7 +7261,7 @@
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/c1_public_briefing_1.webp",
       "subjectKo": "브리핑 문안 · 위험 등급 · 비전문가 설명 · 질의 시간",
-      "subjectPromptEn": "a modern still life expressing briefing wording, risk grade, plain-language explainer, question window",
+      "subjectPromptEn": "a modern still life expressing briefing text, risk level, explanation for non-specialists, question period",
       "evidenceWordIds": [
         "vocab_c1_0085",
         "vocab_c1_0086",
@@ -7299,7 +7299,7 @@
       "rewardMotif": "chilbo",
       "primaryAsset": "assets/illustrations/packs/chilbo.webp",
       "subjectKo": "문항 유도 · 무응답 처리 · 가중치 부여 · 표집틀",
-      "subjectPromptEn": "a modern still life expressing leading item, missing-answer handling, weighting, sampling frame",
+      "subjectPromptEn": "a modern still life expressing leading question wording, handling of missing responses, weighting, sampling frame",
       "evidenceWordIds": [
         "vocab_c1_0097",
         "vocab_c1_0098",
@@ -7337,7 +7337,7 @@
       "rewardMotif": "cloud",
       "primaryAsset": "assets/illustrations/packs/c1_risk_wording_1.webp",
       "subjectKo": "상대 위험 · 절대 건수 · 잔여 위험 · 조기 경보",
-      "subjectPromptEn": "a modern still life expressing relative risk, absolute count, residual risk, early warning",
+      "subjectPromptEn": "a modern still life expressing relative risk, absolute number of cases, residual risk, early warning",
       "evidenceWordIds": [
         "vocab_c1_0109",
         "vocab_c1_0110",
@@ -7374,8 +7374,8 @@
       "level": "C1",
       "rewardMotif": "yeopjeon",
       "primaryAsset": "assets/illustrations/packs/yeopjeon.webp",
-      "subjectKo": "접근 비용 · 유지 부담 · 선택권 축소 · 우회 경로",
-      "subjectPromptEn": "a modern still life expressing access cost, upkeep burden, narrowed choice, workaround path",
+      "subjectKo": "접근 비용 · 유지·관리 비용 · 선택권 축소 · 우회 경로",
+      "subjectPromptEn": "a modern still life expressing access cost, maintenance costs, reduction in choice, alternative route",
       "evidenceWordIds": [
         "vocab_c1_0121",
         "vocab_c1_0122",
@@ -7413,7 +7413,7 @@
       "rewardMotif": "lotus",
       "primaryAsset": "assets/illustrations/packs/c1_participation_design_1.webp",
       "subjectKo": "참여 장벽 · 발언 할당 · 대리 참여 · 피드백 순환",
-      "subjectPromptEn": "a modern still life expressing participation barrier, speaking allotment, proxy participation, feedback loop",
+      "subjectPromptEn": "a modern still life expressing participation barrier, allocation of speaking opportunities, proxy participation, feedback loop",
       "evidenceWordIds": [
         "vocab_c1_0133",
         "vocab_c1_0134",
@@ -7451,7 +7451,7 @@
       "rewardMotif": "wave",
       "primaryAsset": "assets/illustrations/packs/wave.webp",
       "subjectKo": "지역 여건 · 야간 소음 한도 · 녹지 보전 · 상권 이전",
-      "subjectPromptEn": "a modern still life expressing local conditions, night noise cap, green-space keep, commerce shift",
+      "subjectPromptEn": "a modern still life expressing local conditions, nighttime noise limit, green-space preservation, relocation of a commercial district",
       "evidenceWordIds": [
         "vocab_c1_0145",
         "vocab_c1_0146",
@@ -7489,7 +7489,7 @@
       "rewardMotif": "vine",
       "primaryAsset": "assets/illustrations/packs/vine.webp",
       "subjectKo": "운영 인력 · 교체 주기 · 예비 부품 · 점검 로그",
-      "subjectPromptEn": "a modern still life expressing ops staff, replacement cycle, spare stock, service log",
+      "subjectPromptEn": "a modern still life expressing operating staff, replacement cycle, spare parts, inspection log",
       "evidenceWordIds": [
         "vocab_c1_0157",
         "vocab_c1_0158",
@@ -7527,7 +7527,7 @@
       "rewardMotif": "chilbo",
       "primaryAsset": "assets/illustrations/packs/c2_framing_analysis_1.webp",
       "subjectKo": "담론 전제 · 은유 체계 · 주어 선택 · 수동 은폐",
-      "subjectPromptEn": "a modern still life expressing discourse premise, metaphor system, choice of subject, passive concealment",
+      "subjectPromptEn": "a modern still life expressing discourse premise, system of metaphors, choice of subject, concealment through passive wording",
       "evidenceWordIds": [
         "vocab_c2_0073",
         "vocab_c2_0074",
@@ -7565,7 +7565,7 @@
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/noemun.webp",
       "subjectKo": "제도적 권한 · 공식 어조 · 위임 범위 · 기록 의무",
-      "subjectPromptEn": "a modern still life expressing institutional power, official register, scope of authority, duty to record",
+      "subjectPromptEn": "a modern still life expressing institutional authority, formal tone, scope of delegated authority, duty to record",
       "evidenceWordIds": [
         "vocab_c2_0085",
         "vocab_c2_0086",
@@ -7602,8 +7602,8 @@
       "level": "C2",
       "rewardMotif": "chrysanthemum",
       "primaryAsset": "assets/illustrations/packs/c2_memory_narrative_1.webp",
-      "subjectKo": "서술 시점 · 선택적 기억 · 증언 위치 · 연대기 절단",
-      "subjectPromptEn": "a modern still life expressing narrative standpoint, selective memory, where testimony sits, cut in the timeline",
+      "subjectKo": "서술 시점 · 선택적 기억 · 증언의 배치 · 맥락 생략",
+      "subjectPromptEn": "a modern still life expressing narrative perspective, selective memory, placement of testimony, omission of context",
       "evidenceWordIds": [
         "vocab_c2_0097",
         "vocab_c2_0098",
@@ -7641,7 +7641,7 @@
       "rewardMotif": "taegeuk",
       "primaryAsset": "assets/illustrations/packs/taegeuk.webp",
       "subjectKo": "명령형 공지 · 전문 장벽 · 불가피 수사 · 전문가 위임",
-      "subjectPromptEn": "a modern still life expressing imperative notice, jargon wall, inevitability talk, expert handover",
+      "subjectPromptEn": "a modern still life expressing imperative notice, barrier created by technical language, rhetoric of inevitability, delegation to experts",
       "evidenceWordIds": [
         "vocab_c2_0109",
         "vocab_c2_0110",
@@ -7678,8 +7678,8 @@
       "level": "C2",
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/c2_appeal_path_1.webp",
-      "subjectKo": "이의 경로 · 자동 결정 · 인간 재심 · 기한 안내",
-      "subjectPromptEn": "a modern still life expressing appeal path, automated decision, human review, deadline notice",
+      "subjectKo": "이의 제기 경로 · 자동 결정 · 담당자 재심사 · 기한 안내",
+      "subjectPromptEn": "a modern still life expressing way to contest a decision, automated decision, review by a staff member, deadline notice",
       "evidenceWordIds": [
         "vocab_c2_0121",
         "vocab_c2_0122",
@@ -7717,7 +7717,7 @@
       "rewardMotif": "wave",
       "primaryAsset": "assets/illustrations/packs/wave.webp",
       "subjectKo": "추적 가능성 · 변경 이력 · 접근 기록 · 보존 기한",
-      "subjectPromptEn": "a modern still life expressing traceability, change history, access log, retention window",
+      "subjectPromptEn": "a modern still life expressing traceability, change history, access log, retention period",
       "evidenceWordIds": [
         "vocab_c2_0133",
         "vocab_c2_0134",
@@ -7755,7 +7755,7 @@
       "rewardMotif": "plum",
       "primaryAsset": "assets/illustrations/packs/c2_withdrawal_right_1.webp",
       "subjectKo": "철회권 · 동의 철회 · 파생 데이터 · 복원 금지",
-      "subjectPromptEn": "a modern still life expressing right to withdraw, consent withdrawal, derived data, no restore",
+      "subjectPromptEn": "a modern still life expressing right to withdraw, withdrawal of consent, derived data, prohibition on restoration",
       "evidenceWordIds": [
         "vocab_c2_0145",
         "vocab_c2_0146",
@@ -7792,8 +7792,8 @@
       "level": "C2",
       "rewardMotif": "mountain",
       "primaryAsset": "assets/illustrations/packs/c2_automated_harm_1.webp",
-      "subjectKo": "차등 영향 · 오류 비용 · 피드백 왜곡 · 대리 변수",
-      "subjectPromptEn": "a modern still life expressing uneven impact, cost of being wrong, feedback warp, proxy feature",
+      "subjectKo": "차등 영향 · 오류 비용 · 피드백 루프의 왜곡 · 대리 변수",
+      "subjectPromptEn": "a modern still life expressing differential impact, cost of errors, feedback loop distortion, proxy variable",
       "evidenceWordIds": [
         "vocab_c2_0157",
         "vocab_c2_0158",
@@ -7869,7 +7869,7 @@
       "rewardMotif": "gwigap",
       "primaryAsset": "assets/illustrations/packs/c1_play_time_policy_1.webp",
       "subjectKo": "규제 · 시행 · 부작용 · 실효성",
-      "subjectPromptEn": "a modern still life expressing regulation, enforcement, side effect, effectiveness",
+      "subjectPromptEn": "a modern still life expressing regulation, implementation, side effect, effectiveness",
       "evidenceWordIds": [
         "vocab_c1_0181",
         "vocab_c1_0182",
@@ -7983,7 +7983,7 @@
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/c2_automation_redress_1.webp",
       "subjectKo": "오작동 · 구제 · 소명 · 유예",
-      "subjectPromptEn": "a modern still life expressing malfunction, remedy, statement of grounds, deferral",
+      "subjectPromptEn": "a modern still life expressing malfunction, remedy, explanation of one's case, deferral",
       "evidenceWordIds": [
         "vocab_c2_0169",
         "vocab_c2_0170",
@@ -8020,8 +8020,8 @@
       "level": "C2",
       "rewardMotif": "noemun",
       "primaryAsset": "assets/illustrations/packs/c2_sanction_accountability_1.webp",
-      "subjectKo": "제재 · 적발 · 누적 · 해제",
-      "subjectPromptEn": "a modern still life expressing sanction, detection, accumulation, lifting",
+      "subjectKo": "과다 · 적발 · 누적 · 해제",
+      "subjectPromptEn": "a modern still life expressing excess / excessive, detection, accumulation, lifting of a measure",
       "evidenceWordIds": [
         "vocab_c2_0181",
         "vocab_c2_0182",
@@ -8058,8 +8058,8 @@
       "level": "C2",
       "rewardMotif": "moran",
       "primaryAsset": "assets/illustrations/packs/moran.webp",
-      "subjectKo": "서사 · 각색 · 미화 · 통념",
-      "subjectPromptEn": "a modern still life expressing narrative, dramatisation, glossing over, received idea",
+      "subjectKo": "함축 · 각색 · 미화 · 통념",
+      "subjectPromptEn": "a modern still life expressing implication / compression, adaptation, glossing over, received idea",
       "evidenceWordIds": [
         "vocab_c2_0193",
         "vocab_c2_0194",
@@ -8211,7 +8211,7 @@
       "rewardMotif": "manja",
       "primaryAsset": "assets/illustrations/packs/manja.webp",
       "subjectKo": "담론 프레임 · 책임 귀속 · 숨은 전제 · 정의의 경계",
-      "subjectPromptEn": "a modern still life expressing discourse frame, attribution of responsibility, hidden premise, boundaries of a definition",
+      "subjectPromptEn": "a modern still life expressing discourse frame, attribution of responsibility, hidden premise, definitional boundary",
       "evidenceWordIds": [
         "vocab_c2_0217",
         "vocab_c2_0218",
@@ -8663,7 +8663,7 @@
       "rewardMotif": "lotus",
       "primaryAsset": "assets/illustrations/packs/lotus.webp",
       "subjectKo": "일본 · 중국 · 영국 · 프랑스",
-      "subjectPromptEn": "a modern still life expressing Japan, China, the UK, England, France",
+      "subjectPromptEn": "a modern still life expressing Japan, China, the UK, France",
       "evidenceWordIds": [
         "vocab_a1_0541",
         "vocab_a1_0542",
@@ -9487,7 +9487,13 @@
         "vocab_a2_0564",
         "vocab_a2_0565",
         "vocab_a2_0566",
-        "vocab_a2_0567"
+        "vocab_a2_0567",
+        "vocab_a2_0696",
+        "vocab_a2_0697",
+        "vocab_a2_0698",
+        "vocab_a2_0699",
+        "vocab_a2_0700",
+        "vocab_a2_0701"
       ],
       "status": "approved_motif_fallback",
       "sha256": "0175f487466403589dc4fe5a09e968716453fa9ee30bdcf9c543eec6a2e08b0c",
@@ -9511,8 +9517,8 @@
       "level": "C2",
       "rewardMotif": "moran",
       "primaryAsset": "assets/illustrations/packs/moran.webp",
-      "subjectKo": "호칭어 · 호칭 관습 · 높임법 · 주체 높임",
-      "subjectPromptEn": "a modern still life expressing term of address, address convention, Korean honorifics, subject honorification",
+      "subjectKo": "호칭어 · 호칭 관습 · 용례 · 주체 높임",
+      "subjectPromptEn": "a modern still life expressing term of address, address convention, usage example, subject honorification",
       "evidenceWordIds": [
         "vocab_c2_0241",
         "vocab_c2_0242",
@@ -9567,6 +9573,608 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "134b57e57d590f67a44a308718a801971bc96c6a9647ee859c42c3f279585091",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_body_1",
+      "level": "A2",
+      "rewardMotif": "crane",
+      "primaryAsset": "assets/illustrations/packs/crane.webp",
+      "subjectKo": "어깨 · 가슴 · 허리 · 손가락",
+      "subjectPromptEn": "a modern still life expressing shoulder, chest, lower back, waist, finger",
+      "evidenceWordIds": [
+        "vocab_a2_0568",
+        "vocab_a2_0569",
+        "vocab_a2_0570",
+        "vocab_a2_0571",
+        "vocab_a2_0572",
+        "vocab_a2_0573",
+        "vocab_a2_0574",
+        "vocab_a2_0575",
+        "vocab_a2_0576",
+        "vocab_a2_0577",
+        "vocab_a2_0578",
+        "vocab_a2_0579"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "84fe89e8688f4e732ce2130ba536a77459cc7d16f65e7aa178dbf140f2ec7a20",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_food_3",
+      "level": "A2",
+      "rewardMotif": "soban",
+      "primaryAsset": "assets/illustrations/packs/soban.webp",
+      "subjectKo": "국수 · 고추장 · 된장 · 두부",
+      "subjectPromptEn": "a modern still life expressing noodles, gochujang (red chili paste), doenjang (soybean paste), tofu",
+      "evidenceWordIds": [
+        "vocab_a2_0580",
+        "vocab_a2_0581",
+        "vocab_a2_0582",
+        "vocab_a2_0583",
+        "vocab_a2_0584",
+        "vocab_a2_0585",
+        "vocab_a2_0586",
+        "vocab_a2_0587",
+        "vocab_a2_0588",
+        "vocab_a2_0589",
+        "vocab_a2_0590",
+        "vocab_a2_0591"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_clothing_2",
+      "level": "A2",
+      "rewardMotif": "octagon",
+      "primaryAsset": "assets/illustrations/packs/octagon.webp",
+      "subjectKo": "블라우스 · 스웨터 · 스카프 · 속옷",
+      "subjectPromptEn": "a modern still life expressing blouse, sweater, scarf, underwear",
+      "evidenceWordIds": [
+        "vocab_a2_0592",
+        "vocab_a2_0593",
+        "vocab_a2_0594",
+        "vocab_a2_0595",
+        "vocab_a2_0596",
+        "vocab_a2_0597",
+        "vocab_a2_0598",
+        "vocab_a2_0599",
+        "vocab_a2_0600",
+        "vocab_a2_0601",
+        "vocab_a2_0602",
+        "vocab_a2_0603"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "f5bfbe5d3f12abfa7620439377edd5b5680483dd758ac5d5c1d5232a0ec87225",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_travel_1",
+      "level": "A2",
+      "rewardMotif": "mountain",
+      "primaryAsset": "assets/illustrations/packs/mountain.webp",
+      "subjectKo": "관광객 · 관광지 · 여행지 · 해외",
+      "subjectPromptEn": "a modern still life expressing tourist, tourist spot, travel destination, abroad",
+      "evidenceWordIds": [
+        "vocab_a2_0604",
+        "vocab_a2_0605",
+        "vocab_a2_0606",
+        "vocab_a2_0607",
+        "vocab_a2_0608",
+        "vocab_a2_0609",
+        "vocab_a2_0610",
+        "vocab_a2_0611",
+        "vocab_a2_0612",
+        "vocab_a2_0613",
+        "vocab_a2_0614",
+        "vocab_a2_0615"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_school_1",
+      "level": "A2",
+      "rewardMotif": "munbangsau",
+      "primaryAsset": "assets/illustrations/packs/munbangsau.webp",
+      "subjectKo": "고등학교 · 중학교 · 초등학교 · 초등학생",
+      "subjectPromptEn": "a modern still life expressing high school, middle school, elementary school, elementary school student",
+      "evidenceWordIds": [
+        "vocab_a2_0616",
+        "vocab_a2_0617",
+        "vocab_a2_0618",
+        "vocab_a2_0619",
+        "vocab_a2_0620",
+        "vocab_a2_0621",
+        "vocab_a2_0622",
+        "vocab_a2_0623",
+        "vocab_a2_0624",
+        "vocab_a2_0625",
+        "vocab_a2_0626",
+        "vocab_a2_0627"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_daily_actions_1",
+      "level": "A2",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "믿다 · 참다 · 잊다 · 흔들다",
+      "subjectPromptEn": "a modern still life expressing to believe, to trust, to endure, to hold back, to forget, to shake, to wave",
+      "evidenceWordIds": [
+        "vocab_a2_0628",
+        "vocab_a2_0629",
+        "vocab_a2_0630",
+        "vocab_a2_0631",
+        "vocab_a2_0632",
+        "vocab_a2_0633",
+        "vocab_a2_0634",
+        "vocab_a2_0635",
+        "vocab_a2_0636",
+        "vocab_a2_0637",
+        "vocab_a2_0638",
+        "vocab_a2_0639"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_health_symptoms_1",
+      "level": "A2",
+      "rewardMotif": "crane",
+      "primaryAsset": "assets/illustrations/packs/crane.webp",
+      "subjectKo": "기침 · 콧물 · 재채기 · 배탈",
+      "subjectPromptEn": "a modern still life expressing cough, runny nose, sneeze, upset stomach",
+      "evidenceWordIds": [
+        "vocab_a2_0640",
+        "vocab_a2_0641",
+        "vocab_a2_0642",
+        "vocab_a2_0643",
+        "vocab_a2_0644",
+        "vocab_a2_0645",
+        "vocab_a2_0646",
+        "vocab_a2_0647",
+        "vocab_a2_0648",
+        "vocab_a2_0649",
+        "vocab_a2_0650",
+        "vocab_a2_0651"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "84fe89e8688f4e732ce2130ba536a77459cc7d16f65e7aa178dbf140f2ec7a20",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_feelings_3",
+      "level": "A2",
+      "rewardMotif": "plum",
+      "primaryAsset": "assets/illustrations/packs/plum.webp",
+      "subjectKo": "긴장 · 자신 · 불안 · 편안",
+      "subjectPromptEn": "a modern still life expressing nervousness, tension, oneself, anxiety, unease, comfort",
+      "evidenceWordIds": [
+        "vocab_a2_0652",
+        "vocab_a2_0653",
+        "vocab_a2_0654",
+        "vocab_a2_0655",
+        "vocab_a2_0656",
+        "vocab_a2_0657",
+        "vocab_a2_0658",
+        "vocab_a2_0659",
+        "vocab_a2_0660",
+        "vocab_a2_0661",
+        "vocab_a2_0662",
+        "vocab_a2_0663"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_directions_1",
+      "level": "A2",
+      "rewardMotif": "mountain",
+      "primaryAsset": "assets/illustrations/packs/mountain.webp",
+      "subjectKo": "사거리 · 육교 · 지하도 · 신호",
+      "subjectPromptEn": "a modern still life expressing intersection, crossroads, pedestrian overpass, underpass, traffic signal",
+      "evidenceWordIds": [
+        "vocab_a2_0664",
+        "vocab_a2_0665",
+        "vocab_a2_0666",
+        "vocab_a2_0667",
+        "vocab_a2_0668",
+        "vocab_a2_0669",
+        "vocab_a2_0670",
+        "vocab_a2_0671",
+        "vocab_a2_0672",
+        "vocab_a2_0673",
+        "vocab_a2_0674",
+        "vocab_a2_0675"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_workplace_1",
+      "level": "A2",
+      "rewardMotif": "bamboo",
+      "primaryAsset": "assets/illustrations/packs/bamboo.webp",
+      "subjectKo": "부장 · 선배 · 후배 · 팀",
+      "subjectPromptEn": "a modern still life expressing department head, senior (colleague), junior (colleague), team",
+      "evidenceWordIds": [
+        "vocab_a2_0676",
+        "vocab_a2_0677",
+        "vocab_a2_0678",
+        "vocab_a2_0679",
+        "vocab_a2_0680",
+        "vocab_a2_0681",
+        "vocab_a2_0682",
+        "vocab_a2_0683",
+        "vocab_a2_0684",
+        "vocab_a2_0685",
+        "vocab_a2_0686",
+        "vocab_a2_0687"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_events_1",
+      "level": "A2",
+      "rewardMotif": "bok",
+      "primaryAsset": "assets/illustrations/packs/bok.webp",
+      "subjectKo": "박수 · 자리 · 줄 · 새벽",
+      "subjectPromptEn": "a modern still life expressing applause, seat, place, line, queue, dawn, early morning",
+      "evidenceWordIds": [
+        "vocab_a2_0688",
+        "vocab_a2_0689",
+        "vocab_a2_0690",
+        "vocab_a2_0691",
+        "vocab_a2_0692",
+        "vocab_a2_0693",
+        "vocab_a2_0694",
+        "vocab_a2_0695",
+        "vocab_a2_0702",
+        "vocab_a2_0703",
+        "vocab_a2_0704",
+        "vocab_a2_0705"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "d0526eebc2abd8410f4a37e628e0488250caa2cbb657f33480fa53152f3c5284",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_problems_help_1",
+      "level": "A2",
+      "rewardMotif": "chilbo",
+      "primaryAsset": "assets/illustrations/packs/chilbo.webp",
+      "subjectKo": "도움 · 고장 · 잃다 · 막히다",
+      "subjectPromptEn": "a modern still life expressing help, breakdown, malfunction, to lose, to be blocked, congested",
+      "evidenceWordIds": [
+        "vocab_a2_0706",
+        "vocab_a2_0707",
+        "vocab_a2_0708",
+        "vocab_a2_0709",
+        "vocab_a2_0710",
+        "vocab_a2_0711",
+        "vocab_a2_0712",
+        "vocab_a2_0713",
+        "vocab_a2_0714",
+        "vocab_a2_0715",
+        "vocab_a2_0716",
+        "vocab_a2_0717"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "0175f487466403589dc4fe5a09e968716453fa9ee30bdcf9c543eec6a2e08b0c",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_dishes_1",
+      "level": "A2",
+      "rewardMotif": "soban",
+      "primaryAsset": "assets/illustrations/packs/soban.webp",
+      "subjectKo": "만두 · 떡 · 김 · 찌개",
+      "subjectPromptEn": "a modern still life expressing mandu, Korean dumplings, rice cake, dried seaweed, Korean stew",
+      "evidenceWordIds": [
+        "vocab_a2_0718",
+        "vocab_a2_0719",
+        "vocab_a2_0720",
+        "vocab_a2_0721",
+        "vocab_a2_0722",
+        "vocab_a2_0723",
+        "vocab_a2_0724",
+        "vocab_a2_0725",
+        "vocab_a2_0726",
+        "vocab_a2_0727",
+        "vocab_a2_0728",
+        "vocab_a2_0729"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_home_routines_1",
+      "level": "A2",
+      "rewardMotif": "changsal",
+      "primaryAsset": "assets/illustrations/packs/changsal.webp",
+      "subjectKo": "집안일 · 세탁 · 빨다 · 쓰레기통",
+      "subjectPromptEn": "a modern still life expressing housework, laundry, washing, to wash, trash can",
+      "evidenceWordIds": [
+        "vocab_a2_0730",
+        "vocab_a2_0731",
+        "vocab_a2_0732",
+        "vocab_a2_0733",
+        "vocab_a2_0734",
+        "vocab_a2_0735",
+        "vocab_a2_0736",
+        "vocab_a2_0737",
+        "vocab_a2_0738",
+        "vocab_a2_0739",
+        "vocab_a2_0740",
+        "vocab_a2_0741"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "fc8cee2ae4c8b2a31393c5fe2f3efe22db35f4835c064b5c2e9801c4b9345f03",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_time_span_1",
+      "level": "A2",
+      "rewardMotif": "chrysanthemum",
+      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "subjectKo": "이틀 · 사흘 · 나흘 · 열흘",
+      "subjectPromptEn": "a modern still life expressing two days, three days, four days, ten days",
+      "evidenceWordIds": [
+        "vocab_a2_0742",
+        "vocab_a2_0743",
+        "vocab_a2_0744",
+        "vocab_a2_0745",
+        "vocab_a2_0746",
+        "vocab_a2_0747",
+        "vocab_a2_0748",
+        "vocab_a2_0749",
+        "vocab_a2_0750",
+        "vocab_a2_0751",
+        "vocab_a2_0752",
+        "vocab_a2_0753"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_weather_sky_1",
+      "level": "A2",
+      "rewardMotif": "cloud",
+      "primaryAsset": "assets/illustrations/packs/cloud.webp",
+      "subjectKo": "구름 · 하늘 · 햇빛 · 기온",
+      "subjectPromptEn": "a modern still life expressing cloud, sky, sunlight, air temperature",
+      "evidenceWordIds": [
+        "vocab_a2_0754",
+        "vocab_a2_0755",
+        "vocab_a2_0756",
+        "vocab_a2_0757",
+        "vocab_a2_0758",
+        "vocab_a2_0759"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
       "qa": {
         "fourThree": {
           "status": "pass",

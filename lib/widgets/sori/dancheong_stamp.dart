@@ -373,6 +373,19 @@ DancheongMotif motifForPackId(String packId) {
     'a1_adverbs' => DancheongMotif.munbangsau,
     // 소통: 휴대폰·메시지·답장·연락처 -- b1_phone_plan 과 같은 칠보.
     'a2_messenger_phone' => DancheongMotif.chilbo,
+    // C3-T6 (2026-11-25): A2 Batches 32-34 new pack bases, each sharing the
+    // motif of its closest existing neighbour instead of the lotus fallback.
+    'a2_body' || 'a2_health_symptoms' => DancheongMotif.crane,
+    'a2_travel' || 'a2_directions' => DancheongMotif.mountain,
+    'a2_school' => DancheongMotif.munbangsau,
+    'a2_workplace' => DancheongMotif.bamboo,
+    'a2_daily_actions' => DancheongMotif.vine,
+    'a2_events' => DancheongMotif.bok,
+    'a2_problems_help' => DancheongMotif.chilbo,
+    'a2_dishes' => DancheongMotif.soban,
+    'a2_home_routines' => DancheongMotif.changsal,
+    'a2_time_span' => DancheongMotif.chrysanthemum,
+    'a2_weather_sky' => DancheongMotif.cloud,
     // C2: address conventions and pragmatic interpretation.
     'c2_honorific_context' => DancheongMotif.moran,
     // C2: conditions, argument scope, and qualification.

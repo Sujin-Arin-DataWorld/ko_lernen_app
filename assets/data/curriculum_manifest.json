@@ -2599,7 +2599,20 @@
     "a1_determiners": "a1_05_numbers_time",
     "a2_messenger_phone": "a2_03_chat_relationships",
     "c2_honorific_context": "c2_01_interpretation_institutions",
-    "c2_argument_scope": "c2_03_automation_redress"
+    "c2_argument_scope": "c2_03_automation_redress",
+    "a2_body": "a2_04_feelings_health",
+    "a2_travel": "a2_07_travel_repair",
+    "a2_school": "a2_06_study_work",
+    "a2_daily_actions": "a2_01_haeyo_transition",
+    "a2_health_symptoms": "a2_04_feelings_health",
+    "a2_directions": "a2_07_travel_repair",
+    "a2_workplace": "a2_06_study_work",
+    "a2_events": "a2_02_plans_proposals",
+    "a2_problems_help": "a2_07_travel_repair",
+    "a2_dishes": "a2_05_delivery_services",
+    "a2_home_routines": "a2_08_home_money",
+    "a2_time_span": "a2_02_plans_proposals",
+    "a2_weather_sky": "a2_03_chat_relationships"
   },
   "contentLinks": [
     {
@@ -7596,7 +7609,11 @@
     "a2:menschen & berufe": "a2_06_study_work",
     "c2:ehrensprache": "c2_01_interpretation_institutions",
     "c2:argumentation und verfahrensgestaltung": "c2_03_automation_redress",
-    "b1:wohnen": "b1_05_complaint_resolution"
+    "b1:wohnen": "b1_05_complaint_resolution",
+    "a2:körper": "a2_04_feelings_health",
+    "a2:kleidung": "a2_05_delivery_services",
+    "a2:reisen": "a2_07_travel_repair",
+    "a2:zeit": "a2_02_plans_proposals"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

@@ -20,9 +20,10 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertEqual(result["version"], 4)
         # Batch 38 and Batch 39 each add five canonical persona-culture
         # scenarios. Batch 40 adds five pending records and remains outside live.
-        self.assertEqual(result["trackedIds"], 7793)
-        self.assertEqual(result["liveIds"], 7422)
-        self.assertEqual(result["pendingIds"], 581)
+        # C3-T6 (2026-11-25): A2 Batches 32-34 (3 x 192 records) promoted.
+        self.assertEqual(result["trackedIds"], 8369)
+        self.assertEqual(result["liveIds"], 7998)
+        self.assertEqual(result["pendingIds"], 5)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
             result["trackedIds"],
@@ -64,9 +65,10 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertEqual(batch40["auditStatus"], "pending_not_live")
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
-            self.assertEqual(report["auditStatus"], "pending_not_live")
-            self.assertEqual(report["live"], 0)
+            self.assertEqual(report["auditStatus"], "live_verified_modern")
+            self.assertEqual(report["live"], 192)
             self.assertEqual(report["tracked"], 192)
+            self.assertEqual(report["reviewStatuses"], {"approved": 192})
         self.assertEqual(reports["theme_park_date_v1"]["tracked"], 66)
         self.assertEqual(
             reports["theme_park_date_v1"]["auditStatus"],

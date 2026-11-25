@@ -1,13 +1,18 @@
 {
   "version": 2,
   "batch": "c3_batch32_a2_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A2(2급) vocabulary reinforcement -- SECOND A2 batch in the C3 series -- 64 headwords (52 nouns, 10 verbs, 2 adjectives) from the NIKL KIIQ 2017 grade-2 gap list (not yet live at any level, not in Batch 25-30's A1 drafts or Batch 31's A2 draft). Every live A2 pack that was still under 12/12 was already filled by Batch 31's draft (27 packs -> 12/12 + a2_messenger_phone_1 partial); this batch therefore creates 5 new FULL packs by topic (Körper/body, a 3rd food/drink pack, Kleidung/clothing, Reisen/travel, a school/education pack) plus 1 new PARTIAL pack (general daily-life verbs, 4/12). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-2 headword selection (KOGL Type-1) and docs/data/sejong/syllabus_sejong2.json unit topics for prioritization. Follows the persona (character_profiles.json recurringCharacters) rules, docs/CONTENT_LEVEL_BIBLE.md §B.2 (A2 sentence/grammar/vocabulary ceiling) and docs/CONTENT_PERSONA_VOICE.md (A2 반말 transitions / short idioms) set for this level.",
     "rights": "original_clean_room",
     "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=2, minus live assets/data/korean_vocab.csv at ANY level, minus tools/content_factory/drafts/batch_25..30_a1_rows.csv, minus tools/content_factory/drafts/batch_31_a2_rows.csv); topic priority cross-referenced against docs/data/sejong/syllabus_sejong2.json (Sejong 2 = A2 unit vocabulary lists).",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-11-25",
+      "source": "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
+      "sample": "7/64 each (32 · 33 · 34)"
+    },
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
     "humanLanguageQaClaim": false,
     "wordSourceNote": "NIKL grade-2 non-affix headwords total 1085 unique strings; removing everything already live at any level (2818 rows) or present in the Batch 25-30 A1 drafts or the Batch 31 A2 draft leaves a gap of 727 headwords (matches Batch 31's own post-batch remainingA2Gap.count of 727 exactly, confirming no drift). This is the SECOND A2 batch against that gap, so 727-64=663 remain for future batches. Selection order: (1) checked whether any live A2 pack was still under 12/12 after Batch 31's draft -- none were (Batch 31's draft already claims enough words to bring all 27 previously-under-12 packs to 12/12); (2) therefore built 5 new FULL topic packs (Körper/body -- 10 body-part nouns + 2 body-function verbs; a 3rd food/drink pack -- 10 Korean dish/ingredient nouns + 2 cooking verbs, since a2_food_1/a2_food_2 both reached 12/12 in Batch 31's draft; Kleidung/clothing -- 10 garment/accessory nouns + 2 colour adjectives, a topic with no live/drafted A2 pack yet; Reisen/travel -- 11 trip-planning nouns + 1 departure verb, also no live/drafted A2 pack yet; a school/education-institution pack -- 11 nouns + 1 verb, since a2_education reached 12/12 in Batch 31's draft) from the broader grade-2 gap list, matching words to each new pack's topic; (3) the remaining word-count budget (64-60=4) went to one new PARTIAL pack, a2_daily_actions_1, of general daily-life verbs (믿다/참다/잊다/흔들다) not tied to any of the 5 topic packs.",
@@ -77,13 +82,13 @@
       "note": "a2_food_1/a2_food_2 both reached 12/12 in Batch 31's draft; this is a new food/drink pack from the grade-2 gap (Korean dishes/ingredients)."
     },
     {
-      "pack_id": "a2_clothing_1",
+      "pack_id": "a2_clothing_2",
       "displayName": {
-        "de": "Kleidung 1",
-        "en": "Clothing 1"
+        "de": "Kleidung 2",
+        "en": "Clothing 2"
       },
       "wordCount": 12,
-      "note": "No live/drafted A2 pack covered clothing items yet; NIKL grade-2 gap words for garments + 2 basic colour adjectives."
+      "note": "No live/drafted A2 pack covered clothing items yet; NIKL grade-2 gap words for garments + 2 basic colour adjectives. Renamed from a2_clothing_1 before promotion (2026-11-25): a live a2_clothing_1 (12 words) already exists."
     },
     {
       "pack_id": "a2_travel_1",
@@ -137,10 +142,11 @@
   },
   "reviewPacket": "docs/data/review_packets/batch_32_a2_jin_sample.md",
   "promotion": {
-    "assetsDataWritten": false,
-    "runtime": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
-    "firebase": false
+    "firebase": false,
+    "note": "Promoted 2026-11-25 (C3-T6) after Jin approval (Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   },
   "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 목소리 now uses the leading vocative '수진 씨,' and no unlicensed 대박, so the row is attributed to addressee sujin rather than speaker maya; 학원 gloss broadened to private Bildungseinrichtung/private institute so the taekwondo example is in range. IDs, statuses, packs, and gap arithmetic are unchanged; MODEL_QA only.",
   "claudeReviewCorrectionNote20261125": "2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only. Rows: 허리: 의자에 오래 앉아서 허리가 아파요. -> 의자에 오래 앉아서 허리가 아파요.; 손가락: 레나 씨, 제 손가락이 길어요. -> 레나 씨, 피아노를 오래 쳐서 손가락이 아파요.; 관광객: 이 거리에는 관광객이 사진을 많이 찍어요. -> 이 거리에서는 관광객이 사진을 많이 찍어요.; 초등학생: 크리스티안, 나 초등학생이야. 3학년! -> 제 동생은 올해 초등학생이 됐어요."

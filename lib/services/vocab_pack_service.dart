@@ -264,6 +264,21 @@ class VocabPackService {
     // A2 C3-T5 (2026-09-16): Batch 31 A2 reinforcement new pack (first A2
     // promotion in the C3 series).
     'a2_messenger_phone': ('Kommunikation', 'Communication'),
+    // A2 C3-T6 (2026-11-25): Batches 32-34 new pack base ids. (a2_food_3,
+    // a2_clothing_2 and a2_feelings_3 reuse existing bases.)
+    'a2_body': ('Körper', 'Body'),
+    'a2_travel': ('Reisen', 'Travel'),
+    'a2_school': ('Schule & Bildung', 'School & Education'),
+    'a2_daily_actions': ('Alltagshandlungen', 'Daily Actions'),
+    'a2_health_symptoms': ('Symptome & Behandlung', 'Symptoms & Treatment'),
+    'a2_directions': ('Wegbeschreibung', 'Directions'),
+    'a2_workplace': ('Arbeitsplatz', 'Workplace'),
+    'a2_events': ('Veranstaltungen', 'Events'),
+    'a2_problems_help': ('Probleme & Hilfe', 'Problems & Help'),
+    'a2_dishes': ('Koreanische Gerichte', 'Korean Dishes'),
+    'a2_home_routines': ('Haushalt & Routine', 'Home & Routines'),
+    'a2_time_span': ('Zeitspannen', 'Time Spans'),
+    'a2_weather_sky': ('Wetter & Himmel', 'Weather & Sky'),
     // A2 확장 2026-08 (tools/content_factory/add_a2_expansion_packs.py)
     'a2_clothing': ('Kleidung', 'Clothing'),
     'a2_wearing_verbs': ('Anziehen & Accessoires', 'Wearing & Accessories'),

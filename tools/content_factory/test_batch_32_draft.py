@@ -15,7 +15,7 @@ yet (level-canon program hard rule) and must not be promoted until then.
 Batch 32 is the SECOND A2(2급) batch in the C3 series (Batch 31 was the
 first). Every live A2 pack that was still under 12/12 was already filled by
 Batch 31's own draft, so this batch creates 5 new FULL topic packs
-(a2_body_1, a2_food_3, a2_clothing_1, a2_travel_1, a2_school_1) plus one
+(a2_body_1, a2_food_3, a2_clothing_2, a2_travel_1, a2_school_1) plus one
 new PARTIAL pack (a2_daily_actions_1, 4/12) instead of filling existing
 packs. Mirrors test_batch_31_draft.py's schema/checks where they are
 level-agnostic (eojeol count, cloze/satz structural invariants,
@@ -176,8 +176,9 @@ class TestBatch32ManifestAuditShape(unittest.TestCase):
             with review_path.open(encoding="utf-8-sig", newline="") as f:
                 rows = list(csv.DictReader(f))
             self.assertEqual(len(rows), 64)
-            self.assertEqual({row["상태"] for row in rows}, {"pending"})
-            self.assertEqual({row["jin_memo"] for row in rows}, {""})
+            # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
+            self.assertEqual({row["상태"] for row in rows}, {"approved"})
+            self.assertTrue(all(row["jin_memo"].startswith("Jin 승인 2026-11-25") for row in rows))
             draft_path = REPO_ROOT / artifact["draft"]
             if artifact["kind"] == "vocab":
                 draft_ids = [row["id"] for row in _load_vocab_rows(draft_path)]
@@ -191,13 +192,14 @@ class TestBatch32ManifestAuditShape(unittest.TestCase):
             r for r in result["reports"]
             if r["manifest"] == "batch_32_a2_reinforcement_manifest.json"
         )
+        # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
         self.assertEqual(report["tracked"], 192)
-        self.assertEqual(report["live"], 0)
-        self.assertEqual(report["reviewStatuses"], {"pending": 192})
-        self.assertEqual(report["auditStatus"], "pending_not_live")
+        self.assertEqual(report["live"], 192)
+        self.assertEqual(report["reviewStatuses"], {"approved": 192})
+        self.assertEqual(report["auditStatus"], "live_verified_modern")
         self.assertEqual(report["errors"], [])
         self.assertEqual(report["missing"], [])
-        self.assertEqual(report["approvalEvidence"], "not_promoted")
+        self.assertEqual(report["approvalEvidence"], "structured_jin_approval")
 
     def test_packet_persona_totals_are_derived_from_manifest_mapping(self):
         counts = Counter(self.manifest["personaRows"].values())
@@ -214,24 +216,23 @@ class TestBatch32ManifestAuditShape(unittest.TestCase):
 
 
 class TestBatch32NeverTouchesLiveAssets(unittest.TestCase):
-    def test_manifest_marks_draft_and_unapproved(self):
+    def test_manifest_marks_merged_and_approved(self):
+        # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
         manifest = _load_json(DRAFTS / "batch_32_a2_reinforcement_manifest.json")
-        self.assertEqual(manifest["status"], "draft")
-        self.assertEqual(manifest["provenance"]["approval"], {})
-        self.assertFalse(manifest["promotion"]["assetsDataWritten"])
-        self.assertFalse(manifest["promotion"]["runtime"])
-        self.assertFalse(manifest["promotion"]["tts"])
-        self.assertFalse(manifest["promotion"]["firebase"])
+        self.assertEqual(manifest["status"], "merged")
+        self.assertEqual(manifest["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(manifest["promotion"]["assetsDataWritten"])
+        self.assertTrue(manifest["promotion"]["runtime"])
 
-    def test_no_live_headword_was_added(self):
+    def test_every_headword_is_live_exactly_once_with_matching_row(self):
+        # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
         draft_rows = _load_vocab_rows(DRAFTS / "batch_32_a2_rows.csv")
         live_rows = _load_vocab_rows(VOCAB_CSV)
-        live_korean = {r["korean"] for r in live_rows}
+        live_counts = Counter(r["korean"] for r in live_rows)
+        live_by_id = {r["id"]: r for r in live_rows}
         for row in draft_rows:
-            self.assertNotIn(
-                row["korean"], live_korean,
-                f"{row['korean']} ({row['id']}) is already live -- draft should not duplicate it",
-            )
+            self.assertEqual(live_counts.get(row["korean"], 0), 1, row["korean"])
+            self.assertEqual(live_by_id.get(row["id"]), row, f"{row['id']}: live row differs from draft")
 
     def test_no_overlap_with_prior_reinforcement_drafts(self):
         draft_rows = _load_vocab_rows(DRAFTS / "batch_32_a2_rows.csv")
@@ -265,10 +266,12 @@ class TestBatch32VocabRows(unittest.TestCase):
         koreans = [r["korean"] for r in self.rows]
         self.assertEqual(len(koreans), len(set(koreans)))
 
-    def test_no_duplicate_korean_vs_live_csv(self):
-        live_korean = {r["korean"] for r in self.live_rows}
+    def test_no_duplicate_korean_vs_pre_batch_live_csv(self):
+        # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
+        batch_ids = {r["id"] for r in self.rows}
+        pre_batch_korean = {r["korean"] for r in self.live_rows if r["id"] not in batch_ids}
         for row in self.rows:
-            self.assertNotIn(row["korean"], live_korean)
+            self.assertNotIn(row["korean"], pre_batch_korean)
 
     def test_all_headwords_are_nikl_grade2(self):
         nikl_by_word = {}
@@ -281,9 +284,8 @@ class TestBatch32VocabRows(unittest.TestCase):
             self.assertIn("2", grades, f"{row['korean']} has NIKL grades {grades}, not grade 2")
 
     def test_all_ids_unique_and_above_live_and_draft_a2_max(self):
-        live_max = max(
-            int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a2_")
-        )
+        # Post-promotion: fixed pre-batch baseline (own lowest id - 1).
+        live_max = min(int(r["id"].rsplit("_", 1)[1]) for r in self.rows) - 1
         b31 = _load_vocab_rows(DRAFTS / "batch_31_a2_rows.csv")
         b31_max = max(int(r["id"].rsplit("_", 1)[1]) for r in b31 if r["id"].startswith("vocab_a2_"))
         floor = max(live_max, b31_max)
@@ -306,9 +308,15 @@ class TestBatch32VocabRows(unittest.TestCase):
         for row in self.rows:
             self.assertEqual(row["level"], "A2")
 
-    def test_is_review_boss_false(self):
+    def test_is_review_boss_matches_new_pack_convention(self):
+        # C3-T6 (2026-11-25): each brand-new pack's final 2 pack_order rows
+        # are Boss words (validate_content requires 2-3 per pack); the
+        # 4-word a2_daily_actions_1 partial gets its Boss words from Batch 33.
+        sizes = Counter(r["pack_id"] for r in self.rows)
         for row in self.rows:
-            self.assertEqual(row["is_review_boss"], "false")
+            n = sizes[row["pack_id"]]
+            expect = n == 12 and int(row["pack_order"]) in {n - 1, n}
+            self.assertEqual(row["is_review_boss"], "true" if expect else "false", row["id"])
 
     def test_examples_are_at_most_10_eojeol(self):
         for row in self.rows:
@@ -559,9 +567,8 @@ class TestBatch32Cloze(unittest.TestCase):
         self.assertEqual(len(self.items), len(rows))
 
     def test_ids_unique_and_above_live_and_draft_a2_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a2_")
-        )
+        # Post-promotion: fixed pre-batch baseline (own lowest id - 1).
+        live_max = min(int(i["id"].rsplit("_", 1)[1]) for i in self.items) - 1
         b31_max = max(
             int(i["id"].rsplit("_", 1)[1]) for i in self.b31_cloze if i["id"].startswith("cloze_a2_")
         )
@@ -688,9 +695,8 @@ class TestBatch32Satz(unittest.TestCase):
         self.assertEqual(len(self.items), len(rows))
 
     def test_ids_unique_and_above_live_and_draft_a2_max(self):
-        live_max = max(
-            int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a2_")
-        )
+        # Post-promotion: fixed pre-batch baseline (own lowest id - 1).
+        live_max = min(int(i["id"].rsplit("_", 1)[1]) for i in self.items) - 1
         b31_max = max(
             int(i["id"].rsplit("_", 1)[1]) for i in self.b31_satz if i["id"].startswith("satz_a2_")
         )

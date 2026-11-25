@@ -646,6 +646,245 @@
         "example_english": "I'm from another country."
       },
       "humanApprovalClaim": false
+    },
+    "vocab_a2_0570": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "774dc65d00c29f22b1074690bab080323a38871cebb43b3802ff3e832536f0d7",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0574": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "f929d628d936542781c9b386f9f5d45b59c2dab2092f095911860b6857cd941d",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0578": {
+      "rules": [
+        "R3",
+        "R4"
+      ],
+      "textSha256": "18b2d9c0d47b90240d33e97a0278d003518e4570ff9f2c593d115ac97f6fd260",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match. 2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0579": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "b6550cec70d6a1cc4c072c738d0373cb598f52d8c251819048ac25ff009291ff",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0592": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "859395f8d703701c513f746c329b9c90f80539296eb45f5ce0bad238f1f859ec",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0593": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "8f64e35cece320363e04f0704749d6fbf07396ceca8fd320c3975d71f794519d",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0596": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "f8bef4fd02a25d0fab9edb3770e4109113a792e076c5394191cb5b30b130ce7c",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0602": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "0943e8c46053e21e41081c6eede4acdfab85bc7ec560a59d9fddc98b5311957e",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0603": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "7d87aa49df9862f1a00fea977c6b6a486aadaf125cff71f94be8d1edef04f96d",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0606": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "7ce8b07fd9ba1870cb22b8686a824daa1ae563caed675925eb6c483dc7021fa5",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0610": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "1e2e906495d321cd987e2d8ceeb64b1a35e26a2802dd2fd411ff34f56552b8fa",
+      "reason": "2026-11-25 Claude review: the gloss is the same internationally spelled word or romanized dish name in German and English, not a copy-paste defect."
+    },
+    "vocab_a2_0623": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "a705bd1dbeaa13aa167a6a7d80ecce02b0bab1b2d2605f107af6cf0a05dd86d3",
+      "reason": "2026-11-25 Claude review: the gloss is the same internationally spelled word or romanized dish name in German and English, not a copy-paste defect."
+    },
+    "vocab_a2_0627": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "79e3b1275b66af9689428bc462c9bbd6fe060e60e8241e043f82d96180a40aa9",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0629": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "9b8a40555d889ae4afae7f701deead08b06cd775d3a7f63ec616a6724ecde677",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0636": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "8b8a5d9575798a479030cdb40cdde061519daa42e6cc0b642e6aceb08759931e",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0641": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "09b086623d83d52ff0c289872d344f8e6f42c1a08d63f7f152d2f7d6bb25c36b",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0643": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "0dff9cddfee95ff40a776006dd2dd96d977d8c592c22efa6cc72364ce5e83a6f",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0647": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "3ac783abeaab9f159572f4d0caf8915a69f5b67375df0a21fc012312cd2ba484",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0649": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "d423b5b905a34b69270b706125fe72923b4305a97b34f8825991a9c5d0de920c",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0651": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "b4d4cfc0ce955750e3055f7b29d7d5bb934139b46655785f36d28a75eda1728d",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0662": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "e33b1d1c553cbc5fc40927c26981233cde0b4b9ac5f74435015678f2a95bcf62",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0665": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "fe3bee264a0579d66bd5dbd8ff410d535c3c3b6c90d36f1a692a1566e3a55e72",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0669": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "c8900d8343f7dd0bb2bc9bb61df271e283c8801659f3059ae05f4cb8fbaca4e5",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0670": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "a428cfd2abcc2711d56f8702b7968e5314e0b2664d657b94bdcb8a7083015f0b",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0677": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "3ee3f6db5affbc1a3b8bd888eb71811e518c7e1cb6f2efbe4e3eaf0ea909b6bb",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0690": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "998ac1ff23cdaaa9569602dafdc32c1b3a2caaa55b4ebf211ecbc5213f109af6",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0699": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "4081dad88f32e7d919ca92ab48a33fe993387438a9118c1fc0e59c981eeacc67",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0709": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "78e2a34bd720e0e7bf2c7d69c729cf4acd45255acdea0780ec885e427e94ba37",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0716": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "64558b006284f400f4780fe39d48546ad8baddba0b5d97a7d4bdc3fded3747b2",
+      "reason": "2026-11-25 Claude review: the headword is used correctly in an irregular or contracted conjugation (e.g. ㅂ/ㄷ/르-irregular, 으-deletion, vowel fusion) that a plain substring check cannot match."
+    },
+    "vocab_a2_0723": {
+      "rules": [
+        "R7"
+      ],
+      "textSha256": "27238c07639f0d135e44360862f3202c29249158a05afcafff90aacead1c6d78",
+      "reason": "2026-11-25 Claude review: the gloss is the same internationally spelled word or romanized dish name in German and English, not a copy-paste defect."
+    },
+    "vocab_a2_0724": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "7fb662eb7fbee18109c70b9408751efad7b100f0dd3681cd46ce81c5fe078746",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0747": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "2a3bb2eb2246916d12d2cc29da01b147756e1abf0a9d5a74d69c3538c82710ac",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0748": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "550be0b03ed167bb9576812c484f88d3c4ac97d7a141cc3ab45bd2f809d31102",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0752": {
+      "rules": [
+        "R4"
+      ],
+      "textSha256": "83eed40d3441a967da356402025464f0ccf8279a72bd74b322a93829d2cee958",
+      "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
     }
   }
 }

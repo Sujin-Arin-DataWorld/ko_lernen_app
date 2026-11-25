@@ -161,7 +161,7 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | 51 | vocab_a2_0746 | 개월 | 한국에 온 지 삼 개월 됐어요. | Ich bin jetzt seit drei Monaten in Korea. | I've been in Korea for three months now. |
 | 52 | vocab_a2_0747 | 그동안 | 그동안 잘 지냈어요? 여기 앉아요. | Wie ist es Ihnen seit unserem letzten Treffen ergangen? Setzen Sie sich doch hierhin. | How have you been since we last met? Have a seat here. |
 | 53 | vocab_a2_0748 | 오랜만 | 오랜만에 만나서 정말 반가워요. | Ich freue mich sehr, Sie nach so langer Zeit wiederzusehen. | It's so nice to see you after such a long time. |
-| 54 | vocab_a2_0749 | 마지막 | 이 케이크가 마지막이에요. 반씩 먹어요. | Das ist der letzte Kuchen. Für jeden die Hälfte? | This is the last cake. Let's have half each. |
+| 54 | vocab_a2_0749 | 마지막 | 이 케이크가 마지막이에요. 반씩 먹어요. | Das ist der letzte Kuchen. Wir teilen ihn uns. | This is the last cake. Let's have half each. |
 | 55 | vocab_a2_0750 | 최근 | 최근에 요리를 배워서 외식을 덜 해요. | Ich habe vor Kurzem kochen gelernt und esse deshalb seltener auswärts. | I learned to cook recently, so I eat out less. |
 | 56 | vocab_a2_0751 | 다음날 | 여행 다음날 아침에는 집에서 푹 쉬었어요. | Am Morgen nach der Reise habe ich mich zu Hause richtig ausgeruht. | I had a good rest at home the morning after the trip. |
 | 57 | vocab_a2_0752 | 어젯밤 | 어젯밤에 드라마를 보다가 늦게 잤어요. | Ich habe gestern Abend eine Serie geschaut und bin spät ins Bett gegangen. | I watched a series last night and went to bed late. |
@@ -406,7 +406,7 @@ KO 장면을 먼저 정하고 DE와 EN을 각각 수정했다. 아래는 사람 
 | `cloze_a2_0553` | 개월 | 개월 | 일 | 한국에 온 지 삼 일 됐어요. | 삼 일이 지남; 요구 뜻: 한국에 온 지 세 달이 지남 |
 | `cloze_a2_0553` | 개월 | 개월 | 년 | 한국에 온 지 삼 년 됐어요. | 삼 년이 지남; 요구 뜻: 한국에 온 지 세 달이 지남 |
 | `cloze_a2_0554` | 그동안 | 그동안 | 어제 | 어제 잘 지냈어요? 여기 앉아요. | 어제의 안부를 물음; 요구 뜻: 못 만난 동안의 안부를 물음 |
-| `cloze_a2_0554` | 그동안 | 그동안 | 오늘 | 오늘 잘 지냈어요? 여기 앉아요. | 오늘의 안부를 물음; 요구 뜻: 못 만난 동안의 안부를 물음 |
+| `cloze_a2_0554` | 그동안 | 그동안 | 아침에 | 아침에 잘 지냈어요? 여기 앉아요. | 아침의 안부를 물음; 요구 뜻: 못 만난 동안의 안부를 물음 |
 | `cloze_a2_0554` | 그동안 | 그동안 | 주말에 | 주말에 잘 지냈어요? 여기 앉아요. | 주말의 안부를 물음; 요구 뜻: 못 만난 동안의 안부를 물음 |
 | `cloze_a2_0555` | 오랜만 | 오랜만에 | 점심에 | 점심에 만나서 정말 반가워요. | 점심에 만남; 요구 뜻: 오랫동안 못 만나다가 만남 |
 | `cloze_a2_0555` | 오랜만 | 오랜만에 | 휴일에 | 휴일에 만나서 정말 반가워요. | 휴일에 만남; 요구 뜻: 오랫동안 못 만나다가 만남 |

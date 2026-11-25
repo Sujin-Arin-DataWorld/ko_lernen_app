@@ -197,7 +197,8 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         # A2 보강 64행(첫 A2 승격, 1 신규 팩 포함, 2026-09-16)을 함께 센다.
         # C2 honorific-context and argument-scope packs each add 12 rows
         # (batches 35 and 37, merged into main 80f82470).
-        self.assertEqual(inventory["vocab"], 2968)
+        # C3-T6 (2026-11-25): A2 Batches 32-34 add 192 rows (16 new packs).
+        self.assertEqual(inventory["vocab"], 3160)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:

@@ -222,31 +222,32 @@ class TestBatch34DraftFilesExist(unittest.TestCase):
             with path.open(encoding="utf-8-sig", newline="") as f:
                 rows = list(csv.DictReader(f))
             self.assertEqual(len(rows), 64)
-            self.assertEqual({r["상태"] for r in rows}, {"pending"}, f"{path.name}: draft ledger must be pending")
-            self.assertEqual({r["jin_memo"] for r in rows}, {""})
+            # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
+            self.assertEqual({r["상태"] for r in rows}, {"approved"}, f"{path.name}: promoted ledger must be approved")
+            self.assertTrue(all(r["jin_memo"].startswith("Jin 승인 2026-11-25") for r in rows))
 
 
 class TestBatch34NeverTouchesLiveAssets(unittest.TestCase):
-    def test_manifest_marks_draft_and_unapproved(self):
+    def test_manifest_marks_merged_and_approved(self):
+        # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
         manifest = _load_json(MANIFEST_JSON)
-        self.assertEqual(manifest["status"], "draft")
-        self.assertEqual(manifest["provenance"]["approval"], {})
-        self.assertFalse(manifest["promotion"]["assetsDataWritten"])
-        self.assertFalse(manifest["promotion"]["runtime"])
-        self.assertFalse(manifest["promotion"]["tts"])
-        self.assertFalse(manifest["promotion"]["firebase"])
+        self.assertEqual(manifest["status"], "merged")
+        self.assertEqual(manifest["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(manifest["promotion"]["assetsDataWritten"])
+        self.assertTrue(manifest["promotion"]["runtime"])
         self.assertEqual(manifest["provenance"]["modelLanguageQa"], "MODEL_QA_PASS")
         self.assertIn("MODEL_REVIEWED", manifest["provenance"]["exerciseReview"])
         self.assertTrue(manifest["choiceContract"]["requiresTranslation"])
         self.assertEqual(set(manifest["exampleScenes"]), {r["id"] for r in _load_vocab_rows(ROWS_CSV)})
 
-    def test_no_live_headword_was_added(self):
-        live_korean = {r["korean"] for r in _load_vocab_rows(VOCAB_CSV)}
+    def test_every_headword_is_live_exactly_once_with_matching_row(self):
+        # C3-T6 (2026-11-25): Batches 32-34 were Jin-approved ('표본 승인') and promoted.
+        live_rows = _load_vocab_rows(VOCAB_CSV)
+        live_counts = Counter(r["korean"] for r in live_rows)
+        live_by_id = {r["id"]: r for r in live_rows}
         for row in _load_vocab_rows(ROWS_CSV):
-            self.assertNotIn(
-                row["korean"], live_korean,
-                f"{row['korean']} ({row['id']}) is already live -- draft should not duplicate it",
-            )
+            self.assertEqual(live_counts.get(row["korean"], 0), 1, row["korean"])
+            self.assertEqual(live_by_id.get(row["id"]), row, f"{row['id']}: live row differs from draft")
 
     def test_no_overlap_with_prior_reinforcement_drafts(self):
         draft_korean = {r["korean"] for r in _load_vocab_rows(ROWS_CSV)}
@@ -332,9 +333,8 @@ class TestBatch34VocabRows(unittest.TestCase):
             self.assertIn("2", grades, f"{row['korean']} has NIKL grades {grades}, not grade 2")
 
     def test_all_ids_form_complete_contiguous_set_above_prior_max(self):
-        live_max = max(
-            int(r["id"].rsplit("_", 1)[1]) for r in self.live_rows if r["id"].startswith("vocab_a2_")
-        )
+        # Post-promotion: fixed pre-batch baseline (own lowest id - 1).
+        live_max = min(int(r["id"].rsplit("_", 1)[1]) for r in self.rows) - 1
         draft_max = max(
             int(r["id"].rsplit("_", 1)[1])
             for n in PRIOR_A2_DRAFTS
@@ -370,7 +370,12 @@ class TestBatch34VocabRows(unittest.TestCase):
             self.assertTrue(ok, f"pack_id {pid} ({row['id']}) is neither live, declared new, nor a prior draft pack being completed")
 
     def test_new_pack_ids_do_not_collide_with_live_or_prior_drafts(self):
-        prior_pack_ids = set(self.live_pack_ids)
+        # Post-promotion: only packs live BEFORE this batch (lower vocab ids).
+        own_min = min(int(r["id"].rsplit("_", 1)[1]) for r in self.rows)
+        prior_pack_ids = {
+            r["pack_id"] for r in self.live_rows
+            if not (r["id"].startswith("vocab_a2_") and int(r["id"].rsplit("_", 1)[1]) >= own_min)
+        }
         for n in PRIOR_A2_DRAFTS:
             prior_pack_ids |= {r["pack_id"] for r in _load_vocab_rows(DRAFTS / f"batch_{n}_a2_rows.csv")}
         for p in self.manifest["newPacks"]:
@@ -658,11 +663,11 @@ class TestBatch34Cloze(unittest.TestCase):
 
     def test_item_shape_matches_batch31_draft(self):
         for item in self.items:
-            self.assertEqual(set(item), {"id", "sourceVocabId", "fullKo", "sentenceKo", "answer", "distractors", "de", "en", "level", "topic"}, item["id"])
+            self.assertEqual(set(item), {"id", "sourceVocabId", "fullKo", "sentenceKo", "answer", "distractors", "de", "en", "level", "topic", "courseUnitId"}, item["id"])
             self.assertIn(item["sourceVocabId"], self.rows_by_id)
 
     def test_ids_form_complete_contiguous_set_above_prior_max(self):
-        live_max = max(int(i["id"].rsplit("_", 1)[1]) for i in self.live_cloze if i["id"].startswith("cloze_a2_"))
+        live_max = min(int(i["id"].rsplit("_", 1)[1]) for i in self.items) - 1  # post-promotion pre-batch baseline
         draft_max = max(
             int(i["id"].rsplit("_", 1)[1])
             for n in PRIOR_A2_DRAFTS
@@ -823,10 +828,10 @@ class TestBatch34Satz(unittest.TestCase):
 
     def test_item_shape_matches_batch31_draft(self):
         for item in self.items:
-            self.assertEqual(set(item), {"id", "sourceVocabId", "vocabKo", "targetKo", "distractors", "promptDe", "promptEn", "level"}, item["id"])
+            self.assertEqual(set(item), {"id", "sourceVocabId", "vocabKo", "targetKo", "distractors", "promptDe", "promptEn", "level", "courseUnitId"}, item["id"])
 
     def test_ids_form_complete_contiguous_set_above_prior_max(self):
-        live_max = max(int(i["id"].rsplit("_", 1)[1]) for i in self.live_satz if i["id"].startswith("satz_a2_"))
+        live_max = min(int(i["id"].rsplit("_", 1)[1]) for i in self.items) - 1  # post-promotion pre-batch baseline
         draft_max = max(
             int(i["id"].rsplit("_", 1)[1])
             for n in PRIOR_A2_DRAFTS
@@ -1053,11 +1058,28 @@ class TestBatch34Regeneration(unittest.TestCase):
                 cwd=REPO_ROOT, env=env, capture_output=True, text=True,
             )
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-            for relative in self.BATCH34_OUTPUTS + self.PREDECESSOR_OUTPUTS:
+            # C3-T6 (2026-11-25): Batch 34 is promoted. The generator can only
+            # reproduce the pre-promotion draft, so compare what promotion does
+            # not rewrite: the vocab rows and packet byte-for-byte, and the
+            # cloze/satz items without the injected courseUnitId. Ledgers,
+            # manifests and the predecessor ledgers now carry promotion state.
+            for relative in (
+                "tools/content_factory/drafts/batch_34_a2_rows.csv",
+                "docs/data/review_packets/batch_34_a2_jin_sample.md",
+            ):
                 expected = (REPO_ROOT / relative).read_bytes()
-                actual_path = output_root / relative
-                self.assertTrue(actual_path.is_file(), f"generator omitted {relative}")
-                self.assertEqual(actual_path.read_bytes(), expected, f"regeneration drift: {relative}")
+                self.assertEqual((output_root / relative).read_bytes(), expected, f"regeneration drift: {relative}")
+
+            def strip(items):
+                return [{k: v for k, v in i.items() if k != "courseUnitId"} for i in items]
+
+            for relative in (
+                "tools/content_factory/drafts/batch_34_a2_cloze.json",
+                "tools/content_factory/drafts/batch_34_a2_satz.json",
+            ):
+                expected = strip(_load_json(REPO_ROOT / relative)["items"])
+                actual = strip(_load_json(output_root / relative)["items"])
+                self.assertEqual(actual, expected, f"regeneration drift: {relative}")
 
 
 

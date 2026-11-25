@@ -302,7 +302,13 @@
               }
             ]
           },
-          "liveVocabMatches": [],
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0689",
+              "level": "A2",
+              "packId": "a2_events_1"
+            }
+          ],
           "classification": "at_or_below_target",
           "flags": [],
           "recommendedAction": "keep"
@@ -661,7 +667,13 @@
               }
             ]
           },
-          "liveVocabMatches": [],
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0577",
+              "level": "A2",
+              "packId": "a2_body_1"
+            }
+          ],
           "classification": "at_or_below_target",
           "flags": [],
           "recommendedAction": "keep"

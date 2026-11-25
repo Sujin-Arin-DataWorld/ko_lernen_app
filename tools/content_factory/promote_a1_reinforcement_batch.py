@@ -112,6 +112,8 @@ VOCAB_COLUMNS = [
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 
 APPROVED_AT = "2026-09-16"
+# Batches 32-34 were Jin-approved later, after the 2026-11-25 Claude R9 review.
+APPROVED_AT_BY_BATCH = {32: "2026-11-25", 33: "2026-11-25", 34: "2026-11-25"}
 APPROVAL_SOURCE = {
     26: "owner chat: 'Batch 26·27 승인'",
     27: "owner chat: 'Batch 26·27 승인'",
@@ -119,17 +121,24 @@ APPROVAL_SOURCE = {
     29: "owner chat: 'Batch 29 표본 승인'",
     30: "owner chat: 'Batch 30·31 표본 승인'",
     31: "owner chat: 'Batch 30·31 표본 승인'",
+    32: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
+    33: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
+    34: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
 }
 BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows",
                  27: "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows",
                  28: "7/63",
                  29: "7/64",
                  30: "7/62 (30) · 7/64 (31)",
-                 31: "7/62 (30) · 7/64 (31)"}
+                 31: "7/62 (30) · 7/64 (31)",
+                 32: "7/64 each (32 · 33 · 34)",
+                 33: "7/64 each (32 · 33 · 34)",
+                 34: "7/64 each (32 · 33 · 34)"}
 # Task label per batch (26-28 were promoted together under C3-T3; 29 is
 # promoted separately under C3-T4; 30-31 together under C3-T5) -- used in
 # the memo/promotion-note text.
-TASK_LABEL = {26: "C3-T3", 27: "C3-T3", 28: "C3-T3", 29: "C3-T4", 30: "C3-T5", 31: "C3-T5"}
+TASK_LABEL = {26: "C3-T3", 27: "C3-T3", 28: "C3-T3", 29: "C3-T4", 30: "C3-T5", 31: "C3-T5",
+              32: "C3-T6", 33: "C3-T6", 34: "C3-T6"}
 TOGETHER_NOTE = {
     26: "Batch 26·27 approved together",
     27: "Batch 26·27 approved together",
@@ -137,10 +146,13 @@ TOGETHER_NOTE = {
     29: "Batch 29 approved on its own (10.9% Jin sample, 7/64 rows)",
     30: "Batch 30·31 approved together (last A1 reinforcement batch + first A2 promotion)",
     31: "Batch 30·31 approved together (last A1 reinforcement batch + first A2 promotion)",
+    32: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
+    33: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
+    34: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
 }
 # Level of each batch (lowercase) -- asserted against the --level flag so a
 # mistyped flag fails loudly instead of silently mis-tagging content.
-LEVEL_BY_BATCH = {26: "a1", 27: "a1", 28: "a1", 29: "a1", 30: "a1", 31: "a2"}
+LEVEL_BY_BATCH = {26: "a1", 27: "a1", 28: "a1", 29: "a1", 30: "a1", 31: "a2", 32: "a2", 33: "a2", 34: "a2"}
 # NIKL kiiq grade number per level, used in the review-ledger field_notes text.
 LEVEL_GRADE = {"a1": 1, "a2": 2}
 
@@ -198,7 +210,7 @@ def main(batch: int, level: str, apply: bool) -> None:
     manifest = rj(manifest_path)
 
     memo = (
-        f"Jin 승인 2026-09-16 ({APPROVAL_SOURCE[batch]}; "
+        f"Jin 승인 {APPROVED_AT_BY_BATCH.get(batch, APPROVED_AT)} ({APPROVAL_SOURCE[batch]}; "
         f"{BATCH_SAMPLE[batch]}); {TASK_LABEL[batch]} 승격"
     )
 
@@ -383,7 +395,7 @@ def main(batch: int, level: str, apply: bool) -> None:
     # -- manifest: flip to merged + structured approval --
     approval = {
         "authority": "Jin",
-        "approvedAt": APPROVED_AT,
+        "approvedAt": APPROVED_AT_BY_BATCH.get(batch, APPROVED_AT),
         "source": APPROVAL_SOURCE[batch],
         "sample": BATCH_SAMPLE[batch],
     }
@@ -401,7 +413,7 @@ def main(batch: int, level: str, apply: bool) -> None:
         "tts": False,
         "firebase": False,
         "note": (
-            f"Promoted 2026-09-16 ({TASK_LABEL[batch]}) after Jin approval "
+            f"Promoted {APPROVED_AT_BY_BATCH.get(batch, APPROVED_AT)} ({TASK_LABEL[batch]}) after Jin approval "
             f"({TOGETHER_NOTE[batch]}). TTS synthesis pending -- run tool/"
             f"generate_tts.py --missing-from-storage before this batch's audio "
             f"is available (no OS-voice fallback)."
@@ -427,7 +439,7 @@ def main(batch: int, level: str, apply: bool) -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29, 30, 31))
+    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29, 30, 31, 32, 33, 34))
     ap.add_argument("--level", type=str, required=True, choices=("a1", "a2", "A1", "A2"))
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--check", action="store_true")
