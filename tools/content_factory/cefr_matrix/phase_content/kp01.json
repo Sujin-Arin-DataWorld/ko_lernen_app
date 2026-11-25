@@ -886,7 +886,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 3,
+      "contentRevision": 4,
       "rubricVersion": 1,
       "title": {
         "ko": "-아/어요",
@@ -905,7 +905,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "현우: 날씨가 어때요?\n유나: 좋아요.\n처음 만난 동료에게 공손하게 답해요. 좋다 →",
+        "sourceKo": "현우: 날씨가 어때요?\n유나: 좋아요.\n처음 만난 반 친구에게 공손하게 답해요. 좋다 →",
         "questions": [
           {
             "id": "answer",
@@ -939,7 +939,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "동료: 아침에 빵을 먹어요?\n지수: 네, 빵을 ___.\n처음 만난 동료에게 공손하게 답해요. 먹다 →",
+        "sourceKo": "친구: 아침에 빵을 먹어요?\n지수: 네, 빵을 ___.\n처음 만난 반 친구에게 공손하게 답해요. 먹다 →",
         "questions": [
           {
             "id": "answer",
@@ -1869,7 +1869,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "소개하고 다시 묻기",
@@ -1877,7 +1877,7 @@
         "de": "Sich vorstellen und nachfragen"
       },
       "teaching": {
-        "ko": "처음 만난 학습 동료에게 해요체로 소개하고 못 들은 이름을 다시 물어보세요. 녹음을 듣고 이름·소개·되묻기·공손한 말끝을 확인하세요. 이 자유 발화의 의미는 자동 채점하지 않아요.",
+        "ko": "처음 만난 반 친구에게 해요체로 소개하고 못 들은 이름을 다시 물어보세요. 녹음을 듣고 이름·소개·되묻기·공손한 말끝을 확인하세요. 이 자유 발화의 의미는 자동 채점하지 않아요.",
         "en": "Introduce yourself politely to a new classmate and ask for a name you did not catch. Listen to your recording and review the introduction, request for repetition and polite endings. Meaning in this free response is not scored automatically.",
         "de": "Stelle dich einem neuen Kursmitglied höflich vor und frage nach dem Namen, den du nicht verstanden hast. Höre deine Aufnahme an und prüfe Vorstellung, Nachfrage und höfliche Endungen. Die Bedeutung dieser freien Antwort wird nicht automatisch bewertet."
       },
@@ -1890,7 +1890,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "연습용 이름: 유나\n처음 만난 동료에게 소개하고 이름을 다시 물어보세요.",
+        "sourceKo": "연습용 이름: 유나\n처음 만난 반 친구에게 소개하고 이름을 다시 물어보세요.",
         "questions": []
       },
       "prerequisiteTaskIds": []
@@ -2431,7 +2431,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 3,
+      "contentRevision": 4,
       "rubricVersion": 1,
       "title": {
         "ko": "첫 만남에서 다시 묻고 확인하기",
@@ -2448,13 +2448,13 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n동료: 네, 미나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사예요.\n동료: 한국어 수업은 어디예요?\n학생: 201호예요.\n동료: 201호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n친구: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n친구: 네, 미나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사예요.\n친구: 한국어 수업은 어디예요?\n학생: 201호예요.\n친구: 201호 맞아요?\n학생: 네, 맞아요.\n친구: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
         "questions": [
           {
             "id": "repair",
             "kind": "choice",
             "prompt": {
-              "ko": "동료가 다시 물은 것은?",
+              "ko": "친구가 다시 물은 것은?",
               "en": "What did the classmate ask to hear again?",
               "de": "Was wollte die andere Person noch einmal hören?"
             },
@@ -2622,13 +2622,13 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "학생: 안녕하세요. 저는 유나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 유나예요.\n동료: 네, 유나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 회사원이에요.\n동료: 한국어 수업은 어디예요?\n학생: 302호예요.\n동료: 302호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "sourceKo": "학생: 안녕하세요. 저는 유나예요.\n친구: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 유나예요.\n친구: 네, 유나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 회사원이에요.\n친구: 한국어 수업은 어디예요?\n학생: 302호예요.\n친구: 302호 맞아요?\n학생: 네, 맞아요.\n친구: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
         "questions": [
           {
             "id": "repair",
             "kind": "choice",
             "prompt": {
-              "ko": "동료가 다시 물은 것은?",
+              "ko": "친구가 다시 물은 것은?",
               "en": "What did the classmate ask to hear again?",
               "de": "Was wollte die andere Person noch einmal hören?"
             },
@@ -2803,7 +2803,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "이름 소리와 소개 대화",
@@ -2820,12 +2820,12 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "가상 인물: 지민 / 학생. 가족: 동생은 의사. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 현우예요. 수업은 201호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
+        "sourceKo": "가상 인물: 지민 / 학생. 가족: 동생은 의사. 처음 만난 반 친구에게 해요체로 자기와 가족을 소개해요.\n친구의 이름을 못 들었어요.\n친구가 다시 말해요: 저는 현우예요. 수업은 201호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
         "questions": []
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "가상 인물: 지선 / 회사원. 가족: 동생은 학생. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 유나예요. 수업은 302호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
+        "sourceKo": "가상 인물: 지선 / 회사원. 가족: 동생은 학생. 처음 만난 반 친구에게 해요체로 자기와 가족을 소개해요.\n친구의 이름을 못 들었어요.\n친구가 다시 말해요: 저는 유나예요. 수업은 302호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
         "questions": []
       }
     },

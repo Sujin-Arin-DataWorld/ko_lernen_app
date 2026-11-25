@@ -6282,12 +6282,12 @@
       "jsonPointer": "/tasks/9/practice/sourceKo",
       "sourceLevel": "A1",
       "quote": "좋아요.",
-      "contextSha256": "fc0cd422e5925fb60b332643c25c0f560f48f417d30113f7b194da45a33abe98",
+      "contextSha256": "43acf073405f94493cfd173a79ef84f571c4795de04d615bc26e56ea272c32c0",
       "decision": "accepted",
       "mode": "R",
       "status": "MODEL_QA_PASS",
       "reviewer": "Astra",
-      "rationaleKo": "처음 만난 동료에게 날씨 상태를 해요체로 답한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.",
+      "rationaleKo": "처음 만난 반 친구에게 날씨 상태를 해요체로 답한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다.",
       "originalReview": {
         "phaseId": "KP01",
         "grammarKey": "G1:-어2",
@@ -6306,17 +6306,17 @@
       "sourceRevalidation": {
         "reviewer": "Claude",
         "status": "MODEL_QA_PASS",
-        "reviewedOn": "2026-11-24",
+        "reviewedOn": "2026-11-25",
         "checks": [
           "exact-quote",
           "adjacent-context",
           "grammar-function"
         ],
         "previousContextSha256": "8d43d8505899073b4d1a2d4a95271e91f99b76db1ec3622f8668b95ef108ca35",
-        "contextSha256": "fc0cd422e5925fb60b332643c25c0f560f48f417d30113f7b194da45a33abe98",
+        "contextSha256": "43acf073405f94493cfd173a79ef84f571c4795de04d615bc26e56ea272c32c0",
         "quote": "좋아요.",
         "originalReviewSha256": "2f1e028628fc99812c3c389b0aa07268b111ef871ef9a7dad15abd09dac88a72",
-        "note": "인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
+        "note": "인용 구절과 해당 문장 불변, 지시문·화자 표기의 호칭만 동료→반 친구/친구로 바뀜. 문법 기능 판정 유지."
       },
       "sameLevel": true,
       "provenance": "authored_phase_material"

@@ -925,7 +925,7 @@
       ],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 3,
+      "contentRevision": 4,
       "rubricVersion": 1,
       "title": {
         "ko": "-아/어요",
@@ -944,7 +944,7 @@
       "minimumScore": 1,
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "현우: 날씨가 어때요?\n유나: 좋아요.\n처음 만난 동료에게 공손하게 답해요. 좋다 →",
+        "sourceKo": "현우: 날씨가 어때요?\n유나: 좋아요.\n처음 만난 반 친구에게 공손하게 답해요. 좋다 →",
         "questions": [
           {
             "id": "answer",
@@ -978,7 +978,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "동료: 아침에 빵을 먹어요?\n지수: 네, 빵을 ___.\n처음 만난 동료에게 공손하게 답해요. 먹다 →",
+        "sourceKo": "친구: 아침에 빵을 먹어요?\n지수: 네, 빵을 ___.\n처음 만난 반 친구에게 공손하게 답해요. 먹다 →",
         "questions": [
           {
             "id": "answer",
@@ -1011,7 +1011,7 @@
         ]
       },
       "prerequisiteTaskIds": [],
-      "contentHash": "c8c15656ad08acf657222620f8d1fe46bde7b3cb71a3b70009a54c677b581d6a"
+      "contentHash": "2cab66e4ee0690ac26eec0bdabb746ff8f59464a84ee6cf868fda475fc786f96"
     },
     {
       "id": "KP01:grammar:11",
@@ -1914,7 +1914,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "소개하고 다시 묻기",
@@ -1922,7 +1922,7 @@
         "de": "Sich vorstellen und nachfragen"
       },
       "teaching": {
-        "ko": "처음 만난 학습 동료에게 해요체로 소개하고 못 들은 이름을 다시 물어보세요. 녹음을 듣고 이름·소개·되묻기·공손한 말끝을 확인하세요. 이 자유 발화의 의미는 자동 채점하지 않아요.",
+        "ko": "처음 만난 반 친구에게 해요체로 소개하고 못 들은 이름을 다시 물어보세요. 녹음을 듣고 이름·소개·되묻기·공손한 말끝을 확인하세요. 이 자유 발화의 의미는 자동 채점하지 않아요.",
         "en": "Introduce yourself politely to a new classmate and ask for a name you did not catch. Listen to your recording and review the introduction, request for repetition and polite endings. Meaning in this free response is not scored automatically.",
         "de": "Stelle dich einem neuen Kursmitglied höflich vor und frage nach dem Namen, den du nicht verstanden hast. Höre deine Aufnahme an und prüfe Vorstellung, Nachfrage und höfliche Endungen. Die Bedeutung dieser freien Antwort wird nicht automatisch bewertet."
       },
@@ -1935,11 +1935,11 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "연습용 이름: 유나\n처음 만난 동료에게 소개하고 이름을 다시 물어보세요.",
+        "sourceKo": "연습용 이름: 유나\n처음 만난 반 친구에게 소개하고 이름을 다시 물어보세요.",
         "questions": []
       },
       "prerequisiteTaskIds": [],
-      "contentHash": "9cb9e86a9f631e7832f8ddb4a642f8e7f7912eeabc00e03761516a0c1c543b73"
+      "contentHash": "65603d14721371dda9c8ee6129feb8e18654d1ea259fd1f5e438617da7503da9"
     },
     {
       "id": "KP01:reading:02",
@@ -2480,7 +2480,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 3,
+      "contentRevision": 4,
       "rubricVersion": 1,
       "title": {
         "ko": "첫 만남에서 다시 묻고 확인하기",
@@ -2497,13 +2497,13 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n동료: 네, 미나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사예요.\n동료: 한국어 수업은 어디예요?\n학생: 201호예요.\n동료: 201호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "sourceKo": "학생: 안녕하세요. 저는 미나예요.\n친구: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 미나예요.\n친구: 네, 미나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 의사예요.\n친구: 한국어 수업은 어디예요?\n학생: 201호예요.\n친구: 201호 맞아요?\n학생: 네, 맞아요.\n친구: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
         "questions": [
           {
             "id": "repair",
             "kind": "choice",
             "prompt": {
-              "ko": "동료가 다시 물은 것은?",
+              "ko": "친구가 다시 물은 것은?",
               "en": "What did the classmate ask to hear again?",
               "de": "Was wollte die andere Person noch einmal hören?"
             },
@@ -2671,13 +2671,13 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "학생: 안녕하세요. 저는 유나예요.\n동료: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 유나예요.\n동료: 네, 유나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 회사원이에요.\n동료: 한국어 수업은 어디예요?\n학생: 302호예요.\n동료: 302호 맞아요?\n학생: 네, 맞아요.\n동료: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
+        "sourceKo": "학생: 안녕하세요. 저는 유나예요.\n친구: 안녕하세요. 죄송해요. 이름을 다시 말씀해 주세요.\n학생: 괜찮아요. 유나예요.\n친구: 네, 유나 씨. 저는 현우예요. 저 사람은 누구예요?\n학생: 제 동생이에요. 직업은 회사원이에요.\n친구: 한국어 수업은 어디예요?\n학생: 302호예요.\n친구: 302호 맞아요?\n학생: 네, 맞아요.\n친구: 감사합니다. 도움이 됐어요.\n학생: 아니에요. 같이 가요.",
         "questions": [
           {
             "id": "repair",
             "kind": "choice",
             "prompt": {
-              "ko": "동료가 다시 물은 것은?",
+              "ko": "친구가 다시 물은 것은?",
               "en": "What did the classmate ask to hear again?",
               "de": "Was wollte die andere Person noch einmal hören?"
             },
@@ -2843,7 +2843,7 @@
           }
         ]
       },
-      "contentHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199"
+      "contentHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574"
     },
     {
       "id": "KP01:speaking:02",
@@ -2853,7 +2853,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "이름 소리와 소개 대화",
@@ -2870,15 +2870,15 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "가상 인물: 지민 / 학생. 가족: 동생은 의사. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 현우예요. 수업은 201호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
+        "sourceKo": "가상 인물: 지민 / 학생. 가족: 동생은 의사. 처음 만난 반 친구에게 해요체로 자기와 가족을 소개해요.\n친구의 이름을 못 들었어요.\n친구가 다시 말해요: 저는 현우예요. 수업은 201호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
         "questions": []
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "가상 인물: 지선 / 회사원. 가족: 동생은 학생. 처음 만난 동료에게 해요체로 자기와 가족을 소개해요.\n동료의 이름을 못 들었어요.\n동료가 다시 말해요: 저는 유나예요. 수업은 302호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
+        "sourceKo": "가상 인물: 지선 / 회사원. 가족: 동생은 학생. 처음 만난 반 친구에게 해요체로 자기와 가족을 소개해요.\n친구의 이름을 못 들었어요.\n친구가 다시 말해요: 저는 유나예요. 수업은 302호예요. 늦어서 죄송해요.\n이름을 다시 묻는 말부터 확인·감사·사과에 대한 응답까지 말해 보세요. 교실 안내가 도움이 됐다고도 전하세요.",
         "questions": []
       },
-      "contentHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae"
+      "contentHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1"
     },
     {
       "id": "KP01:production:01",
@@ -101884,7 +101884,7 @@
       "bindings": [
         {
           "taskId": "KP01:grammar:10",
-          "taskHash": "c8c15656ad08acf657222620f8d1fe46bde7b3cb71a3b70009a54c677b581d6a",
+          "taskHash": "2cab66e4ee0690ac26eec0bdabb746ff8f59464a84ee6cf868fda475fc786f96",
           "materialIds": [
             "KP01:grammar:10/practice/material",
             "KP01:grammar:10/assessment/material"
@@ -102075,7 +102075,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102165,7 +102165,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:01",
-          "taskHash": "9cb9e86a9f631e7832f8ddb4a642f8e7f7912eeabc00e03761516a0c1c543b73",
+          "taskHash": "65603d14721371dda9c8ee6129feb8e18654d1ea259fd1f5e438617da7503da9",
           "materialIds": [
             "KP01:speaking:01/practice/material",
             "KP01:speaking:01/assessment/material"
@@ -102190,7 +102190,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102291,7 +102291,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102323,7 +102323,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102348,7 +102348,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102380,7 +102380,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102405,7 +102405,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102437,7 +102437,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102462,7 +102462,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102494,7 +102494,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102519,7 +102519,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102551,7 +102551,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102576,7 +102576,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102608,7 +102608,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102633,7 +102633,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102665,7 +102665,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102719,7 +102719,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102744,7 +102744,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102776,7 +102776,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102801,7 +102801,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102833,7 +102833,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102886,7 +102886,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102911,7 +102911,7 @@
       "bindings": [
         {
           "taskId": "KP01:listening:03",
-          "taskHash": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+          "taskHash": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
           "materialIds": [
             "KP01:listening:03/practice/material",
             "KP01:listening:03/assessment/material"
@@ -102943,7 +102943,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -102995,7 +102995,7 @@
       "bindings": [
         {
           "taskId": "KP01:speaking:02",
-          "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+          "taskHash": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
           "materialIds": [
             "KP01:speaking:02/practice/material",
             "KP01:speaking:02/assessment/material"
@@ -147932,18 +147932,18 @@
         "KP01:grammar:07": "b61cd6c2f7572a18acb56b4315a78611ea6b885292f718481b66b9e2e09f46c8",
         "KP01:grammar:08": "7ac9078721c3a821e9077887fc993a46e4333eebeb421c24a5033b062a33caad",
         "KP01:grammar:09": "54d417289e8d7b8ee2b7cfd389147c9a1fb77dfa150dbb11aa7dcb1233537786",
-        "KP01:grammar:10": "c8c15656ad08acf657222620f8d1fe46bde7b3cb71a3b70009a54c677b581d6a",
+        "KP01:grammar:10": "2cab66e4ee0690ac26eec0bdabb746ff8f59464a84ee6cf868fda475fc786f96",
         "KP01:grammar:11": "7d4a9e4b7236823e137c64e44137fe34731f4536c89ad2b0d5a4eb80d9c62cd3",
         "KP01:grammar:12": "36a5183e557421f3cb0c464c4f8d73cb5259e80a1309e8c6c1bc4b83bc4a8ee5",
         "KP01:reading:01": "a00c81806c080a480deba5e8eb23810676b5aaad7082bf6f6f696104f0895e8c",
         "KP01:listening:01": "d597498062d346a8e85f3a0348e8c2cef4bece6ff2bc6375f9ce8104758057db",
         "KP01:writing:01": "04dc99063c515a64012a94e14ea8eb7368b5102f972d3852ac5811bb3421b423",
-        "KP01:speaking:01": "9cb9e86a9f631e7832f8ddb4a642f8e7f7912eeabc00e03761516a0c1c543b73",
+        "KP01:speaking:01": "65603d14721371dda9c8ee6129feb8e18654d1ea259fd1f5e438617da7503da9",
         "KP01:reading:02": "07f46c33a51cf74b8156f3ab67ce5e235f97239257c8942000c3878a164cbb4d",
         "KP01:listening:02": "b1e5d3e3dae90084e61f72b6f1e16daeb2c341ceb1800b109edf024ba85c7e2d",
         "KP01:writing:02": "c6a9a37aa6a8545d9f8e859937514b6abc1dc820f5fc3a86c05164db804ce2f0",
-        "KP01:listening:03": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
-        "KP01:speaking:02": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+        "KP01:listening:03": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
+        "KP01:speaking:02": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
         "KP01:production:01": "aa0b66277dd262430fd3fa625962eec37ded99c1a3b80774897ebf0c13e5f9bd",
         "KP01:production:02": "e9f936033b615d4978dce2e4301158a76d4acff23dff4a3c07e36f9c4a9b1e5c",
         "KP01:production:03": "d3b8ad9196347f0bc9481707ad105bfa35a9d86f3180c3a0c31725217044a39a",
@@ -147957,7 +147957,7 @@
         "KP01:production:11": "be099a4e67fb8099187d0b3c87bfb5402313d650714fb93b224648be3be36b2e",
         "KP01:production:12": "49f6f0ed0bf263b8e40c621603a19b93a9b033f07b26a597f92e10a9b7f052a5"
       },
-      "contentHash": "72c1c483eb48683f77aea8672cdfc8e5b98d5f7f18f04fe53093754a68aaf4a2"
+      "contentHash": "19d9c77124a102a8772d0ca6dcdcaf61d77791c837f67839eb8e229978175de3"
     },
     {
       "phaseId": "KP02",

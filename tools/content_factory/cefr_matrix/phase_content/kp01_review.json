@@ -120,7 +120,7 @@
     },
     {
       "taskId": "KP01:grammar:10",
-      "sha256": "c8c15656ad08acf657222620f8d1fe46bde7b3cb71a3b70009a54c677b581d6a",
+      "sha256": "2cab66e4ee0690ac26eec0bdabb746ff8f59464a84ee6cf868fda475fc786f96",
       "status": "MODEL_QA_PASS",
       "reviewer": "Claude",
       "checks": [
@@ -129,7 +129,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 같은 반 학습자 호칭 동료→반 친구/친구(KP02·KP03과 통일), 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:11",
@@ -198,16 +198,16 @@
     },
     {
       "taskId": "KP01:speaking:01",
-      "sha256": "9cb9e86a9f631e7832f8ddb4a642f8e7f7912eeabc00e03761516a0c1c543b73",
+      "sha256": "65603d14721371dda9c8ee6129feb8e18654d1ea259fd1f5e438617da7503da9",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim."
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 같은 반 학습자 호칭 동료→반 친구/친구(KP02·KP03과 통일), 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:reading:02",
@@ -406,7 +406,7 @@
     },
     {
       "taskId": "KP01:listening:03",
-      "sha256": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
+      "sha256": "00473837f556b6ea7ed7e432b2bb932d275d5606ac6c038849b65ac862a33574",
       "status": "MODEL_QA_PASS",
       "reviewer": "Claude",
       "checks": [
@@ -415,11 +415,11 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "연습 대화의 모음 끝 직업 의사에 예요를 적용해 의사예요로 수정했다. 회사원이에요 및 인물·관계·방 번호·정답과 KO/EN/DE 안내는 직접 재확인했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "연습 대화의 모음 끝 직업 의사에 예요를 적용해 의사예요로 수정했다. 회사원이에요 및 인물·관계·방 번호·정답과 KO/EN/DE 안내는 직접 재확인했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 같은 반 학습자 호칭 동료→반 친구/친구(KP02·KP03과 통일), 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:speaking:02",
-      "sha256": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
+      "sha256": "9dcd454e30a38b5c92d6e8330044b6ae5d4307fc477ef0f6192c91acfda61fa1",
       "status": "MODEL_QA_PASS",
       "reviewer": "Claude",
       "checks": [
@@ -428,7 +428,7 @@
         "DE",
         "answer-rubric"
       ],
-      "note": "Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변. 2026-11-25 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 같은 반 학습자 호칭 동료→반 친구/친구(KP02·KP03과 통일), 정답·오답 판정 불변."
     }
   ]
 }
