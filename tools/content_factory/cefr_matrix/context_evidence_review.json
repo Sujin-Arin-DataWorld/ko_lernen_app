@@ -5524,7 +5524,7 @@
         "rationaleKo": "책과 공책 두 명사를 열거하며 받침 뒤 과를 쓴다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다."
       },
       "sourceRevalidation": {
-        "reviewer": "Codex",
+        "reviewer": "Claude",
         "status": "MODEL_QA_PASS",
         "reviewedOn": "2026-11-24",
         "checks": [
@@ -5536,7 +5536,7 @@
         "contextSha256": "fe2fe3e65039dc4dd7f60b8435f20a5bd9e52293c1e51215f475542d77b00bfd",
         "quote": "책과 공책이에요.",
         "originalReviewSha256": "5eed69f810bb101fe229d9cf8779d1910ef2edca5869aa802aa1c1f044893ba3",
-        "note": "Claude 자연화 재검수: 인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
+        "note": "인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
       }
     },
     {
@@ -5569,7 +5569,7 @@
         "rationaleKo": "누구와 함께 가는지 질문에 동생을 동행자로 답한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다."
       },
       "sourceRevalidation": {
-        "reviewer": "Codex",
+        "reviewer": "Claude",
         "status": "MODEL_QA_PASS",
         "reviewedOn": "2026-11-24",
         "checks": [
@@ -5581,7 +5581,7 @@
         "contextSha256": "2ab11d48de29bbced3a12a0f31e52f24089f12dc2a0916d69d31ab6ce65da6dd",
         "quote": "동생이랑 가요.",
         "originalReviewSha256": "aa2b73425dae5a1e121f0aa0d9a617fa1c34d5e605e290a13743779ee3c068fd",
-        "note": "Claude 자연화 재검수: 인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
+        "note": "인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
       }
     },
     {
@@ -5614,7 +5614,7 @@
         "rationaleKo": "처음 만난 동료에게 날씨 상태를 해요체로 답한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다."
       },
       "sourceRevalidation": {
-        "reviewer": "Codex",
+        "reviewer": "Claude",
         "status": "MODEL_QA_PASS",
         "reviewedOn": "2026-11-24",
         "checks": [
@@ -5626,7 +5626,7 @@
         "contextSha256": "fc0cd422e5925fb60b332643c25c0f560f48f417d30113f7b194da45a33abe98",
         "quote": "좋아요.",
         "originalReviewSha256": "2f1e028628fc99812c3c389b0aa07268b111ef871ef9a7dad15abd09dac88a72",
-        "note": "Claude 자연화 재검수: 인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
+        "note": "인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
       }
     },
     {
@@ -5659,7 +5659,7 @@
         "rationaleKo": "격식 있는 질문과 네 갑니다 응답이 평서문과 질문을 구별한다. 실제 신규 Phase 원문에서 확인한 수용 용례이며 기존 콘텐츠 재사용·산출 숙달과 구별한다."
       },
       "sourceRevalidation": {
-        "reviewer": "Codex",
+        "reviewer": "Claude",
         "status": "MODEL_QA_PASS",
         "reviewedOn": "2026-11-24",
         "checks": [
@@ -5671,7 +5671,7 @@
         "contextSha256": "77c362baaebf5c5622f3b9bf69dbb8a09b1f213cc69a374f1309c9411cea7c06",
         "quote": "학교에 갑니까?",
         "originalReviewSha256": "4e28b66e26f36610017b6473dbcc0177a3cfb7187e300c2dedd05438ee8f95e8",
-        "note": "Claude 자연화 재검수: 인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
+        "note": "인용 구절과 해당 문장 불변, 인접 평가 지문·화자 이름만 바뀜. 문법 기능 판정 유지."
       }
     },
     {

@@ -5,14 +5,14 @@
       "taskId": "KP01:grammar:01",
       "sha256": "af0b0277f161621dd7a52d82ea0b076b89f3af09b9f6e1f4497cd2455a988f57",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:02",
@@ -31,14 +31,14 @@
       "taskId": "KP01:grammar:03",
       "sha256": "4aa2f4f7c0ea88c649e94a5a14c608254a260e151d4fbc19b3ca3d10734ac79f",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:04",
@@ -70,66 +70,66 @@
       "taskId": "KP01:grammar:06",
       "sha256": "a44de602b0e1399f868d821cc6d316ce2ed850a34f4c76c2c252ae08473fe818",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:07",
       "sha256": "b61cd6c2f7572a18acb56b4315a78611ea6b885292f718481b66b9e2e09f46c8",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:08",
       "sha256": "7ac9078721c3a821e9077887fc993a46e4333eebeb421c24a5033b062a33caad",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:09",
       "sha256": "54d417289e8d7b8ee2b7cfd389147c9a1fb77dfa150dbb11aa7dcb1233537786",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Fictional beginner classroom scenes. Full-response speech remains unscored. Grammar items assess recognition only; no full Phase mastery claim. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:10",
       "sha256": "c8c15656ad08acf657222620f8d1fe46bde7b3cb71a3b70009a54c677b581d6a",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:grammar:11",
@@ -148,40 +148,40 @@
       "taskId": "KP01:grammar:12",
       "sha256": "36a5183e557421f3cb0c464c4f8d73cb5259e80a1309e8c6c1bc4b83bc4a8ee5",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "실제 짧은 대화 안의 형태와 의미를 확인했다. 연습은 완성 용례를 읽은 뒤 형태를 고르고 평가는 다른 인물·정보로 응답한다. KO 문맥과 기존 EN/DE 안내·선택지·정답을 함께 재검수했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:reading:01",
       "sha256": "a00c81806c080a480deba5e8eb23810676b5aaad7082bf6f6f696104f0895e8c",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:listening:01",
       "sha256": "d597498062d346a8e85f3a0348e8c2cef4bece6ff2bc6375f9ce8104758057db",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Astra 직접 KO/EN/DE 문장·인물/직업/극성 대조 검수. 서식의 자유 대체 문장은 검수된 패턴 밖에서 unscored. Phase 전체 숙달 미인정. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:writing:01",
@@ -213,40 +213,40 @@
       "taskId": "KP01:reading:02",
       "sha256": "07f46c33a51cf74b8156f3ab67ce5e235f97239257c8942000c3878a164cbb4d",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Checked classroom/library location, permission and prohibition separately; all three criteria required. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Checked classroom/library location, permission and prohibition separately; all three criteria required. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:listening:02",
       "sha256": "b1e5d3e3dae90084e61f72b6f1e16daeb2c341ceb1800b109edf024ba85c7e2d",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Reviewed distinct word orders and final-name consonants. Lax/tense/aspirated explanation is separate from binary voicing; rendered TTS audio still needs playback QA. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Reviewed distinct word orders and final-name consonants. Lax/tense/aspirated explanation is separate from binary voicing; rendered TTS audio still needs playback QA. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:writing:02",
       "sha256": "c6a9a37aa6a8545d9f8e859937514b6abc1dc820f5fc3a86c05164db804ce2f0",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Required known name is entered; unknown optional data stays blank by choice; missing required contact detail is requested, not invented. Passing the clarification task does not declare the underlying form complete. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Required known name is entered; unknown optional data stays blank by choice; missing required contact detail is requested, not invented. Passing the clarification task does not declare the underlying form complete. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:production:01",
@@ -278,14 +278,14 @@
       "taskId": "KP01:production:03",
       "sha256": "d3b8ad9196347f0bc9481707ad105bfa35a9d86f3180c3a0c31725217044a39a",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: contrastive topic retains the second person occupation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: contrastive topic retains the second person occupation. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:production:04",
@@ -317,14 +317,14 @@
       "taskId": "KP01:production:06",
       "sha256": "bd031e331814b69550b8e4be2ad78b2cfc68b672fe7e6379c9acb3506119c502",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "KO/EN/DE and independent practice/assessment reviewed: named possessor, not learner ownership. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "KO/EN/DE and independent practice/assessment reviewed: named possessor, not learner ownership. Bounded sentence only; unlisted appropriate wording remains unscored. Revision 2: reviewed removal of assessment-answer overlap from help; only the distinct practice example remains. All response criteria and KO/EN/DE guidance are unchanged. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:production:07",
@@ -408,27 +408,27 @@
       "taskId": "KP01:listening:03",
       "sha256": "b97e5de72f39beda4d19a9326d17573ed71794e588ab64a30060c6427466d199",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "연습 대화의 모음 끝 직업 의사에 예요를 적용해 의사예요로 수정했다. 회사원이에요 및 인물·관계·방 번호·정답과 KO/EN/DE 안내는 직접 재확인했다. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "연습 대화의 모음 끝 직업 의사에 예요를 적용해 의사예요로 수정했다. 회사원이에요 및 인물·관계·방 번호·정답과 KO/EN/DE 안내는 직접 재확인했다. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     },
     {
       "taskId": "KP01:speaking:02",
       "sha256": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "status": "MODEL_QA_PASS",
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "checks": [
         "KO",
         "EN",
         "DE",
         "answer-rubric"
       ],
-      "note": "Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 2026-11-24 자연화 재검수(Claude, KO/EN/DE·정답 기준 대조): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
+      "note": "Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 2026-11-24 Claude 재검수(KO/EN/DE·정답 기준 대조, 원 검수 Astra): 교재 이름 민수→캐스트 현우, 조사·말끝 오류와 상황 어색함 수정, 정답·오답 판정 불변."
     }
   ]
 }

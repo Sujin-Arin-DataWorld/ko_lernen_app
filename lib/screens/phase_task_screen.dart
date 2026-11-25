@@ -262,9 +262,14 @@ class _PhaseTaskScreenState extends State<PhaseTaskScreen>
     });
     try {
       _drafts!.assertCurrent();
+      // Examples use the shared auto voice (stable per sentence) so they hit
+      // the pre-rendered canonical audio collected by tool/generate_tts.py.
       final ok =
           await (widget.playAudio ??
-              (text) => TtsService.speakPassage(text, voice: 'female'))(text);
+              (text) => TtsService.speakPassage(
+                text,
+                voice: TtsVoicePolicy.autoVoice,
+              ))(text);
       if (!ok) {
         throw StateError('Audio unavailable');
       }

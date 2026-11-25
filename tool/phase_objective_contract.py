@@ -6,6 +6,10 @@ contract, not a claim that a task proves an entire language skill.
 import hashlib
 import json
 
+# Current binding reviewers. Astra wrote the original bindings; Claude
+# re-reviews bindings whose task text it re-authored (2026-11-24 onward).
+REVIEWERS = frozenset({'Astra', 'Claude'})
+
 
 def digest(value):
     return hashlib.sha256(json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
@@ -56,7 +60,7 @@ def build(phases, tasks, ledger):
             raise ValueError('Invalid objective/task/level/mode binding')
         if objective['skill'] is not None and task['skill'] != objective['skill']:
             raise ValueError('Wrong skill objective binding')
-        if link['taskHash']!=task['contentHash'] or link['sourceHash']!=objective['sourceHash'] or link['reviewer']!='Astra' or not link['rationaleKo'].strip():
+        if link['taskHash']!=task['contentHash'] or link['sourceHash']!=objective['sourceHash'] or link['reviewer'] not in REVIEWERS or not link['rationaleKo'].strip():
             raise ValueError('Unreviewed or stale objective binding')
         identity=(objective['id'],task['id'])
         if identity in seen:

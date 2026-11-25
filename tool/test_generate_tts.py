@@ -1310,8 +1310,14 @@ class TtsGeneratorContractTest(unittest.TestCase):
 class PhaseAudioScopeTests(unittest.TestCase):
     def test_exact_reviewed_phase_scope_and_unknown_phase_rejection(self):
         pairs = generate_tts.collect_phase_audio('KP01')
-        self.assertEqual(len(pairs), 6)
-        self.assertTrue(all(voice == 'female' for voice, _ in pairs))
+        # 6 female listening passages + every distinct study example, each in
+        # the auto voice the task screen uses.
+        listening = [p for p in pairs if p[1].startswith('안녕하세요.') or p[1].startswith(('달.', '탈.', '학생:'))]
+        self.assertEqual(len(listening), 6)
+        self.assertTrue(all(voice == 'female' for voice, _ in listening))
+        examples = [p for p in pairs if p not in listening]
+        self.assertIn((generate_tts.auto_voice('친구가 와요.'), '친구가 와요.'), examples)
+        self.assertTrue(all(voice == generate_tts.auto_voice(text) for voice, text in examples))
         self.assertLessEqual(set(pairs), set(generate_tts.collect()))
         with self.assertRaises(ValueError):
             generate_tts.collect_phase_audio('KP99')

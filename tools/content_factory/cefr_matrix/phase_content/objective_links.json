@@ -10,7 +10,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -32,7 +32,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -65,7 +65,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -76,7 +76,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -87,7 +87,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -98,7 +98,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -109,7 +109,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -131,7 +131,7 @@
       "criterionIds": [
         "answer"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "해당 원본 키의 설명·실제 대비 문장·독립 평가를 과제별 KO/EN/DE 검수에서 확인했다. 선택형 의미 구분만 연결하며 산출 수행으로 소급하지 않는다."
     },
     {
@@ -1068,7 +1068,7 @@
         "role",
         "relation"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
     },
     {
@@ -1081,7 +1081,7 @@
         "name",
         "occupation"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
     },
     {
@@ -1109,7 +1109,7 @@
         "optional",
         "ask_required"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "정본의 핵심 과제 맥락과 연결된 인물·정보·시간·화행을 직접 비교했다. 선택·제한 문장 기준은 일부 구조화 평가이며 자유 글·녹음의 의미는 미채점이다. 전체 기능 숙달로 간주하지 않는다."
     },
     {
@@ -1786,7 +1786,7 @@
       "criterionIds": [
         "sentence"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. contrastive topic retains the second person occupation. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
@@ -1819,7 +1819,7 @@
       "criterionIds": [
         "sentence"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "제시된 사실·관계·말투를 완전한 문장으로 산출하는 별도 연습과 평가를 확인했다. named possessor, not learner ownership. 제한된 문장만 평가하며 자유 산출 전체 숙달은 미검증이다. 도움말은 연습 예문만 제공하는 개정판 2로 다시 검수했다."
     },
     {
@@ -2275,7 +2275,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 listening/genre/dialogue_face_to_face:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2288,7 +2288,7 @@
         "permission",
         "prohibition"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 reading/genre/sign_notice_short:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2297,7 +2297,7 @@
       "sourceHash": "dd9747b8bbfffad258ff98079f36519b2f4abcc280490b76f08ebc3a193cc84e",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 speaking/genre/dialogue_face_to_face:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2310,7 +2310,7 @@
         "optional",
         "ask_required"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 writing/genre/form_application:P의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2326,7 +2326,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/greet_introduce_self:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2335,7 +2335,7 @@
       "sourceHash": "acabb8f5ad645d18f762b94185b377eb29b95b46493f9142868b502a06c25ccb",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/greet_introduce_self:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2351,7 +2351,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/ask_give_personal_information:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2360,7 +2360,7 @@
       "sourceHash": "35e040edb1893ddb3981f485aa56f7edde16c8869ef1f9086c94c08c36e76d4a",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/ask_give_personal_information:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2376,7 +2376,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/ask_for_information_confirm:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2385,7 +2385,7 @@
       "sourceHash": "3564148c09b6a81889844a613d862b66c951d548dfea0485f367a69bc0bba2ab",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/ask_for_information_confirm:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2401,7 +2401,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/thank_apologise_respond:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2410,7 +2410,7 @@
       "sourceHash": "cafd66154560487818b5d0456a9ddab48a4cf0be81f3e22f3988296161943cb0",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/thank_apologise_respond:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2426,7 +2426,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/clarify_repair_ask_to_repeat:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2435,7 +2435,7 @@
       "sourceHash": "3f828208b5e437fb84441a6195f8be334582e5254aa9956f2865e206a51bd59c",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 functions/clarify_repair_ask_to_repeat:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2451,7 +2451,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/family_kinship_address_terms:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2460,7 +2460,7 @@
       "sourceHash": "7185a6cced48c3cea26a3b5cd2644e39aa299d3d673ea63631146e20003b1637",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/family_kinship_address_terms:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2476,7 +2476,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/professions_workplace:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2485,7 +2485,7 @@
       "sourceHash": "33b68b8a14d64d4073ee2e48cb816af9b120503af040ff056a5b116e4db37c5b",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/professions_workplace:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2498,7 +2498,7 @@
         "name",
         "occupation"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/school_study_terms:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2507,7 +2507,7 @@
       "sourceHash": "5bdf29f5a13f4ca9a8511ed23e12abe84cc27e6c37b755017d4f54f350ae6471",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/school_study_terms:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2523,7 +2523,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/etiquette_honorific_lexis:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2532,7 +2532,7 @@
       "sourceHash": "bf323415e7ae4f1cc85ac0dada4d7c5e65044f367bf620de2fd786c4f1ea44fd",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/etiquette_honorific_lexis:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2548,7 +2548,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2557,7 +2557,7 @@
       "sourceHash": "2d7132127a2f863d4de817a25673d547c7de143343449f9c83de22922a26b94a",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 vocabDomains/fixed_expressions_collocations:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2569,7 +2569,7 @@
         "sounds",
         "name"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/0:R의 학습 경로를 검수했다. 기존 개별 검수 과제의 원문·응답 조건을 다시 비교했다. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2578,7 +2578,7 @@
       "sourceHash": "3614a5bfc39c7f9fa5a4eb45629a976fbd5a544194d6aaae728d40964d583673",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/0:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2594,7 +2594,7 @@
         "thanks",
         "apology"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/1:R의 학습 경로를 검수했다. Actual question/reply turns, apology acknowledged before repeated name, thanks after concrete help. Names, family role, occupation, room, gratitude and apology contrasts reviewed in KO/EN/DE. No inferred gender or answer disclosure in teaching. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2603,7 +2603,7 @@
       "sourceHash": "82ab94fe883d41da8670c248a51611603e6b538553b01eba04e48409e0a53e0f",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 phonology/1:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {
@@ -2623,7 +2623,7 @@
       "sourceHash": "9d369c81a081a5bfa7ad528cb9233fb40f1353cca271cd44713027ec0ea40363",
       "taskHash": "88426ed18ec334bbbc02b3451af3916c5694ea7d1d3ddde4ed641943c6ef7cae",
       "criterionIds": [],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "실제 자료·응답 지시에서 register/haeyo_polite:P의 학습 경로를 검수했다. Provided name/occupation/family role; three-way consonant drill, final consonant, question/reply pauses and repair/thanks/apology explicitly requested. Recorded meaning/prosody remain unscored. 어휘 영역 전수·자유 의미·음운/억양 능력 전체는 이 연결로 평가 완료를 선언하지 않는다."
     },
     {

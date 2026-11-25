@@ -6,6 +6,7 @@ Legacy keyword candidates and draft holdings retain their original provenance.
 import json
 
 from tool.build_phase_tasks import build
+from tool.phase_objective_contract import REVIEWERS
 
 
 def attach(root, rows):
@@ -26,7 +27,7 @@ def attach(root, rows):
             raise ValueError('Duplicate or unknown matrix requirement')
         row, objective, task = by_key[key], objectives.get(link['objectiveId']), tasks.get(link['taskId'])
         if (not objective or not task or objective['level'] != row['level']
-                or objective['mode'] != row['mode'] or link['reviewer'] != 'Astra'
+                or objective['mode'] != row['mode'] or link['reviewer'] not in REVIEWERS
                 or not link['rationaleKo'].strip() or link['sourceHash'] != objective['sourceHash']
                 or link['taskHash'] != task['contentHash']):
             raise ValueError('Stale or invalid matrix Phase review')

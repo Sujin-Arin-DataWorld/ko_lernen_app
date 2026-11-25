@@ -10,6 +10,12 @@ from pathlib import Path
 from tool.curriculum_context_inventory import build_inventory
 from tool.build_phase_tasks import fingerprint, validate_task
 
+# Original (historical) reviews stay attributed to Astra. A current Phase task
+# review may come from Astra or from Claude's 2026-11-24+ re-review; a source
+# revalidation may come from Codex or Claude.
+PHASE_REVIEWERS = frozenset({'Astra', 'Claude'})
+REVALIDATORS = frozenset({'Codex', 'Claude'})
+
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = Path('tools/content_factory/cefr_matrix/context_evidence_review.json')
 
@@ -74,7 +80,7 @@ def validate_source_revalidation(row, invalidated):
             or original.get('status') != 'MODEL_QA_PASS'
             or not isinstance(original.get('quote'), str) or not original['quote'].strip()
             or not re.fullmatch(r'[0-9a-f]{64}', str(original.get('contextSha256', '')))
-            or current.get('reviewer') != 'Codex'
+            or current.get('reviewer') not in REVALIDATORS
             or current.get('status') != 'MODEL_QA_PASS'
             or not re.fullmatch(r'\d{4}-\d{2}-\d{2}', str(current.get('reviewedOn', '')))
             or not isinstance(current.get('checks'), list)
@@ -113,7 +119,7 @@ def reviewed_phase_passages(root):
             review = reviews.get(task['id'])
             if review is None or review.get('status') != 'MODEL_QA_PASS':
                 continue
-            if (review.get('reviewer') != 'Astra' or review.get('sha256') != fingerprint(task)
+            if (review.get('reviewer') not in PHASE_REVIEWERS or review.get('sha256') != fingerprint(task)
                     or not {'KO', 'EN', 'DE', 'answer-rubric'} <= set(review.get('checks', []))):
                 raise ValueError('Stale Phase source review')
             validate_task(task)

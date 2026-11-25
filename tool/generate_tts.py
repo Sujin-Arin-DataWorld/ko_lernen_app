@@ -805,6 +805,12 @@ def collect_phase_audio(phase_id=None):
             packet = task[mode]
             if packet['sourceKind'] == 'audio':
                 pairs[('female', packet['sourceKo'].strip())] = None
+        # PhaseTaskScreen._listenExample plays study examples with the auto
+        # voice; pre-render them so a tap never waits on live synthesis.
+        for example in task['examplesKo']:
+            text = example.strip()
+            if text:
+                pairs[(auto_voice(text), text)] = None
     return list(pairs)
 
 
