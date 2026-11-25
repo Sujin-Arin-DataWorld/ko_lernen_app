@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'sori/button.dart';
@@ -7,6 +9,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../screens/phase_task_screen.dart';
 import '../services/course_progress_service.dart';
 import '../services/account/cloud_write_session.dart';
+import '../services/analytics_service.dart';
 import '../services/learning_phase_catalog.dart';
 import '../services/phase_task_catalog.dart';
 
@@ -33,6 +36,14 @@ List<bool> phaseStepCompletion(
       return task != null &&
           phaseTaskDone(task, attempts[id] ?? const <PhaseAttemptEvidence>[]);
     }),
+];
+
+/// Indexes of steps that were not done in [before] and are done in [after].
+/// Lists of different length (catalog changed mid-session) report nothing.
+List<int> newlyCompletedSteps(List<bool> before, List<bool> after) => [
+  if (before.length == after.length)
+    for (var i = 0; i < after.length; i++)
+      if (!before[i] && after[i]) i,
 ];
 
 typedef _PanelData = (
@@ -133,6 +144,10 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
     Map<String, List<PhaseAttemptEvidence>> attempts,
   ) {
     Future<void> open(PhaseTask task) async {
+      final steps = widget.steps;
+      final before = phaseStepCompletion(steps, {
+        for (final t in tasks) t.id: t,
+      }, attempts);
       await Navigator.of(context).pushNamed(
         '/learning-phase/task',
         arguments: PhaseTaskRoute(
@@ -141,7 +156,23 @@ class _PhaseTaskPanelState extends State<PhaseTaskPanel> {
           hangulStart: widget.hangulStart,
         ),
       );
-      _reload();
+      if (!mounted) return;
+      final next = _load();
+      setState(() => _data = next);
+      if (steps.isEmpty) return;
+      final (nextTasks, _, nextAttempts) = await next;
+      final after = phaseStepCompletion(steps, {
+        for (final t in nextTasks) t.id: t,
+      }, nextAttempts);
+      for (final i in newlyCompletedSteps(before, after)) {
+        unawaited(
+          Analytics.phaseStepCompleted(
+            phaseId: widget.phaseId,
+            stepId: steps[i].id,
+            stepIndex: i + 1,
+          ),
+        );
+      }
     }
 
     Widget card(PhaseTask task) {

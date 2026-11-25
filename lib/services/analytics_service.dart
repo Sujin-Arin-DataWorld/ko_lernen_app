@@ -841,6 +841,23 @@ class Analytics {
     );
   }
 
+  /// A Phase step (e.g. one of KP01's four groups) became complete for the
+  /// first time in this panel session. [stepIndex] is 1-based.
+  static Future<void> phaseStepCompleted({
+    required String phaseId,
+    required String stepId,
+    required int stepIndex,
+  }) {
+    return logEvent(
+      'phase_step_completed',
+      parameters: {
+        'phase_id': phaseId,
+        'step_id': stepId,
+        'step_index': stepIndex,
+      },
+    );
+  }
+
   /// A quiz/boss/game-quiz finished. [accuracyPct] 0–100. Logs both the raw
   /// metric and a low-cardinality band so distributions chart cleanly.
   static Future<void> quizCompleted({
