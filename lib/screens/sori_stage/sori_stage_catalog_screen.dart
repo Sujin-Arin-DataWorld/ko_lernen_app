@@ -597,6 +597,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                     key: ValueKey('c5-game-$id'),
                     label: localCopy(context, item.title),
                     art: CGameReferenceArt(partFor(id)),
+                    status: catalogActivityStatus(context, item, data),
                     onTap: () => open(item, details: true),
                   ),
             ]
