@@ -1,4 +1,5 @@
 import 'dart:ui' show Tristate;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,6 +18,7 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_shell.dart';
 import 'package:ko_lernen_app/theme.dart';
+
 import 'support/einleitung_capture_assets.dart';
 
 void main() {
@@ -77,16 +79,21 @@ void main() {
           const ValueKey('onboarding-v2-story-next'),
         );
         expect(tester.getSize(nextButton).height, greaterThanOrEqualTo(48));
-        await tester.tap(
+        // No visible "Zurück" since 2026-11-25; system back keeps the intent.
+        expect(
           find.byKey(const ValueKey('onboarding-v2-story-back')),
+          findsNothing,
         );
+        await tester.binding.handlePopRoute();
+        await tester.pump();
         expect(back, ids[index]);
         await tester.tap(nextButton);
         expect(next, ids[index]);
         await _openPreview(tester, index);
         expect(
           find.byType(scenes[index]),
-          findsOneWidget,
+          // The games preview was removed from the Einleitung.
+          index == 2 ? findsNothing : findsOneWidget,
           reason:
               'Presentation emits intent; the coordinator owns advancement.',
         );

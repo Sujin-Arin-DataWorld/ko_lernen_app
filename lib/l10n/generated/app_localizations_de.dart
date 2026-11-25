@@ -11882,7 +11882,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingCBookBody =>
-      'Entdecke Wörter und ihren Kontext.\nTalSunbi hilft dir, sie zu verstehen.';
+      'Foto machen – TalSunbi erklärt jedes Wort.';
 
   @override
   String get onboardingCBookSummary => 'Aus deinen Büchern lernen.';
@@ -11891,11 +11891,10 @@ class AppL10nDe extends AppL10n {
   String get onboardingCChange => 'Ändern';
 
   @override
-  String get onboardingCGamesBody =>
-      'Übe mit deinen gespeicherten Wörtern.\nEntdecke Belohnungen für deine Fortschritte.';
+  String get onboardingCGamesBody => 'Deine Wörter werden zum Spiel.';
 
   @override
-  String get onboardingCGamesSummary => '8 Spiele. Viele Aha-Momente.';
+  String get onboardingCGamesSummary => '8 Spiele. Viele Aha-Momente!';
 
   @override
   String get onboardingCGyeBody =>
@@ -11905,8 +11904,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingCGyeTitle => 'Auch gemeinsam: Gye';
 
   @override
-  String get onboardingCHanokBody =>
-      'Stempelbuch & Dancheong-Atelier.\nDeine Werke für die Sarangbang.';
+  String get onboardingCHanokBody => 'Lerne, sammle und gestalte dein Zuhause.';
 
   @override
   String get onboardingCHanokSummary => 'Mit Yeopjeon wächst dein Hanok.';
@@ -11933,14 +11931,13 @@ class AppL10nDe extends AppL10n {
   String get onboardingCLevelRange => 'Ganz neu oder A1 bis C2.';
 
   @override
-  String get onboardingCPathBody =>
-      'Von den ersten Lauten bis zum echten Gespräch.';
+  String get onboardingCPathBody => 'Vom ersten Laut bis zum echten Gespräch.';
 
   @override
   String get onboardingCPathSummary => 'Ein klarer Lernweg.';
 
   @override
-  String get onboardingCSoundBody => 'Hören, verbinden, ausprobieren.';
+  String get onboardingCSoundBody => 'Hör hin und sprich nach.';
 
   @override
   String get onboardingCSoundSummary => 'Zwei Zeichen. Ein Klang.';

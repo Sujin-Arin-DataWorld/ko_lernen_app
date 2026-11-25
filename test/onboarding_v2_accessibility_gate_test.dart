@@ -42,10 +42,7 @@ void main() {
           for (var pageIndex = 0; pageIndex < 5; pageIndex++)
             (
               name: 'story page ${pageIndex + 1}',
-              footerActionKeys: const [
-                ValueKey('onboarding-v2-story-next'),
-                ValueKey('onboarding-v2-story-back'),
-              ],
+              footerActionKeys: const [ValueKey('onboarding-v2-story-next')],
               deepContentKey: switch (pageIndex) {
                 0 => const ValueKey('onboarding-v3-path-0'),
                 2 => const ValueKey('demo-game-0'),
@@ -62,10 +59,7 @@ void main() {
             ),
           (
             name: 'setup empty',
-            footerActionKeys: const [
-              ValueKey('onboarding-v2-setup-continue'),
-              ValueKey('onboarding-v2-setup-back'),
-            ],
+            footerActionKeys: const [ValueKey('onboarding-v2-setup-continue')],
             deepContentKey: const ValueKey('onboarding-v3-new'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
@@ -79,10 +73,7 @@ void main() {
           ),
           (
             name: 'setup level unselected',
-            footerActionKeys: const [
-              ValueKey('onboarding-v2-setup-continue'),
-              ValueKey('onboarding-v2-setup-back'),
-            ],
+            footerActionKeys: const [ValueKey('onboarding-v2-setup-continue')],
             deepContentKey: const ValueKey('onboarding-v3-returning'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
@@ -96,10 +87,7 @@ void main() {
           ),
           (
             name: 'setup selected',
-            footerActionKeys: const [
-              ValueKey('onboarding-v2-setup-continue'),
-              ValueKey('onboarding-v2-setup-back'),
-            ],
+            footerActionKeys: const [ValueKey('onboarding-v2-setup-continue')],
             deepContentKey: const ValueKey('onboarding-v2-level-C2'),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
@@ -115,7 +103,6 @@ void main() {
             name: 'companion choice empty',
             footerActionKeys: const [
               ValueKey('onboarding-v2-companion-continue'),
-              ValueKey('onboarding-v2-companion-back'),
             ],
             deepContentKey: const ValueKey('onboarding-v2-companion-taego'),
             build: (copy) => OnboardingCompanionScreen(
@@ -130,7 +117,6 @@ void main() {
             name: 'companion choice selected',
             footerActionKeys: const [
               ValueKey('onboarding-v2-companion-continue'),
-              ValueKey('onboarding-v2-companion-back'),
             ],
             deepContentKey: const ValueKey('onboarding-v2-companion-taego'),
             build: (copy) => OnboardingCompanionScreen(
@@ -241,7 +227,8 @@ void main() {
                   );
                 }
               }
-              if (story || setup) {
+              // Story page 3 (games) has no preview since 2026-11-25.
+              if ((story && surface.name != 'story page 3') || setup) {
                 await _tapReachable(tester, deepContent);
                 await _pumpFinite(tester);
                 final content = find.byKey(

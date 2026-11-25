@@ -75,13 +75,7 @@ class IntroReferenceSetup extends StatelessWidget {
               12,
               360,
               34,
-              words(
-                beginnerSelected
-                    ? t.onboardingJourneyStartWhere
-                    : t.onboardingCStartLevel,
-                26.2,
-                bold: true,
-              ),
+              words(t.onboardingCStartLevel, 26.2, bold: true),
             ),
             at(
               16,
@@ -131,110 +125,35 @@ class IntroReferenceSetup extends StatelessWidget {
                               size: 56 * s,
                             ),
                           ),
+                          // Figma 2026-11-25: the medal already names the
+                          // level, so the row shows only its hint and a
+                          // compact chevron action.
                           at(
                             91,
-                            level == null && !beginnerSelected ? 4 : 8,
-                            beginnerSelected ? 232 : 166,
-                            60,
-                            level == null && !beginnerSelected
-                                ? words(label, 16, bold: true)
-                                : words(
-                                    label,
-                                    beginnerSelected ? 24 : 29,
-                                    bold: true,
-                                  ),
+                            19,
+                            214,
+                            32,
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: words(
+                                _levelHint(t, level),
+                                18,
+                                color: IntroPalette.ink,
+                              ),
+                            ),
                           ),
-                          if (beginnerSelected || level != null)
-                            at(
-                              91,
-                              40,
-                              190,
-                              23,
-                              words(
-                                beginnerSelected
-                                    ? t.onboardingJourneyBeginnerHint
-                                    : level!.code == 'A2'
-                                    ? t.introA2Hint
-                                    : level.name,
-                                14.5,
-                                color: IntroPalette.mutedInk,
-                              ),
-                            ),
-                          if (!beginnerSelected)
-                            at(
-                              264,
-                              10,
-                              98,
-                              48,
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                    IntroGeometry.levelAction * s,
-                                  ),
-                                  gradient: const LinearGradient(
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                    colors: [
-                                      Color(0xff0b6553),
-                                      Color(0xff034a3d),
-                                    ],
-                                  ),
-                                  border: Border.all(
-                                    color: IntroPalette.brass,
-                                    width: 1.5,
-                                  ),
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Flexible(
-                                      child: FittedBox(
-                                        fit: BoxFit.scaleDown,
-                                        child: words(
-                                          t.onboardingCChange,
-                                          16,
-                                          color: IntroPalette.white,
-                                        ),
-                                      ),
-                                    ),
-                                    Icon(
-                                      Icons.keyboard_arrow_down,
-                                      size: 20 * s,
-                                      color: IntroPalette.brass,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            )
-                          else
-                            at(
-                              328,
-                              21,
-                              24,
-                              24,
-                              Icon(
-                                Icons.chevron_right,
-                                size: 24 * s,
-                                color: IntroPalette.brass,
-                              ),
-                            ),
+                          at(
+                            312,
+                            13,
+                            48,
+                            48,
+                            _LevelChevronAction(size: 48 * s),
+                          ),
                         ],
                       ),
                     ),
                   ),
                 ),
-              ),
-            ),
-            at(
-              16,
-              134,
-              370,
-              22,
-              words(
-                t.onboardingCLevelRange,
-                16,
-                center: true,
-                color: IntroPalette.mutedInk,
               ),
             ),
             at(
@@ -259,31 +178,6 @@ class IntroReferenceSetup extends StatelessWidget {
                   onTap: () => onPurposeChanged(copy.setup.purposes[i].id),
                 ),
               ),
-            at(
-              20,
-              457,
-              362,
-              23,
-              words(
-                t.onboardingCLater,
-                16,
-                center: true,
-                color: IntroPalette.mutedInk,
-              ),
-            ),
-            at(
-              20,
-              478,
-              362,
-              22,
-              words(
-                t.introNextPath,
-                13.5,
-                bold: true,
-                center: true,
-                color: IntroPalette.emphasisInk,
-              ),
-            ),
           ],
         ),
       );
@@ -316,26 +210,14 @@ class IntroReferenceSetup extends StatelessWidget {
         IntroTypography.setupWords(size, 1, bold, color),
       ).copyWith(height: 1.15),
     );
-    final hint = beginnerSelected
-        ? t.onboardingJourneyBeginnerHint
-        : level == null
-        ? copy.setup.selectLevelPrompt
-        : level.code == 'A2'
-        ? t.introA2Hint
-        : level.name;
+    final hint = _levelHint(t, level);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          words(
-            beginnerSelected
-                ? t.onboardingJourneyStartWhere
-                : t.onboardingCStartLevel,
-            compact ? 18 : 22,
-            bold: true,
-          ),
+          words(t.onboardingCStartLevel, compact ? 18 : 22, bold: true),
           const SizedBox(height: 4),
           Semantics(
             label: '$label. ${t.onboardingCChange}',
@@ -381,82 +263,16 @@ class IntroReferenceSetup extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                       ],
-                      Expanded(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            words(
-                              level == null ? t.onboardingCStartLevel : label,
-                              18,
-                              bold: true,
-                              maxLines: 1,
-                            ),
-                            const SizedBox(height: 2),
-                            words(
-                              hint,
-                              16,
-                              color: IntroPalette.mutedInk,
-                              maxLines: 2,
-                            ),
-                          ],
-                        ),
-                      ),
+                      Expanded(child: words(hint, 16, maxLines: 2)),
                       const SizedBox(width: 8),
-                      if (!beginnerSelected && level != null)
-                        Container(
-                          height: 48,
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(
-                              IntroGeometry.levelAction,
-                            ),
-                            gradient: const LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: [Color(0xff0b6553), Color(0xff034a3d)],
-                            ),
-                            border: Border.all(
-                              color: IntroPalette.brass,
-                              width: 1.5,
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              words(
-                                t.onboardingCChange,
-                                16,
-                                color: IntroPalette.white,
-                              ),
-                              const Icon(
-                                Icons.keyboard_arrow_down,
-                                size: 20,
-                                color: IntroPalette.brass,
-                              ),
-                            ],
-                          ),
-                        )
-                      else
-                        const Icon(
-                          Icons.chevron_right,
-                          size: 24,
-                          color: IntroPalette.brass,
-                        ),
+                      const _LevelChevronAction(size: 48),
                     ],
                   ),
                 ),
               ),
             ),
           ),
-          const SizedBox(height: 4),
-          words(
-            t.onboardingCLevelRange,
-            16,
-            center: true,
-            color: IntroPalette.mutedInk,
-          ),
-          const SizedBox(height: 4),
+          const SizedBox(height: 10),
           words(t.onboardingCInterest, compact ? 18 : 20, bold: true),
           const SizedBox(height: 6),
           Expanded(
@@ -494,25 +310,44 @@ class IntroReferenceSetup extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 4),
-          words(
-            t.onboardingCLater,
-            16,
-            center: true,
-            color: IntroPalette.mutedInk,
-          ),
-          const SizedBox(height: 4),
-          words(
-            t.introNextPath,
-            16,
-            bold: true,
-            center: true,
-            color: IntroPalette.emphasisInk,
-          ),
         ],
       ),
     );
   }
+
+  String _levelHint(AppL10n t, OnboardingLevelSpec? level) => beginnerSelected
+      ? t.onboardingJourneyBeginnerHint
+      : level == null
+      ? copy.setup.selectLevelPrompt
+      : level.code == 'A2'
+      ? t.introA2Hint
+      : level.name;
+}
+
+/// Compact jade "v" action that opens the level sheet (replaces "Ändern").
+class _LevelChevronAction extends StatelessWidget {
+  const _LevelChevronAction({required this.size});
+  final double size;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    width: size,
+    height: size,
+    decoration: BoxDecoration(
+      shape: BoxShape.circle,
+      gradient: const LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [Color(0xff0b6553), Color(0xff034a3d)],
+      ),
+      border: Border.all(color: IntroPalette.brass, width: 1.5),
+    ),
+    child: Icon(
+      Icons.keyboard_arrow_down,
+      size: size * .58,
+      color: IntroPalette.brass,
+    ),
+  );
 }
 
 class _InterestCard extends StatelessWidget {

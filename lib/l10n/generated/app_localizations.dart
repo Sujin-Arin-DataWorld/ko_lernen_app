@@ -20139,7 +20139,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCBookBody.
   ///
   /// In de, this message translates to:
-  /// **'Entdecke Wörter und ihren Kontext.\nTalSunbi hilft dir, sie zu verstehen.'**
+  /// **'Foto machen – TalSunbi erklärt jedes Wort.'**
   String get onboardingCBookBody;
 
   /// No description provided for @onboardingCBookSummary.
@@ -20157,13 +20157,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingCGamesBody.
   ///
   /// In de, this message translates to:
-  /// **'Übe mit deinen gespeicherten Wörtern.\nEntdecke Belohnungen für deine Fortschritte.'**
+  /// **'Deine Wörter werden zum Spiel.'**
   String get onboardingCGamesBody;
 
   /// No description provided for @onboardingCGamesSummary.
   ///
   /// In de, this message translates to:
-  /// **'8 Spiele. Viele Aha-Momente.'**
+  /// **'8 Spiele. Viele Aha-Momente!'**
   String get onboardingCGamesSummary;
 
   /// No description provided for @onboardingCGyeBody.
@@ -20181,7 +20181,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCHanokBody.
   ///
   /// In de, this message translates to:
-  /// **'Stempelbuch & Dancheong-Atelier.\nDeine Werke für die Sarangbang.'**
+  /// **'Lerne, sammle und gestalte dein Zuhause.'**
   String get onboardingCHanokBody;
 
   /// No description provided for @onboardingCHanokSummary.
@@ -20235,7 +20235,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCPathBody.
   ///
   /// In de, this message translates to:
-  /// **'Von den ersten Lauten bis zum echten Gespräch.'**
+  /// **'Vom ersten Laut bis zum echten Gespräch.'**
   String get onboardingCPathBody;
 
   /// No description provided for @onboardingCPathSummary.
@@ -20247,7 +20247,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCSoundBody.
   ///
   /// In de, this message translates to:
-  /// **'Hören, verbinden, ausprobieren.'**
+  /// **'Hör hin und sprich nach.'**
   String get onboardingCSoundBody;
 
   /// No description provided for @onboardingCSoundSummary.

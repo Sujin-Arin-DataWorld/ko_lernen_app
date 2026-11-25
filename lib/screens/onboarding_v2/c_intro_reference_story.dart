@@ -2,8 +2,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import '../../widgets/sori/button.dart';
-
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/intro_motion.dart';
 import 'c_intro_art.dart';
@@ -24,9 +22,9 @@ class IntroReferenceStoryHero extends StatelessWidget {
   final List<String> labels;
   final String previewLabel;
   final VoidCallback onPreview;
-  static const contentTop = [667.0, 706.0, 657.0, 677.0, 660.0];
-  static const artTop = [41.0, 0.0, 9.0, 21.0, 43.0];
-  static const titleTop = [138.0, 140.0, 144.0, 133.0, 138.0];
+  static const contentTop = [659.0, 704.0, 659.0, 682.0, 659.0];
+  static const artTop = [41.0, 14.0, 9.0, 21.0, 43.0];
+  static const titleTop = [138.0, 124.0, 144.0, 133.0, 138.0];
   static const titleSize = [39.0, 43.0, 37.0, 40.0, 34.0];
   static const titleLine = [40.5, 47.0, 40.5, 41.0, 35.5];
 
@@ -67,65 +65,10 @@ class IntroReferenceStoryHero extends StatelessWidget {
             height: h * s,
             child: child,
           );
-      if (Localizations.localeOf(context).languageCode == 'de' &&
-          const [1, 3, 4].contains(index)) {
-        final t = AppL10n.of(context);
-        final artwork = switch (index) {
-          1 => (name: 'sound-original-de-hero', height: 573.052349),
-          3 => (name: 'scholar-original-de-hero', height: 545.532886),
-          _ => (name: 'hanok-original-de-hero', height: 527.186577),
-        };
-        final reading = switch (index) {
-          1 => 'ㄱ + ㅏ = 가. 가 · ga.',
-          3 =>
-            '${t.grammarBookExample}. 안녕하세요. annyeonghaseyo. '
-                '${t.introGreetingTranslation}. ${labels.join('. ')}',
-          _ => labels.join('. '),
-        };
-        return SizedBox(
-          height: contentTop[index] * s,
-          child: Stack(
-            children: [
-              at(
-                0,
-                122,
-                402,
-                artwork.height,
-                Semantics(
-                  container: true,
-                  header: true,
-                  button: true,
-                  label: '$title. $reading',
-                  hint: previewLabel,
-                  onTap: onPreview,
-                  child: IntroPressable(
-                    key: ValueKey('c-onboarding-preview-${index + 2}'),
-                    onTap: onPreview,
-                    pressScale: .997,
-                    surfaceDepth: 0,
-                    child: CIntroArt(artwork.name),
-                  ),
-                ),
-              ),
-              if (index == 1)
-                at(
-                  0,
-                  568.787,
-                  402,
-                  126.265349,
-                  const COnboardingSoundScene(
-                    reference: true,
-                    originalArtwork: true,
-                  ),
-                ),
-            ],
-          ),
-        );
-      }
+      // Figma 2026-11-25: every locale uses text-free scenes with native
+      // titles, Hangul and tool labels (no lettered German originals).
       return SizedBox(
-        height: index == 2
-            ? math.max(contentTop[index] * s, 607 * s + 48 + 2)
-            : contentTop[index] * s,
+        height: contentTop[index] * s,
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -135,9 +78,9 @@ class IntroReferenceStoryHero extends StatelessWidget {
               402,
               index == 1 ? 600 : 603,
               Semantics(
-                button: true,
+                button: index != 2,
                 label: previewLabel,
-                onTap: onPreview,
+                onTap: index == 2 ? null : onPreview,
                 child: IntroPressable(
                   key: ValueKey('c-onboarding-preview-${index + 2}'),
                   onTap: onPreview,
@@ -219,34 +162,6 @@ class IntroReferenceStoryHero extends StatelessWidget {
                 137,
                 const COnboardingSoundScene(reference: true),
               ),
-            if (index == 2)
-              Positioned(
-                left: 274 * s,
-                top: 607 * s,
-                width: 112 * s,
-                height: 48,
-                child: SoriTextAction(
-                  key: const ValueKey('c-onboarding-games-preview-button'),
-                  label: AppL10n.of(context).guideAvailabilityPreview,
-                  onPressed: onPreview,
-                  style: TextButton.styleFrom(
-                    padding: EdgeInsets.zero,
-                    minimumSize: const Size(112, 48),
-                    backgroundColor: IntroPalette.paper,
-                    foregroundColor: IntroPalette.ink,
-                    side: const BorderSide(color: IntroPalette.brass),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(
-                        IntroGeometry.preview,
-                      ),
-                    ),
-                  ),
-                  textStyle: IntroTypography.localized(
-                    context,
-                    IntroTypography.body(16, true, IntroPalette.ink),
-                  ),
-                ),
-              ),
           ],
         ),
       );
@@ -254,7 +169,6 @@ class IntroReferenceStoryHero extends StatelessWidget {
   );
 
   Widget _fittedHero(BuildContext context, BoxConstraints bounds) {
-    final t = AppL10n.of(context);
     final compact = bounds.maxHeight < 330;
     final titleStyle = IntroTypography.localized(
       context,
@@ -290,9 +204,8 @@ class IntroReferenceStoryHero extends StatelessWidget {
           child: Semantics(
             button: true,
             label: index == 1
-                ? AppL10n.of(
-                    context,
-                  ).onboardingHangulEquationSemantics(title, previewLabel)
+                ? AppL10n.of(context)
+                      .onboardingHangulEquationSemantics(title, previewLabel)
                 : '$title. $previewLabel',
             onTap: onPreview,
             child: IntroPressable(
@@ -327,16 +240,6 @@ class IntroReferenceStoryHero extends StatelessWidget {
           const SizedBox(height: 4),
           const SizedBox(height: 58, child: COnboardingSoundScene()),
         ],
-        if (index == 2)
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
-            child: IntroAction(
-              key: const ValueKey('c-onboarding-games-preview-button'),
-              label: t.guideAvailabilityPreview,
-              onTap: onPreview,
-              gold: false,
-            ),
-          ),
       ],
     );
   }
@@ -527,11 +430,10 @@ class IntroReferenceStoryBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, bounds) {
-      final t = AppL10n.of(context), s = bounds.maxWidth / 402;
-      final summarySize = const [20.0, 20.0, 21.0, 20.0, 20.0][index];
-      final summaryLine = const [25.0, 25.0, 26.0, 25.0, 25.0][index];
-      final bodySize = const [16.0, 17.0, 16.0, 17.0, 17.0][index];
-      final bodyLine = const [21.0, 22.0, 21.0, 22.0, 22.0][index];
+      // Figma 2026-11-25: one bold title (24) and one key line (18).
+      final s = bounds.maxWidth / 402;
+      const summarySize = 24.0, summaryLine = 30.0;
+      const bodySize = 18.0, bodyLine = 23.0;
       Widget text(
         String value,
         double size,
@@ -569,35 +471,8 @@ class IntroReferenceStoryBody extends StatelessWidget {
                 key: const ValueKey('onboarding-v2-story-title'),
               ),
             ),
-            if (index == 0)
-              text(
-                t.introTwelveTools,
-                17,
-                22,
-                bold: true,
-                color: IntroPalette.ink,
-              ),
-            SizedBox(
-              height:
-                  (index == 0
-                      ? 4
-                      : index == 1
-                      ? 2
-                      : index == 2
-                      ? 9
-                      : 0) *
-                  s,
-            ),
+            SizedBox(height: 6 * s),
             text(body, bodySize, bodyLine),
-            if (index == 0) ...[
-              SizedBox(height: 4 * s),
-              text(
-                t.introNextSample,
-                14.5,
-                20,
-                color: IntroPalette.emphasisInk,
-              ),
-            ],
           ],
         ),
       );
