@@ -1,5 +1,7 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
+
 import '../../widgets/sori/c_gallery/c_materials.dart';
 import '../../widgets/sori/tokens.dart';
 
@@ -32,6 +34,7 @@ class C5CatalogOverview extends StatelessWidget {
     this.unitMeta,
     this.footer,
     this.maxHeight,
+    this.learningShelfAction,
   });
   final bool games;
   final String primaryLabel, heroLabel;
@@ -41,6 +44,7 @@ class C5CatalogOverview extends StatelessWidget {
   final List<C5OverviewTile> tiles;
   final C5OverviewTile? footer;
   final double? maxHeight;
+  final Widget? learningShelfAction;
 
   @override
   Widget build(BuildContext context) => LayoutBuilder(
@@ -50,7 +54,8 @@ class C5CatalogOverview extends StatelessWidget {
   Widget _content(BuildContext context, double width) {
     final scaler = MediaQuery.textScalerOf(context);
     final large = scaler.scale(16) > 20;
-    final short = !large && maxHeight != null && maxHeight! < 490;
+    final short =
+        !large && maxHeight != null && maxHeight! < (games ? 490 : 540);
     final bounded = !large && !short && maxHeight != null;
     final fonts = SoriLocaleFonts.of(context);
     final labelStyle = SoriTextTheme.of(context).body.copyWith(
@@ -184,6 +189,10 @@ class C5CatalogOverview extends StatelessWidget {
         const SizedBox(height: 8),
         _primary(),
       ],
+      if (learningShelfAction case final action?) ...[
+        const SizedBox(height: Spacing.sm),
+        action,
+      ],
       if (footer case final item?) ...[
         const SizedBox(height: 8),
         tile(item, horizontal: true),
@@ -235,11 +244,8 @@ class C5CatalogOverview extends StatelessWidget {
               ),
               child: Text(
                 detailsLabel!,
-                style: SoriTextTheme.of(context).body.copyWith(
-                  fontSize: 16,
-                  height: 1.15,
-                  color: CPalette.ink,
-                ),
+                style: SoriTextTheme.of(context).body
+                    .copyWith(fontSize: 16, height: 1.15, color: CPalette.ink),
               ),
             ),
           ),

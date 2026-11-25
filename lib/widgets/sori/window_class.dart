@@ -200,6 +200,9 @@ abstract final class SoriAdaptiveWidth {
   /// Two image shortcuts need readable titles after their inner padding.
   static const double catalogShortcutGrid = 260;
 
+  /// Three free-learning tool tiles need room for their localized labels.
+  static const double freeLearningShelfThreeColumns = 340;
+
   /// Compact catalog cards stack artwork before long German labels.
   static const double catalogCardArtRow = 240;
 

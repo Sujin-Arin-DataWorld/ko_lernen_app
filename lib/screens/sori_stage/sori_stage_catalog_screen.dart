@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math' as math;
+
 import '../../widgets/sori/window_class.dart';
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import '../../data/sori_activity_catalog.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
+import '../../motion/transitions.dart';
 import '../../services/account/cloud_write_session.dart';
 import '../../services/catalog_history_lease.dart';
 import '../../services/sori_stage_progression_service.dart';
@@ -28,6 +30,7 @@ import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/toast.dart';
 import 'c_stage_chrome.dart';
 import 'c5_catalog_overview.dart';
+import 'sori_free_learning_screen.dart';
 import 'sori_stage_common.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
 
@@ -85,6 +88,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   }
 
   int _openGeneration = 0;
+  bool _freeLearningOpen = false;
 
   Future<SoriStageProgressionSnapshot> _load() =>
       (widget.loadSnapshot ?? SoriStageProgressionService.load)();
@@ -260,7 +264,44 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     }
   }
 
-  Future<void> _start(ActivityCatalogEntry entry) async {
+  Future<void> _openFreeLearning() async {
+    if (_opening || _freeLearningOpen) {
+      return;
+    }
+    _freeLearningOpen = true;
+    try {
+      final wallet = SoriWalletScope.maybeOf(context);
+      final scaler = MediaQuery.textScalerOf(context);
+      final reduceMotion = MediaQuery.disableAnimationsOf(context);
+      await Navigator.of(context).push<void>(
+        SoriTransitions.page<void>(
+          (routeContext) => MediaQuery(
+            data: MediaQuery.of(routeContext)
+                .copyWith(textScaler: scaler, disableAnimations: reduceMotion),
+            child: SoriWalletScope(
+              notifier: wallet,
+              child: SoriFreeLearningScreen(
+                loadSnapshot: _load,
+                onOpen: (source, item) => _start(item, sourceContext: source),
+              ),
+            ),
+          ),
+          settings: const RouteSettings(name: '/lernen/free'),
+        ),
+      );
+    } finally {
+      _freeLearningOpen = false;
+      if (mounted) {
+        _reload();
+      }
+    }
+  }
+
+  Future<void> _start(
+    ActivityCatalogEntry entry, {
+    BuildContext? sourceContext,
+  }) async {
+    final source = sourceContext ?? context;
     if (_opening) {
       return;
     }
@@ -271,16 +312,15 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
       // Capture does not award progress. Keep it usable even when the shared
       // learning/reward snapshot is still loading or has failed.
       if (entry.id == 'book_capture') {
-        await Navigator.of(
-          context,
-        ).pushNamed<void>(entry.route, arguments: entry.arguments);
+        await Navigator.of(source)
+            .pushNamed<void>(entry.route, arguments: entry.arguments);
         await Storage.recordCatalogActivity(entry.id, lease: lease);
         return;
       }
       final shared = LearningFocusScope.maybeOf(context);
       if (shared != null) {
         await shared.open(
-          context,
+          source,
           TodayLearningDestination(
             route: entry.route,
             arguments: entry.arguments,
@@ -293,22 +333,21 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
         activityId: entry.id,
         loadSnapshot: widget.loadSnapshot ?? SoriStageProgressionService.load,
         openActivity: () async {
-          if (!mounted || !lease.isCurrent) {
+          if (!mounted || !source.mounted || !lease.isCurrent) {
             return;
           }
-          final returned = Navigator.of(
-            context,
-          ).pushNamed(entry.route, arguments: entry.arguments);
+          final returned = Navigator.of(source)
+              .pushNamed(entry.route, arguments: entry.arguments);
           unawaited(Storage.recordCatalogActivity(entry.id, lease: lease));
           await returned;
         },
       );
-      if (mounted && lease.isCurrent && receipt != null) {
-        await showSoriStageRewardReceipt(context, receipt);
+      if (mounted && source.mounted && lease.isCurrent && receipt != null) {
+        await showSoriStageRewardReceipt(source, receipt);
       }
     } catch (_) {
-      if (mounted && lease.isCurrent) {
-        soriToast(context, AppL10n.of(context).loadErrorTryAgain);
+      if (mounted && source.mounted && lease.isCurrent) {
+        soriToast(source, AppL10n.of(source).loadErrorTryAgain);
       }
     } finally {
       if (generation == _openGeneration) {
@@ -580,9 +619,25 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                     ][i],
                     opticalFit: true,
                   ),
-                  onTap: () => _jump(section),
+                  onTap: () => open(
+                    entry(switch (section) {
+                      SoriLearnSection.words => 'vocab_packs',
+                      SoriLearnSection.listen => 'listening',
+                      SoriLearnSection.hangul => 'hangul',
+                      SoriLearnSection.review => 'srs',
+                    })!,
+                  ),
                 ),
             ],
+      learningShelfAction: games
+          ? null
+          : CMaterialAction(
+              key: const ValueKey('c-all-learning-offers'),
+              label: t.c5AllLearningActivities,
+              gold: false,
+              compact: true,
+              onTap: _openFreeLearning,
+            ),
       footer: games && ownEntry != null
           ? C5OverviewTile(
               key: const ValueKey('c5-game-custom_practice'),
@@ -667,7 +722,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                   key: const ValueKey('c5-catalog-all'),
                                   tooltip: isGames
                                       ? t.c5AllGames
-                                      : t.c5AllLearningActivities,
+                                      : t.catalogChoosePractice,
                                   onPressed: () => _toggleCatalog(true),
                                   icon: const Icon(
                                     Icons.grid_view_rounded,
@@ -695,7 +750,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                     onPressed: () => _toggleCatalog(true),
                                     label: isGames
                                         ? t.c5AllGames
-                                        : t.c5AllLearningActivities,
+                                        : t.catalogChoosePractice,
                                   ),
                                 ),
                               if (_showAll)
@@ -736,12 +791,13 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                             final normal =
                                 MediaQuery.textScalerOf(context).scale(16) <=
                                 16.1;
+                            final bottom = isGames ? Spacing.sm : Spacing.lg;
                             final available =
                                 constraints.viewportMainAxisExtent -
                                 constraints.precedingScrollExtent -
-                                Spacing.sm;
+                                bottom;
                             return SliverPadding(
-                              padding: const EdgeInsets.only(bottom: 8),
+                              padding: EdgeInsets.only(bottom: bottom),
                               sliver: SliverToBoxAdapter(
                                 child: Center(
                                   child: ConstrainedBox(
@@ -881,9 +937,8 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                                 : FontWeight.w400,
                                             color: _selected == section
                                                 ? Colors.white
-                                                : Theme.of(
-                                                        context,
-                                                      ).brightness ==
+                                                : Theme.of(context)
+                                                          .brightness ==
                                                       Brightness.dark
                                                 ? SoriColors.primaryOnDark
                                                 : SoriColors.primary,
