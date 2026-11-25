@@ -3734,7 +3734,7 @@
           {
             "objectiveId": "KP04:objective:functions/thank_apologise_respond:P",
             "taskId": "KP04:speaking:02",
-            "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "materialIds": [
               "KP04:speaking:02/practice/material",
               "KP04:speaking:02/assessment/material"
@@ -3771,7 +3771,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:speaking:02",
-            "contentHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "contentHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -3816,7 +3816,7 @@
           {
             "objectiveId": "KP04:objective:functions/make_change_cancel_appointments:P",
             "taskId": "KP04:speaking:02",
-            "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "materialIds": [
               "KP04:speaking:02/practice/material",
               "KP04:speaking:02/assessment/material"
@@ -3853,7 +3853,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:speaking:02",
-            "contentHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "contentHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -4063,7 +4063,7 @@
           {
             "objectiveId": "KP04:objective:functions/describe_people_things_places:P",
             "taskId": "KP04:speaking:02",
-            "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "materialIds": [
               "KP04:speaking:02/practice/material",
               "KP04:speaking:02/assessment/material"
@@ -4100,7 +4100,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:speaking:02",
-            "contentHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "contentHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -4182,7 +4182,7 @@
           {
             "objectiveId": "KP04:objective:functions/express_feelings_emotions:P",
             "taskId": "KP04:speaking:02",
-            "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "materialIds": [
               "KP04:speaking:02/practice/material",
               "KP04:speaking:02/assessment/material"
@@ -4206,7 +4206,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:speaking:02",
-            "contentHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+            "contentHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -4236,7 +4236,7 @@
           {
             "objectiveId": "KP04:objective:functions/give_follow_instructions_directions:R",
             "taskId": "KP04:reading:03",
-            "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+            "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
             "materialIds": [
               "KP04:reading:03/practice/material",
               "KP04:reading:03/assessment/material"
@@ -4272,7 +4272,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:reading:03",
-            "contentHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+            "contentHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -4302,7 +4302,7 @@
           {
             "objectiveId": "KP04:objective:register/banmal_casual:R",
             "taskId": "KP04:reading:02",
-            "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+            "taskHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
             "materialIds": [
               "KP04:reading:02/practice/material",
               "KP04:reading:02/assessment/material"
@@ -4334,7 +4334,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:reading:02",
-            "contentHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+            "contentHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -4361,7 +4361,7 @@
           {
             "objectiveId": "KP04:objective:functions/express_obligation_permission:R",
             "taskId": "KP04:reading:03",
-            "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+            "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
             "materialIds": [
               "KP04:reading:03/practice/material",
               "KP04:reading:03/assessment/material"
@@ -4397,7 +4397,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:reading:03",
-            "contentHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+            "contentHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -4475,7 +4475,7 @@
           {
             "objectiveId": "KP04:objective:listening/genre/dialogue_face_to_face:R",
             "taskId": "KP04:listening:01",
-            "taskHash": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
+            "taskHash": "9ee8851a8ee1cfd68a52da7d0a1a1a19875eac8af6fe8955f4d8bf89be87dc14",
             "materialIds": [
               "KP04:listening:01/practice/material",
               "KP04:listening:01/assessment/material"
@@ -4527,7 +4527,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:listening:01",
-            "contentHash": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
+            "contentHash": "9ee8851a8ee1cfd68a52da7d0a1a1a19875eac8af6fe8955f4d8bf89be87dc14",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -4996,7 +4996,7 @@
           {
             "objectiveId": "KP04:objective:speaking/genre/dialogue_face_to_face:P",
             "taskId": "KP04:speaking:01",
-            "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+            "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
             "materialIds": [
               "KP04:speaking:01/practice/material",
               "KP04:speaking:01/assessment/material"
@@ -5033,7 +5033,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:speaking:01",
-            "contentHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+            "contentHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -5186,7 +5186,7 @@
           {
             "objectiveId": "KP04:objective:writing/genre/personal_note_postcard:P",
             "taskId": "KP04:writing:01",
-            "taskHash": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
+            "taskHash": "1386e148c441bf6881935234514411105785913843cd4d4ae8ad3892f4aa73f9",
             "materialIds": [
               "KP04:writing:01/practice/material",
               "KP04:writing:01/assessment/material"
@@ -5232,7 +5232,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:writing:01",
-            "contentHash": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
+            "contentHash": "1386e148c441bf6881935234514411105785913843cd4d4ae8ad3892f4aa73f9",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -5413,7 +5413,7 @@
           {
             "objectiveId": "KP04:objective:register/haeyo_polite:P",
             "taskId": "KP04:speaking:01",
-            "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+            "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
             "materialIds": [
               "KP04:speaking:01/practice/material",
               "KP04:speaking:01/assessment/material"
@@ -5476,7 +5476,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:speaking:01",
-            "contentHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+            "contentHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -5518,7 +5518,7 @@
           {
             "objectiveId": "KP04:objective:register/hapsyo_formal_business:R",
             "taskId": "KP04:reading:02",
-            "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+            "taskHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
             "materialIds": [
               "KP04:reading:02/practice/material",
               "KP04:reading:02/assessment/material"
@@ -5565,7 +5565,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:reading:02",
-            "contentHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+            "contentHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
             "kind": "published_route_contract_not_device_result"
           }
         ],
@@ -5595,7 +5595,7 @@
           {
             "objectiveId": "KP04:objective:register/banmal_casual:R",
             "taskId": "KP04:reading:02",
-            "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+            "taskHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
             "materialIds": [
               "KP04:reading:02/practice/material",
               "KP04:reading:02/assessment/material"
@@ -5627,7 +5627,7 @@
             "route": "/learning-phase/task",
             "phaseId": "KP04",
             "taskId": "KP04:reading:02",
-            "contentHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+            "contentHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
             "kind": "published_route_contract_not_device_result"
           }
         ],

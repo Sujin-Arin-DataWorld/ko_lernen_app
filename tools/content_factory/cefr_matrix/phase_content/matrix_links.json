@@ -5,14 +5,14 @@
       "requirementKey": "A1:speechAct:adjust_register_speech_style:R",
       "objectiveId": "KP04:objective:register/banmal_casual:R",
       "taskId": "KP04:reading:02",
-      "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+      "taskHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
       "sourceHash": "9d7cd6eb17021adebd0b2f852805c1341a4abcc34d02f043badb6bfc5c017f1b",
       "criterionIds": [
         "formal",
         "casual",
         "certainty"
       ],
-      "reviewer": "Astra",
+      "reviewer": "Claude",
       "rationaleKo": "학교 공식 안내·동료 해요체·서로 동의한 친한 친구의 반말 장면을 대조한다. 말끝 변경이 합의·확신을 바꾸지 않는 문항을 확인했다."
     },
     {

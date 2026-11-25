@@ -11999,7 +11999,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "일정 변경의 이유와 순서",
@@ -12007,7 +12007,7 @@
         "de": "Grund und Reihenfolge einer Planänderung"
       },
       "teaching": {
-        "ko": "두 동료의 대화에서 관찰한 정보와 추측을 구별하세요. 합의한 시간과 이동 순서도 확인하세요.",
+        "ko": "두 친구의 대화에서 관찰한 정보와 추측을 구별하세요. 합의한 시간과 이동 순서도 확인하세요.",
         "en": "Distinguish observation from inference in two classmates’ conversation. Check the agreed time and route order.",
         "de": "Unterscheide im Gespräch zweier Kursmitglieder Beobachtung und Vermutung. Prüfe vereinbarte Zeit und Reihenfolge."
       },
@@ -12016,7 +12016,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "유나: 바람이 많이 불어요. 밖은 춥겠어요.\n민수: 그러면 밖에서 만나지 말고 도서관에서 만날까요?\n유나: 좋아요. 두 시에 만나요.\n민수: 네. 도서관에서 먼저 책을 읽고 카페에 가요.",
+        "sourceKo": "유나: 바람이 많이 불어요. 밖은 춥겠어요.\n현우: 그러면 밖에서 만나지 말고 도서관에서 만날까요?\n유나: 좋아요. 두 시에 만나요.\n현우: 네. 도서관에서 먼저 책을 읽고 카페에 가요.",
         "questions": [
           {
             "id": "fact",
@@ -12106,7 +12106,7 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "유나: 하늘이 어두워요. 비가 오겠어요.\n민수: 그러면 밖에서 만나지 말고 도서관에서 만날까요?\n유나: 좋아요. 네 시에 만나요.\n민수: 네. 도서관에서 먼저 책을 읽고 카페에 가요.",
+        "sourceKo": "유나: 하늘이 어두워요. 비가 오겠어요.\n현우: 그러면 밖에서 만나지 말고 도서관에서 만날까요?\n유나: 좋아요. 네 시에 만나요.\n현우: 네. 도서관에서 먼저 책을 읽고 카페에 가요.",
         "questions": [
           {
             "id": "fact",
@@ -12194,7 +12194,7 @@
           }
         ]
       },
-      "contentHash": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940"
+      "contentHash": "9ee8851a8ee1cfd68a52da7d0a1a1a19875eac8af6fe8955f4d8bf89be87dc14"
     },
     {
       "id": "KP04:reading:01",
@@ -12204,7 +12204,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "노랫말과 대화의 전후 관계",
@@ -12221,7 +12221,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "이 과제를 위해 새로 쓴 짧은 노랫말\n친구를 만나기 전에 길은 추워요.\n친구를 만난 후에 마음에 봄이 와요.\n안내 대화\n유나: 언제 공원에 가요?\n민수: 밥을 먹은 후에요.",
+        "sourceKo": "이 과제를 위해 새로 쓴 짧은 노랫말\n친구를 만나기 전에 길은 추워요.\n친구를 만난 후에 마음에 봄이 와요.\n안내 대화\n유나: 언제 공원에 가요?\n현우: 밥을 먹은 후에요.",
         "questions": [
           {
             "id": "sequence",
@@ -12283,7 +12283,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "이 과제를 위해 새로 쓴 짧은 노랫말\n비가 그치기 전에 우산을 펴요.\n네 말을 들은 후에 마음에 봄이 와요.\n안내 대화\n유나: 언제 친구를 만나요?\n민수: 수업이 끝난 후에요.",
+        "sourceKo": "이 과제를 위해 새로 쓴 짧은 노랫말\n비가 그친 후에 우산을 접어요.\n네 말을 들은 후에 마음에 봄이 와요.\n안내 대화\n유나: 언제 친구를 만나요?\n현우: 수업이 끝난 후에요.",
         "questions": [
           {
             "id": "sequence",
@@ -12343,7 +12343,7 @@
           }
         ]
       },
-      "contentHash": "b50c4ca1a3f12d7805315b10877f92ca437fe1b0956d522c3bcf9e915ac5f049"
+      "contentHash": "a6849c6207ee594938542d07da307b39b03b0c64f648200df8a9b8604651c579"
     },
     {
       "id": "KP04:writing:01",
@@ -12353,7 +12353,7 @@
       "requirementKeys": [],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "이유를 담은 변경 메모",
@@ -12370,7 +12370,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "form",
-        "sourceKo": "가상 상황\n받는 사람: 같은 반 동료\n이유: 머리가 아파서\n기존 약속: 오늘 두 시\n새로 제안할 시각: 내일 세 시\n장소: 도서관\n아직 동의를 받지 않았어요.",
+        "sourceKo": "가상 상황\n받는 사람: 같은 반 친구\n이유: 머리가 아파서\n기존 약속: 오늘 두 시\n새로 제안할 시각: 내일 세 시\n장소: 도서관\n아직 동의를 받지 않았어요.",
         "questions": [
           {
             "id": "reason_change",
@@ -12423,7 +12423,7 @@
       },
       "assessment": {
         "sourceKind": "form",
-        "sourceKo": "가상 상황\n받는 사람: 같은 반 동료\n이유: 비가 많이 와서\n기존 약속: 오늘 네 시\n새로 제안할 시각: 내일 두 시\n장소: 카페\n아직 동의를 받지 않았어요.",
+        "sourceKo": "가상 상황\n받는 사람: 같은 반 친구\n이유: 비가 많이 와서\n기존 약속: 오늘 네 시\n새로 제안할 시각: 내일 두 시\n장소: 카페\n아직 동의를 받지 않았어요.",
         "questions": [
           {
             "id": "reason_change",
@@ -12474,7 +12474,7 @@
           }
         ]
       },
-      "contentHash": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e"
+      "contentHash": "1386e148c441bf6881935234514411105785913843cd4d4ae8ad3892f4aa73f9"
     },
     {
       "id": "KP04:speaking:01",
@@ -12484,15 +12484,15 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
-        "ko": "동료에게 부탁하며 선생님 높이기",
+        "ko": "친구에게 부탁하며 선생님 높이기",
         "en": "Request a change and refer respectfully to a teacher",
         "de": "Um eine Änderung bitten und über die Lehrkraft sprechen"
       },
       "teaching": {
-        "ko": "같은 반 동료에게 공손하게 변경을 부탁하고 선생님 도착을 알려 주세요. -시-는 선생님, -요는 듣는 동료에 대한 표현인지 확인하세요. 선생님이 오시니까 / 먼저 준비해요처럼 의미 단위로 쉬어 말한 뒤 다시 녹음하세요. 의미와 억양은 자동 채점하지 않아요.",
+        "ko": "같은 반 친구에게 공손하게 변경을 부탁하고 선생님 도착을 알려 주세요. -시-는 선생님, -요는 듣는 친구에 대한 표현인지 확인하세요. 선생님이 오시니까 / 먼저 준비해요처럼 의미 단위로 쉬어 말한 뒤 다시 녹음하세요. 의미와 억양은 자동 채점하지 않아요.",
         "en": "Politely request a change from a classmate and give the teacher’s arrival time. Check subject honorific -시- separately from listener politeness -요. Re-record with pauses that preserve meaning. Meaning and intonation remain unscored.",
         "de": "Bitte ein Kursmitglied höflich um eine Änderung und nenne die Ankunftszeit der Lehrkraft. Prüfe -시- für die Lehrkraft getrennt von -요 für die zuhörende Person. Nimm mit sinnvollen Pausen erneut auf. Inhalt und Intonation bleiben unbewertet."
       },
@@ -12501,15 +12501,15 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "동료에게 말해요.\n기존 약속: 두 시. 새 제안: 한 시 반.\n선생님 도착: 두 시. 먼저 교실 준비가 필요해요.\n제안을 하고 동료가 가능한지도 물어보세요.",
+        "sourceKo": "친구에게 말해요.\n기존 약속: 두 시. 새 제안: 한 시 반.\n선생님 도착: 두 시. 먼저 교실 준비가 필요해요.\n제안을 하고 친구가 가능한지도 물어보세요.",
         "questions": []
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "동료에게 말해요.\n기존 약속: 네 시. 새 제안: 세 시 반.\n선생님 도착: 네 시. 먼저 자료 준비가 필요해요.\n제안을 하고 동료가 가능한지도 물어보세요.",
+        "sourceKo": "친구에게 말해요.\n기존 약속: 네 시. 새 제안: 세 시 반.\n선생님 도착: 네 시. 먼저 자료 준비가 필요해요.\n제안을 하고 친구가 가능한지도 물어보세요.",
         "questions": []
       },
-      "contentHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681"
+      "contentHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334"
     },
     {
       "id": "KP04:listening:02",
@@ -12668,7 +12668,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "같은 정보와 다른 말투",
@@ -12685,7 +12685,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "학교 안내: 선생님께서 두 시에 오십니다.\n학습 동료에게: 비가 와서 밖에서 만나지 못해요. 도서관에서 만날까요?\n서로 반말을 쓰기로 한 친한 친구에게: 비가 와서 밖에서 못 만나. 도서관에서 만날까?",
+        "sourceKo": "학교 안내: 선생님께서 두 시에 오십니다.\n반 친구에게: 비가 와서 밖에서 만나지 못해요. 도서관에서 만날까요?\n서로 반말을 쓰기로 한 친한 친구에게: 비가 와서 밖에서 못 만나. 도서관에서 만날까?",
         "questions": [
           {
             "id": "formal",
@@ -12775,7 +12775,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "학교 안내: 선생님께서 네 시에 오십니다.\n학습 동료에게: 눈이 와서 밖에서 만나지 못해요. 카페에서 만날까요?\n서로 반말을 쓰기로 한 친한 친구에게: 눈이 와서 밖에서 못 만나. 카페에서 만날까?",
+        "sourceKo": "학교 안내: 선생님께서 네 시에 오십니다.\n반 친구에게: 눈이 와서 밖에서 만나지 못해요. 카페에서 만날까요?\n서로 반말을 쓰기로 한 친한 친구에게: 눈이 와서 밖에서 못 만나. 카페에서 만날까?",
         "questions": [
           {
             "id": "formal",
@@ -12863,7 +12863,7 @@
           }
         ]
       },
-      "contentHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a"
+      "contentHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683"
     },
     {
       "id": "KP04:listening:03",
@@ -12873,7 +12873,7 @@
       "requirementKeys": [],
       "skill": "listening",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "높임과 이유절의 경계 듣기",
@@ -12890,7 +12890,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "audio",
-        "sourceKo": "선생님이 오시니까 먼저 자료를 준비하세요. 선생님은 지금 학교에 오세요.",
+        "sourceKo": "선생님이 오시니까 먼저 자료를 준비하세요. 선생님은 지금 학교로 오고 계세요.",
         "questions": [
           {
             "id": "reason",
@@ -12952,7 +12952,7 @@
       },
       "assessment": {
         "sourceKind": "audio",
-        "sourceKo": "선생님이 오시니까 먼저 교실을 정리하세요. 선생님은 지금 학교에 오세요.",
+        "sourceKo": "선생님이 오시니까 먼저 교실을 정리하세요. 선생님은 지금 학교로 오고 계세요.",
         "questions": [
           {
             "id": "reason",
@@ -13012,7 +13012,7 @@
           }
         ]
       },
-      "contentHash": "e21a5ce79628fe5ba5e63aa5c2f781697c1ba9f27ebd6c52acd2b7cce1f3d11c"
+      "contentHash": "d2e8856a0f18eb8af570475c3fdc413082e7686bd8a85ede7ad77e3d9b0f4eed"
     },
     {
       "id": "KP04:speaking:02",
@@ -13022,7 +13022,7 @@
       "requirementKeys": [],
       "skill": "speaking",
       "mode": "P",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "기분·몸 상태·일정 변경 설명",
@@ -13039,15 +13039,15 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "같은 반 동료에게 해요체로 말해요. 가상 상황이에요.\n기분: 속상함. 증상: 머리가 아픔. 날씨: 비. 파란 우산: 젖어 있음.\n오늘 두 시 약속을 취소해 사과하고 내일 세 시를 제안해요.\n교실 안내: 들어오기 전에 우산을 접어야 해요. 들어온 후에 의자에 앉아요. 상대의 답은 아직 없어요.",
+        "sourceKo": "같은 반 친구에게 해요체로 말해요. 가상 상황이에요.\n기분: 속상함. 증상: 머리가 아픔. 날씨: 비. 파란 우산: 젖어 있음.\n오늘 두 시 약속을 취소해 사과하고 내일 세 시를 제안해요.\n교실 안내: 들어오기 전에 우산을 접어야 해요. 들어온 후에 의자에 앉아요. 상대의 답은 아직 없어요.",
         "questions": []
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "같은 반 동료에게 해요체로 말해요. 가상 상황이에요.\n기분: 아쉬움. 증상: 목이 아픔. 날씨: 눈. 빨간 가방: 젖어 있음.\n오늘 네 시 약속을 취소해 사과하고 내일 두 시를 제안해요.\n교실 안내: 들어오기 전에 가방을 닦아야 해요. 들어온 후에 책상에 놓아요. 상대의 답은 아직 없어요.",
+        "sourceKo": "같은 반 친구에게 해요체로 말해요. 가상 상황이에요.\n기분: 아쉬움. 증상: 목이 아픔. 날씨: 눈. 빨간 가방: 젖어 있음.\n오늘 네 시 약속을 취소해 사과하고 내일 두 시를 제안해요.\n교실 안내: 들어오기 전에 가방을 닦아야 해요. 들어온 후에 책상에 놓아요. 상대의 답은 아직 없어요.",
         "questions": []
       },
-      "contentHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2"
+      "contentHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8"
     },
     {
       "id": "KP04:reading:03",
@@ -13057,7 +13057,7 @@
       "requirementKeys": [],
       "skill": "reading",
       "mode": "R",
-      "contentRevision": 1,
+      "contentRevision": 2,
       "rubricVersion": 1,
       "title": {
         "ko": "몸 상태와 약속 변경 메시지",
@@ -13074,7 +13074,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "text",
-        "sourceKo": "동료에게 보낸 메시지\n오늘은 머리가 아파요. 그래서 속상해요. 비가 와서 파란 우산도 젖었어요. 오늘 두 시 약속에 가지 못해서 미안해요. 내일 세 시에 만날까요?\n교실 안내에는 들어가기 전에 우산을 접어야 한다고 써 있어요. 들어간 후에 의자에 앉아요.",
+        "sourceKo": "친구에게 보낸 메시지\n오늘은 머리가 아파요. 그래서 속상해요. 비가 와서 파란 우산도 젖었어요. 오늘 두 시 약속에 가지 못해서 미안해요. 내일 세 시에 만날까요?\n교실 안내에는 들어가기 전에 우산을 접어야 한다고 쓰여 있어요. 들어간 후에 의자에 앉아요.",
         "questions": [
           {
             "id": "feeling",
@@ -13220,7 +13220,7 @@
       },
       "assessment": {
         "sourceKind": "text",
-        "sourceKo": "동료에게 보낸 메시지\n오늘은 목이 아파요. 그래서 아쉬워요. 눈이 와서 빨간 가방도 젖었어요. 오늘 네 시 약속에 가지 못해서 미안해요. 내일 두 시에 만날까요?\n교실 안내에는 들어가기 전에 가방을 닦아야 한다고 써 있어요. 들어간 후에 의자에 앉아요.",
+        "sourceKo": "친구에게 보낸 메시지\n오늘은 목이 아파요. 그래서 아쉬워요. 눈이 와서 빨간 가방도 젖었어요. 오늘 네 시 약속에 가지 못해서 미안해요. 내일 두 시에 만날까요?\n교실 안내에는 들어가기 전에 가방을 닦아야 한다고 쓰여 있어요. 들어간 후에 의자에 앉아요.",
         "questions": [
           {
             "id": "feeling",
@@ -13364,7 +13364,7 @@
           }
         ]
       },
-      "contentHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71"
+      "contentHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92"
     },
     {
       "id": "KP04:production:01",
@@ -14226,7 +14226,7 @@
       ],
       "skill": "writing",
       "mode": "P",
-      "contentRevision": 2,
+      "contentRevision": 3,
       "rubricVersion": 1,
       "title": {
         "ko": "-겠- 문장 만들기",
@@ -14245,7 +14245,7 @@
       "prerequisiteTaskIds": [],
       "practice": {
         "sourceKind": "form",
-        "sourceKo": "들었어요: 동료가 하루 종일 걸었어요. 추측: 피곤하다 / -겠- / 해요체",
+        "sourceKo": "들었어요: 친구가 하루 종일 걸었어요. 추측: 피곤하다 / -겠- / 해요체",
         "questions": [
           {
             "id": "sentence",
@@ -14273,7 +14273,7 @@
       },
       "assessment": {
         "sourceKind": "form",
-        "sourceKo": "들었어요: 동료가 아침도 점심도 못 먹었어요. 추측: 배고프다 / -겠- / 해요체",
+        "sourceKo": "들었어요: 친구가 아침도 점심도 못 먹었어요. 추측: 배고프다 / -겠- / 해요체",
         "questions": [
           {
             "id": "sentence",
@@ -14299,7 +14299,7 @@
           }
         ]
       },
-      "contentHash": "e02cf2a063d35a762ac8df7f5d87d098abdd45730c7969ad2e20f5b9aaf93d50"
+      "contentHash": "fea1f0a319221bca63205d74057d53db8acffbdf48548cb3c5baa1dc2e8e6067"
     },
     {
       "id": "KP05:grammar:01",
@@ -106608,7 +106608,7 @@
       "bindings": [
         {
           "taskId": "KP04:production:11",
-          "taskHash": "e02cf2a063d35a762ac8df7f5d87d098abdd45730c7969ad2e20f5b9aaf93d50",
+          "taskHash": "fea1f0a319221bca63205d74057d53db8acffbdf48548cb3c5baa1dc2e8e6067",
           "materialIds": [
             "KP04:production:11/practice/material",
             "KP04:production:11/assessment/material"
@@ -106635,7 +106635,7 @@
       "bindings": [
         {
           "taskId": "KP04:listening:01",
-          "taskHash": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
+          "taskHash": "9ee8851a8ee1cfd68a52da7d0a1a1a19875eac8af6fe8955f4d8bf89be87dc14",
           "materialIds": [
             "KP04:listening:01/practice/material",
             "KP04:listening:01/assessment/material"
@@ -106692,7 +106692,7 @@
       "bindings": [
         {
           "taskId": "KP04:listening:01",
-          "taskHash": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
+          "taskHash": "9ee8851a8ee1cfd68a52da7d0a1a1a19875eac8af6fe8955f4d8bf89be87dc14",
           "materialIds": [
             "KP04:listening:01/practice/material",
             "KP04:listening:01/assessment/material"
@@ -106721,7 +106721,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:01",
-          "taskHash": "b50c4ca1a3f12d7805315b10877f92ca437fe1b0956d522c3bcf9e915ac5f049",
+          "taskHash": "a6849c6207ee594938542d07da307b39b03b0c64f648200df8a9b8604651c579",
           "materialIds": [
             "KP04:reading:01/practice/material",
             "KP04:reading:01/assessment/material"
@@ -106749,7 +106749,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:01",
-          "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+          "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
           "materialIds": [
             "KP04:speaking:01/practice/material",
             "KP04:speaking:01/assessment/material"
@@ -106774,7 +106774,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:01",
-          "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+          "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
           "materialIds": [
             "KP04:speaking:01/practice/material",
             "KP04:speaking:01/assessment/material"
@@ -106799,7 +106799,7 @@
       "bindings": [
         {
           "taskId": "KP04:writing:01",
-          "taskHash": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
+          "taskHash": "1386e148c441bf6881935234514411105785913843cd4d4ae8ad3892f4aa73f9",
           "materialIds": [
             "KP04:writing:01/practice/material",
             "KP04:writing:01/assessment/material"
@@ -106827,7 +106827,7 @@
       "bindings": [
         {
           "taskId": "KP04:writing:01",
-          "taskHash": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
+          "taskHash": "1386e148c441bf6881935234514411105785913843cd4d4ae8ad3892f4aa73f9",
           "materialIds": [
             "KP04:writing:01/practice/material",
             "KP04:writing:01/assessment/material"
@@ -106855,7 +106855,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -106886,7 +106886,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -106911,7 +106911,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -106942,7 +106942,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -106967,7 +106967,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -106998,7 +106998,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -107023,7 +107023,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -107054,7 +107054,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -107079,7 +107079,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -107110,7 +107110,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -107135,7 +107135,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -107166,7 +107166,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -107191,7 +107191,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -107222,7 +107222,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -107247,7 +107247,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -107278,7 +107278,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -107303,7 +107303,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:03",
-          "taskHash": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+          "taskHash": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
           "materialIds": [
             "KP04:reading:03/practice/material",
             "KP04:reading:03/assessment/material"
@@ -107334,7 +107334,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:02",
-          "taskHash": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
+          "taskHash": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
           "materialIds": [
             "KP04:speaking:02/practice/material",
             "KP04:speaking:02/assessment/material"
@@ -107359,7 +107359,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:02",
-          "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+          "taskHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
           "materialIds": [
             "KP04:reading:02/practice/material",
             "KP04:reading:02/assessment/material"
@@ -107388,7 +107388,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:01",
-          "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+          "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
           "materialIds": [
             "KP04:speaking:01/practice/material",
             "KP04:speaking:01/assessment/material"
@@ -107413,7 +107413,7 @@
       "bindings": [
         {
           "taskId": "KP04:listening:03",
-          "taskHash": "e21a5ce79628fe5ba5e63aa5c2f781697c1ba9f27ebd6c52acd2b7cce1f3d11c",
+          "taskHash": "d2e8856a0f18eb8af570475c3fdc413082e7686bd8a85ede7ad77e3d9b0f4eed",
           "materialIds": [
             "KP04:listening:03/practice/material",
             "KP04:listening:03/assessment/material"
@@ -107441,7 +107441,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:01",
-          "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+          "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
           "materialIds": [
             "KP04:speaking:01/practice/material",
             "KP04:speaking:01/assessment/material"
@@ -107466,7 +107466,7 @@
       "bindings": [
         {
           "taskId": "KP04:listening:03",
-          "taskHash": "e21a5ce79628fe5ba5e63aa5c2f781697c1ba9f27ebd6c52acd2b7cce1f3d11c",
+          "taskHash": "d2e8856a0f18eb8af570475c3fdc413082e7686bd8a85ede7ad77e3d9b0f4eed",
           "materialIds": [
             "KP04:listening:03/practice/material",
             "KP04:listening:03/assessment/material"
@@ -107494,7 +107494,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:01",
-          "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+          "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
           "materialIds": [
             "KP04:speaking:01/practice/material",
             "KP04:speaking:01/assessment/material"
@@ -107519,7 +107519,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:02",
-          "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+          "taskHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
           "materialIds": [
             "KP04:reading:02/practice/material",
             "KP04:reading:02/assessment/material"
@@ -107548,7 +107548,7 @@
       "bindings": [
         {
           "taskId": "KP04:reading:02",
-          "taskHash": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
+          "taskHash": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
           "materialIds": [
             "KP04:reading:02/practice/material",
             "KP04:reading:02/assessment/material"
@@ -107577,7 +107577,7 @@
       "bindings": [
         {
           "taskId": "KP04:speaking:01",
-          "taskHash": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+          "taskHash": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
           "materialIds": [
             "KP04:speaking:01/practice/material",
             "KP04:speaking:01/assessment/material"
@@ -148052,15 +148052,15 @@
         "KP04:grammar:09": "6f66558bac352e5328bb0f0e64b66e0175b73643eabc08f4c505ed6dba7a6bce",
         "KP04:grammar:10": "4dded05aba8bb71944c3cda18e6aeabd3c7bcf6ae4865d6bac2f55903674e317",
         "KP04:grammar:11": "83e1dab8ec8464ba8776442523a86eacc71a8f69a45e421b8a2f3b533079772a",
-        "KP04:listening:01": "69836358baf3001d8bdc6ec3141a0b0a44c967fbe62ebbebfc6432dc4d173940",
-        "KP04:reading:01": "b50c4ca1a3f12d7805315b10877f92ca437fe1b0956d522c3bcf9e915ac5f049",
-        "KP04:writing:01": "1e52f43a08fd108bd77ce6da6ffa8b11b5df7831e1be8e288e230fa7fd7f007e",
-        "KP04:speaking:01": "727c8314ac245e5bd0d42ad463e620724413989ebaa70e36007bf7a7b0a76681",
+        "KP04:listening:01": "9ee8851a8ee1cfd68a52da7d0a1a1a19875eac8af6fe8955f4d8bf89be87dc14",
+        "KP04:reading:01": "a6849c6207ee594938542d07da307b39b03b0c64f648200df8a9b8604651c579",
+        "KP04:writing:01": "1386e148c441bf6881935234514411105785913843cd4d4ae8ad3892f4aa73f9",
+        "KP04:speaking:01": "0ff600709656a80cc49152329c136334a9d6d39f18f70c16bec9aba3de971334",
         "KP04:listening:02": "42828a60c3f4ed8c2b16659a1e82771fdd652a206b2e9ed5b990b38267e63f2a",
-        "KP04:reading:02": "6e3cb76bf863c42101dc3b8946b51725433c055b3a071b918561fb15c20bfa4a",
-        "KP04:listening:03": "e21a5ce79628fe5ba5e63aa5c2f781697c1ba9f27ebd6c52acd2b7cce1f3d11c",
-        "KP04:speaking:02": "a9836e1d5c974c64deebf6ce35ad66bf004bad6801a5451cdcfedaa1f59df0c2",
-        "KP04:reading:03": "2b5b41ecda30c846a10a8e5a25498dd7fc03603742b2c8aa7350304e75281b71",
+        "KP04:reading:02": "80f2481585ed0108eec473568a84df6828b3409adde7d2b87d63ae4b4faaa683",
+        "KP04:listening:03": "d2e8856a0f18eb8af570475c3fdc413082e7686bd8a85ede7ad77e3d9b0f4eed",
+        "KP04:speaking:02": "fe3b009de169945b5abfb65209db0d9057175def247dcac44137a0d28421aec8",
+        "KP04:reading:03": "037aefb1466b4971de581aa88d749f271f832c6d02c79f1596d764db2106ac92",
         "KP04:production:01": "e94d960571454f94db0619489f866b7d07c34b44f81d4e2b33b5113744d82836",
         "KP04:production:02": "e78d645ad77da93d3ad406c0b77e524a5cb588192895cd05a958aa2462ed1d40",
         "KP04:production:03": "10e558ecf7cf3d08a6c938c90e10603f0af5574b694c7a60fc539c52095b353a",
@@ -148071,9 +148071,9 @@
         "KP04:production:08": "bc266d5f406f81a164146bfa3a541ba0f9afd7bc4114e9cab5669bb9d85a6542",
         "KP04:production:09": "30b8b0aea8f740ed143a9f7dbcc1ede106c58729a2046ebef8c62e291b6c5e8c",
         "KP04:production:10": "2da1166cee693e60d420e9685d10a1546d32ce0e4b1a3f673ac105bd703dd10c",
-        "KP04:production:11": "e02cf2a063d35a762ac8df7f5d87d098abdd45730c7969ad2e20f5b9aaf93d50"
+        "KP04:production:11": "fea1f0a319221bca63205d74057d53db8acffbdf48548cb3c5baa1dc2e8e6067"
       },
-      "contentHash": "b1f92679a6eeda4894d3a1ac15928e31a1e7fb1ef0200dedd22975aa65144a84"
+      "contentHash": "79f38ab2be6884b4f81aa35b4cf67a4a948c33721d45a41c2646da913e9e2952"
     },
     {
       "phaseId": "KP05",
