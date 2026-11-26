@@ -1,0 +1,628 @@
+{
+  "items": [
+    {
+      "id": "satz_c1_0253",
+      "sourceVocabId": "vocab_c1_0241",
+      "vocabKo": "여론",
+      "targetKo": "정치인들은 여론의 흐름을 살피며 발언 수위를 조절했다.",
+      "distractors": [
+        "서론의",
+        "토대의"
+      ],
+      "promptDe": "Die Politiker verfolgten, wie sich die öffentliche Meinung entwickelte, und passten den Ton ihrer Äußerungen an.",
+      "promptEn": "Politicians watched how public opinion was shifting and adjusted the tone of their remarks.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0254",
+      "sourceVocabId": "vocab_c1_0242",
+      "vocabKo": "일간지",
+      "targetKo": "그 사건은 다음 날 주요 일간지의 1면을 차지했다.",
+      "distractors": [
+        "응답자의",
+        "실무의"
+      ],
+      "promptDe": "Der Vorfall stand am nächsten Tag auf den Titelseiten der großen Tageszeitungen.",
+      "promptEn": "The incident made the front pages of the major daily newspapers the next day.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0255",
+      "sourceVocabId": "vocab_c1_0243",
+      "vocabKo": "칼럼",
+      "targetKo": "그는 매주 신문에 경제 칼럼을 쓰고 있다.",
+      "distractors": [
+        "매출을",
+        "응용을"
+      ],
+      "promptDe": "Er schreibt jede Woche eine Wirtschaftskolumne für eine Zeitung.",
+      "promptEn": "He writes a weekly economics column for a newspaper.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0256",
+      "sourceVocabId": "vocab_c1_0244",
+      "vocabKo": "허위",
+      "targetKo": "확인되지 않은 허위 정보가 온라인에서 빠르게 퍼졌다.",
+      "distractors": [
+        "서론",
+        "토대"
+      ],
+      "promptDe": "Unbestätigte Falschinformationen verbreiteten sich online rasant.",
+      "promptEn": "Unverified false information spread quickly online.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0257",
+      "sourceVocabId": "vocab_c1_0245",
+      "vocabKo": "헛소문",
+      "targetKo": "회사가 문을 닫는다는 헛소문 때문에 직원들이 불안해했다.",
+      "distractors": [
+        "핵가족",
+        "응용"
+      ],
+      "promptDe": "Wegen des haltlosen Gerüchts, die Firma werde schließen, waren die Beschäftigten beunruhigt.",
+      "promptEn": "Employees were anxious because of a groundless rumor that the company would close.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0258",
+      "sourceVocabId": "vocab_c1_0246",
+      "vocabKo": "해명",
+      "targetKo": "대변인은 문제가 된 발언에 대해 공식적으로 해명했다.",
+      "distractors": [
+        "응용했다",
+        "양육했다"
+      ],
+      "promptDe": "Der Sprecher nahm offiziell Stellung zu der umstrittenen Äußerung.",
+      "promptEn": "The spokesperson gave an official explanation of the controversial remark.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0259",
+      "sourceVocabId": "vocab_c1_0247",
+      "vocabKo": "실태",
+      "targetKo": "이번 보도는 청년들이 겪는 주거 문제의 실태를 자세히 보여 준다.",
+      "distractors": [
+        "금리를",
+        "해고를"
+      ],
+      "promptDe": "Der Bericht zeigt im Detail, wie es um die Wohnprobleme junger Menschen tatsächlich steht.",
+      "promptEn": "The report shows in detail the reality of the housing problems young people face.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0260",
+      "sourceVocabId": "vocab_c1_0248",
+      "vocabKo": "현황",
+      "targetKo": "정부는 매달 지역별 일자리 현황을 발표한다.",
+      "distractors": [
+        "서론을",
+        "근원을"
+      ],
+      "promptDe": "Die Regierung veröffentlicht jeden Monat den aktuellen Stand der Arbeitsplätze nach Regionen.",
+      "promptEn": "Every month, the government publishes the current job situation by region.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0261",
+      "sourceVocabId": "vocab_c1_0249",
+      "vocabKo": "추세",
+      "targetKo": "1인 가구가 늘어나는 추세는 앞으로도 이어질 전망이다.",
+      "distractors": [
+        "토대는",
+        "금리는"
+      ],
+      "promptDe": "Der Trend zu immer mehr Einpersonenhaushalten wird sich voraussichtlich fortsetzen.",
+      "promptEn": "The trend toward more single-person households is expected to continue.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0262",
+      "sourceVocabId": "vocab_c1_0250",
+      "vocabKo": "응답자",
+      "targetKo": "응답자의 절반 이상이 물가 상승을 가장 큰 걱정으로 꼽았다.",
+      "distractors": [
+        "도표의",
+        "서론의"
+      ],
+      "promptDe": "Mehr als die Hälfte der Befragten nannte steigende Preise als ihre größte Sorge.",
+      "promptEn": "More than half of the respondents named rising prices as their biggest worry.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0263",
+      "sourceVocabId": "vocab_c1_0251",
+      "vocabKo": "과대평가",
+      "targetKo": "일부 언론은 신약의 효과를 과대평가해 보도했다.",
+      "distractors": [
+        "양육해",
+        "창업해"
+      ],
+      "promptDe": "Einige Medien überschätzten in ihren Berichten die Wirkung des neuen Medikaments.",
+      "promptEn": "Some media outlets overstated the new drug's effect in their reports.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0264",
+      "sourceVocabId": "vocab_c1_0252",
+      "vocabKo": "중립적",
+      "targetKo": "기자는 어느 한쪽 편을 들지 않고 중립적인 입장에서 보도하려고 했다.",
+      "distractors": [
+        "일방적인",
+        "감정적인"
+      ],
+      "promptDe": "Der Journalist bemühte sich, ohne Partei zu ergreifen, aus einer neutralen Position zu berichten.",
+      "promptEn": "The reporter tried to report from a neutral position without taking either side.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0265",
+      "sourceVocabId": "vocab_c1_0253",
+      "vocabKo": "저출산",
+      "targetKo": "저출산이 계속되면서 문을 닫는 초등학교가 늘고 있다.",
+      "distractors": [
+        "매출이",
+        "실적이"
+      ],
+      "promptDe": "Weil die Geburtenrate niedrig bleibt, schließen immer mehr Grundschulen.",
+      "promptEn": "As the birth rate stays low, more and more elementary schools are closing.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0266",
+      "sourceVocabId": "vocab_c1_0254",
+      "vocabKo": "출산율",
+      "targetKo": "정부는 출산율을 높이기 위해 육아 지원을 확대했다.",
+      "distractors": [
+        "실업률을",
+        "소외감을"
+      ],
+      "promptDe": "Um die Geburtenrate zu erhöhen, hat die Regierung die Unterstützung bei der Kinderbetreuung ausgeweitet.",
+      "promptEn": "The government expanded childcare support to raise the birth rate.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0267",
+      "sourceVocabId": "vocab_c1_0255",
+      "vocabKo": "도시화",
+      "targetKo": "빠른 도시화로 농촌 인구가 크게 줄었다.",
+      "distractors": [
+        "도표로",
+        "응답자로"
+      ],
+      "promptDe": "Durch die rasche Verstädterung ist die Landbevölkerung stark geschrumpft.",
+      "promptEn": "Rapid urbanization has sharply reduced the rural population.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0268",
+      "sourceVocabId": "vocab_c1_0256",
+      "vocabKo": "핵가족",
+      "targetKo": "핵가족이 늘면서 명절 풍경도 많이 달라졌다.",
+      "distractors": [
+        "실적이",
+        "논술이"
+      ],
+      "promptDe": "Mit der Zunahme der Kleinfamilien haben sich auch die Feiertage stark verändert.",
+      "promptEn": "As nuclear families have become more common, holidays have changed a great deal.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0269",
+      "sourceVocabId": "vocab_c1_0257",
+      "vocabKo": "기성세대",
+      "targetKo": "젊은 세대와 기성세대는 일과 삶의 균형을 바라보는 시각이 다르다.",
+      "distractors": [
+        "금리는",
+        "해고는"
+      ],
+      "promptDe": "Die junge und die ältere Generation blicken unterschiedlich auf das Verhältnis von Arbeit und Leben.",
+      "promptEn": "The younger and older generations see the balance between work and life differently.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0270",
+      "sourceVocabId": "vocab_c1_0258",
+      "vocabKo": "양육",
+      "targetKo": "맞벌이 부부에게 자녀 양육은 여전히 큰 부담이다.",
+      "distractors": [
+        "응용은",
+        "매출은"
+      ],
+      "promptDe": "Für Doppelverdienerpaare ist die Kindererziehung nach wie vor eine große Belastung.",
+      "promptEn": "For dual-income couples, raising children is still a heavy burden.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0271",
+      "sourceVocabId": "vocab_c1_0259",
+      "vocabKo": "연령층",
+      "targetKo": "이 서비스는 모든 연령층이 쉽게 이용할 수 있도록 설계되었다.",
+      "distractors": [
+        "현황이",
+        "실적이"
+      ],
+      "promptDe": "Dieser Dienst wurde so gestaltet, dass ihn alle Altersgruppen leicht nutzen können.",
+      "promptEn": "This service was designed so that people of all age groups can use it easily.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0272",
+      "sourceVocabId": "vocab_c1_0260",
+      "vocabKo": "서민",
+      "targetKo": "물가가 오르면서 서민의 생활은 더욱 어려워졌다.",
+      "distractors": [
+        "도표의",
+        "논술의"
+      ],
+      "promptDe": "Mit den steigenden Preisen ist das Leben der einfachen Leute noch schwerer geworden.",
+      "promptEn": "As prices have risen, life has become even harder for ordinary people.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0273",
+      "sourceVocabId": "vocab_c1_0261",
+      "vocabKo": "소외감",
+      "targetKo": "스마트폰 사용에 익숙하지 않은 노인들은 소외감을 느끼기 쉽다.",
+      "distractors": [
+        "현황을",
+        "실업률을"
+      ],
+      "promptDe": "Ältere Menschen, die mit Smartphones nicht vertraut sind, fühlen sich leicht ausgegrenzt.",
+      "promptEn": "Older people who are not used to smartphones can easily feel left out.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0274",
+      "sourceVocabId": "vocab_c1_0262",
+      "vocabKo": "다양성",
+      "targetKo": "외국인 주민이 늘면서 학교에서도 문화적 다양성을 존중하는 교육이 중요해졌다.",
+      "distractors": [
+        "실업률을",
+        "출산율을"
+      ],
+      "promptDe": "Da immer mehr ausländische Einwohner hier leben, ist auch an Schulen eine Bildung wichtig geworden, die kulturelle Vielfalt respektiert.",
+      "promptEn": "As the number of foreign residents grows, education that respects cultural diversity has become important in schools too.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0275",
+      "sourceVocabId": "vocab_c1_0263",
+      "vocabKo": "획일적",
+      "targetKo": "모든 지역에 똑같이 적용되는 획일적인 기준으로는 지역별 문제를 해결하기 어렵다.",
+      "distractors": [
+        "낙천적인",
+        "감상적인"
+      ],
+      "promptDe": "Mit starren Einheitskriterien, die für alle Regionen gleich gelten, lassen sich regionale Probleme kaum lösen.",
+      "promptEn": "Uniform standards applied identically to every region can hardly solve region-specific problems.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0276",
+      "sourceVocabId": "vocab_c1_0264",
+      "vocabKo": "보편화",
+      "targetKo": "스마트폰이 보편화되면서 종이 신문을 읽는 사람이 크게 줄었다.",
+      "distractors": [
+        "도시화되면서",
+        "해고되면서"
+      ],
+      "promptDe": "Seit Smartphones allgemein verbreitet sind, lesen deutlich weniger Menschen gedruckte Zeitungen.",
+      "promptEn": "Since smartphones became widespread, far fewer people read print newspapers.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0277",
+      "sourceVocabId": "vocab_c1_0265",
+      "vocabKo": "채용",
+      "targetKo": "그 회사는 올해 신입 사원 채용을 두 배로 늘렸다.",
+      "distractors": [
+        "실업률을",
+        "출산율을"
+      ],
+      "promptDe": "Das Unternehmen hat in diesem Jahr doppelt so viele Berufseinsteiger eingestellt.",
+      "promptEn": "The company doubled its hiring of new employees this year.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0278",
+      "sourceVocabId": "vocab_c1_0266",
+      "vocabKo": "이직",
+      "targetKo": "연봉보다 근무 환경 때문에 이직을 결심하는 직장인이 많다.",
+      "distractors": [
+        "전문성을",
+        "다양성을"
+      ],
+      "promptDe": "Viele Angestellte entschließen sich eher wegen des Arbeitsumfelds als wegen des Gehalts zu einem Jobwechsel.",
+      "promptEn": "Many employees decide to change jobs because of the work environment rather than the salary.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0279",
+      "sourceVocabId": "vocab_c1_0267",
+      "vocabKo": "실무",
+      "targetKo": "안드레아 씨는 오랫동안 쌓은 실무 경험 덕분에 팀원들의 신뢰를 받는다.",
+      "distractors": [
+        "계절",
+        "평등"
+      ],
+      "promptDe": "Dank ihrer langjährigen Praxiserfahrung genießt Andrea das Vertrauen ihres Teams.",
+      "promptEn": "Thanks to years of hands-on experience, Andrea has her team's trust.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0280",
+      "sourceVocabId": "vocab_c1_0268",
+      "vocabKo": "실적",
+      "targetKo": "지난해 실적이 예상보다 좋아 주가가 올랐다.",
+      "distractors": [
+        "습관이",
+        "가설이"
+      ],
+      "promptDe": "Weil die Ergebnisse des vergangenen Jahres besser als erwartet ausfielen, stieg der Aktienkurs.",
+      "promptEn": "Last year's results were better than expected, so the share price rose.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0281",
+      "sourceVocabId": "vocab_c1_0269",
+      "vocabKo": "정규직",
+      "targetKo": "그는 계약직으로 입사한 지 2년 만에 정규직으로 전환되었다.",
+      "distractors": [
+        "균형으로",
+        "평등으로"
+      ],
+      "promptDe": "Zwei Jahre nach seinem Einstieg mit befristetem Vertrag wurde er fest angestellt.",
+      "promptEn": "Two years after joining on a fixed-term contract, he became a permanent employee.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0282",
+      "sourceVocabId": "vocab_c1_0270",
+      "vocabKo": "해고",
+      "targetKo": "회사는 경영이 어렵다는 이유로 직원을 함부로 해고할 수 없다.",
+      "distractors": [
+        "양육할",
+        "창업할"
+      ],
+      "promptDe": "Ein Unternehmen darf Beschäftigte nicht einfach entlassen, nur weil es wirtschaftlich schwierig ist.",
+      "promptEn": "A company cannot simply dismiss employees on the grounds that business is difficult.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0283",
+      "sourceVocabId": "vocab_c1_0271",
+      "vocabKo": "창업",
+      "targetKo": "그는 대학을 졸업하자마자 친구들과 창업에 뛰어들었다.",
+      "distractors": [
+        "균형에",
+        "기억에"
+      ],
+      "promptDe": "Gleich nach dem Studium gründete er mit Freunden ein eigenes Unternehmen.",
+      "promptEn": "Right after graduating from university, he jumped into starting a business with friends.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0284",
+      "sourceVocabId": "vocab_c1_0272",
+      "vocabKo": "자영업자",
+      "targetKo": "경기가 나빠지면서 문을 닫는 자영업자가 늘고 있다.",
+      "distractors": [
+        "휴가가",
+        "날씨가"
+      ],
+      "promptDe": "Da sich die Konjunktur verschlechtert, geben immer mehr Selbstständige ihr Geschäft auf.",
+      "promptEn": "As the economy worsens, more and more self-employed people are closing their businesses.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0285",
+      "sourceVocabId": "vocab_c1_0273",
+      "vocabKo": "매출",
+      "targetKo": "온라인 판매가 늘어난 덕분에 올해 매출이 작년보다 크게 올랐다.",
+      "distractors": [
+        "습관이",
+        "가설이"
+      ],
+      "promptDe": "Dank des wachsenden Onlinehandels ist der Umsatz in diesem Jahr deutlich höher als im Vorjahr.",
+      "promptEn": "Thanks to growing online sales, revenue rose sharply this year compared with last year.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0286",
+      "sourceVocabId": "vocab_c1_0274",
+      "vocabKo": "침체",
+      "targetKo": "경기 침체가 길어지면서 소비 심리도 얼어붙었다.",
+      "distractors": [
+        "휴가가",
+        "교과서가"
+      ],
+      "promptDe": "Weil die Konjunkturflaute anhält, ist auch die Kauflaune eingebrochen.",
+      "promptEn": "As the economic slump drags on, consumer sentiment has frozen too.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0287",
+      "sourceVocabId": "vocab_c1_0275",
+      "vocabKo": "금리",
+      "targetKo": "은행들이 금리를 올리자 대출 이자 부담이 커졌다.",
+      "distractors": [
+        "응답자를",
+        "교과서를"
+      ],
+      "promptDe": "Als die Banken die Zinsen anhoben, stieg die Zinslast für Kredite.",
+      "promptEn": "When banks raised interest rates, the interest burden on loans grew.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0288",
+      "sourceVocabId": "vocab_c1_0276",
+      "vocabKo": "전문성",
+      "targetKo": "이 업무는 높은 전문성이 요구되기 때문에 경력자를 우선 채용한다.",
+      "distractors": [
+        "소외감이",
+        "기억이"
+      ],
+      "promptDe": "Da diese Tätigkeit hohe Fachkompetenz erfordert, werden bevorzugt Berufserfahrene eingestellt.",
+      "promptEn": "Because this work requires a high level of expertise, experienced candidates are hired first.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0289",
+      "sourceVocabId": "vocab_c1_0277",
+      "vocabKo": "이론적",
+      "targetKo": "이 논문은 이론적 배경과 실제 사례를 함께 다룬다.",
+      "distractors": [
+        "일방적",
+        "감정적"
+      ],
+      "promptDe": "Diese Arbeit behandelt sowohl den theoretischen Hintergrund als auch konkrete Fallbeispiele.",
+      "promptEn": "This paper covers both the theoretical background and real cases.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0290",
+      "sourceVocabId": "vocab_c1_0278",
+      "vocabKo": "체계적",
+      "targetKo": "자료를 체계적으로 정리해 두면 나중에 분석하기가 훨씬 쉽다.",
+      "distractors": [
+        "감정적으로",
+        "극단적으로"
+      ],
+      "promptDe": "Wer seine Daten systematisch ordnet, kann sie später viel leichter auswerten.",
+      "promptEn": "If you organize your data systematically, it is much easier to analyze later.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0291",
+      "sourceVocabId": "vocab_c1_0279",
+      "vocabKo": "보편적",
+      "targetKo": "자유와 평등은 국적과 관계없이 누구에게나 적용되는 보편적 가치이다.",
+      "distractors": [
+        "예외적",
+        "일방적"
+      ],
+      "promptDe": "Freiheit und Gleichheit sind universelle Werte, die unabhängig von der Staatsangehörigkeit für alle gelten.",
+      "promptEn": "Freedom and equality are universal values that apply to everyone regardless of nationality.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0292",
+      "sourceVocabId": "vocab_c1_0280",
+      "vocabKo": "전형적",
+      "targetKo": "도시로 인구가 몰리고 농촌이 비는 것은 산업화 과정의 전형적인 현상이다.",
+      "distractors": [
+        "비관적인",
+        "낙천적인"
+      ],
+      "promptDe": "Dass die Menschen in die Städte drängen und sich die Dörfer leeren, ist ein typisches Phänomen der Industrialisierung.",
+      "promptEn": "People crowding into cities while villages empty out is a typical phenomenon of industrialization.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0293",
+      "sourceVocabId": "vocab_c1_0281",
+      "vocabKo": "예외적",
+      "targetKo": "이번 결과는 예외적인 경우일 수 있으므로 추가 연구가 필요하다.",
+      "distractors": [
+        "폭력적인",
+        "낙천적인"
+      ],
+      "promptDe": "Da dieses Ergebnis ein Ausnahmefall sein könnte, sind weitere Untersuchungen nötig.",
+      "promptEn": "This result may be an exceptional case, so further research is needed.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0294",
+      "sourceVocabId": "vocab_c1_0282",
+      "vocabKo": "토대",
+      "targetKo": "이 논문은 기존 연구를 토대로 새로운 질문을 던졌다.",
+      "distractors": [
+        "휴가로",
+        "교과서로"
+      ],
+      "promptDe": "Auf der Grundlage früherer Studien warf diese Arbeit neue Fragen auf.",
+      "promptEn": "Building on earlier studies, this paper raised new questions.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0295",
+      "sourceVocabId": "vocab_c1_0283",
+      "vocabKo": "응용",
+      "targetKo": "기초 과학의 성과는 의료와 산업 분야에 폭넓게 응용된다.",
+      "distractors": [
+        "채용된다",
+        "도시화된다"
+      ],
+      "promptDe": "Die Erkenntnisse der Grundlagenforschung werden in Medizin und Industrie breit angewendet.",
+      "promptEn": "Findings from basic science are widely applied in medicine and industry.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0296",
+      "sourceVocabId": "vocab_c1_0284",
+      "vocabKo": "서론",
+      "targetKo": "현아 씨는 논문 서론에서 연구의 목적과 범위를 먼저 밝혔다.",
+      "distractors": [
+        "날씨에서",
+        "산책에서"
+      ],
+      "promptDe": "Hyuna legte in der Einleitung ihrer Arbeit zuerst Ziel und Umfang der Forschung dar.",
+      "promptEn": "In the introduction of her thesis, Hyuna first set out the aim and scope of the research.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0297",
+      "sourceVocabId": "vocab_c1_0285",
+      "vocabKo": "논술",
+      "targetKo": "대학 입시에서 논술 시험은 논리적으로 글을 쓰는 능력을 평가한다.",
+      "distractors": [
+        "침체",
+        "산책"
+      ],
+      "promptDe": "Bei der Hochschulaufnahmeprüfung bewertet der Aufsatzteil die Fähigkeit, logisch zu schreiben.",
+      "promptEn": "In university entrance exams, the essay test assesses the ability to write logically.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0298",
+      "sourceVocabId": "vocab_c1_0286",
+      "vocabKo": "뒷받침",
+      "targetKo": "주장을 뒷받침할 만한 근거가 부족하면 설득력이 떨어진다.",
+      "distractors": [
+        "양육할",
+        "창업할"
+      ],
+      "promptDe": "Fehlen Belege, die eine Behauptung untermauern, verliert sie an Überzeugungskraft.",
+      "promptEn": "If there is not enough evidence to back up a claim, it becomes less persuasive.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0299",
+      "sourceVocabId": "vocab_c1_0287",
+      "vocabKo": "근원",
+      "targetKo": "문제의 근원을 찾지 못하면 같은 오류가 되풀이될 수밖에 없다.",
+      "distractors": [
+        "다양성을",
+        "전문성을"
+      ],
+      "promptDe": "Wenn man die Wurzel des Problems nicht findet, wiederholt sich derselbe Fehler zwangsläufig.",
+      "promptEn": "If the root of a problem is not found, the same error is bound to recur.",
+      "level": "c1"
+    },
+    {
+      "id": "satz_c1_0300",
+      "sourceVocabId": "vocab_c1_0288",
+      "vocabKo": "도표",
+      "targetKo": "복잡한 통계는 도표로 정리하면 한눈에 이해하기 쉽다.",
+      "distractors": [
+        "가설로",
+        "침체로"
+      ],
+      "promptDe": "Komplexe Statistiken sind auf einen Blick verständlich, wenn man sie in Diagrammen darstellt.",
+      "promptEn": "Complex statistics are easy to grasp at a glance when presented in charts.",
+      "level": "c1"
+    }
+  ]
+}

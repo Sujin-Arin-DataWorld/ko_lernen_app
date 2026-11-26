@@ -1,0 +1,109 @@
+{
+  "version": 1,
+  "batch": "c3_batch44_c1_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "C1(5급) reinforcement - 48 NIKL grade-5 headwords missing from live (news, work, academic, society); placed at C1 by the 2026-11-25 Jin decision to follow the NIKL canon.",
+    "rights": "original_clean_room",
+    "seedSource": "NIKL 2017 kiiq grade list (tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv)",
+    "gapAtDraft": {
+      "grade5Headwords": 2271,
+      "live": 114,
+      "missing": 2157
+    },
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "CLAUDE_MODEL_QA",
+    "humanLanguageQaClaim": false
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_44_c1_rows.csv",
+      "collection": null,
+      "count": 48,
+      "level": "C1",
+      "review": "tools/content_factory/review/batch_44_c1_vocab_review.csv"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_44_c1_cloze.json",
+      "collection": "items",
+      "count": 48,
+      "level": "C1",
+      "review": "tools/content_factory/review/batch_44_c1_cloze_review.csv"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_44_c1_satz.json",
+      "collection": "items",
+      "count": 48,
+      "level": "C1",
+      "review": "tools/content_factory/review/batch_44_c1_satz_review.csv"
+    }
+  ],
+  "recordCount": 144,
+  "newPacks": [
+    {
+      "pack_id": "c1_media_evidence_2",
+      "base": "c1_media_evidence",
+      "newBase": false,
+      "topic": "Medien & Evidenz",
+      "displayName": {
+        "de": "Medien & Evidenz 2",
+        "en": "Media & Evidence 2"
+      },
+      "wordCount": 12,
+      "note": "Boss = pack_order 10-12 (C1 convention); needs content-authority/segment registration before promotion"
+    },
+    {
+      "pack_id": "c1_2026_social_topics_2",
+      "base": "c1_2026_social_topics",
+      "newBase": false,
+      "topic": "Gesellschaft im Wandel",
+      "displayName": {
+        "de": "Gesellschaft im Wandel 2",
+        "en": "Changing Society 2"
+      },
+      "wordCount": 12,
+      "note": "Boss = pack_order 10-12 (C1 convention); needs content-authority/segment registration before promotion"
+    },
+    {
+      "pack_id": "c1_work_economy_1",
+      "base": "c1_work_economy",
+      "newBase": true,
+      "topic": "Arbeit & Wirtschaft",
+      "displayName": {
+        "de": "Arbeit & Wirtschaft",
+        "en": "Work & Economy"
+      },
+      "wordCount": 12,
+      "note": "Boss = pack_order 10-12 (C1 convention); needs content-authority/segment registration before promotion; new base needs a packDisplayMap entry"
+    },
+    {
+      "pack_id": "c1_evidence_reasoning_2",
+      "base": "c1_evidence_reasoning",
+      "newBase": false,
+      "topic": "Forschung & Evidenz",
+      "displayName": {
+        "de": "Forschung & Evidenz 2",
+        "en": "Research & Evidence 2"
+      },
+      "wordCount": 12,
+      "note": "Boss = pack_order 10-12 (C1 convention); needs content-authority/segment registration before promotion"
+    }
+  ],
+  "personaRowsNote": "2 rows name a canon persona in third person (안드레아, 현아); no persona appears more than once.",
+  "personaRows": {
+    "vocab_c1_0267": "andrea",
+    "vocab_c1_0284": "hyuna"
+  },
+  "reviewPacket": "docs/data/review_packets/batch_44_c1_jin_sample.md",
+  "promotion": {
+    "assetsDataWritten": false,
+    "runtime": false,
+    "tts": false,
+    "firebase": false,
+    "note": "Draft only; Jin sample approval pending (level-canon D-4). Examples, translations and distractors authored by Claude 2026-11-26; MODEL_QA only, no human-language QA claim."
+  }
+}
