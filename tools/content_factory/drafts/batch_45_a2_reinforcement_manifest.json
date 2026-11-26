@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "batch": "c3_batch45_a2_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "A2(2급) reinforcement - 66 high-frequency NIKL grade-2 headwords still missing after Batches 32-34 and 42; level follows the NIKL canon (Jin 2026-11-25).",
+    "rights": "original_clean_room",
+    "seedSource": "NIKL 2017 kiiq grade-2 headword list (KOGL 1유형)",
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "CLAUDE_MODEL_QA",
+    "humanLanguageQaClaim": false,
+    "droppedCandidates": {}
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_45_a2_rows.csv",
+      "collection": null,
+      "count": 66,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_45_a2_vocab_review.csv"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_45_a2_cloze.json",
+      "collection": "items",
+      "count": 66,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_45_a2_cloze_review.csv"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_45_a2_satz.json",
+      "collection": "items",
+      "count": 66,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_45_a2_satz_review.csv"
+    }
+  ],
+  "recordCount": 198,
+  "packsFilledTo12": [
+    {
+      "pack_id": "a2_weather_sky_1",
+      "addedWords": [
+        "그치다",
+        "선선하다",
+        "얼다",
+        "별",
+        "단풍",
+        "사계절"
+      ],
+      "note": "fills empty pack_order 7-12; 사계절 (12) becomes the second Boss next to 구름"
+    }
+  ],
+  "newPacks": [
+    {
+      "pack_id": "a2_nature_2",
+      "wordCount": 12,
+      "note": "existing base; Boss = pack_order 11-12"
+    },
+    {
+      "pack_id": "a2_food_4",
+      "wordCount": 12,
+      "note": "existing base; Boss = pack_order 11-12"
+    },
+    {
+      "pack_id": "a2_time_span_2",
+      "wordCount": 12,
+      "note": "existing base; Boss = pack_order 11-12"
+    },
+    {
+      "pack_id": "a2_directions_2",
+      "wordCount": 12,
+      "note": "existing base; Boss = pack_order 11-12"
+    },
+    {
+      "pack_id": "a2_daily_actions_2",
+      "wordCount": 12,
+      "note": "existing base; Boss = pack_order 11-12"
+    }
+  ],
+  "personaRowsNote": "No persona vocatives in this batch.",
+  "personaRows": {},
+  "reviewPacket": "docs/data/review_packets/batch_45_a2_jin_sample.md",
+  "promotion": {
+    "assetsDataWritten": false,
+    "runtime": false,
+    "tts": false,
+    "firebase": false,
+    "note": "Draft only; Jin sample approval pending (level-canon D-4). Examples, translations and distractors authored by Claude 2026-11-26; MODEL_QA only, no human-language QA claim."
+  }
+}
