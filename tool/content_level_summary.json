@@ -4,11 +4,11 @@
       "accepted_relevel": 0,
       "fallback_over2": 0,
       "over1": 153,
-      "over2": 0,
+      "over2": 1,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2365,
-      "under2": 448,
+      "under2": 451,
       "unknown": 0
     },
     "grammar": {
@@ -25,7 +25,7 @@
     "media": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 23,
+      "over1": 22,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
@@ -47,22 +47,22 @@
     "satz": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 150,
-      "over2": 0,
+      "over1": 149,
+      "over2": 4,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
       "total": 2885,
-      "under2": 633,
+      "under2": 636,
       "unknown": 0
     },
     "scenario": {
       "accepted_relevel": 0,
       "fallback_over2": 0,
-      "over1": 18,
+      "over1": 20,
       "over2": 0,
       "replacement_backlog": 0,
       "reviewed_owner": 0,
-      "total": 191,
+      "total": 219,
       "under2": 23,
       "unknown": 0
     },
@@ -80,12 +80,12 @@
     "vocab": {
       "accepted_relevel": 66,
       "fallback_over2": 0,
-      "over1": 313,
+      "over1": 311,
       "over2": 0,
       "replacement_backlog": 0,
-      "reviewed_owner": 146,
+      "reviewed_owner": 142,
       "total": 2968,
-      "under2": 224,
+      "under2": 227,
       "unknown": 0
     }
   },
@@ -109,9 +109,9 @@
       "total_unique": 1554
     },
     "grade4": {
-      "at_level": 148,
-      "missing": 1813,
-      "present_in_app": 276,
+      "at_level": 149,
+      "missing": 1812,
+      "present_in_app": 277,
       "total_unique": 2089
     },
     "grade5": {

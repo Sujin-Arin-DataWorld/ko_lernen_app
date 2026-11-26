@@ -1,0 +1,121 @@
+id,korean,nikl_grade,pos_de,pack_id,topic,german,english,example_korean,example_german,example_english
+vocab_a1_0397,문제없어요,1,Ausdruck,a1_sorry_thanks_1,Entschuldigung,kein Problem,no problem,실수해도 문제없어요.,"Wenn du einen Fehler machst, ist das kein Problem.","If you make a mistake, no problem."
+vocab_a1_0398,제가 더요,1,Ausdruck,a1_sorry_thanks_1,Entschuldigung,ich habe zu danken,I should thank you,정말 고마워요! 제가 더요!,Danke schön! Ich habe zu danken.,Thank you! I should thank you.
+vocab_a1_0399,잠깐만요,1,Ausdruck,a1_sorry_thanks_1,Entschuldigung,einen Moment,just a moment,잠깐만요.,Einen Moment bitte.,"Just a moment, please."
+vocab_a1_0400,다시 말하다,1,Ausdruck,a1_sorry_thanks_1,Entschuldigung,noch einmal sagen,to say again,잘 못 들었어요. 다시 말해 주세요.,Ich habe es nicht gut verstanden. Sagen Sie es bitte noch einmal.,I didn't catch that. Please say it again.
+vocab_a1_0401,천천히 말하다,1,Ausdruck,a1_sorry_thanks_1,Entschuldigung,langsam sprechen,to speak slowly,천천히 말해 주세요.,Bitte sprechen Sie langsam.,Please speak slowly.
+vocab_a1_0402,정말 감사해요,1,Ausdruck,a1_sorry_thanks_1,Entschuldigung,vielen Dank,thank you so much,정말 감사해요.,Vielen Dank.,Thank you so much.
+vocab_a1_0403,정말 죄송해요,1,Ausdruck,a1_sorry_thanks_1,Entschuldigung,es tut mir sehr leid,I am very sorry,발을 밟아서 정말 죄송해요.,"Es tut mir sehr leid, dass ich auf Ihren Fuß getreten bin.",I am very sorry I stepped on your foot.
+vocab_a1_0029,오늘,1,Adverb,a1_time_1,Zeit,heute,today,오늘 뭐 해요?,Was machst du heute?,What are you doing today?
+vocab_a1_0030,내일,1,Adverb,a1_time_1,Zeit,morgen,tomorrow,내일 만나요.,Wir treffen uns morgen.,See you tomorrow.
+vocab_a1_0031,어제,1,Adverb,a1_time_1,Zeit,gestern,yesterday,어제 어디 갔어요?,Wohin sind Sie gestern gegangen?,Where did you go yesterday?
+vocab_a1_0077,지금,1,Adverb,a1_time_1,Zeit,jetzt / gerade,now / right now,지금 뭐 해요?,Was machst du gerade?,What are you doing now?
+vocab_a1_0078,아침,1,Nomen,a1_time_1,Zeit,Morgen / Frühstück,morning / breakfast,아침을 먹어요.,Ich esse Frühstück.,I eat breakfast.
+vocab_a1_0079,점심,1,Nomen,a1_time_1,Zeit,Mittag / Mittagessen,noon / lunch,점심 같이 먹어요.,Lass uns zusammen Mittagessen.,Let's have lunch together.
+vocab_a1_0080,저녁,1,Nomen,a1_time_1,Zeit,Abend / Abendessen,evening / dinner,저녁을 먹어요.,Ich esse zu Abend.,I eat dinner.
+vocab_a1_0081,밤,1,Nomen,a1_time_1,Zeit,Nacht,night,요즘 밤에 늦게 자요.,Zurzeit gehe ich nachts spät ins Bett.,These days I go to bed late at night.
+vocab_a1_0082,주말,1,Nomen,a1_time_1,Zeit,Wochenende,weekend,주말에 뭐 해요?,Was machst du am Wochenende?,What do you do on the weekend?
+vocab_a1_0503,낮,1,Nomen,a1_time_1,Zeit,Tag(eszeit),daytime,낮에 친구를 만나요.,Ich treffe tagsüber einen Freund.,I meet a friend during the day.
+vocab_a1_0504,날,1,Nomen,a1_time_1,Zeit,Tag,day,오늘은 아주 좋은 날이에요.,Heute ist ein sehr guter Tag.,Today is a very good day.
+vocab_a1_0505,날짜,1,Nomen,a1_time_1,Zeit,Datum,date,오늘 날짜가 며칠이에요?,Welches Datum ist heute?,What's today's date?
+vocab_a1_0083,매일,1,Adverb,a1_time_2,Zeit,jeden Tag / täglich,every day / daily,저는 매일 학교에 가요.,Ich gehe jeden Tag zur Schule.,I go to school every day.
+vocab_a1_0153,시,1,Nomen,a1_time_2,Zeit,Uhr (Stunde),o'clock (hour),지금 몇 시예요?,Wie spät ist es jetzt?,What time is it now?
+vocab_a1_0154,분,1,Nomen,a1_time_2,Zeit,Minute,minute,십 분 남았어요.,Es bleiben noch zehn Minuten.,There are ten minutes left.
+vocab_a1_0155,초,2,Nomen,a1_time_2,Zeit,Sekunde,second,일 초만 기다려요.,Warte nur eine Sekunde.,Wait just one second.
+vocab_a1_0156,시간,1,Nomen,a1_time_2,Zeit,Zeit / Stunde,time / hour,시간이 없어요.,Ich habe keine Zeit.,I have no time.
+vocab_a1_0157,요일,1,Nomen,a1_time_2,Zeit,Wochentag,day of the week,무슨 요일이에요?,Welcher Wochentag ist heute?,What day of the week is it?
+vocab_a1_0158,월요일,1,Nomen,a1_time_2,Zeit,Montag,Monday,월요일에 다시 만나요.,Wir sehen uns am Montag wieder.,See you again on Monday.
+vocab_a1_0159,화요일,1,Nomen,a1_time_2,Zeit,Dienstag,Tuesday,화요일에 만나요.,Wir treffen uns am Dienstag.,We meet on Tuesday.
+vocab_a1_0467,모레,1,Adverb,a1_time_2,Zeit,übermorgen,the day after tomorrow,모레 다시 만나요.,Wir treffen uns übermorgen wieder.,Let's meet again the day after tomorrow.
+vocab_a1_0468,그저께,1,Adverb,a1_time_2,Zeit,vorgestern,the day before yesterday,그저께 학교에 안 갔어요.,Vorgestern bin ich nicht zur Schule gegangen.,I didn't go to school the day before yesterday.
+vocab_a1_0469,작년,1,Nomen,a1_time_2,Zeit,letztes Jahr,last year,작년에 한국에 왔어요.,Letztes Jahr bin ich nach Korea gekommen.,I came to Korea last year.
+vocab_a1_0470,내년,1,Nomen,a1_time_2,Zeit,nächstes Jahr,next year,내년에 독일에 가요.,Nächstes Jahr fahre ich nach Deutschland.,Next year I'm going to Germany.
+vocab_a1_0160,수요일,1,Nomen,a1_time_3,Zeit,Mittwoch,Wednesday,이번 주 수요일에 만날까요?,Wollen wir uns diesen Mittwoch treffen?,Should we meet this Wednesday?
+vocab_a1_0161,목요일,1,Nomen,a1_time_3,Zeit,Donnerstag,Thursday,이번 주 목요일에 봐요.,Wir sehen uns diesen Donnerstag.,See you this Thursday.
+vocab_a1_0162,금요일,1,Nomen,a1_time_3,Zeit,Freitag,Friday,금요일 저녁에 만나요.,Wir treffen uns Freitagabend.,We meet on Friday evening.
+vocab_a1_0163,토요일,1,Nomen,a1_time_3,Zeit,Samstag,Saturday,토요일에 집에 있어요.,Am Samstag bin ich zu Hause.,I am at home on Saturday.
+vocab_a1_0164,일요일,1,Nomen,a1_time_3,Zeit,Sonntag,Sunday,일요일에 가족을 만나요.,Am Sonntag treffe ich meine Familie.,I see my family on Sunday.
+vocab_a1_0202,잠깐,1,Adverb,a1_time_3,Zeit,kurz / einen Moment,for a moment / briefly,잠깐만 여기서 기다리세요.,Warten Sie bitte hier einen Moment.,Please wait here for a moment.
+vocab_a1_0204,일찍,1,Adverb,a1_time_3,Zeit,früh,early,오늘 일찍 자고 싶어요.,Ich möchte heute früh schlafen gehen.,I want to go to bed early tonight.
+vocab_a1_0205,늦게,1,Adverb,a1_time_3,Zeit,spät,late,어제 늦게 잤어요.,Gestern bin ich spät schlafen gegangen.,I went to bed late yesterday.
+vocab_a1_0475,이따가,1,Adverb,a1_time_3,Zeit,"später, gleich","later, in a bit",이따가 학교에 가요.,Ich gehe später zur Schule.,I'll go to school later.
+vocab_a1_0476,바로,1,Adverb,a1_time_3,Zeit,"sofort, direkt","right away, immediately",저는 지금 바로 가요.,Ich gehe jetzt sofort.,I'm going right now.
+vocab_a1_0477,주로,1,Adverb,a1_time_3,Zeit,"hauptsächlich, meistens","mainly, usually",저는 주로 아침에 커피를 마셔요.,Ich trinke morgens meistens Kaffee.,I usually drink coffee in the morning.
+vocab_a1_0478,어서,1,Adverb,a1_time_3,Zeit,schnell; (어서 오세요) willkommen,"quickly, please (go ahead)",저희 가게에 어서 오세요!,Herzlich willkommen in unserem Geschäft!,Welcome to our shop!
+vocab_a1_0616,다음,1,Nomen,a1_time_expressions_1,Zeit,nächst-,next,다음 주에 만나요.,Wir treffen uns nächste Woche.,See you next week.
+vocab_a1_0617,나중,1,Nomen,a1_time_expressions_1,Zeit,später,later,"민호 씨, 나중에 이야기해요.","Minho, wir reden später.","Minho, we'll talk later."
+vocab_a1_0618,동안,1,Nomen,a1_time_expressions_1,Zeit,"während, für (Dauer)","during, for (duration)",방학 동안 뭐 해요?,Was machst du während der Ferien?,What do you do during the vacation?
+vocab_a1_0619,오전,1,Nomen,a1_time_expressions_1,Zeit,Vormittag,"morning, AM",오전에 공원에서 운동해요.,Ich mache am Vormittag im Park Sport.,I exercise in the park in the morning.
+vocab_a1_0620,오후,1,Nomen,a1_time_expressions_1,Zeit,Nachmittag,"afternoon, PM",저는 오후에 산책해요.,Ich mache am Nachmittag einen Spaziergang.,I go for a walk in the afternoon.
+vocab_a1_0621,이번,1,Nomen,a1_time_expressions_1,Zeit,"dieses-, jetzig-",this (upcoming),이번 달에 바빠요.,Diesen Monat bin ich beschäftigt.,I'm busy this month.
+vocab_a1_0622,지난달,1,Nomen,a1_time_expressions_1,Zeit,letzten Monat,last month,정말 지난달에 바빴어요.,Ich war letzten Monat wirklich beschäftigt.,I was really busy last month.
+vocab_a1_0623,지난주,1,Nomen,a1_time_expressions_1,Zeit,letzte Woche,last week,"선생님, 지난주에 아팠어요.","Entschuldigen Sie, ich war letzte Woche krank.","Teacher, I was sick last week."
+vocab_a1_0624,지난해,1,Nomen,a1_time_expressions_1,Zeit,letztes Jahr,last year,우리는 지난해에 만났어요.,Wir haben uns letztes Jahr kennengelernt.,We met last year.
+vocab_a1_0625,일주일,1,Nomen,a1_time_expressions_1,Zeit,eine Woche,one week,일주일 동안 여행해요.,Ich reise eine Woche lang.,I travel for one week.
+vocab_a1_0626,하루,1,Nomen,a1_time_expressions_1,Zeit,ein Tag,one day,오늘 하루 정말 피곤해요.,Ich bin heute wirklich müde.,I am really tired today.
+vocab_a1_0627,후,1,Nomen,a1_time_expressions_1,Zeit,"danach, später","after, later",잠시 후에 만나요.,Wir sehen uns in einem Moment.,See you in a moment.
+vocab_a1_0703,곳,1,Nomen,a1_time_family_1,Position,"Ort, Stelle","place, spot",이곳에 사람이 많아요.,An diesem Ort sind viele Leute.,There are many people at this place.
+vocab_a1_0704,달,1,Nomen,a1_time_family_1,Zeit,Monat,month,일 년은 열두 달이에요.,Ein Jahr hat zwölf Monate.,A year has twelve months.
+vocab_a1_0705,동생,1,Nomen,a1_time_family_1,Familie,jüngeres Geschwister,younger sibling,제 동생은 아홉 살이에요.,Mein jüngeres Geschwister ist neun Jahre alt.,My younger sibling is nine years old.
+vocab_a1_0706,밑,1,Nomen,a1_time_family_1,Position,"Unterseite, unten","underside, below",책상 밑에 가방이 있어요.,Unter dem Schreibtisch ist eine Tasche.,There's a bag under the desk.
+vocab_a1_0707,생일,1,Nomen,a1_time_family_1,Familie,Geburtstag,birthday,다음 주가 제 생일이에요.,Nächste Woche ist mein Geburtstag.,Next week is my birthday.
+vocab_a1_0708,선물,1,Nomen,a1_time_family_1,Familie,Geschenk,gift,동생한테 선물을 줘요.,Ich gebe meinem Geschwister ein Geschenk.,I give my sibling a gift.
+vocab_a1_0709,쇼핑,1,Nomen,a1_time_family_1,Freizeit,Einkaufen,shopping,이번 주말에 쇼핑해요.,Ich gehe dieses Wochenende einkaufen.,I'm going shopping this weekend.
+vocab_a1_0710,올해,1,Nomen,a1_time_family_1,Zeit,dieses Jahr,this year,올해 한국에 왔어요.,Ich bin dieses Jahr nach Korea gekommen.,I came to Korea this year.
+vocab_a1_0711,요즘,1,Nomen,a1_time_family_1,Zeit,"heutzutage, dieser Tage",these days,요즘 일이 바빠요.,Zurzeit ist die Arbeit stressig.,Work is busy these days.
+vocab_a1_0712,월,1,Nomen,a1_time_family_1,Zeit,Monat (Zähleinheit),month (counter),지금 몇 월이에요?,Welcher Monat ist jetzt?,What month is it now?
+vocab_a1_0713,잠시,1,Nomen,a1_time_family_1,Zeit,"kurz, eine Weile","a moment, a while",여기 잠시 앉아요.,Setzen Sie sich hier für einen Moment.,Sit here for a moment.
+vocab_a1_0714,주,1,Nomen,a1_time_family_1,Zeit,Woche,week,이번 주에 학교에 가요.,Ich gehe diese Woche zur Schule.,I go to school this week.
+vocab_b2_0196,생신,1,Nomen,a1_time_family_1,Ehrensprache,Geburtstag (ehrerbietig),birthday (honorific),내일이 할머니 생신이에요.,Morgen hat meine Großmutter Geburtstag.,Tomorrow is my grandmother's birthday.
+vocab_a1_0027,버스,1,Nomen,a1_transport,Verkehr,Bus,bus,버스를 타요.,Ich nehme den Bus.,I take the bus.
+vocab_a1_0028,지하철,1,Nomen,a1_transport,Verkehr,U-Bahn,subway,지하철역이 어디예요?,Wo ist die U-Bahn-Station?,Where is the subway station?
+vocab_a1_0087,가다,1,Verb,a1_transport,Bewegung,gehen,to go,학교에 가요.,Ich gehe zur Schule.,I go to school.
+vocab_a1_0088,오다,1,Verb,a1_transport,Bewegung,kommen,to come,집에 와요.,Ich komme nach Hause.,I come home.
+vocab_a1_0445,자동차,1,Nomen,a1_transport,Verkehr,Auto,car,저는 자동차로 회사에 가요.,Ich fahre mit dem Auto zur Arbeit.,I go to work by car.
+vocab_a1_0446,역,1,Nomen,a1_transport,Verkehr,"Bahnhof, Station",station,역 앞에서 만나요.,Wir treffen uns vor dem Bahnhof.,Let's meet in front of the station.
+vocab_a1_0447,공항,1,Nomen,a1_transport,Verkehr,Flughafen,airport,공항까지 버스로 가요.,Zum Flughafen fahre ich mit dem Bus.,I take the bus to the airport.
+vocab_a1_0448,출발,1,Nomen,a1_transport,Verkehr,Abfahrt,departure,출발 시간이 몇 시예요?,Um wie viel Uhr ist die Abfahrt?,What time is the departure?
+vocab_a1_0449,도착,1,Nomen,a1_transport,Verkehr,Ankunft,arrival,서울에 도착해요.,Ich komme in Seoul an.,I arrive in Seoul.
+vocab_a1_0450,타다,1,Verb,a1_transport,Verkehr,einsteigen; fahren mit,"to ride, to take (transport)",버스를 타고 학교에 가요.,Ich fahre mit dem Bus zur Schule.,I take the bus to school.
+vocab_a1_0451,내리다,1,Verb,a1_transport,Verkehr,aussteigen,to get off,다음 역에서 내려요.,Ich steige an der nächsten Station aus.,I get off at the next station.
+vocab_a1_0527,터미널,1,Nomen,a1_transport,Verkehr,"Terminal, Busbahnhof",(bus) terminal,버스 터미널이 어디예요?,Wo ist der Busbahnhof?,Where is the bus terminal?
+vocab_a1_0715,걸다,1,Verb,a1_verbs_daily_1,Zuhause,hängen,to hang,저는 방에 그림을 걸어요.,Ich hänge ein Bild im Zimmer auf.,I hang a picture in the room.
+vocab_a1_0716,그리다,1,Verb,a1_verbs_daily_1,Bildung,zeichnen,to draw,저는 그림을 그려요.,Ich zeichne ein Bild.,I draw a picture.
+vocab_a1_0717,나다,1,Verb,a1_verbs_daily_1,Körper,(Fieber) bekommen,to have (a fever),저는 어제 열이 났어요.,Ich hatte gestern Fieber.,I had a fever yesterday.
+vocab_a1_0718,넣다,1,Verb,a1_verbs_daily_1,Alltag,hineinlegen,to put in,저는 가방에 책을 넣어요.,Ich stecke ein Buch in die Tasche.,I put a book in my bag.
+vocab_a1_0719,놀다,1,Verb,a1_verbs_daily_1,Freizeit,spielen,to play,"크리스티안 씨, 우리 같이 놀까요?","Christian, sollen wir zusammen spielen?","Christian, shall we play together?"
+vocab_a1_0720,되다,1,Verb,a1_verbs_daily_1,Beruf,werden,to become,저는 의사가 되고 싶어요.,Ich möchte Arzt werden.,I want to become a doctor.
+vocab_a1_0721,들다,1,Verb,a1_verbs_daily_1,Alltag,halten,"to hold, to carry",저는 가방을 들어요.,Ich halte die Tasche.,I hold the bag.
+vocab_a1_0722,부르다,1,Verb,a1_verbs_daily_1,Freizeit,singen,to sing,마야 씨가 노래를 불러요.,Maya singt ein Lied.,Maya sings a song.
+vocab_a1_0723,시키다,1,Verb,a1_verbs_daily_1,Essen & Trinken,bestellen,to order,저는 커피를 시켜요.,Ich bestelle einen Kaffee.,I order a coffee.
+vocab_a1_0724,찍다,1,Verb,a1_verbs_daily_1,Technologie,(ein Foto) machen,to take (a photo),저는 사진을 찍어요.,Ich mache ein Foto.,I take a photo.
+vocab_a1_0725,추다,1,Verb,a1_verbs_daily_1,Freizeit,tanzen,to dance,레나 씨가 춤을 춰요.,Lena tanzt.,Lena dances.
+vocab_a1_0726,치다,1,Verb,a1_verbs_daily_1,Sport,(Tennis) spielen,to play (tennis),저는 테니스를 쳐요.,Ich spiele Tennis.,I play tennis.
+vocab_a1_0727,다녀오다,1,Verb,a1_verbs_daily_2,Alltag,(hin und zurück) gehen,to go and come back,저는 어제 시장에 다녀왔어요.,Ich war gestern auf dem Markt und bin danach zurückgekommen.,I went to the market and came back yesterday.
+vocab_a1_0728,돌아가다,1,Verb,a1_verbs_daily_2,Alltag,zurückgehen,to go back,저는 집에 돌아가요.,Ich gehe nach Hause zurück.,I go back home.
+vocab_a1_0729,돌아오다,1,Verb,a1_verbs_daily_2,Familie,zurückkommen,to come back,아버지가 일찍 돌아오세요.,Vater kommt früh zurück.,Father comes back early.
+vocab_a1_0730,들어가다,1,Verb,a1_verbs_daily_2,Bildung,hineingehen,to enter,아직 교실에 안 들어가요.,Ich gehe noch nicht ins Klassenzimmer.,I am not going into the classroom yet.
+vocab_a1_0731,들어오다,1,Verb,a1_verbs_daily_2,Alltag,hereinkommen,to come in,친구가 방에 들어와요.,Mein Freund kommt ins Zimmer.,My friend comes into the room.
+vocab_a1_0732,올라가다,1,Verb,a1_verbs_daily_2,Freizeit,hinaufgehen,to go up,안드레아 씨는 주말에 산에 올라가요.,Andrea steigt am Wochenende auf den Berg.,Andrea climbs the mountain on the weekend.
+vocab_a1_0733,불다,1,Verb,a1_verbs_daily_2,Wetter,wehen,to blow (wind),바람이 많이 불어요.,Der Wind weht stark.,The wind is blowing hard.
+vocab_a1_0734,울다,1,Verb,a1_verbs_daily_2,Familie,weinen,to cry,아이가 많이 울어요.,Das Kind weint viel.,The child cries a lot.
+vocab_a1_0735,잘하다,1,Verb,a1_verbs_daily_2,Beruf,gut können,to be good at,민호 씨는 요리를 잘해요.,Minho kocht gut.,Minho is good at cooking.
+vocab_a1_0736,지나다,1,Verb,a1_verbs_daily_2,Zeit,vergehen,to pass (time),시간이 빨리 지나요.,Die Zeit vergeht schnell.,Time passes quickly.
+vocab_a1_0737,지내다,1,Verb,a1_verbs_daily_2,Kommunikation,(die Zeit) verbringen,"to get along, to be doing",요즘 잘 지내요?,Wie geht es Ihnen zurzeit?,How have you been these days?
+vocab_a1_0738,피우다,1,Verb,a1_verbs_daily_2,Körper,rauchen,to smoke,할아버지는 담배를 피우지 않아요.,Großvater raucht nicht.,Grandfather doesn't smoke.
+vocab_a1_0739,못하다,1,Verb,a1_verbs_daily_3,Bildung,nicht gut können,to be bad at,크리스티안 씨는 한국어를 잘 못해요.,Christian kann noch nicht gut Koreanisch.,Christian isn't very good at Korean.
+vocab_a1_0740,알리다,1,Verb,a1_verbs_daily_3,Kommunikation,mitteilen,to inform,저는 친구한테 시간을 알려요.,Ich sage meinem Freund die Uhrzeit.,I tell my friend the time.
+vocab_a1_0741,찾아보다,1,Verb,a1_verbs_daily_3,Bildung,"nachschlagen, suchen","to look up, to search for",저는 학교를 찾아봐요.,Ich suche nach der Schule.,I look for the school.
+vocab_a1_0742,춤추다,1,Verb,a1_verbs_daily_3,Freizeit,tanzen,to dance,우리는 같이 춤춰요.,Wir tanzen zusammen.,We dance together.
+vocab_a1_0652,늦다,1,Verb,a1_weekend_promise_1,Zeit,"zu spät sein, sich verspäten",to be late,"미안해요, 버스가 늦었어요.","Entschuldigung, der Bus hatte Verspätung.","Sorry, the bus was late."
+vocab_a1_0333,약속 시간,1,Ausdruck,a1_weekend_promise_1,Wochenendzusage,Uhrzeit des Treffens,meeting time,약속 시간을 세 시로 바꿀까요?,Sollen wir die Uhrzeit unseres Treffens auf drei Uhr ändern?,Shall we change the meeting time to three?
+vocab_a1_0334,약속 장소,1,Ausdruck,a1_weekend_promise_1,Wochenendzusage,Treffpunkt,meeting place,약속 장소는 역 앞이에요.,Der Treffpunkt ist vor dem Bahnhof.,The meeting place is in front of the station.
+vocab_a1_0335,취소하다,2,Verb,a1_weekend_promise_1,Wochenendzusage,absagen,to cancel,비가 와서 산책을 취소했어요.,"Weil es geregnet hat, habe ich den Spaziergang abgesagt.","It rained, so I cancelled the walk."
+vocab_a1_0336,미리 연락,2,Ausdruck,a1_weekend_promise_1,Wochenendzusage,vorher Bescheid sagen,advance notice,늦기 전에 저한테 미리 연락하세요.,"Bitte melde dich vorher bei mir, bevor du zu spät kommst.",Contact me in advance before you're late.
+vocab_a1_0337,시간 맞추다,2,Ausdruck,a1_weekend_promise_1,Wochenendzusage,die Zeit abstimmen,to match the time,내일 친구와 시간을 맞춰요.,Morgen spreche ich mit einem Freund die Uhrzeit ab.,Tomorrow I coordinate the time with a friend.
+vocab_a1_0338,다음에 봐요,1,Ausdruck,a1_weekend_promise_1,Wochenendzusage,bis zum nächsten Mal,see you next time,오늘은 여기까지 하고 다음에 봐요.,"Für heute reicht es, bis zum nächsten Mal.","That's enough for today, see you next time."
+vocab_a1_0339,바로 갈게요,3,Ausdruck,a1_weekend_promise_1,Wochenendzusage,ich komme gleich,I'll come right away,지금 바로 갈게요.,Ich komme gleich.,I'll come right away.
+vocab_a1_0340,주말 계획,1,Ausdruck,a1_weekend_promise_1,Wochenendzusage,Wochenendplan,weekend plan,주말 계획이 있어요?,Hast du Pläne fürs Wochenende?,Do you have plans for the weekend?
+vocab_a1_0341,늦을 것 같다,1,Ausdruck,a1_weekend_promise_1,Wochenendzusage,wahrscheinlich zu spät,looks like I'll be late,버스가 막혀서 늦을 것 같아요.,"Der Bus steckt fest, ich komme wahrscheinlich zu spät.","The bus is stuck, so it looks like I'll be late."
+vocab_a1_0342,같이 걷다,1,Ausdruck,a1_weekend_promise_1,Wochenendzusage,zusammen gehen,to walk together,저녁에 한강에서 같이 걸어요.,Abends gehen wir zusammen am Hangang spazieren.,In the evening we walk together along the Hangang.
+vocab_a1_0343,먼저 가다,1,Ausdruck,a1_weekend_promise_1,Wochenendzusage,schon vorausgehen,to go ahead first,저는 먼저 가요.,Ich gehe schon mal vor.,I'll go ahead first.

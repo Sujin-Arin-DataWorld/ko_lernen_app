@@ -1,0 +1,124 @@
+id,korean,nikl_grade,pos_de,pack_id,topic,german,english,example_korean,example_german,example_english
+vocab_a1_0743,같다,1,Adjektiv,a1_adjectives_1,Familie,gleich sein,to be the same,언니와 저는 키가 같아요.,Meine große Schwester und ich sind gleich groß.,My older sister and I are the same height.
+vocab_a1_0744,고맙다,1,Adjektiv,a1_adjectives_1,Kommunikation,dankbar sein,to be thankful,"수진 씨, 정말 고마워요.","Sujin, vielen Dank.","Sujin, thank you so much."
+vocab_a1_0745,고프다,1,Adjektiv,a1_adjectives_1,Körper,hungrig sein,to be hungry,점심을 안 먹어서 배가 고파요.,"Ich habe nicht zu Mittag gegessen, deshalb habe ich Hunger.","I didn't eat lunch, so I'm hungry."
+vocab_a1_0746,괜찮다,1,Adjektiv,a1_adjectives_1,Essen & Trinken,in Ordnung sein,to be okay,이 음식은 괜찮아요.,Dieses Essen ist okay.,This food is fine.
+vocab_a1_0747,그렇다,1,Adjektiv,a1_adjectives_1,Kommunikation,so sein,to be so,그래요. 저도 그렇게 생각해요.,Das denke ich auch.,I think so too.
+vocab_a1_0748,깨끗하다,1,Adjektiv,a1_adjectives_1,Zuhause,sauber sein,to be clean,제 방이 깨끗해요.,Mein Zimmer ist sauber.,My room is clean.
+vocab_a1_0749,나쁘다,1,Adjektiv,a1_adjectives_1,Wetter,schlecht sein,to be bad,오늘 날씨가 나빠요.,Das Wetter ist heute schlecht.,The weather is bad today.
+vocab_a1_0750,낮다,1,Adjektiv,a1_adjectives_1,Zuhause,niedrig sein,to be low,이 책상은 낮아요.,Dieser Tisch ist niedrig.,This desk is low.
+vocab_a1_0751,높다,1,Adjektiv,a1_adjectives_1,Natur,hoch sein,to be high,그 산이 높아요.,Der Berg ist hoch.,That mountain is high.
+vocab_a1_0752,다르다,1,Adjektiv,a1_adjectives_1,Kommunikation,anders sein,to be different,제 생각은 달라요.,Meine Meinung ist anders.,My opinion is different.
+vocab_a1_0753,따뜻하다,1,Adjektiv,a1_adjectives_1,Wetter,warm sein,to be warm,오늘은 날씨가 따뜻해요.,Das Wetter ist heute warm.,The weather is warm today.
+vocab_a1_0754,맑다,1,Adjektiv,a1_adjectives_1,Wetter,klar sein,to be clear,이 물이 정말 맑아요.,Dieses Wasser ist wirklich klar.,This water is really clear.
+vocab_a1_0755,멋있다,1,Adjektiv,a1_adjectives_2,Alltag,cool sein,to be cool,이 가방이 멋있어요.,Diese Tasche ist cool.,This bag is cool.
+vocab_a1_0756,반갑다,1,Adjektiv,a1_adjectives_2,Kommunikation,sich freuen (über eine Begegnung),to be glad (to meet),"안녕하세요, 만나서 반가워요.","Hallo, freut mich, Sie kennenzulernen.","Hello, nice to meet you."
+vocab_a1_0757,시원하다,1,Adjektiv,a1_adjectives_2,Essen & Trinken,erfrischend sein,to be refreshing,이 물이 시원해요.,Dieses Wasser ist erfrischend.,This water is refreshing.
+vocab_a1_0758,싫다,1,Adjektiv,a1_adjectives_2,Wetter,nicht mögen,to dislike,저는 비가 싫어요.,Ich mag Regen nicht.,I dislike rain.
+vocab_a1_0759,아니다,1,Adjektiv,a1_adjectives_2,Bildung,nicht Student/in sein,to not be,저는 학생이 아니에요.,Ich bin kein Student / keine Studentin.,I am not a student.
+vocab_a1_0760,아름답다,1,Adjektiv,a1_adjectives_2,Natur,schön sein,to be beautiful,이 꽃이 아름다워요.,Diese Blume ist schön.,This flower is beautiful.
+vocab_a1_0761,어떻다,1,Adjektiv,a1_adjectives_2,Wetter,wie sein,to be how,오늘 날씨가 어때요?,Wie ist das Wetter heute?,How is the weather today?
+vocab_a1_0762,재미없다,1,Adjektiv,a1_adjectives_2,Freizeit,langweilig sein,to be boring,이 영화가 재미없어요.,Dieser Film ist langweilig.,This movie is boring.
+vocab_a1_0763,적다,1,Adjektiv,a1_adjectives_2,Position,wenig sein,to be few,여기는 사람이 적어요.,Hier gibt es wenige Leute.,There are few people here.
+vocab_a1_0764,친하다,1,Adjektiv,a1_adjectives_2,Freundschaft,eng befreundet sein,to be close (friends),수진 씨와 현아 씨는 친해요.,Sujin und Hyuna sind eng befreundet.,Sujin and Hyuna are close friends.
+vocab_a1_0765,특별하다,1,Adjektiv,a1_adjectives_2,Zeit,besonders sein,to be special,오늘은 정말 특별해요.,Heute ist wirklich besonders.,Today is really special.
+vocab_a1_0766,한가하다,1,Adjektiv,a1_adjectives_2,Zeit,frei sein (Zeit),to be free (time),저는 오늘 한가해요.,Ich habe heute Zeit.,I'm free today.
+vocab_a1_0779,가장,1,Adverb,a1_adverbs_1,Alltag,am meisten,most,이 케이크가 가장 맛있어요.,Dieser Kuchen ist am leckersten.,This cake is the tastiest.
+vocab_a1_0780,그래서,1,Adverb,a1_adverbs_1,Gesundheit,deshalb,"so, therefore",저는 배가 아파요. 그래서 집에 가요.,Mein Bauch tut weh. Deshalb gehe ich nach Hause.,"My stomach hurts, so I am going home."
+vocab_a1_0781,그러니까,1,Adverb,a1_adverbs_1,Alltag,deswegen,"so, that's why",저는 시간이 없어요. 그러니까 빨리 가요.,Ich habe keine Zeit. Deswegen sollten wir schnell los.,I have no time. So let's go quickly.
+vocab_a1_0782,그러면,1,Adverb,a1_adverbs_1,Essen & Trinken,dann,"then, if so","민호 씨, 배가 고파요? 그러면 같이 밥을 먹어요.","Minho, hast du Hunger? Dann essen wir zusammen.","Minho, are you hungry? Then let's eat together."
+vocab_a1_0783,그런데,1,Adverb,a1_adverbs_1,Einkaufen,aber,"but, by the way",이 가방이 예뻐요. 그런데 너무 비싸요.,Diese Tasche ist hübsch. Aber sie ist zu teuer.,This bag is pretty. But it's too expensive.
+vocab_a1_0784,그럼,1,Adverb,a1_adverbs_1,Alltag,dann,then,"레나 씨, 오늘 바빠요? 그럼 내일 만나요.","Lena, bist du heute beschäftigt? Dann treffen wir uns morgen.","Lena, are you busy today? Then let's meet tomorrow."
+vocab_a1_0785,그렇지만,1,Adverb,a1_adverbs_1,Essen & Trinken,"aber, dennoch","but, however",이 음식이 매워요. 그렇지만 맛있어요.,Dieses Essen ist scharf. Aber es ist lecker.,This food is spicy. But it's delicious.
+vocab_a1_0786,그리고,1,Adverb,a1_adverbs_1,Essen & Trinken,und,and,저는 아침에 빵을 먹어요. 그리고 커피를 마셔요.,Am Morgen esse ich Brot. Und ich trinke Kaffee.,In the morning I eat bread. And I drink coffee.
+vocab_a1_0787,못,1,Adverb,a1_adverbs_1,Essen & Trinken,nicht können,cannot,저는 매운 음식을 못 먹어요.,Ich kann kein scharfes Essen essen.,I can't eat spicy food.
+vocab_a1_0788,보통,1,Adverb,a1_adverbs_1,Alltag,normalerweise,usually,저는 보통 아침에 커피를 마셔요.,Normalerweise trinke ich morgens Kaffee.,I usually drink coffee in the morning.
+vocab_a1_0789,아주,1,Adverb,a1_adverbs_1,Freizeit,sehr,very,이 영화가 아주 재미있어요.,Dieser Film macht viel Spaß.,This movie is very interesting.
+vocab_a1_0790,아직,1,Adverb,a1_adverbs_1,Bildung,noch,"still, yet",저는 아직 숙제를 안 했어요.,Ich habe die Hausaufgaben noch nicht gemacht.,I haven't done my homework yet.
+vocab_a1_0791,안녕히,1,Adverb,a1_adverbs_2,Begrüßung,wohlbehalten,(in) peace (farewell),"선생님, 안녕히 가세요!","Lehrer, auf Wiedersehen!","Teacher, goodbye!"
+vocab_a1_0792,얼마나,1,Adverb,a1_adverbs_2,Einkaufen,wie sehr,"how much, how",이 가방이 얼마나 비싸요?,Wie teuer ist diese Tasche?,How expensive is this bag?
+vocab_a1_0793,열심히,1,Adverb,a1_adverbs_2,Bildung,fleißig,"hard, diligently",저는 한국어를 열심히 공부해요.,Ich lerne fleißig Koreanisch.,I study Korean hard.
+vocab_a1_0794,왜,1,Adverb,a1_adverbs_2,Alltag,warum,why,이 우산이 왜 여기 있어요?,Warum ist dieser Regenschirm hier?,Why is this umbrella here?
+vocab_a1_0795,잘,1,Adverb,a1_adverbs_2,Alltag,gut,well,저는 잠을 잘 자요.,Ich schlafe gut.,I sleep well.
+vocab_a1_0796,참,1,Adverb,a1_adverbs_2,Essen & Trinken,wirklich,really,이 김치찌개가 참 맛있어요.,Dieser Kimchi-Eintopf ist wirklich lecker.,This kimchi stew is really delicious.
+vocab_a1_0797,하지만,1,Adverb,a1_adverbs_2,Bildung,aber,but,저는 피곤해요. 하지만 숙제를 해요.,Ich bin müde. Aber ich mache die Hausaufgaben.,I'm tired. But I do my homework.
+vocab_a1_0592,가방,1,Nomen,a1_belongings_1,Alltag,Tasche,bag,가방 안에 뭐가 있어요?,Was ist in der Tasche?,What's in the bag?
+vocab_a1_0593,볼펜,1,Nomen,a1_belongings_1,Bildung,Kugelschreiber,ballpoint pen,볼펜으로 이름을 써요.,Ich schreibe meinen Namen mit dem Kugelschreiber.,I write my name with the pen.
+vocab_a1_0594,수첩,1,Nomen,a1_belongings_1,Bildung,Notizbuch,notebook,수첩에 이름을 써요.,Ich schreibe den Namen ins Notizbuch.,I write my name in the notebook.
+vocab_a1_0595,카메라,1,Nomen,a1_belongings_1,Technologie,Kamera,camera,"레나 씨, 이 카메라로 찍을까요?","Lena, sollen wir mit dieser Kamera fotografieren?","Lena, shall we take photos with this camera?"
+vocab_a1_0596,티셔츠,1,Nomen,a1_belongings_1,Alltag,T-Shirt,T-shirt,저는 이 티셔츠를 입었어요.,Ich habe dieses T-Shirt getragen.,I wore this T-shirt.
+vocab_a1_0597,바지,1,Nomen,a1_belongings_1,Alltag,Hose,pants,이 바지를 입고 싶어요.,Ich möchte diese Hose anziehen.,I want to wear these pants.
+vocab_a1_0598,운동화,1,Nomen,a1_belongings_1,Freizeit,Sportschuhe,sneakers,"크리스티안 씨, 운동화 신고 같이 갈까요?","Christian, sollen wir Sportschuhe anziehen und zusammen gehen?","Christian, shall we put on sneakers and go together?"
+vocab_a1_0599,잔,1,Nomen,a1_belongings_1,Alltag,"Glas, Tasse","cup, glass",이 잔으로 물을 마셔요.,Ich trinke Wasser aus diesem Glas.,I drink water from this cup.
+vocab_a1_0600,표,1,Nomen,a1_belongings_1,Freizeit,"Ticket, Karte",ticket,"수진 씨, 콘서트 표가 있어요!","Sujin, ich habe eine Konzertkarte!","Sujin, I have a concert ticket!"
+vocab_a1_0601,신문,1,Nomen,a1_belongings_1,Alltag,Zeitung,newspaper,아버지가 신문을 읽어요.,Mein Vater liest die Zeitung.,My father reads the newspaper.
+vocab_a1_0602,학생증,1,Nomen,a1_belongings_1,Bildung,Studentenausweis,student ID,"수진 씨, 이거 제 학생증 맞아요?","Sujin, ist das mein Studentenausweis, oder?","Sujin, is this my student ID, right?"
+vocab_a1_0603,여권,1,Nomen,a1_belongings_1,Alltag,Reisepass,passport,여권은 여기 있어요.,Hier ist der Reisepass.,Here's the passport.
+vocab_a1_0044,머리,1,Nomen,a1_body,Körper,Kopf / Haare,head / hair,머리가 아파요.,Mein Kopf tut weh.,My head hurts.
+vocab_a1_0045,눈,1,Nomen,a1_body,Körper,Auge,eye,오늘 눈이 좀 피곤해요.,Meine Augen sind heute etwas müde.,My eyes are a bit tired today.
+vocab_a1_0046,코,1,Nomen,a1_body,Körper,Nase,nose,코가 아파요.,Meine Nase tut weh.,My nose hurts.
+vocab_a1_0047,입,1,Nomen,a1_body,Körper,Mund,mouth,입을 여세요.,Machen Sie bitte den Mund auf.,Please open your mouth.
+vocab_a1_0048,귀,1,Nomen,a1_body,Körper,Ohr,ear,귀가 좀 아파요.,Mein Ohr tut ein bisschen weh.,My ear hurts a bit.
+vocab_a1_0049,손,1,Nomen,a1_body,Körper,Hand,hand,손을 씻어요.,Ich wasche meine Hände.,I wash my hands.
+vocab_a1_0050,발,1,Nomen,a1_body,Körper,Fuß,foot,발이 아파요.,Mein Fuß tut weh.,My foot hurts.
+vocab_a1_0051,다리,1,Nomen,a1_body,Körper,Bein,leg,다리가 길어요.,Die Beine sind lang.,The legs are long.
+vocab_a1_0052,몸,1,Nomen,a1_body,Körper,Körper,body,몸이 좀 안 좋아요.,Ich fühle mich nicht so wohl.,I'm not feeling so well.
+vocab_a1_0127,배고프다,1,Adjektiv,a1_body,Körper,hungrig sein,to be hungry,"아, 진짜 배고파요.","Ah, ich habe echt Hunger.","Ah, I'm really hungry."
+vocab_a1_0521,목,1,Nomen,a1_body,Körper,"Hals, Nacken","neck, throat",목이 아파요.,Mein Hals tut weh.,My throat hurts.
+vocab_a1_0522,얼굴,1,Nomen,a1_body,Körper,Gesicht,face,얼굴을 씻어요.,Ich wasche mein Gesicht.,I wash my face.
+vocab_a1_0416,우체국 위치,2,Nomen,a1_city_services_2026_1,도시 생활,Lage des Postamts,post office location,우체국 위치는 역 앞이에요.,Das Postamt liegt vor dem Bahnhof.,The post office is in front of the station.
+vocab_a1_0417,약국,1,Nomen,a1_city_services_2026_1,도시 생활,Apotheke,pharmacy,약국에서 감기약을 사요.,Ich kaufe Erkältungsmedizin in der Apotheke.,I buy cold medicine at the pharmacy.
+vocab_a1_0418,정류장,1,Nomen,a1_city_services_2026_1,도시 생활,Haltestelle,bus stop,버스 정류장은 어디예요?,Wo ist die Bushaltestelle?,Where is the bus stop?
+vocab_a1_0419,지하철역,1,Nomen,a1_city_services_2026_1,도시 생활,U-Bahn-Station,subway station,지하철역에 가요.,Ich gehe zur U-Bahn-Station.,I go to the subway station.
+vocab_a1_0525,슈퍼마켓,1,Nomen,a1_city_services_2026_1,도시 생활,Supermarkt,supermarket,이 근처에 슈퍼마켓이 있어요?,Gibt es hier in der Nähe einen Supermarkt?,Is there a supermarket near here?
+vocab_a1_0526,백화점,1,Nomen,a1_city_services_2026_1,도시 생활,Kaufhaus,department store,주말에 백화점에 가고 싶어요.,Am Wochenende möchte ich ins Kaufhaus gehen.,I want to go to the department store this weekend.
+vocab_a1_0422,영수증 확인,2,Nomen,a1_city_services_2026_1,도시 생활,Bonkontrolle,receipt check,결제 후에 영수증을 확인해요.,Nach der Zahlung prüfe ich den Kassenbon.,I check the receipt after paying.
+vocab_a1_0423,현금 결제,1,Nomen,a1_city_services_2026_1,도시 생활,Barzahlung,cash payment,이 가게는 현금 결제도 가능해요.,In diesem Geschäft ist auch Barzahlung möglich.,This shop also accepts cash payment.
+vocab_a1_0424,예약,2,Nomen,a1_city_services_2026_1,도시 생활,Termin,appointment,오후 세 시에 예약이 있어요.,Ich habe um drei Uhr nachmittags einen Termin.,I have an appointment at three in the afternoon.
+vocab_a1_0425,순서,2,Nomen,a1_city_services_2026_1,도시 생활,Reihenfolge,turn,제 순서는 다섯 번째예요.,Ich bin als Fünfte an der Reihe.,My turn is fifth.
+vocab_a1_0426,출구 번호,1,Nomen,a1_city_services_2026_1,도시 생활,Ausgangsnummer,exit number,출구 번호를 다시 확인해요.,Ich prüfe die Ausgangsnummer noch einmal.,I check the exit number again.
+vocab_a1_0427,입구,1,Nomen,a1_city_services_2026_1,도시 생활,Eingang,entrance,입구는 건물 오른쪽에 있어요.,Der Eingang ist rechts am Gebäude.,The entrance is on the right side of the building.
+vocab_a1_0053,빨간색,2,Nomen,a1_colors,Farben,rot,red,저는 빨간색을 제일 좋아해요.,Ich mag Rot am liebsten.,Red is my favorite.
+vocab_a1_0054,파란색,2,Nomen,a1_colors,Farben,blau,blue,이 가방은 파란색이에요.,Diese Tasche ist blau.,This bag is blue.
+vocab_a1_0055,초록색,2,Nomen,a1_colors,Farben,grün,green,이 초록색 옷이 예뻐요.,Dieses grüne Outfit ist hübsch.,This green outfit is pretty.
+vocab_a1_0056,노란색,2,Nomen,a1_colors,Farben,gelb,yellow,노란색 우산을 새로 샀어요.,Ich habe einen neuen gelben Regenschirm gekauft.,I bought a new yellow umbrella.
+vocab_a1_0057,흰색,2,Nomen,a1_colors,Farben,weiß,white,흰색 옷을 입어요.,Ich trage weiße Kleidung.,I wear white clothes.
+vocab_a1_0058,검은색,2,Nomen,a1_colors,Farben,schwarz,black,검은색 가방이에요.,Das ist eine schwarze Tasche.,That's a black bag.
+vocab_a1_0810,가지,1,Nomen,a1_counters_1,Einkaufen,"Art, Sorte","kind, type",이 가게에 과일이 세 가지 있어요.,Dieser Laden hat drei Sorten Obst.,This store has three kinds of fruit.
+vocab_a1_0811,것,1,Nomen,a1_counters_1,Alltag,"Ding, Sache",thing,이 우산은 제 것이에요.,Dieser Regenschirm gehört mir.,This umbrella is mine.
+vocab_a1_0812,권,1,Nomen,a1_counters_1,Bildung,Zählwort für Bücher,counter for books,저는 책을 두 권 샀어요.,Ich habe zwei Bücher gekauft.,I bought two books.
+vocab_a1_0813,년,1,Nomen,a1_counters_1,Alltag,Jahr,year,저는 한국에서 삼 년 살았어요.,Ich habe drei Jahre in Korea gelebt.,I lived in Korea for three years.
+vocab_a1_0814,때,1,Nomen,a1_counters_1,Bildung,Zeit(punkt),"time, moment",시험 때 저는 커피를 마셔요.,Während der Prüfung trinke ich Kaffee.,"During exams, I drink coffee."
+vocab_a1_0815,마리,1,Nomen,a1_counters_1,Tiere,Zählwort für Tiere,counter for animals,저는 고양이가 두 마리 있어요.,Ich habe zwei Katzen.,I have two cats.
+vocab_a1_0816,명,1,Nomen,a1_counters_1,Bildung,Zählwort für Personen,counter for people,교실에 학생이 열 명 있어요.,Im Klassenzimmer sind zehn Lernende.,There are ten students in the classroom.
+vocab_a1_0817,번,1,Nomen,a1_counters_1,Verkehr,Zählwort für Nummer,counter for number,이 버스는 삼 번이에요.,Dieser Bus ist Nummer drei.,This bus is number three.
+vocab_a1_0818,살,1,Nomen,a1_counters_1,Familie,Zählwort für Alter,counter for age,제 동생은 세 살이에요.,Mein jüngeres Geschwister ist drei Jahre alt.,My younger sibling is three years old.
+vocab_a1_0819,씨,1,Nomen,a1_counters_1,Begrüßung,Herr/Frau (Anrede),Mr./Ms. (address),"마야 씨, 안녕하세요?","Hallo, Maya!","Hi, Maya!"
+vocab_a1_0820,쪽,1,Nomen,a1_counters_1,Essen & Trinken,"Seite, Stück","side, piece",저는 빵을 한 쪽 먹었어요.,Ich habe eine Scheibe Brot gegessen.,I ate one slice of bread.
+vocab_a1_0821,호,1,Nomen,a1_counters_1,Alltag,Zählwort für Nummer (Zimmer),counter for number (room),제 사무실은 오백 호예요.,Mein Büro ist Zimmer 500.,My office is room 500.
+vocab_a1_0541,일본,1,Nomen,a1_countries_1,Geographie,Japan,Japan,저는 일본에 가고 싶어요.,Ich möchte nach Japan fahren.,I want to go to Japan.
+vocab_a1_0542,중국,1,Nomen,a1_countries_1,Geographie,China,China,중국에 가고 싶어요.,Ich möchte nach China fahren.,I want to go to China.
+vocab_a1_0543,영국,1,Nomen,a1_countries_1,Geographie,Vereinigtes Königreich,the UK,영국에 친구가 있어요.,Ich habe einen Freund im Vereinigten Königreich.,I have a friend in the UK.
+vocab_a1_0544,프랑스,1,Nomen,a1_countries_1,Geographie,Frankreich,France,프랑스에서 살고 싶어요.,Ich möchte in Frankreich leben.,I want to live in France.
+vocab_a1_0545,러시아,1,Nomen,a1_countries_1,Geographie,Russland,Russia,러시아에 가고 싶어요.,Ich möchte nach Russland fahren.,I want to go to Russia.
+vocab_a1_0546,캐나다,1,Nomen,a1_countries_1,Geographie,Kanada,Canada,캐나다에 친구가 있어요.,Ich habe einen Freund in Kanada.,I have a friend in Canada.
+vocab_a1_0547,태국,1,Nomen,a1_countries_1,Geographie,Thailand,Thailand,태국 음식 좋아하세요?,Mögen Sie thailändisches Essen?,Do you like Thai food?
+vocab_a1_0548,베트남,1,Nomen,a1_countries_1,Geographie,Vietnam,Vietnam,베트남에 가고 싶어요.,Ich möchte nach Vietnam fahren.,I want to go to Vietnam.
+vocab_a1_0549,몽골,1,Nomen,a1_countries_1,Geographie,die Mongolei,Mongolia,몽골에 친구가 살아요.,Ein Freund von mir lebt in der Mongolei.,A friend of mine lives in Mongolia.
+vocab_a1_0550,말레이시아,1,Nomen,a1_countries_1,Geographie,Malaysia,Malaysia,말레이시아에 가고 싶어요.,Ich möchte nach Malaysia fahren.,I want to go to Malaysia.
+vocab_a1_0551,인도네시아,1,Nomen,a1_countries_1,Geographie,Indonesien,Indonesia,인도네시아는 어디에 있어요?,Wo liegt Indonesien?,Where is Indonesia?
+vocab_a1_0552,외국,1,Nomen,a1_countries_1,Geographie,Ausland,"foreign country, abroad",외국 생활이 어때요?,Wie ist das Leben im Ausland?,How is life abroad?
+vocab_a1_0667,가요,1,Nomen,a1_culture_hobbies_1,Freizeit,(koreanischer) Popsong,(Korean) pop song,가요를 들어요.,Ich höre koreanische Popmusik.,I listen to Korean pop music.
+vocab_a1_0668,그림,1,Nomen,a1_culture_hobbies_1,Bildung,"Bild, Zeichnung","picture, drawing",아이가 그림을 그려요.,Das Kind malt ein Bild.,The child draws a picture.
+vocab_a1_0669,드라마,1,Nomen,a1_culture_hobbies_1,Freizeit,"Drama, Serie","drama, TV series",동생이 한국 드라마를 봐요.,Mein Geschwister schaut koreanische Dramen.,My younger sibling watches Korean dramas.
+vocab_a1_0670,연극,1,Nomen,a1_culture_hobbies_1,Freizeit,Theaterstück,theater play,"수진 씨, 연극 보러 갈까요?","Sujin, sollen wir ein Theaterstück ansehen gehen?","Sujin, shall we go watch a play?"
+vocab_a1_0671,영화배우,1,Nomen,a1_culture_hobbies_1,Person,Filmschauspieler(in),movie actor,저분은 영화배우예요.,Diese Person spielt in Filmen.,That person is a film actor.
+vocab_a1_0672,콘서트,1,Nomen,a1_culture_hobbies_1,Freizeit,Konzert,concert,"크리스티안 씨, 우리 같이 콘서트에 갈까요?","Christian, sollen wir zusammen zum Konzert gehen?","Christian, shall we go to the concert together?"
+vocab_a1_0673,태권도,1,Nomen,a1_culture_hobbies_1,Freizeit,Taekwondo,taekwondo,태권도를 배워요.,Ich lerne Taekwondo.,I learn taekwondo.
+vocab_a1_0674,파티,1,Nomen,a1_culture_hobbies_1,Freizeit,Party,party,생일 파티에 초대해요.,Ich lade zur Geburtstagsparty ein.,I invite you to a birthday party.
+vocab_a1_0675,프로그램,1,Nomen,a1_culture_hobbies_1,Technologie,Programm,program,텔레비전 프로그램을 봐요.,Ich schaue eine Fernsehsendung.,I watch a TV program.
+vocab_a1_0676,피아노,1,Nomen,a1_culture_hobbies_1,Bildung,Klavier,piano,저는 매일 피아노를 쳐요.,Ich spiele jeden Tag Klavier.,I play the piano every day.
+vocab_a1_0677,사진,1,Nomen,a1_culture_hobbies_1,Technologie,Foto,photo,"레나 씨, 여기서 사진 찍을까요?","Lena, sollen wir hier Fotos machen?","Lena, shall we take photos here?"
+vocab_a1_0678,초대,1,Nomen,a1_culture_hobbies_1,Höflichkeit,Einladung,invitation,친구를 파티에 초대해요.,Ich lade einen Freund zur Party ein.,I invite a friend to the party.
+vocab_a1_0007,괜찮아요,1,Ausdruck,a1_daily_1,Alltag,Kein Problem / Es ist okay,It's okay / No problem,저는 괜찮아요.,Mir geht es gut.,I'm okay.
+vocab_a1_0008,네,1,Ausdruck,a1_daily_1,Alltag,Ja,Yes,"네, 알겠어요.","Ja, alles klar.","Yes, got it."

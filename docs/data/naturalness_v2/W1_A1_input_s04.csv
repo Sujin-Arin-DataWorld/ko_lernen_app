@@ -1,0 +1,124 @@
+id,korean,nikl_grade,pos_de,pack_id,topic,german,english,example_korean,example_german,example_english
+vocab_a1_0119,비싸다,1,Adjektiv,a1_misc_2,Einkaufen,teuer,expensive,이 옷은 비싸요.,Diese Kleidung ist teuer.,These clothes are expensive.
+vocab_a1_0120,싸다,1,Adjektiv,a1_misc_2,Einkaufen,billig / günstig,cheap,여기 진짜 싸요.,Hier ist es echt günstig.,This place is really cheap.
+vocab_a1_0176,화이팅,1,Ausdruck,a1_misc_2,Motivation,Du schaffst das! / Viel Erfolg!,You can do it! / Good luck!,우리 팀 화이팅!,"Auf geht's, unser Team!","Let's go, team!"
+vocab_a1_0512,고르다,1,Verb,a1_misc_2,Einkaufen,(aus)wählen,"to choose, to pick",저는 이 옷을 골랐어요.,Ich habe diese Kleidung ausgewählt.,I chose these clothes.
+vocab_a1_0513,빌리다,1,Verb,a1_misc_2,Einkaufen,"leihen, ausleihen","to borrow, to rent",저는 친구한테 책을 빌려요.,Ich leihe mir ein Buch von meinem Freund.,I borrow a book from my friend.
+vocab_a1_0514,팔다,1,Verb,a1_misc_2,Einkaufen,verkaufen,to sell,이 가게는 과일을 팔아요.,Dieser Laden verkauft Obst.,This shop sells fruit.
+vocab_a2_0001,회사,1,Nomen,a1_misc_2,Beruf,Firma / Unternehmen,company / firm,요즘 회사 일이 좀 많아요.,Zurzeit habe ich ziemlich viel Arbeit in der Firma.,I've got a lot of work at the company these days.
+vocab_a2_0002,직업,1,Nomen,a1_misc_2,Beruf,Beruf,occupation / job,"마야 씨, 직업이 뭐예요?","Maya, was ist dein Beruf?","Maya, what's your job?"
+vocab_a1_0767,가운데,1,Nomen,a1_misc_3,Position,Mitte,middle,제가 가운데 앉아요.,Ich sitze in der Mitte.,I sit in the middle.
+vocab_a1_0768,계속,1,Nomen,a1_misc_3,Wetter,"weiter, ununterbrochen",continuously,비가 계속 와요.,Es regnet weiter.,It keeps raining.
+vocab_a1_0769,말,1,Nomen,a1_misc_3,Kommunikation,"Wort, Rede","word, speech",저는 선생님 말을 잘 들어요.,Ich höre der Lehrkraft gut zu.,I listen carefully to the teacher.
+vocab_a1_0770,먼저,1,Nomen,a1_misc_3,Zeit,zuerst,first,제가 먼저 가요.,Ich gehe zuerst.,I go first.
+vocab_a1_0771,모두,1,Nomen,a1_misc_3,Freundschaft,alle,"all, everyone",친구들이 모두 와요.,Alle meine Freunde kommen.,All my friends are coming.
+vocab_a1_0772,영,1,Nomen,a1_misc_3,Zahlen,null,zero,사과가 영 개 있어요.,Es gibt null Äpfel.,There are zero apples.
+vocab_a1_0773,전,1,Nomen,a1_misc_3,Alltag,vor(her),before,식사 전에 손을 씻어요.,Ich wasche mir vor dem Essen die Hände.,I wash my hands before eating.
+vocab_a1_0774,제일,1,Nomen,a1_misc_3,Essen & Trinken,am meisten,the most,이 음식이 제일 맛있어요.,Dieses Essen ist am leckersten.,This food is the most delicious.
+vocab_a1_0775,주일,1,Nomen,a1_misc_3,Zeit,Sonntag,Sunday,이번 주일에 가족을 만나요.,Ich treffe meine Familie diesen Sonntag.,I see my family this Sunday.
+vocab_a1_0776,천만,1,Nomen,a1_misc_3,Zahlen,zehn Millionen,ten million,이 자동차는 천만 원이에요.,Dieses Auto kostet zehn Millionen Won.,This car costs ten million won.
+vocab_a1_0777,흐리다,1,Adjektiv,a1_misc_3,Wetter,bewölkt sein,to be cloudy,내일 날씨가 흐릴까요?,Wird das Wetter morgen bewölkt sein?,Will the weather be cloudy tomorrow?
+vocab_a1_0778,힘들다,1,Adjektiv,a1_misc_3,Beruf,anstrengend sein,"to be hard, to be tiring",요즘 일이 힘들어요.,Die Arbeit ist zurzeit anstrengend.,Work has been hard these days.
+vocab_a1_0832,제,1,Pronomen,a1_misc_4,Alltag,mein (höflich),my (polite),이 가방은 제 거예요.,Diese Tasche gehört mir.,This bag is mine.
+vocab_a1_0833,중,1,Nomen,a1_misc_4,Beruf,während,"during, in the middle of",저는 지금 수업 중이에요.,Ich bin gerade im Unterricht.,I am in class right now.
+vocab_a1_0834,구십,1,Nomen,a1_misc_4,Zahlen,neunzig,ninety,이 버스는 구십 번이에요.,Dieser Bus ist Nummer neunzig.,This bus is number ninety.
+vocab_a1_0835,스물,1,Nomen,a1_misc_4,Zahlen,zwanzig (rein-koreanisch),twenty (native),제 동생은 올해 스물이에요.,Mein jüngeres Geschwister ist dieses Jahr zwanzig.,My younger sibling is twenty this year.
+vocab_a1_0836,팔십,1,Nomen,a1_misc_4,Zahlen,achtzig,eighty,이 건물은 팔십 층이에요.,Dieses Gebäude hat achtzig Stockwerke.,This building is eighty floors.
+vocab_a1_0837,그래,1,Ausdruck,a1_misc_4,Freizeit,"ja, genau (informell)","yeah, okay (informal)","우리 이따 만날까? 그래, 좋아.","Sollen wir uns später treffen? Ja, klingt gut.","Shall we meet later? Yeah, sounds good."
+vocab_a1_0838,아,1,Ausdruck,a1_misc_4,Alltag,"ach, oh","oh, ah","미안해요! 아, 괜찮아요.","Entschuldigung! Ach, das ist okay.","Sorry! Oh, it's okay."
+vocab_a1_0839,천,1,Nomen,a1_misc_4,Zahlen,tausend,thousand,이 빵은 삼천 원이에요.,Dieses Brot kostet dreitausend Won.,This bread is three thousand won.
+vocab_a1_0529,일월,1,Nomen,a1_months_1,Zeit,Januar,January,제 생일은 일월이에요.,Mein Geburtstag ist im Januar.,My birthday is in January.
+vocab_a1_0530,이월,1,Nomen,a1_months_1,Zeit,Februar,February,이월에 방학이 끝나요.,Im Februar enden die Ferien.,Vacation ends in February.
+vocab_a1_0531,삼월,1,Nomen,a1_months_1,Zeit,März,March,삼월에 학교가 시작해요.,Im März beginnt die Schule.,School starts in March.
+vocab_a1_0532,사월,1,Nomen,a1_months_1,Zeit,April,April,"수진 씨, 사월에 다시 만나요, 맞아요?","Sujin, wir treffen uns im April wieder, oder?","Sujin, we're meeting again in April, right?"
+vocab_a1_0533,오월,1,Nomen,a1_months_1,Zeit,Mai,May,음... 제 생일이 오월이에요.,Ähm... mein Geburtstag ist im Mai.,Um... my birthday is in May.
+vocab_a1_0534,유월,1,Nomen,a1_months_1,Zeit,Juni,June,유월에 할머니 댁에 가요.,Im Juni besuche ich meine Großmutter.,I visit my grandmother's place in June.
+vocab_a1_0535,칠월,1,Nomen,a1_months_1,Zeit,Juli,July,칠월에 수영하러 가요.,Im Juli gehe ich schwimmen.,I go swimming in July.
+vocab_a1_0536,팔월,1,Nomen,a1_months_1,Zeit,August,August,팔월에 여행을 가요.,Im August reise ich.,I am travelling in August.
+vocab_a1_0537,구월,1,Nomen,a1_months_1,Zeit,September,September,구월에 학교에 다시 가요.,Im September gehe ich wieder zur Schule.,I go back to school in September.
+vocab_a1_0538,시월,1,Nomen,a1_months_1,Zeit,Oktober,October,시월에 산에 가요.,Im Oktober gehe ich in die Berge.,I go to the mountains in October.
+vocab_a1_0539,십일월,1,Nomen,a1_months_1,Zeit,November,November,십일월에 뭐 해요?,Was machen Sie im November?,What do you do in November?
+vocab_a1_0540,십이월,1,Nomen,a1_months_1,Zeit,Dezember,December,십이월에 파티가 있어요.,Im Dezember gibt es eine Party.,There's a party in December.
+vocab_a1_0628,개,1,Nomen,a1_nature_people_1,Natur,Hund,dog,개가 몇 마리 있어요?,Wie viele Hunde gibt es?,How many dogs are there?
+vocab_a1_0629,고양이,1,Nomen,a1_nature_people_1,Natur,Katze,cat,고양이가 몇 마리예요?,Wie viele Katzen sind es?,How many cats are there?
+vocab_a1_0630,꽃,1,Nomen,a1_nature_people_1,Natur,Blume,flower,꽃에 물을 줘요.,Ich gieße die Blumen.,I water the flowers.
+vocab_a1_0631,나무,1,Nomen,a1_nature_people_1,Natur,Baum,tree,나무 밑에 앉아요.,Ich setze mich unter den Baum.,I sit under the tree.
+vocab_a1_0632,산,1,Nomen,a1_nature_people_1,Natur,Berg,mountain,저는 주말에 산에 올라가요.,Ich steige am Wochenende auf den Berg.,I climb the mountain on weekends.
+vocab_a1_0633,바다,1,Nomen,a1_nature_people_1,Natur,Meer,sea,저는 바다에서 수영해요.,Ich schwimme im Meer.,I swim in the sea.
+vocab_a1_0634,비,1,Nomen,a1_nature_people_1,Natur,Regen,rain,오늘 비가 와요.,Heute regnet es.,It's raining today.
+vocab_a1_0635,불,1,Nomen,a1_nature_people_1,Natur,"Feuer, Licht","fire, light",산에 불이 났어요.,Auf dem Berg ist ein Feuer ausgebrochen.,A fire broke out on the mountain.
+vocab_a1_0636,아기,1,Nomen,a1_nature_people_1,Person,Baby,baby,지금 아기가 자요.,Das Baby schläft jetzt.,The baby is sleeping now.
+vocab_a1_0637,아이,1,Nomen,a1_nature_people_1,Person,Kind,child,저 아이는 학생이에요.,Dieses Kind ist ein Schüler.,That child is a student.
+vocab_a1_0638,남자,1,Nomen,a1_nature_people_1,Person,Mann,man,저 남자는 누구예요?,Wer ist dieser Mann?,Who is that man?
+vocab_a1_0639,여자,1,Nomen,a1_nature_people_1,Person,Frau,woman,저 여자는 제 친구예요.,Diese Frau ist eine Freundin von mir.,That woman is my friend.
+vocab_a2_0004,날씨,1,Nomen,a1_nature_people_1,Wetter,Wetter,weather,오늘 날씨가 정말 좋아요.,Das Wetter ist heute wirklich schön.,The weather is really nice today.
+vocab_a2_0005,계절,1,Nomen,a1_nature_people_1,Wetter,Jahreszeit,season,어떤 계절을 좋아해요?,Welche Jahreszeit magst du?,Which season do you like?
+vocab_a1_0118,많다,1,Adjektiv,a1_numbers_1,Menge,viel,many / much,오늘 카페에 사람이 정말 많아요.,Heute sind wirklich viele Leute im Café.,There are so many people at the cafe today.
+vocab_a1_0130,일,1,Nomen,a1_numbers_1,Zahlen,eins (sino-koreanisch),one (Sino-Korean),일층에 가요.,Ich gehe in die erste Etage.,I go to the first floor.
+vocab_a1_0131,이,1,Nomen,a1_numbers_1,Zahlen,zwei (sino-koreanisch),two (Sino-Korean),이층이에요.,Es ist im zweiten Stock.,It's on the second floor.
+vocab_a1_0132,삼,1,Nomen,a1_numbers_1,Zahlen,drei (sino-koreanisch),three (Sino-Korean),삼번 버스를 타요.,Ich nehme den Bus Nummer drei.,I take bus number three.
+vocab_a1_0133,사,1,Nomen,a1_numbers_1,Zahlen,vier (sino-koreanisch),four (Sino-Korean),사월에 만나요.,Wir treffen uns im April.,We meet in April.
+vocab_a1_0134,오,1,Nomen,a1_numbers_1,Zahlen,fünf (sino-koreanisch),five (Sino-Korean),오천 원이에요.,Das kostet fünftausend Won.,It costs five thousand won.
+vocab_a1_0135,육,1,Nomen,a1_numbers_1,Zahlen,sechs (sino-koreanisch),six (Sino-Korean),저는 육 층에 살아요.,Ich wohne im sechsten Stock.,I live on the sixth floor.
+vocab_a1_0136,칠,1,Nomen,a1_numbers_1,Zahlen,sieben (sino-koreanisch),seven (Sino-Korean),칠월은 더워요.,Der Juli ist heiß.,July is hot.
+vocab_a1_0137,팔,1,Nomen,a1_numbers_1,Zahlen,acht (sino-koreanisch),eight (Sino-Korean),팔월에 휴가예요.,Im August habe ich Urlaub.,I'm on vacation in August.
+vocab_a1_0515,이십,1,Nomen,a1_numbers_1,Zahlen,zwanzig,twenty,이 버스는 이십 번이에요.,Dieser Bus hat die Nummer zwanzig.,This bus is number twenty.
+vocab_a1_0516,삼십,1,Nomen,a1_numbers_1,Zahlen,dreißig,thirty,제 방은 삼십 호예요.,Mein Zimmer ist Nummer dreißig.,My room is number thirty.
+vocab_a1_0517,사십,1,Nomen,a1_numbers_1,Zahlen,vierzig,forty,오늘 우리 학교에 학생이 사십 명 왔어요.,Heute sind vierzig Schüler in unsere Schule gekommen.,Forty students came to our school today.
+vocab_a1_0138,구,1,Nomen,a1_numbers_2,Zahlen,neun (sino-koreanisch),nine (Sino-Korean),새 학기가 구월에 시작해요.,Das neue Semester fängt im September an.,The new semester starts in September.
+vocab_a1_0139,십,1,Nomen,a1_numbers_2,Zahlen,zehn (sino-koreanisch),ten (Sino-Korean),십 분만 기다려요.,Ich warte nur zehn Minuten.,I'll wait just ten minutes.
+vocab_a1_0140,백,1,Nomen,a1_numbers_2,Zahlen,hundert,hundred,백 명이 왔어요.,Hundert Leute sind gekommen.,A hundred people came.
+vocab_a1_0840,억,1,Nomen,a1_numbers_2,Zahlen,hundert Millionen,hundred million,이 아파트는 일억 원이에요.,Diese Wohnung kostet hundert Millionen Won.,This apartment is a hundred million won.
+vocab_a1_0142,만,1,Nomen,a1_numbers_2,Zahlen,zehntausend,ten thousand,만 원이에요.,Es kostet zehntausend Won.,It costs ten thousand won.
+vocab_a1_0143,하나,1,Nomen,a1_numbers_2,Zahlen,eins (rein-koreanisch),one (native Korean),하나만 주세요.,Nur eins bitte.,"Just one, please."
+vocab_a1_0144,둘,1,Nomen,a1_numbers_2,Zahlen,zwei (rein-koreanisch),two (native Korean),둘이 같이 가요.,Wir gehen zu zweit.,"We go together, the two of us."
+vocab_a1_0145,셋,1,Nomen,a1_numbers_2,Zahlen,drei (rein-koreanisch),three (native Korean),저희는 셋이에요.,Wir sind zu dritt.,There are three of us.
+vocab_a1_0146,넷,1,Nomen,a1_numbers_2,Zahlen,vier (rein-koreanisch),four (native Korean),우리 넷이서 같이 가요.,Gehen wir doch zu viert zusammen.,Let's all four go together.
+vocab_a1_0518,오십,1,Nomen,a1_numbers_2,Zahlen,fünfzig,fifty,이 학교에 선생님이 오십 명 있어요.,An dieser Schule gibt es fünfzig Lehrkräfte.,There are fifty teachers at this school.
+vocab_a1_0519,육십,1,Nomen,a1_numbers_2,Zahlen,sechzig,sixty,제 방은 육십 층에 있어요.,Mein Zimmer ist im sechzigsten Stock.,My room is on the sixtieth floor.
+vocab_a1_0520,칠십,1,Nomen,a1_numbers_2,Zahlen,siebzig,seventy,이 버스는 칠십 번이에요.,Dieser Bus hat die Nummer siebzig.,This bus is number seventy.
+vocab_a1_0147,다섯,1,Nomen,a1_numbers_3,Zahlen,fünf (rein-koreanisch),five (native Korean),다섯 시에 만나요.,Wir treffen uns um fünf.,We meet at five.
+vocab_a1_0148,여섯,1,Nomen,a1_numbers_3,Zahlen,sechs (rein-koreanisch),six (native Korean),여섯 명이 와요.,Sechs Leute kommen.,Six people are coming.
+vocab_a1_0149,일곱,1,Nomen,a1_numbers_3,Zahlen,sieben (rein-koreanisch),seven (native Korean),일곱 시에 출발해요.,Wir starten um sieben.,We leave at seven.
+vocab_a1_0150,여덟,1,Nomen,a1_numbers_3,Zahlen,acht (rein-koreanisch),eight (native Korean),여덟 살이에요.,Ich bin acht Jahre alt.,I'm eight years old.
+vocab_a1_0151,아홉,1,Nomen,a1_numbers_3,Zahlen,neun (rein-koreanisch),nine (native Korean),아홉 시예요.,Es ist neun Uhr.,It's nine o'clock.
+vocab_a1_0152,열,1,Nomen,a1_numbers_3,Zahlen,zehn (rein-koreanisch),ten (native Korean),열 시까지 와요.,Komm bis zehn Uhr.,Come by ten o'clock.
+vocab_a1_0200,모든,2,Adjektiv,a1_numbers_3,Menge,alle / sämtliche,all / every,모든 사람이 좋아해요.,Alle Leute mögen es.,Everyone likes it.
+vocab_a1_0201,몇,1,Adjektiv,a1_numbers_3,Menge,wie viele,how many,몇 명이에요?,Wie viele Personen sind es?,How many people?
+vocab_a1_0471,한,1,Adjektiv,a1_numbers_3,Menge,ein(e) (Zählwort),one (counter modifier),오늘 친구를 한 명 만났어요.,Heute habe ich einen Freund getroffen.,I met one friend today.
+vocab_a1_0472,두,1,Adjektiv,a1_numbers_3,Menge,zwei (Zählwort),two (counter modifier),어제 친구를 두 명 만났어요.,Gestern habe ich zwei Freunde getroffen.,I met two friends yesterday.
+vocab_a1_0473,세,1,Adjektiv,a1_numbers_3,Menge,drei (Zählwort),three (counter modifier),가족이 세 명이에요.,In meiner Familie sind wir zu dritt.,There are three people in my family.
+vocab_a1_0474,어느,1,Adjektiv,a1_numbers_3,Menge,welche(r/s),which,어느 나라에서 왔어요?,Aus welchem Land kommen Sie?,Which country are you from?
+vocab_a1_0404,국적,1,Nomen,a1_particles_in_use_1,자기소개,Staatsangehörigkeit,nationality,제 국적은 독일이에요.,Ich habe die deutsche Staatsangehörigkeit.,My nationality is German.
+vocab_a1_0428,한국,1,Nomen,a1_particles_in_use_1,자기소개,Korea,Korea,저는 한국에 가요.,Ich gehe nach Korea.,I am going to Korea.
+vocab_a1_0406,성,2,Nomen,a1_particles_in_use_1,자기소개,Nachname,family name,성은 박이고 이름은 수진이에요.,Mein Nachname ist Park und mein Vorname ist Sujin.,My family name is Park and my given name is Sujin.
+vocab_a1_0407,고향,1,Nomen,a1_particles_in_use_1,자기소개,Heimatort,hometown,제 고향은 부산이에요.,Meine Heimatstadt ist Busan.,My hometown is Busan.
+vocab_a1_0429,독일,1,Nomen,a1_particles_in_use_1,자기소개,Deutschland,Germany,독일에서 한국에 와요.,Ich komme aus Deutschland nach Korea.,I come to Korea from Germany.
+vocab_a1_0430,사람,1,Nomen,a1_particles_in_use_1,자기소개,"Mensch, Person",person,이 사람은 정말 친절해요.,Diese Person ist wirklich freundlich.,This person is really kind.
+vocab_a1_0431,외국인,1,Nomen,a1_particles_in_use_1,자기소개,Person aus einem anderen Land,person from another country,저는 외국인이에요.,Ich komme aus einem anderen Land.,I'm from another country.
+vocab_a1_0432,한국어,1,Nomen,a1_particles_in_use_1,자기소개,Koreanisch,Korean (language),한국어는 어렵지만 재미있어요.,"Koreanisch ist schwer, aber es macht Spaß.","Korean is hard, but it's fun."
+vocab_a1_0433,독일어,1,Nomen,a1_particles_in_use_1,자기소개,Deutsch,German (language),선생님도 독일어를 하세요?,Sprechen Sie auch Deutsch?,Do you speak German too?
+vocab_a1_0434,영어,1,Nomen,a1_particles_in_use_1,자기소개,Englisch,English (language),영어는 조금만 해요.,Englisch spreche ich nur ein bisschen.,I only speak a little English.
+vocab_a1_0435,살다,1,Verb,a1_particles_in_use_1,자기소개,"wohnen, leben",to live,부모님은 독일에 사세요.,Meine Eltern leben in Deutschland.,My parents live in Germany.
+vocab_a1_0528,미국,1,Nomen,a1_particles_in_use_1,자기소개,"die USA, Amerika","the USA, America",안녕하세요! 저는 마야예요. 미국에서 왔어요.,Hallo! Ich bin Maya. Ich komme aus den USA.,Hello! I'm Maya. I'm from the USA.
+vocab_a1_0212,인사드리겠습니다,1,Ausdruck,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Darf ich Sie begrüßen,Let me say hello,먼저 인사드리겠습니다.,Darf ich mich zuerst vorstellen?,Let me introduce myself first.
+vocab_a1_0213,인사드리다,1,Verb,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,respektvoll grüßen,to greet respectfully,문 앞에서 먼저 인사드렸어요.,Vor der Tür habe ich sie zuerst respektvoll gegrüßt.,I greeted them respectfully at the door first.
+vocab_a1_0214,장인어른,1,Nomen,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Schwiegervater (Vater der Ehefrau),father-in-law (wife's father),오늘은 장인어른께 처음 인사드려요.,Heute begrüße ich zum ersten Mal meinen Schwiegervater.,Today I meet my father-in-law for the first time.
+vocab_a1_0215,장모님,1,Nomen,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Schwiegermutter (Mutter der Ehefrau),mother-in-law (wife's mother),장모님께 과일을 드렸어요.,Meiner Schwiegermutter habe ich Obst gegeben.,I gave my mother-in-law some fruit.
+vocab_a1_0217,시어머니,1,Nomen,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Schwiegermutter (Mutter des Ehemanns),mother-in-law (husband's mother),시어머니께서 저를 보고 웃으셨어요.,Meine Schwiegermutter hat mich angesehen und gelächelt.,My mother-in-law looked at me and smiled.
+vocab_a1_0218,호칭,1,Nomen,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Anrede,form of address,호칭이 어려워서 수진 씨에게 물었어요.,"Die Anrede war schwierig, also habe ich Sujin gefragt.","I wasn't sure how to address them, so I asked Sujin."
+vocab_a1_0219,높임말,1,Nomen,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Höflichkeitsform,honorific speech,부모님 앞에서는 높임말을 써요.,Vor seinen Eltern spreche ich in der Höflichkeitsform.,In front of his parents I use honorific speech.
+vocab_a1_0220,성함을 묻다,2,Ausdruck,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,nach dem Namen fragen,to ask someone's name politely,성함을 물었어요.,Ich habe nach dem Namen gefragt.,I asked for their name.
+vocab_a1_0221,몇 살이세요,1,Ausdruck,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,wie alt sind Sie,how old are you (polite),"실례지만, 몇 살이세요?","Entschuldigen Sie, wie alt sind Sie?","Excuse me, how old are you?"
+vocab_a1_0222,잘 부탁드립니다,1,Ausdruck,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,"Ich hoffe, wir verstehen uns",Hope we get along,앞으로 잘 부탁드립니다.,"Ich hoffe, wir kommen von jetzt an gut miteinander aus.",I hope we get along well from now on.
+vocab_a1_0223,댁에,2,Ausdruck,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,bei Ihnen zu Hause (höflich),at your home (honorific),댁에 처음 와서 신발을 여기에 뒀어요.,Ich bin zum ersten Mal bei Ihnen zu Hause und habe die Schuhe hier hingestellt.,I came to your home for the first time and put my shoes here.
+vocab_b2_0431,시댁,1,Nomen,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Familie des Ehemanns,husband's family home,주말에 시댁에 가요.,Am Wochenende gehe ich zur Familie meines Mannes.,I go to my husband's family on the weekend.
+vocab_b2_0432,처가,1,Nomen,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Familie der Ehefrau,wife's family home,설날에 처가에 갔어요.,An Seollal bin ich zur Familie meiner Frau gegangen.,I went to my wife's family for Seollal.
+vocab_b2_0198,드리다,1,Verb,a1_partner_meet_names_1,Ehrensprache,geben (ehrerbietig),to give (honorific),할머니께 선물을 드렸어요.,Ich habe meiner Großmutter ein Geschenk überreicht.,I gave my grandmother a present.
+vocab_b2_0203,계시다,1,Verb,a1_partner_meet_names_1,Ehrensprache,sich befinden (ehrerbietig),to be (honorific),어머니는 지금 집에 계세요.,Meine Mutter ist gerade zu Hause.,My mother is at home right now.
+vocab_a1_0260,설날,1,Nomen,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,"Seollal, Mondneujahr","Seollal, Lunar New Year",설날이에요. 가족을 만나요.,Es ist Seollal. Ich treffe meine Familie.,It is Seollal. I see my family.
+vocab_a1_0261,세배,1,Nomen,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Neujahrsverbeugung,New Year bow,세배를 해요.,Ich verbeuge mich zum Neujahrsfest.,I give a New Year's bow.
+vocab_a1_0262,떡국,1,Nomen,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,"Tteokguk, Reiskuchensuppe","tteokguk, rice-cake soup",설날에 떡국을 먹어요.,An Seollal esse ich Tteokguk.,I eat tteokguk at Seollal.
+vocab_a1_0263,세뱃돈,1,Nomen,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Neujahrsgeld,New Year money,세뱃돈을 받았어요.,Ich habe Neujahrsgeld bekommen.,I received New Year money.
+vocab_a1_0264,한복,1,Nomen,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Hanbok,hanbok,한복을 입어요.,Ich trage einen Hanbok.,I wear a hanbok.
+vocab_a1_0265,새해 복 많이 받으세요,1,Ausdruck,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,ein gesegnetes neues Jahr,happy new year,새해 복 많이 받으세요!,Ein gutes neues Jahr!,Happy New Year!

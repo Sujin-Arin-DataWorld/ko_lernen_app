@@ -1,0 +1,124 @@
+id,verdict,codes,example_korean_new,example_german_new,example_english_new,german_gloss_new,english_gloss_new,note
+vocab_a1_0119,KEEP,,,,,,,자연스러움
+vocab_a1_0120,KEEP,,,,,,,자연스러움
+vocab_a1_0176,KEEP,,,,,,,자연스러움
+vocab_a1_0512,FIX_KO+FIX_DE,N1;T1,이 옷을 골랐어요.,Ich habe mir diese Sachen ausgesucht.,I picked out these clothes.,,,"저는 삭제, 독일어 Kleidung 직역 완화"
+vocab_a1_0513,FIX_KO+FIX_DE+FIX_EN,N1;T1,친구한테 책을 빌려요.,Ich leihe mir ein Buch von einem Freund.,I borrow a book from a friend.,,,"저는 삭제, 특정 친구 대신 부정관사"
+vocab_a1_0514,KEEP,,,,,,,자연스러움
+vocab_a2_0001,KEEP,,,,,,,자연스러움
+vocab_a2_0002,KEEP,,,,,,,자연스러움
+vocab_a1_0767,KEEP,,,,,,,자연스러움
+vocab_a1_0768,FIX_DE,T1,,Es regnet die ganze Zeit.,,,,계속=die ganze Zeit; weiter은 어색
+vocab_a1_0769,FIX_KO+FIX_DE+FIX_EN,N1;T1;T4,선생님 말을 잘 들어요.,Ich höre auf meinen Lehrer.,I do what my teacher says.,,,"저는 삭제, Lehrkraft 우회표현 제거, 말을 듣다=시키는 대로 하다"
+vocab_a1_0770,KEEP,,,,,,,자연스러움
+vocab_a1_0771,KEEP,,,,,,,자연스러움
+vocab_a1_0772,FIX_KO+FIX_DE+FIX_EN,N1;N5,제 번호는 영 일 영이에요.,Meine Nummer ist null eins null.,My number is zero one zero.,,,사과가 영 개 있어요는 비실재 문장; 전화번호 읽기로 교체
+vocab_a1_0773,KEEP,,,,,,,자연스러움
+vocab_a1_0774,FIX_DE+FIX_EN+FIX_GLOSS,T1;T6,,Dieses Essen schmeckt am besten.,This food tastes the best.,am besten / am ...sten,"the best, the most",am leckersten/most delicious 부자연; gloss am meisten은 최상급 부사로 부정확(단어망 시드 영향)
+vocab_a1_0775,FIX_DE+FIX_EN+FIX_GLOSS,N6;T6,,Diese Woche treffe ich meine Familie.,I'm seeing my family this week.,Woche (christlich: Sonntag),week (Christian: Sunday),"주일은 대표 의미가 week(이번 주일), Sunday는 기독교 용례; gloss·예문 번역 수정(시드 영향, Jin 확인 권장)"
+vocab_a1_0776,KEEP,,,,,,,자연스러움
+vocab_a1_0777,FIX_DE+FIX_EN,T1,,Wird es morgen bewölkt sein?,Will it be cloudy tomorrow?,,,Wetter 주어 직역 제거
+vocab_a1_0778,KEEP,,,,,,,자연스러움
+vocab_a1_0832,KEEP,,,,,,,자연스러움
+vocab_a1_0833,FIX_KO,N1,지금 수업 중이에요.,Ich bin gerade im Unterricht.,I'm in class right now.,,,저는 삭제
+vocab_a1_0834,KEEP,,,,,,,자연스러움
+vocab_a1_0835,FIX_DE+FIX_EN,T4,,Mein kleiner Bruder wird dieses Jahr zwanzig.,My little brother is twenty this year.,,,jüngeres Geschwister 우회표현 제거 -> 한쪽 선택
+vocab_a1_0836,FIX_EN,T1,,,This building has eighty floors.,,,is eighty floors -> has
+vocab_a1_0837,KEEP,,,,,,,자연스러움
+vocab_a1_0838,FIX_DE,T1,,"Tut mir leid! Ach, schon gut.",,,,Entschuldigung!/das ist okay 어색
+vocab_a1_0839,KEEP,,,,,,,자연스러움
+vocab_a1_0529,KEEP,,,,,,,자연스러움
+vocab_a1_0530,KEEP,,,,,,,자연스러움
+vocab_a1_0531,KEEP,,,,,,,자연스러움
+vocab_a1_0532,KEEP,,,,,,,자연스러움
+vocab_a1_0533,FIX_KO+FIX_DE+FIX_EN,N8;N1,오월은 날씨가 좋아요.,Im Mai ist das Wetter schön.,The weather is nice in May.,,,"음... 말줄임 TTS 위험, 일월 예문과 중복"
+vocab_a1_0534,FIX_KO+FIX_DE+FIX_EN,L2,유월에 할머니 집에 가요.,Im Juni fahre ich zu meiner Oma.,I'm going to my grandma's house in June.,,,댁은 2급 어휘 -> 집
+vocab_a1_0535,KEEP,,,,,,,자연스러움
+vocab_a1_0536,FIX_DE+FIX_EN,T1,,Im August verreise ich.,I'm traveling in August.,,,reise ich 단독 어색; 영어 미국식 traveling
+vocab_a1_0537,KEEP,,,,,,,자연스러움
+vocab_a1_0538,KEEP,,,,,,,자연스러움
+vocab_a1_0539,KEEP,,,,,,,자연스러움
+vocab_a1_0540,KEEP,,,,,,,자연스러움
+vocab_a1_0628,FIX_KO+FIX_DE+FIX_EN,N5;N1,우리 집에 개가 있어요.,Bei uns zu Hause gibt es einen Hund.,We have a dog at home.,,,몇 마리 문맥 없는 질문 -> 완결 문장
+vocab_a1_0629,FIX_KO+FIX_DE+FIX_EN,N5;N1,고양이가 의자 위에 있어요.,Die Katze ist auf dem Stuhl.,The cat is on the chair.,,,고양이가 몇 마리예요 부자연
+vocab_a1_0630,KEEP,,,,,,,자연스러움
+vocab_a1_0631,FIX_KO,L2,나무 아래에 앉아요.,Ich setze mich unter den Baum.,I sit under the tree.,,,밑은 2급 가능성 -> 아래(1급)
+vocab_a1_0632,FIX_KO+FIX_DE+FIX_EN,N1;T1,주말에 산에 올라가요.,Am Wochenende gehe ich in die Berge.,I go hiking in the mountains on weekends.,,,"저는 삭제, 올라가다=등산 의미 자연화"
+vocab_a1_0633,FIX_KO,N1,바다에서 수영해요.,Ich schwimme im Meer.,I swim in the sea.,,,저는 삭제
+vocab_a1_0634,KEEP,,,,,,,자연스러움
+vocab_a1_0635,KEEP,,,,,,,자연스러움
+vocab_a1_0636,KEEP,,,,,,,자연스러움
+vocab_a1_0637,FIX_KO+FIX_DE+FIX_EN,N1;T4,아이가 공원에 있어요.,Das Kind ist im Park.,The child is in the park.,,,"저 아이는 학생이에요 교재투, Schüler 성별 고정 -> 위치 문장"
+vocab_a1_0638,KEEP,,,,,,,자연스러움
+vocab_a1_0639,FIX_DE,T1,,Die Frau da ist meine Freundin.,,,,Diese Frau ... eine Freundin von mir -> 자연스러운 어순
+vocab_a2_0004,KEEP,,,,,,,자연스러움
+vocab_a2_0005,KEEP,,,,,,,자연스러움
+vocab_a1_0118,KEEP,,,,,,,자연스러움
+vocab_a1_0130,NEEDS_JIN,N7,,,,,,"층 번호 체계: 한국 1층=Erdgeschoss, 2층=1. Stock. 독일어를 리터럴(erste Etage)로 둘지 문화 등가로 바꿀지 결정 필요; 일/이/육/육십 4건 일괄. 추천: 층 예문을 번호·호수 예문으로 교체"
+vocab_a1_0131,NEEDS_JIN,N7,,,,,,"층 번호 체계: 한국 1층=Erdgeschoss, 2층=1. Stock. 독일어를 리터럴(erste Etage)로 둘지 문화 등가로 바꿀지 결정 필요; 일/이/육/육십 4건 일괄. 추천: 층 예문을 번호·호수 예문으로 교체"
+vocab_a1_0132,FIX_KO,N2,삼 번 버스를 타요.,Ich nehme den Bus Nummer drei.,I take bus number three.,,,번은 의존명사라 띄어쓰기: 삼 번
+vocab_a1_0133,KEEP,,,,,,,자연스러움
+vocab_a1_0134,KEEP,,,,,,,자연스러움
+vocab_a1_0135,NEEDS_JIN,N7,,,,,,"층 번호 체계: 한국 1층=Erdgeschoss, 2층=1. Stock. 독일어를 리터럴(erste Etage)로 둘지 문화 등가로 바꿀지 결정 필요; 일/이/육/육십 4건 일괄. 추천: 층 예문을 번호·호수 예문으로 교체"
+vocab_a1_0136,KEEP,,,,,,,자연스러움
+vocab_a1_0137,KEEP,,,,,,,자연스러움
+vocab_a1_0515,KEEP,,,,,,,자연스러움
+vocab_a1_0516,KEEP,,,,,,,자연스러움
+vocab_a1_0517,FIX_KO+FIX_DE+FIX_EN,L3,학생이 사십 명 왔어요.,Vierzig Schüler sind gekommen.,Forty students came.,,,7어절 -> 4어절
+vocab_a1_0138,FIX_KO+FIX_DE+FIX_EN,L2,여기가 구 번 방이에요.,Das hier ist Zimmer neun.,This is room number nine.,,,학기는 2급 가능성 -> 1급 어휘로 교체
+vocab_a1_0139,KEEP,,,,,,,자연스러움
+vocab_a1_0140,KEEP,,,,,,,자연스러움
+vocab_a1_0840,FIX_EN,T1,,,This apartment costs a hundred million won.,,,is a hundred million won -> costs
+vocab_a1_0142,KEEP,,,,,,,자연스러움
+vocab_a1_0143,KEEP,,,,,,,자연스러움
+vocab_a1_0144,FIX_EN,T1,,,The two of us are going together.,,,영어 어색
+vocab_a1_0145,KEEP,,,,,,,자연스러움
+vocab_a1_0146,FIX_EN,T1,,,"Let's go together, all four of us.",,,Let's all four 어색
+vocab_a1_0518,FIX_KO+FIX_DE+FIX_EN,L3;T4,학교에 선생님이 오십 명 있어요.,In der Schule gibt es fünfzig Lehrer.,There are fifty teachers at the school.,,,6어절 -> 5어절; Lehrkräfte 우회표현 제거
+vocab_a1_0519,NEEDS_JIN,N7,,,,,,"층 번호 체계: 한국 1층=Erdgeschoss, 2층=1. Stock. 독일어를 리터럴(erste Etage)로 둘지 문화 등가로 바꿀지 결정 필요; 일/이/육/육십 4건 일괄. 추천: 층 예문을 번호·호수 예문으로 교체"
+vocab_a1_0520,KEEP,,,,,,,자연스러움
+vocab_a1_0147,KEEP,,,,,,,자연스러움
+vocab_a1_0148,KEEP,,,,,,,자연스러움
+vocab_a1_0149,KEEP,,,,,,,자연스러움
+vocab_a1_0150,KEEP,,,,,,,자연스러움
+vocab_a1_0151,KEEP,,,,,,,자연스러움
+vocab_a1_0152,KEEP,,,,,,,자연스러움
+vocab_a1_0200,RELEVEL,L1,,,,,,nikl_grade 2 -> A2 권장
+vocab_a1_0201,KEEP,,,,,,,자연스러움
+vocab_a1_0471,KEEP,,,,,,,자연스러움
+vocab_a1_0472,KEEP,,,,,,,자연스러움
+vocab_a1_0473,KEEP,,,,,,,자연스러움
+vocab_a1_0474,KEEP,,,,,,,자연스러움
+vocab_a1_0404,KEEP,,,,,,,자연스러움
+vocab_a1_0428,FIX_KO+FIX_DE+FIX_EN,N1;T1,한국에 가요.,Ich reise nach Korea.,I'm going to Korea.,,,저는 삭제; nach Korea gehen 부자연 -> reisen
+vocab_a1_0406,RELEVEL,L1,,,,,,nikl_grade 2 -> A2 권장
+vocab_a1_0407,KEEP,,,,,,,자연스러움
+vocab_a1_0429,FIX_KO+FIX_DE+FIX_EN,N1;N5,독일에서 왔어요.,Ich komme aus Deutschland.,I'm from Germany.,,,독일에서 한국에 와요 맥락 불명 -> 출신 표현
+vocab_a1_0430,KEEP,,,,,,,자연스러움
+vocab_a1_0431,FIX_DE+FIX_EN+FIX_GLOSS,T6;T4,,Ich bin Ausländer.,I'm a foreigner.,Ausländer,foreigner,외국인=Ausländer; 예문 DE이 오역(다른 나라 출신 설명) -> 단순화. gloss 변경은 단어망 시드 영향. 성별 이슈는 Jin 확인 권장
+vocab_a1_0432,KEEP,,,,,,,자연스러움
+vocab_a1_0433,KEEP,,,,,,,자연스러움
+vocab_a1_0434,KEEP,,,,,,,자연스러움
+vocab_a1_0435,KEEP,,,,,,,자연스러움
+vocab_a1_0528,FIX_KO+FIX_DE+FIX_EN,L3,마야 씨는 미국에서 왔어요.,Maya kommt aus den USA.,Maya is from the USA.,,,7어절 3문장 -> 3어절
+vocab_a1_0212,KEEP,,,,,,,자연스러움
+vocab_a1_0213,FIX_KO+FIX_DE+FIX_EN,N5,할머니께 먼저 인사드렸어요.,Als Erstes habe ich meine Großmutter respektvoll begrüßt.,I greeted my grandmother respectfully first.,,,목적어 불명 -> 대상 명시
+vocab_a1_0214,KEEP,,,,,,,자연스러움
+vocab_a1_0215,KEEP,,,,,,,자연스러움
+vocab_a1_0217,KEEP,,,,,,,자연스러움
+vocab_a1_0218,KEEP,,,,,,,자연스러움
+vocab_a1_0219,FIX_DE+FIX_EN,T6,,Vor den Eltern spreche ich in der Höflichkeitsform.,I use honorific speech in front of parents.,,,seinen/his: 원문에 없는 소유 추가
+vocab_a1_0220,RELEVEL,L1,,,,,,nikl_grade 2 -> A2 권장
+vocab_a1_0221,KEEP,,,,,,,자연스러움
+vocab_a1_0222,KEEP,,,,,,,자연스러움
+vocab_a1_0223,RELEVEL,L1;L3,,,,,,nikl_grade 2 -> A2 권장; 예문도 6어절로 A1 초과
+vocab_b2_0431,FIX_DE+FIX_EN,T1;T4,,Am Wochenende fahre ich zu meinen Schwiegereltern.,I'm going to my in-laws' place on the weekend.,,,Familie meines Mannes 우회 -> Schwiegereltern; id가 b2_이므로 레벨 대장 확인 권장
+vocab_b2_0432,FIX_DE+FIX_EN,T1;T4,,An Seollal bin ich zu meinen Schwiegereltern gefahren.,I visited my in-laws for Seollal.,,,Familie meiner Frau 우회 -> Schwiegereltern; id가 b2_이므로 레벨 대장 확인 권장
+vocab_b2_0198,KEEP,,,,,,,자연스러움
+vocab_b2_0203,KEEP,,,,,,,자연스러움
+vocab_a1_0260,KEEP,,,,,,,자연스러움
+vocab_a1_0261,FIX_KO+FIX_DE+FIX_EN,N5;N7,설날에 할아버지께 세배를 해요.,An Seollal mache ich vor meinem Opa die Neujahrsverbeugung.,"At Seollal, I do the New Year's bow to my grandfather.",,,세배는 어른께 하는 절 -> 대상 명시
+vocab_a1_0262,KEEP,,,,,,,자연스러움
+vocab_a1_0263,KEEP,,,,,,,자연스러움
+vocab_a1_0264,KEEP,,,,,,,자연스러움
+vocab_a1_0265,KEEP,,,,,,,자연스러움

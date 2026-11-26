@@ -1044,7 +1044,7 @@
     {
       "id": "cluster_a1_11_titles_relationships_v1",
       "level": "a1",
-      "revision": 21,
+      "revision": 22,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_family_1_v1",
         "seed_vocab_pack_a1_family_2_v1",
@@ -1105,7 +1105,8 @@
         "seed_cloze_cloze_a1_0671_v1",
         "seed_cloze_cloze_a1_0678_v1",
         "seed_cloze_cloze_a1_0141_v1",
-        "seed_cloze_cloze_a1_0159_v1"
+        "seed_cloze_cloze_a1_0159_v1",
+        "seed_cloze_cloze_a1_0576_v1"
       ],
       "contentReferences": [
         {
@@ -1347,13 +1348,17 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0159"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0576"
         }
       ]
     },
     {
       "id": "cluster_a1_12_daily_negation_v1",
       "level": "a1",
-      "revision": 10,
+      "revision": 11,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_daily_1_v1",
         "seed_vocab_pack_a1_daily_2_v1",
@@ -1384,7 +1389,8 @@
         "seed_vocab_pack_a1_verbs_daily_2_v1",
         "seed_vocab_pack_a1_verbs_daily_3_v1",
         "seed_cloze_cloze_a1_0045_v1",
-        "seed_cloze_cloze_a1_0738_v1"
+        "seed_cloze_cloze_a1_0738_v1",
+        "seed_cloze_cloze_a1_0094_v1"
       ],
       "contentReferences": [
         {
@@ -1506,13 +1512,17 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0738"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0094"
         }
       ]
     },
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 13,
+      "revision": 14,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
@@ -1527,7 +1537,8 @@
         "seed_vocab_pack_a1_adverbs_1_v1",
         "seed_vocab_pack_a1_adverbs_2_v1",
         "seed_cloze_cloze_a1_0290_v1",
-        "seed_cloze_cloze_a1_0578_v1"
+        "seed_cloze_cloze_a1_0578_v1",
+        "seed_cloze_cloze_a1_0289_v1"
       ],
       "contentReferences": [
         {
@@ -1585,6 +1596,10 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0578"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0289"
         }
       ]
     },
