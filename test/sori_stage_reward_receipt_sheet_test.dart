@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_reward_receipt_sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_v3_preview.dart';
 import 'package:ko_lernen_app/widgets/sori/ildu_r16_process_image.dart';
+
 import 'support/r16_test_asset_bundle.dart';
 import 'support/sori_stage_pump.dart';
 
@@ -122,9 +123,8 @@ void main() {
           supportedLocales: AppL10n.supportedLocales,
           localizationsDelegates: AppL10n.localizationsDelegates,
           builder: (context, child) => MediaQuery(
-            data: MediaQuery.of(
-              context,
-            ).copyWith(textScaler: const TextScaler.linear(2)),
+            data: MediaQuery.of(context)
+                .copyWith(textScaler: const TextScaler.linear(2)),
             child: DefaultAssetBundle(
               bundle: R16TestAssetBundle(),
               child: child!,
@@ -306,40 +306,39 @@ Widget _app(Widget home) => MaterialApp(
   home: Scaffold(body: home),
 );
 
-SarangchaeConstruction
-_constructionFixture() => SarangchaeConstruction.fromJson({
-  'id': 'sarangchae-v3-16',
-  'canonicalSha256': SarangchaeConstruction.canonicalSha256,
-  'completedStage': SarangchaeConstruction.stageCount,
-  'stages': [
-    for (
-      var sequence = 1;
-      sequence <= SarangchaeConstruction.stageCount;
-      sequence++
-    )
-      {
-        'stageId': sequence == SarangchaeConstruction.stageCount
-            ? 'sarangchae-complete'
-            : 'stage-$sequence',
-        'sequence': sequence,
-        'assetPath':
-            'assets/illustrations/personal_hanok_v3/sarangchae/stage_01_site.png',
-        'sha256': sequence == SarangchaeConstruction.stageCount
-            ? SarangchaeConstruction.canonicalSha256
-            : 'fixture-$sequence',
-        'term': '부재',
-        for (final field in const [
-          'gloss',
-          'chapter',
-          'title',
-          'question',
-          'body',
-          'caption',
-        ])
-          field: const {'ko': '설명', 'en': 'Detail', 'de': 'Detail'},
-      },
-  ],
-});
+SarangchaeConstruction _constructionFixture() =>
+    SarangchaeConstruction.fromJson({
+      'id': 'sarangchae-v3-16',
+      'canonicalSha256': SarangchaeConstruction.canonicalSha256,
+      'completedStage': SarangchaeConstruction.stageCount,
+      'stages': [
+        for (
+          var sequence = 1;
+          sequence <= SarangchaeConstruction.stageCount;
+          sequence++
+        )
+          {
+            'stageId': sequence == SarangchaeConstruction.stageCount
+                ? 'sarangchae-complete'
+                : 'stage-$sequence',
+            'sequence': sequence,
+            'assetPath': 'assets/illustrations/ildu_r16/807955c2c5609e638c834314b3dd8e27b392355e57db61f09345a720e7e13676.webp',
+            'sha256': sequence == SarangchaeConstruction.stageCount
+                ? SarangchaeConstruction.canonicalSha256
+                : 'fixture-$sequence',
+            'term': '부재',
+            for (final field in const [
+              'gloss',
+              'chapter',
+              'title',
+              'question',
+              'body',
+              'caption',
+            ])
+              field: const {'ko': '설명', 'en': 'Detail', 'de': 'Detail'},
+          },
+      ],
+    });
 
 IlDuConstructionArtCatalog _b2CatalogFixture() => IlDuConstructionArtCatalog([
   _series('ansarangchae', 'ansarang', 14),

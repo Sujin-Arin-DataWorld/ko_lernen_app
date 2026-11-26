@@ -93,9 +93,9 @@ final class IlDuConstructionArtCatalog {
     if (json['schemaVersion'] != 1 || json['status'] != 'approved_canonical') {
       throw const FormatException('Unsupported construction art catalog.');
     }
-    final series = _array(
-      json['series'],
-    ).map(IlDuConstructionArtSeries.fromJson).toList(growable: false);
+    final series = _array(json['series'])
+        .map(IlDuConstructionArtSeries.fromJson)
+        .toList(growable: false);
     final ids = series.map((item) => item.id).toSet();
     if (series.length != _approvedStageCounts.length ||
         ids.length != _approvedStageCounts.length ||
@@ -221,12 +221,9 @@ final class IlDuConstructionArtStage {
   factory IlDuConstructionArtStage.fromJson(Object? value, String buildingId) {
     final json = _object(value);
     final asset = _text(json['asset']);
-    final prefix =
-        'assets/illustrations/personal_hanok_v3/construction/$buildingId/';
-    if (!asset.startsWith(prefix) ||
-        !RegExp(
-          r'^stage_[0-9]{2}_[a-z_]+\.(png|webp)$',
-        ).hasMatch(asset.substring(prefix.length))) {
+    if (!RegExp(
+      r'^assets/illustrations/(?:ildu_r16/[a-f0-9]{64}\.webp|ildu_r16_support/construction/(?:left|shrine)/stage_[0-9]{2}\.png)$',
+    ).hasMatch(asset)) {
       throw const FormatException('Stage image must be a bundled PNG or WebP.');
     }
     final hash = _text(json['sha256']);
@@ -292,7 +289,7 @@ final class IlDuLessonIllustration {
     final json = _object(value);
     final asset = _text(json['asset']);
     if (!RegExp(
-      r'^assets/illustrations/personal_hanok_v3/construction/lessons/[a-z_]+\.webp$',
+      r'^assets/illustrations/ildu_r16_support/lessons/[a-z_]+\.webp$',
     ).hasMatch(asset)) {
       throw const FormatException(
         'Lesson illustration must be a bundled WebP.',

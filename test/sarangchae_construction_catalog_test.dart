@@ -12,26 +12,35 @@ void main() {
       jsonDecode(File(SarangchaeConstruction.assetPath).readAsStringSync())
           as Map<String, dynamic>;
 
-  test(
-    'bundled sequence retains every approved PNG and exact final bytes',
-    () async {
-      final catalog = await SarangchaeConstruction.load();
-      final hashes = <String>{};
-      expect(catalog.stages, hasLength(16));
-      for (final stage in catalog.stages) {
-        final bytes = File(stage.assetPath).readAsBytesSync();
-        expect(sha256.convert(bytes).toString(), stage.sha256);
-        expect(bytes.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
-        hashes.add(stage.sha256);
-      }
-      expect(hashes, hasLength(16));
-      expect(catalog.stage(16).sha256, SarangchaeConstruction.canonicalSha256);
-      expect(
-        catalog.stage(16).text('title', 'fr'),
-        catalog.stage(16).text('title', 'en'),
-      );
-    },
-  );
+  test('bundled sequence retains all R16 processes and the exact final bytes', () async {
+    final catalog = await SarangchaeConstruction.load();
+    final r16 = jsonDecode(
+      File('assets/data/ildu_r16_art_v1.json').readAsStringSync(),
+    );
+    final native = (r16['buildings'] as List).singleWhere(
+      (b) => b['id'] == 'sarangchae',
+    );
+    final byId = {
+      for (final stage in native['stages']) stage['processId']: stage,
+    };
+    final hashes = <String>{};
+    expect(catalog.stages, hasLength(16));
+    for (final stage in catalog.stages) {
+      final bytes = File(stage.assetPath).readAsBytesSync();
+      expect(sha256.convert(bytes).toString(), stage.sha256);
+      expect(stage.assetPath, startsWith('assets/illustrations/ildu_r16/'));
+      expect(bytes.take(4), [82, 73, 70, 70]);
+      hashes.add(stage.sha256);
+      expect(stage.sha256, byId['ildu.${stage.stageId}']['sha256']);
+    }
+    // The adopted R16 choseok and fitting lessons share the same source frame.
+    expect(hashes, (native['stages'] as List).map((s) => s['sha256']).toSet());
+    expect(catalog.stage(16).sha256, SarangchaeConstruction.canonicalSha256);
+    expect(
+      catalog.stage(16).text('title', 'fr'),
+      catalog.stage(16).text('title', 'en'),
+    );
+  });
 
   test('rejects a reordered or shortened sequence', () {
     final reordered = source();

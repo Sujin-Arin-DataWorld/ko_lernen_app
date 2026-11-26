@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 const String kIlDuTurntableAssetRoot =
-    'assets/illustrations/personal_hanok_v3/turnarounds/';
+    'assets/illustrations/ildu_r16_support/turnarounds/';
 
 /// One authored view in a clockwise eight-direction Hanok turnaround.
 ///
@@ -47,338 +47,929 @@ class IlDuTurntableSpec {
   }
 }
 
-IlDuTurntableFrame _frame(
-  String file,
-  double sourceWidth,
-  double sourceHeight,
-  double left,
-  double top,
-  double right,
-  double bottom, {
-  Rect? viewportBounds,
-}) => IlDuTurntableFrame(
-  assetPath: '$kIlDuTurntableAssetRoot$file',
-  sourceSize: Size(sourceWidth, sourceHeight),
-  contentBounds: Rect.fromLTRB(left, top, right, bottom),
-  viewportBounds: viewportBounds,
+final IlDuTurntableSpec kIlDuSarangchaeTurntable = IlDuTurntableSpec(
+  anchorId: 'sarangchae',
+  mapAspectRatio: 1.74807198,
+  frames: <IlDuTurntableFrame>[
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(116, 97, 724, 467),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(205, 78, 624, 464),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(64, 101, 704, 461),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(74, 115, 692, 430),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(44, 80, 652, 455),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(144, 83, 564, 455),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(64, 84, 704, 448),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sarang/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(76, 122, 694, 419),
+      viewportBounds: Rect.fromLTRB(44, 78, 724, 467),
+    ),
+  ],
 );
 
 final IlDuTurntableSpec kIlDuAnsarangchaeTurntable = IlDuTurntableSpec(
   anchorId: 'ansarang',
-  mapAspectRatio: 1.1,
+  mapAspectRatio: 1.56769596,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_ansarangchae_00_front.png', 384, 512, 14, 225, 370, 470),
-    _frame('ildu_ansarangchae_01_front_right.png', 384, 512, 17, 158, 366, 470),
-    _frame('ildu_ansarangchae_02_right.png', 384, 512, 82, 159, 302, 470),
-    _frame('ildu_ansarangchae_03_rear_right.png', 384, 512, 28, 195, 356, 470),
-    _frame('ildu_ansarangchae_04_rear.png', 384, 512, 17, 225, 367, 470),
-    _frame('ildu_ansarangchae_05_rear_left.png', 384, 512, 18, 145, 366, 470),
-    _frame('ildu_ansarangchae_06_left.png', 384, 512, 76, 143, 307, 470),
-    _frame('ildu_ansarangchae_07_front_left.png', 384, 512, 10, 143, 373, 470),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(64, 102, 714, 474),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(194, 71, 592, 485),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(99, 87, 683, 492),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(73, 143, 699, 442),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(54, 108, 704, 480),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(176, 72, 574, 486),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(85, 83, 669, 488),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/ansarang/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(70, 135, 695, 435),
+      viewportBounds: Rect.fromLTRB(54, 71, 714, 492),
+    ),
   ],
 );
 
 final IlDuTurntableSpec kIlDuChanggoTurntable = IlDuTurntableSpec(
   anchorId: 'changgo',
-  mapAspectRatio: 1.78,
+  mapAspectRatio: 1.49555556,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_changgo_00_front.png', 384, 512, 21, 345, 363, 472),
-    _frame('ildu_changgo_01_front_right.png', 384, 512, 15, 284, 368, 472),
-    _frame('ildu_changgo_02_right.png', 384, 512, 111, 203, 272, 472),
-    _frame('ildu_changgo_03_rear_right.png', 384, 512, 12, 296, 371, 472),
-    _frame('ildu_changgo_04_rear.png', 384, 512, 19, 358, 365, 472),
-    _frame('ildu_changgo_05_rear_left.png', 384, 512, 8, 316, 376, 472),
-    _frame('ildu_changgo_06_left.png', 384, 512, 110, 205, 274, 472),
-    _frame('ildu_changgo_07_front_left.png', 384, 512, 13, 292, 370, 472),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(64, 84, 704, 448),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(235, 30, 533, 480),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(120, 52, 648, 472),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(48, 138, 721, 406),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(65, 84, 704, 449),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(235, 30, 533, 480),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(120, 52, 648, 471),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/changgo/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(48, 138, 721, 402),
+      viewportBounds: Rect.fromLTRB(48, 30, 721, 480),
+    ),
   ],
 );
 
 final IlDuTurntableSpec kIlDuAnchaeTurntable = IlDuTurntableSpec(
   anchorId: 'anchae',
-  mapAspectRatio: 1.78,
+  mapAspectRatio: 1.91977077,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_anchae_00_front.png', 384, 512, 26, 332, 358, 472),
-    _frame('ildu_anchae_01_front_right.png', 384, 512, 30, 287, 353, 472),
-    _frame('ildu_anchae_02_right.png', 384, 512, 111, 267, 273, 472),
-    _frame('ildu_anchae_03_rear_right.png', 384, 512, 27, 285, 357, 472),
-    _frame('ildu_anchae_04_rear.png', 384, 512, 8, 336, 376, 472),
-    _frame('ildu_anchae_05_rear_left.png', 384, 512, 18, 293, 365, 472),
-    _frame('ildu_anchae_06_left.png', 384, 512, 99, 275, 285, 472),
-    _frame('ildu_anchae_07_front_left.png', 384, 512, 19, 285, 365, 472),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(123, 106, 558, 312),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(323, 75, 539, 332),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(312, 113, 677, 355),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(266, 199, 719, 349),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(210, 196, 646, 406),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(229, 166, 445, 424),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(91, 153, 456, 392),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/anchae/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(49, 164, 502, 309),
+      viewportBounds: Rect.fromLTRB(49, 75, 719, 424),
+    ),
   ],
 );
 
 final IlDuTurntableSpec kIlDuSotdaeulmunTurntable = IlDuTurntableSpec(
   anchorId: 'main-gate',
-  mapAspectRatio: 1.35,
+  mapAspectRatio: 1.02078522,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_sotdaeulmun_00_front.png', 384, 512, 18, 231, 366, 452),
-    _frame('ildu_sotdaeulmun_01_front_right.png', 384, 512, 13, 205, 372, 452),
-    _frame('ildu_sotdaeulmun_02_right.png', 384, 512, 32, 215, 353, 452),
-    _frame('ildu_sotdaeulmun_03_rear_right.png', 384, 512, 20, 206, 363, 452),
-    _frame('ildu_sotdaeulmun_04_rear.png', 384, 512, 20, 230, 363, 452),
-    _frame('ildu_sotdaeulmun_05_rear_left.png', 384, 512, 14, 211, 371, 452),
-    _frame('ildu_sotdaeulmun_06_left.png', 384, 512, 41, 210, 343, 452),
-    _frame('ildu_sotdaeulmun_07_front_left.png', 384, 512, 22, 220, 363, 452),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(163, 78, 582, 425),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(171, 135, 598, 408),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(217, 52, 576, 453),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(259, 50, 514, 471),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(186, 99, 605, 460),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(170, 164, 597, 411),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(192, 72, 551, 481),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(254, 48, 509, 469),
+      viewportBounds: Rect.fromLTRB(163, 48, 605, 481),
+    ),
   ],
 );
-
-const Rect _kIlDuAraechaeViewport = Rect.fromLTRB(448, 274, 2111, 1259);
 
 final IlDuTurntableSpec kIlDuAraechaeTurntable = IlDuTurntableSpec(
   anchorId: 'araechae',
-  mapAspectRatio: 1.6883248731,
+  mapAspectRatio: 1.33186813,
   frames: <IlDuTurntableFrame>[
-    _frame(
-      'ildu_araechae_00_front.png',
-      2560,
-      1440,
-      618,
-      435,
-      1943,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(81, 82, 684, 469),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
-    _frame(
-      'ildu_araechae_01_front_right.png',
-      2560,
-      1440,
-      449,
-      282,
-      2111,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(158, 35, 609, 481),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
-    _frame(
-      'ildu_araechae_02_right.png',
-      2560,
-      1440,
-      808,
-      274,
-      1751,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(111, 46, 659, 490),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
-    _frame(
-      'ildu_araechae_03_rear_right.png',
-      2560,
-      1440,
-      448,
-      342,
-      2111,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(102, 110, 669, 450),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
-    _frame(
-      'ildu_araechae_04_rear.png',
-      2560,
-      1440,
-      574,
-      453,
-      1987,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(84, 83, 687, 469),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
-    _frame(
-      'ildu_araechae_05_rear_left.png',
-      2560,
-      1440,
-      449,
-      391,
-      2111,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(159, 36, 610, 479),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
-    _frame(
-      'ildu_araechae_06_left.png',
-      2560,
-      1440,
-      808,
-      341,
-      1751,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(109, 47, 657, 484),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
-    _frame(
-      'ildu_araechae_07_front_left.png',
-      2560,
-      1440,
-      448,
-      350,
-      2111,
-      1259,
-      viewportBounds: _kIlDuAraechaeViewport,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/arae/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(98, 110, 666, 451),
+      viewportBounds: Rect.fromLTRB(81, 35, 687, 490),
     ),
   ],
 );
 
-/// Jin-approved V05 Jungmunganchae turnaround.
-///
-/// The source frames are the approved 28-degree elevated RGBA exports. Their
-/// differing source canvases are cropped only by transparent alpha bounds at
-/// paint time; the authored pixels themselves remain unchanged.
 final IlDuTurntableSpec kIlDuJungmunganchaeTurntable = IlDuTurntableSpec(
   anchorId: 'jungmunganchae',
-  mapAspectRatio: 2.3,
+  mapAspectRatio: 1.37831858,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_jungmunganchae_00_front.png', 1792, 878, 157, 98, 1621, 786),
-    _frame(
-      'ildu_jungmunganchae_01_front_right.png',
-      1454,
-      1082,
-      39,
-      58,
-      1434,
-      1050,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(102, 67, 695, 450),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
     ),
-    _frame('ildu_jungmunganchae_02_right.png', 1400, 1123, 251, 63, 1149, 1068),
-    _frame(
-      'ildu_jungmunganchae_03_rear_right.png',
-      1453,
-      1082,
-      21,
-      54,
-      1433,
-      1054,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(200, 30, 572, 474),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
     ),
-    _frame('ildu_jungmunganchae_04_rear.png', 1791, 878, 93, 100, 1698, 800),
-    _frame(
-      'ildu_jungmunganchae_05_rear_left.png',
-      1571,
-      1001,
-      61,
-      36,
-      1512,
-      964,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(159, 61, 667, 475),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
     ),
-    _frame('ildu_jungmunganchae_06_left.png', 1525, 1031, 389, 50, 1120, 982),
-    _frame(
-      'ildu_jungmunganchae_07_front_left.png',
-      1493,
-      1054,
-      48,
-      60,
-      1404,
-      989,
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(96, 142, 685, 424),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(72, 91, 666, 464),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(196, 35, 568, 482),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(101, 45, 608, 480),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/jung/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(83, 114, 673, 441),
+      viewportBounds: Rect.fromLTRB(72, 30, 695, 482),
     ),
   ],
 );
 
 final IlDuTurntableSpec kIlDuSadangTurntable = IlDuTurntableSpec(
   anchorId: 'sadang',
-  mapAspectRatio: 1.15,
+  mapAspectRatio: 1.41648107,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_sadang_00_front.png', 384, 512, 16, 188, 368, 488),
-    _frame('ildu_sadang_01_front_right.png', 384, 512, 22, 188, 362, 488),
-    _frame('ildu_sadang_02_right.png', 384, 512, 59, 188, 324, 488),
-    _frame('ildu_sadang_03_rear_right.png', 384, 512, 30, 188, 353, 488),
-    _frame('ildu_sadang_04_rear.png', 384, 512, 16, 188, 368, 488),
-    _frame('ildu_sadang_05_rear_left.png', 384, 512, 35, 188, 349, 488),
-    _frame('ildu_sadang_06_left.png', 384, 512, 48, 188, 336, 488),
-    _frame('ildu_sadang_07_front_left.png', 384, 512, 32, 188, 352, 488),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(124, 39, 644, 484),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(66, 75, 702, 480),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(84, 91, 683, 469),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(89, 46, 679, 488),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(124, 39, 644, 484),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(66, 75, 702, 479),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(84, 91, 683, 469),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/sadang/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(89, 46, 679, 488),
+      viewportBounds: Rect.fromLTRB(66, 39, 702, 488),
+    ),
   ],
 );
 
 final IlDuTurntableSpec kIlDuSadangmunTurntable = IlDuTurntableSpec(
   anchorId: 'sadang-gate',
-  mapAspectRatio: .85,
+  mapAspectRatio: 0.82959641,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_sadangmun_00_front.png', 384, 512, 16, 87, 368, 488),
-    _frame('ildu_sadangmun_01_front_right.png', 384, 512, 28, 87, 355, 488),
-    _frame('ildu_sadangmun_02_right.png', 384, 512, 103, 87, 281, 488),
-    _frame('ildu_sadangmun_03_rear_right.png', 384, 512, 38, 87, 346, 488),
-    _frame('ildu_sadangmun_04_rear.png', 384, 512, 30, 87, 354, 488),
-    _frame('ildu_sadangmun_05_rear_left.png', 384, 512, 25, 87, 358, 488),
-    _frame('ildu_sadangmun_06_left.png', 384, 512, 102, 87, 282, 488),
-    _frame('ildu_sadangmun_07_front_left.png', 384, 512, 36, 87, 347, 488),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(199, 56, 569, 482),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(248, 37, 520, 475),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(214, 45, 554, 483),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(211, 74, 557, 472),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(199, 56, 569, 482),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(248, 37, 520, 476),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(214, 45, 554, 483),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/shrine/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(211, 74, 557, 472),
+      viewportBounds: Rect.fromLTRB(199, 37, 569, 483),
+    ),
   ],
 );
 
-List<IlDuTurntableFrame> _sadangHyeopmunFrames() => <IlDuTurntableFrame>[
-  _frame('ildu_sadang_hyeopmun_00_front.png', 384, 512, 37, 57, 347, 488),
-  _frame('ildu_sadang_hyeopmun_01_front_right.png', 384, 512, 33, 40, 350, 488),
-  _frame('ildu_sadang_hyeopmun_02_right.png', 384, 512, 92, 59, 291, 488),
-  _frame('ildu_sadang_hyeopmun_03_rear_right.png', 384, 512, 38, 61, 345, 488),
-  _frame('ildu_sadang_hyeopmun_04_rear.png', 384, 512, 40, 90, 343, 488),
-  _frame('ildu_sadang_hyeopmun_05_rear_left.png', 384, 512, 43, 65, 341, 488),
-  _frame('ildu_sadang_hyeopmun_06_left.png', 384, 512, 96, 65, 287, 488),
-  _frame('ildu_sadang_hyeopmun_07_front_left.png', 384, 512, 34, 50, 349, 488),
-];
-
 final IlDuTurntableSpec kIlDuHyeopmunWestTurntable = IlDuTurntableSpec(
   anchorId: 'hyeopmun-west',
-  mapAspectRatio: .85,
-  frames: _sadangHyeopmunFrames(),
+  mapAspectRatio: 0.85260771,
+  frames: <IlDuTurntableFrame>[
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(196, 66, 572, 485),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(224, 46, 544, 478),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(199, 54, 569, 487),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(223, 85, 544, 471),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(196, 66, 572, 485),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(224, 46, 544, 478),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(199, 54, 569, 487),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/left/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(223, 85, 544, 471),
+      viewportBounds: Rect.fromLTRB(196, 46, 572, 487),
+    ),
+  ],
 );
 
 final IlDuTurntableSpec kIlDuHyeopmunEastTurntable = IlDuTurntableSpec(
   anchorId: 'hyeopmun-east',
-  mapAspectRatio: .85,
-  frames: _sadangHyeopmunFrames(),
+  mapAspectRatio: 0.84234234,
+  frames: <IlDuTurntableFrame>[
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(224, 47, 570, 487),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(222, 47, 549, 463),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(212, 75, 571, 479),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(253, 115, 538, 477),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(198, 92, 544, 483),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(220, 57, 545, 464),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(197, 43, 556, 481),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(230, 61, 515, 482),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+  ],
 );
 
-/// Blueprint-corrected four-bay Anchae storehouse.
-///
-/// The V3 original remains the material/style authority while the recorded
-/// drawings determine its 9360 x 2700 mm structure and side/rear openings.
 final IlDuTurntableSpec kIlDuAnchaeStoreTurntable = IlDuTurntableSpec(
   anchorId: 'anchae-store',
-  mapAspectRatio: 2.75,
+  mapAspectRatio: 1.39351852,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_anchae_store_00_front.png', 384, 512, 29, 354, 354, 472),
-    _frame('ildu_anchae_store_01_front_right.png', 384, 512, 65, 354, 319, 472),
-    _frame('ildu_anchae_store_02_right.png', 384, 512, 130, 354, 253, 472),
-    _frame('ildu_anchae_store_03_rear_right.png', 384, 512, 104, 354, 280, 472),
-    _frame('ildu_anchae_store_04_rear.png', 384, 512, 9, 354, 375, 472),
-    _frame('ildu_anchae_store_05_rear_left.png', 384, 512, 60, 354, 323, 472),
-    _frame('ildu_anchae_store_06_left.png', 384, 512, 137, 354, 246, 472),
-    _frame('ildu_anchae_store_07_front_left.png', 384, 512, 70, 354, 313, 472),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(83, 98, 685, 448),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(172, 45, 596, 476),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(131, 54, 637, 475),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(89, 119, 679, 430),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(83, 98, 685, 449),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(172, 45, 596, 477),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(131, 54, 637, 475),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/angotgan/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(89, 119, 679, 430),
+      viewportBounds: Rect.fromLTRB(83, 45, 685, 477),
+    ),
   ],
 );
 
-/// Blueprint-corrected five-bay outer storehouse.
 final IlDuTurntableSpec kIlDuGokganTurntable = IlDuTurntableSpec(
   anchorId: 'gokgan',
-  mapAspectRatio: 1.93,
+  mapAspectRatio: 1.54133333,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_gokgan_00_front.png', 384, 512, 23, 297, 360, 472),
-    _frame('ildu_gokgan_01_front_right.png', 384, 512, 25, 297, 359, 472),
-    _frame('ildu_gokgan_02_right.png', 384, 512, 57, 297, 327, 472),
-    _frame('ildu_gokgan_03_rear_right.png', 384, 512, 31, 297, 352, 472),
-    _frame('ildu_gokgan_04_rear.png', 384, 512, 9, 297, 375, 472),
-    _frame('ildu_gokgan_05_rear_left.png', 384, 512, 31, 297, 352, 472),
-    _frame('ildu_gokgan_06_left.png', 384, 512, 56, 297, 328, 472),
-    _frame('ildu_gokgan_07_front_left.png', 384, 512, 44, 297, 339, 472),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(95, 104, 673, 467),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(200, 104, 568, 462),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(105, 99, 662, 474),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(125, 138, 642, 434),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(95, 104, 673, 444),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(200, 104, 568, 439),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(105, 99, 662, 450),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/gokgan/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(125, 138, 642, 414),
+      viewportBounds: Rect.fromLTRB(95, 99, 673, 474),
+    ),
   ],
 );
 
-List<IlDuTurntableFrame> _toiletFrames() => <IlDuTurntableFrame>[
-  _frame('ildu_toilet_00_front.png', 384, 512, 22, 152, 361, 472),
-  _frame('ildu_toilet_01_front_right.png', 384, 512, 8, 152, 375, 472),
-  _frame('ildu_toilet_02_right.png', 384, 512, 59, 152, 324, 472),
-  _frame('ildu_toilet_03_rear_right.png', 384, 512, 48, 152, 336, 472),
-  _frame('ildu_toilet_04_rear.png', 384, 512, 33, 152, 350, 472),
-  _frame('ildu_toilet_05_rear_left.png', 384, 512, 41, 152, 342, 472),
-  _frame('ildu_toilet_06_left.png', 384, 512, 60, 152, 323, 472),
-  _frame('ildu_toilet_07_front_left.png', 384, 512, 33, 152, 351, 472),
-];
-
-/// No dedicated toilet drawing is present in the blueprint archive. Both map
-/// placements intentionally share one source-faithful eight-direction kit.
 final IlDuTurntableSpec kIlDuToiletNorthTurntable = IlDuTurntableSpec(
   anchorId: 'toilet-north',
-  mapAspectRatio: 1.06,
-  frames: _toiletFrames(),
+  mapAspectRatio: 1.01418440,
+  frames: <IlDuTurntableFrame>[
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(170, 71, 599, 483),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(233, 61, 535, 468),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(170, 70, 597, 482),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(217, 95, 552, 461),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(170, 72, 599, 482),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(233, 61, 535, 468),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(170, 70, 597, 484),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(217, 95, 552, 467),
+      viewportBounds: Rect.fromLTRB(170, 61, 599, 484),
+    ),
+  ],
 );
 
 final IlDuTurntableSpec kIlDuToiletSouthTurntable = IlDuTurntableSpec(
   anchorId: 'toilet-south',
-  mapAspectRatio: 1.06,
-  frames: _toiletFrames(),
+  mapAspectRatio: 1.00480769,
+  frames: <IlDuTurntableFrame>[
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(175, 75, 593, 480),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(236, 64, 531, 464),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(175, 73, 593, 478),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(220, 98, 548, 457),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(175, 75, 593, 477),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(236, 64, 531, 464),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(175, 73, 593, 480),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+    IlDuTurntableFrame(
+      assetPath: 'assets/illustrations/ildu_r16_support/turnarounds/toilet1/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(220, 98, 548, 462),
+      viewportBounds: Rect.fromLTRB(175, 64, 593, 480),
+    ),
+  ],
+);
+
+final IlDuTurntableSpec kIlDuOutsideGateTurntable = IlDuTurntableSpec(
+  anchorId: 'outside-gate',
+  mapAspectRatio: 0.84234234,
+  frames: <IlDuTurntableFrame>[
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_00.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(224, 47, 570, 487),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_01.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(222, 47, 549, 463),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_02.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(212, 75, 571, 479),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_03.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(253, 115, 538, 477),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_04.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(198, 92, 544, 483),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_05.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(220, 57, 545, 464),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_06.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(197, 43, 556, 481),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+    IlDuTurntableFrame(
+      assetPath:
+          'assets/illustrations/ildu_r16_support/turnarounds/right/view_07.png',
+      sourceSize: Size(768, 512),
+      contentBounds: Rect.fromLTRB(230, 61, 515, 482),
+      viewportBounds: Rect.fromLTRB(197, 43, 571, 487),
+    ),
+  ],
 );
 
 final Map<String, IlDuTurntableSpec> kIlDuTurntables =
     <String, IlDuTurntableSpec>{
+      kIlDuSarangchaeTurntable.anchorId: kIlDuSarangchaeTurntable,
       kIlDuAnsarangchaeTurntable.anchorId: kIlDuAnsarangchaeTurntable,
       kIlDuChanggoTurntable.anchorId: kIlDuChanggoTurntable,
       kIlDuAnchaeTurntable.anchorId: kIlDuAnchaeTurntable,
@@ -393,6 +984,7 @@ final Map<String, IlDuTurntableSpec> kIlDuTurntables =
       kIlDuGokganTurntable.anchorId: kIlDuGokganTurntable,
       kIlDuToiletNorthTurntable.anchorId: kIlDuToiletNorthTurntable,
       kIlDuToiletSouthTurntable.anchorId: kIlDuToiletSouthTurntable,
+      kIlDuOutsideGateTurntable.anchorId: kIlDuOutsideGateTurntable,
     };
 
 IlDuTurntableSpec? ilduTurntableForAnchor(String anchorId) =>

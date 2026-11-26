@@ -1063,6 +1063,71 @@
           "progressionIntegrated": false,
           "presentation": "Byte-preserved cumulative construction stills; final frame does not approve map sprites, eight views or door-open states."
         }
+      },
+      "runtimeConstructionSeries": {
+        "hyeopmun": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16_support/construction/left/stage_06.png",
+          "canonicalSha256": "3d18684ff3a554d63c4517d51e138aa779c539a19ad1c041827d0505ebd14551",
+          "stageCount": 6
+        },
+        "changgo": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16/6dfd84f7040f79ad1a5f322221dcd62daaf91c2aeec172b4f7bba3fd88065eb4.webp",
+          "canonicalSha256": "6dfd84f7040f79ad1a5f322221dcd62daaf91c2aeec172b4f7bba3fd88065eb4",
+          "stageCount": 8
+        },
+        "jungmunganchae": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16/ba2ab135eb9c3f41aca3431acd726b469f9fa0d1f04d625d04576c64f6ec8904.webp",
+          "canonicalSha256": "ba2ab135eb9c3f41aca3431acd726b469f9fa0d1f04d625d04576c64f6ec8904",
+          "stageCount": 12
+        },
+        "araechae": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16/c3b29d784f54e1f9c55ea28e8118b26dd4fb4a0b1df0f6a54f67cca961da423d.webp",
+          "canonicalSha256": "c3b29d784f54e1f9c55ea28e8118b26dd4fb4a0b1df0f6a54f67cca961da423d",
+          "stageCount": 12
+        },
+        "anchae": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16/3fd4042b66133ea8889f7c63eb9a94329914d309c0af8227d766dded740ef2fb.webp",
+          "canonicalSha256": "3fd4042b66133ea8889f7c63eb9a94329914d309c0af8227d766dded740ef2fb",
+          "stageCount": 14
+        },
+        "anchae-store": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16/e7c797a045de7d63b916b0718e66b5bb4a5599cc5814ac51f2ad53f90ab1b46f.webp",
+          "canonicalSha256": "e7c797a045de7d63b916b0718e66b5bb4a5599cc5814ac51f2ad53f90ab1b46f",
+          "stageCount": 11
+        },
+        "ansarangchae": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16/9e8584fbc875382342afbf73dfeb8f85b76a7e91bca816a6251ea4f06ca283ea.webp",
+          "canonicalSha256": "9e8584fbc875382342afbf73dfeb8f85b76a7e91bca816a6251ea4f06ca283ea",
+          "stageCount": 14
+        },
+        "sadangmun": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16_support/construction/shrine/stage_08.png",
+          "canonicalSha256": "deb3c67295fe2b4e4e9a399f9619d141c1b7a6f8a5ee8151dadd5e6f8a19440e",
+          "stageCount": 8
+        },
+        "sadang": {
+          "revision": "r16-native-20261125",
+          "catalog": "assets/data/ildu_construction_art_v1.json",
+          "canonicalAsset": "assets/illustrations/ildu_r16/beb7f246df68f5eb6cfa99bedb503ead6fe5875dbc3779e1e9cf505e9570cd7d.webp",
+          "canonicalSha256": "beb7f246df68f5eb6cfa99bedb503ead6fe5875dbc3779e1e9cf505e9570cd7d",
+          "stageCount": 12
+        }
       }
     },
     "F-E-scene-poster": {

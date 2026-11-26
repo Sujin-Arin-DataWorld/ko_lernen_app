@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/screens/hanok_downloads_screen.dart';
 import 'package:ko_lernen_app/services/ildu_anchor_placement_service.dart';
 import 'package:ko_lernen_app/services/ildu_decoration_placement_service.dart';
 import 'package:ko_lernen_app/services/ildu_world_projection_adapter.dart';
+import 'package:ko_lernen_app/theme.dart';
 
 void main() {
   late IlDuWorldManifest manifest;
@@ -20,6 +21,37 @@ void main() {
     manifest = IlDuWorldManifest.fromJson(
       jsonDecode(await File(IlDuWorldManifest.assetPath).readAsString()),
     );
+  });
+
+  testWidgets('R16 map and actions render at small width and enlarged text', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 740);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(context)
+              .copyWith(textScaler: const TextScaler.linear(1.6)),
+          child: child!,
+        ),
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedB2Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+    expect(find.text('Empfohlene Mission starten'), findsOneWidget);
   });
 
   testWidgets('renders the spacious map fail-closed at iPhone width', (
@@ -92,9 +124,7 @@ void main() {
     expect(find.byType(HanokDownloadsScreen), findsOneWidget);
   });
 
-  testWidgets('Sarangchae uses its single world view without rotation', (
-    tester,
-  ) async {
+  testWidgets('Sarangchae uses the R16 eight-view rotation', (tester) async {
     tester.view.physicalSize = const Size(1179, 2556);
     tester.view.devicePixelRatio = 3;
     addTearDown(tester.view.resetPhysicalSize);
@@ -117,10 +147,10 @@ void main() {
 
     expect(
       find.byKey(const ValueKey('ildu-turntable-sarangchae')),
-      findsNothing,
+      findsOneWidget,
     );
     expect(
-      find.byKey(const ValueKey('ildu-map-turntable-sarangchae-null')),
+      find.byKey(const ValueKey('ildu-map-turntable-sarangchae-0')),
       findsOneWidget,
     );
     expect(tester.takeException(), isNull);
@@ -152,8 +182,7 @@ void main() {
     final viewerFinder = find.byType(InteractiveViewer);
     final viewer = tester.widget<InteractiveViewer>(viewerFinder);
     final controller = viewer.transformationController!;
-    final viewerRect = tester.getRect(viewerFinder);
-    final backgroundPoint = viewerRect.topLeft + const Offset(20, 28);
+    final backgroundPoint = _emptyMapPoint(tester);
     final beforePan = controller.value.getTranslation();
 
     final pan = await tester.startGesture(backgroundPoint);
@@ -165,7 +194,7 @@ void main() {
     expect(afterPan.x, isNot(closeTo(beforePan.x, .001)));
     expect(afterPan.y, isNot(closeTo(beforePan.y, .001)));
 
-    final zoomCenter = viewerRect.topLeft + const Offset(72, 72);
+    final zoomCenter = _emptyMapPoint(tester);
     final firstFinger = await tester.startGesture(
       zoomCenter - const Offset(16, 0),
       pointer: 1,
@@ -604,14 +633,26 @@ void main() {
     final mapController = tester
         .widget<InteractiveViewer>(find.byType(InteractiveViewer))
         .transformationController!;
+    await _panAnchorIntoView(tester, 'jungmunganchae');
     final mapTransformBeforeDrag = mapController.value.clone();
-    await tester.drag(dragTarget, const Offset(48, 24));
+    final start = _exposedAnchorPoint(tester, dragTarget);
+    final gesture = await tester.startGesture(start);
+    await gesture.moveBy(const Offset(48, 24));
+    await gesture.up();
     await tester.pumpAndSettle();
 
     expect(anchorStore.placements, hasLength(1));
     expect(anchorStore.placements.single.anchorId, 'jungmunganchae');
-    expect(anchorStore.placements.single.x, greaterThan(40.3));
-    expect(anchorStore.placements.single.y, greaterThan(43.6));
+    final expectedDx = manifest.mapPresentation.logicalDeltaX(
+      4.8,
+      2.4 * 2412 / 2622,
+    );
+    final expectedDy = manifest.mapPresentation.logicalDeltaY(
+      4.8,
+      2.4 * 2412 / 2622,
+    );
+    expect(anchorStore.placements.single.x - 40.3, hasSameSignAs(expectedDx));
+    expect(anchorStore.placements.single.y - 43.6, hasSameSignAs(expectedDy));
     expect(anchorStore.placements.single.scale, 1);
     expect(anchorStore.saveCalls, 1);
     expect(mapController.value, mapTransformBeforeDrag);
@@ -645,16 +686,20 @@ void main() {
     final mapController = tester
         .widget<InteractiveViewer>(find.byType(InteractiveViewer))
         .transformationController!;
-    final anchor = find.byKey(const ValueKey('ildu-map-turntable-sadang-2'));
-    final center = tester.getCenter(anchor);
+    await _panAnchorIntoView(tester, 'sadang');
+    final center = _exposedAnchorPoint(
+      tester,
+      find.byKey(const ValueKey('ildu-anchor-gesture-sadang')),
+      horizontalInset: 36,
+    );
     final first = await tester.createGesture(pointer: 1);
     final second = await tester.createGesture(pointer: 2);
 
-    await first.down(center - const Offset(36, 0));
-    await second.down(center - const Offset(12, 0));
+    await first.down(center - const Offset(12, 0));
+    await second.down(center + const Offset(12, 0));
     await tester.pump();
-    await first.moveTo(center - const Offset(60, 0));
-    await second.moveTo(center + const Offset(12, 0));
+    await first.moveTo(center - const Offset(36, 0));
+    await second.moveTo(center + const Offset(36, 0));
     await tester.pump();
     expect(
       tester
@@ -921,6 +966,84 @@ void _selectMapAnchor(WidgetTester tester, String anchorId) {
     ),
   );
   tester.widget<GestureDetector>(tapTarget).onTap!();
+}
+
+Matcher hasSameSignAs(double expected) =>
+    expected >= 0 ? greaterThan(0) : lessThan(0);
+
+Offset _emptyMapPoint(WidgetTester tester) {
+  final viewerFinder = find.byType(InteractiveViewer);
+  final map = tester.renderObject(viewerFinder);
+  final anchors = find.byWidgetPredicate(
+    (widget) =>
+        widget is Listener &&
+        widget.key.toString().contains('ildu-anchor-gesture-'),
+  );
+  final boxes = anchors
+      .evaluate()
+      .map((element) => element.findRenderObject())
+      .toSet();
+  final rect = tester.getRect(viewerFinder).deflate(24);
+  bool empty(Offset point) {
+    final path = tester.hitTestOnBinding(point).path;
+    return path.any((entry) => entry.target == map) &&
+        path.every((entry) => !boxes.contains(entry.target));
+  }
+
+  for (double y = rect.top; y < rect.bottom; y += 24) {
+    for (double x = rect.left; x < rect.right; x += 24) {
+      final point = Offset(x, y);
+      if (empty(point) &&
+          empty(point - const Offset(16, 0)) &&
+          empty(point + const Offset(16, 0))) {
+        return point;
+      }
+    }
+  }
+  throw StateError('No map background is exposed');
+}
+
+Future<void> _panAnchorIntoView(WidgetTester tester, String id) async {
+  final viewerFinder = find.byType(InteractiveViewer);
+  final viewer = tester.widget<InteractiveViewer>(viewerFinder);
+  final viewport = tester.getRect(viewerFinder);
+  final center = tester.getCenter(
+    find.byKey(ValueKey('ildu-anchor-gesture-$id')),
+  );
+  final delta =
+      viewport.topLeft +
+      Offset(viewport.width / 2, viewport.height * .2) -
+      center;
+  final position = viewer.transformationController!.value.getTranslation();
+  viewer.transformationController!.value = Matrix4.identity()
+    ..setTranslationRaw(position.x + delta.dx, position.y + delta.dy, 0);
+  await tester.pumpAndSettle();
+}
+
+Offset _exposedAnchorPoint(
+  WidgetTester tester,
+  Finder finder, {
+  double horizontalInset = 0,
+}) {
+  final box = tester.renderObject(finder);
+  final rect = tester.getRect(finder).deflate(5);
+  bool hits(Offset point) =>
+      tester.hitTestOnBinding(point).path.any((entry) => entry.target == box);
+  for (double y = rect.top; y <= rect.bottom; y += 4) {
+    for (
+      double x = rect.left + horizontalInset;
+      x <= rect.right - horizontalInset;
+      x += 4
+    ) {
+      final point = Offset(x, y);
+      if (hits(point) &&
+          hits(point - Offset(horizontalInset, 0)) &&
+          hits(point + Offset(horizontalInset, 0))) {
+        return point;
+      }
+    }
+  }
+  throw StateError('Anchor has no exposed touch area: $finder');
 }
 
 IlDuWorldProjection _verifiedA1Projection() =>

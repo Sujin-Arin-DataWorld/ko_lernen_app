@@ -263,6 +263,15 @@ def build_manifest(root: Path) -> dict[str, Any]:
 
     root = Path(root).resolve()
     construction = _json_file(root / CONSTRUCTION_CATALOG)
+    if construction.get("runtimeRevision") == "r16-native-20261125":
+        manifest = {
+            "schemaVersion": SCHEMA_VERSION,
+            "storageBucket": STORAGE_BUCKET,
+            "deliveryMode": "bundled-r16",
+            "packs": [],
+        }
+        validate_manifest(manifest)
+        return manifest
     series = construction.get("series")
     if not isinstance(series, list):
         raise ManifestError("Construction catalog series must be a list")
@@ -340,15 +349,21 @@ def validate_manifest(manifest: dict[str, Any]) -> None:
 
     if not isinstance(manifest, dict):
         raise ManifestError("Manifest must be an object")
-    if set(manifest) != {"schemaVersion", "storageBucket", "packs"}:
+    expected_keys = {"schemaVersion", "storageBucket", "packs"}
+    bundled = manifest.get("deliveryMode") == "bundled-r16"
+    if bundled:
+        expected_keys.add("deliveryMode")
+    if set(manifest) != expected_keys:
         raise ManifestError("Manifest top-level keys must match schemaVersion/storageBucket/packs")
     if manifest["schemaVersion"] != SCHEMA_VERSION:
         raise ManifestError(f"Unsupported manifest schemaVersion: {manifest['schemaVersion']!r}")
     if manifest["storageBucket"] != STORAGE_BUCKET:
         raise ManifestError(f"Unexpected storageBucket: {manifest['storageBucket']!r}")
     packs = manifest["packs"]
-    if not isinstance(packs, list) or not packs:
+    if not isinstance(packs, list) or (not packs and not bundled):
         raise ManifestError("Manifest packs must be a non-empty list")
+    if bundled and packs:
+        raise ManifestError("Bundled R16 delivery must have no remote packs")
 
     pack_ids: set[str] = set()
     source_paths: set[str] = set()

@@ -47,46 +47,54 @@ List<Map<String, dynamic>> _rows(Map<String, dynamic> json, String key) =>
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  final provenance =
-      jsonDecode(
-            File(
-              'docs/assets/APPROVED_BUNDLE_SIZE_20261030.json',
-            ).readAsStringSync(),
-          )
-          as Map<String, dynamic>;
+  final provenance = jsonDecode(
+    File('docs/assets/APPROVED_BUNDLE_SIZE_20261030.json').readAsStringSync(),
+  ) as Map<String, dynamic>;
 
-  test('all twelve excluded originals retain their baseline bytes', () {
-    expect(
-      provenance['baselineCommit'],
-      '2ac799eb0bfa507f72e7eb3e5bcbb78f8a77cbed',
-    );
-    final preserved = <String, Map<String, dynamic>>{
-      for (final row in _rows(provenance, 'unbundledTurnarounds'))
-        row['asset'] as String: row,
-      for (final row in _rows(provenance, 'sharedAliases'))
-        row['originalAsset'] as String: row,
-      for (final row in _rows(provenance, 'archived'))
-        row['originalAsset'] as String: row,
-    };
-    expect(preserved.keys.toSet(), _originalHashes.keys.toSet());
-    for (final entry in _originalHashes.entries) {
-      final row = preserved[entry.key]!;
-      final location = row['asset'] as String? ?? entry.key;
-      expect(row['sha256'], entry.value, reason: entry.key);
+  test(
+    'excluded originals retain baseline bytes or explicit Git retirement proof',
+    () {
       expect(
-        sha256.convert(File(location).readAsBytesSync()).toString(),
-        entry.value,
-        reason: location,
+        provenance['baselineCommit'],
+        '2ac799eb0bfa507f72e7eb3e5bcbb78f8a77cbed',
       );
-    }
-  });
+      final preserved = <String, Map<String, dynamic>>{
+        for (final row in _rows(provenance, 'unbundledTurnarounds'))
+          row['asset'] as String: row,
+        for (final row in _rows(provenance, 'sharedAliases'))
+          row['originalAsset'] as String: row,
+        for (final row in _rows(provenance, 'archived'))
+          row['originalAsset'] as String: row,
+      };
+      expect(preserved.keys.toSet(), _originalHashes.keys.toSet());
+      for (final entry in _originalHashes.entries) {
+        final row = preserved[entry.key]!;
+        final location = row['asset'] as String? ?? entry.key;
+        expect(row['sha256'], entry.value, reason: entry.key);
+        if (entry.key.startsWith(_turnaroundRoot)) {
+          final retirement = jsonDecode(
+            File('docs/hanok_r16/RUNTIME_RETIREMENT_20261125.json')
+                .readAsStringSync(),
+          );
+          expect(retirement['retiredFiles'][entry.key]['sha256'], entry.value);
+          expect(File(entry.key).existsSync(), isFalse);
+          continue;
+        }
+        expect(
+          sha256.convert(File(location).readAsBytesSync()).toString(),
+          entry.value,
+          reason: location,
+        );
+      }
+    },
+  );
 
   test(
     'actual bundle excludes originals and loads exact shared payloads',
     () async {
-      final assets = (await AssetManifest.loadFromAssetBundle(
-        rootBundle,
-      )).listAssets().toSet();
+      final assets = (await AssetManifest.loadFromAssetBundle(rootBundle))
+          .listAssets()
+          .toSet();
       for (final original in _originalHashes.keys) {
         expect(assets, isNot(contains(original)), reason: original);
       }
@@ -116,9 +124,8 @@ void main() {
         for (final spec in kIlDuTurntables.values)
           for (final frame in spec.frames) frame.assetPath,
       };
-      final downloadManifest = File(
-        'assets/data/hanok_download_manifest.json',
-      ).readAsStringSync();
+      final downloadManifest = File('assets/data/hanok_download_manifest.json')
+          .readAsStringSync();
       for (final row in _rows(provenance, 'unbundledTurnarounds')) {
         final path = row['asset'] as String;
         expect(frames, isNot(contains(path)), reason: path);
@@ -130,13 +137,9 @@ void main() {
   test(
     'Einleitung manifest covers shipped files and preserved source records',
     () {
-      final manifest =
-          jsonDecode(
-                File(
-                  'tool/einleitung_generated_assets.json',
-                ).readAsStringSync(),
-              )
-              as Map<String, dynamic>;
+      final manifest = jsonDecode(
+        File('tool/einleitung_generated_assets.json').readAsStringSync(),
+      ) as Map<String, dynamic>;
       final active = _rows(manifest, 'files');
       final actual = Directory('assets/illustrations/einleitung_generated')
           .listSync()
@@ -165,16 +168,14 @@ void main() {
   test(
     'every approved Figma image mapping resolves in the real bundle',
     () async {
-      final assets = (await AssetManifest.loadFromAssetBundle(
-        rootBundle,
-      )).listAssets().toSet();
-      final mapping =
-          jsonDecode(
-                await rootBundle.loadString(
-                  'assets/illustrations/concept_c/approved_20261018/figma-assets.json',
-                ),
-              )
-              as Map<String, dynamic>;
+      final assets = (await AssetManifest.loadFromAssetBundle(rootBundle))
+          .listAssets()
+          .toSet();
+      final mapping = jsonDecode(
+        await rootBundle.loadString(
+          'assets/illustrations/concept_c/approved_20261018/figma-assets.json',
+        ),
+      ) as Map<String, dynamic>;
       for (final path in mapping.values.cast<String>()) {
         expect(assets, contains(path), reason: path);
         expect((await rootBundle.load(path)).lengthInBytes, greaterThan(0));
