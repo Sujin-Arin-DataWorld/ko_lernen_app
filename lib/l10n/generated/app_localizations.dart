@@ -18978,6 +18978,12 @@ abstract class AppL10n {
   /// **'In der App enthalten'**
   String get hanokDownloadsIncluded;
 
+  /// No description provided for @hanokDownloadsAllIncluded.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Hanok-Bilder sind bereits in der App enthalten. Ein zusätzlicher Download ist nicht nötig.'**
+  String get hanokDownloadsAllIncluded;
+
   /// No description provided for @hanokDownloadsDownloading.
   ///
   /// In de, this message translates to:

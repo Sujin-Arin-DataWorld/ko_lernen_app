@@ -100,7 +100,7 @@ class CReferenceArt extends StatelessWidget {
       CReferencePart.hangul => C5SceneAssets.hangul,
       CReferencePart.review => C5SceneAssets.review,
       CReferencePart.hanokHero =>
-        'assets/illustrations/personal_hanok_v3/world/sarangchae.png',
+        'assets/illustrations/ildu_r16_support/world/sarangchae.png',
       _ => throw StateError('No independent artwork for $part'),
     };
     return Image.asset(
@@ -552,8 +552,19 @@ class _CMaterialActionState extends State<CMaterialAction>
             boxShadow: [
               BoxShadow(
                 color: const Color(0x490e251d),
-                offset: Offset(0, pressed ? 1 : widget.exactSurface ? 3 : 5),
-                blurRadius: widget.exactSurface ? 1 : pressed ? 1 : 5,
+                offset: Offset(
+                  0,
+                  pressed
+                      ? 1
+                      : widget.exactSurface
+                      ? 3
+                      : 5,
+                ),
+                blurRadius: widget.exactSurface
+                    ? 1
+                    : pressed
+                    ? 1
+                    : 5,
               ),
             ],
           ),

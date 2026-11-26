@@ -23,7 +23,14 @@ class HanokAssetManifest {
           json['schemaVersion'] == 1 &&
           json['storageBucket'] == bucket,
     );
-    require(json['packs'] is List && (json['packs'] as List).isNotEmpty);
+    require(
+      json['packs'] is List &&
+          ((json['packs'] as List).isNotEmpty ||
+              json['deliveryMode'] == 'bundled-r16'),
+    );
+    require(
+      json['deliveryMode'] != 'bundled-r16' || (json['packs'] as List).isEmpty,
+    );
     final packs = <HanokAssetPack>[];
     final assets = <String, HanokAsset>{};
     final owners = <String, HanokAssetPack>{};
@@ -56,9 +63,8 @@ class HanokAssetManifest {
         final type = raw['contentType'];
         require(
           path is String &&
-              RegExp(
-                r'^assets/(?:[A-Za-z0-9_-]+/)+[A-Za-z0-9_-]+\.(png|webp)$',
-              ).hasMatch(path),
+              RegExp(r'^assets/(?:[A-Za-z0-9_-]+/)+[A-Za-z0-9_-]+\.(png|webp)$')
+                  .hasMatch(path),
         );
         require(hash is String && RegExp(r'^[0-9a-f]{64}$').hasMatch(hash));
         require(bytes is int && bytes > 0 && bytes <= 300 * 1024 * 1024);

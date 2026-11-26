@@ -11234,6 +11234,10 @@ class AppL10nDe extends AppL10n {
   String get hanokDownloadsIncluded => 'In der App enthalten';
 
   @override
+  String get hanokDownloadsAllIncluded =>
+      'Alle Hanok-Bilder sind bereits in der App enthalten. Ein zusätzlicher Download ist nicht nötig.';
+
+  @override
   String hanokDownloadsDownloading(String available, String total) {
     return '$available von $total werden vorbereitet';
   }

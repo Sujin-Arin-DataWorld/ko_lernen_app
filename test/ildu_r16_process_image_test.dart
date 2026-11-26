@@ -12,7 +12,7 @@ IlDuR16ArtCatalog catalog() => IlDuR16ArtCatalog.fromJson(
   jsonDecode(File(IlDuR16ArtCatalog.assetPath).readAsStringSync()),
 );
 const fallback =
-    'assets/illustrations/personal_hanok_v3/sarangchae/stage_01_site.png';
+    'assets/illustrations/ildu_r16_support/construction/left/stage_01.png';
 
 void main() {
   testWidgets(

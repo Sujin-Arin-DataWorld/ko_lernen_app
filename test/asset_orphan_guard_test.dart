@@ -39,32 +39,7 @@ void main() {
     // the reviewed source manifest, including the user-supplied check image.
     'assets/illustrations/einleitung_generated/':
         'assets/illustrations/einleitung_generated',
-    // IlDuConstructionArtCatalog validates the JSON paths; the construction
-    // art test loads every stage and lesson image and verifies its SHA-256.
-    'assets/illustrations/personal_hanok_v3/construction/hyeopmun/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/changgo/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/lessons/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/jungmunganchae/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/araechae/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/anchae/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/anchae-store/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/ansarangchae/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/sadangmun/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    'assets/illustrations/personal_hanok_v3/construction/sadang/':
-        'assets/illustrations/personal_hanok_v3/construction/',
-    // SarangchaeConstruction reads the ordered PNG paths from its approved
-    // JSON catalog; sarangchae_construction_catalog_test verifies every hash.
-    'assets/illustrations/personal_hanok_v3/sarangchae/':
-        'assets/illustrations/personal_hanok_v3/sarangchae/',
+    // R16 native export receipts verify each bundled support image and SHA.
     // 도장은 획득 id 로 `stamp_*.png` 를 조립한다.
     'assets/illustrations/stamps/': 'illustrations/stamps/',
     // 듣기 카드는 chaekgadoCardAsset() 이 `{imageKey}.webp` 를 조립한다
@@ -75,13 +50,25 @@ void main() {
     // LearningPhaseCatalog validates the exact per-Phase asset path from JSON.
     // learning_phases_test decodes every referenced WebP from the bundle.
     'assets/illustrations/phases/': 'assets/illustrations/phases/',
-    // 일두 월드는 정본 manifest의 assetRoot와 파일명을 결합해 건물·문·장식을
-    // 배치한다. 화면은 manifest 외부의 임의 경로를 허용하지 않는다.
-    'assets/illustrations/personal_hanok_v3/world/':
-        'assets/illustrations/personal_hanok_v3/world/',
-    // 일두 건물 회전표는 카탈로그가 루트와 manifest 파일명을 조립한다.
-    'assets/illustrations/personal_hanok_v3/turnarounds/':
-        'assets/illustrations/personal_hanok_v3/turnarounds/',
+    'assets/illustrations/ildu_r16_support/construction/left/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/construction/shrine/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/lessons/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/anchae/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/angotgan/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/ansarang/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/arae/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/changgo/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/gokgan/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/jung/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/left/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/main_gate/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/right/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/sadang/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/sarang/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/shrine/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/toilet/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/turnarounds/toilet1/': 'assets/illustrations/ildu_r16_support/',
+    'assets/illustrations/ildu_r16_support/world/': 'assets/illustrations/ildu_r16_support/',
     // sha1 파일명이라 lib/ 소스에 리터럴로 안 나온다 — tts_bundled_manifest.dart
     // 가 'assets/tts/' 접두사만 검사(런타임 검증)해 조립한다.
     'assets/tts/v3/female/': 'assets/tts/',

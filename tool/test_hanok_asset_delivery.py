@@ -489,5 +489,28 @@ class ActivationTests(DeliveryFixture):
                 delivery.ensure_non_main_worktree(self.root)
 
 
+class BundledR16ManifestTests(unittest.TestCase):
+    def test_r16_manifest_has_no_remote_dependencies(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            catalog = root / delivery.CONSTRUCTION_CATALOG
+            catalog.parent.mkdir(parents=True)
+            catalog.write_text(json.dumps({"runtimeRevision": "r16-native-20261125"}), encoding="utf-8")
+            manifest = delivery.build_manifest(root)
+            self.assertEqual(manifest["deliveryMode"], "bundled-r16")
+            self.assertEqual(manifest["packs"], [])
+            delivery.verify_manifest_current(root, manifest)
+
+    def test_empty_remote_manifest_still_requires_explicit_bundled_mode(self) -> None:
+        manifest = {"schemaVersion": 1, "storageBucket": delivery.STORAGE_BUCKET, "packs": []}
+        with self.assertRaises(delivery.ManifestError):
+            delivery.validate_manifest(manifest)
+        manifest["deliveryMode"] = "bundled-r16"
+        delivery.validate_manifest(manifest)
+        manifest["packs"] = [{}]
+        with self.assertRaises(delivery.ManifestError):
+            delivery.validate_manifest(manifest)
+
+
 if __name__ == "__main__":
     unittest.main()

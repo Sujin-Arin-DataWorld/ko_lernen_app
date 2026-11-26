@@ -25,32 +25,35 @@ void main() {
     expect(manifest.decorations, hasLength(5));
   });
 
-  test('ships every referenced image and the approved canvas bytes', () async {
-    final canvas = File(manifest.worldAsset(manifest.canvas.asset));
-    expect(await canvas.exists(), isTrue);
-    expect(
-      sha256.convert(await canvas.readAsBytes()).toString().toUpperCase(),
-      '6C9438312ED828E8D2AFAC9BEE9AF728AD22933DE0639DABF30DEF82BB165B7E',
-    );
+  test(
+    'ships every referenced image and the R16 native context bytes',
+    () async {
+      final canvas = File(manifest.worldAsset(manifest.canvas.asset));
+      expect(await canvas.exists(), isTrue);
+      expect(
+        sha256.convert(await canvas.readAsBytes()).toString().toUpperCase(),
+        '9A8771BD617938F7FE98B4CFC6EFBED6742DFC90C64CC97922101EEF08525502',
+      );
 
-    for (final anchor in <IlDuWorldAnchor>[
-      ...manifest.buildings,
-      ...manifest.gates,
-    ]) {
-      expect(
-        await File(manifest.worldAsset(anchor.asset)).exists(),
-        isTrue,
-        reason: '${anchor.id} must reference a bundled world asset',
-      );
-    }
-    for (final decoration in manifest.decorations) {
-      expect(
-        await File(manifest.decorationAsset(decoration.asset)).exists(),
-        isTrue,
-        reason: '${decoration.id} must reference a bundled decoration asset',
-      );
-    }
-  });
+      for (final anchor in <IlDuWorldAnchor>[
+        ...manifest.buildings,
+        ...manifest.gates,
+      ]) {
+        expect(
+          await File(manifest.worldAsset(anchor.asset)).exists(),
+          isTrue,
+          reason: '${anchor.id} must reference a bundled world asset',
+        );
+      }
+      for (final decoration in manifest.decorations) {
+        expect(
+          await File(manifest.decorationAsset(decoration.asset)).exists(),
+          isTrue,
+          reason: '${decoration.id} must reference a bundled decoration asset',
+        );
+      }
+    },
+  );
 
   test('covers each building exactly once across learning hubs', () {
     final hubBuildingIds = manifest.hubs

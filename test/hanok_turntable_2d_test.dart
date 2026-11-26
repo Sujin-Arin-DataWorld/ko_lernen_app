@@ -154,7 +154,7 @@ void main() {
             find.byType(HanokTurntableFrameImage),
           )
           .cacheWidth,
-      2560,
+      kIlDuAraechaeTurntable.frames.first.sourceSize.width.toInt(),
     );
 
     double currentScale() => tester

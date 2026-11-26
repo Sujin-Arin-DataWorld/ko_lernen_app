@@ -5228,6 +5228,7 @@
     }
   },
   "hanokDownloadsIncluded": "Included in the app",
+  "hanokDownloadsAllIncluded": "All Hanok images are already included in the app. No additional download is needed.",
   "hanokDownloadsDownloading": "Preparing {available} of {total}",
   "@hanokDownloadsDownloading": {
     "placeholders": {

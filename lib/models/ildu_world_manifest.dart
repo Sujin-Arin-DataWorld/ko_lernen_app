@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
 
@@ -299,10 +300,129 @@ class IlDuWorldCanvas {
   }
 }
 
+/// Converts saved map coordinates into the current artwork's camera space.
+/// Stored placements and learning identities keep their existing coordinate system.
+class IlDuMapPresentation {
+  const IlDuMapPresentation.identity()
+    : a = 1,
+      b = 0,
+      c = 0,
+      d = 0,
+      e = 1,
+      f = 0,
+      anchors = const {},
+      yardOffsets = const {};
+
+  const IlDuMapPresentation._(
+    this.a,
+    this.b,
+    this.c,
+    this.d,
+    this.e,
+    this.f,
+    this.anchors,
+    this.yardOffsets,
+  );
+
+  final double a;
+  final double b;
+  final double c;
+  final double d;
+  final double e;
+  final double f;
+  final Map<String, ({double x, double y, double width})> anchors;
+  final Map<String, ({double dx, double dy})> yardOffsets;
+
+  double get determinant => a * e - b * d;
+  double get widthScale => math.sqrt(determinant.abs());
+
+  double projectX(double x, double y) => a * x + b * y + c;
+  double projectY(double x, double y) => d * x + e * y + f;
+  double logicalDeltaX(double dx, double dy) => (e * dx - b * dy) / determinant;
+  double logicalDeltaY(double dx, double dy) =>
+      (-d * dx + a * dy) / determinant;
+  double decorationX(String yardId, double x, double y) =>
+      projectX(x, y) + (yardOffsets[yardId]?.dx ?? 0);
+  double decorationY(String yardId, double x, double y) =>
+      projectY(x, y) + (yardOffsets[yardId]?.dy ?? 0);
+
+  double anchorX(IlDuWorldAnchor anchor, double x, double y) =>
+      (anchors[anchor.id]?.x ?? projectX(anchor.x, anchor.y)) +
+      a * (x - anchor.x) +
+      b * (y - anchor.y);
+
+  double anchorY(IlDuWorldAnchor anchor, double x, double y) =>
+      (anchors[anchor.id]?.y ?? projectY(anchor.x, anchor.y)) +
+      d * (x - anchor.x) +
+      e * (y - anchor.y);
+
+  double anchorWidth(IlDuWorldAnchor anchor) =>
+      anchors[anchor.id]?.width ?? anchor.width * widthScale;
+
+  factory IlDuMapPresentation.fromJson(Object? value) {
+    if (value == null) {
+      return const IlDuMapPresentation.identity();
+    }
+    final json = _map(value, r'$.mapPresentation');
+    final coefficients = _list(json['matrix'], r'$.mapPresentation.matrix');
+    if (coefficients.length != 6) {
+      throw const FormatException(
+        'Map presentation requires six coefficients.',
+      );
+    }
+    final matrix = [
+      for (var i = 0; i < coefficients.length; i++)
+        _number(
+          coefficients[i],
+          r'$.mapPresentation.matrix'
+          '[$i]',
+        ),
+    ];
+    final determinant = matrix[0] * matrix[4] - matrix[1] * matrix[3];
+    if (determinant.abs() < .000001) {
+      throw const FormatException('Map presentation must be invertible.');
+    }
+    final rows = _map(json['anchors'], r'$.mapPresentation.anchors');
+    final anchors = <String, ({double x, double y, double width})>{};
+    for (final entry in rows.entries) {
+      final path = r'$.mapPresentation.anchors.' + entry.key;
+      final row = _map(entry.value, path);
+      anchors[_id(entry.key, path)] = (
+        x: _percentage(row['x'], '$path.x'),
+        y: _percentage(row['y'], '$path.y'),
+        width: _percentage(row['width'], '$path.width'),
+      );
+    }
+    final offsetRows = _map(
+      json['yardOffsets'] ?? const <String, dynamic>{},
+      r'$.mapPresentation.yardOffsets',
+    );
+    final yardOffsets = <String, ({double dx, double dy})>{};
+    for (final entry in offsetRows.entries) {
+      final path = r'$.mapPresentation.yardOffsets.' + entry.key;
+      final row = _map(entry.value, path);
+      yardOffsets[_id(entry.key, path)] = (
+        dx: _number(row['dx'], '$path.dx'),
+        dy: _number(row['dy'], '$path.dy'),
+      );
+    }
+    return IlDuMapPresentation._(
+      matrix[0],
+      matrix[1],
+      matrix[2],
+      matrix[3],
+      matrix[4],
+      matrix[5],
+      Map.unmodifiable(anchors),
+      Map.unmodifiable(yardOffsets),
+    );
+  }
+}
+
 class IlDuWorldManifest {
   static const String assetPath = 'assets/data/ildu_world_manifest_v1.json';
   static const String worldAssetRoot =
-      'assets/illustrations/personal_hanok_v3/world/';
+      'assets/illustrations/ildu_r16_support/world/';
 
   final IlDuWorldCanvas canvas;
   final List<IlDuWorldEraDefinition> eras;
@@ -311,6 +431,7 @@ class IlDuWorldManifest {
   final List<IlDuWorldGate> gates;
   final List<IlDuWorldBuilding> buildings;
   final List<IlDuWorldDecoration> decorations;
+  final IlDuMapPresentation mapPresentation;
 
   const IlDuWorldManifest({
     required this.canvas,
@@ -320,6 +441,7 @@ class IlDuWorldManifest {
     required this.gates,
     required this.buildings,
     required this.decorations,
+    this.mapPresentation = const IlDuMapPresentation.identity(),
   });
 
   static Future<IlDuWorldManifest> load({AssetBundle? bundle}) async {
@@ -356,6 +478,7 @@ class IlDuWorldManifest {
         r'$.decorations',
         IlDuWorldDecoration.fromJson,
       ),
+      mapPresentation: IlDuMapPresentation.fromJson(json['mapPresentation']),
     );
     result._validateReferences();
     return result;
@@ -381,6 +504,15 @@ class IlDuWorldManifest {
     final hubIds = hubs.map((hub) => hub.id).toSet();
     final buildingIds = buildings.map((building) => building.id).toSet();
     final yardIds = yards.map((yard) => yard.id).toSet();
+    final anchorIds = {...buildingIds, ...gates.map((gate) => gate.id)};
+    if (!mapPresentation.anchors.keys.every(anchorIds.contains)) {
+      throw const FormatException(
+        'Map presentation contains an unknown anchor.',
+      );
+    }
+    if (!mapPresentation.yardOffsets.keys.every(yardIds.contains)) {
+      throw const FormatException('Map presentation contains an unknown yard.');
+    }
     if (hubIds.length != hubs.length ||
         buildingIds.length != buildings.length ||
         yardIds.length != yards.length) {
