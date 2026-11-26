@@ -367,7 +367,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 그거,geugeo,das (da),A1,Pronomen,그거 주세요.,Das da bitte.,Alltag,a1_daily_4,2,false,that (one),Pronoun,"That one, please.",vocab_a1_0192
 저거,jeogeo,das (dort),A1,Pronomen,저거 뭐예요?,Was ist das dort?,Alltag,a1_daily_4,3,false,that (over there),Pronoun,What's that over there?,vocab_a1_0193
 여기,yeogi,hier,A1,Nomen,여기 앉으세요.,Setzen Sie sich bitte hier hin.,Position,a1_position,10,true,here,Noun,Please sit here.,vocab_a1_0194
-거기,geogi,da,A1,Nomen,거기 가 본 적 있어요.,Da war ich schon mal.,Position,a1_position,11,true,there,Noun,I've been there before.,vocab_a1_0195
+거기,geogi,da,A1,Nomen,거기 가 봤어요.,Da war ich schon mal.,Position,a1_position,11,true,there,Noun,I've been there before.,vocab_a1_0195
 저기,jeogi,dort,A1,Nomen,저기 보세요.,Schauen Sie dort hin.,Position,a1_position,12,true,over there,Noun,Look over there.,vocab_a1_0196
 새,sae,neu,A1,Adjektiv,이건 새 가방이에요.,Das ist eine neue Tasche.,Beschreibung,a1_descriptions,11,true,new,Adjective,This is a new bag.,vocab_a1_0197
 다른,dareun,andere/r/s,A1,Adjektiv,다른 색깔도 있어요?,Gibt es auch andere Farben?,Beschreibung,a1_descriptions,12,true,other / different,Adjective,Are there other colors too?,vocab_a1_0198

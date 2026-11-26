@@ -769,6 +769,10 @@ _SURFACE_LEMMA_OVERRIDE_MAP: Mapping[str, str] = {
     "재밌겠다": "재밌다",
     "있거든": "있다",
     "그렇긴": "그렇다",
+    # A1 greeting example "현우는 인사를 잘해요." (#493): the generic stem
+    # path strips 잘해요 to the unrelated grade-6 headword 잘다 ("fine,
+    # small"); the surface is the A1 verb 잘하다.
+    "잘해요": "잘하다",
 }
 
 

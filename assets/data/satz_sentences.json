@@ -1168,7 +1168,7 @@
     {
       "id": "satz_a1_0054",
       "level": "a1",
-      "targetKo": "거기 가 본 적 있어요.",
+      "targetKo": "거기 가 봤어요.",
       "promptDe": "Da war ich schon mal.",
       "promptEn": "I've been there before.",
       "distractors": [
@@ -5960,9 +5960,9 @@
     {
       "id": "satz_a1_0107",
       "level": "a1",
-      "targetKo": "국물을 소리 안 나게 떠먹으려고 애썼어요.",
-      "promptDe": "Ich gab mir Mühe, die Brühe geräuschlos zu löffeln.",
-      "promptEn": "I tried hard to spoon the broth without making noise.",
+      "targetKo": "이 집은 국물이 맛있어요.",
+      "promptDe": "In diesem Restaurant ist die Brühe lecker.",
+      "promptEn": "The broth at this restaurant is delicious.",
       "distractors": [
         "짧은",
         "찌는"
@@ -5972,9 +5972,9 @@
     {
       "id": "satz_a1_0108",
       "level": "a1",
-      "targetKo": "젓가락질이 서툴러서 콩나물을 놓쳤어요.",
-      "promptDe": "Meine Stäbchen waren ungeschickt, und die Sojasprossen rutschten weg.",
-      "promptEn": "My chopstick skills were clumsy, and the bean sprouts slipped away.",
+      "targetKo": "젓가락질을 연습하고 있어요.",
+      "promptDe": "Ich übe gerade, mit Stäbchen zu essen.",
+      "promptEn": "I'm practicing using chopsticks.",
       "distractors": [
         "빨개졌어요",
         "사양하다가"
@@ -6152,11 +6152,11 @@
     {
       "id": "satz_a1_0123",
       "level": "a1",
-      "targetKo": "설빔으로 한복 대신 단정한 니트를 골랐어요.",
-      "promptDe": "Als Neujahrskleidung wählte ich statt Hanbok einen schlichten Pullover.",
-      "promptEn": "For New Year clothes I chose a neat sweater instead of hanbok.",
+      "targetKo": "설빔으로 새 한복을 입었어요.",
+      "promptDe": "Als Neujahrskleidung trug ich einen neuen Hanbok.",
+      "promptEn": "I wore a new hanbok as my New Year clothes.",
       "distractors": [
-        "저는",
+        "의자가",
         "적었어요"
       ],
       "vocabKo": "설빔"
