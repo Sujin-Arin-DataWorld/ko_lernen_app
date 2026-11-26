@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "batch": "c3_batch43_b1_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "B1(3급) reinforcement - 64 NIKL grade-3 headwords missing from live (first B1 batch under the 2026-11-25 Jin decision to follow the NIKL canon).",
+    "rights": "original_clean_room",
+    "seedSource": "NIKL 2017 kiiq grade 3 (KOGL 1유형), ranked by NIKL basic-2023 tier",
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "CLAUDE_MODEL_QA",
+    "humanLanguageQaClaim": false,
+    "gap": {
+      "grade3": 1593,
+      "live": 230,
+      "missingBefore": 1363,
+      "claimed": 64,
+      "missingAfter": 1299
+    },
+    "selectionRule": "missing grade-3 non-affix headword; NIKL basic-2023 tier 1; concrete everyday use; skipped when the 하다/되다 form is already live"
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "collection": null,
+      "count": 64,
+      "level": "B1",
+      "review": "tools/content_factory/review/batch_43_b1_vocab_review.csv"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "collection": "items",
+      "count": 64,
+      "level": "B1",
+      "review": "tools/content_factory/review/batch_43_b1_cloze_review.csv"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "collection": "items",
+      "count": 64,
+      "level": "B1",
+      "review": "tools/content_factory/review/batch_43_b1_satz_review.csv"
+    }
+  ],
+  "recordCount": 192,
+  "packHolesFilled": [
+    {
+      "pack_id": "b1_verbs_daily_1",
+      "addedWords": [
+        "챙기다"
+      ],
+      "note": "fills empty pack_order 3 (11 -> 12)"
+    },
+    {
+      "pack_id": "b1_time_life_1",
+      "addedWords": [
+        "추억"
+      ],
+      "note": "fills empty pack_order 7 (11 -> 12)"
+    },
+    {
+      "pack_id": "b1_health_education",
+      "addedWords": [
+        "예방"
+      ],
+      "note": "fills empty pack_order 2 (10 -> 11)"
+    },
+    {
+      "pack_id": "b1_communication_lang_1",
+      "addedWords": [
+        "알아듣다",
+        "한자",
+        "읽기",
+        "쓰기",
+        "한국말"
+      ],
+      "note": "fills empty pack_order 1, 3, 5, 8, 9 (8 -> 13)"
+    }
+  ],
+  "newPacks": [
+    {
+      "pack_id": "b1_daily_4",
+      "base": "b1_daily",
+      "displayName": {
+        "de": "Alltag (B1) 4",
+        "en": "Daily Life (B1) 4"
+      },
+      "wordCount": 12,
+      "note": "existing base; Boss = final 3 pack_order rows (12-word pack) or final 2 (8-word pack); needs content authority, cluster, vocabPackUnitMap and coverage registration at promotion"
+    },
+    {
+      "pack_id": "b1_verbs_daily_2",
+      "base": "b1_verbs_daily",
+      "displayName": {
+        "de": "Nützliche Verben (B1) 2",
+        "en": "Useful Verbs (B1) 2"
+      },
+      "wordCount": 12,
+      "note": "existing base; Boss = final 3 pack_order rows (12-word pack) or final 2 (8-word pack); needs content authority, cluster, vocabPackUnitMap and coverage registration at promotion"
+    },
+    {
+      "pack_id": "b1_emotions_relations_4",
+      "base": "b1_emotions_relations",
+      "displayName": {
+        "de": "Gefühle & Beziehungen (B1) 4",
+        "en": "Feelings & Relationships (B1) 4"
+      },
+      "wordCount": 12,
+      "note": "existing base; Boss = final 3 pack_order rows (12-word pack) or final 2 (8-word pack); needs content authority, cluster, vocabPackUnitMap and coverage registration at promotion"
+    },
+    {
+      "pack_id": "b1_health_hospital_2",
+      "base": "b1_health_hospital",
+      "displayName": {
+        "de": "Krankenhaus & Apotheke (B1) 2",
+        "en": "Hospital & Pharmacy (B1) 2"
+      },
+      "wordCount": 12,
+      "note": "existing base; Boss = final 3 pack_order rows (12-word pack) or final 2 (8-word pack); needs content authority, cluster, vocabPackUnitMap and coverage registration at promotion"
+    },
+    {
+      "pack_id": "b1_descriptions_adj_2",
+      "base": "b1_descriptions_adj",
+      "displayName": {
+        "de": "Eigenschaften (B1) 2",
+        "en": "Descriptions (B1) 2"
+      },
+      "wordCount": 8,
+      "note": "existing base; Boss = final 3 pack_order rows (12-word pack) or final 2 (8-word pack); needs content authority, cluster, vocabPackUnitMap and coverage registration at promotion"
+    }
+  ],
+  "personaRowsNote": "5 rows use a leading vocative (레나, 크리스티안, 수진, 마야, 다니엘); no persona appears more than once.",
+  "personaRows": {
+    "vocab_b1_0497": "lena",
+    "vocab_b1_0511": "christian",
+    "vocab_b1_0533": "sujin",
+    "vocab_b1_0552": "maya",
+    "vocab_b1_0553": "daniel"
+  },
+  "reviewPacket": "docs/data/review_packets/batch_43_b1_jin_sample.md",
+  "promotion": {
+    "assetsDataWritten": false,
+    "runtime": false,
+    "tts": false,
+    "firebase": false,
+    "note": "Draft only; Jin sample approval pending (level-canon D-4). Examples, translations and distractors authored by Claude 2026-11-26; MODEL_QA only, no human-language QA claim."
+  }
+}

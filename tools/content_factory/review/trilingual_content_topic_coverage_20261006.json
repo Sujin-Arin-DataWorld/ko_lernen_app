@@ -14,10 +14,10 @@
     "mappedCoverageStatusDerivedFromNativeUsageRegistry": true
   },
   "summary": {
-    "trackedItemCount": 20519,
-    "mappedItemCount": 17970,
+    "trackedItemCount": 20711,
+    "mappedItemCount": 18162,
     "explicitUnmappedItemCount": 2549,
-    "unparsedDraftSourceCount": 80,
+    "unparsedDraftSourceCount": 81,
     "byKind": {
       "canonical_scenario_brief": {
         "total": 120,
@@ -25,8 +25,8 @@
         "explicitUnmapped": 18
       },
       "cloze": {
-        "total": 5432,
-        "mapped": 4879,
+        "total": 5496,
+        "mapped": 4943,
         "explicitUnmapped": 553
       },
       "culture_story_arc": {
@@ -45,8 +45,8 @@
         "explicitUnmapped": 0
       },
       "satz": {
-        "total": 7209,
-        "mapped": 6592,
+        "total": 7273,
+        "mapped": 6656,
         "explicitUnmapped": 617
       },
       "scenario": {
@@ -65,23 +65,23 @@
         "explicitUnmapped": 117
       },
       "vocab": {
-        "total": 5968,
-        "mapped": 5213,
+        "total": 6032,
+        "mapped": 5277,
         "explicitUnmapped": 755
       }
     },
     "mappedCountsByCanonicalTopic": {
-      "personal_identification": 250,
-      "family_relationships": 3082,
+      "personal_identification": 253,
+      "family_relationships": 3094,
       "house_home": 809,
       "neighbourhood_environment": 367,
-      "daily_life_routines": 1285,
+      "daily_life_routines": 1360,
       "numbers_time_dates": 745,
       "food_drink": 655,
       "shopping_consumption": 514,
       "transport_wayfinding": 392,
       "travel_accommodation": 238,
-      "health_body": 483,
+      "health_body": 522,
       "free_time_hobbies_sport": 502,
       "media_entertainment_culture_pop": 343,
       "education_study": 808,
@@ -89,9 +89,9 @@
       "services_public_admin": 489,
       "communication_phone_digital": 336,
       "weather_nature_climate": 415,
-      "feelings_character": 668,
+      "feelings_character": 716,
       "social_etiquette_customs": 487,
-      "language_learning_communication_repair": 209,
+      "language_learning_communication_repair": 224,
       "money_finance_contracts": 317,
       "technology_digital_ai": 445,
       "environment_sustainability": 152,
@@ -181996,6 +181996,1030 @@
     },
     {
       "kind": "vocab",
+      "itemId": "vocab_b1_0490",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0491",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "personal_identification",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Zeit & Lebenslauf"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0492",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gesundheit"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0493",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0494",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0495",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0496",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0497",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0498",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0499",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0500",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0501",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0502",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0503",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0504",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0505",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0506",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0507",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0508",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0509",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0510",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0511",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0512",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0513",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0514",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0515",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0516",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0517",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0518",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0519",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0520",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0521",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0522",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0523",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0524",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0525",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0526",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0527",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0528",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0529",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0530",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0531",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0532",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0533",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0534",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0535",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0536",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0537",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0538",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0539",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0540",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0541",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0542",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0543",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0544",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0545",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0546",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0547",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0548",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0549",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0550",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0551",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0552",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
+      "itemId": "vocab_b1_0553",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_rows.csv",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_vocab_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_vocab_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "vocab",
       "itemId": "vocab_b1_0248",
       "sourcePath": "tools/content_factory/drafts/c3_batch01_vocab_b1_b2.csv",
       "approvalState": "draft_or_review_artifact",
@@ -264343,6 +265367,2118 @@
         "reason": "draft_vocab_topic_inheritance",
         "sourceVocabId": "vocab_a2_0773",
         "vocabKo": "이용하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0292",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0293",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "personal_identification",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Zeit & Lebenslauf"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0294",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gesundheit"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0295",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0296",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0297",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0298",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0299",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Sprache & Ausdruck"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0300",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0301",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0302",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0303",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0304",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0305",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0306",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0307",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0308",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0309",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0310",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0311",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Alltag"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0312",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0313",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0314",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0315",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0316",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0317",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0318",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0319",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0320",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0321",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0322",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0323",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Nützliche Verben"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0324",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0325",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0326",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0327",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0328",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0329",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0330",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0331",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0332",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Gefühle"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0333",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0334",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0335",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Beziehungen"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0336",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0337",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0338",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0339",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0340",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0341",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0342",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0343",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0344",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0345",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0346",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0347",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Krankenhaus & Apotheke"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0348",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0349",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0350",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0351",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0352",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0353",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0354",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "cloze",
+      "itemId": "cloze_b1_0355",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_cloze.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "exact_cloze_topic_alias",
+      "mappingEvidence": {
+        "reason": "exact_cloze_topic_alias",
+        "topic": "Eigenschaften"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0485",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0490",
+        "vocabKo": "챙기다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0486",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "personal_identification",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0491",
+        "vocabKo": "추억"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0487",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0492",
+        "vocabKo": "예방"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0488",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0493",
+        "vocabKo": "알아듣다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0489",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0494",
+        "vocabKo": "한자"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0490",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0495",
+        "vocabKo": "읽기"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0491",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0496",
+        "vocabKo": "쓰기"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0492",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "language_learning_communication_repair",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0497",
+        "vocabKo": "한국말"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0493",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0498",
+        "vocabKo": "먼지"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0494",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0499",
+        "vocabKo": "걸레"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0495",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0500",
+        "vocabKo": "세제"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0496",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0501",
+        "vocabKo": "다리미"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0497",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0502",
+        "vocabKo": "커튼"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0498",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0503",
+        "vocabKo": "베란다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0499",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0504",
+        "vocabKo": "전자레인지"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0500",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0505",
+        "vocabKo": "봉지"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0501",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0506",
+        "vocabKo": "도시락"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0502",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0507",
+        "vocabKo": "볼일"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0503",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0508",
+        "vocabKo": "배터리"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0504",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0509",
+        "vocabKo": "사용법"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0505",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0510",
+        "vocabKo": "아끼다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0506",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0511",
+        "vocabKo": "옮기다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0507",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0512",
+        "vocabKo": "잠그다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0508",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0513",
+        "vocabKo": "널다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0509",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0514",
+        "vocabKo": "쏟다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0510",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0515",
+        "vocabKo": "깨지다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0511",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0516",
+        "vocabKo": "묶다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0512",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0517",
+        "vocabKo": "덮다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0513",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0518",
+        "vocabKo": "채우다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0514",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0519",
+        "vocabKo": "밀리다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0515",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0520",
+        "vocabKo": "놓치다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0516",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "daily_life_routines",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0521",
+        "vocabKo": "사라지다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0517",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0522",
+        "vocabKo": "속상하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0518",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0523",
+        "vocabKo": "아쉽다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0519",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0524",
+        "vocabKo": "창피"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0520",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0525",
+        "vocabKo": "실망"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0521",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0526",
+        "vocabKo": "안심"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0522",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0527",
+        "vocabKo": "다행히"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0523",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0528",
+        "vocabKo": "혼나다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0524",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0529",
+        "vocabKo": "부러워하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0525",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0530",
+        "vocabKo": "불만"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0526",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0531",
+        "vocabKo": "존경"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0527",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0532",
+        "vocabKo": "우정"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0528",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "family_relationships",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0533",
+        "vocabKo": "진심"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0529",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0534",
+        "vocabKo": "가렵다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0530",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0535",
+        "vocabKo": "어지럽다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0531",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0536",
+        "vocabKo": "붓다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0532",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0537",
+        "vocabKo": "코피"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0533",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0538",
+        "vocabKo": "멀미"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0534",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0539",
+        "vocabKo": "체하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0535",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0540",
+        "vocabKo": "소화"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0536",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0541",
+        "vocabKo": "발목"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0537",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0542",
+        "vocabKo": "몸살"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0538",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0543",
+        "vocabKo": "독감"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0539",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0544",
+        "vocabKo": "진찰"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0540",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "health_body",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0545",
+        "vocabKo": "응급실"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0541",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0546",
+        "vocabKo": "낡다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0542",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0547",
+        "vocabKo": "깔끔하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0543",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0548",
+        "vocabKo": "지저분하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0544",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0549",
+        "vocabKo": "싱싱하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0545",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0550",
+        "vocabKo": "낯설다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0546",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0551",
+        "vocabKo": "신기하다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0547",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0552",
+        "vocabKo": "멋지다"
+      },
+      "researchCoverageStatus": "topic_profile_deep_pass_complete"
+    },
+    {
+      "kind": "satz",
+      "itemId": "satz_b1_0548",
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_satz.json",
+      "approvalState": "draft_or_review_artifact",
+      "canonicalTopicId": "feelings_character",
+      "secondaryCanonicalTopicIds": [],
+      "subtopicId": null,
+      "registerLane": "pedagogical_or_mixed",
+      "mappingMethod": "draft_vocab_topic_inheritance",
+      "mappingEvidence": {
+        "reason": "draft_vocab_topic_inheritance",
+        "sourceVocabId": "vocab_b1_0553",
+        "vocabKo": "대단하다"
       },
       "researchCoverageStatus": "topic_profile_deep_pass_complete"
     },
@@ -366916,6 +370052,12 @@
     },
     {
       "sourcePath": "tools/content_factory/drafts/batch_42_a2_reinforcement_manifest.json",
+      "approvalState": "draft_or_review_artifact",
+      "trackingStatus": "file_level_explicit_unmapped",
+      "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
+    },
+    {
+      "sourcePath": "tools/content_factory/drafts/batch_43_b1_reinforcement_manifest.json",
       "approvalState": "draft_or_review_artifact",
       "trackingStatus": "file_level_explicit_unmapped",
       "unmappedReason": "legacy_or_batch_specific_draft_schema_not_registered_for_item_level_topic_mapping"
