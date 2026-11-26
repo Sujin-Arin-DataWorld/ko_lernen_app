@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 270,
+  "packCount": 271,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -787,7 +787,9 @@
         "vocab_a2_0060",
         "vocab_a2_0527",
         "vocab_a2_0528",
-        "vocab_a2_0529"
+        "vocab_a2_0529",
+        "vocab_a2_0762",
+        "vocab_a2_0763"
       ],
       "status": "approved_motif_fallback",
       "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
@@ -1050,7 +1052,9 @@
         "vocab_a2_0126",
         "vocab_a2_0127",
         "vocab_a2_0128",
-        "vocab_a2_0557"
+        "vocab_a2_0557",
+        "vocab_a2_0760",
+        "vocab_a2_0761"
       ],
       "status": "approved_dedicated",
       "sha256": "baa4e3c4f3841f9cf1e0a30a622fc4cb9eb14cb671d9ee77feaddb29af8b44d9",
@@ -10175,6 +10179,42 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_daily_4",
+      "level": "A2",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "꽃집 · 시내 · 닭고기 · 물티슈",
+      "subjectPromptEn": "a modern still life expressing flower shop, downtown, city center, chicken (meat), wet wipe",
+      "evidenceWordIds": [
+        "vocab_a2_0764",
+        "vocab_a2_0765",
+        "vocab_a2_0766",
+        "vocab_a2_0767",
+        "vocab_a2_0768",
+        "vocab_a2_0769",
+        "vocab_a2_0770",
+        "vocab_a2_0771",
+        "vocab_a2_0772",
+        "vocab_a2_0773"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
       "qa": {
         "fourThree": {
           "status": "pass",

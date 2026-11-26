@@ -346,7 +346,13 @@
               }
             ]
           },
-          "liveVocabMatches": [],
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0772",
+              "level": "A2",
+              "packId": "a2_daily_4"
+            }
+          ],
           "classification": "at_or_below_target",
           "flags": [
             "not_attested_in_dialog"
@@ -568,7 +574,13 @@
               }
             ]
           },
-          "liveVocabMatches": [],
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0772",
+              "level": "A2",
+              "packId": "a2_daily_4"
+            }
+          ],
           "classification": "at_or_below_target",
           "flags": [
             "not_attested_in_dialog"

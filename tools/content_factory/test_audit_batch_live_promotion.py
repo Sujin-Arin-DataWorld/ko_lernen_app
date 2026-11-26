@@ -21,10 +21,10 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         # Batch 38 and Batch 39 each add five canonical persona-culture
         # scenarios. Batch 40 adds five pending records and remains outside live.
         # C3-T6 (2026-11-25): A2 Batches 32-34 (3 x 192 records) promoted.
-        self.assertEqual(result["trackedIds"], 8369)
-        self.assertEqual(result["liveIds"], 7998)
-        # Batch 40 (5) + the pending Batch 42 A2 draft (14 x 3 = 42).
-        self.assertEqual(result["pendingIds"], 47)
+        # C3-T7 (2026-11-26): A2 Batch 42 (14 x 3 records) promoted.
+        self.assertEqual(result["trackedIds"], 8411)
+        self.assertEqual(result["liveIds"], 8040)
+        self.assertEqual(result["pendingIds"], 5)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
             result["trackedIds"],
@@ -66,8 +66,9 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertEqual(batch40["auditStatus"], "pending_not_live")
         batch42 = manifests["batch_42_a2_reinforcement_manifest.json"]
         self.assertEqual(batch42["tracked"], 42)
-        self.assertEqual(batch42["live"], 0)
-        self.assertEqual(batch42["auditStatus"], "pending_not_live")
+        self.assertEqual(batch42["live"], 42)
+        self.assertEqual(batch42["auditStatus"], "live_verified_modern")
+        self.assertEqual(batch42["reviewStatuses"], {"approved": 42})
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
             self.assertEqual(report["auditStatus"], "live_verified_modern")

@@ -113,7 +113,7 @@ REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_
 
 APPROVED_AT = "2026-09-16"
 # Batches 32-34 were Jin-approved later, after the 2026-11-25 Claude R9 review.
-APPROVED_AT_BY_BATCH = {32: "2026-11-25", 33: "2026-11-25", 34: "2026-11-25"}
+APPROVED_AT_BY_BATCH = {32: "2026-11-25", 33: "2026-11-25", 34: "2026-11-25", 42: "2026-11-26"}
 APPROVAL_SOURCE = {
     26: "owner chat: 'Batch 26·27 승인'",
     27: "owner chat: 'Batch 26·27 승인'",
@@ -124,6 +124,7 @@ APPROVAL_SOURCE = {
     32: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
     33: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
     34: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
+    42: "owner chat: '표본 승인' (Batch 42 packet, all 14 rows shown)",
 }
 BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows",
                  27: "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows",
@@ -133,12 +134,13 @@ BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows
                  31: "7/62 (30) · 7/64 (31)",
                  32: "7/64 each (32 · 33 · 34)",
                  33: "7/64 each (32 · 33 · 34)",
-                 34: "7/64 each (32 · 33 · 34)"}
+                 34: "7/64 each (32 · 33 · 34)",
+                 42: "14/14 (full batch shown)"}
 # Task label per batch (26-28 were promoted together under C3-T3; 29 is
 # promoted separately under C3-T4; 30-31 together under C3-T5) -- used in
 # the memo/promotion-note text.
 TASK_LABEL = {26: "C3-T3", 27: "C3-T3", 28: "C3-T3", 29: "C3-T4", 30: "C3-T5", 31: "C3-T5",
-              32: "C3-T6", 33: "C3-T6", 34: "C3-T6"}
+              32: "C3-T6", 33: "C3-T6", 34: "C3-T6", 42: "C3-T7"}
 TOGETHER_NOTE = {
     26: "Batch 26·27 approved together",
     27: "Batch 26·27 approved together",
@@ -149,10 +151,11 @@ TOGETHER_NOTE = {
     32: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
     33: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
     34: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
+    42: "Batch 42 approved on its own (Sejong-comparison grade-2 words, 1 new pack)",
 }
 # Level of each batch (lowercase) -- asserted against the --level flag so a
 # mistyped flag fails loudly instead of silently mis-tagging content.
-LEVEL_BY_BATCH = {26: "a1", 27: "a1", 28: "a1", 29: "a1", 30: "a1", 31: "a2", 32: "a2", 33: "a2", 34: "a2"}
+LEVEL_BY_BATCH = {26: "a1", 27: "a1", 28: "a1", 29: "a1", 30: "a1", 31: "a2", 32: "a2", 33: "a2", 34: "a2", 42: "a2"}
 # NIKL kiiq grade number per level, used in the review-ledger field_notes text.
 LEVEL_GRADE = {"a1": 1, "a2": 2}
 
@@ -439,7 +442,7 @@ def main(batch: int, level: str, apply: bool) -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29, 30, 31, 32, 33, 34))
+    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29, 30, 31, 32, 33, 34, 42))
     ap.add_argument("--level", type=str, required=True, choices=("a1", "a2", "A1", "A2"))
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--check", action="store_true")

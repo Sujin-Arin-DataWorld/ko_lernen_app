@@ -11,7 +11,8 @@
       ],
       "promptDe": "Meine ältere Schwester arbeitet als Krankenpflegerin im Krankenhaus.",
       "promptEn": "My older sister works as a nurse at a hospital.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0753",
@@ -24,7 +25,8 @@
       ],
       "promptDe": "Maya, mein jüngerer Bruder ist Fußballspieler.",
       "promptEn": "Maya, my younger brother is a soccer player.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0754",
@@ -37,7 +39,8 @@
       ],
       "promptDe": "Der Frühling ist da, und im Park blühen viele Blumen.",
       "promptEn": "Spring has come, and lots of flowers are blooming in the park.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0755",
@@ -50,7 +53,8 @@
       ],
       "promptDe": "Nach dem Regen ist ein blauer Himmel zu sehen.",
       "promptEn": "After the rain, you can see a blue sky.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0756",
@@ -63,7 +67,8 @@
       ],
       "promptDe": "Zum Geburtstag meiner Mutter habe ich im Blumenladen Blumen gekauft.",
       "promptEn": "For my mother's birthday, I bought flowers at the flower shop.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0757",
@@ -76,7 +81,8 @@
       ],
       "promptDe": "Am Wochenende war ich mit einem Freund in der Innenstadt im Kino.",
       "promptEn": "On the weekend, I watched a movie downtown with a friend.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0758",
@@ -89,7 +95,8 @@
       ],
       "promptDe": "Ich mag Hähnchen lieber als Rindfleisch.",
       "promptEn": "I like chicken more than beef.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0759",
@@ -102,7 +109,8 @@
       ],
       "promptDe": "Ich habe meine schmutzigen Hände mit einem Feuchttuch abgewischt.",
       "promptEn": "I wiped my dirty hands with a wet wipe.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0760",
@@ -115,7 +123,8 @@
       ],
       "promptDe": "In der Nähe der Firma hat ein neues Café aufgemacht.",
       "promptEn": "A new café has opened near the office.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0761",
@@ -128,7 +137,8 @@
       ],
       "promptDe": "Lena, ich hatte gestern eine Erkältung und habe im Unterricht gefehlt.",
       "promptEn": "Lena, I had a cold yesterday, so I missed class.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0762",
@@ -141,7 +151,8 @@
       ],
       "promptDe": "Ich habe die Lehrerin nach einem unbekannten Wort gefragt.",
       "promptEn": "I asked my teacher about a word I didn't know.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0763",
@@ -154,7 +165,8 @@
       ],
       "promptDe": "Meine Kleidung war schmutzig, also habe ich Wäsche gewaschen.",
       "promptEn": "My clothes were dirty, so I did the laundry.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0764",
@@ -167,7 +179,8 @@
       ],
       "promptDe": "Sujin, haben Sie die E-Mail gesehen? Die Besprechung wurde verlegt.",
       "promptEn": "Sujin, did you check the email? The meeting time has changed.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0765",
@@ -180,7 +193,8 @@
       ],
       "promptDe": "Für den Arbeitsweg nehme ich die U-Bahn.",
       "promptEn": "I take the subway to commute.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     }
   ]
 }

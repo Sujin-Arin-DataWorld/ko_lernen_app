@@ -172,7 +172,7 @@ void main() {
   final items = sourceRows.map(ClozeItem.fromJson).toList(growable: false);
   final canonicalTopics = items.map((item) => item.topic).toSet();
 
-  test('accepted canonical baseline is exactly 2,557 items and 140 topics', () {
+  test('accepted canonical baseline is exactly 2,571 items and 140 topics', () {
     // C3-T5 (2026-09-16): Batch 30 A1 reinforcement adds 62 cloze items and
     // 2 new exact topic strings (Selbstvorstellung, Tiere). 2215 + 62 =
     // 2277; 132 + 2 = 134. Batch 31 A2 reinforcement (first A2 batch) adds
@@ -181,7 +181,8 @@ void main() {
     // C2 batches 35 and 37 add 24 items with two new exact topics.
     // C3-T6 (2026-11-25): A2 Batches 32-34 add 192 items (2365 + 192 =
     // 2557) and two new exact topics (Kleidung, Reisen): 138 + 2 = 140.
-    expect(items, hasLength(2557));
+    // C3-T7 (2026-11-26): A2 Batch 42 adds 14 items, no new topics.
+    expect(items, hasLength(2571));
     expect(canonicalTopics, hasLength(140));
     expect(items.every((item) => item.topic.trim().isNotEmpty), isTrue);
     expect(items.every((item) => item.hasExplicitId), isTrue);

@@ -43,6 +43,8 @@ PACK_CLUSTER = {
     "a2_home_routines_1": "cluster_a2_rent_bank_transfer_v1",
     "a2_time_span_1": "cluster_a2_plans_with_friend_v1",
     "a2_weather_sky_1": "cluster_a2_running_late_v1",
+    # Batch 42 (2026-11-26): new partial under the existing a2_daily base.
+    "a2_daily_4": "cluster_a2_haeyo_register_transition_v1",
 }
 
 

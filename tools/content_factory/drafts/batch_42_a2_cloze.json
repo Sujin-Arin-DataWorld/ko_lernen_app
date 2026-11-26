@@ -14,7 +14,8 @@
       "de": "Meine ältere Schwester arbeitet als Krankenpflegerin im Krankenhaus.",
       "en": "My older sister works as a nurse at a hospital.",
       "level": "a2",
-      "topic": "Beruf"
+      "topic": "Beruf",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0568",
@@ -30,7 +31,8 @@
       "de": "Maya, mein jüngerer Bruder ist Fußballspieler.",
       "en": "Maya, my younger brother is a soccer player.",
       "level": "a2",
-      "topic": "Beruf"
+      "topic": "Beruf",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0569",
@@ -46,7 +48,8 @@
       "de": "Der Frühling ist da, und im Park blühen viele Blumen.",
       "en": "Spring has come, and lots of flowers are blooming in the park.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0570",
@@ -62,7 +65,8 @@
       "de": "Nach dem Regen ist ein blauer Himmel zu sehen.",
       "en": "After the rain, you can see a blue sky.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0571",
@@ -78,7 +82,8 @@
       "de": "Zum Geburtstag meiner Mutter habe ich im Blumenladen Blumen gekauft.",
       "en": "For my mother's birthday, I bought flowers at the flower shop.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0572",
@@ -94,7 +99,8 @@
       "de": "Am Wochenende war ich mit einem Freund in der Innenstadt im Kino.",
       "en": "On the weekend, I watched a movie downtown with a friend.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0573",
@@ -110,7 +116,8 @@
       "de": "Ich mag Hähnchen lieber als Rindfleisch.",
       "en": "I like chicken more than beef.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0574",
@@ -126,7 +133,8 @@
       "de": "Ich habe meine schmutzigen Hände mit einem Feuchttuch abgewischt.",
       "en": "I wiped my dirty hands with a wet wipe.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0575",
@@ -142,7 +150,8 @@
       "de": "In der Nähe der Firma hat ein neues Café aufgemacht.",
       "en": "A new café has opened near the office.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0576",
@@ -158,7 +167,8 @@
       "de": "Lena, ich hatte gestern eine Erkältung und habe im Unterricht gefehlt.",
       "en": "Lena, I had a cold yesterday, so I missed class.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0577",
@@ -174,7 +184,8 @@
       "de": "Ich habe die Lehrerin nach einem unbekannten Wort gefragt.",
       "en": "I asked my teacher about a word I didn't know.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0578",
@@ -190,7 +201,8 @@
       "de": "Meine Kleidung war schmutzig, also habe ich Wäsche gewaschen.",
       "en": "My clothes were dirty, so I did the laundry.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0579",
@@ -206,7 +218,8 @@
       "de": "Sujin, haben Sie die E-Mail gesehen? Die Besprechung wurde verlegt.",
       "en": "Sujin, did you check the email? The meeting time has changed.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0580",
@@ -222,7 +235,8 @@
       "de": "Für den Arbeitsweg nehme ich die U-Bahn.",
       "en": "I take the subway to commute.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     }
   ]
 }

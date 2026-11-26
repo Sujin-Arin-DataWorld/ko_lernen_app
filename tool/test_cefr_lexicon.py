@@ -760,7 +760,8 @@ class TestVocabUnknownRatio(unittest.TestCase):
         # 31 adds 64 words (first A2 promotion). 2880+64=2944.
         # C2 Batch 35/37 (2026-10-03) add 24 words. 2944+24=2968.
         # C3-T6 (2026-11-25): A2 Batches 32-34 add 192 words. 2968+192=3160.
-        self.assertEqual(len(self.rows), 3160)
+        # C3-T7 (2026-11-26): A2 Batch 42 adds 14 words. 3160+14=3174.
+        self.assertEqual(len(self.rows), 3174)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):

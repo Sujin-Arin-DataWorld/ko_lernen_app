@@ -31,10 +31,11 @@ void main() {
       // pack. 2880 + 64 = 2944.
       // C2 batches 35 and 37 add 24 words across two packs.
       // C3-T6 (2026-11-25): A2 Batches 32-34 add 192 words and 16 new packs.
-      expect(vocab, hasLength(3160));
+      // C3-T7 (2026-11-26): A2 Batch 42 adds 14 words and 1 new pack.
+      expect(vocab, hasLength(3174));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
-        hasLength(270),
+        hasLength(271),
       );
 
       expect(

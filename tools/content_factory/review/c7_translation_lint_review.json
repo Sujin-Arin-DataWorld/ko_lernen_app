@@ -885,6 +885,34 @@
       ],
       "textSha256": "83eed40d3441a967da356402025464f0ccf8279a72bd74b322a93829d2cee958",
       "reason": "2026-11-25 Claude review at A2 Batch 32-34 promotion: the DE/EN example renders the Korean connective clause (-아서/-지만/-고/-러) as a full natural clause; every word carries meaning and shortening would drop the reason or sequence. Korean agglutination, not padding."
+    },
+    "vocab_a2_0763": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "9d979fc2a35c88a53a8721d07b46801923ad72e9535c08f8cfc742de98c82052",
+      "reason": "2026-11-26 Claude review at A2 Batch 42 promotion: the headword is used correctly in an irregular or contracted conjugation (ㅂ-irregular 더러워서, ㅎ-irregular 파란, vowel fusion 생겼어요, 여쭙다 -> 여쭤봤어요) that a plain substring check cannot match."
+    },
+    "vocab_a2_0768": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "525df28b4880e0950dd65459e7a02cbe8329cfaececb96dff6f46a22216aef3e",
+      "reason": "2026-11-26 Claude review at A2 Batch 42 promotion: the headword is used correctly in an irregular or contracted conjugation (ㅂ-irregular 더러워서, ㅎ-irregular 파란, vowel fusion 생겼어요, 여쭙다 -> 여쭤봤어요) that a plain substring check cannot match."
+    },
+    "vocab_a2_0770": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "9c8945f55e1e49495f637554e4dd190582e71345b1706e0485bcb4b0cc8c9338",
+      "reason": "2026-11-26 Claude review at A2 Batch 42 promotion: the headword is used correctly in an irregular or contracted conjugation (ㅂ-irregular 더러워서, ㅎ-irregular 파란, vowel fusion 생겼어요, 여쭙다 -> 여쭤봤어요) that a plain substring check cannot match."
+    },
+    "vocab_a2_0771": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "2a1318957df2bd8c340abd411a61b8c630f55e176b672e48a0822a886e22ff77",
+      "reason": "2026-11-26 Claude review at A2 Batch 42 promotion: the headword is used correctly in an irregular or contracted conjugation (ㅂ-irregular 더러워서, ㅎ-irregular 파란, vowel fusion 생겼어요, 여쭙다 -> 여쭤봤어요) that a plain substring check cannot match."
     }
   }
 }

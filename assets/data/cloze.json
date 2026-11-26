@@ -1,9 +1,9 @@
 {
   "meta": {
-    "total": 2557,
+    "total": 2571,
     "perLevel": {
       "a1": 652,
-      "a2": 529,
+      "a2": 543,
       "b1": 438,
       "b2": 414,
       "c1": 250,
@@ -40459,6 +40459,244 @@
       "level": "a2",
       "topic": "Wetter",
       "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "cloze_a2_0567",
+      "sourceVocabId": "vocab_a2_0760",
+      "fullKo": "제 언니는 병원에서 간호사로 일해요.",
+      "sentenceKo": "제 언니는 병원에서 ＿＿＿ 일해요.",
+      "answer": "간호사로",
+      "distractors": [
+        "학교로",
+        "바다로",
+        "우유로"
+      ],
+      "de": "Meine ältere Schwester arbeitet als Krankenpflegerin im Krankenhaus.",
+      "en": "My older sister works as a nurse at a hospital.",
+      "level": "a2",
+      "topic": "Beruf",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "cloze_a2_0568",
+      "sourceVocabId": "vocab_a2_0761",
+      "fullKo": "마야 씨, 제 동생은 축구 선수예요.",
+      "sentenceKo": "마야 씨, 제 동생은 축구 ＿＿＿.",
+      "answer": "선수예요",
+      "distractors": [
+        "의자예요",
+        "우유예요",
+        "바다예요"
+      ],
+      "de": "Maya, mein jüngerer Bruder ist Fußballspieler.",
+      "en": "Maya, my younger brother is a soccer player.",
+      "level": "a2",
+      "topic": "Beruf",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "cloze_a2_0569",
+      "sourceVocabId": "vocab_a2_0762",
+      "fullKo": "봄이 와서 공원에 꽃이 많이 피었어요.",
+      "sentenceKo": "봄이 와서 공원에 꽃이 많이 ＿＿＿.",
+      "answer": "피었어요",
+      "distractors": [
+        "먹었어요",
+        "읽었어요",
+        "입었어요"
+      ],
+      "de": "Der Frühling ist da, und im Park blühen viele Blumen.",
+      "en": "Spring has come, and lots of flowers are blooming in the park.",
+      "level": "a2",
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "cloze_a2_0570",
+      "sourceVocabId": "vocab_a2_0763",
+      "fullKo": "비가 그친 후에 파란 하늘이 보여요.",
+      "sentenceKo": "비가 그친 후에 ＿＿＿ 하늘이 보여요.",
+      "answer": "파란",
+      "distractors": [
+        "짠",
+        "매운",
+        "신"
+      ],
+      "de": "Nach dem Regen ist ein blauer Himmel zu sehen.",
+      "en": "After the rain, you can see a blue sky.",
+      "level": "a2",
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "cloze_a2_0571",
+      "sourceVocabId": "vocab_a2_0764",
+      "fullKo": "어머니 생신이라서 꽃집에서 꽃을 샀어요.",
+      "sentenceKo": "어머니 생신이라서 ＿＿＿ 꽃을 샀어요.",
+      "answer": "꽃집에서",
+      "distractors": [
+        "약국에서",
+        "은행에서",
+        "세탁소에서"
+      ],
+      "de": "Zum Geburtstag meiner Mutter habe ich im Blumenladen Blumen gekauft.",
+      "en": "For my mother's birthday, I bought flowers at the flower shop.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0572",
+      "sourceVocabId": "vocab_a2_0765",
+      "fullKo": "주말에 친구랑 시내에서 영화를 봤어요.",
+      "sentenceKo": "주말에 친구랑 ＿＿＿ 영화를 봤어요.",
+      "answer": "시내에서",
+      "distractors": [
+        "부엌에서",
+        "교실에서",
+        "병원에서"
+      ],
+      "de": "Am Wochenende war ich mit einem Freund in der Innenstadt im Kino.",
+      "en": "On the weekend, I watched a movie downtown with a friend.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0573",
+      "sourceVocabId": "vocab_a2_0766",
+      "fullKo": "저는 소고기보다 닭고기를 더 좋아해요.",
+      "sentenceKo": "저는 소고기보다 ＿＿＿ 더 좋아해요.",
+      "answer": "닭고기를",
+      "distractors": [
+        "우유를",
+        "의자를",
+        "바지를"
+      ],
+      "de": "Ich mag Hähnchen lieber als Rindfleisch.",
+      "en": "I like chicken more than beef.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0574",
+      "sourceVocabId": "vocab_a2_0767",
+      "fullKo": "더러운 손을 물티슈로 닦았어요.",
+      "sentenceKo": "더러운 손을 ＿＿＿ 닦았어요.",
+      "answer": "물티슈로",
+      "distractors": [
+        "우유로",
+        "의자로",
+        "주스로"
+      ],
+      "de": "Ich habe meine schmutzigen Hände mit einem Feuchttuch abgewischt.",
+      "en": "I wiped my dirty hands with a wet wipe.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0575",
+      "sourceVocabId": "vocab_a2_0768",
+      "fullKo": "회사 근처에 새 카페가 생겼어요.",
+      "sentenceKo": "회사 근처에 새 카페가 ＿＿＿.",
+      "answer": "생겼어요",
+      "distractors": [
+        "읽었어요",
+        "먹었어요",
+        "걸었어요"
+      ],
+      "de": "In der Nähe der Firma hat ein neues Café aufgemacht.",
+      "en": "A new café has opened near the office.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0576",
+      "sourceVocabId": "vocab_a2_0769",
+      "fullKo": "레나 씨, 어제 감기에 걸려서 수업에 결석했어요.",
+      "sentenceKo": "레나 씨, 어제 감기에 걸려서 수업에 ＿＿＿.",
+      "answer": "결석했어요",
+      "distractors": [
+        "졸업했어요",
+        "청소했어요",
+        "요리했어요"
+      ],
+      "de": "Lena, ich hatte gestern eine Erkältung und habe im Unterricht gefehlt.",
+      "en": "Lena, I had a cold yesterday, so I missed class.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0577",
+      "sourceVocabId": "vocab_a2_0770",
+      "fullKo": "모르는 단어를 선생님께 여쭤봤어요.",
+      "sentenceKo": "모르는 단어를 선생님께 ＿＿＿.",
+      "answer": "여쭤봤어요",
+      "distractors": [
+        "입어봤어요",
+        "찾아봤어요",
+        "들어봤어요"
+      ],
+      "de": "Ich habe die Lehrerin nach einem unbekannten Wort gefragt.",
+      "en": "I asked my teacher about a word I didn't know.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0578",
+      "sourceVocabId": "vocab_a2_0771",
+      "fullKo": "옷이 더러워서 빨래를 했어요.",
+      "sentenceKo": "옷이 ＿＿＿ 빨래를 했어요.",
+      "answer": "더러워서",
+      "distractors": [
+        "추워서",
+        "더워서",
+        "매워서"
+      ],
+      "de": "Meine Kleidung war schmutzig, also habe ich Wäsche gewaschen.",
+      "en": "My clothes were dirty, so I did the laundry.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0579",
+      "sourceVocabId": "vocab_a2_0772",
+      "fullKo": "수진 씨, 메일을 확인했어요? 회의 시간이 바뀌었어요.",
+      "sentenceKo": "수진 씨, 메일을 ＿＿＿? 회의 시간이 바뀌었어요.",
+      "answer": "확인했어요",
+      "distractors": [
+        "청소했어요",
+        "운동했어요",
+        "요리했어요"
+      ],
+      "de": "Sujin, haben Sie die E-Mail gesehen? Die Besprechung wurde verlegt.",
+      "en": "Sujin, did you check the email? The meeting time has changed.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "cloze_a2_0580",
+      "sourceVocabId": "vocab_a2_0773",
+      "fullKo": "출퇴근할 때 지하철을 이용해요.",
+      "sentenceKo": "출퇴근할 때 지하철을 ＿＿＿.",
+      "answer": "이용해요",
+      "distractors": [
+        "공부해요",
+        "청소해요",
+        "요리해요"
+      ],
+      "de": "Für den Arbeitsweg nehme ich die U-Bahn.",
+      "en": "I take the subway to commute.",
+      "level": "a2",
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     }
   ]
 }

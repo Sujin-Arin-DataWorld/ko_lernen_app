@@ -213,7 +213,7 @@
 
 ## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
-- 콘텐츠 규모: 어휘 3160 · 문법 264 · 시나리오 219 · 코스유닛 48 · cloze 2557 · satz 3077 · 스몰토크 590 · 미디어 136 · 발음 84 · 문화노트 36
+- 콘텐츠 규모: 어휘 3174 · 문법 264 · 시나리오 219 · 코스유닛 48 · cloze 2571 · satz 3091 · 스몰토크 590 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
 - 갭 행 합계: **502** (`tool/curriculum_matrix_gaps.csv`)
 
@@ -405,7 +405,7 @@
 | 상태 | 주제 | 초점(매트릭스) | 단어 | 팩 | 시나리오 | 유닛 | 스몰토크 | cloze | 근거 출처 |
 |---|---|---|---|---|---|---|---|---|---|
 | ✅ covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 전화·메신저·인터넷·약속 변경 알리기 | 16 | 3 | 5 | 1 | 4 | 14 | model_knowledge |
-| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 약속·일정·문제 상황 | 98 | 9 | 9 | 0 | 7 | 75 | model_knowledge |
+| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 약속·일정·문제 상황 | 108 | 10 | 9 | 0 | 7 | 85 | model_knowledge |
 | ✅ covered | `education_study` 교육·학교·학습 | 학교생활·수업 등록·실수 바로잡기 | 48 | 5 | 5 | 1 | 2 | 32 | model_knowledge |
 | ✅ covered | `family_relationships` 가족·인간관계 | 초대·외모/성격·연인·파트너 가족 명절 | 96 | 8 | 4 | 0 | 30 | 96 | model_knowledge |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 감정·기분·성격 묘사 | 60 | 5 | 1 | 1 | 4 | 35 | model_knowledge |
@@ -420,12 +420,12 @@
 | ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 명절 의례(세배·차례)·전통 놀이·초대 예절 | 0 | 2 | 1 | 0 | 16 | 0 | verified_repo |
 | ✅ covered | `transport_wayfinding` 교통·길 찾기 | 대중교통·길 찾기·이동 중 불편 요청 | 34 | 3 | 4 | 0 | 6 | 33 | model_knowledge |
 | ✅ covered | `travel_accommodation` 여행·숙박 | 여행·숙박·분실물 | 16 | 4 | 4 | 1 | 2 | 14 | model_knowledge |
-| ✅ covered | `work_career` 직업·직장·취업 | 직장 첫걸음·근무표·학교생활 | 34 | 3 | 4 | 1 | 6 | 20 | model_knowledge |
+| ✅ covered | `work_career` 직업·직장·취업 | 직장 첫걸음·근무표·학교생활 | 36 | 3 | 4 | 1 | 6 | 22 | model_knowledge |
 | 🟡 optional_thin | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 반말 실수 복구·말투 확인 | 2 | 1 | 0 | 0 | 0 | 0 | model_knowledge |
 | ✅ optional_covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 드라마·음악·굿즈 등 취향 이야기 | 0 | 0 | 2 | 0 | 6 | 0 | model_knowledge |
 | ✅ optional_covered | `numbers_time_dates` 숫자·시간·날짜 | 시간 조정·기간 표현 | 12 | 1 | 3 | 0 | 0 | 12 | model_knowledge |
 | ❌ optional_missing | `personal_identification` 개인 신상·자기소개 | 한국 생활 소개·온 기간 | 0 | 0 | 0 | 0 | 0 | 0 | model_knowledge |
-| ✅ optional_covered | `weather_nature_climate` 날씨·계절·자연 | 날씨에 따른 계획 변경 | 40 | 4 | 3 | 0 | 2 | 28 | model_knowledge |
+| ✅ optional_covered | `weather_nature_climate` 날씨·계절·자연 | 날씨에 따른 계획 변경 | 42 | 4 | 3 | 0 | 2 | 30 | model_knowledge |
 | ➕ beyond_matrix | `economy_business_labour` 경제·기업·노동시장 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `environment_sustainability` 환경·기후·지속가능성 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `intercultural_globalisation_migration` 문화 차이·세계화·이주 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
@@ -527,10 +527,10 @@
 | ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 2 |
 | ➕ beyond_matrix | `numbers_quantity_units` 수·수량·단위명사 | 12 |
 | ➕ beyond_matrix | `places_buildings_city` 장소·건물·도시 | 2 |
-| ➕ beyond_matrix | `professions_workplace` 직업·직장 어휘 | 34 |
+| ➕ beyond_matrix | `professions_workplace` 직업·직장 어휘 | 36 |
 | ➕ beyond_matrix | `school_study_terms` 학교·학습 어휘 | 48 |
 | ➕ beyond_matrix | `time_calendar` 시간·날짜·요일·계절 | 25 |
-| ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 40 |
+| ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 42 |
 
 ### A2 문체·존대 — 시나리오 분포: banmal_casual 14, haeyo_polite 21, intimate 3
 

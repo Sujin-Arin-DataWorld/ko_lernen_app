@@ -1818,7 +1818,7 @@
     {
       "id": "cluster_a2_haeyo_register_transition_v1",
       "level": "a2",
-      "revision": 9,
+      "revision": 10,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_change_verbs_1_v1",
         "seed_vocab_pack_a2_daily_1_v1",
@@ -1853,7 +1853,8 @@
         "seed_scenario_favorite_drama_chat_v1",
         "seed_scenario_samgyeopsal_first_time_v1",
         "seed_cloze_cloze_a2_0319_v1",
-        "seed_vocab_pack_a2_daily_actions_1_v1"
+        "seed_vocab_pack_a2_daily_actions_1_v1",
+        "seed_vocab_pack_a2_daily_4_v1"
       ],
       "contentReferences": [
         {
@@ -1991,6 +1992,10 @@
         {
           "kind": "vocabPack",
           "id": "a2_daily_actions_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_daily_4"
         }
       ]
     },

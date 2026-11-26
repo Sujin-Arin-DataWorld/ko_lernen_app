@@ -1,13 +1,18 @@
 {
   "version": 1,
   "batch": "c3_batch42_a2_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A2(2급) reinforcement - 14 NIKL grade-2 headwords that the Sejong textbook comparison found missing; placed at A2 by the 2026-11-25 Jin decision to follow the NIKL canon.",
     "rights": "original_clean_room",
     "seedSource": "Sejong comparison https://claude.ai/artifact/FcNwxgGMW9PJCK31jj2NBd + NIKL 2017 kiiq grades",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-11-26",
+      "source": "owner chat: '표본 승인' (Batch 42 packet, all 14 rows shown)",
+      "sample": "14/14 (full batch shown)"
+    },
     "modelLanguageQa": "CLAUDE_MODEL_QA",
     "humanLanguageQaClaim": false,
     "droppedCandidates": {
@@ -79,10 +84,10 @@
   },
   "reviewPacket": "docs/data/review_packets/batch_42_a2_jin_sample.md",
   "promotion": {
-    "assetsDataWritten": false,
-    "runtime": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "Draft only; Jin sample approval pending (level-canon D-4). Examples, translations and distractors authored by Claude 2026-11-26; MODEL_QA only, no human-language QA claim."
+    "note": "Promoted 2026-11-26 (C3-T7) after Jin approval (Batch 42 approved on its own (Sejong-comparison grade-2 words, 1 new pack)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   }
 }
