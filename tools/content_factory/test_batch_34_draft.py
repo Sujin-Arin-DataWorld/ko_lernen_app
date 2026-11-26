@@ -934,10 +934,19 @@ class TestBatch34Packs(unittest.TestCase):
         # live and every reinforcement draft through Batch 34.
         with NIKL_CSV.open(encoding="utf-8-sig", newline="") as f:
             g2 = {r["headword"] for r in csv.DictReader(f) if r["grade"] == "2" and not (r["headword"].startswith("-") or r["headword"].endswith("-"))}
-        live = {r["korean"] for r in _load_vocab_rows(VOCAB_CSV)}
+        # Historical receipt "through Batch 34": later drafts (Batch 42+) and
+        # their eventual live rows are excluded so they cannot shift it.
+        def _batch_no(path):
+            return int(path.name.split("_")[1])
+        later_ids = set()
         drafted = set()
         for path in DRAFTS.glob("batch_*_rows.csv"):
-            drafted |= {r["korean"] for r in _load_vocab_rows(path)}
+            rows = _load_vocab_rows(path)
+            if _batch_no(path) > 34:
+                later_ids |= {r["id"] for r in rows}
+                continue
+            drafted |= {r["korean"] for r in rows}
+        live = {r["korean"] for r in _load_vocab_rows(VOCAB_CSV) if r["id"] not in later_ids}
         # Preserve the authored manifest's historical 1085/599/535 receipt.
         # The 2026-09-24 source correction removes two malformed joined
         # headwords; it neither adds draft content nor grants human approval.

@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "batch": "c3_batch42_a2_reinforcement",
+  "status": "draft",
+  "provenance": {
+    "scope": "A2(2급) reinforcement - 14 NIKL grade-2 headwords that the Sejong textbook comparison found missing; placed at A2 by the 2026-11-25 Jin decision to follow the NIKL canon.",
+    "rights": "original_clean_room",
+    "seedSource": "Sejong comparison https://claude.ai/artifact/FcNwxgGMW9PJCK31jj2NBd + NIKL 2017 kiiq grades",
+    "requiresJinReview": true,
+    "approval": {},
+    "modelLanguageQa": "CLAUDE_MODEL_QA",
+    "humanLanguageQaClaim": false,
+    "droppedCandidates": {
+      "바르다": "already live (Batch 33)",
+      "긴장되다": "긴장 / 긴장하다 already live"
+    }
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch_42_a2_rows.csv",
+      "collection": null,
+      "count": 14,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_42_a2_vocab_review.csv"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch_42_a2_cloze.json",
+      "collection": "items",
+      "count": 14,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_42_a2_cloze_review.csv"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch_42_a2_satz.json",
+      "collection": "items",
+      "count": 14,
+      "level": "A2",
+      "review": "tools/content_factory/review/batch_42_a2_satz_review.csv"
+    }
+  ],
+  "recordCount": 42,
+  "packsFilledTo12": [
+    {
+      "pack_id": "a2_work",
+      "addedWords": [
+        "간호사",
+        "선수"
+      ],
+      "note": "fills empty pack_order 1-2; Boss words unchanged"
+    },
+    {
+      "pack_id": "a2_weather",
+      "addedWords": [
+        "피다",
+        "파랗다"
+      ],
+      "note": "fills empty pack_order 1-2; Boss words unchanged"
+    }
+  ],
+  "newPacks": [
+    {
+      "pack_id": "a2_daily_4",
+      "displayName": {
+        "de": "Alltag (A2) 4",
+        "en": "Daily Life (A2) 4"
+      },
+      "wordCount": 10,
+      "note": "existing a2_daily base; Boss = final 2 pack_order rows"
+    }
+  ],
+  "personaRowsNote": "3 rows use a leading vocative (마야, 레나, 수진); no persona appears more than once.",
+  "personaRows": {
+    "vocab_a2_0761": "maya",
+    "vocab_a2_0769": "lena",
+    "vocab_a2_0772": "sujin"
+  },
+  "reviewPacket": "docs/data/review_packets/batch_42_a2_jin_sample.md",
+  "promotion": {
+    "assetsDataWritten": false,
+    "runtime": false,
+    "tts": false,
+    "firebase": false,
+    "note": "Draft only; Jin sample approval pending (level-canon D-4). Examples, translations and distractors authored by Claude 2026-11-26; MODEL_QA only, no human-language QA claim."
+  }
+}

@@ -23,7 +23,8 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         # C3-T6 (2026-11-25): A2 Batches 32-34 (3 x 192 records) promoted.
         self.assertEqual(result["trackedIds"], 8369)
         self.assertEqual(result["liveIds"], 7998)
-        self.assertEqual(result["pendingIds"], 5)
+        # Batch 40 (5) + the pending Batch 42 A2 draft (14 x 3 = 42).
+        self.assertEqual(result["pendingIds"], 47)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
             result["trackedIds"],
@@ -63,6 +64,10 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertEqual(batch40["tracked"], 5)
         self.assertEqual(batch40["live"], 0)
         self.assertEqual(batch40["auditStatus"], "pending_not_live")
+        batch42 = manifests["batch_42_a2_reinforcement_manifest.json"]
+        self.assertEqual(batch42["tracked"], 42)
+        self.assertEqual(batch42["live"], 0)
+        self.assertEqual(batch42["auditStatus"], "pending_not_live")
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
             self.assertEqual(report["auditStatus"], "live_verified_modern")
