@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../features/onboarding_v2/curriculum_evidence_projector.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/learner_level.dart';
-import '../../motion/transitions.dart';
 import '../../widgets/sori/intro_motion.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/sheet.dart';
@@ -61,8 +60,20 @@ class COnboardingFrame extends StatelessWidget {
   final List<String> continueLabelCandidates;
   final double Function(BuildContext context, double width)? naturalHeroExtent;
 
+  /// The Einleitung no longer shows a visible "Zurück" action (Figma
+  /// 2026-11-25); [onBack] stays reachable through the system back gesture.
+  VoidCallback? get _visibleBack => null;
+
   @override
-  Widget build(BuildContext context) => Theme(
+  Widget build(BuildContext context) => PopScope(
+    canPop: onBack == null,
+    onPopInvokedWithResult: (didPop, _) {
+      if (!didPop) onBack?.call();
+    },
+    child: _themed(context),
+  );
+
+  Widget _themed(BuildContext context) => Theme(
     data: Theme.of(context).copyWith(
       colorScheme: Theme.of(context).colorScheme.copyWith(
         primary: IntroPalette.jade,
@@ -102,7 +113,7 @@ class COnboardingFrame extends StatelessWidget {
                 final backGap = reference
                     ? const [0.0, 9.0, 13.0, 13.0, 10.0, 7.0, 4.0][step - 1]
                     : 6.0;
-                final footerBottom = onBack == null
+                final footerBottom = _visibleBack == null
                     ? 27.0
                     : reference
                     ? 934 - ctaTop - 58 - backGap - 48
@@ -278,7 +289,7 @@ class COnboardingFrame extends StatelessWidget {
                                 onTap: onContinue,
                                 stableLabelCandidates: continueLabelCandidates,
                               ),
-                              if (onBack != null) ...[
+                              if (_visibleBack != null) ...[
                                 SizedBox(height: backGap),
                                 SoriTextAction(
                                   key: backKey,
@@ -322,8 +333,8 @@ class COnboardingFrame extends StatelessWidget {
         bounds.maxWidth < SoriAdaptiveWidth.onboardingCompactBody &&
         availableHeight < 740;
     final headerHeight = compactSetup ? 60.0 : 77.0;
-    final compactFooter = onBack != null && availableHeight < 740;
-    final footerHeight = compactFooter || onBack == null ? 70.0 : 122.0;
+    final compactFooter = _visibleBack != null && availableHeight < 740;
+    final footerHeight = compactFooter || _visibleBack == null ? 70.0 : 122.0;
     final contentHeight = availableHeight - footerHeight;
     final heroHeight = step == 1
         ? compactSetup
@@ -508,7 +519,7 @@ class COnboardingFrame extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             action,
-                            if (onBack != null) ...[
+                            if (_visibleBack != null) ...[
                               const SizedBox(height: 4),
                               SoriTextAction(
                                 key: backKey,
@@ -705,7 +716,9 @@ class IntroAction extends StatelessWidget {
                               top: gold ? (arrow ? 10 : 8) : 13,
                               child: labelWidget,
                             ),
-                            if (arrow)
+                            // Gold primary actions carry no chevron since the
+                            // 2026-11-25 Figma pass; `arrow` keeps its type size.
+                            if (arrow && !gold)
                               Positioned(
                                 right: gold ? 24 : 13,
                                 top: gold ? 16.5 : 19,
@@ -1337,69 +1350,61 @@ class COnboardingSetup extends StatelessWidget {
                 IntroPanel(
                   selected: true,
                   padding: const EdgeInsets.all(IntroSpacing.cardInset),
-                  child: LayoutBuilder(
-                    builder: (context, bounds) {
-                      final large = !IntroLayout.usesReferenceText(context);
-                      final words = Row(
-                        children: [
-                          IntroMedal(
-                            beginnerSelected ? '가' : level?.code ?? '–',
-                          ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                CIntroText(label, size: 24, bold: true),
-                                if (level != null || beginnerSelected)
-                                  CIntroText(
-                                    beginnerSelected
-                                        ? t.introNewHint
-                                        : level!.code == 'A2'
-                                        ? t.introA2Hint
-                                        : level.name,
-                                    size: 13,
-                                    color: IntroPalette.mutedInk,
-                                  ),
-                              ],
+                  // Figma 2026-11-25: medal + hint + compact "v" action.
+                  child: Row(
+                    children: [
+                      IntroMedal(beginnerSelected ? '가' : level?.code ?? '–'),
+                      const SizedBox(width: 12),
+                      Expanded(
+                        child: CIntroText(
+                          beginnerSelected
+                              ? t.introNewHint
+                              : level == null
+                              ? label
+                              : level.code == 'A2'
+                              ? t.introA2Hint
+                              : level.name,
+                          size: 17,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Semantics(
+                        button: true,
+                        label: t.onboardingCChange,
+                        onTap: () => _chooseLevel(context),
+                        child: IntroPressable(
+                          key: const ValueKey('c-onboarding-change-level'),
+                          onTap: () => _chooseLevel(context),
+                          child: ExcludeSemantics(
+                            child: Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: const LinearGradient(
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                  colors: [
+                                    Color(0xff0b6553),
+                                    Color(0xff034a3d),
+                                  ],
+                                ),
+                                border: Border.all(
+                                  color: IntroPalette.brass,
+                                  width: 1.5,
+                                ),
+                              ),
+                              child: const Icon(
+                                Icons.keyboard_arrow_down,
+                                size: 28,
+                                color: IntroPalette.brass,
+                              ),
                             ),
                           ),
-                        ],
-                      );
-                      final change = IntroAction(
-                        key: const ValueKey('c-onboarding-change-level'),
-                        label: t.onboardingCChange,
-                        gold: false,
-                        onTap: () => _chooseLevel(context),
-                      );
-                      return large
-                          ? Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                words,
-                                const SizedBox(height: IntroSpacing.inlineGap),
-                                change,
-                              ],
-                            )
-                          : Row(
-                              children: [
-                                Expanded(child: words),
-                                const SizedBox(width: 8),
-                                SizedBox(
-                                  width: IntroGeometry.changeActionWidth,
-                                  child: change,
-                                ),
-                              ],
-                            );
-                    },
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                const SizedBox(height: 8),
-                CIntroText(
-                  t.onboardingCLevelRange,
-                  center: true,
-                  size: 15,
-                  color: IntroPalette.mutedInk,
                 ),
                 const SizedBox(height: IntroSpacing.sectionGap),
                 CIntroText(t.onboardingCInterest, size: 23, bold: true),
@@ -1471,21 +1476,6 @@ class COnboardingSetup extends StatelessWidget {
                         ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 12),
-                CIntroText(
-                  t.onboardingCLater,
-                  size: 15,
-                  center: true,
-                  color: IntroPalette.mutedInk,
-                ),
-                const SizedBox(height: 4),
-                CIntroText(
-                  t.introNextPath,
-                  size: 14,
-                  bold: true,
-                  color: IntroPalette.emphasisInk,
-                  center: true,
                 ),
               ],
             ),
@@ -1640,9 +1630,9 @@ class COnboardingSetup extends StatelessWidget {
                             label: t.introApplyLevel,
                             onTap: draft == null
                                 ? null
-                                : () => Navigator.of(
-                                    sheet,
-                                  ).pop((draft!, beginner)),
+                                : () =>
+                                      Navigator.of(sheet)
+                                          .pop((draft!, beginner)),
                           ),
                           const SizedBox(height: 12),
                         ],
@@ -2010,7 +2000,7 @@ class COnboardingStory extends StatelessWidget {
             scene: scenes[pageIndex],
             labels: labels,
             sound: pageIndex == 1,
-            showPreviewButton: pageIndex == 2,
+            showPreviewButton: false,
             previewLabel: previewLabel,
             previewKey: ValueKey('c-onboarding-preview-${pageIndex + 2}'),
             onPreview: () => _openPreview(context, previewLabel),
@@ -2042,31 +2032,13 @@ class COnboardingStory extends StatelessWidget {
                     center: true,
                   ),
                 ),
-                if (pageIndex == 0) ...[
-                  const SizedBox(height: IntroSpacing.bookLine),
-                  CIntroText(
-                    t.introTwelveTools,
-                    size: 19,
-                    bold: true,
-                    center: true,
-                  ),
-                ],
                 const SizedBox(height: IntroSpacing.detailGap),
                 CIntroText(
                   body,
-                  size: 16,
+                  size: 17,
                   center: true,
                   color: IntroPalette.mutedInk,
                 ),
-                if (pageIndex == 0) ...[
-                  const SizedBox(height: IntroSpacing.captionGap),
-                  CIntroText(
-                    t.introNextSample,
-                    size: 14,
-                    center: true,
-                    color: IntroPalette.emphasisInk,
-                  ),
-                ],
               ],
             ),
           );
@@ -2081,14 +2053,8 @@ class COnboardingStory extends StatelessWidget {
   }
 
   void _openPreview(BuildContext context, String label) {
-    if (pageIndex == 2) {
-      Navigator.of(context).push<void>(
-        SoriPageRoute<void>(
-          builder: (_) => OnboardingGamesDemo.fullScreen(level: level),
-        ),
-      );
-      return;
-    }
+    // The games preview was removed from the Einleitung (2026-11-25).
+    if (pageIndex == 2) return;
     final preview = switch (pageIndex) {
       0 => OnboardingPathScene(
         level: level,

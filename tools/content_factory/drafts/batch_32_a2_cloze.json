@@ -10,7 +10,12 @@
         "두부가",
         "소고기가",
         "오이가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Die Tasche ist zu schwer, deshalb tut meine Schulter weh.",
+      "en": "The bag is too heavy, so my shoulder hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0376",
@@ -22,7 +27,12 @@
         "취미가",
         "날씨가",
         "책상이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Ich bin zu viel gerannt, deshalb tut meine Brust weh.",
+      "en": "I ran too much, so my chest hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0377",
@@ -34,7 +44,12 @@
         "청바지가",
         "스카프가",
         "커피가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Ich habe lange auf dem Stuhl gesessen, deshalb tut mir der Rücken weh.",
+      "en": "I sat in a chair for a long time, so my lower back hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0378",
@@ -46,7 +61,12 @@
         "유치원이",
         "관광객이",
         "도서관이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Lena, ich habe lange Klavier gespielt, jetzt tun mir die Finger weh.",
+      "en": "Lena, I played the piano for a long time, and now my fingers hurt.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0379",
@@ -58,7 +78,12 @@
         "카페에",
         "식당에",
         "책상에"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Ich war nervös, deshalb hatte ich Schweiß in der Handfläche.",
+      "en": "I was nervous, so my palm got sweaty.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0380",
@@ -70,7 +95,12 @@
         "지갑이",
         "스웨터가",
         "편지가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Die Schuhe sind zu klein, deshalb tun meine Zehen weh.",
+      "en": "The shoes are too small, so my toes hurt.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0381",
@@ -82,7 +112,12 @@
         "침대가",
         "약속이",
         "그림이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Ich bin viel gelaufen, deshalb tut meine Fußsohle weh.",
+      "en": "I walked a lot, so the sole of my foot hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0382",
@@ -94,7 +129,12 @@
         "의자에",
         "우표에",
         "엽서에"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Auf meiner Stirn ist viel Schweiß.",
+      "en": "There is a lot of sweat on my forehead.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0383",
@@ -106,7 +146,12 @@
         "블라우스가",
         "커피가",
         "스웨터가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Ich habe scharfes Essen gegessen, deshalb tut meine Zunge weh.",
+      "en": "I ate spicy food, so my tongue hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0384",
@@ -118,7 +163,12 @@
         "가방이",
         "시장이",
         "사진이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Sujin, ich kann Sie überhaupt nicht hören!",
+      "en": "Sujin, I can't hear you at all!",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0385",
@@ -130,7 +180,12 @@
         "먹었어요",
         "씻었어요",
         "만났어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Ich war zu müde, deshalb habe ich mich ins Bett gelegt.",
+      "en": "I was too tired, so I lay down on the bed.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0386",
@@ -142,7 +197,12 @@
         "갔어요",
         "왔어요",
         "잤어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Körper",
+      "de": "Das Wetter war heiß, deshalb habe ich viel geschwitzt.",
+      "en": "The weather was hot, so I sweated a lot.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "cloze_a2_0387",
@@ -154,7 +214,12 @@
         "편지를",
         "안경을",
         "취미를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Im Sommer esse ich oft kühle Nudeln.",
+      "en": "In summer, I often eat cold noodles.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0388",
@@ -166,7 +231,12 @@
         "시계를",
         "지갑을",
         "청바지를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Man gibt Chilipaste in den Bibimbap.",
+      "en": "You put gochujang into bibimbap.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0389",
@@ -178,7 +248,12 @@
         "기자를",
         "약속을",
         "여행지를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Meine Mutter macht Sojabohnenpaste selbst.",
+      "en": "My mother makes doenjang herself.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0390",
@@ -190,7 +265,12 @@
         "모자를",
         "그림을",
         "국제를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Ich habe viel Tofu in den Eintopf gegeben.",
+      "en": "I put a lot of tofu in the stew.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0391",
@@ -202,7 +282,12 @@
         "지도를",
         "열쇠를",
         "안경을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Am Wochenende habe ich mit Freunden Schweinebauch gegrillt und gegessen.",
+      "en": "On the weekend, I grilled and ate pork belly with friends.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0392",
@@ -214,7 +299,12 @@
         "시계를",
         "극장을",
         "기분을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Ich habe aus übrig gebliebenem Kimchi gebratenen Reis gemacht.",
+      "en": "I made fried rice with the leftover kimchi.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0393",
@@ -226,7 +316,12 @@
         "도서관이",
         "생각이",
         "회사가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "An kalten Tagen ist heiße Rinderknochensuppe am besten.",
+      "en": "On a cold day, hot seolleongtang is the best.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0394",
@@ -238,7 +333,12 @@
         "편지를",
         "취미를",
         "모자를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Am Geburtstag isst die Familie Rindfleisch.",
+      "en": "On birthdays, my family eats beef.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0395",
@@ -250,7 +350,12 @@
         "기분이",
         "사진이",
         "회사가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "An Regentagen sind heiße Udon-Nudeln das Beste.",
+      "en": "On a rainy day, hot udon is the best.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0396",
@@ -262,7 +367,12 @@
         "지도를",
         "침대를",
         "안경을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Im Sommer esse ich viel kühle Gurke.",
+      "en": "In summer, I eat a lot of cool cucumber.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0397",
@@ -274,7 +384,12 @@
         "앉으면",
         "걸으면",
         "자면"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Wenn der Eintopf kocht, drehen Sie bitte die Hitze runter.",
+      "en": "When the stew boils, please turn down the heat.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0398",
@@ -283,10 +398,15 @@
       "sentenceKo": "두부를 잘게 ＿＿＿ 찌개에 넣었어요.",
       "answer": "썰어서",
       "distractors": [
-        "가서",
-        "와서",
-        "자서"
-      ]
+        "웃어서",
+        "울어서",
+        "쉬어서"
+      ],
+      "level": "a2",
+      "topic": "Essen & Trinken",
+      "de": "Ich habe den Tofu klein geschnitten und in den Eintopf gegeben.",
+      "en": "I sliced the tofu finely and put it in the stew.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0399",
@@ -298,7 +418,12 @@
         "지도를",
         "우유를",
         "기자를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Weil es ein Vorstellungsgespräch war, habe ich eine weiße Bluse angezogen.",
+      "en": "It was a job interview, so I wore a white blouse.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0400",
@@ -310,7 +435,12 @@
         "관광지를",
         "허리를",
         "시장을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Das Wetter ist kälter geworden, deshalb habe ich den Pullover herausgeholt.",
+      "en": "The weather got cold, so I took out my sweater.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0401",
@@ -322,7 +452,12 @@
         "안경을",
         "이마를",
         "두부를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Daniel, ich habe heute einen gelben Schal gebunden.",
+      "en": "Daniel, I tied on a yellow scarf today.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0402",
@@ -334,7 +469,12 @@
         "기분부터",
         "도서관부터",
         "체육관부터"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Ich habe zuerst die Unterwäsche in den Koffer gelegt.",
+      "en": "I put underwear into the suitcase first.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0403",
@@ -346,7 +486,12 @@
         "병원으로",
         "극장으로",
         "은행으로"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Ich bin ans Meer gefahren und habe mich in den Badeanzug umgezogen.",
+      "en": "I went to the sea and changed into my swimsuit.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0404",
@@ -358,7 +503,12 @@
         "약속을",
         "허리를",
         "된장을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Wenn ich zur Arbeit gehe, trage ich jeden Tag ein Hemd.",
+      "en": "When I go to work, I wear a dress shirt every day.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0405",
@@ -370,7 +520,12 @@
         "관광객을",
         "손가락을",
         "회사를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Christian, ich will mit Jeans in den Park gehen!",
+      "en": "Christian, I want to go to the park in jeans!",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0406",
@@ -382,7 +537,12 @@
         "취미",
         "날씨",
         "계획"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Ich habe diese Kleidung in den Kleiderschrank gelegt.",
+      "en": "I put these clothes inside the wardrobe.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0407",
@@ -394,7 +554,12 @@
         "손바닥을",
         "병원을",
         "극장을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Ich habe zum Geburtstag eine Halskette bekommen.",
+      "en": "I got a necklace as a birthday present.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0408",
@@ -406,7 +571,12 @@
         "유치원을",
         "이마를",
         "발가락을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Maya, ich benutze nicht besonders viel Kosmetik.",
+      "en": "Maya, I don't use much cosmetics.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0409",
@@ -418,7 +588,12 @@
         "짜요",
         "셔요",
         "매워요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Mein Koffer ist schwarz.",
+      "en": "My suitcase is black.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0410",
@@ -430,7 +605,12 @@
         "짜요",
         "셔요",
         "매워요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Kleidung",
+      "de": "Es hat geschneit, deshalb ist die ganze Welt weiß.",
+      "en": "It snowed, so the whole world is white.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0411",
@@ -442,7 +622,12 @@
         "일기가",
         "계획이",
         "모자가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Auf dieser Straße machen Touristen viele Fotos.",
+      "en": "Tourists take a lot of photos on this street.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0412",
@@ -454,7 +639,12 @@
         "약사예요",
         "교사예요",
         "간호사예요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Das hier ist der beliebteste Touristenort dieser Stadt.",
+      "en": "This is the most popular tourist spot in this city.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0413",
@@ -466,7 +656,12 @@
         "지갑은",
         "모자는",
         "회사는"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Als Reiseziel haben wir diesmal Jeju-do gewählt.",
+      "en": "We decided on Jeju Island as our travel destination this time.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0414",
@@ -478,7 +673,12 @@
         "열쇠로",
         "의자로",
         "혀로"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Im nächsten Urlaub möchte ich ins Ausland fahren.",
+      "en": "I want to go abroad during my next vacation.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0415",
@@ -490,7 +690,12 @@
         "편지를",
         "생각을",
         "손바닥을"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Diesen Sommer mache ich zum ersten Mal eine Auslandsreise.",
+      "en": "This summer, I'm going on an overseas trip for the first time.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0416",
@@ -502,7 +707,12 @@
         "우유",
         "그림",
         "우표"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Diesmal habe ich zuerst nach Reisezielen im Inland gesucht.",
+      "en": "This time, I looked into domestic travel spots first.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0417",
@@ -514,7 +724,12 @@
         "책상",
         "가방",
         "엽서"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Sujin, ich arbeite an einer internationalen Schule.",
+      "en": "Sujin, I work at an international school.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0418",
@@ -526,7 +741,12 @@
         "열쇠까지",
         "우유까지",
         "빵까지"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Bis zum Bahnhof braucht man mit dem Taxi etwa zehn Minuten.",
+      "en": "It takes about ten minutes by taxi to the train station.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0419",
@@ -538,7 +758,12 @@
         "우산이",
         "소고기가",
         "된장이"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Ich hatte kein Zugticket, deshalb konnte ich den Zug nicht nehmen.",
+      "en": "I didn't have a train ticket, so I couldn't take the train.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0420",
@@ -550,7 +775,12 @@
         "지갑을",
         "그림을",
         "소고기를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Ich habe das Flugticket im Voraus gebucht.",
+      "en": "I booked the plane ticket in advance.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0421",
@@ -562,7 +792,12 @@
         "일기가",
         "열쇠가",
         "화가가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Die Vorbestellung für diese Aufführung ist schon vorbei.",
+      "en": "Advance booking for that show is already over.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0422",
@@ -574,7 +809,12 @@
         "와요",
         "자요",
         "앉아요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Reisen",
+      "de": "Ich reise morgen früh ab.",
+      "en": "I'm leaving on a trip early tomorrow morning.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0423",
@@ -586,7 +826,12 @@
         "우산",
         "가방",
         "시계"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "In der Oberschule habe ich Basketball gespielt.",
+      "en": "I played basketball when I was in high school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0424",
@@ -598,7 +843,12 @@
         "사진에",
         "우표에",
         "엽서에"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Lena, mein jüngeres Geschwister geht auf die Mittelschule.",
+      "en": "Lena, my younger sibling goes to middle school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0425",
@@ -610,7 +860,12 @@
         "가방에",
         "우산에",
         "시계에"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Dieses Kind ist dieses Jahr in die Grundschule eingeschult worden.",
+      "en": "This child started elementary school this year.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0426",
@@ -622,7 +877,12 @@
         "가다",
         "오다",
         "보다"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Mein jüngeres Geschwisterkind ist dieses Jahr in die Grundschule gekommen.",
+      "en": "My younger sibling started elementary school this year.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0427",
@@ -634,7 +894,12 @@
         "예매에서",
         "결석에서",
         "국제에서"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Sujin, ich studiere an der Graduiertenschule Stadtkultur.",
+      "en": "Sujin, I study urban culture in graduate school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0428",
@@ -646,7 +911,12 @@
         "수영장에는",
         "체육관에는",
         "커피에는"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Im nächsten Semester werde ich mehr Koreanischkurse belegen.",
+      "en": "Next semester, I'm going to take more Korean classes.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0429",
@@ -658,7 +928,12 @@
         "은행에",
         "식당에",
         "카페에"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Jeden Abend gehe ich zur Taekwondo-Schule.",
+      "en": "Every evening, I go to a taekwondo academy.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0430",
@@ -670,7 +945,12 @@
         "우표가",
         "침대가",
         "의자가"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "In dieser Nachbarschaft ist neu ein Kindergarten entstanden.",
+      "en": "A kindergarten newly opened in this neighborhood.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0431",
@@ -682,7 +962,12 @@
         "은행에게",
         "지도에게",
         "발가락에게"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Diese Bibliothek ist bei Jugendlichen sehr beliebt.",
+      "en": "This library is very popular among teenagers.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0432",
@@ -694,7 +979,12 @@
         "약사예요",
         "우유예요",
         "사진이에요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Hyuna, meine Freundin ist Grundschullehrerin.",
+      "en": "Hyuna, my friend is an elementary school teacher.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0433",
@@ -706,7 +996,12 @@
         "책상을",
         "의자를",
         "침대를"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Ich habe mich erkältet und war deshalb in der Schule abwesend.",
+      "en": "I caught a cold, so I was absent from school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0434",
@@ -718,7 +1013,12 @@
         "울었어요",
         "섰어요",
         "앉았어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Bildung",
+      "de": "Ich habe mir das Bein verletzt, deshalb habe ich die Taekwondo-Schule aufgegeben.",
+      "en": "I hurt my leg, so I quit the taekwondo academy.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "cloze_a2_0435",
@@ -730,7 +1030,12 @@
         "앉아",
         "걸어",
         "울어"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Ich vertraue Christian.",
+      "en": "I trust Christian.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0436",
@@ -742,7 +1047,12 @@
         "왔어요",
         "웃었어요",
         "걸었어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Ich war traurig, aber ich habe meine Tränen zurückgehalten.",
+      "en": "I was sad, but I held back my tears.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0437",
@@ -754,7 +1064,12 @@
         "잤어요",
         "섰어요",
         "웃었어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Ich habe vergessen, den Regenschirm mitzunehmen.",
+      "en": "I forgot to bring my umbrella.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0438",
@@ -766,7 +1081,12 @@
         "갔어요",
         "앉았어요",
         "걸었어요"
-      ]
+      ],
+      "level": "a2",
+      "topic": "Alltag",
+      "de": "Ich habe Sujin gesehen und mit der Hand gewinkt.",
+      "en": "I saw Sujin and waved my hand.",
+      "courseUnitId": "a2_01_haeyo_transition"
     }
   ]
 }

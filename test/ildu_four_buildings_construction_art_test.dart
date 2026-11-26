@@ -1,12 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-import 'dart:typed_data';
 
-import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/ildu_construction_art.dart';
 
-import 'support/hanok_asset_delivery_test_support.dart';
+import 'support/r16_runtime_contract.dart';
 
 const approvedCounts = {
   'jungmunganchae': 12,
@@ -23,74 +21,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   test(
-    '49 adopted PNGs retain their approved bytes through asset delivery',
+    '49 R16 building stages retain their learning order and delivery hashes',
     () async {
-      final assets = await HanokAssetDeliveryTestSupport.create();
-      addTearDown(assets.dispose);
-      final catalog = await IlDuConstructionArtCatalog.load();
-      expect(catalog.series.take(6).map((s) => s.stages.length), [
-        6,
-        8,
-        12,
-        12,
-        14,
-        11,
-      ]);
-      final approved = readJson('$provenanceRoot/construction_catalog.json');
-      final receipt = readJson('$provenanceRoot/promotion_manifest.json');
-      final runtime = readJson(IlDuConstructionArtCatalog.assetPath);
-      expect(
-        (runtime['series'] as List).skip(2).take(4).toList(),
-        approved['series'],
-      );
-      expect(approved['status'], 'approved_canonical');
-      expect(approved['stageCount'], 49);
-      expect(approved['approval'], contains('메인에 병합'));
-      final records = {
-        for (final row in receipt['files']) row['runtimeAsset']: row,
-      };
-      final hashes = <String>{};
-      final expectedFiles = <String>{};
-      var totalBytes = 0;
-      for (final series in catalog.series.skip(2).take(4)) {
-        expect(series.stages, hasLength(approvedCounts[series.id]!));
-        for (final stage in series.stages) {
-          final record = records[stage.asset];
-          final delivered = await assets.load(stage.asset);
-          final original = File(
-            record['approvedSource'] as String,
-          ).readAsBytesSync();
-          final public = File(
-            record['publicAsset'] as String,
-          ).readAsBytesSync();
-          expect(delivered, original, reason: stage.id);
-          expect(public, original, reason: stage.id);
-          expect(delivered.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
-          final header = ByteData.sublistView(delivered);
-          expect(header.getUint32(16), 1536);
-          expect(header.getUint32(20), 1024);
-          final hash = sha256.convert(delivered).toString();
-          expect(hash, record['sha256']);
-          expect(hash, stage.sha256);
-          expect(delivered.length, record['bytes']);
-          hashes.add(hash);
-          expectedFiles.add(stage.asset);
-          totalBytes += delivered.length;
-        }
-      }
-      expect(hashes, hasLength(49));
-      // Approved PNGs are intentionally unchanged (94.12 MiB measured at adoption).
-      expect(totalBytes, lessThanOrEqualTo(96 * 1024 * 1024));
-      final actualFiles = <String>{
-        for (final id in approvedCounts.keys)
-          for (final file in Directory(
-            'assets/illustrations/personal_hanok_v3/construction/$id',
-          ).listSync().whereType<File>())
-            file.path.replaceAll('\\', '/'),
-      };
-      expect(actualFiles, expectedFiles);
+      await verifyR16Series(approvedCounts.keys.toSet());
     },
-    timeout: const Timeout(Duration(minutes: 4)),
   );
 
   test('style registrations select the same four completed frames', () {

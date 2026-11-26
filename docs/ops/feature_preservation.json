@@ -92,8 +92,7 @@
   },
   "preservedDependencies": {
     "c-app-integration-20261012": "Lernen assets junction target",
-    "hanok-hwalju-20260928": "7 external Blender textures",
-    "hanok-warm-stone-20260923": "R12 mapping uses 103 Python source tools"
+    "ildu-r16-publication-20261028": "32 packed building/process/roof/gate natives and runtime-support-source; no external image or library dependencies in the 32 source files"
   },
   "sourceOfTruth": "Archive contains source/WIP variants, not runtime/approval promotion. Recheck remote refs and source state before deletion.",
   "remoteArchiveVerified": true,
@@ -142,5 +141,30 @@
       }
     ],
     "remoteVerified": true
+  },
+  "retiredDependencies20261126": {},
+  "ilduRuntimeRetirement20261126": {
+    "userInstruction": "Preserve building/process 3D; connect R16 in the app, then remove runtime V3 and older copies",
+    "evidence": "docs/hanok_r16/RUNTIME_RETIREMENT_20261125.json",
+    "archiveRef": "refs/heads/archive/ildu-cleanup-20261125",
+    "archiveCommit": "7152c0da59a6be400c9c19702b28032b47a99681",
+    "selectedResearchImagesPreserved": 8,
+    "packedNativeSourcesVerified": 32,
+    "runtimeV3FilesRetired": 1249,
+    "legacyR12InputFilesRetired": 948,
+    "removedWorktrees": [
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\r16-lookdev-20261102",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\r16-sarang-i1-20261115",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-material-save-20261012",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\ildu-stage-assets-20261017",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\dokkaebi-transform-debug-20261004",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\reward-chest-preview-20261004",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-story-hub-20261031",
+      "C:\\Users\\vjinn\\.codex\\worktrees\\season1-construction-3d-20261115\\ko_lernen_app",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-hwalju-20260928",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\hanok-warm-stone-20260923",
+      "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\lernen-review-pronunciation-20261109"
+    ],
+    "deviceInstallOrStoreRelease": false
   }
 }

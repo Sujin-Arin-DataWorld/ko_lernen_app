@@ -139,9 +139,8 @@ Widget _app(Widget child, {AssetBundle? bundle, double textScale = 1}) {
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
     builder: (context, appChild) => MediaQuery(
-      data: MediaQuery.of(
-        context,
-      ).copyWith(textScaler: TextScaler.linear(textScale)),
+      data: MediaQuery.of(context)
+          .copyWith(textScaler: TextScaler.linear(textScale)),
       child: DefaultAssetBundle(
         bundle: bundle ?? _TestBundle(),
         child: appChild!,
@@ -682,6 +681,45 @@ void main() {
     expect(find.text('Not downloaded', skipOffstage: false), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'bundled R16 shows included images without requesting a download',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final manifest = HanokAssetManifest.parse(
+        await rootBundle.loadString('assets/data/hanok_download_manifest.json'),
+      );
+      var requests = 0;
+      final delivery = _delivery(
+        manifest: manifest,
+        fetch: (_) async {
+          requests++;
+          return _png;
+        },
+      );
+      addTearDown(delivery.dispose);
+      await tester.pumpWidget(
+        _app(HanokDownloadsScreen(delivery: delivery), textScale: 2),
+      );
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('hanok-downloads-all-included')),
+        findsOneWidget,
+      );
+      expect(
+        find.text(
+          'All Hanok images are already included in the app. No additional download is needed.',
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('Download'), findsNothing);
+      expect(requests, 0);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('download progress refreshes are coalesced', (tester) async {
     final manifest = _manifest();

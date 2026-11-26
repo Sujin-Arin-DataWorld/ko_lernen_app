@@ -9,7 +9,7 @@ final class SarangchaeConstruction {
 
   static const assetPath = 'assets/data/sarangchae_construction_v3.json';
   static const canonicalSha256 =
-      'f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a';
+      '60a4efe311f40de1bfadb61c017021effffe4a13e3d2bd191ffb2de9f10cd901';
   static const stageCount = 16;
   final List<SarangchaeConstructionStage> stages;
 
@@ -54,12 +54,8 @@ final class SarangchaeConstructionStage {
       sha256 = json['sha256'] as String,
       term = json['term'] as String,
       _copy = Map<String, dynamic>.unmodifiable(json as Map) {
-    const artworkDirectory =
-        'assets/illustrations/personal_hanok_v3/sarangchae/';
-    if (!assetPath.startsWith(artworkDirectory) ||
-        !RegExp(
-          r'^stage_\d{2}_[a-z_]+\.png$',
-        ).hasMatch(assetPath.substring(artworkDirectory.length))) {
+    if (!RegExp(r'^assets/illustrations/ildu_r16/[a-f0-9]{64}\.webp$')
+        .hasMatch(assetPath)) {
       throw const FormatException('Invalid Sarangchae artwork path.');
     }
     for (final field in [

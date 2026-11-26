@@ -1,13 +1,18 @@
 {
   "version": 3,
   "batch": "c3_batch34_a2_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A2 grade-2 reinforcement draft: 64 original KO/DE/EN triads. Completes a2_events_1 first and a2_messenger_phone_1 second, then creates four full packs and one partial weather pack.",
     "rights": "original_clean_room",
     "seedSource": "NIKL KIIQ 2017 grade-2 non-affix headwords absent from live data and drafts through Batch 33; Sejong 2 units used only for topic priority.",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-11-25",
+      "source": "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
+      "sample": "7/64 each (32 · 33 · 34)"
+    },
     "modelLanguageQa": "MODEL_QA_PASS",
     "humanLanguageQaClaim": false,
     "exampleReview": "64 KO/DE/EN scene-based revision candidates; human review pending.",
@@ -1834,9 +1839,9 @@
           "contrastKo": "어제의 안부를 물음"
         },
         {
-          "text": "오늘",
-          "lemma": "오늘",
-          "contrastKo": "오늘의 안부를 물음"
+          "text": "아침에",
+          "lemma": "아침",
+          "contrastKo": "아침의 안부를 물음"
         },
         {
           "text": "주말에",
@@ -2464,10 +2469,10 @@
   "claudeReviewCorrectionNote20261125": "2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only. Rows: 떡: 엄마, 오늘 3학년 친구들하고 떡을 나눠 먹었어! -> 엄마, 오늘 1학년 친구들하고 떡을 나눠 먹었어!; 센터: 센터에 전화해서 수리비를 물어봤어요. -> 서비스 센터에 전화해서 수리비를 물어봤어요.",
   "reviewPacket": "docs/data/review_packets/batch_34_a2_jin_sample.md",
   "promotion": {
-    "assetsDataWritten": false,
-    "runtime": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "DRAFT ONLY; Jin review pending."
+    "note": "Promoted 2026-11-25 (C3-T6) after Jin approval (Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   }
 }

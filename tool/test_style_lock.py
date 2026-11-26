@@ -7,6 +7,8 @@ guards that the 4 older docs still carry the banners pointing at it.
 
 from __future__ import annotations
 
+from tool.ildu_retirement_audit import retired_json, retired_record
+
 import hashlib
 import json
 import sys
@@ -31,27 +33,19 @@ class StyleLockLoaderTest(unittest.TestCase):
         for building in ("ansarangchae", "sadangmun", "sadang"):
             with self.subTest(building=building):
                 item = series_by_id[building]
-                runtime = family["approvedConstructionSeries"][building]
+                current = family["runtimeConstructionSeries"][building]
+                historical = family["approvedConstructionSeries"][building]
                 master = family["canonicalMasterApprovals"][building]
-                lock = json.loads((ROOT / master["manifest"]).read_text(encoding="utf-8"))
-                for key in (
-                    "canonicalAsset", "canonicalSha256",
-                    "approvedCanonicalPngAsset", "approvedCanonicalPngSha256",
-                ):
-                    self.assertEqual(runtime[key], item[key])
-                self.assertEqual(master["runtimeCompletedAsset"], item["canonicalAsset"])
-                self.assertEqual(master["runtimeCompletedSha256"], item["canonicalSha256"])
-                self.assertEqual(lock["runtime"]["completedAsset"], item["canonicalAsset"])
-                self.assertEqual(lock["runtime"]["completedSha256"], item["canonicalSha256"])
-                self.assertEqual(master["completedAsset"], item["approvedCanonicalPngAsset"])
-                self.assertEqual(master["sha256"], item["approvedCanonicalPngSha256"])
-                self.assertEqual(lock["sha256"], item["approvedCanonicalPngSha256"])
+                lock = retired_json(master["manifest"])
+                for key in ("canonicalAsset", "canonicalSha256"):
+                    self.assertEqual(current[key], item[key])
+                self.assertEqual(lock["runtime"]["completedAsset"], historical["canonicalAsset"])
+                self.assertEqual(lock["runtime"]["completedSha256"], historical["canonicalSha256"])
+                self.assertEqual(lock["sha256"], master["sha256"])
                 self.assertTrue(lock["runtime"]["rgbaPixelsIdenticalToApprovedPng"])
-                for asset, expected in (
-                    (item["canonicalAsset"], item["canonicalSha256"]),
-                    (item["approvedCanonicalPngAsset"], item["approvedCanonicalPngSha256"]),
-                ):
-                    self.assertEqual(hashlib.sha256((ROOT / asset).read_bytes()).hexdigest(), expected)
+                retired_record(master["completedAsset"], master["sha256"])
+                retired_record(historical["canonicalAsset"], historical["canonicalSha256"])
+                self.assertEqual(hashlib.sha256((ROOT / item["canonicalAsset"]).read_bytes()).hexdigest(), item["canonicalSha256"])
 
     def test_loads_the_real_file_and_validates_shape(self) -> None:
         lock = style_lock.load_style_lock()

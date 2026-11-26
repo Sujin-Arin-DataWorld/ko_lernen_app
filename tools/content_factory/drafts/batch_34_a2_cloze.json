@@ -14,7 +14,8 @@
       "de": "Am Wochenende gibt es eine Feier zum 70. Geburtstag meiner Oma.",
       "en": "We're having a party for my grandma's seventieth birthday this weekend.",
       "level": "a2",
-      "topic": "Freizeit"
+      "topic": "Freizeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0510",
@@ -30,7 +31,8 @@
       "de": "Wahnsinn, die beiden heiraten nächsten Monat!",
       "en": "Wow, the two of them are getting married next month!",
       "level": "a2",
-      "topic": "Freizeit"
+      "topic": "Freizeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0511",
@@ -46,7 +48,8 @@
       "de": "Lena, herzlich willkommen! Setzen Sie sich doch zu uns.",
       "en": "Lena, welcome! Come and sit with us.",
       "level": "a2",
-      "topic": "Freizeit"
+      "topic": "Freizeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0512",
@@ -62,7 +65,8 @@
       "de": "Maya, lassen Sie uns zum Jahresende mal zusammen essen gehen.",
       "en": "Maya, let's have a meal together toward the end of the year.",
       "level": "a2",
-      "topic": "Freizeit"
+      "topic": "Freizeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0503",
@@ -78,7 +82,8 @@
       "de": "Andrea, darf ich das Foto per E-Mail schicken?",
       "en": "Andrea, can I send the photo by email?",
       "level": "a2",
-      "topic": "Kommunikation"
+      "topic": "Kommunikation",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0504",
@@ -94,7 +99,8 @@
       "de": "Ich habe die Internetverbindung gewechselt. Jetzt schicke ich das Foto.",
       "en": "I changed the internet connection. I'll send the photo now.",
       "level": "a2",
-      "topic": "Kommunikation"
+      "topic": "Kommunikation",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0505",
@@ -110,7 +116,8 @@
       "de": "Ich habe das Telefon im Laden ausgetauscht. Jetzt ist der Ton klar.",
       "en": "I replaced the phone at the shop. Now the sound is clear.",
       "level": "a2",
-      "topic": "Kommunikation"
+      "topic": "Kommunikation",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0506",
@@ -126,7 +133,8 @@
       "de": "Christian, hörst du mich gut? Hier ist es etwas laut.",
       "en": "Christian, can you hear me clearly? It's a bit noisy here.",
       "level": "a2",
-      "topic": "Kommunikation"
+      "topic": "Kommunikation",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0507",
@@ -142,7 +150,8 @@
       "de": "Ich habe von einer Hochzeit im Freundeskreis gehört und gleich angerufen.",
       "en": "I heard that a friend was getting married and called right away.",
       "level": "a2",
-      "topic": "Kommunikation"
+      "topic": "Kommunikation",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0508",
@@ -158,7 +167,8 @@
       "de": "Wenn Sie den Weg nicht kennen, fragen Sie die Person dort.",
       "en": "If you don't know the way, ask the person over there.",
       "level": "a2",
-      "topic": "Kommunikation"
+      "topic": "Kommunikation",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0513",
@@ -174,7 +184,8 @@
       "de": "Daniel, ich brauche Hilfe. Ich verstehe diese Aufgabe nicht.",
       "en": "Daniel, I need help. I don't understand this problem.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0514",
@@ -190,7 +201,8 @@
       "de": "Christian, ist dein Computer schon wieder kaputt? Nimm meinen.",
       "en": "Christian, did your computer break down again? Use mine.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0515",
@@ -206,7 +218,8 @@
       "de": "Ich habe meine Brieftasche verloren. Haben Sie sie vielleicht hier gesehen?",
       "en": "I've lost my wallet. Have you seen it here by any chance?",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0516",
@@ -222,7 +235,8 @@
       "de": "Es gibt einen Stau. Nehmen wir die U-Bahn?",
       "en": "There's a traffic jam. Shall we take the subway?",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0517",
@@ -238,7 +252,8 @@
       "de": "Der Strom ist ausgefallen, also habe ich eine Kerze angezündet.",
       "en": "The power went out, so I lit a candle.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0518",
@@ -254,7 +269,8 @@
       "de": "Dieser Becher ist aus Glas. Man kann gut hineinsehen.",
       "en": "This cup is made of glass. You can see inside clearly.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0519",
@@ -270,7 +286,8 @@
       "de": "Ich habe beim Servicecenter angerufen und nach den Reparaturkosten gefragt.",
       "en": "I called the service center to ask about the repair cost.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0520",
@@ -286,7 +303,8 @@
       "de": "Der Service in diesem Restaurant ist wirklich gut.",
       "en": "The service at this restaurant is really good.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0521",
@@ -302,7 +320,8 @@
       "de": "Beim Autofahren ist Sicherheit am wichtigsten.",
       "en": "When you drive, safety matters most.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0522",
@@ -318,7 +337,8 @@
       "de": "Es ist etwas Dringendes dazwischengekommen.",
       "en": "Something urgent has come up.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0523",
@@ -334,7 +354,8 @@
       "de": "Ich habe die Zugzeiten nachgesehen. Wir haben noch eine Stunde.",
       "en": "I checked the train times. We've still got an hour.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0524",
@@ -350,7 +371,8 @@
       "de": "Ich habe mich verrechnet und tausend Won zu viel bezahlt.",
       "en": "I got the calculation wrong and paid a thousand won too much.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0525",
@@ -366,7 +388,8 @@
       "de": "Ich habe zu viele Mandu gedämpft. Essen Sie mit!",
       "en": "I steamed too many dumplings. Come and share them!",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0526",
@@ -382,7 +405,8 @@
       "de": "Mama, heute habe ich mit Freunden aus meinem Jahrgang Reiskuchen geteilt!",
       "en": "Mom, I shared rice cakes with friends from my year today!",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0527",
@@ -398,7 +422,8 @@
       "de": "Diese Algenblätter sind nicht besonders salzig. Essen Sie sie doch mit Reis.",
       "en": "This dried seaweed isn't very salty. Try it with rice.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0528",
@@ -414,7 +439,8 @@
       "de": "Heute habe ich Lust auf einen warmen koreanischen Eintopf.",
       "en": "I feel like having a warm Korean stew today.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0529",
@@ -430,7 +456,8 @@
       "de": "Das Essen ist frisch frittiert und noch heiß.",
       "en": "The food has just been deep-fried, so it is still hot.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0530",
@@ -446,7 +473,8 @@
       "de": "Ich nehme Jajangmyeon. Wollen wir zusammen bestellen?",
       "en": "I'll have jajangmyeon. Shall we order together?",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0531",
@@ -462,7 +490,8 @@
       "de": "Nach einem Bissen Jjamppong habe ich zuerst nach Wasser gesucht.",
       "en": "After one bite of jjamppong, the first thing I looked for was water.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0532",
@@ -478,7 +507,8 @@
       "de": "Bestellen wir eine Portion Tangsuyuk zum Teilen.",
       "en": "Let's order a serving of tangsuyuk to share.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0533",
@@ -494,7 +524,8 @@
       "de": "Bei dem Regen bekomme ich Lust auf Kalguksu.",
       "en": "This rain makes me feel like having kalguksu.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0534",
@@ -510,7 +541,8 @@
       "de": "Dieses Donkatsu ist größer als mein Gesicht!",
       "en": "This pork cutlet is bigger than my face!",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0535",
@@ -526,7 +558,8 @@
       "de": "Ich habe viel Curry gekocht. Damit ist auch das Mittagessen für morgen gesichert.",
       "en": "I made plenty of curry. That's tomorrow's lunch sorted too.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0536",
@@ -542,7 +575,8 @@
       "de": "Zum Geburtstag esse ich Miyeokguk. Dieses Jahr habe ich sie selbst gekocht.",
       "en": "I have miyeokguk for my birthday. This year I made it myself.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0537",
@@ -558,7 +592,8 @@
       "de": "Minho, sind Sie mit dem Haushalt fertig? Ruhen Sie sich jetzt etwas aus.",
       "en": "Minho, have you finished the housework? Take a little break now.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0538",
@@ -574,7 +609,8 @@
       "de": "Diesen Mantel darf man nicht zu Hause waschen.",
       "en": "This coat mustn't be washed at home.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0539",
@@ -590,7 +626,8 @@
       "de": "Nach dem Sport habe ich als Erstes meine Socken gewaschen.",
       "en": "After exercising, I washed my socks first.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0540",
@@ -606,7 +643,8 @@
       "de": "Kann ich dieses Papier in den Mülleimer werfen?",
       "en": "Can I throw this paper in the trash can?",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0541",
@@ -622,7 +660,8 @@
       "de": "Im Bad ist kein Toilettenpapier. Bringen Sie mir bitte welches.",
       "en": "There's no toilet paper in the bathroom. Please bring me some.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0542",
@@ -638,7 +677,8 @@
       "de": "Nach dem Bad fühle ich mich schön entspannt.",
       "en": "I feel nice and relaxed after the bath.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0543",
@@ -654,7 +694,8 @@
       "de": "Ich habe mir die Zähne geputzt, aber ich habe wieder Hunger.",
       "en": "I've brushed my teeth, but I'm hungry again.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0544",
@@ -670,7 +711,8 @@
       "de": "Die Zahnpasta ist alle. Heute muss ich unbedingt neue kaufen.",
       "en": "I'm out of toothpaste. I really need to buy some today.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0545",
@@ -686,7 +728,8 @@
       "de": "Drehen Sie den Ventilator bitte ein bisschen zu mir.",
       "en": "Please turn the fan a little toward me.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0546",
@@ -702,7 +745,8 @@
       "de": "Auf dem Esstisch steht ein Kuchen. Essen wir etwas davon!",
       "en": "There's a cake on the dining table. Let's have some together!",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0547",
@@ -718,7 +762,8 @@
       "de": "Ich habe gerade den Boden gewischt. Gehen Sie bitte langsam.",
       "en": "I've just mopped the floor. Please walk slowly.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0548",
@@ -734,7 +779,8 @@
       "de": "In den Topf passen zwei Packungen Ramyeon.",
       "en": "The pot is big enough for two packs of ramyeon.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "id": "cloze_a2_0549",
@@ -750,7 +796,8 @@
       "de": "Hyuna, geht es Ihnen nach zwei Tagen Ruhe etwas besser?",
       "en": "Hyuna, are you feeling a bit better after two days of rest?",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0550",
@@ -766,7 +813,8 @@
       "de": "Ich verreise für drei Tage. Alles ist gepackt.",
       "en": "I'm going away for three days. Everything's packed.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0551",
@@ -782,7 +830,8 @@
       "de": "Es hat vier Tage lang geregnet. Die Wäsche ist noch nicht trocken.",
       "en": "It rained for four days. The laundry still isn't dry.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0552",
@@ -798,7 +847,8 @@
       "de": "In zehn Tagen kommen meine Eltern. Ich habe auch einen Tisch im Restaurant reserviert.",
       "en": "My parents are coming in ten days. I've booked a restaurant table too.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0553",
@@ -814,7 +864,8 @@
       "de": "Ich bin jetzt seit drei Monaten in Korea.",
       "en": "I've been in Korea for three months now.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0554",
@@ -824,13 +875,14 @@
       "answer": "그동안",
       "distractors": [
         "어제",
-        "오늘",
+        "아침에",
         "주말에"
       ],
       "de": "Wie ist es Ihnen seit unserem letzten Treffen ergangen? Setzen Sie sich doch hierhin.",
       "en": "How have you been since we last met? Have a seat here.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0555",
@@ -846,7 +898,8 @@
       "de": "Ich freue mich sehr, Sie nach so langer Zeit wiederzusehen.",
       "en": "It's so nice to see you after such a long time.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0556",
@@ -859,10 +912,11 @@
         "선물이에요",
         "간식이에요"
       ],
-      "de": "Das ist der letzte Kuchen. Für jeden die Hälfte?",
+      "de": "Das ist der letzte Kuchen. Wir teilen ihn uns.",
       "en": "This is the last cake. Let's have half each.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0557",
@@ -878,7 +932,8 @@
       "de": "Ich habe vor Kurzem kochen gelernt und esse deshalb seltener auswärts.",
       "en": "I learned to cook recently, so I eat out less.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0558",
@@ -894,7 +949,8 @@
       "de": "Am Morgen nach der Reise habe ich mich zu Hause richtig ausgeruht.",
       "en": "I had a good rest at home the morning after the trip.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0559",
@@ -910,7 +966,8 @@
       "de": "Ich habe gestern Abend eine Serie geschaut und bin spät ins Bett gegangen.",
       "en": "I watched a series last night and went to bed late.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0560",
@@ -926,7 +983,8 @@
       "de": "Sujin, wollen wir in der Mittagspause kurz spazieren gehen?",
       "en": "Sujin, shall we go for a short walk during lunch break?",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0561",
@@ -942,7 +1000,8 @@
       "de": "Die Wolke da sieht aus wie ein Welpe.",
       "en": "That cloud looks like a puppy.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0562",
@@ -958,7 +1017,8 @@
       "de": "Der Himmel ist heute richtig klar. Machen wir ein Foto.",
       "en": "The sky's so clear today. Let's take a photo.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0563",
@@ -974,7 +1034,8 @@
       "de": "Das Sonnenlicht ist so grell, dass ich die Augen nicht aufbekomme.",
       "en": "The sunlight is so bright I can't keep my eyes open.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0564",
@@ -990,7 +1051,8 @@
       "de": "Morgen sinkt die Temperatur deutlich.",
       "en": "The temperature will drop a lot tomorrow.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0565",
@@ -1006,7 +1068,8 @@
       "de": "Heute sind es minus fünf Grad. Wollen wir eine Tasse Tee trinken?",
       "en": "It's five below zero today. Shall we have a cup of tea?",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0566",
@@ -1022,7 +1085,8 @@
       "de": "Bitte geben Sie nur wenig Eis in den Kaffee.",
       "en": "Please put just a little ice in the coffee.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     }
   ]
 }

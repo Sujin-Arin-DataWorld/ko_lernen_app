@@ -146,7 +146,7 @@ class SyntheticDriftTest(unittest.TestCase):
 
     def test_ildu_family_drift_is_also_rejected(self) -> None:
         lock = style_lock.load_style_lock()
-        anchor = ROOT / "assets/illustrations/personal_hanok_v3/world/sarangchae.png"
+        anchor = ROOT / "assets/illustrations/ildu_r16_support/world/sarangchae.png"
         self.assertTrue(anchor.exists())
         drifted = _drift_saturation_value(anchor, sat_mult=1.6, val_mult=1.4)
         try:

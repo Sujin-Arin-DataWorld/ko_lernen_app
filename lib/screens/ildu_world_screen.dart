@@ -383,12 +383,15 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
       return;
     }
     final definition = manifest.decorationFor(placement.definitionId);
+    final presentation = manifest.mapPresentation;
+    final displayDx = delta.dx / mapSize.width * 100;
+    final displayDy = delta.dy / mapSize.height * 100;
     final moved = moveIlDuDecoration(
       placement: placement,
       definition: definition,
       manifest: manifest,
-      proposedX: placement.x + delta.dx / mapSize.width * 100,
-      proposedY: placement.y + delta.dy / mapSize.height * 100,
+      proposedX: placement.x + presentation.logicalDeltaX(displayDx, displayDy),
+      proposedY: placement.y + presentation.logicalDeltaY(displayDx, displayDy),
     );
     setState(() {
       _placements = [
@@ -409,7 +412,31 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
       }
       final dx = math.min(0.0, (viewport.width - mapSize.width) / 2);
       final dy = math.min(0.0, (viewport.height - mapSize.height) * .42);
-      _mapController.value = Matrix4.identity()..setTranslationRaw(dx, dy, 0);
+      final manifest = _manifest;
+      if (manifest == null || manifest.mapPresentation.anchors.isEmpty) {
+        _mapController.value = Matrix4.identity()..setTranslationRaw(dx, dy, 0);
+        return;
+      }
+      final selected = manifest.buildings.firstWhere(
+        (building) => building.id == _selectedBuildingId,
+        orElse: () => manifest.buildings.first,
+      );
+      final presentation = manifest.mapPresentation;
+      final showsTurntable =
+          _projection?.isAvailable(selected.unlockEra) == true &&
+          ilduTurntableForAnchor(selected.id) != null;
+      final sheetHeight = showsTurntable
+          ? Spacing.xxxl * 9 + Spacing.sm + Spacing.xxl
+          : Spacing.xxxl * 6 + Spacing.xxl;
+      final visibleMapHeight = math.max(96.0, viewport.height - sheetHeight);
+      final focusX = presentation.anchorX(selected, selected.x, selected.y);
+      final focusY = presentation.anchorY(selected, selected.x, selected.y);
+      final focusedDx = (viewport.width / 2 - mapSize.width * focusX / 100)
+          .clamp(math.min(0.0, viewport.width - mapSize.width), 0.0);
+      final focusedDy = (visibleMapHeight * .5 - mapSize.height * focusY / 100)
+          .clamp(math.min(0.0, visibleMapHeight - mapSize.height), 0.0);
+      _mapController.value = Matrix4.identity()
+        ..setTranslationRaw(focusedDx.toDouble(), focusedDy.toDouble(), 0);
     });
   }
 
@@ -588,7 +615,12 @@ class _WorldBody extends StatelessWidget {
                         maxScale: 2.2,
                         panEnabled: !anchorGestureActive,
                         scaleEnabled: !anchorGestureActive,
-                        boundaryMargin: const EdgeInsets.all(Spacing.xxxl * 2),
+                        boundaryMargin: const EdgeInsets.fromLTRB(
+                          Spacing.xxxl * 2,
+                          Spacing.xxxl * 2,
+                          Spacing.xxxl * 2,
+                          Spacing.xxxl * 11 + Spacing.sm + Spacing.xxl,
+                        ),
                         child: SizedBox.fromSize(
                           size: mapSize,
                           child: _EstateMap(
@@ -634,9 +666,8 @@ class _WorldBody extends StatelessWidget {
                         ),
                         child: Text(
                           t.ilduWorldPanHint,
-                          style: SoriTextTheme.of(
-                            context,
-                          ).label.copyWith(color: const Color(0xFFFFF8E8)),
+                          style: SoriTextTheme.of(context).label
+                              .copyWith(color: const Color(0xFFFFF8E8)),
                         ),
                       ),
                     ),
@@ -727,9 +758,11 @@ class _ProgressHeader extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: Spacing.sm),
-              Text(
-                t.ilduWorldBuiltCount(built, total),
-                style: SoriTextTheme.of(context).label,
+              Flexible(
+                child: Text(
+                  t.ilduWorldBuiltCount(built, total),
+                  style: SoriTextTheme.of(context).label,
+                ),
               ),
             ],
           ),
@@ -809,6 +842,7 @@ class _EstateMap extends StatelessWidget {
               manifest.decorationFor(placement.definitionId).asset,
             ),
             mapSize: mapSize,
+            presentation: manifest.mapPresentation,
             onMove: (delta) => onMoveDecoration(placement, delta, mapSize),
             onFinishMove: onFinishMove,
           ),
@@ -827,6 +861,7 @@ class _EstateMap extends StatelessWidget {
     return _MapAnchor(
       key: ValueKey('ildu-map-turntable-${building.id}-$direction'),
       anchor: building,
+      presentation: manifest.mapPresentation,
       mapSize: mapSize,
       mapController: mapController,
       available: projection.isAvailable(building.unlockEra),
@@ -863,6 +898,7 @@ class _EstateMap extends StatelessWidget {
     return _MapAnchor(
       key: ValueKey('ildu-map-turntable-${gate.id}-$direction'),
       anchor: gate,
+      presentation: manifest.mapPresentation,
       mapSize: mapSize,
       mapController: mapController,
       available: projection.isAvailable(gate.unlockEra),
@@ -892,6 +928,7 @@ class _EstateMap extends StatelessWidget {
 
 class _MapAnchor extends StatefulWidget {
   final IlDuWorldAnchor anchor;
+  final IlDuMapPresentation presentation;
   final Size mapSize;
   final TransformationController mapController;
   final bool available;
@@ -909,6 +946,7 @@ class _MapAnchor extends StatefulWidget {
   const _MapAnchor({
     super.key,
     required this.anchor,
+    required this.presentation,
     required this.mapSize,
     required this.mapController,
     required this.available,
@@ -1040,6 +1078,8 @@ class _MapAnchorState extends State<_MapAnchor> {
     final zoom = widget.mapController.value.getMaxScaleOnAxis();
     final safeZoom = zoom.isFinite && zoom > 0 ? zoom : 1.0;
     final mapDelta = (_pointerCentroid() - focalStart) / safeZoom;
+    final displayDx = mapDelta.dx / widget.mapSize.width * 100;
+    final displayDy = mapDelta.dy / widget.mapSize.height * 100;
     final spanStart = _gestureSession.spanStart;
     final span = _pointerSpan();
     final scaleFactor = spanStart != null && spanStart > 0 && span != null
@@ -1047,8 +1087,10 @@ class _MapAnchorState extends State<_MapAnchor> {
         : 1.0;
     final updated = transformIlDuAnchor(
       placement: start,
-      proposedX: start.x + mapDelta.dx / widget.mapSize.width * 100,
-      proposedY: start.y + mapDelta.dy / widget.mapSize.height * 100,
+      proposedX:
+          start.x + widget.presentation.logicalDeltaX(displayDx, displayDy),
+      proposedY:
+          start.y + widget.presentation.logicalDeltaY(displayDx, displayDy),
       proposedScale: start.scale * scaleFactor,
       baseWidthPercent: widget.anchor.width,
       baseHeightPercent:
@@ -1072,10 +1114,26 @@ class _MapAnchorState extends State<_MapAnchor> {
   @override
   Widget build(BuildContext context) {
     final scale = widget.placement?.scale ?? 1;
-    final width = widget.mapSize.width * widget.anchor.width / 100 * scale;
-    final center = widget.placement == null
+    final width =
+        widget.mapSize.width *
+        widget.presentation.anchorWidth(widget.anchor) /
+        100 *
+        scale;
+    final logicalCenter = widget.placement == null
         ? Offset(widget.anchor.x, widget.anchor.y)
         : Offset(widget.placement!.x, widget.placement!.y);
+    final center = Offset(
+      widget.presentation.anchorX(
+        widget.anchor,
+        logicalCenter.dx,
+        logicalCenter.dy,
+      ),
+      widget.presentation.anchorY(
+        widget.anchor,
+        logicalCenter.dx,
+        logicalCenter.dy,
+      ),
+    );
     final frame = widget.turntableFrame;
     final image = frame == null
         ? HanokAssetImage(
@@ -1128,9 +1186,8 @@ class _MapAnchorState extends State<_MapAnchor> {
               child: Center(
                 child: Text(
                   '?',
-                  style: SoriTextTheme.of(
-                    context,
-                  ).cultureTitle.copyWith(color: const Color(0xFFFFE3A7)),
+                  style: SoriTextTheme.of(context).cultureTitle
+                      .copyWith(color: const Color(0xFFFFE3A7)),
                 ),
               ),
             ),
@@ -1205,6 +1262,7 @@ class _DecorationAnchor extends StatelessWidget {
   final IlDuWorldDecoration definition;
   final String assetPath;
   final Size mapSize;
+  final IlDuMapPresentation presentation;
   final ValueChanged<Offset> onMove;
   final VoidCallback onFinishMove;
 
@@ -1213,16 +1271,24 @@ class _DecorationAnchor extends StatelessWidget {
     required this.definition,
     required this.assetPath,
     required this.mapSize,
+    required this.presentation,
     required this.onMove,
     required this.onFinishMove,
   });
 
   @override
   Widget build(BuildContext context) {
-    final width = mapSize.width * definition.width / 100;
+    final width =
+        mapSize.width * definition.width / 100 * presentation.widthScale;
     return Positioned(
-      left: mapSize.width * placement.x / 100,
-      top: mapSize.height * placement.y / 100,
+      left:
+          mapSize.width *
+          presentation.decorationX(placement.yardId, placement.x, placement.y) /
+          100,
+      top:
+          mapSize.height *
+          presentation.decorationY(placement.yardId, placement.x, placement.y) /
+          100,
       child: FractionalTranslation(
         translation: const Offset(-.5, -.5),
         child: Transform.rotate(
@@ -1235,14 +1301,17 @@ class _DecorationAnchor extends StatelessWidget {
               onPanUpdate: (details) => onMove(details.delta),
               onPanEnd: (_) => onFinishMove(),
               onPanCancel: onFinishMove,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Image.asset(
-                  assetPath,
-                  width: width,
-                  fit: BoxFit.contain,
-                  cacheWidth: 180,
-                  filterQuality: FilterQuality.medium,
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+                child: Padding(
+                  padding: const EdgeInsets.all(8),
+                  child: Image.asset(
+                    assetPath,
+                    width: width,
+                    fit: BoxFit.contain,
+                    cacheWidth: 180,
+                    filterQuality: FilterQuality.medium,
+                  ),
                 ),
               ),
             ),
@@ -1307,9 +1376,8 @@ class _GateSheet extends StatelessWidget {
                     width: 38,
                     height: 4,
                     decoration: BoxDecoration(
-                      color: Theme.of(
-                        context,
-                      ).colorScheme.onSurface.withValues(alpha: .18),
+                      color: Theme.of(context).colorScheme.onSurface
+                          .withValues(alpha: .18),
                       borderRadius: SoriRadius.brPill,
                     ),
                   ),
@@ -1324,9 +1392,8 @@ class _GateSheet extends StatelessWidget {
                         children: [
                           Text(
                             gate.unlockEra.code.toUpperCase(),
-                            style: SoriTextTheme.of(
-                              context,
-                            ).eyebrow.copyWith(color: SoriColors.primaryDark),
+                            style: SoriTextTheme.of(context).eyebrow
+                                .copyWith(color: SoriColors.primaryDark),
                           ),
                           Text(
                             gate.ko,
@@ -1382,9 +1449,9 @@ class _GateSheet extends StatelessWidget {
                           child: Text(
                             t.ilduWorldRotateBuildingHint,
                             style: SoriTextTheme.of(context).caption.copyWith(
-                              color: Theme.of(
-                                context,
-                              ).colorScheme.onSurfaceVariant,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurfaceVariant,
                             ),
                           ),
                         ),
@@ -1500,206 +1567,230 @@ class _PlaceSheet extends StatelessWidget {
                     onDone: onFinishDecorating,
                     onAdd: onAddDecoration,
                   )
-                : Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Container(
-                          width: 38,
-                          height: 4,
-                          decoration: BoxDecoration(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.onSurface.withValues(alpha: .18),
-                            borderRadius: BorderRadius.circular(2),
+                : _ScrollablePlaceContent(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Center(
+                          child: Container(
+                            width: 38,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.onSurface
+                                  .withValues(alpha: .18),
+                              borderRadius: BorderRadius.circular(2),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        const SizedBox(height: Spacing.sm),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    '${hub.ko} · ${building.unlockEra.code.toUpperCase()}',
+                                    style: SoriTextTheme.of(context).eyebrow
+                                        .copyWith(
+                                          color: SoriColors.primaryDark,
+                                        ),
+                                  ),
+                                  Text(
+                                    building.ko,
+                                    style: SoriTextTheme.of(context)
+                                        .cultureTitle,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            _StateLabel(
+                              label: available
+                                  ? t.ilduWorldOpenState
+                                  : t.ilduWorldPlannedState,
+                              available: available,
+                            ),
+                          ],
+                        ),
+                        if (showsTurntable) ...[
+                          const SizedBox(height: Spacing.sm),
+                          SizedBox(
+                            height: 118,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      color: SoriSurfaces.of(context)
+                                          .surfaceAlt,
+                                      borderRadius: SoriRadius.brMd,
+                                      border: Border.all(
+                                        color: SoriColors.primary.withValues(
+                                          alpha: .18,
+                                        ),
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(Spacing.xs),
+                                      child: HanokTurntable2D(
+                                        key: ValueKey(
+                                          'ildu-turntable-${building.id}',
+                                        ),
+                                        frames: turntable.frames,
+                                        direction: turntableDirection,
+                                        onDirectionChanged: onDirectionChanged,
+                                        semanticsLabel:
+                                            '${building.ko}. ${t.ilduWorldRotateBuildingHint}',
+                                        zoomInLabel: t.ilduWorldZoomInBuilding,
+                                        zoomOutLabel:
+                                            t.ilduWorldZoomOutBuilding,
+                                        resetZoomLabel:
+                                            t.ilduWorldResetBuildingZoom,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(width: Spacing.sm),
+                                SizedBox(
+                                  width: 94,
+                                  child: SingleChildScrollView(
+                                    child: Text(
+                                      t.ilduWorldRotateBuildingHint,
+                                      style: SoriTextTheme.of(context).caption
+                                          .copyWith(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .onSurfaceVariant,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(height: Spacing.xs),
+                          _AnchorScaleControl(
+                            anchorId: building.id,
+                            scale: scale,
+                            onChanged: onScaleChanged,
+                            onChangeEnd: onScaleChangeEnd,
+                          ),
+                        ],
+                        const SizedBox(height: Spacing.sm),
+                        if (available)
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  '${hub.ko} · ${building.unlockEra.code.toUpperCase()}',
-                                  style: SoriTextTheme.of(context).eyebrow
-                                      .copyWith(color: SoriColors.primaryDark),
+                                  t.ilduWorldRecommended,
+                                  style: SoriTextTheme.of(context).eyebrow,
                                 ),
                                 Text(
-                                  building.ko,
-                                  style: SoriTextTheme.of(context).cultureTitle,
+                                  building.lessonIntent,
+                                  style: SoriTextTheme.of(context).cardTitle,
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: Spacing.xxxl,
+                                  child: FilledButton(
+                                    onPressed: () =>
+                                        onOpenRoute(hub.primaryRoute),
+                                    child: Text(t.ilduWorldStartRecommended),
+                                  ),
+                                ),
+                                const SizedBox(height: Spacing.xs),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: TextButton(
+                                        onPressed: () => onOpenRoute(
+                                          hub.secondaryRoutes.first,
+                                        ),
+                                        child: Text(t.ilduWorldExplore),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: TextButton(
+                                        onPressed: onStartDecorating,
+                                        child: Text(t.ilduWorldDecorate),
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: TextButton(
+                                        onPressed: () => onOpenRoute(
+                                          hub.secondaryRoutes.last,
+                                        ),
+                                        child: Text(t.ilduWorldCulture),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )
+                        else
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  t.ilduWorldLockedEyebrow,
+                                  style: SoriTextTheme.of(context).eyebrow,
+                                ),
+                                Text(
+                                  t.ilduWorldLockedTitle(
+                                    building.unlockEra.code.toUpperCase(),
+                                  ),
+                                  style: SoriTextTheme.of(context).cardTitle,
+                                ),
+                                Text(
+                                  t.ilduWorldLockedBody,
+                                  style: SoriTextTheme.of(context).caption
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .onSurfaceVariant,
+                                      ),
+                                ),
+                                const Spacer(),
+                                SizedBox(
+                                  width: double.infinity,
+                                  height: Spacing.xxxl,
+                                  child: OutlinedButton(
+                                    onPressed: () =>
+                                        onOpenRoute('/course/mission'),
+                                    child: Text(t.ilduWorldLockedCta),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
-                          _StateLabel(
-                            label: available
-                                ? t.ilduWorldOpenState
-                                : t.ilduWorldPlannedState,
-                            available: available,
-                          ),
-                        ],
-                      ),
-                      if (showsTurntable) ...[
-                        const SizedBox(height: Spacing.sm),
-                        SizedBox(
-                          height: 118,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: DecoratedBox(
-                                  decoration: BoxDecoration(
-                                    color: SoriSurfaces.of(context).surfaceAlt,
-                                    borderRadius: SoriRadius.brMd,
-                                    border: Border.all(
-                                      color: SoriColors.primary.withValues(
-                                        alpha: .18,
-                                      ),
-                                    ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(Spacing.xs),
-                                    child: HanokTurntable2D(
-                                      key: ValueKey(
-                                        'ildu-turntable-${building.id}',
-                                      ),
-                                      frames: turntable.frames,
-                                      direction: turntableDirection,
-                                      onDirectionChanged: onDirectionChanged,
-                                      semanticsLabel:
-                                          '${building.ko}. ${t.ilduWorldRotateBuildingHint}',
-                                      zoomInLabel: t.ilduWorldZoomInBuilding,
-                                      zoomOutLabel: t.ilduWorldZoomOutBuilding,
-                                      resetZoomLabel:
-                                          t.ilduWorldResetBuildingZoom,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(width: Spacing.sm),
-                              SizedBox(
-                                width: 94,
-                                child: Text(
-                                  t.ilduWorldRotateBuildingHint,
-                                  style: SoriTextTheme.of(context).caption
-                                      .copyWith(
-                                        color: Theme.of(
-                                          context,
-                                        ).colorScheme.onSurfaceVariant,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: Spacing.xs),
-                        _AnchorScaleControl(
-                          anchorId: building.id,
-                          scale: scale,
-                          onChanged: onScaleChanged,
-                          onChangeEnd: onScaleChangeEnd,
-                        ),
                       ],
-                      const SizedBox(height: Spacing.sm),
-                      if (available)
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                t.ilduWorldRecommended,
-                                style: SoriTextTheme.of(context).eyebrow,
-                              ),
-                              Text(
-                                building.lessonIntent,
-                                style: SoriTextTheme.of(context).cardTitle,
-                              ),
-                              const Spacer(),
-                              SizedBox(
-                                width: double.infinity,
-                                height: Spacing.xxxl,
-                                child: FilledButton(
-                                  onPressed: () =>
-                                      onOpenRoute(hub.primaryRoute),
-                                  child: Text(t.ilduWorldStartRecommended),
-                                ),
-                              ),
-                              const SizedBox(height: Spacing.xs),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: TextButton(
-                                      onPressed: () => onOpenRoute(
-                                        hub.secondaryRoutes.first,
-                                      ),
-                                      child: Text(t.ilduWorldExplore),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: TextButton(
-                                      onPressed: onStartDecorating,
-                                      child: Text(t.ilduWorldDecorate),
-                                    ),
-                                  ),
-                                  Expanded(
-                                    child: TextButton(
-                                      onPressed: () =>
-                                          onOpenRoute(hub.secondaryRoutes.last),
-                                      child: Text(t.ilduWorldCulture),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      else
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                t.ilduWorldLockedEyebrow,
-                                style: SoriTextTheme.of(context).eyebrow,
-                              ),
-                              Text(
-                                t.ilduWorldLockedTitle(
-                                  building.unlockEra.code.toUpperCase(),
-                                ),
-                                style: SoriTextTheme.of(context).cardTitle,
-                              ),
-                              Text(
-                                t.ilduWorldLockedBody,
-                                style: SoriTextTheme.of(context).caption
-                                    .copyWith(
-                                      color: Theme.of(
-                                        context,
-                                      ).colorScheme.onSurfaceVariant,
-                                    ),
-                              ),
-                              const Spacer(),
-                              SizedBox(
-                                width: double.infinity,
-                                height: Spacing.xxxl,
-                                child: OutlinedButton(
-                                  onPressed: () =>
-                                      onOpenRoute('/course/mission'),
-                                  child: Text(t.ilduWorldLockedCta),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                    ],
+                    ),
                   ),
           ),
         ),
       ),
     );
   }
+}
+
+class _ScrollablePlaceContent extends StatelessWidget {
+  final Widget child;
+  const _ScrollablePlaceContent({required this.child});
+
+  @override
+  Widget build(BuildContext context) => LayoutBuilder(
+    builder: (context, constraints) => SingleChildScrollView(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minHeight: constraints.maxHeight),
+        child: IntrinsicHeight(child: child),
+      ),
+    ),
+  );
 }
 
 class _AnchorScaleControl extends StatelessWidget {
@@ -1918,9 +2009,8 @@ class _LoadFailure extends StatelessWidget {
       child: IconButton.filledTonal(
         onPressed: onRetry,
         icon: const Icon(Icons.refresh_rounded),
-        tooltip: MaterialLocalizations.of(
-          context,
-        ).refreshIndicatorSemanticLabel,
+        tooltip: MaterialLocalizations.of(context)
+            .refreshIndicatorSemanticLabel,
       ),
     );
   }

@@ -8,7 +8,11 @@
       "distractors": [
         "두부가",
         "소고기가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Die Tasche ist zu schwer, deshalb tut meine Schulter weh.",
+      "promptEn": "The bag is too heavy, so my shoulder hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0561",
@@ -18,7 +22,11 @@
       "distractors": [
         "취미가",
         "날씨가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich bin zu viel gerannt, deshalb tut meine Brust weh.",
+      "promptEn": "I ran too much, so my chest hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0562",
@@ -28,7 +36,11 @@
       "distractors": [
         "청바지가",
         "스카프가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe lange auf dem Stuhl gesessen, deshalb tut mir der Rücken weh.",
+      "promptEn": "I sat in a chair for a long time, so my lower back hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0563",
@@ -38,7 +50,11 @@
       "distractors": [
         "유치원이",
         "관광객이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Lena, ich habe lange Klavier gespielt, jetzt tun mir die Finger weh.",
+      "promptEn": "Lena, I played the piano for a long time, and now my fingers hurt.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0564",
@@ -48,7 +64,11 @@
       "distractors": [
         "카페에",
         "식당에"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich war nervös, deshalb hatte ich Schweiß in der Handfläche.",
+      "promptEn": "I was nervous, so my palm got sweaty.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0565",
@@ -58,7 +78,11 @@
       "distractors": [
         "지갑이",
         "스웨터가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Die Schuhe sind zu klein, deshalb tun meine Zehen weh.",
+      "promptEn": "The shoes are too small, so my toes hurt.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0566",
@@ -68,7 +92,11 @@
       "distractors": [
         "침대가",
         "약속이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich bin viel gelaufen, deshalb tut meine Fußsohle weh.",
+      "promptEn": "I walked a lot, so the sole of my foot hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0567",
@@ -78,7 +106,11 @@
       "distractors": [
         "의자에",
         "우표에"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Auf meiner Stirn ist viel Schweiß.",
+      "promptEn": "There is a lot of sweat on my forehead.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0568",
@@ -88,7 +120,11 @@
       "distractors": [
         "블라우스가",
         "커피가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe scharfes Essen gegessen, deshalb tut meine Zunge weh.",
+      "promptEn": "I ate spicy food, so my tongue hurts.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0569",
@@ -98,7 +134,11 @@
       "distractors": [
         "가방이",
         "시장이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Sujin, ich kann Sie überhaupt nicht hören!",
+      "promptEn": "Sujin, I can't hear you at all!",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0570",
@@ -108,7 +148,11 @@
       "distractors": [
         "먹었어요",
         "씻었어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich war zu müde, deshalb habe ich mich ins Bett gelegt.",
+      "promptEn": "I was too tired, so I lay down on the bed.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0571",
@@ -118,7 +162,11 @@
       "distractors": [
         "갔어요",
         "왔어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Das Wetter war heiß, deshalb habe ich viel geschwitzt.",
+      "promptEn": "The weather was hot, so I sweated a lot.",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "id": "satz_a2_0572",
@@ -128,7 +176,11 @@
       "distractors": [
         "편지를",
         "안경을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Im Sommer esse ich oft kühle Nudeln.",
+      "promptEn": "In summer, I often eat cold noodles.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0573",
@@ -138,7 +190,11 @@
       "distractors": [
         "시계를",
         "지갑을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Man gibt Chilipaste in den Bibimbap.",
+      "promptEn": "You put gochujang into bibimbap.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0574",
@@ -148,7 +204,11 @@
       "distractors": [
         "기자를",
         "약속을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Meine Mutter macht Sojabohnenpaste selbst.",
+      "promptEn": "My mother makes doenjang herself.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0575",
@@ -158,7 +218,11 @@
       "distractors": [
         "모자를",
         "그림을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe viel Tofu in den Eintopf gegeben.",
+      "promptEn": "I put a lot of tofu in the stew.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0576",
@@ -168,7 +232,11 @@
       "distractors": [
         "지도를",
         "열쇠를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Am Wochenende habe ich mit Freunden Schweinebauch gegrillt und gegessen.",
+      "promptEn": "On the weekend, I grilled and ate pork belly with friends.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0577",
@@ -178,7 +246,11 @@
       "distractors": [
         "시계를",
         "극장을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe aus übrig gebliebenem Kimchi gebratenen Reis gemacht.",
+      "promptEn": "I made fried rice with the leftover kimchi.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0578",
@@ -188,7 +260,11 @@
       "distractors": [
         "도서관이",
         "생각이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "An kalten Tagen ist heiße Rinderknochensuppe am besten.",
+      "promptEn": "On a cold day, hot seolleongtang is the best.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0579",
@@ -198,7 +274,11 @@
       "distractors": [
         "편지를",
         "취미를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Am Geburtstag isst die Familie Rindfleisch.",
+      "promptEn": "On birthdays, my family eats beef.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0580",
@@ -208,7 +288,11 @@
       "distractors": [
         "기분이",
         "사진이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "An Regentagen sind heiße Udon-Nudeln das Beste.",
+      "promptEn": "On a rainy day, hot udon is the best.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0581",
@@ -218,7 +302,11 @@
       "distractors": [
         "지도를",
         "침대를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Im Sommer esse ich viel kühle Gurke.",
+      "promptEn": "In summer, I eat a lot of cool cucumber.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0582",
@@ -228,7 +316,11 @@
       "distractors": [
         "앉으면",
         "걸으면"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Wenn der Eintopf kocht, drehen Sie bitte die Hitze runter.",
+      "promptEn": "When the stew boils, please turn down the heat.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0583",
@@ -238,7 +330,11 @@
       "distractors": [
         "가서",
         "와서"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe den Tofu klein geschnitten und in den Eintopf gegeben.",
+      "promptEn": "I sliced the tofu finely and put it in the stew.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0584",
@@ -248,7 +344,11 @@
       "distractors": [
         "지도를",
         "우유를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Weil es ein Vorstellungsgespräch war, habe ich eine weiße Bluse angezogen.",
+      "promptEn": "It was a job interview, so I wore a white blouse.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0585",
@@ -258,7 +358,11 @@
       "distractors": [
         "관광지를",
         "허리를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Das Wetter ist kälter geworden, deshalb habe ich den Pullover herausgeholt.",
+      "promptEn": "The weather got cold, so I took out my sweater.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0586",
@@ -268,7 +372,11 @@
       "distractors": [
         "안경을",
         "이마를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Daniel, ich habe heute einen gelben Schal gebunden.",
+      "promptEn": "Daniel, I tied on a yellow scarf today.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0587",
@@ -278,7 +386,11 @@
       "distractors": [
         "기분부터",
         "도서관부터"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe zuerst die Unterwäsche in den Koffer gelegt.",
+      "promptEn": "I put underwear into the suitcase first.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0588",
@@ -288,7 +400,11 @@
       "distractors": [
         "병원으로",
         "극장으로"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich bin ans Meer gefahren und habe mich in den Badeanzug umgezogen.",
+      "promptEn": "I went to the sea and changed into my swimsuit.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0589",
@@ -298,7 +414,11 @@
       "distractors": [
         "약속을",
         "허리를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Wenn ich zur Arbeit gehe, trage ich jeden Tag ein Hemd.",
+      "promptEn": "When I go to work, I wear a dress shirt every day.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0590",
@@ -308,7 +428,11 @@
       "distractors": [
         "관광객을",
         "손가락을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Christian, ich will mit Jeans in den Park gehen!",
+      "promptEn": "Christian, I want to go to the park in jeans!",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0591",
@@ -318,7 +442,11 @@
       "distractors": [
         "취미",
         "날씨"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe diese Kleidung in den Kleiderschrank gelegt.",
+      "promptEn": "I put these clothes inside the wardrobe.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0592",
@@ -328,7 +456,11 @@
       "distractors": [
         "손바닥을",
         "병원을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe zum Geburtstag eine Halskette bekommen.",
+      "promptEn": "I got a necklace as a birthday present.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0593",
@@ -338,7 +470,11 @@
       "distractors": [
         "유치원을",
         "이마를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Maya, ich benutze nicht besonders viel Kosmetik.",
+      "promptEn": "Maya, I don't use much cosmetics.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0594",
@@ -348,7 +484,11 @@
       "distractors": [
         "짜요",
         "셔요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Mein Koffer ist schwarz.",
+      "promptEn": "My suitcase is black.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0595",
@@ -358,7 +498,11 @@
       "distractors": [
         "짜요",
         "셔요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Es hat geschneit, deshalb ist die ganze Welt weiß.",
+      "promptEn": "It snowed, so the whole world is white.",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0596",
@@ -368,7 +512,11 @@
       "distractors": [
         "일기가",
         "계획이"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Auf dieser Straße machen Touristen viele Fotos.",
+      "promptEn": "Tourists take a lot of photos on this street.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0597",
@@ -378,7 +526,11 @@
       "distractors": [
         "약사예요",
         "교사예요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Das hier ist der beliebteste Touristenort dieser Stadt.",
+      "promptEn": "This is the most popular tourist spot in this city.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0598",
@@ -388,7 +540,11 @@
       "distractors": [
         "지갑은",
         "모자는"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Als Reiseziel haben wir diesmal Jeju-do gewählt.",
+      "promptEn": "We decided on Jeju Island as our travel destination this time.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0599",
@@ -398,7 +554,11 @@
       "distractors": [
         "열쇠로",
         "의자로"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Im nächsten Urlaub möchte ich ins Ausland fahren.",
+      "promptEn": "I want to go abroad during my next vacation.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0600",
@@ -408,7 +568,11 @@
       "distractors": [
         "편지를",
         "생각을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Diesen Sommer mache ich zum ersten Mal eine Auslandsreise.",
+      "promptEn": "This summer, I'm going on an overseas trip for the first time.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0601",
@@ -418,7 +582,11 @@
       "distractors": [
         "우유",
         "그림"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Diesmal habe ich zuerst nach Reisezielen im Inland gesucht.",
+      "promptEn": "This time, I looked into domestic travel spots first.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0602",
@@ -428,7 +596,11 @@
       "distractors": [
         "책상",
         "가방"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Sujin, ich arbeite an einer internationalen Schule.",
+      "promptEn": "Sujin, I work at an international school.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0603",
@@ -438,7 +610,11 @@
       "distractors": [
         "열쇠까지",
         "우유까지"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Bis zum Bahnhof braucht man mit dem Taxi etwa zehn Minuten.",
+      "promptEn": "It takes about ten minutes by taxi to the train station.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0604",
@@ -448,7 +624,11 @@
       "distractors": [
         "우산이",
         "소고기가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich hatte kein Zugticket, deshalb konnte ich den Zug nicht nehmen.",
+      "promptEn": "I didn't have a train ticket, so I couldn't take the train.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0605",
@@ -458,7 +638,11 @@
       "distractors": [
         "지갑을",
         "그림을"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe das Flugticket im Voraus gebucht.",
+      "promptEn": "I booked the plane ticket in advance.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0606",
@@ -468,7 +652,11 @@
       "distractors": [
         "일기가",
         "열쇠가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Die Vorbestellung für diese Aufführung ist schon vorbei.",
+      "promptEn": "Advance booking for that show is already over.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0607",
@@ -478,7 +666,11 @@
       "distractors": [
         "와요",
         "자요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich reise morgen früh ab.",
+      "promptEn": "I'm leaving on a trip early tomorrow morning.",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0608",
@@ -488,7 +680,11 @@
       "distractors": [
         "우산",
         "가방"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "In der Oberschule habe ich Basketball gespielt.",
+      "promptEn": "I played basketball when I was in high school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0609",
@@ -498,7 +694,11 @@
       "distractors": [
         "사진에",
         "우표에"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Lena, mein jüngeres Geschwister geht auf die Mittelschule.",
+      "promptEn": "Lena, my younger sibling goes to middle school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0610",
@@ -508,7 +708,11 @@
       "distractors": [
         "가방에",
         "우산에"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Dieses Kind ist dieses Jahr in die Grundschule eingeschult worden.",
+      "promptEn": "This child started elementary school this year.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0611",
@@ -518,7 +722,11 @@
       "distractors": [
         "가다",
         "오다"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Mein jüngeres Geschwisterkind ist dieses Jahr in die Grundschule gekommen.",
+      "promptEn": "My younger sibling started elementary school this year.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0612",
@@ -528,7 +736,11 @@
       "distractors": [
         "예매에서",
         "결석에서"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Sujin, ich studiere an der Graduiertenschule Stadtkultur.",
+      "promptEn": "Sujin, I study urban culture in graduate school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0613",
@@ -538,7 +750,11 @@
       "distractors": [
         "수영장에는",
         "체육관에는"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Im nächsten Semester werde ich mehr Koreanischkurse belegen.",
+      "promptEn": "Next semester, I'm going to take more Korean classes.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0614",
@@ -548,7 +764,11 @@
       "distractors": [
         "은행에",
         "식당에"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Jeden Abend gehe ich zur Taekwondo-Schule.",
+      "promptEn": "Every evening, I go to a taekwondo academy.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0615",
@@ -558,7 +778,11 @@
       "distractors": [
         "우표가",
         "침대가"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "In dieser Nachbarschaft ist neu ein Kindergarten entstanden.",
+      "promptEn": "A kindergarten newly opened in this neighborhood.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0616",
@@ -568,7 +792,11 @@
       "distractors": [
         "은행에게",
         "지도에게"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Diese Bibliothek ist bei Jugendlichen sehr beliebt.",
+      "promptEn": "This library is very popular among teenagers.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0617",
@@ -578,7 +806,11 @@
       "distractors": [
         "약사예요",
         "우유예요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Hyuna, meine Freundin ist Grundschullehrerin.",
+      "promptEn": "Hyuna, my friend is an elementary school teacher.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0618",
@@ -588,7 +820,11 @@
       "distractors": [
         "책상을",
         "의자를"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe mich erkältet und war deshalb in der Schule abwesend.",
+      "promptEn": "I caught a cold, so I was absent from school.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0619",
@@ -598,7 +834,11 @@
       "distractors": [
         "울었어요",
         "섰어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe mir das Bein verletzt, deshalb habe ich die Taekwondo-Schule aufgegeben.",
+      "promptEn": "I hurt my leg, so I quit the taekwondo academy.",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "id": "satz_a2_0620",
@@ -608,7 +848,11 @@
       "distractors": [
         "앉아",
         "걸어"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich vertraue Christian.",
+      "promptEn": "I trust Christian.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0621",
@@ -618,7 +862,11 @@
       "distractors": [
         "왔어요",
         "웃었어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich war traurig, aber ich habe meine Tränen zurückgehalten.",
+      "promptEn": "I was sad, but I held back my tears.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0622",
@@ -628,7 +876,11 @@
       "distractors": [
         "잤어요",
         "섰어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe vergessen, den Regenschirm mitzunehmen.",
+      "promptEn": "I forgot to bring my umbrella.",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0623",
@@ -638,7 +890,11 @@
       "distractors": [
         "갔어요",
         "앉았어요"
-      ]
+      ],
+      "level": "a2",
+      "promptDe": "Ich habe Sujin gesehen und mit der Hand gewinkt.",
+      "promptEn": "I saw Sujin and waved my hand.",
+      "courseUnitId": "a2_01_haeyo_transition"
     }
   ]
 }

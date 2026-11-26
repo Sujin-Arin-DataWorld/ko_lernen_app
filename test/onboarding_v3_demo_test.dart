@@ -465,7 +465,7 @@ void main() {
 
   for (final lang in ['de', 'en']) {
     testWidgets(
-      '$lang actual shell supports all demo interactions at 320 x 640 and 200%',
+      '$lang actual shell supports the remaining story interactions at 320 x 640 and 200%',
       (tester) async {
         stubSoriSpeech();
         tester.view.physicalSize = const Size(320, 640);
@@ -512,6 +512,13 @@ void main() {
             isNull,
             reason: '$lang page $index $level',
           );
+          if (index == 2) {
+            expect(
+              find.byKey(const ValueKey('c-onboarding-games-preview-button')),
+              findsNothing,
+            );
+            return;
+          }
           final preview = find.byKey(
             ValueKey('c-onboarding-preview-${index + 2}'),
           );
@@ -573,10 +580,7 @@ void main() {
             await tap('demo-learning-back');
           }
           await page(2, level);
-          for (var game = 0; game < 6; game++) {
-            await tap('demo-game-$game');
-            await tap('demo-games-back');
-          }
+          await tap('onboarding-v2-story-next');
         }
       },
     );

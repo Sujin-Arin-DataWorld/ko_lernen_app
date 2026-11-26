@@ -17,10 +17,10 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_copy.dart';
 import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_presentation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 import 'support/einleitung_capture_assets.dart';
 import 'support/real_fonts.dart';
 import 'support/sori_speech_stubs.dart';
-import 'support/sori_stage_pump.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -112,9 +112,8 @@ void main() {
               _expectWholeWords(
                 tester,
                 find.text(
-                  lookupAppL10n(
-                    Locale(configuration.language),
-                  ).onboardingJourneyListen,
+                  lookupAppL10n(Locale(configuration.language))
+                      .onboardingJourneyListen,
                 ),
               );
             }
@@ -277,11 +276,10 @@ void main() {
         observations.add({'state': id, 'geometry': geometry()});
         await capture('intro-companion-$id-selected');
       }
-      File(
-        '$captureDirectory/intro-companion-interaction-geometry.json',
-      ).writeAsStringSync(
-        const JsonEncoder.withIndent('  ').convert(observations),
-      );
+      File('$captureDirectory/intro-companion-interaction-geometry.json')
+          .writeAsStringSync(
+            const JsonEncoder.withIndent('  ').convert(observations),
+          );
     });
 
     for (final configuration in [
@@ -370,7 +368,7 @@ void main() {
             expect(action.hitTestable(), findsOneWidget);
             expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
             final body = switch (page) {
-              1 => t.introNextPath,
+              1 => copy.setup.purposes.last.title,
               3 => t.onboardingCSoundBody,
               4 => t.onboardingCGamesBody,
               _ => t.onboardingCGyeBody,
@@ -561,7 +559,7 @@ void main() {
     },
   );
 
-  testWidgets('five previews keep story IDs and do not write XP or money', (
+  testWidgets('story previews keep story IDs and do not write XP or money', (
     tester,
   ) async {
     stubSoriSpeech();
@@ -584,31 +582,26 @@ void main() {
         ),
       );
       if (index == 2) {
-        await tester.tap(
-          find.byKey(const ValueKey('c-onboarding-games-preview-button')),
-        );
-        await pumpSoriStage(tester);
+        // The games preview was removed from the Einleitung (2026-11-25).
         expect(
-          tester
-              .widget<OnboardingGamesDemo>(find.byType(OnboardingGamesDemo))
-              .fullScreen,
-          isTrue,
+          find.byKey(const ValueKey('c-onboarding-games-preview-button')),
+          findsNothing,
         );
+        await _tap(tester, 'c-onboarding-preview-${index + 2}');
+        expect(find.byType(OnboardingGamesDemo), findsNothing);
         expect(find.byType(BottomSheet), findsNothing);
       } else {
         await _tap(tester, 'c-onboarding-preview-${index + 2}');
         expect(find.byType(BottomSheet), findsOneWidget);
       }
       expect(tester.takeException(), isNull, reason: 'preview ${index + 2}');
-      if (index == 2) {
-        await tester.tap(find.byKey(const ValueKey('demo-games-close')));
-        await pumpSoriStage(tester);
-      } else {
+      if (index != 2) {
         await tester.tap(find.text(lookupAppL10n(const Locale('de')).btnClose));
         await tester.pumpAndSettle();
       }
       await _tap(tester, 'onboarding-v2-story-next');
-      await _tap(tester, 'onboarding-v2-story-back');
+      await tester.binding.handlePopRoute();
+      await tester.pump();
       expect(next, COnboardingStory.ids[index]);
       expect(previous, COnboardingStory.ids[index]);
       expect(tester.takeException(), isNull);

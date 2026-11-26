@@ -11234,6 +11234,10 @@ class AppL10nDe extends AppL10n {
   String get hanokDownloadsIncluded => 'In der App enthalten';
 
   @override
+  String get hanokDownloadsAllIncluded =>
+      'Alle Hanok-Bilder sind bereits in der App enthalten. Ein zusätzlicher Download ist nicht nötig.';
+
+  @override
   String hanokDownloadsDownloading(String available, String total) {
     return '$available von $total werden vorbereitet';
   }
@@ -11882,7 +11886,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingCBookBody =>
-      'Entdecke Wörter und ihren Kontext.\nTalSunbi hilft dir, sie zu verstehen.';
+      'Mach ein Foto. TalSunbi erklärt jedes Wort.';
 
   @override
   String get onboardingCBookSummary => 'Aus deinen Büchern lernen.';
@@ -11891,11 +11895,10 @@ class AppL10nDe extends AppL10n {
   String get onboardingCChange => 'Ändern';
 
   @override
-  String get onboardingCGamesBody =>
-      'Übe mit deinen gespeicherten Wörtern.\nEntdecke Belohnungen für deine Fortschritte.';
+  String get onboardingCGamesBody => 'Deine Wörter werden zum Spiel.';
 
   @override
-  String get onboardingCGamesSummary => '8 Spiele. Viele Aha-Momente.';
+  String get onboardingCGamesSummary => '8 Spiele. Viele Aha-Momente!';
 
   @override
   String get onboardingCGyeBody =>
@@ -11905,8 +11908,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingCGyeTitle => 'Auch gemeinsam: Gye';
 
   @override
-  String get onboardingCHanokBody =>
-      'Stempelbuch & Dancheong-Atelier.\nDeine Werke für die Sarangbang.';
+  String get onboardingCHanokBody => 'Lerne, sammle und gestalte dein Zuhause.';
 
   @override
   String get onboardingCHanokSummary => 'Mit Yeopjeon wächst dein Hanok.';
@@ -11924,23 +11926,16 @@ class AppL10nDe extends AppL10n {
   String get introLevelLater => 'Du kannst es später ändern.';
 
   @override
-  String get onboardingJourneyStartWhere => 'Wo möchtest du starten?';
-
-  @override
   String get onboardingJourneyBeginnerHint => 'Ich fange neu an';
 
   @override
-  String get onboardingCLevelRange => 'Ganz neu oder A1 bis C2.';
-
-  @override
-  String get onboardingCPathBody =>
-      'Von den ersten Lauten bis zum echten Gespräch.';
+  String get onboardingCPathBody => 'Vom ersten Laut bis zum echten Gespräch.';
 
   @override
   String get onboardingCPathSummary => 'Ein klarer Lernweg.';
 
   @override
-  String get onboardingCSoundBody => 'Hören, verbinden, ausprobieren.';
+  String get onboardingCSoundBody => 'Hör hin und sprich nach.';
 
   @override
   String get onboardingCSoundSummary => 'Zwei Zeichen. Ein Klang.';
@@ -11992,15 +11987,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get introApplyLevel => 'Niveau übernehmen';
-
-  @override
-  String get introNextPath => 'Als Nächstes: Dein Lernweg.';
-
-  @override
-  String get introNextSample => 'Als Nächstes: Eine kurze Lernprobe.';
-
-  @override
-  String get introTwelveTools => '12 Lernwerkzeuge für deinen Alltag.';
 
   @override
   String get introGreetingTranslation => 'Guten Tag';

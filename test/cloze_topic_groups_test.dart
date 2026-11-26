@@ -18,6 +18,7 @@ const _expectedTopics = <ClozeTopicGroupId, Set<String>>{
     'Farben',
     'Feststand',
     'Geld',
+    'Kleidung',
     'Hausordnung',
     'Menge',
     'Nachbarschaft',
@@ -54,6 +55,7 @@ const _expectedTopics = <ClozeTopicGroupId, Set<String>>{
     'Handytarif',
     'Postamt',
     'Reise',
+    'Reisen',
     'Reiseänderung',
     'U-Bahnkarte',
     'Verkehr',
@@ -170,15 +172,18 @@ void main() {
   final items = sourceRows.map(ClozeItem.fromJson).toList(growable: false);
   final canonicalTopics = items.map((item) => item.topic).toSet();
 
-  test('accepted canonical baseline is exactly 2,365 items and 138 topics', () {
+  test('accepted canonical baseline is exactly 2,571 items and 140 topics', () {
     // C3-T5 (2026-09-16): Batch 30 A1 reinforcement adds 62 cloze items and
     // 2 new exact topic strings (Selbstvorstellung, Tiere). 2215 + 62 =
     // 2277; 132 + 2 = 134. Batch 31 A2 reinforcement (first A2 batch) adds
     // 64 more cloze items and 2 more new topic strings (Menschen &
     // Berufe, Natur & Draußen). 2277 + 64 = 2341; 134 + 2 = 136.
     // C2 batches 35 and 37 add 24 items with two new exact topics.
-    expect(items, hasLength(2365));
-    expect(canonicalTopics, hasLength(138));
+    // C3-T6 (2026-11-25): A2 Batches 32-34 add 192 items (2365 + 192 =
+    // 2557) and two new exact topics (Kleidung, Reisen): 138 + 2 = 140.
+    // C3-T7 (2026-11-26): A2 Batch 42 adds 14 items, no new topics.
+    expect(items, hasLength(2571));
+    expect(canonicalTopics, hasLength(140));
     expect(items.every((item) => item.topic.trim().isNotEmpty), isTrue);
     expect(items.every((item) => item.hasExplicitId), isTrue);
     expect(items.map((item) => item.id).toSet(), hasLength(items.length));
@@ -204,7 +209,7 @@ void main() {
     );
   });
 
-  test('all 138 exact topics map once with no missing or dangling key', () {
+  test('all 140 exact topics map once with no missing or dangling key', () {
     expect(_expectedTopics.keys.toList(), ClozeTopicGroups.ordered);
     final expectedUnion = <String>{};
     for (final entry in _expectedTopics.entries) {
@@ -217,7 +222,7 @@ void main() {
         expect(ClozeTopicGroups.groupForTopic(topic), entry.key, reason: topic);
       }
     }
-    expect(expectedUnion, hasLength(138));
+    expect(expectedUnion, hasLength(140));
     expect(expectedUnion, canonicalTopics);
     expect(ClozeTopicGroups.groupForTopic('not-a-canonical-topic'), isNull);
   });

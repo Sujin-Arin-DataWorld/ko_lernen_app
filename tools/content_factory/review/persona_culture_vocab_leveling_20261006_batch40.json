@@ -51,7 +51,13 @@
               }
             ]
           },
-          "liveVocabMatches": [],
+          "liveVocabMatches": [
+            {
+              "id": "vocab_a2_0677",
+              "level": "A2",
+              "packId": "a2_workplace_1"
+            }
+          ],
           "classification": "at_or_below_target",
           "flags": [],
           "recommendedAction": "keep"

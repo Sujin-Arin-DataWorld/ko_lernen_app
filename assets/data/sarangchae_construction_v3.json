@@ -4,13 +4,13 @@
   "approvedOn": "2026-09-14",
   "status": "approved_runtime",
   "completedStage": 16,
-  "canonicalSha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+  "canonicalSha256": "60a4efe311f40de1bfadb61c017021effffe4a13e3d2bd191ffb2de9f10cd901",
   "stages": [
     {
       "stageId": "sarangchae-site",
       "sequence": 1,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_01_site.png",
-      "sha256": "5ed4923fba1894427d3aa34699a62a3469c090f04bc89da2af3ebb654ff47727",
+      "assetPath": "assets/illustrations/ildu_r16/807955c2c5609e638c834314b3dd8e27b392355e57db61f09345a720e7e13676.webp",
+      "sha256": "807955c2c5609e638c834314b3dd8e27b392355e57db61f09345a720e7e13676",
       "term": "칸",
       "gloss": {
         "ko": "칸",
@@ -46,8 +46,8 @@
     {
       "stageId": "sarangchae-foundation",
       "sequence": 2,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_02_foundation.png",
-      "sha256": "3b328c697cf1bd570dfed11098246a566a6cc44be372e720b558d9759ffc834a",
+      "assetPath": "assets/illustrations/ildu_r16/dd4da94f78d1d89a96b7c1d5c501359e51f438e491306cc2aee94d201b85bf0d.webp",
+      "sha256": "dd4da94f78d1d89a96b7c1d5c501359e51f438e491306cc2aee94d201b85bf0d",
       "term": "기단",
       "gloss": {
         "ko": "기단",
@@ -83,8 +83,8 @@
     {
       "stageId": "sarangchae-choseok",
       "sequence": 3,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_03_choseok.png",
-      "sha256": "20d0a220fca2e59081524c9cdd4dee4235b50e198c15ffa7d4e9b5c7e161f337",
+      "assetPath": "assets/illustrations/ildu_r16/007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5.webp",
+      "sha256": "007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5",
       "term": "초석",
       "gloss": {
         "ko": "초석",
@@ -120,8 +120,8 @@
     {
       "stageId": "sarangchae-fitting",
       "sequence": 4,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_04_fitting.png",
-      "sha256": "dfae617098b905d18d83918af8679b5c9011e543daed43548f2b320b32a7b5f1",
+      "assetPath": "assets/illustrations/ildu_r16/007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5.webp",
+      "sha256": "007a0dfeb2a9cad423901727e3a842eb8d120b391590f7d7009531f44fea10f5",
       "term": "그랭이질",
       "gloss": {
         "ko": "그랭이질",
@@ -157,8 +157,8 @@
     {
       "stageId": "sarangchae-columns",
       "sequence": 5,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_05_columns.png",
-      "sha256": "0f5e796fdc46c27a3d89007c2822c68513c925202b14a0d7257ff01132d589c7",
+      "assetPath": "assets/illustrations/ildu_r16/f9b402f19eadf88db8e2f3ae3333bb91e8060a7f699f309ea43efd33ca8890ad.webp",
+      "sha256": "f9b402f19eadf88db8e2f3ae3333bb91e8060a7f699f309ea43efd33ca8890ad",
       "term": "기둥",
       "gloss": {
         "ko": "기둥",
@@ -194,8 +194,8 @@
     {
       "stageId": "sarangchae-beams",
       "sequence": 6,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_06_beams.png",
-      "sha256": "4f51ff202300881ed9f7a50196ef0e075d329f28f940b6e7c3b4fec497661b8a",
+      "assetPath": "assets/illustrations/ildu_r16/bf45488f40dfc74daabf7446ae4124025e79957756e91cfed290cf81f81e11a9.webp",
+      "sha256": "bf45488f40dfc74daabf7446ae4124025e79957756e91cfed290cf81f81e11a9",
       "term": "보",
       "gloss": {
         "ko": "보",
@@ -231,8 +231,8 @@
     {
       "stageId": "sarangchae-purlins",
       "sequence": 7,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_07_purlins.png",
-      "sha256": "a25f87e0ab56884c0b6988bfbcb0a5e8b4e13c1ba0de4e91cd82f708a7c5ffa6",
+      "assetPath": "assets/illustrations/ildu_r16/3299f9c428d8a44546908b022d665d2f37a93e572402e683d3ae489cc9ab2ea2.webp",
+      "sha256": "3299f9c428d8a44546908b022d665d2f37a93e572402e683d3ae489cc9ab2ea2",
       "term": "상량",
       "gloss": {
         "ko": "상량",
@@ -268,8 +268,8 @@
     {
       "stageId": "sarangchae-rafters",
       "sequence": 8,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_08_rafters.png",
-      "sha256": "81e68c58d5d342bef0e5849dae38bfc6f5483d436140cc6615c492d3119dcd10",
+      "assetPath": "assets/illustrations/ildu_r16/d6bb3deb613c9b2160be57c5a0d2f5e1740b0493e8c92896b260f54a12517fb8.webp",
+      "sha256": "d6bb3deb613c9b2160be57c5a0d2f5e1740b0493e8c92896b260f54a12517fb8",
       "term": "서까래",
       "gloss": {
         "ko": "서까래",
@@ -305,8 +305,8 @@
     {
       "stageId": "sarangchae-decking",
       "sequence": 9,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_09_decking.png",
-      "sha256": "60ffa4184d6d947c83f479e681395f764dbd28ffa7384acdc72dc42bc929bb26",
+      "assetPath": "assets/illustrations/ildu_r16/54dc7fb3e3dd5b6ec26c55bdd2f3501ac2427fa235d9967a0b363b2618aa08ff.webp",
+      "sha256": "54dc7fb3e3dd5b6ec26c55bdd2f3501ac2427fa235d9967a0b363b2618aa08ff",
       "term": "산자",
       "gloss": {
         "ko": "산자",
@@ -342,8 +342,8 @@
     {
       "stageId": "sarangchae-earth-roof",
       "sequence": 10,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_10_earth_roof.png",
-      "sha256": "21db199864dc73d585872030c23be876caedccc2b9078a0a1e658721eee57c4e",
+      "assetPath": "assets/illustrations/ildu_r16/b182d0922c645ea4c8ad6afe5be6778d707e4d2d74c879da8a06f6e6beff9d17.webp",
+      "sha256": "b182d0922c645ea4c8ad6afe5be6778d707e4d2d74c879da8a06f6e6beff9d17",
       "term": "보토",
       "gloss": {
         "ko": "보토",
@@ -379,8 +379,8 @@
     {
       "stageId": "sarangchae-tiles",
       "sequence": 11,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_11_tiles.png",
-      "sha256": "4cf7a5138c09244559b41148b81924b53458872975c549d934b4910a56872474",
+      "assetPath": "assets/illustrations/ildu_r16/0cadfde292f15eec3022eb513c47e72f7c88dd9d5df2f146be52005cc5eba80c.webp",
+      "sha256": "0cadfde292f15eec3022eb513c47e72f7c88dd9d5df2f146be52005cc5eba80c",
       "term": "기와",
       "gloss": {
         "ko": "기와",
@@ -416,8 +416,8 @@
     {
       "stageId": "sarangchae-walls",
       "sequence": 12,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_12_walls.png",
-      "sha256": "79959bd0f0885612c95021e8e359dbbd162eef32f2d2fd8cb3f3c8043ade46b2",
+      "assetPath": "assets/illustrations/ildu_r16/dbbb41af4a2498741efa9b36747065cd745a189bf0ee8e0b32e33543d682a2f5.webp",
+      "sha256": "dbbb41af4a2498741efa9b36747065cd745a189bf0ee8e0b32e33543d682a2f5",
       "term": "흙벽",
       "gloss": {
         "ko": "흙벽",
@@ -453,8 +453,8 @@
     {
       "stageId": "sarangchae-ondol",
       "sequence": 13,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_13_ondol.png",
-      "sha256": "b3225234ca637a26978a1f1fc5545db7d5cbc1816be4448010fc90ee84e75899",
+      "assetPath": "assets/illustrations/ildu_r16/310a1541083908ffb8722a2f1d4e213cbb959303bcfb8c4d773f95ebc817b734.webp",
+      "sha256": "310a1541083908ffb8722a2f1d4e213cbb959303bcfb8c4d773f95ebc817b734",
       "term": "온돌",
       "gloss": {
         "ko": "온돌",
@@ -490,8 +490,8 @@
     {
       "stageId": "sarangchae-maru",
       "sequence": 14,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_14_maru.png",
-      "sha256": "bb5d353c95c9db07c95fe8b43a3c0023886b7da98b7d01fc0b3c007747b402aa",
+      "assetPath": "assets/illustrations/ildu_r16/bc94a188d33003d0a0e738b634104958b84c24d3a1c083a2e16e4e1ccfdd61af.webp",
+      "sha256": "bc94a188d33003d0a0e738b634104958b84c24d3a1c083a2e16e4e1ccfdd61af",
       "term": "누마루",
       "gloss": {
         "ko": "누마루",
@@ -527,8 +527,8 @@
     {
       "stageId": "sarangchae-changho",
       "sequence": 15,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_15_changho.png",
-      "sha256": "dc07735943c511bb25c27aba9b25ddc4555b0f319291966b35e3ccc5246e158a",
+      "assetPath": "assets/illustrations/ildu_r16/d6c87211bb4fe11c451bfec2607857299d5214d440e169c078dcee97b6d1877b.webp",
+      "sha256": "d6c87211bb4fe11c451bfec2607857299d5214d440e169c078dcee97b6d1877b",
       "term": "창호",
       "gloss": {
         "ko": "창호",
@@ -564,8 +564,8 @@
     {
       "stageId": "sarangchae-complete",
       "sequence": 16,
-      "assetPath": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
-      "sha256": "f917724120d4080d7c004b65dc51a9c336fcfbccdb9997e830de06ead1bcfc1a",
+      "assetPath": "assets/illustrations/ildu_r16/60a4efe311f40de1bfadb61c017021effffe4a13e3d2bd191ffb2de9f10cd901.webp",
+      "sha256": "60a4efe311f40de1bfadb61c017021effffe4a13e3d2bd191ffb2de9f10cd901",
       "term": "사랑채",
       "gloss": {
         "ko": "사랑채",
@@ -598,5 +598,6 @@
         "de": "Der sechzehnte Moment. Das Haus, das wir gebaut haben."
       }
     }
-  ]
+  ],
+  "runtimeRevision": "r16-native-20261125"
 }

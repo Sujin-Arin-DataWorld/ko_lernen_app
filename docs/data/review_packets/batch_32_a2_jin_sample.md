@@ -1,6 +1,6 @@
 # Batch 32 (C3, A2 보강 초안 2차) — Jin 표본 패킷
 
-> 생성 2026-09-16 · Fable 설계, Sonnet 실행. 대상: A2(2급) 결손 어휘 보강 초안 **64단어** — 명사 52 · 동사 10 · 형용사 2. **이번 배치가 C3 시리즈의 두 번째 A2 보강 초안**이다 (Batch 31이 첫 A2 배치, 기존 27개 미만 A2 라이브 팩을 전부 12/12로 채움 + 신규 팩 `a2_messenger_phone_1` 부분 팩). Batch 31의 초안이 이미 모든 미달 라이브 A2 팩을 12/12로 채웠으므로, 이번 배치는 신규 팩 5개(`a2_body_1`·`a2_food_3`·`a2_clothing_1`·`a2_travel_1`·`a2_school_1`, 각 12/12)와 신규 부분 팩 1개(`a2_daily_actions_1`, 4/12)를 만들었다(64단어).
+> 생성 2026-09-16 · Fable 설계, Sonnet 실행. 대상: A2(2급) 결손 어휘 보강 초안 **64단어** — 명사 52 · 동사 10 · 형용사 2. **이번 배치가 C3 시리즈의 두 번째 A2 보강 초안**이다 (Batch 31이 첫 A2 배치, 기존 27개 미만 A2 라이브 팩을 전부 12/12로 채움 + 신규 팩 `a2_messenger_phone_1` 부분 팩). Batch 31의 초안이 이미 모든 미달 라이브 A2 팩을 12/12로 채웠으므로, 이번 배치는 신규 팩 5개(`a2_body_1`·`a2_food_3`·`a2_clothing_2`·`a2_travel_1`·`a2_school_1`, 각 12/12)와 신규 부분 팩 1개(`a2_daily_actions_1`, 4/12)를 만들었다(64단어).
 > **승인 전 — 앱 데이터(`assets/data/**`) 무수정.** `tools/content_factory/drafts/batch_32_a2_*` 초안만 존재하며, 매니페스트 `provenance.approval`은 비어 있다.
 > F8 D-4 절차: 전체 64건 중 **표본** 7건(9번째 행마다 1개씩 — 인덱스 0/9/18/27/36/45/54)을 먼저 보고 ok/반려를 적는다. 나머지는 참고용 압축 표.
 
@@ -14,6 +14,10 @@
 | 손가락 | 레나 씨, 제 손가락이 길어요. | 레나 씨, 피아노를 오래 쳐서 손가락이 아파요. |
 | 관광객 | 이 거리에는 관광객이 사진을 많이 찍어요. | 이 거리에서는 관광객이 사진을 많이 찍어요. |
 | 초등학생 | 크리스티안, 나 초등학생이야. 3학년! | 제 동생은 올해 초등학생이 됐어요. |
+
+`cloze_a2_0398`(썰다) 배분어: 가서·와서·자서 → 웃어서·울어서·쉬어서 — 같은 자동사 설계(목적어 + 자동사 = 비문)를 유지하되, 축약형 -아서가 기계 감사(D3 어미 일치)에서 인식되지 않아 어미가 드러나는 형태로 바꿈.
+
+팩 이름: 신규 팩 `a2_clothing_1` → `a2_clothing_2`(Kleidung 2) — 같은 이름의 라이브 팩(코트·치마 등 12단어)과 충돌해 승격 전에 기계적으로 바꿈. 문장 변경 없음.
 
 사유는 `tools/content_factory/repair_batches_32_34_naturalness_20261125.py` 독스트링. 2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only.
 
@@ -30,7 +34,7 @@
 
 - **출처**: `tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv`의 2급(grade='2') 비접사 표제어(1085개) 중 라이브 `assets/data/korean_vocab.csv`(전 레벨, 2818행) 및 Batch 25-30 A1 초안·**Batch 31 A2 초안** 어디에도 없는 결손어만 사용했다.
 - **결손 총계**: 1085 - (라이브·초안 중복 358) = **727개** — Batch 31이 자체 매니페스트에서 보고한 배치 후 잔여치(727)와 정확히 일치해 드리프트가 없음을 확인했다. 이번 배치는 그중 64개를 사용했다 — 남은 결손 **663개**는 다음 A2 배치들로 이월된다.
-- **우선순위**: (1) Batch 31 초안 이후 12개 미만인 라이브 A2 팩이 남아 있는지 먼저 확인했다 — 없었다(Batch 31 초안이 기존 미달 27개 팩을 전부 12/12로 채우는 데 필요한 단어를 이미 자체 claim했다). (2) 따라서 6개의 신규 팩을 주제별로 만들었다: `a2_body_1`(신체, 명사 10 + 동사 2), `a2_food_3`(a2_food_1/2가 Batch 31 초안에서 12/12에 도달했으므로 세 번째 음식 팩, 명사 10 + 동사 2), `a2_clothing_1`(옷·외모, 아직 라이브·초안 팩이 없던 주제, 명사 10 + 형용사 2), `a2_travel_1`(여행, 마찬가지로 아직 없던 주제, 명사 11 + 동사 1), `a2_school_1`(a2_education이 Batch 31 초안에서 12/12에 도달했으므로 학교/교육기관 팩, 명사 11 + 동사 1), `a2_daily_actions_1`(나머지 예산 64-60=4단어로 만든 부분 팩, 일반 생활 동사 4개).
+- **우선순위**: (1) Batch 31 초안 이후 12개 미만인 라이브 A2 팩이 남아 있는지 먼저 확인했다 — 없었다(Batch 31 초안이 기존 미달 27개 팩을 전부 12/12로 채우는 데 필요한 단어를 이미 자체 claim했다). (2) 따라서 6개의 신규 팩을 주제별로 만들었다: `a2_body_1`(신체, 명사 10 + 동사 2), `a2_food_3`(a2_food_1/2가 Batch 31 초안에서 12/12에 도달했으므로 세 번째 음식 팩, 명사 10 + 동사 2), `a2_clothing_2`(옷·외모, 아직 라이브·초안 팩이 없던 주제, 명사 10 + 형용사 2), `a2_travel_1`(여행, 마찬가지로 아직 없던 주제, 명사 11 + 동사 1), `a2_school_1`(a2_education이 Batch 31 초안에서 12/12에 도달했으므로 학교/교육기관 팩, 명사 11 + 동사 1), `a2_daily_actions_1`(나머지 예산 64-60=4단어로 만든 부분 팩, 일반 생활 동사 4개).
 - **세종 2 유닛 인용**: 유닛9 긴장(되다), 유닛10 바르다(예의 바르다), 유닛11 박수·자리·줄(을 서다), 유닛12 새벽, 유닛14 자신·정확(하다) — 8건이 결손 목록과 직접 겹쳤으나, 박수/자리/자신은 Batch 31이 이미 남긴 잔여어로 기록했고, 긴장/바르다/줄/새벽/정확은 이번 배치의 6개 팩 주제(신체/음식/의류/여행/학교/생활동작)와 깔끔하게 맞물리지 않아 사용하지 않았다 — 전부 결손 풀에 남아 다음 배치로 이월된다. 이번 배치의 팩 주제 자체는 세종 2 유닛 인용이 아니라 결손어 목록에서 직접 구성했다(세종 8유닛의 여행 어휘는 확인 결과 대부분 3-5급이거나 이미 라이브였다 — `docs/data/sejong/REPORT_2026-09-16.md`의 지적이 이번에도 재현됨).
 
 ## 신규 팩 (5개 12/12 + 1개 부분 팩)
@@ -39,7 +43,7 @@
 |---|---|---|
 | `a2_body_1` | 12 | 신체 (Körper) |
 | `a2_food_3` | 12 | 음식 (Essen & Trinken, 3번째 팩) |
-| `a2_clothing_1` | 12 | 옷·외모 (Kleidung) |
+| `a2_clothing_2` | 12 | 옷·외모 (Kleidung) |
 | `a2_travel_1` | 12 | 여행 (Reisen) |
 | `a2_school_1` | 12 | 학교·교육기관 (Bildung) |
 | `a2_daily_actions_1` (부분) | 4 | 생활 동작 동사 (Alltag) |
@@ -103,7 +107,7 @@
 
 ### vocab_a2_0595 — 속옷 (sogot)
 
-- 팩: `a2_clothing_1` (order 4) · 품사: Nomen · 주제: Kleidung
+- 팩: `a2_clothing_2` (order 4) · 품사: Nomen · 주제: Kleidung
 - DE: Unterwäsche · EN: underwear
 - 예문 KO: 여행 가방에 속옷부터 넣었어요.
 - Cloze `cloze_a2_0402`: 여행 가방에 ＿＿＿ 넣었어요. → 정답 `속옷부터` · 배분어 ['기분부터', '도서관부터', '체육관부터']
@@ -165,18 +169,18 @@
 |  | vocab_a2_0589 | 오이 | oi | Nomen | a2_food_3 | 10 | Gurke | cucumber | 여름에는 시원한 오이를 많이 먹어요. |  |
 |  | vocab_a2_0590 | 끓다 | kkeulta | Verb | a2_food_3 | 11 | kochen (sieden) | to boil | 찌개가 끓으면 불을 줄여 주세요. |  |
 |  | vocab_a2_0591 | 썰다 | sseolda | Verb | a2_food_3 | 12 | schneiden (in Scheiben) | to slice, to cut | 두부를 잘게 썰어서 찌개에 넣었어요. |  |
-|  | vocab_a2_0592 | 블라우스 | beullauseu | Nomen | a2_clothing_1 | 1 | Bluse | blouse | 면접이라서 하얀 블라우스를 입었어요. |  |
-|  | vocab_a2_0593 | 스웨터 | seuweteo | Nomen | a2_clothing_1 | 2 | Pullover | sweater | 날씨가 추워져서 스웨터를 꺼냈어요. |  |
-|  | vocab_a2_0594 | 스카프 | seukapeu | Nomen | a2_clothing_1 | 3 | Schal | scarf | 다니엘 씨, 저 오늘 노란 스카프를 맸어요. | daniel |
-| **표본** | vocab_a2_0595 | 속옷 | sogot | Nomen | a2_clothing_1 | 4 | Unterwäsche | underwear | 여행 가방에 속옷부터 넣었어요. |  |
-|  | vocab_a2_0596 | 수영복 | suyeongbok | Nomen | a2_clothing_1 | 5 | Badeanzug | swimsuit | 바다에 가서 수영복으로 갈아입었어요. |  |
-|  | vocab_a2_0597 | 와이셔츠 | waisyeocheu | Nomen | a2_clothing_1 | 6 | Hemd | dress shirt | 회사에 다닐 때는 매일 와이셔츠를 입어요. |  |
-|  | vocab_a2_0598 | 청바지 | cheongbaji | Nomen | a2_clothing_1 | 7 | Jeans | jeans | 크리스티안, 나 청바지를 입고 공원 갈래! | christian |
-|  | vocab_a2_0599 | 옷장 | otjang | Nomen | a2_clothing_1 | 8 | Kleiderschrank | wardrobe, closet | 이 옷을 옷장 안에 넣었어요. |  |
-|  | vocab_a2_0600 | 목걸이 | mokgeori | Nomen | a2_clothing_1 | 9 | Halskette | necklace | 생일 선물로 목걸이를 받았어요. |  |
-|  | vocab_a2_0601 | 화장품 | hwajangpum | Nomen | a2_clothing_1 | 10 | Kosmetik | cosmetics | 마야 씨, 저는 화장품을 별로 안 써요. | maya |
-|  | vocab_a2_0602 | 까맣다 | kkamata | Adjektiv | a2_clothing_1 | 11 | schwarz sein | to be black | 제 여행 가방은 까매요. |  |
-|  | vocab_a2_0603 | 하얗다 | hayata | Adjektiv | a2_clothing_1 | 12 | weiß sein | to be white | 눈이 와서 온 세상이 하얘요. |  |
+|  | vocab_a2_0592 | 블라우스 | beullauseu | Nomen | a2_clothing_2 | 1 | Bluse | blouse | 면접이라서 하얀 블라우스를 입었어요. |  |
+|  | vocab_a2_0593 | 스웨터 | seuweteo | Nomen | a2_clothing_2 | 2 | Pullover | sweater | 날씨가 추워져서 스웨터를 꺼냈어요. |  |
+|  | vocab_a2_0594 | 스카프 | seukapeu | Nomen | a2_clothing_2 | 3 | Schal | scarf | 다니엘 씨, 저 오늘 노란 스카프를 맸어요. | daniel |
+| **표본** | vocab_a2_0595 | 속옷 | sogot | Nomen | a2_clothing_2 | 4 | Unterwäsche | underwear | 여행 가방에 속옷부터 넣었어요. |  |
+|  | vocab_a2_0596 | 수영복 | suyeongbok | Nomen | a2_clothing_2 | 5 | Badeanzug | swimsuit | 바다에 가서 수영복으로 갈아입었어요. |  |
+|  | vocab_a2_0597 | 와이셔츠 | waisyeocheu | Nomen | a2_clothing_2 | 6 | Hemd | dress shirt | 회사에 다닐 때는 매일 와이셔츠를 입어요. |  |
+|  | vocab_a2_0598 | 청바지 | cheongbaji | Nomen | a2_clothing_2 | 7 | Jeans | jeans | 크리스티안, 나 청바지를 입고 공원 갈래! | christian |
+|  | vocab_a2_0599 | 옷장 | otjang | Nomen | a2_clothing_2 | 8 | Kleiderschrank | wardrobe, closet | 이 옷을 옷장 안에 넣었어요. |  |
+|  | vocab_a2_0600 | 목걸이 | mokgeori | Nomen | a2_clothing_2 | 9 | Halskette | necklace | 생일 선물로 목걸이를 받았어요. |  |
+|  | vocab_a2_0601 | 화장품 | hwajangpum | Nomen | a2_clothing_2 | 10 | Kosmetik | cosmetics | 마야 씨, 저는 화장품을 별로 안 써요. | maya |
+|  | vocab_a2_0602 | 까맣다 | kkamata | Adjektiv | a2_clothing_2 | 11 | schwarz sein | to be black | 제 여행 가방은 까매요. |  |
+|  | vocab_a2_0603 | 하얗다 | hayata | Adjektiv | a2_clothing_2 | 12 | weiß sein | to be white | 눈이 와서 온 세상이 하얘요. |  |
 | **표본** | vocab_a2_0604 | 관광객 | gwangwanggaek | Nomen | a2_travel_1 | 1 | Tourist | tourist | 이 거리에서는 관광객이 사진을 많이 찍어요. |  |
 |  | vocab_a2_0605 | 관광지 | gwangwangji | Nomen | a2_travel_1 | 2 | Touristenort | tourist spot | 여기가 이 도시에서 제일 인기 있는 관광지예요. |  |
 |  | vocab_a2_0606 | 여행지 | yeohaengji | Nomen | a2_travel_1 | 3 | Reiseziel | travel destination | 이번 여행지는 제주도로 정했어요. |  |
@@ -283,9 +287,9 @@
 | `cloze_a2_0397` | 끓다 | 찌개가 앉으면 불을 줄여 주세요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
 | `cloze_a2_0397` | 끓다 | 찌개가 걸으면 불을 줄여 주세요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
 | `cloze_a2_0397` | 끓다 | 찌개가 자면 불을 줄여 주세요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
-| `cloze_a2_0398` | 썰다 | 두부를 잘게 가서 찌개에 넣었어요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
-| `cloze_a2_0398` | 썰다 | 두부를 잘게 와서 찌개에 넣었어요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
-| `cloze_a2_0398` | 썰다 | 두부를 잘게 자서 찌개에 넣었어요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
+| `cloze_a2_0398` | 썰다 | 두부를 잘게 웃어서 찌개에 넣었어요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
+| `cloze_a2_0398` | 썰다 | 두부를 잘게 울어서 찌개에 넣었어요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
+| `cloze_a2_0398` | 썰다 | 두부를 잘게 쉬어서 찌개에 넣었어요. | ✗(구조 비문: 목적어/명사절이 있는데 자동사가 옴) |
 | `cloze_a2_0399` | 블라우스 | 면접이라서 하얀 지도를 입었어요. | ✗(의미 불성립: 좁은 선택제약과 충돌하는 무관 명사) |
 | `cloze_a2_0399` | 블라우스 | 면접이라서 하얀 우유를 입었어요. | ✗(의미 불성립: 좁은 선택제약과 충돌하는 무관 명사) |
 | `cloze_a2_0399` | 블라우스 | 면접이라서 하얀 기자를 입었어요. | ✗(의미 불성립: 좁은 선택제약과 충돌하는 무관 명사) |

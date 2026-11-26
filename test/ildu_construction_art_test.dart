@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/models/ildu_construction_art.dart';
 import 'package:ko_lernen_app/models/sarangchae_construction.dart';
 
 import 'support/hanok_asset_delivery_test_support.dart';
+import 'support/r16_runtime_contract.dart';
 
 Map<String, dynamic> source() =>
     jsonDecode(File(IlDuConstructionArtCatalog.assetPath).readAsStringSync())
@@ -40,125 +41,38 @@ imageFacts(Uint8List bytes) async {
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  test('R16 gate and Changgo stages decode through bundled delivery', () async {
+    await verifyR16Series({'hyeopmun', 'changgo'});
+    final sarang = await SarangchaeConstruction.load();
+    expect(sarang.stages, hasLength(SarangchaeConstruction.stageCount));
+    for (final stage in sarang.stages) {
+      expect(stage.assetPath, startsWith('assets/illustrations/ildu_r16/'));
+    }
+  });
+
   test(
-    'the delivery catalog decodes all 14 transparent stages and exact finals',
-    () async {
-      final assets = await HanokAssetDeliveryTestSupport.create();
-      addTearDown(assets.dispose);
-      final catalog = await IlDuConstructionArtCatalog.load();
-      final approvedRows = {
-        for (final series in source()['series'])
-          for (final stage in series['stages']) stage['stageId']: stage,
-      };
-      expect(catalog.series.take(2).map((s) => s.stages.length), [6, 8]);
-      final seen = <String>{};
-      for (final series in catalog.series.take(2)) {
-        for (final stage in series.stages) {
-          final bytes = await assets.load(stage.asset);
-          if (series.id == 'hyeopmun') {
-            expect(assets.isBundled(stage.asset), isTrue);
-          }
-          final facts = await imageFacts(bytes);
-          expect(facts.width, stage.width);
-          expect(facts.height, stage.height);
-          expect(facts.transparent && facts.opaque, isTrue);
-          final original = File(
-            approvedRows[stage.id]['approvedPngAsset'] as String,
-          ).readAsBytesSync();
-          expect(facts, await imageFacts(original));
-          if (stage == series.stages.last) {
-            expect(stage.asset, endsWith('.png'));
-            expect(bytes.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
-          } else {
-            expect(stage.asset, endsWith('.webp'));
-          }
-          expect(sha256.convert(bytes).toString(), stage.sha256);
-          seen.add(stage.sha256);
-        }
+    'runtime registration changes without rewriting historical approval',
+    () {
+      final catalog = source();
+      final family = readR16Json(
+        'docs/assets/STYLE_LOCK.json',
+      )['families']['F-D-ildoo'];
+      final historical = readR16Json(
+        'docs/assets/ildu_hyeopmun_changgo_construction_20260914/construction_catalog.json',
+      );
+      for (final series in historical['series']) {
+        final old = family['approvedConstructionSeries'][series['buildingId']];
+        expect(old['canonicalSha256'], series['canonicalSha256']);
       }
-      expect(seen, hasLength(14));
-      expect(
-        catalog.series[0].stages.last.sha256,
-        '3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884',
-      );
-      expect(
-        catalog.series[1].stages.last.sha256,
-        '867495181c3507a29bca0efc43778bf6a958018b05992caba3fa40a01a3d9488',
-      );
-      final sarangchae = await SarangchaeConstruction.load();
-      expect(sarangchae.stages, hasLength(SarangchaeConstruction.stageCount));
-      for (final stage in sarangchae.stages) {
-        expect(
-          assets.isBundled(stage.assetPath),
-          isTrue,
-          reason: stage.assetPath,
-        );
+      for (final series in catalog['series']) {
+        final current =
+            family['runtimeConstructionSeries'][series['buildingId']];
+        expect(current['canonicalAsset'], series['canonicalAsset']);
+        expect(current['canonicalSha256'], series['canonicalSha256']);
+        expect(current['stageCount'], series['stages'].length);
       }
     },
   );
-
-  test('style authority, runtime catalog and provenance archive agree', () {
-    final json = source();
-    final documented = jsonDecode(
-      File(
-        'docs/assets/ildu_hyeopmun_changgo_construction_20260914/construction_catalog.json',
-      ).readAsStringSync(),
-    );
-    final legacy = Map<String, dynamic>.from(json)
-      ..remove('additionalApprovals')
-      ..['series'] = (json['series'] as List).take(2).toList();
-    expect(legacy, documented);
-    final lock = jsonDecode(
-      File('docs/assets/STYLE_LOCK.json').readAsStringSync(),
-    );
-    final family = (lock['families'] as Map).values.firstWhere(
-      (v) => (v as Map).containsKey('approvedConstructionSeries'),
-    );
-    for (final series in (json['series'] as List).take(2)) {
-      final approved =
-          family['approvedConstructionSeries'][series['buildingId']];
-      expect(approved['canonicalAsset'], series['canonicalAsset']);
-      expect(approved['canonicalSha256'], series['canonicalSha256']);
-      expect(approved['stageCount'], series['stages'].length);
-      for (final stage in series['stages']) {
-        final archived = File(
-          stage['approvedPngAsset'] as String,
-        ).readAsBytesSync();
-        expect(sha256.convert(archived).toString(), stage['approvedPngSha256']);
-        expect(archived.take(8), [137, 80, 78, 71, 13, 10, 26, 10]);
-        if (stage['sequence'] == approved['stageCount']) {
-          expect(stage['sha256'], stage['approvedPngSha256']);
-        }
-      }
-    }
-  });
-
-  test('only referenced runtime images exist within 24 MiB', () {
-    final json = source();
-    final expected = <String>{};
-    final actual = <String>{};
-    var bytes = 0;
-    for (final series in (json['series'] as List).take(2)) {
-      for (final stage in series['stages']) {
-        expected.add(stage['asset'] as String);
-        if (stage['lessonIllustration'] != null) {
-          expected.add(stage['lessonIllustration']['asset'] as String);
-        }
-      }
-    }
-    for (final name in ['hyeopmun', 'changgo', 'lessons']) {
-      final directory = Directory(
-        'assets/illustrations/personal_hanok_v3/construction/$name',
-      );
-      for (final file in directory.listSync().whereType<File>()) {
-        actual.add(file.path.replaceAll('\\', '/'));
-        bytes += file.lengthSync();
-      }
-    }
-    expect(actual, expected);
-    // The exact two final PNGs account for 8.06 MiB of this ceiling.
-    expect(bytes, lessThanOrEqualTo(24 * 1024 * 1024));
-  });
 
   test(
     'modern example objects are separately bundled with their own provenance',
@@ -177,14 +91,9 @@ void main() {
         final data = await assets.load(assetPath);
         expect(sha256.convert(data).toString(), lesson['sha256']);
         expect(lesson['asset'], isNot(stage['asset']));
-        final original = File(
-          lesson['approvedPngAsset'] as String,
-        ).readAsBytesSync();
-        expect(
-          sha256.convert(original).toString(),
-          lesson['approvedPngSha256'],
-        );
-        expect(await imageFacts(data), await imageFacts(original));
+        final facts = await imageFacts(data);
+        expect(facts.width, lesson['width']);
+        expect(facts.height, lesson['height']);
         expect((lesson['caption']['ko'] as String), contains('현대 생활 예시'));
       }
     },
@@ -206,8 +115,7 @@ void main() {
         case 'sequence':
           first['sequence'] = 2;
         case 'path':
-          first['asset'] =
-              'assets/illustrations/personal_hanok_v3/construction/hyeopmun/../other.png';
+          first['asset'] = 'assets/illustrations/personal_hanok_v3/construction/hyeopmun/../other.png';
         case 'translation':
           first['line']['de'] = '';
         case 'answer':

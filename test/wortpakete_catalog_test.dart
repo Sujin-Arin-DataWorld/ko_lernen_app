@@ -68,7 +68,10 @@ void main() {
         );
         words += pack.words.length;
       }
-      expect([groups.length, packs.length, words], [222, 254, 2968]);
+      // C3-T6 (2026-11-25): A2 Batches 32-34 add 13 new pack bases, 16 packs
+      // and 192 words.
+      // C3-T7 (2026-11-26): Batch 42 adds a2_daily_4 (existing base) and 14 words.
+      expect([groups.length, packs.length, words], [235, 271, 3174]);
       expect(
         VocabPackService.topicId('b1_tech_society_1'),
         VocabPackService.topicId('b1_tech_society_2'),

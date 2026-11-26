@@ -7,7 +7,7 @@ import re
 import unittest
 from pathlib import Path
 
-from PIL import Image
+from tool.ildu_retirement_audit import retired_record
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,12 +36,10 @@ class SettlementArtTest(unittest.TestCase):
                     path = ROOT / stage["asset"]
                     self.assertTrue(path.resolve().is_relative_to(ROOT))
                     self.assertNotIn(stage["asset"], by_asset)
-                    self.assertEqual(path.stat().st_size, stage["bytes"])
-                    self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), stage["sha256"])
-                    with Image.open(path) as image:
-                        self.assertEqual(image.size, (stage["width"], stage["height"]))
-                        self.assertEqual("A" in image.getbands(), stage["hasAlpha"])
-                        image.verify()
+                    record = retired_record(stage["asset"], stage["sha256"])
+                    self.assertEqual(record["bytes"], stage["bytes"])
+                    self.assertGreater(stage["width"], 0)
+                    self.assertGreater(stage["height"], 0)
                     by_asset[stage["asset"]] = stage
         self.assertEqual(len(by_asset), catalog["totalStages"])
         provenance = read_json(f"{PACKAGE}/provenance.json")
@@ -52,7 +50,10 @@ class SettlementArtTest(unittest.TestCase):
         self.assertEqual(len(provenance["promptRecords"]), 40)
         for record in provenance["promptRecords"]:
             path = ROOT / record["asset"]
-            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), record["sha256"])
+            if 'personal_hanok_v3/' in record['asset']:
+                retired_record(record['asset'], record['sha256'])
+            else:
+                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), record['sha256'])
 
     def test_art_approval_does_not_enable_the_rejected_map_or_bundle(self):
         catalog = read_json(CATALOG)
@@ -72,7 +73,7 @@ class SettlementArtTest(unittest.TestCase):
                 self.assertNotIn(str(Path(path).parent).replace("\\", "/") + "/", bundled)
         self.assertFalse((ROOT / "assets/data/ildu_settlement_construction_v1.json").exists())
 
-    def test_all149_allocations_resolve_in_this_checkout_without_wip(self):
+    def test_all149_unreviewed_allocations_resolve_to_retired_git_evidence(self):
         with (ROOT / "docs/superpowers/plans/2026-09-15-ildu-stage-allocation.csv").open(encoding="utf-8-sig", newline="") as stream:
             rows = list(csv.DictReader(stream))
         self.assertEqual(len(rows), 149)
@@ -84,7 +85,7 @@ class SettlementArtTest(unittest.TestCase):
                 self.assertNotIn("worktrees", row["sourceRoot"])
                 self.assertTrue((ROOT / row["sourceCatalog"]).is_file())
                 path = ROOT / row["assetPath"]
-                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), row["sha256"])
+                self.assertEqual(retired_record(row["assetPath"], row["sha256"])["bytes"], int(row["bytes"]))
 
 
 if __name__ == "__main__":

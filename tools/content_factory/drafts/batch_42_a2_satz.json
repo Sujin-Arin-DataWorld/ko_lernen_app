@@ -1,0 +1,200 @@
+{
+  "items": [
+    {
+      "id": "satz_a2_0752",
+      "sourceVocabId": "vocab_a2_0760",
+      "vocabKo": "간호사",
+      "targetKo": "제 언니는 병원에서 간호사로 일해요.",
+      "distractors": [
+        "학교로",
+        "바다로"
+      ],
+      "promptDe": "Meine ältere Schwester arbeitet als Krankenpflegerin im Krankenhaus.",
+      "promptEn": "My older sister works as a nurse at a hospital.",
+      "level": "a2",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "satz_a2_0753",
+      "sourceVocabId": "vocab_a2_0761",
+      "vocabKo": "선수",
+      "targetKo": "마야 씨, 제 동생은 축구 선수예요.",
+      "distractors": [
+        "의자예요",
+        "우유예요"
+      ],
+      "promptDe": "Maya, mein jüngerer Bruder ist Fußballspieler.",
+      "promptEn": "Maya, my younger brother is a soccer player.",
+      "level": "a2",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "id": "satz_a2_0754",
+      "sourceVocabId": "vocab_a2_0762",
+      "vocabKo": "피다",
+      "targetKo": "봄이 와서 공원에 꽃이 많이 피었어요.",
+      "distractors": [
+        "먹었어요",
+        "읽었어요"
+      ],
+      "promptDe": "Der Frühling ist da, und im Park blühen viele Blumen.",
+      "promptEn": "Spring has come, and lots of flowers are blooming in the park.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0755",
+      "sourceVocabId": "vocab_a2_0763",
+      "vocabKo": "파랗다",
+      "targetKo": "비가 그친 후에 파란 하늘이 보여요.",
+      "distractors": [
+        "짠",
+        "매운"
+      ],
+      "promptDe": "Nach dem Regen ist ein blauer Himmel zu sehen.",
+      "promptEn": "After the rain, you can see a blue sky.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0756",
+      "sourceVocabId": "vocab_a2_0764",
+      "vocabKo": "꽃집",
+      "targetKo": "어머니 생신이라서 꽃집에서 꽃을 샀어요.",
+      "distractors": [
+        "약국에서",
+        "은행에서"
+      ],
+      "promptDe": "Zum Geburtstag meiner Mutter habe ich im Blumenladen Blumen gekauft.",
+      "promptEn": "For my mother's birthday, I bought flowers at the flower shop.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0757",
+      "sourceVocabId": "vocab_a2_0765",
+      "vocabKo": "시내",
+      "targetKo": "주말에 친구랑 시내에서 영화를 봤어요.",
+      "distractors": [
+        "부엌에서",
+        "교실에서"
+      ],
+      "promptDe": "Am Wochenende war ich mit einem Freund in der Innenstadt im Kino.",
+      "promptEn": "On the weekend, I watched a movie downtown with a friend.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0758",
+      "sourceVocabId": "vocab_a2_0766",
+      "vocabKo": "닭고기",
+      "targetKo": "저는 소고기보다 닭고기를 더 좋아해요.",
+      "distractors": [
+        "우유를",
+        "의자를"
+      ],
+      "promptDe": "Ich mag Hähnchen lieber als Rindfleisch.",
+      "promptEn": "I like chicken more than beef.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0759",
+      "sourceVocabId": "vocab_a2_0767",
+      "vocabKo": "물티슈",
+      "targetKo": "더러운 손을 물티슈로 닦았어요.",
+      "distractors": [
+        "우유로",
+        "의자로"
+      ],
+      "promptDe": "Ich habe meine schmutzigen Hände mit einem Feuchttuch abgewischt.",
+      "promptEn": "I wiped my dirty hands with a wet wipe.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0760",
+      "sourceVocabId": "vocab_a2_0768",
+      "vocabKo": "생기다",
+      "targetKo": "회사 근처에 새 카페가 생겼어요.",
+      "distractors": [
+        "읽었어요",
+        "먹었어요"
+      ],
+      "promptDe": "In der Nähe der Firma hat ein neues Café aufgemacht.",
+      "promptEn": "A new café has opened near the office.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0761",
+      "sourceVocabId": "vocab_a2_0769",
+      "vocabKo": "결석하다",
+      "targetKo": "레나 씨, 어제 감기에 걸려서 수업에 결석했어요.",
+      "distractors": [
+        "졸업했어요",
+        "청소했어요"
+      ],
+      "promptDe": "Lena, ich hatte gestern eine Erkältung und habe im Unterricht gefehlt.",
+      "promptEn": "Lena, I had a cold yesterday, so I missed class.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0762",
+      "sourceVocabId": "vocab_a2_0770",
+      "vocabKo": "여쭙다",
+      "targetKo": "모르는 단어를 선생님께 여쭤봤어요.",
+      "distractors": [
+        "입어봤어요",
+        "찾아봤어요"
+      ],
+      "promptDe": "Ich habe die Lehrerin nach einem unbekannten Wort gefragt.",
+      "promptEn": "I asked my teacher about a word I didn't know.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0763",
+      "sourceVocabId": "vocab_a2_0771",
+      "vocabKo": "더럽다",
+      "targetKo": "옷이 더러워서 빨래를 했어요.",
+      "distractors": [
+        "추워서",
+        "더워서"
+      ],
+      "promptDe": "Meine Kleidung war schmutzig, also habe ich Wäsche gewaschen.",
+      "promptEn": "My clothes were dirty, so I did the laundry.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0764",
+      "sourceVocabId": "vocab_a2_0772",
+      "vocabKo": "확인하다",
+      "targetKo": "수진 씨, 메일을 확인했어요? 회의 시간이 바뀌었어요.",
+      "distractors": [
+        "청소했어요",
+        "운동했어요"
+      ],
+      "promptDe": "Sujin, haben Sie die E-Mail gesehen? Die Besprechung wurde verlegt.",
+      "promptEn": "Sujin, did you check the email? The meeting time has changed.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0765",
+      "sourceVocabId": "vocab_a2_0773",
+      "vocabKo": "이용하다",
+      "targetKo": "출퇴근할 때 지하철을 이용해요.",
+      "distractors": [
+        "공부해요",
+        "청소해요"
+      ],
+      "promptDe": "Für den Arbeitsweg nehme ich die U-Bahn.",
+      "promptEn": "I take the subway to commute.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    }
+  ]
+}

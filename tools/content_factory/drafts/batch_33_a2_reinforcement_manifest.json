@@ -1,13 +1,18 @@
 {
   "version": 2,
   "batch": "c3_batch33_a2_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A2(2급) vocabulary reinforcement -- THIRD A2 batch in the C3 series -- 64 headwords (54 nouns incl. 4 Sino-Korean state nouns used with 하다 (불안/편안/정확/긴장 are NIKL grade-2 명사 headwords), 10 verbs) from the NIKL KIIQ 2017 grade-2 gap list (not yet live at any level, not in Batch 25-30's A1 drafts or Batch 31/32's A2 drafts). Completes Batch 32's PARTIAL draft pack a2_daily_actions_1 (4/12 -> 12/12, 8 daily-action verbs, pack_order 5-12) FIRST, then creates 4 new FULL topic packs (symptoms/treatment, a 3rd feelings pack, directions/getting around, workplace) plus 1 new PARTIAL pack (events, 8/12). Original clean-room authoring (KO/DE/EN), seeded only by NIKL 2017 kiiq grade-2 headword selection (KOGL Type-1) and docs/data/sejong/syllabus_sejong2.json unit vocabulary for prioritization (all 8 Sejong-2 leftovers Batch 32 recorded are used here). Follows the persona rules (character_profiles.json recurringCharacters), docs/CONTENT_LEVEL_BIBLE.md §B.2 (A2 sentence/grammar/vocabulary ceiling) and docs/CONTENT_PERSONA_VOICE.md (A2 반말 transitions / short idioms).",
     "rights": "original_clean_room",
     "seedSource": "tools/content_factory/lexicon/nikl_kiiq_2017_vocab.csv (grade=2, minus live assets/data/korean_vocab.csv at ANY level, minus tools/content_factory/drafts/batch_25..30_a1_rows.csv, minus tools/content_factory/drafts/batch_31_a2_rows.csv and batch_32_a2_rows.csv); topic priority cross-referenced against docs/data/sejong/syllabus_sejong2.json (Sejong 2 = A2 unit vocabulary lists).",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-11-25",
+      "source": "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
+      "sample": "7/64 each (32 · 33 · 34)"
+    },
     "modelLanguageQa": "PENDING_FABLE_REVIEW",
     "humanLanguageQaClaim": false,
     "wordSourceNote": "NIKL grade-2 non-affix headwords total 1085 unique strings; removing everything already live at any level (2818 rows) or present in the Batch 25-30 A1 drafts or the Batch 31/32 A2 drafts leaves a gap of 663 headwords (matches Batch 32's own post-batch remainingA2Gap.count of 663 exactly, confirming no drift). This is the THIRD A2 batch against that gap, so 663-64=599 remain for future batches. Selection order: (1) checked whether any live A2 pack was still under 12/12 after the Batch 31 draft -- none (Batch 31 already claims enough words for all 27); (2) checked the two A2 DRAFT partial packs: Batch 31's a2_messenger_phone_1 (6/12) has no further grade-2 gap words that fit its communication theme cleanly (the remaining gap has 메일/전화기/연결/라디오/비디오 -- 메일 and 연결 fit, but only 2, so that pack is left for a later batch rather than filled with off-theme words); Batch 32's a2_daily_actions_1 (4/12: 믿다/참다/잊다/흔들다) is completed here FIRST with 8 general daily-action verbs (놓다/누르다/밀다/접다/펴다/붙이다/지우다/바르다, pack_order 5-12); (3) the remaining 56-word budget built 4 new FULL topic packs from the broader grade-2 gap list -- a2_health_symptoms_1 (증상·치료: can-do '증상·감정을 말하고'), a2_feelings_3 (감정·성격 nouns; a2_feelings_1/2 both reached 12/12 in Batch 31's draft), a2_directions_1 (길 찾기·이동: can-do '이동 중 불편을 요청'), a2_workplace_1 (직장 생활: can-do '학업·직장에서의 실수를 말하고'; the live a2_work pack reached 12/12 in Batch 31's draft) -- and (4) the last 8 words went to one new PARTIAL pack a2_events_1 (공연·행사: 박수/자리/줄/새벽/매표소/대회/행사/초대장), chosen so that all five Sejong-2 leftovers Batch 32 recorded but could not place (줄·새벽·박수·자리 here, plus 긴장/자신 in a2_feelings_3, 바르다 in a2_daily_actions_1, 정확 in a2_workplace_1) are finally used.",
@@ -160,11 +165,11 @@
   },
   "reviewPacket": "docs/data/review_packets/batch_33_a2_jin_sample.md",
   "promotion": {
-    "assetsDataWritten": false,
-    "runtime": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "DRAFT ONLY per level-canon program hard rule -- no writes to assets/data/**, no TTS synthesis, no Firebase until Jin approval."
+    "note": "Promoted 2026-11-25 (C3-T6) after Jin approval (Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   },
   "postBatchReviewCorrectionNote": "Batch 34 predecessor review repair: 선배 DE now encodes longer tenure without inventing age or gender; 노력 DE now uses 'das eigene Koreanisch'. KO/EN, IDs, statuses, packs, and historical gap arithmetic are unchanged; MODEL_QA only.",
   "claudeReviewCorrectionNote20261125": "2026-11-25 Claude naturalness/canon review before Jin sample approval (repair_batches_32_34_naturalness_20261125.py); IDs, packs, statuses and gap arithmetic unchanged; MODEL_QA only. Rows: 붙이다: 엄마, 나 3학년 교실 벽에 그림 붙였어! -> 엄마, 나 1학년 교실 벽에 그림 붙였어!; 부장: 안드레아 씨, 저희 팀 부장은 회의를 짧게 해요. -> 안드레아 씨, 저희 팀 부장님은 회의를 짧게 끝내세요."

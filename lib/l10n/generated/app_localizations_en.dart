@@ -11182,6 +11182,10 @@ class AppL10nEn extends AppL10n {
   String get hanokDownloadsIncluded => 'Included in the app';
 
   @override
+  String get hanokDownloadsAllIncluded =>
+      'All Hanok images are already included in the app. No additional download is needed.';
+
+  @override
   String hanokDownloadsDownloading(String available, String total) {
     return 'Preparing $available of $total';
   }
@@ -11826,7 +11830,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingCBookBody =>
-      'Discover words in context. TalSunbi helps you understand them.';
+      'Take a photo. TalSunbi explains every word.';
 
   @override
   String get onboardingCBookSummary => 'Learn from your books.';
@@ -11835,11 +11839,10 @@ class AppL10nEn extends AppL10n {
   String get onboardingCChange => 'Change';
 
   @override
-  String get onboardingCGamesBody =>
-      'Practise with your saved words. Discover rewards for your progress.';
+  String get onboardingCGamesBody => 'Your words become a game.';
 
   @override
-  String get onboardingCGamesSummary => '8 games. Plenty of discoveries.';
+  String get onboardingCGamesSummary => '8 games. Plenty of aha moments!';
 
   @override
   String get onboardingCGyeBody =>
@@ -11849,8 +11852,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingCGyeTitle => 'Learn together: Gye';
 
   @override
-  String get onboardingCHanokBody =>
-      'Stamp book & Dancheong Studio. Your artwork for the Sarangbang.';
+  String get onboardingCHanokBody => 'Learn, collect and design your home.';
 
   @override
   String get onboardingCHanokSummary => 'Your Hanok grows with Yeopjeon.';
@@ -11868,13 +11870,7 @@ class AppL10nEn extends AppL10n {
   String get introLevelLater => 'You can change this later.';
 
   @override
-  String get onboardingJourneyStartWhere => 'Where would you like to start?';
-
-  @override
   String get onboardingJourneyBeginnerHint => 'I\'m starting from scratch';
-
-  @override
-  String get onboardingCLevelRange => 'Brand new or A1 to C2.';
 
   @override
   String get onboardingCPathBody =>
@@ -11884,7 +11880,7 @@ class AppL10nEn extends AppL10n {
   String get onboardingCPathSummary => 'A clear learning path.';
 
   @override
-  String get onboardingCSoundBody => 'Listen, connect, and try.';
+  String get onboardingCSoundBody => 'Listen and repeat.';
 
   @override
   String get onboardingCSoundSummary => 'Two letters. One sound.';
@@ -11936,15 +11932,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get introApplyLevel => 'Use this level';
-
-  @override
-  String get introNextPath => 'Next: Your learning path.';
-
-  @override
-  String get introNextSample => 'Next: A short learning sample.';
-
-  @override
-  String get introTwelveTools => '12 learning tools for your everyday life.';
 
   @override
   String get introGreetingTranslation => 'Hello';

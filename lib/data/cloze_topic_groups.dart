@@ -46,6 +46,8 @@ final class ClozeTopicGroups {
     'Feststand': ClozeTopicGroupId.everydayHome,
     'Geld': ClozeTopicGroupId.everydayHome,
     'Hausordnung': ClozeTopicGroupId.everydayHome,
+    // C3-T6 (2026-11-25): Batch 32 A2 reinforcement adds Kleidung and Reisen.
+    'Kleidung': ClozeTopicGroupId.everydayHome,
     'Menge': ClozeTopicGroupId.everydayHome,
     'Nachbarschaft': ClozeTopicGroupId.everydayHome,
     'Reparaturwortschatz': ClozeTopicGroupId.everydayHome,
@@ -82,6 +84,7 @@ final class ClozeTopicGroups {
     'Handytarif': ClozeTopicGroupId.travelServices,
     'Postamt': ClozeTopicGroupId.travelServices,
     'Reise': ClozeTopicGroupId.travelServices,
+    'Reisen': ClozeTopicGroupId.travelServices,
     'Reiseänderung': ClozeTopicGroupId.travelServices,
     'U-Bahnkarte': ClozeTopicGroupId.travelServices,
     'Verkehr': ClozeTopicGroupId.travelServices,

@@ -168,26 +168,28 @@ class _HanokDownloadsScreenState extends State<HanokDownloadsScreen> {
         key: const ValueKey('hanok-downloads-list'),
         padding: padding,
         children: [
-          Text(t.hanokDownloadsIntro, style: SoriTextTheme.of(context).body),
-          const SizedBox(height: Spacing.sm),
-          Text(
-            kIsWeb
-                ? t.hanokDownloadsWebSessionNotice
-                : t.hanokDownloadsRemovalNotice,
-            style: SoriTextTheme.of(context).bodySmall.copyWith(
-              color: Theme.of(context).colorScheme.onSurfaceVariant,
-            ),
-          ),
-          if (kIsWeb) ...[
-            const SizedBox(height: Spacing.xs),
+          if (statuses?.isEmpty != true) ...[
+            Text(t.hanokDownloadsIntro, style: SoriTextTheme.of(context).body),
+            const SizedBox(height: Spacing.sm),
             Text(
-              t.hanokDownloadsRemovalNotice,
+              kIsWeb
+                  ? t.hanokDownloadsWebSessionNotice
+                  : t.hanokDownloadsRemovalNotice,
               style: SoriTextTheme.of(context).bodySmall.copyWith(
                 color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
+            if (kIsWeb) ...[
+              const SizedBox(height: Spacing.xs),
+              Text(
+                t.hanokDownloadsRemovalNotice,
+                style: SoriTextTheme.of(context).bodySmall.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+              ),
+            ],
+            const SizedBox(height: Spacing.lg),
           ],
-          const SizedBox(height: Spacing.lg),
           if (statuses == null && _pageError == null)
             _StatusNotice(
               key: const ValueKey('hanok-downloads-loading'),
@@ -204,6 +206,12 @@ class _HanokDownloadsScreenState extends State<HanokDownloadsScreen> {
                 onTap: _refresh,
               ),
             )
+          else if (statuses!.isEmpty && _pageError == null)
+            _StatusNotice(
+              key: const ValueKey('hanok-downloads-all-included'),
+              icon: Icons.offline_pin_outlined,
+              text: t.hanokDownloadsAllIncluded,
+            )
           else ...[
             if (_pageError != null) ...[
               _StatusNotice(
@@ -212,7 +220,7 @@ class _HanokDownloadsScreenState extends State<HanokDownloadsScreen> {
               ),
               const SizedBox(height: Spacing.md),
             ],
-            for (final status in statuses!) ...[
+            for (final status in statuses) ...[
               _PackCard(
                 status: status,
                 busy: _busyPacks.contains(status.pack.id),
@@ -283,9 +291,8 @@ class _PackCard extends StatelessWidget {
                   ? t.hanokDownloadsRemoveFailed
                   : _failureText(context, status.failure!),
               key: ValueKey('hanok-download-failure-${status.pack.id}'),
-              style: SoriTextTheme.of(
-                context,
-              ).bodySmall.copyWith(color: SoriColors.danger),
+              style: SoriTextTheme.of(context).bodySmall
+                  .copyWith(color: SoriColors.danger),
             ),
           ],
           if (!status.isBundled || status.storedBytes > 0) ...[
