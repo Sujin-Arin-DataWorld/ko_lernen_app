@@ -253,8 +253,8 @@
       ]
     },
     "F-D-ildoo": {
-      "label": "함양 일두고택 고증 재현 — 누적 증축 (세로 1152x2048 런타임 / 2304x4096 생성)",
-      "note": "일두고택 V3가 개인 한옥의 유일한 시각 정본이다. 계약: docs/assets/HANOK_V2_ART_DIRECTION_LOCK.md v2.0.0. 로스터: docs/data/heritage_houses/ildu_gotaek.json.",
+      "label": "함양 일두고택 R16 건물·공정 제작 정본",
+      "note": "현재 건축 원본은 docs/hanok_r16/CANONICAL_PROMOTION_R16.json의 R16이다. V3 이미지·기본 승격 도구는 퇴역했다. 과거 승인 기록은 historicalV3Art, canonicalMasterApprovals, approvedConstructionSeries에 남기며 현재 실행 선택은 runtimeConstructionSeries와 R16 카탈로그를 따른다.",
       "styleStatement": "Hangul Sori uses a Korean heritage-inspired 2.5D mobile-game illustration system. Each asset class has its own canonical register:\n\n- Hanok architecture — stylized hand-painted 2.5D architectural sprite art: believable Korean construction first; precise giwa roof rhythm, warm timber, hanji plaster, stone foundations, selective ink-like linework, matte materials, restrained painterly facets (never triangulated geometry).\n- Camera — elevated three-quarter oblique game view.\n- Props and lesson vignettes (teacup, brush pot, book chest, UI vignettes) — faceted paper-cut vignette illustration: stronger angular polygonal facets, subtle hanji paper grain, compact silhouettes, muted traditional Korean colors.\n- Characters (tiger and magpie) — faceted semi-realistic character illustration: faceted planes with lively, believable expression and anatomy.\n- Mountains, sky, backgrounds — atmospheric faceted painterly environment art.\n- Korean identity — minhwa-inspired palette and decorative vocabulary, never literal minhwa painting.\n\nAll classes share one palette: ink-charcoal giwa, warm walnut timber, hanji cream, muted deep teal, dark brick red, restrained gold accents.\n\nThis is premium contemporary Korean game art, not watercolor, anime, Pixar, or literal low-poly 3D.",
       "styleStatementSource": "Jin 구술 확정 2026-08-23; 자산군별 레지스터 표 확장 Jin 승인 2026-08-25. 이 패밀리의 스타일 SSoT — promptSkeleton 은 이 문장의 건축 레지스터를 따른다. 구도·배치는 placementReference(완성본_최종.png)가 별도 정본이며 이 문장 개정은 구도·위치를 바꾸지 않는다.",
       "registers": {
@@ -265,8 +265,7 @@
         "environment": "정식 명칭: atmospheric faceted painterly environment art. 산·하늘·원경 배경 전용. 이 패밀리에는 적용하지 않는다."
       },
       "dirs": [
-        "assets/illustrations/personal_hanok_v3/map/",
-        "assets/illustrations/personal_hanok_v3/map/buildings/"
+        "assets/illustrations/ildu_r16_support/world/"
       ],
       "members": [
         "site_base",
@@ -276,41 +275,55 @@
         "jungmunganchae",
         "anchae",
         "gate_sadangmun",
-        "sadang"
+        "sadang",
+        "rear-wing",
+        "toilet-north",
+        "toilet-south",
+        "changgo",
+        "anchae-store",
+        "araechae",
+        "gokganchae",
+        "ansarangchae",
+        "main-gate",
+        "hyeopmun",
+        "sadang-gate",
+        "outside-gate"
       ],
-      "membersNote": "V3 계획 멤버 목록이다. 사랑채 16단계는 2026-09-14 승인되어 런타임에 등록됐다. 채별 승격 상태는 canonicalMasterApprovals와 approvedConstructionSeries의 개별 기록을 확인한다. 추가 자산은 검수 후 이 배열과 런타임 번들에 함께 등록한다.",
+      "membersNote": "기존 논리 ID를 유지한다. 현재 제작 원본과 실행 자료는 R16이며, V3 시각 사본은 Git에 보존하고 작업 트리에서 제거했다.",
       "anchors": [
-        "assets_unused/pending_review/personal_hanok_v3/canonical/sarangchae/sarangchae-v3-canonical.png",
-        "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
-        "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
-        "assets_unused/pending_review/personal_hanok_v3/anchae_final.png",
-        "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
-        "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
-        "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
-        "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
-        "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png"
+        "assets/illustrations/ildu_r16_support/world/sarangchae.png",
+        "assets/illustrations/ildu_r16_support/world/rear-wing.png",
+        "assets/illustrations/ildu_r16_support/world/toilet-north.png",
+        "assets/illustrations/ildu_r16_support/world/toilet-south.png",
+        "assets/illustrations/ildu_r16_support/world/changgo.png",
+        "assets/illustrations/ildu_r16_support/world/anchae-store.png",
+        "assets/illustrations/ildu_r16_support/world/araechae.png",
+        "assets/illustrations/ildu_r16_support/world/anchae.png",
+        "assets/illustrations/ildu_r16_support/world/sadang.png",
+        "assets/illustrations/ildu_r16_support/world/gokganchae.png",
+        "assets/illustrations/ildu_r16_support/world/ansarangchae.png",
+        "assets/illustrations/ildu_r16_support/world/main-gate.png",
+        "assets/illustrations/ildu_r16_support/world/hyeopmun.png",
+        "assets/illustrations/ildu_r16_support/world/sadang-gate.png",
+        "assets/illustrations/ildu_r16_support/world/hyeopmun.png",
+        "assets/illustrations/ildu_r16_support/world/outside-gate.png"
       ],
-      "anchorsNote": "Jin 정본 선언 2026-08-25 및 사랑채 교체 승인 2026-09-14. 사랑채의 현재 형태·재질·완성 일러스트 정본은 canonical/sarangchae/sarangchae-v3-canonical.png(v03)이다. 상세 범위·해시는 canonicalMasterApprovals.sarangchae 참조. 다른 채의 앵커는 유지한다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다. 협문 6단계와 창고 8단계는 Jin의 2026-09-14 승인으로 approvedConstructionSeries에 등록하고 앱 학습 화면에 연결했다. 안사랑채·사당문·사당은 2026-09-14 승인한 canonical/ 하위 고화질 단일 시점을 완성 정본으로 고정했다. 34단계 공정 설계와 실제 공정 그림·런타임 승격 상태는 구분한다.",
+      "anchorsNote": "2026-11-25 사용자 지시: 건물별·공정별 3D 보존, R16 앱 연결 후 실행용 V3 삭제. R16 원본을 바꾸거나 연구 후보를 자동 승격하지 않는다. 각 파생 렌더와 퇴역 자료의 해시는 docs/hanok_r16/RUNTIME_RETIREMENT_20261125.json을 따른다.",
       "canonSprites": {
-        "note": "채별 시각 정본 파일. 경로 기준: assets_unused/pending_review/personal_hanok_v3/. 사랑채는 Jin이 2026-09-14 승인한 v03으로 교체했다. 이 목록은 완성 일러스트 원화 권위이며 런타임 배포 여부는 각 승인 기록에서 별도로 확인한다. 시리즈가 여럿인 채는 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체. 솟을대문은 2026-09-14 승인된 저장소 루트 기준 construction/sotdaeulmun/12_complete.png를 따른다. 협문과 창고도 승인 후 저장소 루트 기준 런타임 경로를 사용한다.",
-        "sotdaeulmun": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
-        "sarangchae": "../../../assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
-        "jungmunganchae": "jungmunganchae_try06_final_openmaru.png (배면: 중문 뒷쪽.png)",
-        "anchae": "anchae_final.png",
-        "anchae_gokganchae": "안채곳간채.png",
-        "gokganchae": "gokganchae_try02_5kan.png",
-        "changgo_gwangchae": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
-        "araechae": "araechae_try04_oblique.png (지정 대기 — try03_lattice 병존)",
-        "sadang": "canonical/sadang/sadang-v3-canonical.png",
-        "sadangmun": "canonical/sadangmun/sadangmun-v3-canonical.png",
-        "ansarangchae": "canonical/ansarangchae/ansarangchae-v3-canonical.png",
-        "hyeopmun_shared": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
-        "jungmun": "qa/jungmun_try01_derived_cut.png (협문 컷에서 계단 제거 파생)",
-        "hongyemun": "안사랑채-외부 출입문.png",
-        "gulttuk": "굴뚝.png",
-        "cheukgan": "화장실.png",
-        "hyeonpan_boards": "hyeonpan_board_baekse_cheongpung_try01.png / hyeonpan_board_takcheongjae_try01.png (+ 글씨 레이어 hyeonpan_calligraphy_*_v1.png)",
-        "retired": "retired/ 하위는 폐지 기록이다. 사랑채 구 후보와 이전 12단계·8방향 이미지는 2026-09-14 사용자 승인으로 제거하고 현재 16단계만 사용한다."
+        "sarangchae": "assets/illustrations/ildu_r16/60a4efe311f40de1bfadb61c017021effffe4a13e3d2bd191ffb2de9f10cd901.webp",
+        "changgo": "assets/illustrations/ildu_r16/6dfd84f7040f79ad1a5f322221dcd62daaf91c2aeec172b4f7bba3fd88065eb4.webp",
+        "jungmunganchae": "assets/illustrations/ildu_r16/ba2ab135eb9c3f41aca3431acd726b469f9fa0d1f04d625d04576c64f6ec8904.webp",
+        "araechae": "assets/illustrations/ildu_r16/c3b29d784f54e1f9c55ea28e8118b26dd4fb4a0b1df0f6a54f67cca961da423d.webp",
+        "toilet-south": "assets/illustrations/ildu_r16/b3cbea686e1ef3472c27f8f586906932915089b841c03c2fcab1fedf5388ceca.webp",
+        "anchae": "assets/illustrations/ildu_r16/3fd4042b66133ea8889f7c63eb9a94329914d309c0af8227d766dded740ef2fb.webp",
+        "anchae-store": "assets/illustrations/ildu_r16/e7c797a045de7d63b916b0718e66b5bb4a5599cc5814ac51f2ad53f90ab1b46f.webp",
+        "toilet-north": "assets/illustrations/ildu_r16/33af3ea94fc36c0dcfaf472102a6aaadfdf9debc529262695491dbd448cb24be.webp",
+        "gokgan": "assets/illustrations/ildu_r16/c15e10726883ee96ef22db60a11002d1d2db8b0479cc60b899cc56fcbd22c1eb.webp",
+        "ansarang": "assets/illustrations/ildu_r16/9e8584fbc875382342afbf73dfeb8f85b76a7e91bca816a6251ea4f06ca283ea.webp",
+        "sadang": "assets/illustrations/ildu_r16/beb7f246df68f5eb6cfa99bedb503ead6fe5875dbc3779e1e9cf505e9570cd7d.webp",
+        "sotdaeulmun": "assets/illustrations/ildu_r16_support/turnarounds/main_gate/view_00.png",
+        "hyeopmun_shared": "assets/illustrations/ildu_r16_support/construction/left/stage_06.png",
+        "sadangmun": "assets/illustrations/ildu_r16_support/construction/shrine/stage_08.png"
       },
       "canonicalMasterApprovals": {
         "sarangchae": {
@@ -491,7 +504,8 @@
           "costPerBuilding": "3.7cr",
           "cameraHeightCorrection": "'기단보다 낮게 올려다봄'은 관광 사진의 시점이었다. 배치도는 건물이 지면에 앉은 것이 읽혀야 테라스에 얹히므로 살짝 위에서 보는 쪽이 맞다 — 기단 윗면이 얇은 띠로 보이는 정도. 씨네앵글 결과가 이 조건을 만족한다.",
           "unresolved": "씨네앵글 프리셋 이름 미기록 — Jin 확인 후 여기 박을 것"
-        }
+        },
+        "status": "historical_v3_reference; current presentation uses runtimeCameraContract"
       },
       "palette": {
         "note": "미실측. 첫 3회 승격 후 tool/check_style_conformance.py 로 재측정해 이 표를 채운다. 일두고택은 단청이 없어 채도가 낮게 나오는 것이 정상이다.",
@@ -660,12 +674,12 @@
       ],
       "gates": {
         "satMean": [
-          0.18,
-          0.58
+          0.09,
+          0.38
         ],
         "valMean": [
-          0.34,
-          0.7
+          0.31,
+          0.53
         ],
         "neonMax": 0.03,
         "dancheongMax": 0.005,
@@ -675,9 +689,151 @@
           "sadang"
         ],
         "plaqueBoardException": "편액 판(hyeonpan_board_*)은 F-D 멤버가 아니라 런타임 합성 오버레이 자산이다. 밝은 한지빛 바탕(먹 글씨와의 대비)이 설계 의도라 건물용 valMean 상한 0.7을 적용하지 않는다 — 편액 전용 참고 범위: satMean 0.3~0.6, valMean 0.6~0.9, neonMax 0.03. 실측(2026-08-25, try01 컷 2종): sat 0.487/0.504, val 0.789/0.778, neon 0.0. Jin 승인 2026-08-25('이대로 진행'). 글씨 레이어(hyeonpan_calligraphy_*)는 도면에서 결정론 추출한 먹획 알파이며 게이트 대상이 아니다.",
-        "measured": null,
-        "measuredAt": "pending — 첫 3회 승격 후 실측해 satMean/valMean 을 좁힌다",
-        "provisionalFrom": "폐기된 구 한옥 계보 실측값에서 채도 하한만 0.24 -> 0.18 로 낮춤. 단청이 없는 집이라 더 낮게 나오는 것이 정상이다."
+        "measured": {
+          "satMean": [
+            0.1085,
+            0.3567
+          ],
+          "valMean": [
+            0.3209,
+            0.5087
+          ],
+          "neonMax": 0.0148,
+          "samples": [
+            {
+              "id": "sarangchae",
+              "asset": "assets/illustrations/ildu_r16_support/world/sarangchae.png",
+              "sha256": "5f501a7f31c2cc5980a16f77707b2237569ba439679f8da9b2637284206763a1",
+              "satMean": 0.3448,
+              "valMean": 0.4558,
+              "neonFraction": 0.0148
+            },
+            {
+              "id": "jungmunganchae",
+              "asset": "assets/illustrations/ildu_r16_support/world/rear-wing.png",
+              "sha256": "fe626014be4845a33de12455be757064fbc8a2524d54187983deb8760e439937",
+              "satMean": 0.2839,
+              "valMean": 0.405,
+              "neonFraction": 0.0005
+            },
+            {
+              "id": "toilet-north",
+              "asset": "assets/illustrations/ildu_r16_support/world/toilet-north.png",
+              "sha256": "efe4e29c03148f8a9126498a8d083d01f652b13757254d66d33128c191c1c447",
+              "satMean": 0.3172,
+              "valMean": 0.472,
+              "neonFraction": 0.0006
+            },
+            {
+              "id": "toilet-south",
+              "asset": "assets/illustrations/ildu_r16_support/world/toilet-south.png",
+              "sha256": "172bcc99b5f95eb79310a0de1f104b94ac22278f8e08190793ea395afb614285",
+              "satMean": 0.3161,
+              "valMean": 0.5087,
+              "neonFraction": 0.0014
+            },
+            {
+              "id": "changgo",
+              "asset": "assets/illustrations/ildu_r16_support/world/changgo.png",
+              "sha256": "27ea149c77c43f7c651928d1b7573cf10858231130d902546792b17fc68fe31a",
+              "satMean": 0.3567,
+              "valMean": 0.3845,
+              "neonFraction": 0.001
+            },
+            {
+              "id": "anchae-store",
+              "asset": "assets/illustrations/ildu_r16_support/world/anchae-store.png",
+              "sha256": "ff8cf957262098b773e0a4347b70f85fb9d96a8aa9a3920aefa9877f0235ff11",
+              "satMean": 0.2835,
+              "valMean": 0.4043,
+              "neonFraction": 0.0002
+            },
+            {
+              "id": "araechae",
+              "asset": "assets/illustrations/ildu_r16_support/world/araechae.png",
+              "sha256": "5ae916ab11462dfb14d94b6b511c638baddb23022923efcfbb6ae99807779bea",
+              "satMean": 0.3289,
+              "valMean": 0.4002,
+              "neonFraction": 0.0004
+            },
+            {
+              "id": "anchae",
+              "asset": "assets/illustrations/ildu_r16_support/world/anchae.png",
+              "sha256": "6614c6ab0ad8b8f89d0f12b18e898673817e73dbb925fff6284ece19ecf38bce",
+              "satMean": 0.2549,
+              "valMean": 0.3302,
+              "neonFraction": 0.0003
+            },
+            {
+              "id": "sadang",
+              "asset": "assets/illustrations/ildu_r16_support/world/sadang.png",
+              "sha256": "8978a57ed88cfdf9201a397aff0f8fa7e2c461c71adf95f0c784943fcdb035e6",
+              "satMean": 0.3031,
+              "valMean": 0.4118,
+              "neonFraction": 0.0013
+            },
+            {
+              "id": "gokgan",
+              "asset": "assets/illustrations/ildu_r16_support/world/gokganchae.png",
+              "sha256": "e853ae9fdf677730932ab65713e256807de088ee94dfb315b7cfd37cb69c2628",
+              "satMean": 0.3039,
+              "valMean": 0.3847,
+              "neonFraction": 0.0
+            },
+            {
+              "id": "ansarang",
+              "asset": "assets/illustrations/ildu_r16_support/world/ansarangchae.png",
+              "sha256": "30a6b0cad2cd3a24620120ed46581644453ab432be9b5bf8538802484e1dba2a",
+              "satMean": 0.2685,
+              "valMean": 0.431,
+              "neonFraction": 0.0012
+            },
+            {
+              "id": "main-gate",
+              "asset": "assets/illustrations/ildu_r16_support/world/main-gate.png",
+              "sha256": "c87ce2d127647e309241d0faf1f746c7531eee062f192d5ac0a553612884d6df",
+              "satMean": 0.1085,
+              "valMean": 0.3209,
+              "neonFraction": 0.0
+            },
+            {
+              "id": "hyeopmun-west",
+              "asset": "assets/illustrations/ildu_r16_support/world/hyeopmun.png",
+              "sha256": "2cedf9598c49103dab4c16f4182995ec57d54db69add485733259f7925cf2514",
+              "satMean": 0.2819,
+              "valMean": 0.4696,
+              "neonFraction": 0.0
+            },
+            {
+              "id": "sadang-gate",
+              "asset": "assets/illustrations/ildu_r16_support/world/sadang-gate.png",
+              "sha256": "825c9424186125bab817812b0c0bf98960347054f881664e284e52cb9855d66c",
+              "satMean": 0.2822,
+              "valMean": 0.3531,
+              "neonFraction": 0.0
+            },
+            {
+              "id": "hyeopmun-east",
+              "asset": "assets/illustrations/ildu_r16_support/world/hyeopmun.png",
+              "sha256": "2cedf9598c49103dab4c16f4182995ec57d54db69add485733259f7925cf2514",
+              "satMean": 0.2819,
+              "valMean": 0.4696,
+              "neonFraction": 0.0
+            },
+            {
+              "id": "outside-gate",
+              "asset": "assets/illustrations/ildu_r16_support/world/outside-gate.png",
+              "sha256": "2cedf9598c49103dab4c16f4182995ec57d54db69add485733259f7925cf2514",
+              "satMean": 0.2819,
+              "valMean": 0.4696,
+              "neonFraction": 0.0
+            }
+          ]
+        },
+        "measuredAt": "2026-11-26",
+        "viewClass": "R16 map default views; other native camera views retain their own source/export receipts",
+        "supersedesProvisionalFrom": "폐기된 구 한옥 계보 실측값에서 채도 하한만 0.24 -> 0.18 로 낮춤. 단청이 없는 집이라 더 낮게 나오는 것이 정상이다.",
+        "calibrationRule": "Retained-source native map views: floor(min, 0.01)-0.01 through ceil(max, 0.01)+0.02. Keep neon/chroma/dancheong rules and reject synthetic saturation/value drift. Historical V3 bounds remain in historicalV3Art.gates."
       },
       "registration": [
         "pubspec.yaml: assets/illustrations/personal_hanok_v3/map/ 와 .../map/buildings/ 를 리프별로 각각 선언 (Flutter 는 재귀하지 않는다)",
@@ -1128,6 +1284,205 @@
           "canonicalSha256": "beb7f246df68f5eb6cfa99bedb503ead6fe5875dbc3779e1e9cf505e9570cd7d",
           "stageCount": 12
         }
+      },
+      "historicalV3Art": {
+        "sourceCommit": "e6e0a277f778a05938f6c28b1c8b52e196924255",
+        "label": "함양 일두고택 고증 재현 — 누적 증축 (세로 1152x2048 런타임 / 2304x4096 생성)",
+        "note": "일두고택 V3가 개인 한옥의 유일한 시각 정본이다. 계약: docs/assets/HANOK_V2_ART_DIRECTION_LOCK.md v2.0.0. 로스터: docs/data/heritage_houses/ildu_gotaek.json.",
+        "dirs": [
+          "assets/illustrations/personal_hanok_v3/map/",
+          "assets/illustrations/personal_hanok_v3/map/buildings/"
+        ],
+        "anchors": [
+          "assets_unused/pending_review/personal_hanok_v3/canonical/sarangchae/sarangchae-v3-canonical.png",
+          "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+          "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
+          "assets_unused/pending_review/personal_hanok_v3/anchae_final.png",
+          "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+          "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+          "assets_unused/pending_review/personal_hanok_v3/canonical/ansarangchae/ansarangchae-v3-canonical.png",
+          "assets_unused/pending_review/personal_hanok_v3/canonical/sadangmun/sadangmun-v3-canonical.png",
+          "assets_unused/pending_review/personal_hanok_v3/canonical/sadang/sadang-v3-canonical.png"
+        ],
+        "anchorsNote": "Jin 정본 선언 2026-08-25 및 사랑채 교체 승인 2026-09-14. 사랑채의 현재 형태·재질·완성 일러스트 정본은 canonical/sarangchae/sarangchae-v3-canonical.png(v03)이다. 상세 범위·해시는 canonicalMasterApprovals.sarangchae 참조. 다른 채의 앵커는 유지한다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다. 솟을대문은 Jin의 2026-09-14 승인에 따라 construction/sotdaeulmun/12_complete.png로 교체했다. 12단계 공정 아트는 approvedConstructionSeries를 따른다. 협문 6단계와 창고 8단계는 Jin의 2026-09-14 승인으로 approvedConstructionSeries에 등록하고 앱 학습 화면에 연결했다. 안사랑채·사당문·사당은 2026-09-14 승인한 canonical/ 하위 고화질 단일 시점을 완성 정본으로 고정했다. 34단계 공정 설계와 실제 공정 그림·런타임 승격 상태는 구분한다.",
+        "canonSprites": {
+          "note": "채별 시각 정본 파일. 경로 기준: assets_unused/pending_review/personal_hanok_v3/. 사랑채는 Jin이 2026-09-14 승인한 v03으로 교체했다. 이 목록은 완성 일러스트 원화 권위이며 런타임 배포 여부는 각 승인 기록에서 별도로 확인한다. 시리즈가 여럿인 채는 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체. 솟을대문은 2026-09-14 승인된 저장소 루트 기준 construction/sotdaeulmun/12_complete.png를 따른다. 협문과 창고도 승인 후 저장소 루트 기준 런타임 경로를 사용한다.",
+          "sotdaeulmun": "assets/illustrations/personal_hanok_v3/construction/sotdaeulmun/12_complete.png",
+          "sarangchae": "../../../assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+          "jungmunganchae": "jungmunganchae_try06_final_openmaru.png (배면: 중문 뒷쪽.png)",
+          "anchae": "anchae_final.png",
+          "anchae_gokganchae": "안채곳간채.png",
+          "gokganchae": "gokganchae_try02_5kan.png",
+          "changgo_gwangchae": "assets/illustrations/personal_hanok_v3/construction/changgo/stage_08_complete.png",
+          "araechae": "araechae_try04_oblique.png (지정 대기 — try03_lattice 병존)",
+          "sadang": "canonical/sadang/sadang-v3-canonical.png",
+          "sadangmun": "canonical/sadangmun/sadangmun-v3-canonical.png",
+          "ansarangchae": "canonical/ansarangchae/ansarangchae-v3-canonical.png",
+          "hyeopmun_shared": "assets/illustrations/personal_hanok_v3/construction/hyeopmun/stage_06_complete.png",
+          "jungmun": "qa/jungmun_try01_derived_cut.png (협문 컷에서 계단 제거 파생)",
+          "hongyemun": "안사랑채-외부 출입문.png",
+          "gulttuk": "굴뚝.png",
+          "cheukgan": "화장실.png",
+          "hyeonpan_boards": "hyeonpan_board_baekse_cheongpung_try01.png / hyeonpan_board_takcheongjae_try01.png (+ 글씨 레이어 hyeonpan_calligraphy_*_v1.png)",
+          "retired": "retired/ 하위는 폐지 기록이다. 사랑채 구 후보와 이전 12단계·8방향 이미지는 2026-09-14 사용자 승인으로 제거하고 현재 16단계만 사용한다."
+        },
+        "camera": {
+          "canvas": {
+            "width": 2412,
+            "height": 2622
+          },
+          "canvasNote": "iPhone 16 Pro(1206x2622 @3x) 정확히 두 화면 폭 x 한 화면 높이. Jin 매싱 목업 승인 2026-08-24. 지면은 생성하지 않고(타일+벡터) 건물은 개별 스프라이트라 전면 캔버스 생성 개념 자체가 없다.",
+          "viewport": {
+            "width": 1206,
+            "height": 2622,
+            "note": "가로 팬만, 세로 팬 0, 줌 영구 금지(44dp 보호). 첫 화면(동) = 진입·사랑, 서로 한 번 팬 = 안."
+          },
+          "spriteGeneration": {
+            "resolution": "2K",
+            "perBuilding": true,
+            "background": "#00FF00 chroma",
+            "aspectNote": "채별로 택함 — 가로로 긴 몸채는 3:2, 세로형 문·좁은 채는 2:3"
+          },
+          "cameraId": "personal_map_north_up_oblique_v3",
+          "cameraStyle": "정면 얕은 부감(10~15°) — 용마루 수평, 지붕 물매면은 넓게 보이되 용마루 윗면은 거의 안 보인다. 기단 상단면은 얇은 띠로만. 채는 각자의 실측 좌향대로 앉힌다(planYaw) — 카메라는 정북향 고정이다. 진입(하단)에서 후원(상단)으로 테라스 상승.",
+          "groundBands": {
+            "0": {
+              "yRange": [
+                2150,
+                2622
+              ],
+              "label": "진입 — 前窄. 솟을대문·문간채·행랑채·행랑마당"
+            },
+            "3": {
+              "yRange": [
+                700,
+                1450
+              ],
+              "label": "안 켜 — 後寬. 안마당·안채·아래채·안곳간채·우물·장독대"
+            },
+            "4": {
+              "yRange": [
+                150,
+                700
+              ],
+              "label": "후원 켜 — 안사랑채·광채·곳간채·후문 ('별당' 명칭 폐기, Jin 2026-08-25. 곳간채·광채의 실제 자리는 완성본_최종이 정본 — 2007 배치도는 광채 북·곳간채 남으로 그린다, 참고만)"
+            },
+            "5": {
+              "yRange": [
+                251,
+                637
+              ],
+              "xExtent": [
+                1731,
+                2337
+              ],
+              "label": "사당 별곽 — 자체 담 안 최고 지반, 담 두께 최대"
+            },
+            "source": "docs/data/heritage_houses/ildu_gotaek.json buildings[].groundBand → 테라스 매핑",
+            "1-2": {
+              "yRange": [
+                1450,
+                2150
+              ],
+              "label": "사랑 켜 — 사랑마당·사랑채·석가산·일각문·중문간채"
+            }
+          },
+          "podiumCourseHeightPx": 18,
+          "podiumNote": "기단 1벌대 = 18px. 기단면 줄눈은 벌대 N이면 내부선 N-1개(18px 등간격). 캐스트 섀도 오프셋 = (14 + 벌대 x 10)px 우하향 — 그림자만 봐도 기단이 읽히는 단일 공식.",
+          "planYaw": {
+            "rule": "카메라를 돌리지 않는다. 채를 돌린다. 카메라 회전은 부지 전체를 돌려 담장을 사선으로 만들고 남→북 위계 축을 대각선으로 만든다.",
+            "allowed": [
+              -20,
+              0,
+              20
+            ],
+            "source": "docs/data/heritage_houses/ildu_gotaek.json buildings[].planYaw",
+            "assignment": {
+              "0": "정남 — 문·담·행랑 계열",
+              "20": "남서향 채 — 안채",
+              "-20": "남동향 채 — 사랑채"
+            },
+            "evidence": "사랑채 남동향 p38 / 안채 남서향 p39~40 (문화재청 2007 기록화보고서). 실제 각은 약 45°이나 정면 리듬·편액 가독을 위해 20°로 축약 — Jin 참고사진 각도 승인 2026-08-24.",
+            "promptPhrasing": "각도를 도(°)로 쓰지 않는다. 모델은 각도를 못 지키고 비율은 지킨다. 이렇게 쓴다 — '앞으로 나온 날개의 정면과 함께 그 측면이 좁은 띠로 보이는데, 그 띠의 폭은 날개 정면 폭의 약 절반이다. 몸채 정면은 거의 정면으로 남는다.'",
+            "invariant": "planYaw 는 평면 회전이지 카메라 앙각 변경이 아니다. 어떤 값에서도 용마루는 수평을 유지한다.",
+            "anchorYNote": "yaw가 붙으면 접지선이 대각이다. anchorY = 알파 bbox 하단이 아니라 관찰자에 가장 가까운 접지점으로 정의한다(페인터 알고리즘 정합 전제)."
+          },
+          "approvedReference": {
+            "sprite": "assets/illustrations/personal_hanok_v3/sarangchae/stage_16_complete.png",
+            "scopeNote": "2026-09-14 승인한 단일 시점 사랑채 완성 원본. 구 8방향 지도 카메라를 대체하며 원본 비율과 흰 배경을 유지한다.",
+            "approvedBy": "Jin",
+            "approvedAt": "2026-08-24",
+            "taskId": "task-unified-1787564504-z95k5gvp",
+            "derivedFrom": "try05(비율) + 편집으로 각도만 얹음 — try06 광각 폭주 회피",
+            "cameraFacts": [
+              "카메라 높이 = 지면에서 약 1.1m (사랑채 기단 상단 바로 아래). 전 채 공통 고정.",
+              "이 높이는 그 자체로 위계 도구다 — 사랑채(기단 1,200㎜)는 기단 윗면이 안 보이고, 안채(235㎜)는 얇은 띠로 보인다.",
+              "수렴: 먼 끝 높이 = 가까운 끝 높이의 85~92%. 그 이하로 줄이면 광각 폭주(try06).",
+              "planYaw 부호가 수렴 방향을 정한다 — 사랑채(-20)는 우측으로, 안채(+20)는 좌측으로 후퇴한다.",
+              "전출한 날개는 예외: 거리 축소를 전출이 상쇄해 가까운 끝과 거의 같은 크기로 그린다."
+            ],
+            "openDefects": [
+              "누마루 좌측면이 아직 정면에 가깝다",
+              "칸수가 넓은칸 5+누마루 (사양은 넓은 4 + 좁은 2)",
+              "좌측 활주가 건물에서 다소 멀다"
+            ]
+          },
+          "pipelineRevision": {
+            "revisedAt": "2026-08-24",
+            "reason": "Jin이 BBANANA 웹 씨네앵글(1cr)로 각도를 직접 돌려 비교. 편집 재생성(2.7cr)보다 우수.",
+            "why": "편집은 다시 그리므로 각도를 얻고 부재를 잃는다(칸수·활주 드리프트). 씨네앵글은 같은 물체를 다시 찍는 기하 재투영이라 부재가 보존된다.",
+            "perBuilding": [
+              "1. Claude: 정면 입면 베이스 생성 (2.7cr) — 칸수·부재·재료·비율은 정면에서 가장 정확",
+              "2. Jin: 씨네앵글 (1cr) — 프리셋 고정 필수. 채마다 다르면 배치도에서 안 붙는다.",
+              "3. Claude: 검수 (0cr) — 크로마 순도·한자 환각·기단 비율·현대 설비"
+            ],
+            "costPerBuilding": "3.7cr",
+            "cameraHeightCorrection": "'기단보다 낮게 올려다봄'은 관광 사진의 시점이었다. 배치도는 건물이 지면에 앉은 것이 읽혀야 테라스에 얹히므로 살짝 위에서 보는 쪽이 맞다 — 기단 윗면이 얇은 띠로 보이는 정도. 씨네앵글 결과가 이 조건을 만족한다.",
+            "unresolved": "씨네앵글 프리셋 이름 미기록 — Jin 확인 후 여기 박을 것"
+          }
+        },
+        "gates": {
+          "satMean": [
+            0.18,
+            0.58
+          ],
+          "valMean": [
+            0.34,
+            0.7
+          ],
+          "neonMax": 0.03,
+          "dancheongMax": 0.005,
+          "dancheongMaxSpec": "지붕·처마·공포 영역(스프라이트 상단 40%)에서 HSV saturation > 0.55 이고 hue 가 적색대(0-20, 340-360) 또는 청록·군청대(170-260) 에 드는 픽셀의 비율. 0.005 초과 시 하드 실패. 가사제한(살림집 단청 금지)을 희망이 아니라 검사로 만든다. 예외 2건: gate_sadangmun(주칠 + 태극 문양)과 sadang(제향 공간이라 공포·창방·서까래에 오채 단청이 실재한다. Jin 제공 현장사진 2026-08-24로 확인). 살림채는 예외 없음 — 가사제한은 사람이 사는 채에만 걸린다.",
+          "dancheongMaxExemptMembers": [
+            "gate_sadangmun",
+            "sadang"
+          ],
+          "plaqueBoardException": "편액 판(hyeonpan_board_*)은 F-D 멤버가 아니라 런타임 합성 오버레이 자산이다. 밝은 한지빛 바탕(먹 글씨와의 대비)이 설계 의도라 건물용 valMean 상한 0.7을 적용하지 않는다 — 편액 전용 참고 범위: satMean 0.3~0.6, valMean 0.6~0.9, neonMax 0.03. 실측(2026-08-25, try01 컷 2종): sat 0.487/0.504, val 0.789/0.778, neon 0.0. Jin 승인 2026-08-25('이대로 진행'). 글씨 레이어(hyeonpan_calligraphy_*)는 도면에서 결정론 추출한 먹획 알파이며 게이트 대상이 아니다.",
+          "measured": null,
+          "measuredAt": "pending — 첫 3회 승격 후 실측해 satMean/valMean 을 좁힌다",
+          "provisionalFrom": "폐기된 구 한옥 계보 실측값에서 채도 하한만 0.24 -> 0.18 로 낮춤. 단청이 없는 집이라 더 낮게 나오는 것이 정상이다."
+        }
+      },
+      "historicalApprovalFields": [
+        "canonicalMasterApprovals",
+        "approvedConstructionSeries"
+      ],
+      "runtimeCameraContract": {
+        "source": "assets/data/ildu_world_manifest_v1.json",
+        "nativeExportReceipts": "docs/hanok_r16/RUNTIME_RETIREMENT_20261125.json",
+        "canvas": [
+          2412,
+          2622
+        ],
+        "panAxes": [
+          "x",
+          "y"
+        ],
+        "mapScaleRange": [
+          1,
+          2.2
+        ],
+        "existingLogicalPlacementsPreserved": true
       }
     },
     "F-E-scene-poster": {

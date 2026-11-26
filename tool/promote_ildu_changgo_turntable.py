@@ -177,6 +177,10 @@ def promote(*, apply: bool) -> tuple[RuntimeFrame, ...]:
 
 
 def main(argv: list[str] | None = None) -> int:
+    raise SystemExit(
+        "V3 promotion is retired. Use tool/hanok_scene/export_r16_runtime_support.py "
+        "with the retained R16 native package. Historical inputs remain in Git."
+    )
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--apply",

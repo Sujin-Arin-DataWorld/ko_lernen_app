@@ -1,9 +1,11 @@
 import 'dart:io';
 import 'dart:convert';
 import 'dart:typed_data';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/hanok_assets/hanok_asset_delivery.dart';
 import 'package:ko_lernen_app/services/hanok_assets/hanok_asset_store_native.dart';
+
 import 'hanok_asset_delivery_test.dart' show catalog, failure, original, second;
 
 void main() {
@@ -19,17 +21,24 @@ void main() {
     await directory.delete(recursive: true);
   });
   test(
-    'shipped manifest strictly parses and every entry resolves official URI',
+    'shipped R16 manifest explicitly bundles art without remote packs',
     () async {
-      final manifest = HanokAssetManifest.parse(
-        await File('assets/data/hanok_download_manifest.json').readAsString(),
-      );
-      expect(manifest.packs, isNotEmpty);
-      for (final asset in manifest.assets.values) {
-        expect(asset.mediaUri.pathSegments.last, asset.storagePath);
-      }
+      final source = await File('assets/data/hanok_download_manifest.json')
+          .readAsString();
+      expect(jsonDecode(source)['deliveryMode'], 'bundled-r16');
+      final manifest = HanokAssetManifest.parse(source);
+      expect(manifest.packs, isEmpty);
+      expect(manifest.assets, isEmpty);
+      expect(manifest.packsByAsset, isEmpty);
     },
   );
+  test('remote entries still resolve official storage URIs', () {
+    for (final asset in catalog().assets.values) {
+      expect(asset.mediaUri.scheme, 'https');
+      expect(asset.mediaUri.host, 'firebasestorage.googleapis.com');
+      expect(asset.mediaUri.pathSegments.last, asset.storagePath);
+    }
+  });
   test('malformed manifest types fail with FormatException', () {
     for (final value in [
       null,

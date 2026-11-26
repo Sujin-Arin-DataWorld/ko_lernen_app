@@ -57,8 +57,18 @@ void main() {
       expect(registration['canonicalSha256'], _approvedFinalSha);
       expect(registration['stageCount'], 12);
       expect(registration['status'], 'approved_canonical');
-      expect(family['canonSprites']['sotdaeulmun'], catalog['canonicalAsset']);
-      expect(family['anchors'], contains(catalog['canonicalAsset']));
+      expect(
+        family['historicalV3Art']['canonSprites']['sotdaeulmun'],
+        catalog['canonicalAsset'],
+      );
+      expect(
+        family['canonSprites']['sotdaeulmun'],
+        kIlDuSotdaeulmunTurntable.frames.first.assetPath,
+      );
+      expect(
+        family['historicalV3Art']['anchors'],
+        contains(catalog['canonicalAsset']),
+      );
       expect(catalog['depthContract']['frontAndRearPostRows'], isTrue);
       expect(catalog['depthContract']['beamsConnectDepth'], isTrue);
       expect(catalog['depthContract']['centralThroughPassage'], isTrue);

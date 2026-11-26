@@ -936,21 +936,21 @@
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations.dart": {
-    "mtime": 1795664906.8891644,
-    "seen": 1795664976.8243077,
-    "ast_hash": "0826f00602e9e466552d7884ba276f6d",
+    "mtime": 1795665780.929088,
+    "seen": 1795666167.572814,
+    "ast_hash": "8986fd227c0e3907c3a72c809ffe33f2",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_de.dart": {
-    "mtime": 1795664906.5604262,
-    "seen": 1795664976.8243103,
-    "ast_hash": "4030a30006a58fafb2f79fd4bcdc04a5",
+    "mtime": 1795665780.6909573,
+    "seen": 1795666167.5728168,
+    "ast_hash": "5c3b6d977ba5703a38573b19ecb2c1c5",
     "semantic_hash": ""
   },
   "lib/l10n/generated/app_localizations_en.dart": {
-    "mtime": 1795664906.733345,
-    "seen": 1795664976.824312,
-    "ast_hash": "1f0bbca1f7ed634f1ffda216a8598823",
+    "mtime": 1795665780.808796,
+    "seen": 1795666167.5728192,
+    "ast_hash": "c12e24f596968910dfd2ae275fa31b8b",
     "semantic_hash": ""
   },
   "lib/l10n/gye_error_text.dart": {
@@ -6366,9 +6366,9 @@
     "semantic_hash": ""
   },
   "tool/test_check_style_conformance.py": {
-    "mtime": 1795642502.0577471,
-    "seen": 1795664357.038874,
-    "ast_hash": "ffdbd532cf3f8049c92cb78141d8d483",
+    "mtime": 1795666106.8942423,
+    "seen": 1795666167.9741488,
+    "ast_hash": "b388a7dcd7bf808f79311e58e63361ad",
     "semantic_hash": ""
   },
   "tool/test_compose_home_hero_hanji.py": {
@@ -6396,9 +6396,9 @@
     "semantic_hash": ""
   },
   "tool/test_style_lock.py": {
-    "mtime": 1795642502.1000395,
-    "seen": 1795664357.0389168,
-    "ast_hash": "36be5693c3ece7c09976287f9c3b7c9e",
+    "mtime": 1795666106.8932428,
+    "seen": 1795666167.9790819,
+    "ast_hash": "a748b0cfda27543007183d19186bc510",
     "semantic_hash": ""
   },
   "tool/verify_ios_firebase_config.dart": {
@@ -10992,9 +10992,9 @@
     "semantic_hash": ""
   },
   "test/heritage_journey_contract_test.dart": {
-    "mtime": 1795642500.566087,
-    "seen": 1795664357.0371382,
-    "ast_hash": "b1023ee4cb27e92451ae22148d6db4e6",
+    "mtime": 1795667208.303874,
+    "seen": 1795667445.226404,
+    "ast_hash": "0aa1efe2f95e6aa71b9bc15330303e68",
     "semantic_hash": ""
   },
   "test/learning_semantic_contract_test.dart": {
@@ -12714,27 +12714,27 @@
     "semantic_hash": ""
   },
   "tool/promote_ildu_changgo_turntable.py": {
-    "mtime": 1795642501.9308846,
-    "seen": 1795664357.0387678,
-    "ast_hash": "2b667d20da2f238350283d8d1b47f1ac",
+    "mtime": 1795666106.8918526,
+    "seen": 1795666167.9614332,
+    "ast_hash": "c23088791a37acb535ed1ed3f67d72c0",
     "semantic_hash": ""
   },
   "tool/test_promote_ildu_changgo_turntable.py": {
-    "mtime": 1795642502.0875545,
-    "seen": 1795664357.0389047,
-    "ast_hash": "c6c3b676eec1258bae79d8126def7ffd",
+    "mtime": 1795666253.9963262,
+    "seen": 1795667445.4934416,
+    "ast_hash": "2449c5f03f6ee5b8be16bbbd74c1296d",
     "semantic_hash": ""
   },
   "tool/promote_ildu_anchae_turntable.py": {
-    "mtime": 1795642501.9295413,
-    "seen": 1795664357.0387654,
-    "ast_hash": "e96cf03896ca1c6010d5c5f0c19e46e3",
+    "mtime": 1795666106.8908527,
+    "seen": 1795666167.9614298,
+    "ast_hash": "d2499e81b65878244acadf163e3203b7",
     "semantic_hash": ""
   },
   "tool/test_promote_ildu_anchae_turntable.py": {
-    "mtime": 1795642502.0865552,
-    "seen": 1795664357.0389032,
-    "ast_hash": "033c66aef98721f3948ce5821b6b0db2",
+    "mtime": 1795666253.9953246,
+    "seen": 1795667445.4934385,
+    "ast_hash": "bdb9679b317e01f25caf14bbaf7c3dee",
     "semantic_hash": ""
   },
   "lib/data/feed_physics_candidates.dart": {
@@ -12798,15 +12798,15 @@
     "semantic_hash": ""
   },
   "tool/promote_ildu_final_three_turntables.py": {
-    "mtime": 1795642501.9321823,
-    "seen": 1795664357.0387704,
-    "ast_hash": "c265d235b71104b18a8c3cc017dcf31e",
+    "mtime": 1795666106.8918526,
+    "seen": 1795666167.9614358,
+    "ast_hash": "8d3a1e2f74479f51903eb85d921dcdbd",
     "semantic_hash": ""
   },
   "tool/test_promote_ildu_final_three_turntables.py": {
-    "mtime": 1795642502.0901818,
-    "seen": 1795664357.038906,
-    "ast_hash": "ec455f71c34801abeb19881297d89b75",
+    "mtime": 1795666253.9973316,
+    "seen": 1795667445.4934442,
+    "ast_hash": "e0e804d2bf8b8bfb154e731d64bd7f69",
     "semantic_hash": ""
   },
   "lib/widgets/trace_canvas.dart": {
@@ -16962,9 +16962,9 @@
     "semantic_hash": ""
   },
   "test/ildu_sotdaeulmun_construction_art_test.dart": {
-    "mtime": 1795664628.1220913,
-    "seen": 1795664977.071497,
-    "ast_hash": "5ec2c2f85c20042b2db8a6e6c856fcac",
+    "mtime": 1795666351.839743,
+    "seen": 1795667445.2314436,
+    "ast_hash": "1d8ce04d632d507f7a0c0e517975c46c",
     "semantic_hash": ""
   },
   "lib/models/ildu_construction_art.dart": {
@@ -17958,9 +17958,9 @@
     "semantic_hash": ""
   },
   "tool/test_ildu_settlement_art.py": {
-    "mtime": 1795642502.0712073,
-    "seen": 1795664357.0388887,
-    "ast_hash": "4a6a77418cecc4d2db7e144c2a6bec14",
+    "mtime": 1795666253.1810646,
+    "seen": 1795667445.491282,
+    "ast_hash": "ae59c0c704350b78ddced34a8b414087",
     "semantic_hash": ""
   },
   "docs/data/level_depth_audit_2026-09-16.json": {
@@ -20346,9 +20346,9 @@
     "semantic_hash": ""
   },
   "lib/screens/hanok_downloads_screen.dart": {
-    "mtime": 1795642498.858119,
-    "seen": 1795664357.0357819,
-    "ast_hash": "5236dd4f6e33c96a3c9f0256d48736fd",
+    "mtime": 1795665809.3778198,
+    "seen": 1795666167.594557,
+    "ast_hash": "33a8699c732904f3c8097a68e499561e",
     "semantic_hash": ""
   },
   "lib/services/hanok_assets/hanok_asset_delivery.dart": {
@@ -20412,9 +20412,9 @@
     "semantic_hash": ""
   },
   "test/hanok_asset_ui_test.dart": {
-    "mtime": 1795642500.5406783,
-    "seen": 1795664357.037112,
-    "ast_hash": "ca94e8a443416f76279eaff20425b44b",
+    "mtime": 1795665684.5283346,
+    "seen": 1795666167.7764602,
+    "ast_hash": "35dec5a5b6339e22d7a083c38104a36d",
     "semantic_hash": ""
   },
   "test/korean_noun_lexicon_recovery_test.dart": {
@@ -20454,9 +20454,9 @@
     "semantic_hash": ""
   },
   "test/services/hanok_assets/hanok_asset_store_native_test.dart": {
-    "mtime": 1795642501.0820754,
-    "seen": 1795664357.0379796,
-    "ast_hash": "94e04c826d8d1948313c7fd64045f3d8",
+    "mtime": 1795667210.4530308,
+    "seen": 1795667445.3164847,
+    "ast_hash": "e0150a3ea49a8a6c09aee0d7a9a5e9b0",
     "semantic_hash": ""
   },
   "test/services/hanok_assets/hanok_asset_transport_test.dart": {
@@ -28884,9 +28884,9 @@
     "semantic_hash": ""
   },
   "docs/hanok_r16/RUNTIME_RETIREMENT_20261125.json": {
-    "mtime": 1795664694.7519302,
-    "seen": 1795664976.6388094,
-    "ast_hash": "326f22a6887695f70471c9a2dc759f74",
+    "mtime": 1795667554.418825,
+    "seen": 1795667729.9465692,
+    "ast_hash": "72013ea5f1b161640bf6523c9fceaeb9",
     "semantic_hash": ""
   },
   "docs/learning/ildu-season1-content-20261030/integration-20261102/COMMON_COPY.json": {
@@ -35742,15 +35742,57 @@
     "semantic_hash": ""
   },
   "output/playwright/r16-world-393-100-final.png": {
-    "mtime": 1795664552.159686,
-    "seen": 1795664978.0642693,
-    "ast_hash": "c892d91c6db9bad54a5825bd46e01db4",
+    "mtime": 1795667121.970849,
+    "seen": 1795667446.33969,
+    "ast_hash": "64a30d599b73cb192225fb10789b3525",
     "semantic_hash": ""
   },
   "output/playwright/r16-world-393-160-final.png": {
-    "mtime": 1795664461.5464985,
-    "seen": 1795664978.0645008,
-    "ast_hash": "34335ab0fd4d0628415a58584d2dc17e",
+    "mtime": 1795667144.1546915,
+    "seen": 1795667446.3400586,
+    "ast_hash": "5e0bb101d0b62a04838761e178cf43b9",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-11-26T03-53-21-580Z.yml": {
+    "mtime": 1795665201.5821927,
+    "seen": 1795666168.1922584,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "tool/ildu_retirement_audit.py": {
+    "mtime": 1795666105.8593116,
+    "seen": 1795667445.4580016,
+    "ast_hash": "de6f2bc949bda3416c0a822cdc0b7278",
+    "semantic_hash": ""
+  },
+  "tool/ildu_retirement_test_support.py": {
+    "mtime": 1795666253.9953246,
+    "seen": 1795667445.458005,
+    "ast_hash": "25a8bea5e58d9e67817e20e8e32996b6",
+    "semantic_hash": ""
+  },
+  "tool/test_ildu_retirement_audit.py": {
+    "mtime": 1795666734.39701,
+    "seen": 1795667445.491278,
+    "ast_hash": "a2945ef1e82ff9439fb300fd882504ea",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-11-26T04-23-23-580Z.yml": {
+    "mtime": 1795667003.5824392,
+    "seen": 1795667445.770157,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  ".playwright-cli/page-2026-11-26T04-25-26-654Z.yml": {
+    "mtime": 1795667126.6564555,
+    "seen": 1795667730.7296662,
+    "ast_hash": "91d51526f7acb74e28c64d5d491c9a9f",
+    "semantic_hash": ""
+  },
+  "output/playwright/r16-downloads-bundled-final.png": {
+    "mtime": 1795667067.4089136,
+    "seen": 1795667731.208194,
+    "ast_hash": "64a30d599b73cb192225fb10789b3525",
     "semantic_hash": ""
   }
 }

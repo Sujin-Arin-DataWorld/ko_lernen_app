@@ -1,34 +1,18 @@
-from __future__ import annotations
-
-import io
+"""Current native frames and historical V3 retirement boundaries."""
 import unittest
+from tool.ildu_retirement_audit import retired_record
 
-from PIL import Image
+from tool.ildu_retirement_test_support import check_frames
 
-from tool.promote_ildu_changgo_turntable import CANVAS_SIZE, build_runtime_frames
-
+from tool import promote_ildu_changgo_turntable as legacy
 
 class PromoteIlDuChanggoTurntableTest(unittest.TestCase):
-    def test_builds_eight_distinct_transparent_runtime_frames(self) -> None:
-        frames = build_runtime_frames()
+    def test_current_native_frames_keep_hashes_and_safe_alpha_margins(self):
+        check_frames(self, 'changgo')
 
-        self.assertEqual(len(frames), 8)
-        self.assertEqual(len({frame.runtime_name for frame in frames}), 8)
-        self.assertEqual(len({frame.sha256 for frame in frames}), 8)
-        for frame in frames:
-            with Image.open(io.BytesIO(frame.png_bytes)) as image:
-                self.assertEqual(image.format, "PNG")
-                self.assertEqual(image.mode, "RGBA")
-                self.assertEqual(image.size, CANVAS_SIZE)
-                self.assertEqual(image.getchannel("A").getbbox(), frame.content_bounds)
-                for corner in (
-                    (0, 0),
-                    (CANVAS_SIZE[0] - 1, 0),
-                    (0, CANVAS_SIZE[1] - 1),
-                    (CANVAS_SIZE[0] - 1, CANVAS_SIZE[1] - 1),
-                ):
-                    self.assertEqual(image.getpixel(corner)[3], 0)
+    def test_retired_v3_promotion_cannot_recreate_old_folders(self):
+        with self.assertRaisesRegex(SystemExit, 'retired'):
+            legacy.main([])
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()
