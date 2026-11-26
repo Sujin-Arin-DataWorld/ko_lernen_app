@@ -20139,7 +20139,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCBookBody.
   ///
   /// In de, this message translates to:
-  /// **'Entdecke Wörter und ihren Kontext.\nTalSunbi hilft dir, sie zu verstehen.'**
+  /// **'Mach ein Foto. TalSunbi erklärt jedes Wort.'**
   String get onboardingCBookBody;
 
   /// No description provided for @onboardingCBookSummary.
@@ -20157,13 +20157,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingCGamesBody.
   ///
   /// In de, this message translates to:
-  /// **'Übe mit deinen gespeicherten Wörtern.\nEntdecke Belohnungen für deine Fortschritte.'**
+  /// **'Deine Wörter werden zum Spiel.'**
   String get onboardingCGamesBody;
 
   /// No description provided for @onboardingCGamesSummary.
   ///
   /// In de, this message translates to:
-  /// **'8 Spiele. Viele Aha-Momente.'**
+  /// **'8 Spiele. Viele Aha-Momente!'**
   String get onboardingCGamesSummary;
 
   /// No description provided for @onboardingCGyeBody.
@@ -20181,7 +20181,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCHanokBody.
   ///
   /// In de, this message translates to:
-  /// **'Stempelbuch & Dancheong-Atelier.\nDeine Werke für die Sarangbang.'**
+  /// **'Lerne, sammle und gestalte dein Zuhause.'**
   String get onboardingCHanokBody;
 
   /// No description provided for @onboardingCHanokSummary.
@@ -20214,28 +20214,16 @@ abstract class AppL10n {
   /// **'Du kannst es später ändern.'**
   String get introLevelLater;
 
-  /// No description provided for @onboardingJourneyStartWhere.
-  ///
-  /// In de, this message translates to:
-  /// **'Wo möchtest du starten?'**
-  String get onboardingJourneyStartWhere;
-
   /// No description provided for @onboardingJourneyBeginnerHint.
   ///
   /// In de, this message translates to:
   /// **'Ich fange neu an'**
   String get onboardingJourneyBeginnerHint;
 
-  /// No description provided for @onboardingCLevelRange.
-  ///
-  /// In de, this message translates to:
-  /// **'Ganz neu oder A1 bis C2.'**
-  String get onboardingCLevelRange;
-
   /// No description provided for @onboardingCPathBody.
   ///
   /// In de, this message translates to:
-  /// **'Von den ersten Lauten bis zum echten Gespräch.'**
+  /// **'Vom ersten Laut bis zum echten Gespräch.'**
   String get onboardingCPathBody;
 
   /// No description provided for @onboardingCPathSummary.
@@ -20247,7 +20235,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCSoundBody.
   ///
   /// In de, this message translates to:
-  /// **'Hören, verbinden, ausprobieren.'**
+  /// **'Hör hin und sprich nach.'**
   String get onboardingCSoundBody;
 
   /// No description provided for @onboardingCSoundSummary.
@@ -20351,24 +20339,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Niveau übernehmen'**
   String get introApplyLevel;
-
-  /// No description provided for @introNextPath.
-  ///
-  /// In de, this message translates to:
-  /// **'Als Nächstes: Dein Lernweg.'**
-  String get introNextPath;
-
-  /// No description provided for @introNextSample.
-  ///
-  /// In de, this message translates to:
-  /// **'Als Nächstes: Eine kurze Lernprobe.'**
-  String get introNextSample;
-
-  /// No description provided for @introTwelveTools.
-  ///
-  /// In de, this message translates to:
-  /// **'12 Lernwerkzeuge für deinen Alltag.'**
-  String get introTwelveTools;
 
   /// No description provided for @introGreetingTranslation.
   ///

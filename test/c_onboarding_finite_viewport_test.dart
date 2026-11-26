@@ -103,7 +103,9 @@ void main() {
               _ => 'onboarding-v2-story-back',
             }),
           );
-          _expectVisibleControl(tester, back, safeViewport);
+          // The visible "Zurück" action was removed (Figma 2026-11-25);
+          // back stays available through the system back gesture.
+          expect(back, findsNothing);
           if (page == 1) {
             _expectVisibleControl(
               tester,
@@ -133,9 +135,8 @@ void main() {
               );
               expect(tester.widget<CIntroArt>(art).fit, BoxFit.contain);
             }
-            final title = lookupAppL10n(
-              Locale(configuration.language),
-            ).onboardingJourneyStartTitle;
+            final title = lookupAppL10n(Locale(configuration.language))
+                .onboardingJourneyStartTitle;
             final titleFinder = find.descendant(
               of: find.text(title),
               matching: find.byType(RichText),
@@ -210,10 +211,9 @@ void main() {
               safeViewport,
             );
           } else if (page == 4) {
-            _expectVisibleControl(
-              tester,
+            expect(
               find.byKey(const ValueKey('c-onboarding-games-preview-button')),
-              safeViewport,
+              findsNothing,
             );
           }
           for (final paragraph in tester.renderObjectList<RenderParagraph>(
@@ -270,37 +270,32 @@ void main() {
     },
   );
 
-  testWidgets(
-    'the games introduction opens its preview as a full screen route',
-    (tester) async {
-      final copy = onboardingV2Copy(lookupAppL10n(const Locale('de')));
-      await _show(
-        tester,
-        OnboardingStoryScreen(
-          copy: copy,
-          pageIndex: 2,
-          selectedLevel: LearnerLevel.a1,
-          onContinue: (_) {},
-          onPrevious: (_) {},
-        ),
-      );
-      await tester.tap(
-        find.byKey(const ValueKey('c-onboarding-games-preview-button')),
-      );
+  testWidgets('the games introduction no longer offers a games preview', (
+    tester,
+  ) async {
+    final copy = onboardingV2Copy(lookupAppL10n(const Locale('de')));
+    await _show(
+      tester,
+      OnboardingStoryScreen(
+        copy: copy,
+        pageIndex: 2,
+        selectedLevel: LearnerLevel.a1,
+        onContinue: (_) {},
+        onPrevious: (_) {},
+      ),
+    );
+    expect(
+      find.byKey(const ValueKey('c-onboarding-games-preview-button')),
+      findsNothing,
+    );
+    final scene = find.byKey(const ValueKey('c-onboarding-preview-4'));
+    if (scene.evaluate().isNotEmpty) {
+      await tester.tap(scene.first, warnIfMissed: false);
       await pumpSoriStage(tester);
-      expect(
-        tester
-            .widget<OnboardingGamesDemo>(find.byType(OnboardingGamesDemo))
-            .fullScreen,
-        isTrue,
-      );
-      expect(
-        find.byKey(const ValueKey('c-onboarding-sheet-close')),
-        findsNothing,
-      );
-      expect(tester.takeException(), isNull);
-    },
-  );
+    }
+    expect(find.byType(OnboardingGamesDemo), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 Future<void> _show(
