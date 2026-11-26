@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'approved_chrome_assets.dart';
+import 'c_gallery/c_materials.dart';
 import 'learning_stage_navigation.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
 abstract final class HangulStartStyle {
   static const jade = Color(0xff1f7a6b);
-  static const deep = Color(0xff0e443b);
-  static const paper = Color(0xfffaf6ec);
-  static const light = Color(0xfffffdf8);
+  static const deep = Color(0xff07372e);
+  static const paper = Color(0xfffbefdb);
+  static const light = Color(0xfffcf5e8);
   static const fold = Color(0xfff1ecdc);
-  static const ink = Color(0xff1a1f1d);
-  static const muted = Color(0xff5c6660);
+  static const ink = Color(0xff12332b);
+  static const muted = Color(0xff4d4234);
   static const gold = Color(0xffc99a2e);
   static const seam = Color(0xffe2cd9a);
   static const mist = Color(0xffdceee8);
@@ -60,9 +61,9 @@ abstract final class HangulStartStyle {
       fontFamily: fonts.body,
       fontFamilyFallback: SoriLocaleFonts.fallback,
       fontSize: size,
-      height: 1.28,
+      height: 1.42,
       color: color,
-      fontWeight: strong ? fonts.bodyWeight(FontWeight.w600) : FontWeight.w400,
+      fontWeight: fonts.bodyWeight(strong ? FontWeight.w600 : FontWeight.w500),
     );
   }
 
@@ -179,6 +180,31 @@ class HangulStartAction extends StatelessWidget {
     final gold = kind == HangulStartActionKind.gold;
     final jade = kind == HangulStartActionKind.jade;
     final link = kind == HangulStartActionKind.link;
+    if (gold && onTap != null) {
+      return CMaterialAction(
+        label: label,
+        onTap: onTap,
+        exactSurface: true,
+        child: Row(
+          children: [
+            const SizedBox(width: 34),
+            Expanded(
+              child: Text(
+                label,
+                textAlign: TextAlign.center,
+                style: HangulStartStyle.body(context, 21, strong: true),
+              ),
+            ),
+            Image.asset(
+              'assets/illustrations/einleitung_generated/intro-chevron.png',
+              width: 34,
+              height: 34,
+              excludeFromSemantics: true,
+            ),
+          ],
+        ),
+      );
+    }
     final color = jade
         ? HangulStartStyle.light
         : gold
@@ -191,10 +217,12 @@ class HangulStartAction extends StatelessWidget {
       style: HangulStartStyle.body(
         context,
         gold
-            ? 18
+            ? 21
             : link
-            ? 13
-            : 16,
+            ? 17
+            : jade
+            ? 20
+            : 17,
         color: color,
         strong: true,
       ).copyWith(decoration: link ? TextDecoration.underline : null),
@@ -209,11 +237,11 @@ class HangulStartAction extends StatelessWidget {
         releaseDuration: HangulStartStyle.settle,
         pressCurve: HangulStartStyle.curve,
         releaseCurve: HangulStartStyle.curve,
-        surfaceDepth: gold ? 3 : 0,
+        surfaceDepth: 0,
         surfaceEdgeColor: const Color(0xff7c541f),
         surfaceRadius: 10,
         child: Opacity(
-          opacity: onTap == null ? .65 : 1,
+          opacity: onTap == null && !gold ? .75 : 1,
           child: Container(
             constraints: const BoxConstraints(
               minHeight: HangulStartStyle.minTouch,
@@ -221,10 +249,18 @@ class HangulStartAction extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               borderRadius: radius,
+              image: jade
+                  ? const DecorationImage(
+                      image: AssetImage('${HangulStartStyle.art}jade.png'),
+                      fit: BoxFit.cover,
+                    )
+                  : null,
               color: link
                   ? Colors.transparent
                   : jade
                   ? HangulStartStyle.deep
+                  : gold
+                  ? const Color(0xffe9dfce)
                   : HangulStartStyle.light,
               border: link
                   ? null
@@ -245,20 +281,6 @@ class HangulStartAction extends StatelessWidget {
                         offset: const Offset(0, 2),
                       ),
                     ],
-              gradient: gold
-                  ? const LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xfff8dd96), HangulStartStyle.gold],
-                    )
-                  : null,
-              image: gold
-                  ? const DecorationImage(
-                      image: AssetImage('${HangulStartStyle.art}brass.png'),
-                      fit: BoxFit.cover,
-                      opacity: .44,
-                    )
-                  : null,
             ),
             padding: EdgeInsets.symmetric(
               horizontal: link ? 4 : 10,
@@ -267,21 +289,17 @@ class HangulStartAction extends StatelessWidget {
             child: Align(
               alignment: Alignment.center,
               heightFactor: 1,
-              widthFactor: gold ? null : 1,
-              child: gold
+              widthFactor: gold || jade ? null : 1,
+              child: icon == null
+                  ? body
+                  : jade
                   ? Row(
                       children: [
-                        const SizedBox(width: Spacing.comfortable),
+                        const HangulStartArt('speaker', width: 34, height: 34),
                         Expanded(child: body),
-                        const Icon(
-                          Icons.chevron_right,
-                          color: HangulStartStyle.light,
-                          size: 20,
-                        ),
+                        const SizedBox(width: 34),
                       ],
                     )
-                  : icon == null
-                  ? body
                   : Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -422,16 +440,16 @@ class HangulStartProgressMarks extends StatelessWidget {
             ? HangulStartStyle.jade
             : wrong
             ? HangulStartStyle.wrong
-            : active && !dots
+            : active
             ? HangulStartStyle.gold
             : HangulStartStyle.fold;
         final mark = Container(
-          height: dots ? 14 : 7,
-          width: dots ? 14 : null,
+          height: dots ? (passed || wrong ? 14 : 10) : 10,
+          width: dots ? (passed || wrong ? 14 : 10) : null,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: background,
-            borderRadius: BorderRadius.circular(dots ? 14 : 2),
+            borderRadius: BorderRadius.circular(dots ? 14 : 5),
             border: Border.all(
               color: active ? HangulStartStyle.deep : const Color(0xffa28c63),
               width: active && dots ? 2 : 1,
@@ -455,7 +473,7 @@ class HangulStartProgressMarks extends StatelessWidget {
           ),
           child: mark,
         );
-        return dots ? Flexible(child: padded) : Expanded(child: padded);
+        return Expanded(child: dots ? Center(child: padded) : padded);
       }),
     ),
   );
@@ -489,7 +507,7 @@ class HangulStartScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final compact = HangulStartStyle.compact(context);
-    final horizontal = compact ? 12.0 : 20.0;
+    final horizontal = compact ? 14.0 : 22.0;
     final trailing = footer == null
         ? null
         : Padding(
@@ -497,7 +515,11 @@ class HangulStartScaffold extends StatelessWidget {
               horizontal,
               12,
               horizontal,
-              HangulStartStyle.footerGap,
+              showNavigation
+                  ? HangulStartStyle.footerGap
+                  : (40 - MediaQuery.paddingOf(context).bottom)
+                        .clamp(16.0, 40.0)
+                        .toDouble(),
             ),
             child: footer,
           );
@@ -537,7 +559,7 @@ class HangulStartScaffold extends StatelessWidget {
                           SliverPadding(
                             padding: EdgeInsets.fromLTRB(
                               horizontal,
-                              compact ? 11 : 16,
+                              compact ? 11 : 20,
                               horizontal,
                               0,
                             ),
@@ -642,32 +664,35 @@ class _HangulStartHeader extends StatelessWidget {
                   size: 30,
                 ),
               ),
-              const Expanded(
-                child: Text(
-                  'HANGUL SORI',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontFamily: SoriFonts.interface,
-                    fontWeight: FontWeight.w600,
-                    color: HangulStartStyle.gold,
-                    fontSize: 13,
-                    letterSpacing: 1.8,
-                  ),
+              Expanded(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      ApprovedChromeAssets.cloud,
+                      width: 28,
+                      height: 23,
+                      excludeFromSemantics: true,
+                    ),
+                    const SizedBox(width: 4),
+                    const Flexible(
+                      child: Text(
+                        'HANGUL SORI',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: SoriFonts.interface,
+                          fontWeight: FontWeight.w600,
+                          color: HangulStartStyle.gold,
+                          fontSize: 13,
+                          letterSpacing: 1.8,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               speedControl ??
-                  SizedBox(
-                    width: 48,
-                    height: 48,
-                    child: Center(
-                      child: Image.asset(
-                        ApprovedChromeAssets.cloud,
-                        width: 34,
-                        height: 34,
-                        excludeFromSemantics: true,
-                      ),
-                    ),
-                  ),
+                  const SizedBox.square(dimension: HangulStartStyle.minTouch),
             ],
           ),
           if (meta == null)

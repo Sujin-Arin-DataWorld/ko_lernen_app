@@ -393,7 +393,6 @@ class _HangulStartScreenState extends State<HangulStartScreen>
     required List<Widget> children,
     required Widget footer,
     String? progress,
-    bool speed = false,
     String keySuffix = '',
     double? spacing,
   }) => PopScope(
@@ -409,7 +408,7 @@ class _HangulStartScreenState extends State<HangulStartScreen>
       title: title,
       onBack: _back,
       progress: progress,
-      speedControl: speed ? const _SpeedChip() : null,
+      showNavigation: false,
       bodyKey: ValueKey('hangul-start-body-${_view.name}-$keySuffix'),
       onLeave: _stopAudio,
       canLeave: () => !_saving,
@@ -434,8 +433,13 @@ class _HangulStartScreenState extends State<HangulStartScreen>
       HangulStartStyle.compact(context) ? 23 : 27,
     ),
   );
-  Widget _body(String text) =>
-      Text(text, style: HangulStartStyle.body(context, 16));
+  Widget _body(String text) => Text(
+    text,
+    style: HangulStartStyle.body(
+      context,
+      HangulStartStyle.compact(context) ? 17 : 20,
+    ),
+  );
   Widget _small(String text) => Text(
     text,
     style: HangulStartStyle.body(context, 13, color: HangulStartStyle.muted),
@@ -598,8 +602,19 @@ class _HangulStartScreenState extends State<HangulStartScreen>
     return _frame(
       title: '${t.hangulStartLessonNoun} ${lesson.order}',
       progress: '${_stage + 1} / 7',
-      speed: true,
-      children: children,
+      children: [
+        HangulStartProgressMarks(
+          length: 7,
+          current: _stage,
+          complete: {for (var i = 0; i < _stage; i++) i},
+          caption: '${_stage + 1} / 7',
+        ),
+        const Align(
+          alignment: AlignmentDirectional.centerEnd,
+          child: _SpeedChip(),
+        ),
+        ...children,
+      ],
       keySuffix: '${lesson.id}-$_stage-$_item',
       footer: _primary(
         _stage == 0
@@ -628,41 +643,88 @@ class _HangulStartScreenState extends State<HangulStartScreen>
     final words = lesson.words.where((word) => word.ko == card.target);
     return [
       _title(first ? t.todayFirstSyllable : lesson.title.pick(language)),
-      _hero(
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          spacing: 3,
-          children: [
-            Wrap(
-              alignment: WrapAlignment.center,
-              children: [
-                // l10n: exempt — the Korean teaching formula is identical in both locales.
-                if (first) Text('ㅇ + ㅏ = ', style: HangulStartStyle.korean(32)),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(card.target, style: HangulStartStyle.korean(32)),
-                    _small(romanizeKorean(card.target)),
-                  ],
-                ),
-              ],
-            ),
-            if (first)
-              HangulStartArt(
-                'celadon-a',
-                height: HangulStartStyle.compact(context) ? 69 : 108,
-                onPaper: true,
+      Padding(
+        padding: EdgeInsets.only(
+          top: HangulStartStyle.compact(context) ? 0 : 10,
+        ),
+        child: _hero(
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            spacing: 3,
+            children: [
+              Wrap(
+                alignment: WrapAlignment.center,
+                children: [
+                  // l10n: exempt — the Korean teaching formula is identical in both locales.
+                  if (first)
+                    Text('ㅇ + ㅏ = ', style: HangulStartStyle.korean(32)),
+                  Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      if (first)
+                        Text(card.target, style: HangulStartStyle.korean(36))
+                      else
+                        HangulStartPanel(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 30,
+                            vertical: 14,
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                card.target,
+                                textAlign: TextAlign.center,
+                                style: HangulStartStyle.korean(
+                                  card.target.length == 1
+                                      ? 86
+                                      : card.target.length <= 3
+                                      ? 48
+                                      : 32,
+                                ),
+                              ),
+                              Text(
+                                romanizeKorean(card.target),
+                                style: HangulStartStyle.body(
+                                  context,
+                                  20,
+                                  strong: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      if (first) _small(romanizeKorean(card.target)),
+                    ],
+                  ),
+                ],
               ),
+              if (first)
+                HangulStartArt(
+                  'celadon-a',
+                  height: HangulStartStyle.compact(context) ? 69 : 108,
+                  onPaper: true,
+                ),
+            ],
+          ),
+        ),
+      ),
+      HangulStartPanel(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          spacing: 6,
+          children: [
+            _body(
+              first
+                  ? t.hangulStartFirstSyllableExplanation
+                  : card.explain.pick(language),
+            ),
+            for (final word in words) _body(word.pick(language)),
           ],
         ),
       ),
-      _body(
-        first
-            ? t.hangulStartFirstSyllableExplanation
-            : card.explain.pick(language),
-      ),
-      for (final word in words) _body(word.pick(language)),
-      Center(
+      SizedBox(
+        width: double.infinity,
         child: _listenAction(
           t.hangulStartListenSound,
           () => _listen(card.target),
@@ -681,7 +743,7 @@ class _HangulStartScreenState extends State<HangulStartScreen>
         : const EdgeInsets.all(12),
     child: ConstrainedBox(
       constraints: BoxConstraints(
-        minHeight: HangulStartStyle.compact(context) ? 130 : 184,
+        minHeight: HangulStartStyle.compact(context) ? 130 : 161,
       ),
       child: Center(child: child),
     ),
@@ -709,12 +771,7 @@ class _HangulStartScreenState extends State<HangulStartScreen>
         IconButton(
           onPressed: _playing ? null : () => _listen(item.text),
           tooltip: '${t.hangulStartListenWord}: ${item.text}',
-          icon: const HangulStartArt(
-            'gong',
-            height: 30,
-            width: 36,
-            onPaper: true,
-          ),
+          icon: const HangulStartArt('speaker', height: 30, width: 36),
         ),
       ],
     ),
@@ -840,13 +897,16 @@ class _HangulStartScreenState extends State<HangulStartScreen>
           spacing: 6,
           children: [
             HangulStartArt(
-              'gong',
+              'speaker',
               height: HangulStartStyle.compact(context)
                   ? (small ? 62 : 88)
-                  : (small ? 102 : 128),
-              onPaper: true,
+                  : (small ? 102 : 144),
             ),
-            _listenAction(label, onTap),
+            HangulStartAction(
+              label: label,
+              onTap: _playing ? null : onTap,
+              kind: HangulStartActionKind.jade,
+            ),
           ],
         ),
       );
@@ -884,7 +944,13 @@ class _HangulStartScreenState extends State<HangulStartScreen>
                   selected: _selected == value && _correct != false,
                   incorrect: _selected == value && _correct == false,
                   wood: quiz,
-                  minHeight: HangulStartStyle.compact(context) ? 58 : 68,
+                  minHeight: quiz
+                      ? HangulStartStyle.compact(context)
+                            ? 66
+                            : 91
+                      : HangulStartStyle.compact(context)
+                      ? 58
+                      : 90,
                   onTap: _correct == null
                       ? () => setState(() => _selected = value)
                       : null,
@@ -994,11 +1060,13 @@ class _HangulStartScreenState extends State<HangulStartScreen>
                       curve: HangulStartStyle.curve,
                       builder: (context, scale, child) =>
                           Transform.scale(scale: scale, child: child),
-                      child: Icon(
-                        correct ? Icons.check_circle : Icons.cancel,
-                        size: 20,
-                        color: tint,
-                      ),
+                      child: correct
+                          ? const HangulStartArt(
+                              'correct-check',
+                              width: 32,
+                              height: 32,
+                            )
+                          : Icon(Icons.cancel, size: 20, color: tint),
                     ),
                     const SizedBox(width: Spacing.tight),
                     Expanded(
@@ -1074,14 +1142,29 @@ class _HangulStartScreenState extends State<HangulStartScreen>
               if (!passed) i,
           },
         ),
-        _title(t.hangulStartTestPrompt),
+        Align(
+          alignment: AlignmentDirectional.centerStart,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 275),
+            child: _title(t.hangulStartTestPrompt),
+          ),
+        ),
         _gong(
           t.hangulStartTestListen,
           _plays >= test.maxPlays
               ? null
               : () => _listen(item.audio, count: true, limit: test.maxPlays),
         ),
-        Center(child: _small(used)),
+        Center(
+          child: Text(
+            used,
+            style: HangulStartStyle.body(
+              context,
+              HangulStartStyle.compact(context) ? 15 : 19,
+              strong: true,
+            ),
+          ),
+        ),
         _choices(item, quiz: true),
       ],
       footer: _primary(
@@ -1183,7 +1266,10 @@ class _HangulStartScreenState extends State<HangulStartScreen>
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const HangulStartArt('celadon-a', height: 94, onPaper: true),
+            if (home.finished)
+              const HangulStartArt('completion-seal', height: 146)
+            else
+              const HangulStartArt('celadon-a', height: 94, onPaper: true),
             Text(
               '${home.completedCount} / ${_catalog!.lessons.length}',
               style: HangulStartStyle.heading(context, 36),
@@ -1224,7 +1310,11 @@ class _SpeedChip extends StatelessWidget {
             PopupMenuItem(value: value, child: Text(rate(value))),
         ],
         child: Container(
-          constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
+          constraints: BoxConstraints(
+            minHeight: 48,
+            minWidth: 48,
+            maxWidth: HangulStartStyle.largeText(context) ? 84 : 49,
+          ),
           alignment: Alignment.center,
           padding: const EdgeInsets.symmetric(horizontal: Spacing.dense),
           decoration: BoxDecoration(

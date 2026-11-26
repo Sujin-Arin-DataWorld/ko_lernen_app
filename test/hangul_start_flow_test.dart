@@ -55,12 +55,13 @@ void main() {
     WidgetTester tester,
     HangulStartEntry entry, {
     double scale = 1,
+    Size viewport = const Size(320, 640),
     Locale locale = const Locale('en'),
     Future<bool> Function(String, double?)? play,
     Widget? screen,
     RouteFactory? onGenerateRoute,
   }) async {
-    await tester.binding.setSurfaceSize(const Size(320, 640));
+    await tester.binding.setSurfaceSize(viewport);
     addTearDown(() => tester.binding.setSurfaceSize(null));
     final host = MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -71,7 +72,7 @@ void main() {
       supportedLocales: AppL10n.supportedLocales,
       builder: (context, child) => MediaQuery(
         data: MediaQuery.of(context).copyWith(
-          size: const Size(320, 640),
+          size: viewport,
           textScaler: TextScaler.linear(scale),
           disableAnimations: true,
         ),
@@ -425,6 +426,38 @@ void main() {
         await tap(tester, labels.todayStartHangul);
         await tap(tester, labels.hangulStartBeginLesson);
         await saveCapture(tester, 'flutter-S3a-de-320x640');
+        expect(tester.takeException(), isNull);
+      },
+    );
+    testWidgets(
+      'export Flutter lesson two and quiz at the approved Figma viewport',
+      (tester) async {
+        const locale = Locale('de');
+        final labels = await AppL10n.delegate.load(locale);
+        const viewport = Size(402, 934);
+        await tester.runAsync(
+          () => HangulStartProgressStore().setCursor(
+            const HangulStartCursor('F02', 1, 0),
+          ),
+        );
+        await render(
+          tester,
+          HangulStartEntry.resume,
+          locale: locale,
+          viewport: viewport,
+        );
+        expect(find.text('Lektion 2'), findsOneWidget);
+        expect(find.text('오'), findsOneWidget);
+        await saveCapture(tester, 'flutter-lesson-02-de-402x934');
+        await tester.pumpWidget(const SizedBox.shrink());
+        await render(
+          tester,
+          HangulStartEntry.quiz,
+          locale: locale,
+          viewport: viewport,
+        );
+        await tap(tester, labels.hangulStartTestAction);
+        await saveCapture(tester, 'flutter-kurztest-de-402x934');
         expect(tester.takeException(), isNull);
       },
     );
