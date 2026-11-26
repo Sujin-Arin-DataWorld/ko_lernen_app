@@ -11882,7 +11882,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingCBookBody =>
-      'Foto machen – TalSunbi erklärt jedes Wort.';
+      'Mach ein Foto. TalSunbi erklärt jedes Wort.';
 
   @override
   String get onboardingCBookSummary => 'Aus deinen Büchern lernen.';
@@ -11922,13 +11922,7 @@ class AppL10nDe extends AppL10n {
   String get introLevelLater => 'Du kannst es später ändern.';
 
   @override
-  String get onboardingJourneyStartWhere => 'Wo möchtest du starten?';
-
-  @override
   String get onboardingJourneyBeginnerHint => 'Ich fange neu an';
-
-  @override
-  String get onboardingCLevelRange => 'Ganz neu oder A1 bis C2.';
 
   @override
   String get onboardingCPathBody => 'Vom ersten Laut bis zum echten Gespräch.';
@@ -11989,15 +11983,6 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get introApplyLevel => 'Niveau übernehmen';
-
-  @override
-  String get introNextPath => 'Als Nächstes: Dein Lernweg.';
-
-  @override
-  String get introNextSample => 'Als Nächstes: Eine kurze Lernprobe.';
-
-  @override
-  String get introTwelveTools => '12 Lernwerkzeuge für deinen Alltag.';
 
   @override
   String get introGreetingTranslation => 'Guten Tag';

@@ -11826,7 +11826,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingCBookBody =>
-      'Take a photo – TalSunbi explains every word.';
+      'Take a photo. TalSunbi explains every word.';
 
   @override
   String get onboardingCBookSummary => 'Learn from your books.';
@@ -11866,13 +11866,7 @@ class AppL10nEn extends AppL10n {
   String get introLevelLater => 'You can change this later.';
 
   @override
-  String get onboardingJourneyStartWhere => 'Where would you like to start?';
-
-  @override
   String get onboardingJourneyBeginnerHint => 'I\'m starting from scratch';
-
-  @override
-  String get onboardingCLevelRange => 'Brand new or A1 to C2.';
 
   @override
   String get onboardingCPathBody =>
@@ -11934,15 +11928,6 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get introApplyLevel => 'Use this level';
-
-  @override
-  String get introNextPath => 'Next: Your learning path.';
-
-  @override
-  String get introNextSample => 'Next: A short learning sample.';
-
-  @override
-  String get introTwelveTools => '12 learning tools for your everyday life.';
 
   @override
   String get introGreetingTranslation => 'Hello';

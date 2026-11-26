@@ -20139,7 +20139,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCBookBody.
   ///
   /// In de, this message translates to:
-  /// **'Foto machen – TalSunbi erklärt jedes Wort.'**
+  /// **'Mach ein Foto. TalSunbi erklärt jedes Wort.'**
   String get onboardingCBookBody;
 
   /// No description provided for @onboardingCBookSummary.
@@ -20214,23 +20214,11 @@ abstract class AppL10n {
   /// **'Du kannst es später ändern.'**
   String get introLevelLater;
 
-  /// No description provided for @onboardingJourneyStartWhere.
-  ///
-  /// In de, this message translates to:
-  /// **'Wo möchtest du starten?'**
-  String get onboardingJourneyStartWhere;
-
   /// No description provided for @onboardingJourneyBeginnerHint.
   ///
   /// In de, this message translates to:
   /// **'Ich fange neu an'**
   String get onboardingJourneyBeginnerHint;
-
-  /// No description provided for @onboardingCLevelRange.
-  ///
-  /// In de, this message translates to:
-  /// **'Ganz neu oder A1 bis C2.'**
-  String get onboardingCLevelRange;
 
   /// No description provided for @onboardingCPathBody.
   ///
@@ -20351,24 +20339,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Niveau übernehmen'**
   String get introApplyLevel;
-
-  /// No description provided for @introNextPath.
-  ///
-  /// In de, this message translates to:
-  /// **'Als Nächstes: Dein Lernweg.'**
-  String get introNextPath;
-
-  /// No description provided for @introNextSample.
-  ///
-  /// In de, this message translates to:
-  /// **'Als Nächstes: Eine kurze Lernprobe.'**
-  String get introNextSample;
-
-  /// No description provided for @introTwelveTools.
-  ///
-  /// In de, this message translates to:
-  /// **'12 Lernwerkzeuge für deinen Alltag.'**
-  String get introTwelveTools;
 
   /// No description provided for @introGreetingTranslation.
   ///

@@ -368,7 +368,7 @@ void main() {
             expect(action.hitTestable(), findsOneWidget);
             expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
             final body = switch (page) {
-              1 => t.introNextPath,
+              1 => copy.setup.purposes.last.title,
               3 => t.onboardingCSoundBody,
               4 => t.onboardingCGamesBody,
               _ => t.onboardingCGyeBody,
