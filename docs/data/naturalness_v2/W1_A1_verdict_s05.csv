@@ -1,0 +1,124 @@
+id,verdict,codes,example_korean_new,example_german_new,example_english_new,german_gloss_new,english_gloss_new,note
+vocab_a1_0266,FIX_KO+FIX_DE+FIX_EN,L2;L3;N1;N5,할아버지께 절해요.,Ich verbeuge mich vor Opa.,I bow to my grandfather.,,,예문이 7어절·비표제 어휘 과다 → 짧게
+vocab_a1_0267,KEEP,,,,,,,자연스러움
+vocab_a1_0268,KEEP,,,,,,,자연스러움
+vocab_a1_0269,KEEP,,,,,,,자연스러움
+vocab_a1_0270,KEEP,,,,,,,자연스러움
+vocab_a1_0271,KEEP,,,,,,,자연스러움
+vocab_b2_0173,KEEP,,,,,,,자연스러움
+vocab_a1_0248,KEEP,,,,,,,자연스러움
+vocab_a1_0249,KEEP,,,,,,,자연스러움
+vocab_a1_0250,KEEP,,,,,,,자연스러움
+vocab_a1_0251,KEEP,,,,,,,자연스러움
+vocab_a1_0252,FIX_KO+FIX_DE+FIX_EN,N1,너무 배불러요.,Ich bin so satt.,I'm so full.,,,하지만 연결이 부자연스러움 → 단순화
+vocab_a1_0253,KEEP,,,,,,,자연스러움
+vocab_a1_0254,KEEP,,,,,,,자연스러움
+vocab_a1_0255,KEEP,,,,,,,자연스러움
+vocab_a1_0256,KEEP,,,,,,,자연스러움
+vocab_a1_0257,KEEP,,,,,,,자연스러움
+vocab_a1_0258,FIX_DE+FIX_EN+FIX_GLOSS,T6,,Ich lege Löffel und Stäbchen auf den Tisch.,I set out the spoons and chopsticks.,Besteck auflegen,to set out utensils,수저 놓다=상차림; 이전 번역은 식후 내려놓기로 오해. 뜻풀이 변경은 단어관계 시드에 영향
+vocab_a1_0259,KEEP,,,,,,,자연스러움
+vocab_b2_0202,KEEP,,,,,,,자연스러움
+vocab_b2_0204,KEEP,,,,,,,자연스러움
+vocab_a1_0412,KEEP,,,,,,,자연스러움
+vocab_a1_0413,KEEP,,,,,,,자연스러움
+vocab_a1_0414,KEEP,,,,,,,자연스러움
+vocab_a1_0415,KEEP,,,,,,,자연스러움
+vocab_a1_0452,KEEP,,,,,,,자연스러움
+vocab_a1_0453,KEEP,,,,,,,자연스러움
+vocab_a1_0454,KEEP,,,,,,,자연스러움
+vocab_a1_0455,KEEP,,,,,,,자연스러움
+vocab_a1_0487,FIX_KO+FIX_DE+FIX_EN,N1,물건이 오늘 도착해요.,Die Ware kommt heute an.,The item arrives today.,,,이 물건을 주세요는 비자연(이거 주세요가 일반적)
+vocab_a1_0488,KEEP,,,,,,,자연스러움
+vocab_a1_0489,KEEP,,,,,,,자연스러움
+vocab_a1_0490,KEEP,,,,,,,자연스러움
+vocab_a1_0604,KEEP,,,,,,,자연스러움
+vocab_a1_0605,KEEP,,,,,,,자연스러움
+vocab_a1_0606,FIX_KO+FIX_DE+FIX_EN,N1;N5,친구는 아파트에 살아요.,Mein Freund wohnt im Wohnblock.,My friend lives in an apartment.,,,몇 명이 살아요는 부자연. 아파트=Wohnung 뜻풀이 부정확하나 시드 영향 고려해 gloss 유지
+vocab_a1_0607,KEEP,,,,,,,자연스러움
+vocab_a1_0608,KEEP,,,,,,,자연스러움
+vocab_a1_0609,KEEP,,,,,,,자연스러움
+vocab_a1_0610,KEEP,,,,,,,자연스러움
+vocab_a1_0611,KEEP,,,,,,,자연스러움
+vocab_a1_0612,KEEP,,,,,,,자연스러움
+vocab_a1_0613,KEEP,,,,,,,자연스러움
+vocab_a1_0614,FIX_DE+FIX_EN,T1,,Die Bank ist gegenüber.,The bank is across the street.,,,gegenüberliegende Seite 직역투
+vocab_a1_0615,KEEP,,,,,,,자연스러움
+vocab_a1_0177,FIX_DE,T1,,Es liegt auf dem Schreibtisch.,,,,책상=Schreibtisch
+vocab_a1_0178,KEEP,,,,,,,자연스러움
+vocab_a1_0179,KEEP,,,,,,,자연스러움
+vocab_a1_0180,KEEP,,,,,,,자연스러움
+vocab_a1_0181,FIX_KO+FIX_DE+FIX_EN,N1;T2,"수진 씨, 제 옆에 앉으세요.","Sujin, setz dich neben mich.","Sujin, sit next to me.",,,제 옆에 앉을까요는 부자연·뜻 불명
+vocab_a1_0182,KEEP,,,,,,,자연스러움
+vocab_a1_0183,KEEP,,,,,,,자연스러움
+vocab_a1_0185,KEEP,,,,,,,자연스러움
+vocab_a1_0186,KEEP,,,,,,,자연스러움
+vocab_a1_0194,KEEP,,,,,,,자연스러움
+vocab_a1_0195,FIX_KO+FIX_DE+FIX_EN,L2;N5,책이 거기 있어요.,Das Buch ist da.,The book is there.,,,본 적 있다는 A1 문법 밖
+vocab_a1_0196,KEEP,,,,,,,자연스러움
+vocab_a1_0308,KEEP,,,,,,,자연스러움
+vocab_a1_0309,FIX_EN,T1,,,I want to send this package to Germany.,,,미국식 package
+vocab_a1_0310,KEEP,,,,,,,자연스러움
+vocab_a1_0311,KEEP,,,,,,,자연스러움
+vocab_a1_0312,FIX_EN,T1,,,"Before I mail the package, I check the address.",,,미국식 package
+vocab_a1_0313,FIX_KO+FIX_DE+FIX_EN,N8,무게가 삼 킬로그램이에요.,Es wiegt drei Kilogramm.,It weighs three kilograms.,,,이 킬로그램은 TTS에서 지시어 이와 혼동
+vocab_a1_0314,KEEP,,,,,,,자연스러움
+vocab_a1_0315,KEEP,,,,,,,자연스러움
+vocab_a1_0316,KEEP,,,,,,,자연스러움
+vocab_a1_0317,FIX_DE+FIX_EN,T1;T6,,Wie viele Tage dauert es bis Deutschland?,How many days does it take to get to Germany?,,,Paket 추가 정보 삭제
+vocab_a1_0318,KEEP,,,,,,,자연스러움
+vocab_a1_0319,KEEP,,,,,,,자연스러움
+vocab_a1_0798,FIX_KO+FIX_DE+FIX_EN,N1;T6,그 사람은 제 친구예요.,Er ist mein Freund.,He is my friend.,,,그는 번역투; 기존 DE/EN은 KO와 뜻 불일치
+vocab_a1_0799,KEEP,,,,,,,자연스러움
+vocab_a1_0800,KEEP,,,,,,,자연스러움
+vocab_a1_0801,KEEP,,,,,,,자연스러움
+vocab_a1_0802,KEEP,,,,,,,자연스러움
+vocab_a1_0803,KEEP,,,,,,,자연스러움
+vocab_a1_0804,KEEP,,,,,,,자연스러움
+vocab_a1_0805,KEEP,,,,,,,자연스러움
+vocab_a1_0806,KEEP,,,,,,,자연스러움
+vocab_a1_0807,FIX_KO+FIX_DE+FIX_EN,N1,이쪽으로 오세요.,Kommen Sie bitte hier entlang.,Please come this way.,,,저랑 이쪽으로는 부자연
+vocab_a1_0808,KEEP,,,,,,,자연스러움
+vocab_a1_0809,KEEP,,,,,,,자연스러움
+vocab_a1_0408,FIX_KO+FIX_DE+FIX_EN,L2;L3,발음이 어려워요.,Die Aussprache ist schwierig.,The pronunciation is difficult.,,,6어절·ㄹ 수 있다 → 단순화
+vocab_a1_0409,KEEP,,,,,,,자연스러움
+vocab_a1_0410,KEEP,,,,,,,자연스러움
+vocab_a1_0411,KEEP,,,,,,,자연스러움
+vocab_b1_0190,KEEP,,,,,,,자연스러움
+vocab_b1_0188,KEEP,,,,,,,자연스러움
+vocab_b1_0196,KEEP,,,,,,,자연스러움
+vocab_a1_0456,KEEP,,,,,,,자연스러움
+vocab_a1_0457,KEEP,,,,,,,자연스러움
+vocab_a1_0458,KEEP,,,,,,,자연스러움
+vocab_a1_0653,KEEP,,,,,,,자연스러움
+vocab_a1_0654,KEEP,,,,,,,자연스러움
+vocab_b2_0121,KEEP,,,,,,,자연스러움
+vocab_a1_0691,KEEP,,,,,,,자연스러움
+vocab_a1_0692,KEEP,,,,,,,자연스러움
+vocab_a1_0693,KEEP,,,,,,,자연스러움
+vocab_a1_0694,KEEP,,,,,,,자연스러움
+vocab_a1_0695,FIX_GLOSS,T4,,,,"Mitarbeiter, Angestellter",,우회 표현 gloss. 뜻풀이 변경은 시드에 영향
+vocab_a1_0696,FIX_GLOSS,T4,,,,"Bedienung, Mitarbeiter","server, staff member",슬래시 성별형 제거. 시드 영향
+vocab_a1_0697,FIX_DE,T1,,Ein Mitarbeiter zeigt den Weg.,,,,Mitglied des Personals 직역투
+vocab_a1_0698,FIX_DE,T1,,Ich habe keine Nahverkehrskarte.,,,,Verkehrskarte는 비실재 단어
+vocab_a1_0699,KEEP,,,,,,,자연스러움
+vocab_a1_0700,KEEP,,,,,,,자연스러움
+vocab_a1_0701,KEEP,,,,,,,자연스러움
+vocab_a1_0702,KEEP,,,,,,,자연스러움
+vocab_a1_0010,KEEP,,,,,,,자연스러움
+vocab_a1_0011,KEEP,,,,,,,자연스러움
+vocab_a1_0013,FIX_GLOSS,T4,,,,"Student, Schüler","student, pupil",슬래시 성별형 제거. 시드 영향
+vocab_a1_0014,FIX_GLOSS,T4,,,,Lehrer,,Lehrer/in 제거. 시드 영향
+vocab_a1_0187,KEEP,,,,,,,자연스러움
+vocab_a1_0188,KEEP,,,,,,,자연스러움
+vocab_a1_0189,KEEP,,,,,,,자연스러움
+vocab_a1_0190,KEEP,,,,,,,자연스러움
+vocab_a1_0459,FIX_KO+FIX_DE+FIX_EN+FIX_GLOSS,N1;T4,아버지는 회사원이에요.,Mein Vater ist Angestellter.,My father is an office worker.,"Angestellter, Büroangestellter",,3인칭 이름+지금은 번역투; gloss 슬래시 제거. 시드 영향
+vocab_a1_0460,FIX_GLOSS,T4,,,,"Hausfrau, Hausmann",,Hausfrau/Hausmann 슬래시 정리. 시드 영향
+vocab_a1_0461,KEEP,,,,,,,자연스러움
+vocab_a1_0462,KEEP,,,,,,,자연스러움
+vocab_a1_0392,KEEP,,,,,,,자연스러움
+vocab_a1_0393,KEEP,,,,,,,자연스러움
+vocab_a1_0394,KEEP,,,,,,,자연스러움
+vocab_a1_0395,KEEP,,,,,,,자연스러움
+vocab_a1_0396,FIX_KO+FIX_DE+FIX_EN,N1;L3,친구에게 부탁해요.,Ich bitte einen Freund um einen Gefallen.,I ask a friend for a favor.,,,기존 예문은 인위적·장황

@@ -1,0 +1,124 @@
+id,verdict,codes,example_korean_new,example_german_new,example_english_new,german_gloss_new,english_gloss_new,note
+vocab_a1_0743,KEEP,,,,,,,
+vocab_a1_0744,KEEP,,,,,,,
+vocab_a1_0745,KEEP,,,,,,,
+vocab_a1_0746,KEEP,,,,,,,
+vocab_a1_0747,FIX_DE+FIX_EN,T6,,Stimmt. Das denke ich auch.,Right. I think so too.,,,그래요 번역 누락
+vocab_a1_0748,KEEP,,,,,,,
+vocab_a1_0749,KEEP,,,,,,,
+vocab_a1_0750,KEEP,,,,,,,
+vocab_a1_0751,KEEP,,,,,,,
+vocab_a1_0752,FIX_DE+FIX_EN,T1;N5,,Ich sehe das anders.,I see it differently.,,,직역투 'Meine Meinung ist anders'
+vocab_a1_0753,KEEP,,,,,,,
+vocab_a1_0754,FIX_KO,N6,오늘은 하늘이 맑아요.,Heute ist der Himmel klar.,The sky is clear today.,,,"주제 Wetter, 맑다의 대표 용법은 날씨/하늘"
+vocab_a1_0755,KEEP,,,,,,,
+vocab_a1_0756,KEEP,,,,,,,
+vocab_a1_0757,FIX_DE+FIX_EN,T1,,Dieses Wasser ist schön kühl.,This water is nice and cold.,,,시원하다+물은 '시원하게 차갑다'
+vocab_a1_0758,FIX_EN,T1,,,I don't like the rain.,,,'I dislike rain' 딱딱함
+vocab_a1_0759,FIX_DE+FIX_GLOSS,T4,,Ich bin kein Student.,I'm not a student.,nicht sein,,슬래시 이중형 제거; 글로스 변경은 단어망 시드에 영향
+vocab_a1_0760,KEEP,,,,,,,
+vocab_a1_0761,KEEP,,,,,,,
+vocab_a1_0762,KEEP,,,,,,,
+vocab_a1_0763,KEEP,,,,,,,
+vocab_a1_0764,KEEP,,,,,,,
+vocab_a1_0765,FIX_KO,N5,오늘은 특별한 날이에요.,Heute ist ein besonderer Tag.,Today is a special day.,,,'오늘은 정말 특별해요' 맥락 불완전
+vocab_a1_0766,KEEP,,,,,,,
+vocab_a1_0779,FIX_DE,T1,,Dieser Kuchen schmeckt am besten.,,,,'am leckersten' 부자연
+vocab_a1_0780,KEEP,,,,,,,
+vocab_a1_0781,FIX_KO+FIX_DE+FIX_EN,N5;T6,시간이 없어요. 그러니까 빨리 가요.,"Wir haben keine Zeit, also lass uns schnell gehen.","We have no time, so let's go quickly.",,,저는(나)↔let's 불일치; 청유로 통일
+vocab_a1_0782,KEEP,,,,,,,
+vocab_a1_0783,KEEP,,,,,,,
+vocab_a1_0784,KEEP,,,,,,,
+vocab_a1_0785,KEEP,,,,,,,
+vocab_a1_0786,KEEP,,,,,,,
+vocab_a1_0787,FIX_DE,T1,,Ich kann nichts Scharfes essen.,,,,'kein scharfes Essen essen' 부자연
+vocab_a1_0788,KEEP,,,,,,,
+vocab_a1_0789,FIX_DE+FIX_EN,T6,,Dieser Film ist sehr unterhaltsam.,This movie is very entertaining.,,,"DE '재미있다=Spaß' 와 EN 'interesting' 불일치, 아주 누락"
+vocab_a1_0790,KEEP,,,,,,,
+vocab_a1_0791,FIX_DE+FIX_EN,T1;T3,,Auf Wiedersehen!,"Goodbye, teacher!",,,"'Lehrer,' 호칭은 독일어에서 부자연; 호칭 생략(문화 등가)"
+vocab_a1_0792,FIX_KO+FIX_DE+FIX_EN,N1;N6,학교까지 얼마나 걸려요?,Wie lange braucht man bis zur Schule?,How long does it take to get to school?,,,'가방이 얼마나 비싸요' 부자연; 얼마나 대표 용법. 글로스 wie sehr는 wie viel/lange 보강 검토
+vocab_a1_0793,KEEP,,,,,,,
+vocab_a1_0794,KEEP,,,,,,,
+vocab_a1_0795,KEEP,,,,,,,
+vocab_a1_0796,KEEP,,,,,,,
+vocab_a1_0797,KEEP,,,,,,,
+vocab_a1_0592,KEEP,,,,,,,
+vocab_a1_0593,KEEP,,,,,,,
+vocab_a1_0594,KEEP,,,,,,,
+vocab_a1_0595,KEEP,,,,,,,
+vocab_a1_0596,FIX_DE+FIX_EN,T1,,Ich habe dieses T-Shirt an.,I'm wearing this T-shirt.,,,"입었어요=착용 상태, 과거 오역 방지"
+vocab_a1_0597,KEEP,,,,,,,
+vocab_a1_0598,KEEP,,,,,,,
+vocab_a1_0599,FIX_EN,T6,,,I drink water from this glass.,,,DE Glas와 EN cup 불일치
+vocab_a1_0600,KEEP,,,,,,,
+vocab_a1_0601,KEEP,,,,,,,
+vocab_a1_0602,KEEP,,,,,,,
+vocab_a1_0603,KEEP,,,,,,,
+vocab_a1_0044,KEEP,,,,,,,
+vocab_a1_0045,KEEP,,,,,,,
+vocab_a1_0046,KEEP,,,,,,,
+vocab_a1_0047,KEEP,,,,,,,
+vocab_a1_0048,KEEP,,,,,,,
+vocab_a1_0049,KEEP,,,,,,,
+vocab_a1_0050,KEEP,,,,,,,
+vocab_a1_0051,KEEP,,,,,,,
+vocab_a1_0052,KEEP,,,,,,,
+vocab_a1_0127,KEEP,,,,,,,
+vocab_a1_0521,KEEP,,,,,,,
+vocab_a1_0522,KEEP,,,,,,,
+vocab_a1_0416,NEEDS_JIN,L1;L3,,,,,,구 형태 표제어+NIKL 2급: 레벨/표제어 설계 확인 필요
+vocab_a1_0417,FIX_DE,T1,,In der Apotheke kaufe ich Erkältungsmittel.,,,,'Erkältungsmedizin' 부자연
+vocab_a1_0418,KEEP,,,,,,,
+vocab_a1_0419,KEEP,,,,,,,
+vocab_a1_0525,KEEP,,,,,,,
+vocab_a1_0526,KEEP,,,,,,,
+vocab_a1_0422,NEEDS_JIN,L1;L2;T1,,,,,,"구 형태 표제어+NIKL 2급, 결제 등 상위 어휘, 글로스 Bonkontrolle 부자연: 설계 확인 필요"
+vocab_a1_0423,FIX_KO+FIX_DE+FIX_EN,N1;L2,여기는 현금 결제도 돼요?,Kann man hier auch bar bezahlen?,Can I pay in cash here?,,,"가능 등 상위 어휘 제거, 실제 질문형"
+vocab_a1_0424,KEEP,L1,,,,,,NIKL 2급: 레벨 유지 여부 예외표 확인
+vocab_a1_0425,FIX_EN,L1;T1,,,I'm fifth in line.,,,"'My turn is fifth' 부자연; NIKL 2급, EN 글로스 turn과 DE 글로스 Reihenfolge 불일치"
+vocab_a1_0426,FIX_DE,T1,,Ich prüfe noch einmal die Nummer des Ausgangs.,,,,'Ausgangsnummer' 부자연
+vocab_a1_0427,KEEP,,,,,,,
+vocab_a1_0053,KEEP,L1,,,,,,NIKL 2급: 레벨 유지 여부 예외표 확인
+vocab_a1_0054,KEEP,L1,,,,,,NIKL 2급: 레벨 유지 여부 예외표 확인
+vocab_a1_0055,KEEP,L1,,,,,,NIKL 2급: 레벨 유지 여부 예외표 확인
+vocab_a1_0056,KEEP,L1,,,,,,NIKL 2급: 레벨 유지 여부 예외표 확인
+vocab_a1_0057,KEEP,L1,,,,,,NIKL 2급: 레벨 유지 여부 예외표 확인
+vocab_a1_0058,KEEP,L1,,,,,,NIKL 2급: 레벨 유지 여부 예외표 확인
+vocab_a1_0810,KEEP,,,,,,,
+vocab_a1_0811,KEEP,,,,,,,
+vocab_a1_0812,KEEP,,,,,,,
+vocab_a1_0813,KEEP,,,,,,,
+vocab_a1_0814,FIX_DE,T1,,In der Prüfungszeit trinke ich Kaffee.,,,,'Während der Prüfung'은 시험 중으로 오해
+vocab_a1_0815,KEEP,,,,,,,
+vocab_a1_0816,FIX_DE,T4,,Im Klassenzimmer sind zehn Schüler.,,,,'Lernende' 관청어투
+vocab_a1_0817,FIX_DE+FIX_EN,T1,,Dieser Bus ist die Linie drei.,This is the number 3 bus.,,,버스 번호의 자연 표현
+vocab_a1_0818,FIX_DE+FIX_EN,T4,,Mein kleiner Bruder ist drei Jahre alt.,My little brother is three years old.,,,jüngeres Geschwister/younger sibling 우회 제거
+vocab_a1_0819,KEEP,,,,,,,
+vocab_a1_0820,FIX_KO+FIX_DE+FIX_EN,N4,수박을 한 쪽 먹었어요.,Ich habe ein Stück Wassermelone gegessen.,I ate a slice of watermelon.,,,'빵 한 쪽' 부자연; 쪽은 수박·마늘 등
+vocab_a1_0821,KEEP,,,,,,,
+vocab_a1_0541,KEEP,,,,,,,
+vocab_a1_0542,KEEP,,,,,,,
+vocab_a1_0543,FIX_DE,T1,,Ich habe einen Freund in England.,,,,독일어는 UK를 England로 말함
+vocab_a1_0544,KEEP,,,,,,,
+vocab_a1_0545,KEEP,,,,,,,
+vocab_a1_0546,KEEP,,,,,,,
+vocab_a1_0547,KEEP,,,,,,,
+vocab_a1_0548,KEEP,,,,,,,
+vocab_a1_0549,KEEP,,,,,,,
+vocab_a1_0550,KEEP,,,,,,,
+vocab_a1_0551,KEEP,,,,,,,
+vocab_a1_0552,KEEP,,,,,,,
+vocab_a1_0667,KEEP,,,,,,,
+vocab_a1_0668,KEEP,,,,,,,
+vocab_a1_0669,FIX_DE+FIX_EN,T4;T1,,Meine kleine Schwester schaut koreanische Serien.,My little sister watches Korean dramas.,,,"'Mein Geschwister' 제거, Dramen→Serien"
+vocab_a1_0670,FIX_DE+FIX_EN,T1,,"Sujin, wollen wir uns ein Theaterstück ansehen?","Sujin, want to go see a play?",,,'ansehen gehen' 부자연
+vocab_a1_0671,FIX_DE+FIX_EN+FIX_GLOSS,T4;T6,,Er ist Filmschauspieler.,He is a movie actor.,Filmschauspieler,,"'Diese Person spielt in Filmen' 의미 왜곡, 글로스 (in) 이중형; 글로스 변경은 단어망 시드에 영향"
+vocab_a1_0672,KEEP,,,,,,,
+vocab_a1_0673,FIX_EN,T1,,,I'm learning taekwondo.,,,'I learn' 부자연
+vocab_a1_0674,KEEP,,,,,,,
+vocab_a1_0675,KEEP,,,,,,,
+vocab_a1_0676,KEEP,,,,,,,
+vocab_a1_0677,KEEP,,,,,,,
+vocab_a1_0678,KEEP,,,,,,,
+vocab_a1_0007,FIX_DE+FIX_EN,N5;T6,,Für mich ist es okay.,It's fine with me.,,,'Mir geht es gut'은 안부로 오해; 괜찮아요 의미(상관없음)로
+vocab_a1_0008,KEEP,,,,,,,

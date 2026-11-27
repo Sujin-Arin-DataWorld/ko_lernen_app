@@ -6,9 +6,9 @@
   "humanReviewStatus": "required_before_native-quality-claim",
   "predecessorGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
   "predecessorLedgerSha256": "5ab0dc738ce392b03cbb5a84c4bd18eee481a0588180be25eaf94df8addd707b",
-  "firstAmendmentLedgerSha256": "0dcf40ff3cabb90c0d1d6b27ddc61401bb7bd647bc2637c4baad72b20d253487",
-  "firstFollowupLedgerSha256": "e43c409c4623d32f39426efeead2cb1416774443d53b3bd9482d6f6a921135ed",
-  "copyRevisionLedgerSha256": "4cc4ec4cdc3a8df86ebe020732d11806126bfe305211696320e2c9ba2c486c15",
+  "firstAmendmentLedgerSha256": "f1807ee0f5328ba7b9fa52d7ea37849448c3fe27c8fa77c11ae28326aee4ce77",
+  "firstFollowupLedgerSha256": "eb2fb8c90f14a5eff5df948f3e9ac77c92e9fb7aad59e2518c521ea52501caa6",
+  "copyRevisionLedgerSha256": "c2d7fc33f6c20bdbe46ba16a051fff49f89391d45aa7ddb93ea45c07e0525c68",
   "entries": [
     {
       "manifest": "tools/content_factory/drafts/batch_01_manifest.json",
@@ -2555,8 +2555,8 @@
         "sentenceKo": "독일까지 ＿＿＿ 걸려요?",
         "answer": "며칠",
         "fullKo": "독일까지 며칠 걸려요?",
-        "de": "Wie viele Tage braucht das Paket nach Deutschland?",
-        "en": "How many days does it take to Germany?",
+        "de": "Wie viele Tage dauert es bis Deutschland?",
+        "en": "How many days does it take to get to Germany?",
         "distractors": [
           "언제",
           "어디",
@@ -2565,10 +2565,10 @@
         "topic": "Postamt"
       },
       "fields": [
-        "de"
+        "en"
       ],
       "beforeSha256": "e2eba7cca0a0aa63de0ddab2053afb4f21ae9b2017d5c496d337a0704d5702b6",
-      "afterSha256": "ca84319592e6a76339f3996d2e2ea7af3c62d203ad40654b92c83938974389e3",
+      "afterSha256": "60bd4a7b305ba08b36fe25dc9b605194591b72939f80171f25cf5289489965b3",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/cloze.json",
       "predecessorSuccessorSha256": null,
@@ -2600,8 +2600,8 @@
         "sentenceKo": "＿＿＿을 세 시로 바꿀까요?",
         "answer": "약속 시간",
         "fullKo": "약속 시간을 세 시로 바꿀까요?",
-        "de": "Sollen wir die Uhrzeit unseres Treffens auf drei Uhr ändern?",
-        "en": "Shall we change the meeting time to three?",
+        "de": "Sollen wir unser Treffen auf drei Uhr verlegen?",
+        "en": "Should we change the meeting time to three?",
         "distractors": [
           "지갑",
           "여권",
@@ -2610,10 +2610,11 @@
         "topic": "Wochenendzusage"
       },
       "fields": [
-        "de"
+        "de",
+        "en"
       ],
       "beforeSha256": "2a529b496ad975104f161d13de32cf88c1e3cb42aecf1bbf60caccbc90cf5bea",
-      "afterSha256": "d142bdda4e2ee51c3e4fe637534124431ba7f6a1b029dca1a9cbddfd458bab9e",
+      "afterSha256": "946299b7d1ba312121717a975a440eb198825da2b570dec86ffc5fba2336c8d8",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/cloze.json",
       "predecessorSuccessorSha256": null,
@@ -3811,8 +3812,8 @@
         "id": "satz_a1_0169",
         "level": "a1",
         "targetKo": "독일까지 며칠 걸려요?",
-        "promptDe": "Wie viele Tage braucht das Paket nach Deutschland?",
-        "promptEn": "How many days does it take to Germany?",
+        "promptDe": "Wie viele Tage dauert es bis Deutschland?",
+        "promptEn": "How many days does it take to get to Germany?",
         "distractors": [
           "학교",
           "어제"
@@ -3820,10 +3821,10 @@
         "vocabKo": "며칠"
       },
       "fields": [
-        "promptDe"
+        "promptEn"
       ],
       "beforeSha256": "a640fafe9770a53bb014dfda40780e630fc5bf8b6b3ebbf5c716e79992a2cc08",
-      "afterSha256": "c7bd06798b580643cafb9baa9075a572a51105dcaf2c07ecd7ffa56f68084eae",
+      "afterSha256": "02dcf60c9c17f2c2dc058a5bb9a0c775518d43f3041ba17f48462236fc0af4ff",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -3850,8 +3851,8 @@
         "id": "satz_a1_0185",
         "level": "a1",
         "targetKo": "약속 시간을 세 시로 바꿀까요?",
-        "promptDe": "Sollen wir die Uhrzeit unseres Treffens auf drei Uhr ändern?",
-        "promptEn": "Shall we change the meeting time to three?",
+        "promptDe": "Sollen wir unser Treffen auf drei Uhr verlegen?",
+        "promptEn": "Should we change the meeting time to three?",
         "distractors": [
           "늦잠",
           "약속 장소"
@@ -3859,10 +3860,11 @@
         "vocabKo": "약속 시간"
       },
       "fields": [
-        "promptDe"
+        "promptDe",
+        "promptEn"
       ],
       "beforeSha256": "850859fd9cafc9c400152b17100d628a49b9ed03e25200e3f6872a9d543ed1f9",
-      "afterSha256": "90acf1ff2b643c52eb648b6a253aa488d425ca8699fa91d0200f5d0eb959e76f",
+      "afterSha256": "4efa64cf33cd454304cc108237189839629f26e9b7f9df3e21431611f04ac5ef",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -6120,8 +6122,8 @@
         "id": "satz_a1_0284",
         "level": "a1",
         "targetKo": "여기 잠깐 서 있어요.",
-        "promptDe": "Bleiben Sie hier bitte kurz stehen.",
-        "promptEn": "Please stand here for a moment.",
+        "promptDe": "Ich stehe kurz hier.",
+        "promptEn": "I'm standing here for a moment.",
         "distractors": [
           "안녕하세요",
           "안녕"
@@ -6129,10 +6131,11 @@
         "vocabKo": "서다"
       },
       "fields": [
+        "promptDe",
         "promptEn"
       ],
       "beforeSha256": "7b9137e71b4fee309abb490e27eb9ee1e8c88cc2357c9cbb55bcddb36bc158bd",
-      "afterSha256": "2e6d4467672a0ce266cc87e591be738662ad16d90f70c06257f96de384de92c8",
+      "afterSha256": "237a6cc2d5bce4a1f07df2cc7a34e9a0c79b1b7e65337fc1de4ebafa49d9efdc",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,

@@ -1,0 +1,121 @@
+id,verdict,codes,example_korean_new,example_german_new,example_english_new,german_gloss_new,english_gloss_new,note
+vocab_a1_0397,KEEP,,,,,,,자연스러움
+vocab_a1_0398,FIX_KO+FIX_DE+FIX_EN,N1;N5;T1,"아니에요, 제가 더요!","Nein, ich danke dir!","No, I'm the one who should thank you!",,,감사 인사에 대한 답례 장면으로 재구성; 고맙다 중복 제거
+vocab_a1_0399,KEEP,,,,,,,자연스러움
+vocab_a1_0400,FIX_DE,T1,,Ich habe es nicht richtig gehört. Sagen Sie es bitte noch einmal.,,,,못 들었어요는 verstehen이 아니라 hören
+vocab_a1_0401,KEEP,,,,,,,자연스러움
+vocab_a1_0402,KEEP,,,,,,,자연스러움
+vocab_a1_0403,FIX_KO+FIX_DE+FIX_EN,L2,늦어서 정말 죄송해요.,"Es tut mir sehr leid, dass ich zu spät bin.",I'm very sorry I'm late.,,,밟다는 A1 밖 어휘; 늦다로 교체
+vocab_a1_0029,KEEP,,,,,,,자연스러움
+vocab_a1_0030,KEEP,,,,,,,자연스러움
+vocab_a1_0031,FIX_DE,T1,,Wo waren Sie gestern?,,,,Wohin sind Sie gegangen은 어색
+vocab_a1_0077,KEEP,,,,,,,자연스러움
+vocab_a1_0078,FIX_DE,T1,,Ich frühstücke.,,,,Ich esse Frühstück는 부자연
+vocab_a1_0079,FIX_DE,T1,,Lass uns zusammen zu Mittag essen.,,,,Mittagessen을 동사처럼 써서 비문
+vocab_a1_0080,KEEP,,,,,,,자연스러움
+vocab_a1_0081,KEEP,,,,,,,자연스러움
+vocab_a1_0082,KEEP,,,,,,,자연스러움
+vocab_a1_0503,KEEP,,,,,,,자연스러움
+vocab_a1_0504,KEEP,,,,,,,자연스러움
+vocab_a1_0505,KEEP,,,,,,,자연스러움
+vocab_a1_0083,KEEP,,,,,,,자연스러움
+vocab_a1_0153,KEEP,,,,,,,자연스러움
+vocab_a1_0154,KEEP,,,,,,,자연스러움
+vocab_a1_0155,RELEVEL,L1,,,,,,NIKL 2급: A2 권장
+vocab_a1_0156,KEEP,,,,,,,자연스러움
+vocab_a1_0157,KEEP,,,,,,,자연스러움
+vocab_a1_0158,KEEP,,,,,,,자연스러움
+vocab_a1_0159,KEEP,,,,,,,자연스러움
+vocab_a1_0467,KEEP,,,,,,,자연스러움
+vocab_a1_0468,KEEP,,,,,,,자연스러움
+vocab_a1_0469,KEEP,,,,,,,자연스러움
+vocab_a1_0470,KEEP,,,,,,,자연스러움
+vocab_a1_0160,KEEP,,,,,,,자연스러움
+vocab_a1_0161,KEEP,,,,,,,자연스러움
+vocab_a1_0162,KEEP,,,,,,,자연스러움
+vocab_a1_0163,KEEP,,,,,,,자연스러움
+vocab_a1_0164,KEEP,,,,,,,자연스러움
+vocab_a1_0202,KEEP,,,,,,,자연스러움
+vocab_a1_0204,KEEP,,,,,,,자연스러움
+vocab_a1_0205,KEEP,,,,,,,자연스러움
+vocab_a1_0475,KEEP,,,,,,,자연스러움
+vocab_a1_0476,FIX_KO,N1,지금 바로 가요.,Ich gehe jetzt sofort.,I'm going right now.,,,불필요한 저는 제거
+vocab_a1_0477,KEEP,,,,,,,자연스러움
+vocab_a1_0478,FIX_GLOSS,,,,,schnell; (어서 오세요) willkommen,quickly; (어서 오세요) welcome,영어 gloss 오류 수정; 단어망 시드에 영향
+vocab_a1_0616,KEEP,,,,,,,자연스러움
+vocab_a1_0617,KEEP,,,,,,,자연스러움
+vocab_a1_0618,KEEP,,,,,,,자연스러움
+vocab_a1_0619,KEEP,,,,,,,자연스러움
+vocab_a1_0620,KEEP,,,,,,,자연스러움
+vocab_a1_0621,KEEP,,,,,,,자연스러움
+vocab_a1_0622,FIX_KO,N1,지난달에 정말 바빴어요.,Letzten Monat hatte ich wirklich viel zu tun.,I was really busy last month.,,,정말 위치 부자연
+vocab_a1_0623,FIX_KO+FIX_DE+FIX_EN,N1;T1,지난주에 아팠어요.,Ich war letzte Woche krank.,I was sick last week.,,,선생님 호칭이 DE/EN에서 부자연; 호칭 제거
+vocab_a1_0624,KEEP,,,,,,,자연스러움
+vocab_a1_0625,KEEP,,,,,,,자연스러움
+vocab_a1_0626,FIX_DE+FIX_EN,T6,,Ich bin heute den ganzen Tag wirklich müde.,I've been really tired all day today.,,,하루 의미 누락
+vocab_a1_0627,FIX_DE,T1,,Wir sehen uns gleich.,,,,in einem Moment는 직역
+vocab_a1_0703,FIX_DE+FIX_EN,T1,,Hier sind viele Leute.,There are a lot of people here.,,,이곳=여기
+vocab_a1_0704,KEEP,,,,,,,자연스러움
+vocab_a1_0705,FIX_DE+FIX_EN,T4,,Mein kleiner Bruder ist neun Jahre alt.,My little brother is nine years old.,,,D1 jüngeres Geschwister/sibling 우회 제거; gloss는 일반 의미로 유지
+vocab_a1_0706,KEEP,,,,,,,자연스러움
+vocab_a1_0707,KEEP,,,,,,,자연스러움
+vocab_a1_0708,FIX_DE+FIX_EN,T4,,Ich schenke meinem kleinen Bruder etwas.,I give my little brother a gift.,,,D1 우회 제거; 동생=남동생으로 통일
+vocab_a1_0709,KEEP,,,,,,,자연스러움
+vocab_a1_0710,KEEP,,,,,,,자연스러움
+vocab_a1_0711,KEEP,,,,,,,자연스러움
+vocab_a1_0712,KEEP,,,,,,,자연스러움
+vocab_a1_0713,FIX_KO,N1,여기 잠시 앉으세요.,Setzen Sie sich hier für einen Moment.,Sit here for a moment.,,,앉아요는 의도 모호; 요청형으로
+vocab_a1_0714,KEEP,,,,,,,자연스러움
+vocab_b2_0196,KEEP,,,,,,,자연스러움
+vocab_a1_0027,KEEP,,,,,,,자연스러움
+vocab_a1_0028,KEEP,,,,,,,자연스러움
+vocab_a1_0087,KEEP,,,,,,,자연스러움
+vocab_a1_0088,KEEP,,,,,,,자연스러움
+vocab_a1_0445,KEEP,,,,,,,자연스러움
+vocab_a1_0446,KEEP,,,,,,,자연스러움
+vocab_a1_0447,KEEP,,,,,,,자연스러움
+vocab_a1_0448,KEEP,,,,,,,자연스러움
+vocab_a1_0449,KEEP,,,,,,,자연스러움
+vocab_a1_0450,KEEP,,,,,,,자연스러움
+vocab_a1_0451,KEEP,,,,,,,자연스러움
+vocab_a1_0527,KEEP,,,,,,,자연스러움
+vocab_a1_0715,FIX_KO,N1,방에 그림을 걸어요.,Ich hänge ein Bild im Zimmer auf.,I hang a picture in the room.,,,불필요한 저는 제거
+vocab_a1_0716,FIX_KO,N1,그림을 그려요.,Ich zeichne ein Bild.,I draw a picture.,,,불필요한 저는 제거
+vocab_a1_0717,FIX_KO,N1,어제 열이 났어요.,Ich hatte gestern Fieber.,I had a fever yesterday.,,,불필요한 저는 제거
+vocab_a1_0718,FIX_KO,N1,가방에 책을 넣어요.,Ich packe ein Buch in die Tasche.,I put a book in my bag.,,,불필요한 저는 제거
+vocab_a1_0719,FIX_DE+FIX_EN,T1,,"Christian, wollen wir zusammen was machen?","Christian, want to hang out?",,,놀다는 성인 사이에서 spielen이 아님
+vocab_a1_0720,KEEP,,,,,,,자연스러움
+vocab_a1_0721,FIX_KO+FIX_DE+FIX_EN,N1;T1,가방을 들어요.,Ich trage die Tasche.,I carry the bag.,,,저는 제거; halten보다 tragen이 자연
+vocab_a1_0722,KEEP,,,,,,,자연스러움
+vocab_a1_0723,FIX_KO,N1,커피를 시켜요.,Ich bestelle einen Kaffee.,I order a coffee.,,,불필요한 저는 제거
+vocab_a1_0724,FIX_KO,N1,사진을 찍어요.,Ich mache ein Foto.,I take a photo.,,,불필요한 저는 제거
+vocab_a1_0725,KEEP,,,,,,,자연스러움
+vocab_a1_0726,FIX_KO,N1,테니스를 쳐요.,Ich spiele Tennis.,I play tennis.,,,불필요한 저는 제거
+vocab_a1_0727,FIX_KO+FIX_DE+FIX_EN,N1;T1,어제 시장에 다녀왔어요.,Ich war gestern auf dem Markt.,I went to the market yesterday.,,,저는 제거; DE/EN 과잉 설명 제거
+vocab_a1_0728,FIX_KO,N1,집에 돌아가요.,Ich gehe nach Hause zurück.,I go back home.,,,불필요한 저는 제거
+vocab_a1_0729,FIX_DE+FIX_EN,T1,,Mein Vater kommt früh zurück.,My father comes back early.,,,관사 누락
+vocab_a1_0730,KEEP,,,,,,,자연스러움
+vocab_a1_0731,KEEP,,,,,,,자연스러움
+vocab_a1_0732,KEEP,,,,,,,자연스러움
+vocab_a1_0733,KEEP,,,,,,,자연스러움
+vocab_a1_0734,KEEP,,,,,,,자연스러움
+vocab_a1_0735,KEEP,,,,,,,자연스러움
+vocab_a1_0736,KEEP,,,,,,,자연스러움
+vocab_a1_0737,KEEP,,,,,,,자연스러움
+vocab_a1_0738,FIX_DE+FIX_EN,T1,,Mein Großvater raucht nicht.,My grandfather doesn't smoke.,,,관사 누락
+vocab_a1_0739,FIX_DE,T6,,Christian kann nicht gut Koreanisch.,,,,noch 추가 정보 제거
+vocab_a1_0740,FIX_KO,N1,친구한테 시간을 알려 줘요.,Ich sage meinem Freund die Uhrzeit.,I tell my friend the time.,,,저는 제거; 알려 줘요가 자연
+vocab_a1_0741,FIX_KO+FIX_DE+FIX_EN,N1;N6,인터넷에서 길을 찾아봐요.,Ich suche den Weg im Internet.,I look up directions online.,,,학교를 찾아봐요는 부자연; 찾아보다 대표 용법으로
+vocab_a1_0742,KEEP,,,,,,,자연스러움
+vocab_a1_0652,KEEP,,,,,,,자연스러움
+vocab_a1_0333,FIX_DE+FIX_EN,T1,,Sollen wir unser Treffen auf drei Uhr verlegen?,Should we change the meeting time to three?,,,DE 과잉 장문; EN shall 딱딱
+vocab_a1_0334,KEEP,,,,,,,자연스러움
+vocab_a1_0335,RELEVEL,L1,,,,,,NIKL 2급: A2 권장
+vocab_a1_0336,RELEVEL,L1,,,,,,NIKL 2급: A2 권장
+vocab_a1_0337,RELEVEL,L1,,,,,,NIKL 2급: A2 권장
+vocab_a1_0338,FIX_KO+FIX_DE+FIX_EN,L2;N1,오늘 고마워요. 다음에 봐요.,Danke für heute. Bis zum nächsten Mal.,Thanks for today. See you next time.,,,여기까지 하고는 A1 밖 구문
+vocab_a1_0339,RELEVEL,L1,,,,,,NIKL 3급: A2 또는 B1 권장(갈게요 의지 어미)
+vocab_a1_0340,KEEP,,,,,,,자연스러움
+vocab_a1_0341,FIX_DE+FIX_EN,T1,,"Der Bus steht im Stau, ich komme wahrscheinlich zu spät.","The bus is stuck in traffic, so it looks like I will be late.",,,막히다=Stau
+vocab_a1_0342,KEEP,,,,,,,자연스러움
+vocab_a1_0343,FIX_EN,T1,,,I'm heading out first.,,,ahead first 중복
