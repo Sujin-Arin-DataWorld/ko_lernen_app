@@ -371,14 +371,16 @@ void main() {
           'chain',
           screen: KkeunmariScreen(
             dictionaryValidator: (word) {
-              expect(word, '과자');
+              // Off-corpus word so the dictionary path runs; 과자 became
+              // live vocab in A2 Batch 45 (2026-11-27).
+              expect(word, '과학');
               calls++;
               return reply.future;
             },
           ),
         );
         await tester.pump(const Duration(seconds: 29));
-        final answer = await _answerAction(tester, 'chain', chainWord: '과자');
+        final answer = await _answerAction(tester, 'chain', chainWord: '과학');
         answer();
         answer();
         await _flush(tester);
@@ -418,7 +420,7 @@ void main() {
           pushed: retirement == 'pop',
           screen: KkeunmariScreen(dictionaryValidator: (_) => reply.future),
         );
-        final answer = await _answerAction(tester, 'chain', chainWord: '과자');
+        final answer = await _answerAction(tester, 'chain', chainWord: '과학');
         answer();
         await _flush(tester);
         if (retirement == 'pop') {
@@ -549,7 +551,7 @@ void main() {
         ),
       );
       await tester.pump(const Duration(seconds: 29));
-      (await _answerAction(tester, 'chain', chainWord: '과자'))();
+      (await _answerAction(tester, 'chain', chainWord: '과학'))();
       await _flush(tester);
       final t = AppL10n.of(tester.element(find.byType(SoriStudyFrame)));
       expect(find.text(t.kkeunmariDictionaryUnavailable), findsOneWidget);
@@ -578,7 +580,7 @@ void main() {
         screen: KkeunmariScreen(dictionaryValidator: (_) => reply.future),
       );
       await tester.pump(const Duration(seconds: 29));
-      (await _answerAction(tester, 'chain', chainWord: '과자'))();
+      (await _answerAction(tester, 'chain', chainWord: '과학'))();
       await _flush(tester);
       await tester.pump(const Duration(seconds: 9));
       await _flush(tester);
@@ -594,12 +596,12 @@ void main() {
       expect(Storage.kkeunmariWins, 0);
       expect(Storage.xp, 0);
       expect(
-        find.byWidgetPredicate((w) => w is Text && w.data == '과자'),
+        find.byWidgetPredicate((w) => w is Text && w.data == '과학'),
         findsNothing,
       );
       expect(
         tester.widget<TextField>(find.byType(TextField)).controller!.text,
-        '과자',
+        '과학',
       );
       expect(tester.takeException(), isNull);
       await _dispose(tester);
