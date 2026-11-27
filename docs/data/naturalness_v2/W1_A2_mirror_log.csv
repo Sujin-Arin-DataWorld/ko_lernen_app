@@ -1,0 +1,400 @@
+id,field,before,after
+satz_a2_0239,promptDe,"Ich bin hier, um Erkältungsmedizin zu kaufen.",Ich möchte ein Erkältungsmittel kaufen.
+satz_a2_0260,promptEn,"I didn't bring an umbrella, what should I do?",I didn't bring an umbrella. What should I do?
+satz_a2_0284,targetKo,밖에 날씨가 많이 추워요.,밖이 많이 추워요.
+satz_a2_0285,targetKo,오늘따라 좀 피곤하네요.,오늘은 좀 피곤하네요.
+satz_a2_0285,promptDe,Heute bin ich irgendwie etwas müde.,Heute bin ich ein bisschen müde.
+satz_a2_0285,promptEn,For some reason I'm a bit tired today.,I'm a bit tired today.
+satz_a2_0294,targetKo,오늘따라 인터넷이 좀 느리네요.,오늘은 인터넷이 좀 느리네요.
+satz_a2_0294,promptDe,Heute ist das Internet irgendwie langsam.,Heute ist das Internet ziemlich langsam.
+satz_a2_0294,promptEn,The internet is somehow slow today.,The internet is a bit slow today.
+satz_a2_0317,promptDe,Sie haben heute aber viele Gäste.,Sie haben heute aber viele Kunden.
+satz_a2_0318,promptDe,Das Verkaufspersonal hat heute meine Größe gefunden.,Heute hat mir der Verkäufer meine Größe herausgesucht.
+satz_a2_0322,promptEn,"Cross at the crosswalk, and the pharmacy is on your left.","After you cross at the crosswalk, the pharmacy is on your left."
+satz_a2_0325,targetKo,합격했다니 정말 기뻐요.,시험에 합격해서 정말 기뻐요.
+satz_a2_0325,promptDe,"Ich freue mich wirklich, dass Sie bestanden haben.","Ich bin so froh, dass ich die Prüfung bestanden habe."
+satz_a2_0325,promptEn,I'm so happy to hear you passed.,I'm so happy that I passed the exam.
+satz_a2_0327,targetKo,오늘 사장님이 새 근무 시간을 설명해 주셨어요.,사장님이 새 근무 시간을 설명해 주셨어요.
+satz_a2_0327,promptDe,Heute hat mir der Chef die neuen Arbeitszeiten erklärt.,Der Chef hat mir die neuen Arbeitszeiten erklärt.
+satz_a2_0327,promptEn,The boss explained the new work hours to me today.,The boss explained the new work hours to me.
+satz_a2_0370,promptDe,"Die Hose war zu groß, deshalb habe ich einen Gürtel getragen.","Die Hose war zu groß, deshalb habe ich einen Gürtel angelegt."
+satz_a2_0371,targetKo,은 팔찌를 자주 해요.,예쁜 팔찌를 자주 해요.
+satz_a2_0371,promptDe,Ich trage oft ein silbernes Armband.,Ich trage oft ein schönes Armband.
+satz_a2_0371,promptEn,I often wear a silver bracelet.,I often wear a pretty bracelet.
+satz_a2_0372,promptDe,Es hat geschneit und ich habe Stiefel angezogen.,"Es hat geschneit, deshalb habe ich Stiefel angezogen."
+satz_a2_0372,promptEn,It snowed so I wore boots.,"Since it snowed, I wore boots."
+satz_a2_0391,promptDe,Ich habe eine neue Zahnbürste genommen.,Ich habe auf eine neue Zahnbürste gewechselt.
+satz_a2_0395,promptDe,Aus der Küche kommt ein guter Geruch.,Aus der Küche riecht es gut.
+satz_a2_0408,promptDe,Im Sommer esse ich oft kalte Nudeln.,Im Sommer esse ich oft Naengmyeon.
+satz_a2_0408,promptEn,I often eat cold noodles in summer.,I often eat naengmyeon in summer.
+satz_a2_0422,promptDe,Diese Person singt wirklich gut.,Die Lieder von diesem Sänger gefallen mir sehr.
+satz_a2_0422,promptEn,That person sings really well.,I really like that singer's songs.
+satz_a2_0429,promptDe,König Sejong ist ein berühmter König.,Sejong der Große ist ein berühmter König.
+satz_a2_0429,promptEn,King Sejong is a famous king.,Sejong the Great is a famous king.
+satz_a2_0436,promptDe,Die Lehrkraft schreibt an die Tafel.,Der Lehrer schreibt an die Tafel.
+satz_a2_0440,promptDe,Die Vorlesung ist interessant.,Die Vorlesung vom Professor ist interessant.
+satz_a2_0444,promptDe,Der Wind hat das Fenster zugedrückt.,Das Fenster ist im Wind zugefallen.
+satz_a2_0454,targetKo,회의가 끝나고 방에서 나왔어요.,회의가 끝나고 회의실에서 나왔어요.
+satz_a2_0454,promptDe,Nach der Sitzung kam ich aus dem Raum.,Nach der Besprechung bin ich aus dem Besprechungsraum gekommen.
+satz_a2_0454,promptEn,I came out of the room after the meeting.,I came out of the conference room after the meeting.
+satz_a1_0095,promptDe,Trinken Sie etwas Wasser. Hier ist es.,"Trinken Sie doch etwas Wasser. Hier, bitte."
+cloze_a1_0131,de,Trinken Sie etwas Wasser. Hier ist es.,"Trinken Sie doch etwas Wasser. Hier, bitte."
+satz_a1_0099,promptDe,Vor dem Besuch habe ich die Umgangsformen kurz geklärt.,Ich habe die Benimmregeln für den Besuch kurz überprüft.
+satz_a1_0099,promptEn,"Before the visit, I checked the etiquette briefly.",I briefly checked the etiquette for visiting.
+cloze_a1_0135,de,Vor dem Besuch habe ich die Umgangsformen kurz geklärt.,Ich habe die Benimmregeln für den Besuch kurz überprüft.
+cloze_a1_0135,en,"Before the visit, I checked the etiquette briefly.",I briefly checked the etiquette for visiting.
+satz_a1_0126,targetKo,송편 빚다가 만두처럼 커졌어요.,송편을 빚었는데 만두처럼 커졌어요.
+satz_a1_0126,promptDe,Beim Formen wurden meine Songpyeon so groß wie Teigtaschen.,"Ich habe Songpyeon geformt, aber sie sind so groß wie Teigtaschen geworden."
+satz_a1_0126,promptEn,"As I shaped the songpyeon, mine got as big as dumplings.","I shaped the songpyeon, but they turned out as big as dumplings."
+cloze_a1_0162,fullKo,송편 빚다가 만두처럼 커졌어요.,송편을 빚었는데 만두처럼 커졌어요.
+cloze_a1_0162,de,Beim Formen wurden meine Songpyeon so groß wie Teigtaschen.,"Ich habe Songpyeon geformt, aber sie sind so groß wie Teigtaschen geworden."
+cloze_a1_0162,en,"As I shaped the songpyeon, mine got as big as dumplings.","I shaped the songpyeon, but they turned out as big as dumplings."
+satz_a1_0127,targetKo,귀성 기차표를 사려고 알람을 다섯 개 맞췄어요.,귀성 기차표를 사려고 알람을 맞췄어요.
+satz_a1_0127,promptDe,Für die Zugtickets nach Hause stellte ich fünf Wecker.,Für die Zugtickets zur Heimfahrt habe ich mir einen Wecker gestellt.
+satz_a1_0127,promptEn,I set five alarms to get train tickets home for the holiday.,I set an alarm to buy my train tickets home for the holiday.
+cloze_a1_0163,fullKo,귀성 기차표를 사려고 알람을 다섯 개 맞췄어요.,귀성 기차표를 사려고 알람을 맞췄어요.
+cloze_a1_0163,de,Für die Zugtickets nach Hause stellte ich fünf Wecker.,Für die Zugtickets zur Heimfahrt habe ich mir einen Wecker gestellt.
+cloze_a1_0163,en,I set five alarms to get train tickets home for the holiday.,I set an alarm to buy my train tickets home for the holiday.
+cloze_a1_0163,sentenceKo,＿＿＿ 기차표를 사려고 알람을 다섯 개 맞췄어요.,＿＿＿ 기차표를 사려고 알람을 맞췄어요.
+satz_a1_0129,targetKo,벌초는 산에 올라가서 무덤가 풀을 깎는 일이에요.,벌초는 묘의 풀을 깎는 일이에요.
+satz_a1_0129,promptDe,"Grabpflege heißt, den Hügel hinaufzugehen und das Gras am Grab zu schneiden.","Grabpflege heißt, das Gras am Grab zu schneiden."
+satz_a1_0129,promptEn,Tending the grave means going up the hill and cutting the grass around it.,Tending the grave means cutting the grass around it.
+cloze_a1_0165,fullKo,벌초는 산에 올라가서 무덤가 풀을 깎는 일이에요.,벌초는 묘의 풀을 깎는 일이에요.
+cloze_a1_0165,de,"Grabpflege heißt, den Hügel hinaufzugehen und das Gras am Grab zu schneiden.","Grabpflege heißt, das Gras am Grab zu schneiden."
+cloze_a1_0165,en,Tending the grave means going up the hill and cutting the grass around it.,Tending the grave means cutting the grass around it.
+cloze_a1_0165,sentenceKo,＿＿＿는 산에 올라가서 무덤가 풀을 깎는 일이에요.,＿＿＿는 묘의 풀을 깎는 일이에요.
+satz_a1_0130,targetKo,송편 찌는 김이 올라서 부엌이 뿌예졌어요.,송편을 찌면 부엌에 김이 가득해요.
+satz_a1_0130,promptDe,Der Dampf der Songpyeon machte die Küche ganz neblig.,"Wenn ich Songpyeon dämpfe, ist die Küche voller Dampf."
+satz_a1_0130,promptEn,Steam from the songpyeon left the kitchen hazy.,"When I steam songpyeon, the kitchen fills with steam."
+cloze_a1_0166,fullKo,송편 찌는 김이 올라서 부엌이 뿌예졌어요.,송편을 찌면 부엌에 김이 가득해요.
+cloze_a1_0166,de,Der Dampf der Songpyeon machte die Küche ganz neblig.,"Wenn ich Songpyeon dämpfe, ist die Küche voller Dampf."
+cloze_a1_0166,en,Steam from the songpyeon left the kitchen hazy.,"When I steam songpyeon, the kitchen fills with steam."
+satz_a1_0131,promptDe,Ich habe Obst der neuen Ernte auf den Ahnentisch gestellt.,Ich habe die ersten Früchte der Ernte für das Ahnenritual auf den Tisch gestellt.
+cloze_a1_0167,de,Ich habe Obst der neuen Ernte auf den Ahnentisch gestellt.,Ich habe die ersten Früchte der Ernte für das Ahnenritual auf den Tisch gestellt.
+satz_a1_0132,targetKo,한가위에는 보름달이 크다고 아이들이 말했어요.,한가위에는 보름달이 정말 커요.
+satz_a1_0132,promptDe,"An Hangawi sagten die Kinder, der Vollmond sei besonders groß.",An Hangawi ist der Vollmond ganz besonders groß.
+satz_a1_0132,promptEn,At Hangawi the children said the full moon was especially big.,"At Hangawi, the full moon looks really big."
+cloze_a1_0168,fullKo,한가위에는 보름달이 크다고 아이들이 말했어요.,한가위에는 보름달이 정말 커요.
+cloze_a1_0168,de,"An Hangawi sagten die Kinder, der Vollmond sei besonders groß.",An Hangawi ist der Vollmond ganz besonders groß.
+cloze_a1_0168,en,At Hangawi the children said the full moon was especially big.,"At Hangawi, the full moon looks really big."
+cloze_a1_0168,sentenceKo,＿＿＿에는 보름달이 크다고 아이들이 말했어요.,＿＿＿에는 보름달이 정말 커요.
+satz_a1_0148,targetKo,인증샷은 올리지 말라고 현우가 먼저 말했어요.,인증샷은 인터넷에 올리지 마세요.
+satz_a1_0148,promptDe,"Hyunwoo sagte zuerst, das Foto nicht hochzuladen.",Bitte stellen Sie das Foto nicht ins Internet.
+satz_a1_0148,promptEn,Hyunwoo said first not to post the pic.,Please don't post the photo online.
+cloze_a1_0184,fullKo,인증샷은 올리지 말라고 현우가 먼저 말했어요.,인증샷은 인터넷에 올리지 마세요.
+cloze_a1_0184,de,"Hyunwoo sagte zuerst, das Foto nicht hochzuladen.",Bitte stellen Sie das Foto nicht ins Internet.
+cloze_a1_0184,en,Hyunwoo said first not to post the pic.,Please don't post the photo online.
+cloze_a1_0184,sentenceKo,＿＿＿은 올리지 말라고 현우가 먼저 말했어요.,＿＿＿은 인터넷에 올리지 마세요.
+satz_a1_0150,promptDe,"Vor dem Ahnentisch stand ein Hinweis, dass nicht fotografiert werden soll.",Vor dem Ahnentisch stand ein Schild mit dem Hinweis „Fotografieren verboten“.
+cloze_a1_0186,de,"Vor dem Ahnentisch stand ein Hinweis, dass nicht fotografiert werden soll.",Vor dem Ahnentisch stand ein Schild mit dem Hinweis „Fotografieren verboten“.
+satz_a1_0151,targetKo,나갈 때 인사했어요. 잘 다녀오겠습니다!,나갈 때 “잘 다녀오겠습니다!” 하고 인사했어요.
+satz_a1_0151,promptDe,Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg!,Beim Rausgehen habe ich mich mit „Ich mache mich dann auf den Weg!“ verabschiedet.
+satz_a1_0151,promptEn,I said goodbye as I left. I'll be heading out now!,"As I left, I said, “I'll be heading out now!”"
+cloze_a1_0187,fullKo,나갈 때 인사했어요. 잘 다녀오겠습니다!,나갈 때 “잘 다녀오겠습니다!” 하고 인사했어요.
+cloze_a1_0187,de,Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg!,Beim Rausgehen habe ich mich mit „Ich mache mich dann auf den Weg!“ verabschiedet.
+cloze_a1_0187,en,I said goodbye as I left. I'll be heading out now!,"As I left, I said, “I'll be heading out now!”"
+cloze_a1_0187,sentenceKo,나갈 때 인사했어요. ＿＿＿!,나갈 때 “＿＿＿!” 하고 인사했어요.
+satz_a1_0152,targetKo,식사 후에 잘 먹었습니다 하고 인사했어요.,식사 후에 “잘 먹었습니다” 하고 인사했어요.
+satz_a1_0152,promptDe,Nach dem Essen sagte ich beim Verabschieden: Danke für das Essen.,"Nach dem Essen habe ich mich mit „Danke, es hat geschmeckt!“ bedankt."
+satz_a1_0152,promptEn,"After the meal, I said thank you for the food.","After the meal, I said, “Thank you for the meal.”"
+cloze_a1_0188,fullKo,식사 후에 잘 먹었습니다 하고 인사했어요.,식사 후에 “잘 먹었습니다” 하고 인사했어요.
+cloze_a1_0188,de,Nach dem Essen sagte ich beim Verabschieden: Danke für das Essen.,"Nach dem Essen habe ich mich mit „Danke, es hat geschmeckt!“ bedankt."
+cloze_a1_0188,en,"After the meal, I said thank you for the food.","After the meal, I said, “Thank you for the meal.”"
+cloze_a1_0188,sentenceKo,식사 후에 ＿＿＿ 하고 인사했어요.,식사 후에 “＿＿＿” 하고 인사했어요.
+satz_a1_0153,targetKo,다음에 또 오세요. 그 말을 듣고 신발을 거꾸로 신었어요.,사장님이 “다음에 또 오세요” 하고 인사했어요.
+satz_a1_0153,promptDe,Kommen Sie bald wieder. Ich hörte das und zog aus Eile die Schuhe verkehrt herum an.,Der Inhaber hat sich mit „Kommen Sie bald wieder!“ verabschiedet.
+satz_a1_0153,promptEn,Please come again. I heard that and put my shoes on backwards in my hurry.,The owner said goodbye with “Please come again.”
+cloze_a1_0189,fullKo,다음에 또 오세요. 그 말을 듣고 신발을 거꾸로 신었어요.,사장님이 “다음에 또 오세요” 하고 인사했어요.
+cloze_a1_0189,de,Kommen Sie bald wieder. Ich hörte das und zog aus Eile die Schuhe verkehrt herum an.,Der Inhaber hat sich mit „Kommen Sie bald wieder!“ verabschiedet.
+cloze_a1_0189,en,Please come again. I heard that and put my shoes on backwards in my hurry.,The owner said goodbye with “Please come again.”
+cloze_a1_0189,sentenceKo,＿＿＿. 그 말을 듣고 신발을 거꾸로 신었어요.,사장님이 “＿＿＿” 하고 인사했어요.
+satz_a1_0154,targetKo,문 앞에서 연락드릴게요 하고 손을 흔들었어요.,문 앞에서 “연락드릴게요” 하고 손을 흔들었어요.
+cloze_a1_0190,fullKo,문 앞에서 연락드릴게요 하고 손을 흔들었어요.,문 앞에서 “연락드릴게요” 하고 손을 흔들었어요.
+cloze_a1_0190,sentenceKo,문 앞에서 ＿＿＿ 하고 손을 흔들었어요.,문 앞에서 “＿＿＿” 하고 손을 흔들었어요.
+satz_a1_0157,targetKo,다음 날 안부를 짧게 물었어요.,다음 날 할머니께 안부 전화를 드렸어요.
+satz_a1_0157,promptDe,Am nächsten Tag fragte ich kurz nach ihrem Befinden.,"Am nächsten Tag habe ich bei meiner Großmutter angerufen und gefragt, wie es ihr geht."
+satz_a1_0157,promptEn,The next day I asked briefly how they were doing.,"The next day, I called my grandmother to see how she was doing."
+cloze_a1_0193,fullKo,다음 날 안부를 짧게 물었어요.,다음 날 할머니께 안부 전화를 드렸어요.
+cloze_a1_0193,de,Am nächsten Tag fragte ich kurz nach ihrem Befinden.,"Am nächsten Tag habe ich bei meiner Großmutter angerufen und gefragt, wie es ihr geht."
+cloze_a1_0193,en,The next day I asked briefly how they were doing.,"The next day, I called my grandmother to see how she was doing."
+cloze_a1_0193,sentenceKo,다음 날 ＿＿＿를 짧게 물었어요.,다음 날 할머니께 ＿＿＿ 전화를 드렸어요.
+satz_a1_0159,targetKo,방문 소감은 따뜻했다고만 적었어요.,방문 소감을 편지에 짧게 적었어요.
+satz_a1_0159,promptDe,"Als Eindruck schrieb ich nur, es sei warm gewesen.",Meine Eindrücke vom Besuch habe ich kurz in einem Brief aufgeschrieben.
+satz_a1_0159,promptEn,For my impression of the visit I only wrote that it felt warm.,I briefly wrote my impressions of the visit in a letter.
+cloze_a1_0195,fullKo,방문 소감은 따뜻했다고만 적었어요.,방문 소감을 편지에 짧게 적었어요.
+cloze_a1_0195,de,"Als Eindruck schrieb ich nur, es sei warm gewesen.",Meine Eindrücke vom Besuch habe ich kurz in einem Brief aufgeschrieben.
+cloze_a1_0195,en,For my impression of the visit I only wrote that it felt warm.,I briefly wrote my impressions of the visit in a letter.
+cloze_a1_0195,sentenceKo,＿＿＿은 따뜻했다고만 적었어요.,＿＿＿을 편지에 짧게 적었어요.
+satz_a2_0040,targetKo,한국어 잘하시네요 소리를 들으니 오히려 더 긴장됐어요.,한국어 잘하시네요! 어디에서 배웠어요?
+satz_a2_0040,promptDe,Das Lob für mein Koreanisch machte mich eher noch nervöser.,Sie sprechen aber gut Koreanisch! Wo haben Sie es gelernt?
+satz_a2_0040,promptEn,Hearing that my Korean is good made me even more nervous.,Your Korean is really good! Where did you learn it?
+cloze_a2_0077,fullKo,한국어 잘하시네요 소리를 들으니 오히려 더 긴장됐어요.,한국어 잘하시네요! 어디에서 배웠어요?
+cloze_a2_0077,de,Das Lob für mein Koreanisch machte mich eher noch nervöser.,Sie sprechen aber gut Koreanisch! Wo haben Sie es gelernt?
+cloze_a2_0077,en,Hearing that my Korean is good made me even more nervous.,Your Korean is really good! Where did you learn it?
+cloze_a2_0077,sentenceKo,＿＿＿ 소리를 들으니 오히려 더 긴장됐어요.,＿＿＿! 어디에서 배웠어요?
+satz_a2_0042,targetKo,언제 왔어요? 재작년에 왔어요.,한국에 언제 왔어요? 작년에 왔어요.
+satz_a2_0042,promptDe,Wann sind Sie gekommen? Vorletztes Jahr.,Wann sind Sie nach Korea gekommen? Letztes Jahr.
+satz_a2_0042,promptEn,When did you come? The year before last.,When did you come to Korea? Last year.
+cloze_a2_0079,fullKo,언제 왔어요? 재작년에 왔어요.,한국에 언제 왔어요? 작년에 왔어요.
+cloze_a2_0079,de,Wann sind Sie gekommen? Vorletztes Jahr.,Wann sind Sie nach Korea gekommen? Letztes Jahr.
+cloze_a2_0079,en,When did you come? The year before last.,When did you come to Korea? Last year.
+cloze_a2_0079,sentenceKo,＿＿＿? 재작년에 왔어요.,한국에 ＿＿＿? 작년에 왔어요.
+satz_a2_0051,promptDe,Am Vormittag besuchte ich meine Großmutter zur Neujahrsverbeugung.,"Am Vormittag bin ich zu meiner Großmutter gegangen, um die Neujahrsverbeugung zu machen."
+cloze_a2_0088,de,Am Vormittag besuchte ich meine Großmutter zur Neujahrsverbeugung.,"Am Vormittag bin ich zu meiner Großmutter gegangen, um die Neujahrsverbeugung zu machen."
+satz_a2_0055,targetKo,세배 순서는 가족 어른께 여쭤봤어요.,세배 순서는 할아버지께 물어봤어요.
+satz_a2_0055,promptDe,Für die Reihenfolge der Neujahrsverbeugung fragte ich ein älteres Familienmitglied.,Nach der Reihenfolge der Neujahrsverbeugung habe ich meinen Großvater gefragt.
+satz_a2_0055,promptEn,I asked an older family member about the order for New Year bows.,I asked my grandfather about the order of the New Year bows.
+cloze_a2_0092,fullKo,세배 순서는 가족 어른께 여쭤봤어요.,세배 순서는 할아버지께 물어봤어요.
+cloze_a2_0092,de,Für die Reihenfolge der Neujahrsverbeugung fragte ich ein älteres Familienmitglied.,Nach der Reihenfolge der Neujahrsverbeugung habe ich meinen Großvater gefragt.
+cloze_a2_0092,en,I asked an older family member about the order for New Year bows.,I asked my grandfather about the order of the New Year bows.
+cloze_a2_0092,sentenceKo,＿＿＿는 가족 어른께 여쭤봤어요.,＿＿＿는 할아버지께 물어봤어요.
+satz_a2_0056,promptDe,In den Glücksbeutel des Kindes steckten sie das Geld.,Sie haben das Neujahrsgeld in den Glücksbeutel des Kindes gesteckt.
+cloze_a2_0093,de,In den Glücksbeutel des Kindes steckten sie das Geld.,Sie haben das Neujahrsgeld in den Glücksbeutel des Kindes gesteckt.
+satz_a2_0058,promptEn,I sent the New Year-bow video only to family.,I sent the video of the New Year bow only to my family.
+cloze_a2_0095,en,I sent the New Year-bow video only to family.,I sent the video of the New Year bow only to my family.
+satz_a2_0059,promptDe,Für die Feiertage bereitete ich Jeon zu.,Als Festtagsessen habe ich Jeon zubereitet.
+cloze_a2_0096,de,Für die Feiertage bereitete ich Jeon zu.,Als Festtagsessen habe ich Jeon zubereitet.
+satz_a2_0060,promptDe,Beim Jeon-Braten spritzte Öl auf meinen Arm.,Beim Braten der Jeon spritzte mir Öl auf den Arm.
+cloze_a2_0097,de,Beim Jeon-Braten spritzte Öl auf meinen Arm.,Beim Braten der Jeon spritzte mir Öl auf den Arm.
+satz_a2_0061,promptDe,Die Verbeugung übte ich zehnmal vor dem Spiegel.,Ich habe die Neujahrsverbeugung zehnmal vor dem Spiegel geübt.
+cloze_a2_0098,de,Die Verbeugung übte ich zehnmal vor dem Spiegel.,Ich habe die Neujahrsverbeugung zehnmal vor dem Spiegel geübt.
+satz_a2_0062,targetKo,제 새해 목표는 한국어 일기예요.,제 새해 목표는 한국어 일기 쓰기예요.
+satz_a2_0062,promptDe,Mein Neujahrsvorsatz ist ein koreanisches Tagebuch.,"Mein Neujahrsvorsatz ist, Tagebuch auf Koreanisch zu schreiben."
+satz_a2_0062,promptEn,My new year's goal is a Korean diary.,My New Year's goal is to keep a diary in Korean.
+cloze_a2_0099,fullKo,제 새해 목표는 한국어 일기예요.,제 새해 목표는 한국어 일기 쓰기예요.
+cloze_a2_0099,de,Mein Neujahrsvorsatz ist ein koreanisches Tagebuch.,"Mein Neujahrsvorsatz ist, Tagebuch auf Koreanisch zu schreiben."
+cloze_a2_0099,en,My new year's goal is a Korean diary.,My New Year's goal is to keep a diary in Korean.
+cloze_a2_0099,sentenceKo,제 ＿＿＿는 한국어 일기예요.,제 ＿＿＿는 한국어 일기 쓰기예요.
+satz_a2_0063,targetKo,귀성길에서 휴게소 호두과자를 샀어요.,귀성길에 휴게소에서 호두과자를 샀어요.
+satz_a2_0063,promptDe,Im Heimreiseverkehr kaufte ich Walnusskuchen an der Raststätte.,Auf der Fahrt in die Heimat habe ich an der Raststätte Walnusskuchen gekauft.
+satz_a2_0063,promptEn,In holiday traffic I bought walnut cakes at the rest stop.,"On the holiday drive home, I bought walnut cakes at a rest stop."
+cloze_a2_0100,fullKo,귀성길에서 휴게소 호두과자를 샀어요.,귀성길에 휴게소에서 호두과자를 샀어요.
+cloze_a2_0100,de,Im Heimreiseverkehr kaufte ich Walnusskuchen an der Raststätte.,Auf der Fahrt in die Heimat habe ich an der Raststätte Walnusskuchen gekauft.
+cloze_a2_0100,en,In holiday traffic I bought walnut cakes at the rest stop.,"On the holiday drive home, I bought walnut cakes at a rest stop."
+cloze_a2_0100,sentenceKo,＿＿＿에서 휴게소 호두과자를 샀어요.,＿＿＿에 휴게소에서 호두과자를 샀어요.
+satz_a2_0065,promptDe,Beim Vollmond wünschte ich mir etwas.,Beim Blick auf den Vollmond habe ich mir etwas gewünscht.
+cloze_a2_0102,de,Beim Vollmond wünschte ich mir etwas.,Beim Blick auf den Vollmond habe ich mir etwas gewünscht.
+satz_a2_0067,targetKo,벌초용 장갑을 끼고 가족 묘소의 풀을 깎았어요.,벌초용 장갑을 끼고 풀을 깎았어요.
+satz_a2_0067,promptDe,Ich trug Handschuhe für die Grabpflege und schnitt das Gras an unseren Familiengräbern.,Ich zog Handschuhe für die Grabpflege an und schnitt das Gras.
+satz_a2_0067,promptEn,I wore gloves for clearing the grass around our family graves.,I put on gloves for grave clearing and cut the grass.
+cloze_a2_0104,fullKo,벌초용 장갑을 끼고 가족 묘소의 풀을 깎았어요.,벌초용 장갑을 끼고 풀을 깎았어요.
+cloze_a2_0104,de,Ich trug Handschuhe für die Grabpflege und schnitt das Gras an unseren Familiengräbern.,Ich zog Handschuhe für die Grabpflege an und schnitt das Gras.
+cloze_a2_0104,en,I wore gloves for clearing the grass around our family graves.,I put on gloves for grave clearing and cut the grass.
+cloze_a2_0104,sentenceKo,＿＿＿ 끼고 가족 묘소의 풀을 깎았어요.,＿＿＿ 끼고 풀을 깎았어요.
+satz_a2_0069,targetKo,송편 만들기는 처음이라 모양이 잘 안 됐어요.,송편 만들기는 처음이라 어려웠어요.
+satz_a2_0069,promptDe,"Da ich Songpyeon zum ersten Mal machte, gelang die Form nicht so gut.","Ich habe zum ersten Mal Songpyeon gemacht, deshalb war es schwer."
+satz_a2_0069,promptEn,"It was my first time making songpyeon, so the shapes did not turn out very well.","It was my first time making songpyeon, so it was hard."
+cloze_a2_0106,fullKo,송편 만들기는 처음이라 모양이 잘 안 됐어요.,송편 만들기는 처음이라 어려웠어요.
+cloze_a2_0106,de,"Da ich Songpyeon zum ersten Mal machte, gelang die Form nicht so gut.","Ich habe zum ersten Mal Songpyeon gemacht, deshalb war es schwer."
+cloze_a2_0106,en,"It was my first time making songpyeon, so the shapes did not turn out very well.","It was my first time making songpyeon, so it was hard."
+cloze_a2_0106,sentenceKo,＿＿＿는 처음이라 모양이 잘 안 됐어요.,＿＿＿는 처음이라 어려웠어요.
+satz_a2_0070,targetKo,"카톡 명절 인사는 짧게, 하지만 존댓말로 보냈어요.",명절 인사는 짧게 문자로 보냈어요.
+satz_a2_0070,promptDe,"Die Feiertagsnachricht schickte ich kurz, aber höflich.",Die Feiertagsgrüße habe ich kurz per Nachricht geschickt.
+satz_a2_0070,promptEn,"I kept the holiday hello short, but polite.",I sent a short holiday greeting by text.
+cloze_a2_0107,fullKo,"카톡 명절 인사는 짧게, 하지만 존댓말로 보냈어요.",명절 인사는 짧게 문자로 보냈어요.
+cloze_a2_0107,de,"Die Feiertagsnachricht schickte ich kurz, aber höflich.",Die Feiertagsgrüße habe ich kurz per Nachricht geschickt.
+cloze_a2_0107,en,"I kept the holiday hello short, but polite.",I sent a short holiday greeting by text.
+cloze_a2_0107,sentenceKo,"카톡 ＿＿＿는 짧게, 하지만 존댓말로 보냈어요.",＿＿＿는 짧게 문자로 보냈어요.
+satz_a2_0071,promptEn,Persimmons were still hanging in the hometown yard.,Persimmons were still hanging in the yard of my family home.
+cloze_a2_0108,en,Persimmons were still hanging in the hometown yard.,Persimmons were still hanging in the yard of my family home.
+satz_a2_0074,targetKo,추석 연휴 마지막 날 기차표를 미리 샀어요.,추석 연휴 기차표를 미리 샀어요.
+satz_a2_0074,promptDe,Für den letzten Tag der Chuseok-Ferien kaufte ich das Zugticket frühzeitig.,Das Zugticket für die Chuseok-Ferien habe ich früh gekauft.
+satz_a2_0074,promptEn,I bought my train ticket early for the last day of the Chuseok holiday.,I bought my train ticket for the Chuseok holiday early.
+cloze_a2_0111,fullKo,추석 연휴 마지막 날 기차표를 미리 샀어요.,추석 연휴 기차표를 미리 샀어요.
+cloze_a2_0111,de,Für den letzten Tag der Chuseok-Ferien kaufte ich das Zugticket frühzeitig.,Das Zugticket für die Chuseok-Ferien habe ich früh gekauft.
+cloze_a2_0111,en,I bought my train ticket early for the last day of the Chuseok holiday.,I bought my train ticket for the Chuseok holiday early.
+cloze_a2_0111,sentenceKo,＿＿＿ 마지막 날 기차표를 미리 샀어요.,＿＿＿ 기차표를 미리 샀어요.
+satz_a2_0087,targetKo,손님방에 이불이 세 겹이라 더웠어요.,손님방은 이불이 두꺼워서 더웠어요.
+satz_a2_0087,promptDe,"Im Gästezimmer lagen drei Decken, es war zu warm.","Im Gästezimmer war die Bettdecke so dick, dass mir zu warm war."
+satz_a2_0087,promptEn,"The guest room had three blankets, so it was too warm.",The blanket in the guest room was so thick that I got too hot.
+cloze_a2_0124,fullKo,손님방에 이불이 세 겹이라 더웠어요.,손님방은 이불이 두꺼워서 더웠어요.
+cloze_a2_0124,de,"Im Gästezimmer lagen drei Decken, es war zu warm.","Im Gästezimmer war die Bettdecke so dick, dass mir zu warm war."
+cloze_a2_0124,en,"The guest room had three blankets, so it was too warm.",The blanket in the guest room was so thick that I got too hot.
+cloze_a2_0124,sentenceKo,＿＿＿에 이불이 세 겹이라 더웠어요.,＿＿＿은 이불이 두꺼워서 더웠어요.
+satz_a2_0089,promptDe,Ich hatte das Waschzeug vergessen und bekam eine neue Bürste.,Ich hatte mein Waschzeug vergessen und bekam eine neue Zahnbürste.
+cloze_a2_0126,de,Ich hatte das Waschzeug vergessen und bekam eine neue Bürste.,Ich hatte mein Waschzeug vergessen und bekam eine neue Zahnbürste.
+satz_a2_0090,promptDe,Nach dem Aufstehen grüßte ich zuerst am Morgen.,Nach dem Aufstehen habe ich zuerst Guten Morgen gesagt.
+satz_a2_0090,promptEn,I greeted everyone first after getting up.,"After getting up, I said good morning first."
+cloze_a2_0127,de,Nach dem Aufstehen grüßte ich zuerst am Morgen.,Nach dem Aufstehen habe ich zuerst Guten Morgen gesagt.
+cloze_a2_0127,en,I greeted everyone first after getting up.,"After getting up, I said good morning first."
+satz_a2_0091,targetKo,일찍 일어나려고 알람을 네 개 맞췄어요.,일찍 일어나야 해서 알람을 네 개 맞췄어요.
+satz_a2_0091,promptDe,"Um früh aufzustehen, stellte ich vier Wecker.","Ich muss früh aufstehen, deshalb habe ich vier Wecker gestellt."
+satz_a2_0091,promptEn,I set four alarms to get up early.,"I have to get up early, so I set four alarms."
+cloze_a2_0128,fullKo,일찍 일어나려고 알람을 네 개 맞췄어요.,일찍 일어나야 해서 알람을 네 개 맞췄어요.
+cloze_a2_0128,de,"Um früh aufzustehen, stellte ich vier Wecker.","Ich muss früh aufstehen, deshalb habe ich vier Wecker gestellt."
+cloze_a2_0128,en,I set four alarms to get up early.,"I have to get up early, so I set four alarms."
+cloze_a2_0128,sentenceKo,＿＿＿려고 알람을 네 개 맞췄어요.,＿＿＿야 해서 알람을 네 개 맞췄어요.
+satz_a2_0092,targetKo,화장실 줄이 있어서 잠깐 기다렸어요.,화장실 줄이 길어서 잠깐 기다렸어요.
+satz_a2_0092,promptDe,"Vor dem Bad war eine Schlange, deshalb wartete ich kurz.","Die Schlange vor der Toilette war lang, deshalb habe ich kurz gewartet."
+satz_a2_0092,promptEn,"There was a line for the bathroom, so I waited a moment.","The bathroom line was long, so I waited a bit."
+cloze_a2_0129,fullKo,화장실 줄이 있어서 잠깐 기다렸어요.,화장실 줄이 길어서 잠깐 기다렸어요.
+cloze_a2_0129,de,"Vor dem Bad war eine Schlange, deshalb wartete ich kurz.","Die Schlange vor der Toilette war lang, deshalb habe ich kurz gewartet."
+cloze_a2_0129,en,"There was a line for the bathroom, so I waited a moment.","The bathroom line was long, so I waited a bit."
+cloze_a2_0129,sentenceKo,＿＿＿이 있어서 잠깐 기다렸어요.,＿＿＿이 길어서 잠깐 기다렸어요.
+satz_a2_0093,targetKo,잠옷 대신 편한 티를 입어도 되냐고 물었어요.,잠옷 대신 편한 티셔츠를 입어도 돼요?
+satz_a2_0093,promptDe,"Ich fragte, ob statt Schlafanzug ein T-Shirt reicht.",Darf ich statt eines Schlafanzugs ein bequemes T-Shirt anziehen?
+satz_a2_0093,promptEn,I asked whether a T-shirt was fine instead of pajamas.,Can I wear a comfy T-shirt instead of pajamas?
+cloze_a2_0130,fullKo,잠옷 대신 편한 티를 입어도 되냐고 물었어요.,잠옷 대신 편한 티셔츠를 입어도 돼요?
+cloze_a2_0130,de,"Ich fragte, ob statt Schlafanzug ein T-Shirt reicht.",Darf ich statt eines Schlafanzugs ein bequemes T-Shirt anziehen?
+cloze_a2_0130,en,I asked whether a T-shirt was fine instead of pajamas.,Can I wear a comfy T-shirt instead of pajamas?
+cloze_a2_0130,sentenceKo,＿＿＿ 대신 편한 티를 입어도 되냐고 물었어요.,＿＿＿ 대신 편한 티셔츠를 입어도 돼요?
+satz_a2_0094,promptDe,"Ich konnte nicht schlafen, weil ich aus dem Nebenzimmer Schnarchen hörte.","Aus dem Nebenzimmer war Schnarchen zu hören, deshalb konnte ich nicht schlafen."
+cloze_a2_0131,de,"Ich konnte nicht schlafen, weil ich aus dem Nebenzimmer Schnarchen hörte.","Aus dem Nebenzimmer war Schnarchen zu hören, deshalb konnte ich nicht schlafen."
+satz_a2_0097,targetKo,문 닫기 소리가 너무 커서 저도 깜짝 놀랐어요.,문 닫기 전에 가방을 한 번 확인했어요.
+satz_a2_0097,promptDe,"Die Tür fiel so laut zu, dass ich selbst erschrak.","Bevor ich die Tür geschlossen habe, habe ich noch einmal meine Tasche kontrolliert."
+satz_a2_0097,promptEn,The door shut so loudly that I startled myself.,"Before closing the door, I checked my bag once more."
+cloze_a2_0134,fullKo,문 닫기 소리가 너무 커서 저도 깜짝 놀랐어요.,문 닫기 전에 가방을 한 번 확인했어요.
+cloze_a2_0134,de,"Die Tür fiel so laut zu, dass ich selbst erschrak.","Bevor ich die Tür geschlossen habe, habe ich noch einmal meine Tasche kontrolliert."
+cloze_a2_0134,en,The door shut so loudly that I startled myself.,"Before closing the door, I checked my bag once more."
+cloze_a2_0134,sentenceKo,＿＿＿ 소리가 너무 커서 저도 깜짝 놀랐어요.,＿＿＿ 전에 가방을 한 번 확인했어요.
+satz_a2_0098,targetKo,아침에 할머니께 “잘 주무셨어요?” 하고 여쭤봤어요.,아침에 할머니께 “잘 주무셨어요?” 하고 인사했어요.
+satz_a2_0098,promptDe,Am Morgen fragte ich meine Großmutter: „Hast du gut geschlafen?“,Am Morgen habe ich meine Großmutter begrüßt: „Hast du gut geschlafen?“
+satz_a2_0098,promptEn,"In the morning, I asked my grandmother, “Did you sleep well?”","In the morning, I greeted my grandmother with “Did you sleep well?”"
+cloze_a2_0135,fullKo,아침에 할머니께 “잘 주무셨어요?” 하고 여쭤봤어요.,아침에 할머니께 “잘 주무셨어요?” 하고 인사했어요.
+cloze_a2_0135,de,Am Morgen fragte ich meine Großmutter: „Hast du gut geschlafen?“,Am Morgen habe ich meine Großmutter begrüßt: „Hast du gut geschlafen?“
+cloze_a2_0135,en,"In the morning, I asked my grandmother, “Did you sleep well?”","In the morning, I greeted my grandmother with “Did you sleep well?”"
+cloze_a2_0135,sentenceKo,아침에 할머니께 “＿＿＿?” 하고 여쭤봤어요.,아침에 할머니께 “＿＿＿?” 하고 인사했어요.
+satz_a2_0111,promptDe,"Der Fernbusplatz war am Fenster, also schickte ich der Großmutter ein Foto.","Mein Platz im Fernbus war am Fenster, also schickte ich meiner Großmutter ein Foto."
+satz_a2_0111,promptEn,"The express-bus seat was by the window, so I sent grandmother a photo.","My express-bus seat was by the window, so I sent my grandmother a photo."
+cloze_a2_0148,de,"Der Fernbusplatz war am Fenster, also schickte ich der Großmutter ein Foto.","Mein Platz im Fernbus war am Fenster, also schickte ich meiner Großmutter ein Foto."
+cloze_a2_0148,en,"The express-bus seat was by the window, so I sent grandmother a photo.","My express-bus seat was by the window, so I sent my grandmother a photo."
+satz_a2_0112,promptDe,"An der Raststätte kaufte ich Walnusskuchen, den wir zusammen aßen.","An der Raststätte habe ich Walnusskuchen gekauft, und wir haben ihn zusammen gegessen."
+cloze_a2_0149,de,"An der Raststätte kaufte ich Walnusskuchen, den wir zusammen aßen.","An der Raststätte habe ich Walnusskuchen gekauft, und wir haben ihn zusammen gegessen."
+satz_a2_0113,targetKo,명절 기차표는 금방 매진되니까 미리 예매했어요.,명절 기차표는 금방 팔려서 미리 샀어요.
+satz_a2_0113,promptDe,"Zugtickets für die Feiertage sind schnell ausverkauft, deshalb habe ich früh gebucht.","Zugtickets für die Feiertage sind schnell vergriffen, deshalb habe ich meines früh gekauft."
+satz_a2_0113,promptEn,"Holiday train tickets sell out quickly, so I booked mine early.","Holiday train tickets sell fast, so I bought mine early."
+cloze_a2_0150,fullKo,명절 기차표는 금방 매진되니까 미리 예매했어요.,명절 기차표는 금방 팔려서 미리 샀어요.
+cloze_a2_0150,de,"Zugtickets für die Feiertage sind schnell ausverkauft, deshalb habe ich früh gebucht.","Zugtickets für die Feiertage sind schnell vergriffen, deshalb habe ich meines früh gekauft."
+cloze_a2_0150,en,"Holiday train tickets sell out quickly, so I booked mine early.","Holiday train tickets sell fast, so I bought mine early."
+cloze_a2_0150,sentenceKo,＿＿＿ 금방 매진되니까 미리 예매했어요.,＿＿＿ 금방 팔려서 미리 샀어요.
+satz_a2_0115,targetKo,기차를 타기 전에 큰 짐을 택배로 부쳤어요.,큰 짐은 택배로 미리 부쳤어요.
+satz_a2_0115,promptDe,Vor der Zugfahrt schickte ich mein großes Gepäck per Paketdienst voraus.,Das große Gepäck habe ich vorab per Paketdienst geschickt.
+satz_a2_0115,promptEn,"Before taking the train, I sent my large bag ahead by courier.",I sent my big bags ahead by courier.
+cloze_a2_0152,fullKo,기차를 타기 전에 큰 짐을 택배로 부쳤어요.,큰 짐은 택배로 미리 부쳤어요.
+cloze_a2_0152,de,Vor der Zugfahrt schickte ich mein großes Gepäck per Paketdienst voraus.,Das große Gepäck habe ich vorab per Paketdienst geschickt.
+cloze_a2_0152,en,"Before taking the train, I sent my large bag ahead by courier.",I sent my big bags ahead by courier.
+satz_a2_0116,targetKo,역에 도착해서 가족에게 도착 연락을 했어요.,역에 내려서 가족에게 도착 연락을 했어요.
+satz_a2_0116,promptDe,Nach meiner Ankunft am Bahnhof gab ich meiner Familie Bescheid.,"Nach dem Aussteigen am Bahnhof habe ich meiner Familie Bescheid gegeben, dass ich angekommen bin."
+satz_a2_0116,promptEn,"When I arrived at the station, I let my family know.","After getting off at the station, I let my family know I had arrived."
+cloze_a2_0153,fullKo,역에 도착해서 가족에게 도착 연락을 했어요.,역에 내려서 가족에게 도착 연락을 했어요.
+cloze_a2_0153,de,Nach meiner Ankunft am Bahnhof gab ich meiner Familie Bescheid.,"Nach dem Aussteigen am Bahnhof habe ich meiner Familie Bescheid gegeben, dass ich angekommen bin."
+cloze_a2_0153,en,"When I arrived at the station, I let my family know.","After getting off at the station, I let my family know I had arrived."
+cloze_a2_0153,sentenceKo,역에 도착해서 가족에게 ＿＿＿ 했어요.,역에 내려서 가족에게 ＿＿＿ 했어요.
+satz_a2_0117,promptEn,"The relatives’ house was up a hill, so I walked up slowly.","My relatives' house was up on a hill, so I walked up slowly."
+cloze_a2_0154,en,"The relatives’ house was up a hill, so I walked up slowly.","My relatives' house was up on a hill, so I walked up slowly."
+satz_a1_0172,targetKo,연고는 어떻게 바르는지 약사에게 물어봤어요.,연고 바르는 방법을 약사에게 물어봤어요.
+satz_a1_0172,promptDe,"Ich fragte in der Apotheke, wie ich die Salbe anwenden soll.","Ich habe in der Apotheke gefragt, wie man die Salbe aufträgt."
+satz_a1_0172,promptEn,I asked at the pharmacy how to use the ointment.,I asked the pharmacist how to apply the ointment.
+cloze_a1_0208,fullKo,연고는 어떻게 바르는지 약사에게 물어봤어요.,연고 바르는 방법을 약사에게 물어봤어요.
+cloze_a1_0208,de,"Ich fragte in der Apotheke, wie ich die Salbe anwenden soll.","Ich habe in der Apotheke gefragt, wie man die Salbe aufträgt."
+cloze_a1_0208,en,I asked at the pharmacy how to use the ointment.,I asked the pharmacist how to apply the ointment.
+cloze_a1_0208,sentenceKo,＿＿＿는 어떻게 바르는지 약사에게 물어봤어요.,＿＿＿ 바르는 방법을 약사에게 물어봤어요.
+satz_a1_0173,targetKo,약국에서 마스크를 한 통 샀어요.,약국에서 마스크를 한 상자 샀어요.
+satz_a1_0173,promptEn,I bought a pack of masks at the pharmacy.,I bought a box of masks at the pharmacy.
+cloze_a1_0209,fullKo,약국에서 마스크를 한 통 샀어요.,약국에서 마스크를 한 상자 샀어요.
+cloze_a1_0209,en,I bought a pack of masks at the pharmacy.,I bought a box of masks at the pharmacy.
+cloze_a1_0209,sentenceKo,약국에서 ＿＿＿를 한 통 샀어요.,약국에서 ＿＿＿를 한 상자 샀어요.
+satz_a1_0174,promptDe,Vor der Kasse habe ich meine Karte herausgenommen.,An der Kasse habe ich meine Karte herausgeholt.
+satz_a1_0174,promptEn,I took out my card in front of the checkout.,I took out my card at the checkout.
+cloze_a1_0210,de,Vor der Kasse habe ich meine Karte herausgenommen.,An der Kasse habe ich meine Karte herausgeholt.
+cloze_a1_0210,en,I took out my card in front of the checkout.,I took out my card at the checkout.
+satz_a1_0175,promptDe,Bitte schreiben Sie die Einnahmezeiten auf Papier.,Bitte schreiben Sie mir die Einnahmezeiten auf.
+satz_a1_0175,promptEn,Please write the dose times on paper.,Please write down the dosing times for me.
+cloze_a1_0211,de,Bitte schreiben Sie die Einnahmezeiten auf Papier.,Bitte schreiben Sie mir die Einnahmezeiten auf.
+cloze_a1_0211,en,Please write the dose times on paper.,Please write down the dosing times for me.
+satz_a1_0178,targetKo,가글액이 있는지 찾고 있어요.,가글액은 어디에 있어요?
+satz_a1_0178,promptDe,Ich suche nach Mundspülung.,Wo ist die Mundspülung?
+satz_a1_0178,promptEn,I am looking for mouthwash.,Where is the mouthwash?
+cloze_a1_0214,fullKo,가글액이 있는지 찾고 있어요.,가글액은 어디에 있어요?
+cloze_a1_0214,de,Ich suche nach Mundspülung.,Wo ist die Mundspülung?
+cloze_a1_0214,en,I am looking for mouthwash.,Where is the mouthwash?
+cloze_a1_0214,sentenceKo,＿＿＿이 있는지 찾고 있어요.,＿＿＿은 어디에 있어요?
+satz_a1_0179,targetKo,비타민제를 사서 집에 두었어요.,매일 아침 비타민제를 먹어요.
+satz_a1_0179,promptDe,Ich kaufte ein Vitaminpräparat und stellte es zu Hause hin.,Ich nehme jeden Morgen ein Vitaminpräparat.
+satz_a1_0179,promptEn,I bought a vitamin supplement and put it away at home.,I take a vitamin supplement every morning.
+cloze_a1_0215,fullKo,비타민제를 사서 집에 두었어요.,매일 아침 비타민제를 먹어요.
+cloze_a1_0215,de,Ich kaufte ein Vitaminpräparat und stellte es zu Hause hin.,Ich nehme jeden Morgen ein Vitaminpräparat.
+cloze_a1_0215,en,I bought a vitamin supplement and put it away at home.,I take a vitamin supplement every morning.
+cloze_a1_0215,sentenceKo,＿＿＿를 사서 집에 두었어요.,매일 아침 ＿＿＿를 먹어요.
+satz_a1_0180,targetKo,약을 사기 전에 알레르기가 있는지 약사에게 말했어요.,알레르기가 있어서 약사에게 먼저 말했어요.
+satz_a1_0180,promptDe,"Bevor ich das Mittel kaufte, sagte ich in der Apotheke, welche Allergien ich habe.",Ich habe eine Allergie und habe das gleich in der Apotheke gesagt.
+satz_a1_0180,promptEn,"Before buying the medicine, I told the pharmacist about any allergies I have.","I have an allergy, so I told the pharmacist first."
+cloze_a1_0216,fullKo,약을 사기 전에 알레르기가 있는지 약사에게 말했어요.,알레르기가 있어서 약사에게 먼저 말했어요.
+cloze_a1_0216,de,"Bevor ich das Mittel kaufte, sagte ich in der Apotheke, welche Allergien ich habe.",Ich habe eine Allergie und habe das gleich in der Apotheke gesagt.
+cloze_a1_0216,en,"Before buying the medicine, I told the pharmacist about any allergies I have.","I have an allergy, so I told the pharmacist first."
+cloze_a1_0216,sentenceKo,약을 사기 전에 ＿＿＿가 있는지 약사에게 말했어요.,＿＿＿가 있어서 약사에게 먼저 말했어요.
+satz_a1_0209,targetKo,연필 실수를 지우개로 지워요.,연필로 쓴 걸 지우개로 지워요.
+satz_a1_0209,promptDe,Ich radiere den Bleistiftfehler mit dem Radiergummi weg.,"Was ich mit Bleistift geschrieben habe, radiere ich mit dem Radiergummi weg."
+satz_a1_0209,promptEn,I erase the pencil mistake with an eraser.,I erase what I wrote in pencil with an eraser.
+cloze_a1_0245,fullKo,연필 실수를 지우개로 지워요.,연필로 쓴 걸 지우개로 지워요.
+cloze_a1_0245,de,Ich radiere den Bleistiftfehler mit dem Radiergummi weg.,"Was ich mit Bleistift geschrieben habe, radiere ich mit dem Radiergummi weg."
+cloze_a1_0245,en,I erase the pencil mistake with an eraser.,I erase what I wrote in pencil with an eraser.
+cloze_a1_0245,sentenceKo,연필 실수를 ＿＿＿로 지워요.,연필로 쓴 걸 ＿＿＿로 지워요.
+satz_a1_0214,promptDe,Ich packe die Sachen für den Unterricht in die Tasche.,Ich packe die Sachen für den morgigen Unterricht in die Tasche.
+satz_a1_0214,promptEn,I'm putting what I need for class in my bag.,I'm putting what I need for tomorrow's class in my bag.
+cloze_a1_0250,de,Ich packe die Sachen für den Unterricht in die Tasche.,Ich packe die Sachen für den morgigen Unterricht in die Tasche.
+cloze_a1_0250,en,I'm putting what I need for class in my bag.,I'm putting what I need for tomorrow's class in my bag.
+satz_a1_0216,promptDe,Die Lehrkraft hat das Wort auf das Whiteboard geschrieben.,Der Lehrer hat ein Wort an das Whiteboard geschrieben.
+cloze_a1_0252,de,Die Lehrkraft hat das Wort auf das Whiteboard geschrieben.,Der Lehrer hat ein Wort an das Whiteboard geschrieben.
+satz_a1_0219,targetKo,수업 시작 전에 준비됐나요?,곧 수업이 시작돼요. 준비됐나요?
+satz_a1_0219,promptDe,"Sind Sie bereit, bevor der Unterricht beginnt?",Der Unterricht fängt gleich an. Seid ihr bereit?
+satz_a1_0219,promptEn,Are you ready before class starts?,Class is about to start. Are you ready?
+cloze_a1_0255,fullKo,수업 시작 전에 준비됐나요?,곧 수업이 시작돼요. 준비됐나요?
+cloze_a1_0255,de,"Sind Sie bereit, bevor der Unterricht beginnt?",Der Unterricht fängt gleich an. Seid ihr bereit?
+cloze_a1_0255,en,Are you ready before class starts?,Class is about to start. Are you ready?
+cloze_a1_0255,sentenceKo,수업 시작 전에 ＿＿＿?,곧 수업이 시작돼요. ＿＿＿?
+satz_a1_0223,promptDe,Ich prüfe zuerst die Zeit des letzten Zuges.,"Ich prüfe zuerst, wann der letzte Zug fährt."
+cloze_a1_0259,de,Ich prüfe zuerst die Zeit des letzten Zuges.,"Ich prüfe zuerst, wann der letzte Zug fährt."
+satz_a1_0224,promptDe,Sie können am Rathaus aussteigen.,Sie können an der Station Rathaus aussteigen.
+cloze_a1_0260,de,Sie können am Rathaus aussteigen.,Sie können an der Station Rathaus aussteigen.
+satz_a1_0228,promptEn,I look for the red line on the map.,I look for the red line on the route map.
+cloze_a1_0264,en,I look for the red line on the map.,I look for the red line on the route map.
+satz_a1_0234,promptDe,Ich schaue den Wetterbericht und wähle die Kleidung.,Ich schaue mir den Wetterbericht an und suche mir Kleidung aus.
+cloze_a1_0270,de,Ich schaue den Wetterbericht und wähle die Kleidung.,Ich schaue mir den Wetterbericht an und suche mir Kleidung aus.
+satz_a1_0235,promptDe,"Da ein Schauer vorhergesagt war, packte ich eine Regenjacke ein.","Es war ein Schauer vorhergesagt, deshalb habe ich eine Regenjacke eingepackt."
+cloze_a1_0271,de,"Da ein Schauer vorhergesagt war, packte ich eine Regenjacke ein.","Es war ein Schauer vorhergesagt, deshalb habe ich eine Regenjacke eingepackt."
+satz_a1_0237,promptDe,Nachts trug ich dicke Kleidung.,Nachts habe ich dicke Kleidung angezogen.
+cloze_a1_0273,de,Nachts trug ich dicke Kleidung.,Nachts habe ich dicke Kleidung angezogen.
+satz_a1_0238,promptDe,"Im Frühling ist der Temperaturunterschied groß, deshalb brauche ich eine Jacke.","Im Frühling ist der Unterschied zwischen Tag und Nacht groß, deshalb brauche ich eine Jacke."
+cloze_a1_0274,de,"Im Frühling ist der Temperaturunterschied groß, deshalb brauche ich eine Jacke.","Im Frühling ist der Unterschied zwischen Tag und Nacht groß, deshalb brauche ich eine Jacke."
+cloze_a1_0275,fullKo,오늘은 공기가 습해서 창문을 열어요.,오늘은 날씨가 정말 습해요.
+cloze_a1_0275,de,"Die Luft fühlt sich heute feucht an, deshalb öffne ich das Fenster.",Heute ist es wirklich schwül.
+cloze_a1_0275,en,"The air feels humid today, so I open the window.",It's really humid today.
+satz_a1_0240,promptDe,"Weil es am Morgen kühl war, wickelte ich mir einen Schal um.","Weil es am Morgen kühl war, habe ich mir einen Schal umgelegt."
+cloze_a1_0276,de,"Weil es am Morgen kühl war, wickelte ich mir einen Schal um.","Weil es am Morgen kühl war, habe ich mir einen Schal umgelegt."
+satz_a1_0241,promptDe,Die Nachmittagsvorhersage ist heiter.,Für den Nachmittag ist heiteres Wetter vorhergesagt.
+satz_a1_0241,promptEn,The afternoon forecast is clear skies.,The forecast says clear skies this afternoon.
+cloze_a1_0277,de,Die Nachmittagsvorhersage ist heiter.,Für den Nachmittag ist heiteres Wetter vorhergesagt.
+cloze_a1_0277,en,The afternoon forecast is clear skies.,The forecast says clear skies this afternoon.
+satz_a1_0242,promptDe,Der Schauer scheint bald vorüberzuziehen.,Der Schauer zieht wohl gleich vorüber.
+cloze_a1_0278,de,Der Schauer scheint bald vorüberzuziehen.,Der Schauer zieht wohl gleich vorüber.
+satz_a1_0243,promptDe,Bei großem Temperaturunterschied trage ich Kleidung in Lagen.,"Wenn der Temperaturunterschied groß ist, ziehe ich mich nach dem Zwiebelprinzip an."
+satz_a1_0243,promptEn,"When the temperature gap is large, I layer clothes.","When temperatures swing a lot, I dress in layers."
+cloze_a1_0279,de,Bei großem Temperaturunterschied trage ich Kleidung in Lagen.,"Wenn der Temperaturunterschied groß ist, ziehe ich mich nach dem Zwiebelprinzip an."
+cloze_a1_0279,en,"When the temperature gap is large, I layer clothes.","When temperatures swing a lot, I dress in layers."
+satz_a2_0160,targetKo,운동복을 락커에 넣어 두어요.,운동복을 락커에 넣어 둬요.
+cloze_a2_0197,fullKo,운동복을 락커에 넣어 두어요.,운동복을 락커에 넣어 둬요.
+cloze_a2_0197,sentenceKo,＿＿＿을 락커에 넣어 두어요.,＿＿＿을 락커에 넣어 둬요.
+satz_a2_0162,promptDe,Vor dem Start mache ich Dehnungen.,"Bevor ich anfange, mache ich Dehnübungen."
+cloze_a2_0199,de,Vor dem Start mache ich Dehnungen.,"Bevor ich anfange, mache ich Dehnübungen."
+satz_a2_0171,promptDe,Am Samstagvormittag habe ich im Friseursalon reserviert.,Für Samstagvormittag habe ich einen Termin im Friseursalon gemacht.
+satz_a2_0171,promptEn,I booked the hair salon for Saturday morning.,I booked an appointment at the hair salon for Saturday morning.
+cloze_a2_0208,de,Am Samstagvormittag habe ich im Friseursalon reserviert.,Für Samstagvormittag habe ich einen Termin im Friseursalon gemacht.
+cloze_a2_0208,en,I booked the hair salon for Saturday morning.,I booked an appointment at the hair salon for Saturday morning.
+satz_a2_0174,targetKo,이번 여름에는 펌을 안 하려고요.,이번 여름에는 펌을 안 할 거예요.
+satz_a2_0174,promptEn,This summer I will not get a perm.,I'm not getting a perm this summer.
+cloze_a2_0211,fullKo,이번 여름에는 펌을 안 하려고요.,이번 여름에는 펌을 안 할 거예요.
+cloze_a2_0211,en,This summer I will not get a perm.,I'm not getting a perm this summer.
+cloze_a2_0211,sentenceKo,이번 ＿＿＿ 펌을 안 하려고요.,이번 ＿＿＿ 펌을 안 할 거예요.
+satz_a2_0178,promptDe,"Da ich fürs Wochenende reserviert habe, habe ich eine Anzahlung gezahlt.",Für den Termin am Wochenende habe ich eine Anzahlung geleistet.
+cloze_a2_0215,de,"Da ich fürs Wochenende reserviert habe, habe ich eine Anzahlung gezahlt.",Für den Termin am Wochenende habe ich eine Anzahlung geleistet.
+satz_a2_0179,promptDe,Bitte waschen Sie mir die Haare mit einem Shampoo mit mildem Duft.,"Bitte waschen Sie mir die Haare mit einem Shampoo, das nicht so stark duftet."
+cloze_a2_0216,de,Bitte waschen Sie mir die Haare mit einem Shampoo mit mildem Duft.,"Bitte waschen Sie mir die Haare mit einem Shampoo, das nicht so stark duftet."
+satz_a2_0180,promptEn,"My hair ends were split, so I added a treatment.","I had split ends, so I added a treatment."
+cloze_a2_0217,en,"My hair ends were split, so I added a treatment.","I had split ends, so I added a treatment."
+satz_a2_0181,promptDe,"Bitte schneiden Sie das Seitenhaar so, dass es die Ohren nicht bedeckt.","Bitte schneiden Sie die Haare an den Seiten so, dass sie meine Ohren nicht bedecken."
+satz_a2_0181,promptEn,Please keep the side hair from covering my ears.,Please make sure the hair on the sides doesn't cover my ears.
+cloze_a2_0218,de,"Bitte schneiden Sie das Seitenhaar so, dass es die Ohren nicht bedeckt.","Bitte schneiden Sie die Haare an den Seiten so, dass sie meine Ohren nicht bedecken."
+cloze_a2_0218,en,Please keep the side hair from covering my ears.,Please make sure the hair on the sides doesn't cover my ears.
+satz_a2_0482,promptDe,Ein Knopf ist abgegangen.,Ein Knopf ist abgefallen.
+cloze_a2_0297,de,Ein Knopf ist abgegangen.,Ein Knopf ist abgefallen.

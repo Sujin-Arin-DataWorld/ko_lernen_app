@@ -1,0 +1,131 @@
+id,verdict,codes,example_korean_new,example_german_new,example_english_new,note
+vocab_a2_0392,FIX_DE,T1,,"Bevor ich anfange, mache ich Dehnübungen.",,DE 직역투 Start 수정
+vocab_a2_0393,KEEP,,,,,
+vocab_a2_0394,KEEP,,,,,
+vocab_a2_0395,KEEP,,,,,
+vocab_a2_0396,KEEP,,,,,
+vocab_a2_0397,KEEP,,,,,
+vocab_a2_0398,KEEP,,,,,
+vocab_a2_0399,RELEVEL,L1,,,,nikl 6급: B2 권장. 문장은 자연스러움
+vocab_a2_0400,RELEVEL,L1,,,,nikl 4급: B1 권장. 예문 숨이 고르게 돌아와요도 어색
+vocab_a2_0010,KEEP,,,,,
+vocab_a2_0011,FIX_DE,T1,,Ich möchte ein Erkältungsmittel kaufen.,,"DE 직역투(Ich bin hier, um)"
+vocab_a2_0015,KEEP,,,,,
+vocab_a2_0017,KEEP,,,,,
+vocab_a2_0018,KEEP,,,,,
+vocab_a2_0019,KEEP,,,,,
+vocab_a2_0028,KEEP,,,,,
+vocab_a2_0029,FIX_DE,T6,,Hast du meine SMS-Antwort nicht gesehen?,,문자 의미 누락 보완
+vocab_b1_0013,KEEP,,,,,
+vocab_a2_0030,KEEP,,,,,
+vocab_a2_0031,KEEP,,,,,
+vocab_a2_0040,KEEP,,,,,
+vocab_a2_0041,KEEP,,,,,
+vocab_a2_0043,KEEP,,,,,
+vocab_a2_0052,KEEP,,,,,
+vocab_a2_0053,KEEP,,,,,
+vocab_a2_0068,KEEP,,,,,
+vocab_a2_0069,KEEP,,,,,
+vocab_b1_0192,KEEP,,,,,
+vocab_b1_0195,KEEP,,,,,
+vocab_a2_0141,KEEP,,,,,
+vocab_a2_0142,KEEP,,,,,
+vocab_a2_0143,KEEP,,,,,
+vocab_a2_0144,KEEP,,,,,
+vocab_a2_0145,KEEP,,,,,
+vocab_a2_0146,KEEP,,,,,
+vocab_a2_0147,KEEP,,,,,
+vocab_a2_0148,KEEP,,,,,
+vocab_a2_0150,KEEP,,,,,
+vocab_a2_0197,KEEP,,,,,
+vocab_a2_0198,KEEP,,,,,
+vocab_a2_0199,KEEP,,,,,
+vocab_a2_0200,FIX_DE,T1;T6,,Ich habe auf eine neue Zahnbürste gewechselt.,,바꿨다=전환의 뜻
+vocab_a2_0201,KEEP,,,,,
+vocab_a2_0202,KEEP,,,,,gloss Schüssel; 예문은 Geschirr가 더 자연
+vocab_a2_0203,KEEP,,,,,Tasse보다 Glas/Becher가 자연
+vocab_a2_0204,FIX_DE,T1,,Aus der Küche riecht es gut.,,Geruch는 어색
+vocab_a2_0205,KEEP,,,,,
+vocab_a2_0206,KEEP,,,,,
+vocab_a2_0207,KEEP,,,,,
+vocab_a2_0208,KEEP,,,,,
+vocab_a2_0151,KEEP,,,,,
+vocab_a2_0152,KEEP,,,,,"gloss Bankbuch는 부자연, Sparbuch/Konto 권장"
+vocab_a2_0153,KEEP,,,,,
+vocab_a2_0154,KEEP,,,,,
+vocab_a2_0155,KEEP,,,,,
+vocab_a2_0156,KEEP,,,,,
+vocab_a2_0157,KEEP,,,,,
+vocab_a2_0158,KEEP,,,,,
+vocab_a2_0159,KEEP,,,,,
+vocab_a2_0160,KEEP,,,,,
+vocab_a2_0223,FIX_KO,L3,어제 숲에서 산책했어요.,Gestern bin ich im Wald spazieren gegangen.,I took a walk in the forest yesterday.,2어절이라 3어절 충족
+vocab_a2_0224,KEEP,,,,,
+vocab_a2_0225,KEEP,,,,,
+vocab_a2_0226,KEEP,,,,,
+vocab_a2_0227,KEEP,,,,,
+vocab_a2_0228,KEEP,,,,,
+vocab_a2_0229,KEEP,,,,,
+vocab_a2_0230,KEEP,,,,,
+vocab_a2_0231,KEEP,,,,,
+vocab_a2_0232,KEEP,,,,,
+vocab_a1_0272,KEEP,,,,,gloss Erntedank는 부정확 (gloss 수정 필요)
+vocab_a1_0273,KEEP,,,,,
+vocab_a1_0274,FIX_KO,N1;N2,송편을 빚었는데 만두처럼 커졌어요.,"Ich habe Songpyeon geformt, aber sie sind so groß wie Teigtaschen geworden.","I shaped the songpyeon, but they turned out as big as dumplings.","빚다가 부자연, 목적격 누락"
+vocab_a1_0275,FIX_KO,L3,귀성 기차표를 사려고 알람을 맞췄어요.,Für die Zugtickets zur Heimfahrt habe ich mir einen Wecker gestellt.,I set an alarm to buy my train tickets home for the holiday.,7어절 초과로 단축
+vocab_a1_0276,KEEP,,,,,
+vocab_a1_0277,FIX_KO,L3;L2,벌초는 묘의 풀을 깎는 일이에요.,"Grabpflege heißt, das Gras am Grab zu schneiden.",Tending the grave means cutting the grass around it.,7어절·무덤가 어려움
+vocab_a1_0278,FIX_KO,L2;N1,송편을 찌면 부엌에 김이 가득해요.,"Wenn ich Songpyeon dämpfe, ist die Küche voller Dampf.","When I steam songpyeon, the kitchen fills with steam.",뿌예졌어요 고급 어휘
+vocab_a1_0279,FIX_DE,T1,,Ich habe die ersten Früchte der Ernte für das Ahnenritual auf den Tisch gestellt.,,Ahnentisch는 없는 말
+vocab_a1_0280,FIX_KO,L2;N1,한가위에는 보름달이 정말 커요.,An Hangawi ist der Vollmond ganz besonders groß.,"At Hangawi, the full moon looks really big.",-다고 인용은 A2 문법 밖
+vocab_a1_0281,KEEP,,,,,
+vocab_a1_0283,KEEP,,,,,
+vocab_a2_0293,FIX_KO,N2;N1,귀성길에 휴게소에서 호두과자를 샀어요.,Auf der Fahrt in die Heimat habe ich an der Raststätte Walnusskuchen gekauft.,"On the holiday drive home, I bought walnut cakes at a rest stop.",귀성길에서 부자연
+vocab_a2_0294,FIX_KO,L3,송편 맛은 깨가 제일 좋아요.,Beim Geschmack der Songpyeon mag ich Sesam am liebsten.,"For songpyeon flavor, sesame is my favorite.",7어절 초과로 단축
+vocab_a2_0295,FIX_DE,T1,,Beim Blick auf den Vollmond habe ich mir etwas gewünscht.,,Beim Vollmond 어색
+vocab_a2_0296,KEEP,,,,,
+vocab_a2_0297,FIX_KO,L3;L2,벌초용 장갑을 끼고 풀을 깎았어요.,Ich zog Handschuhe für die Grabpflege an und schnitt das Gras.,I put on gloves for grave clearing and cut the grass.,7어절·묘소 어려움
+vocab_a2_0298,KEEP,,,,,
+vocab_a2_0299,FIX_KO,L3,송편 만들기는 처음이라 어려웠어요.,"Ich habe zum ersten Mal Songpyeon gemacht, deshalb war es schwer.","It was my first time making songpyeon, so it was hard.",7어절 초과로 단축
+vocab_a2_0300,FIX_KO,L3;N8,명절 인사는 짧게 문자로 보냈어요.,Die Feiertagsgrüße habe ich kurz per Nachricht geschickt.,I sent a short holiday greeting by text.,"7어절·카톡 브랜드명 제거, EN holiday hello 번역투"
+vocab_a2_0301,FIX_EN,T1,,,Persimmons were still hanging in the yard of my family home.,EN 번역투
+vocab_a2_0302,KEEP,,,,,
+vocab_a2_0303,KEEP,,,,,"송편 점은 실제 관습 근거 약함, 확인 권장"
+vocab_a2_0304,FIX_KO,L3,추석 연휴 기차표를 미리 샀어요.,Das Zugticket für die Chuseok-Ferien habe ich früh gekauft.,I bought my train ticket for the Chuseok holiday early.,7어절 초과로 단축
+vocab_a2_0269,KEEP,,,,,
+vocab_a2_0270,FIX_KO,N1;N5;L3,한국어 잘하시네요. 아직 많이 공부해야 해요.,Sie sprechen gut Koreanisch! Ich muss noch viel lernen.,Your Korean is good! I still have a lot to learn.,구두점 없는 비문·7어절
+vocab_a2_0271,KEEP,,,,,
+vocab_a2_0272,FIX_KO,N5;L2,한국에 언제 왔어요? 작년에 왔어요.,Wann sind Sie nach Korea gekommen? Letztes Jahr.,When did you come to Korea? Last year.,"맥락 보완, 재작년 대신 작년"
+vocab_a2_0273,KEEP,,,,,
+vocab_a2_0274,KEEP,,,,,
+vocab_a2_0276,KEEP,,,,,
+vocab_a2_0277,KEEP,,,,,
+vocab_a2_0278,KEEP,,,,,
+vocab_a2_0279,KEEP,,,,,
+vocab_a2_0341,FIX_DE+FIX_EN,T1,,"Mein Platz im Fernbus war am Fenster, also schickte ich meiner Großmutter ein Foto.","My express-bus seat was by the window, so I sent my grandmother a photo.","DE 어색 Fernbusplatz, EN my 누락"
+vocab_a2_0342,FIX_DE,T1,,"An der Raststätte habe ich Walnusskuchen gekauft, und wir haben ihn zusammen gegessen.",,단복수 불일치(den)
+vocab_a2_0343,FIX_KO,L3;L2,명절 기차표는 금방 팔려서 미리 샀어요.,"Zugtickets für die Feiertage sind schnell vergriffen, deshalb habe ich meines früh gekauft.","Holiday train tickets sell fast, so I bought mine early.",매진/예매 어려움·7어절
+vocab_a2_0345,FIX_KO,L3,큰 짐은 택배로 미리 부쳤어요.,Das große Gepäck habe ich vorab per Paketdienst geschickt.,I sent my big bags ahead by courier.,7어절 초과로 단축
+vocab_a2_0346,FIX_KO,N1,역에 내려서 가족에게 도착 연락을 했어요.,"Nach dem Aussteigen am Bahnhof habe ich meiner Familie Bescheid gegeben, dass ich angekommen bin.","After getting off at the station, I let my family know I had arrived.",도착해서 도착 연락 중복
+vocab_a2_0347,FIX_EN,T5,,,"My relatives' house was up on a hill, so I walked up slowly.",곡선 아포스트로피 제거
+vocab_a2_0348,RELEVEL,L1,,,,nikl 4급: B1 권장
+vocab_a2_0349,KEEP,,,,,
+vocab_a2_0350,RELEVEL,L1,,,,nikl 6급: B2 권장
+vocab_a2_0351,KEEP,,,,,
+vocab_a2_0352,KEEP,,,,,
+vocab_a1_0236,KEEP,,,,,
+vocab_a1_0237,KEEP,,,,,
+vocab_a1_0238,KEEP,,,,,
+vocab_a1_0239,RELEVEL,L1,,,,nikl 6급: B2 권장. DE 윗목 설명도 불명확
+vocab_a1_0240,RELEVEL,L1,,,,nikl 6급: B2 권장
+vocab_a1_0241,KEEP,,,,,
+vocab_a1_0242,KEEP,,,,,
+vocab_a1_0243,FIX_DE,T1,,"Trinken Sie doch etwas Wasser. Hier, bitte.",,Hier ist es 어색
+vocab_a1_0244,KEEP,,,,,
+vocab_a1_0245,KEEP,,,,,
+vocab_a1_0246,KEEP,,,,,
+vocab_a1_0247,FIX_DE+FIX_EN,T6,,Ich habe die Benimmregeln für den Besuch kurz überprüft.,I briefly checked the etiquette for visiting.,Vor dem Besuch 추가 정보 제거
+vocab_a2_0317,FIX_KO,L2,손님방은 이불이 두꺼워서 더웠어요.,"Im Gästezimmer war die Bettdecke so dick, dass mir zu warm war.",The blanket in the guest room was so thick that I got too hot.,겹 어려운 단위
+vocab_a2_0318,KEEP,,,,,
+vocab_a2_0319,RELEVEL+FIX_DE,L1;T6,,Ich hatte mein Waschzeug vergessen und bekam eine neue Zahnbürste.,,nikl 5급: B2 권장. Bürste는 칫솔 누락
+vocab_a2_0320,FIX_DE+FIX_EN,T1;T6,,Nach dem Aufstehen habe ich zuerst Guten Morgen gesagt.,"After getting up, I said good morning first.","DE 어색, EN everyone 추가"

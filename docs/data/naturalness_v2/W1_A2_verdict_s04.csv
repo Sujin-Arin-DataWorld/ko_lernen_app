@@ -1,0 +1,66 @@
+id,verdict,codes,example_korean_new,example_german_new,example_english_new,note
+vocab_a1_0368,KEEP,,,,,자연스러움.
+vocab_a1_0369,KEEP,,,,,자연스러움.
+vocab_a1_0370,KEEP,,,,,자연스러움.
+vocab_a1_0371,FIX_DE,T1,,"Ich prüfe zuerst, wann der letzte Zug fährt.",,DE Zeit des letzten Zuges steif.
+vocab_a1_0372,FIX_DE,T6,,Sie können an der Station Rathaus aussteigen.,,DE ließ 역 (Station) weg.
+vocab_a1_0373,KEEP,,,,,자연스러움.
+vocab_a1_0374,KEEP,,,,,자연스러움.
+vocab_a1_0375,KEEP,,,,,Gloss 'Sperre' ist eher österr.; 'Zugangssperre/Drehkreuz' wäre allgemeiner.
+vocab_a1_0376,FIX_EN,T6,,,I look for the red line on the route map.,EN ließ 노선도 (Linienplan) zu 'map' verkürzt.
+vocab_a1_0377,KEEP,,,,,자연스러움.
+vocab_a1_0378,KEEP,,,,,자연스러움.
+vocab_a1_0379,NEEDS_JIN,L1,,,,"nikl 5 = ungelistete Phrase aus 내리다+문 (beide 1급), transparent; A1/A2 vertretbar, Jin entscheiden."
+vocab_a1_0420,KEEP,,,,,자연스러움.
+vocab_a1_0421,KEEP,,,,,자연스러움.
+vocab_a2_0016,KEEP,,,,,자연스러움.
+vocab_a2_0025,KEEP,,,,,자연스러움.
+vocab_a2_0026,KEEP,,,,,Gloss 'Zug / Bahn' unsauber; nur Zug.
+vocab_a2_0027,KEEP,,,,,자연스러움.
+vocab_a2_0044,KEEP,,,,,자연스러움.
+vocab_a2_0056,FIX_KO,N8,회사까지 삼십 분 걸어요.,Bis zur Firma laufe ich 30 Minuten.,I walk 30 minutes to work.,'30분' kann TTS als 서른 분 lesen; 삼십 분으로.
+vocab_a2_0105,KEEP,,,,,자연스러움.
+vocab_a2_0106,KEEP,,,,,자연스러움.
+vocab_a2_0107,KEEP,,,,,자연스러움.
+vocab_a2_0108,FIX_EN,T1,,,"After you cross at the crosswalk, the pharmacy is on your left.",EN 'Cross at the crosswalk' klingt falsch.
+vocab_a2_0110,KEEP,,,,,자연스러움.
+vocab_a2_0173,KEEP,,,,,자연스러움.
+vocab_a2_0174,KEEP,,,,,자연스러움.
+vocab_a2_0175,KEEP,,,,,자연스러움.
+vocab_a2_0176,KEEP,,,,,자연스러움.
+vocab_a2_0177,KEEP,,,,,Gloss 'umlegen' für Uhr ungeschickt (tragen/umbinden).
+vocab_a2_0178,KEEP,,,,,Gloss 'schultern' ungeschickt (umhängen/auf dem Rücken tragen).
+vocab_a2_0179,FIX_DE,T1,,"Die Hose war zu groß, deshalb habe ich einen Gürtel angelegt.",,DE 'Gürtel getragen' statt anlegen.
+vocab_a2_0180,FIX_KO,N1;N2;N8,예쁜 팔찌를 자주 해요.,Ich trage oft ein schönes Armband.,I often wear a pretty bracelet.,'은 팔찌'는 조사 은으로 읽혀 TTS·이해 위험; 은색은 레벨 밖.
+vocab_a2_0181,FIX_DE+FIX_EN,T1,,"Es hat geschneit, deshalb habe ich Stiefel angezogen.","Since it snowed, I wore boots.",kausales -아서 in DE/EN verdeutlicht.
+vocab_a2_0182,KEEP,,,,,자연스러움.
+vocab_a2_0183,KEEP,,,,,자연스러움.
+vocab_a2_0184,KEEP,,,,,자연스러움.
+vocab_a2_0006,KEEP,,,,,자연스러움.
+vocab_a2_0007,KEEP,,,,,자연스러움.
+vocab_a2_0008,KEEP,,,,,자연스러움.
+vocab_a2_0009,KEEP,,,,,자연스러움.
+vocab_a2_0034,FIX_EN,T1,,,I didn't bring an umbrella. What should I do?,EN Komma-Splice.
+vocab_a2_0059,KEEP,,,,,자연스러움.
+vocab_a2_0060,FIX_KO,N1,밖이 많이 추워요.,Draußen ist es sehr kalt.,It's very cold outside.,'밖에 날씨가'는 어색하고 밖에(only)와 혼동; 밖이로.
+vocab_a1_0380,KEEP,,,,,자연스러움.
+vocab_a1_0381,KEEP,,,,,자연스러움.
+vocab_a1_0382,FIX_DE,T1,,Ich schaue mir den Wetterbericht an und suche mir Kleidung aus.,,DE 'wähle die Kleidung' hölzern.
+vocab_a1_0383,FIX_DE,T1,,"Es war ein Schauer vorhergesagt, deshalb habe ich eine Regenjacke eingepackt.",,Präteritum 'packte' unnatürlich gesprochen; Perfekt.
+vocab_a1_0384,KEEP,,,,,자연스러움.
+vocab_a1_0385,FIX_DE,T1,,Nachts habe ich dicke Kleidung angezogen.,,Präteritum im Gespräch; Perfekt.
+vocab_a1_0386,FIX_DE,T6,,"Im Frühling ist der Unterschied zwischen Tag und Nacht groß, deshalb brauche ich eine Jacke.",,Temperaturunterschied ohne Tag/Nacht unvollständig.
+vocab_a1_0387,FIX_KO,N1,오늘은 날씨가 정말 습해요.,Heute ist es wirklich schwül.,It's really humid today.,습해서 창문을 연다는 논리가 부자연스러움; DE feucht/schwül 불일치도 정리.
+vocab_a1_0388,FIX_DE,T1,,"Weil es am Morgen kühl war, habe ich mir einen Schal umgelegt.",,Präteritum 'wickelte' schriftsprachlich.
+vocab_a1_0389,FIX_DE+FIX_EN,T1,,Für den Nachmittag ist heiteres Wetter vorhergesagt.,The forecast says clear skies this afternoon.,'Vorhersage ist heiter' unnatürlich.
+vocab_a1_0390,FIX_DE,T1,,Der Schauer zieht wohl gleich vorüber.,,'scheint vorüberzuziehen' steif.
+vocab_a1_0391,FIX_DE+FIX_EN,T1,,"Wenn der Temperaturunterschied groß ist, ziehe ich mich nach dem Zwiebelprinzip an.","When temperatures swing a lot, I dress in layers.",'Kleidung in Lagen tragen' Calque; Zwiebelprinzip.
+vocab_a2_0023,KEEP,,,,,자연스러움.
+vocab_a2_0024,KEEP,,,,,자연스러움.
+vocab_a2_0121,KEEP,,,,,자연스러움.
+vocab_a2_0122,FIX_KO,L3,사장님이 새 근무 시간을 설명해 주셨어요.,Der Chef hat mir die neuen Arbeitszeiten erklärt.,The boss explained the new work hours to me.,7어절 > A2 상한 6; '오늘' 삭제.
+vocab_a2_0124,KEEP,,,,,자연스러움.
+vocab_a2_0125,KEEP,,,,,자연스러움.
+vocab_a2_0126,KEEP,,,,,자연스러움.
+vocab_a2_0127,KEEP,,,,,자연스러움.
+vocab_a2_0128,KEEP,,,,,자연스러움.

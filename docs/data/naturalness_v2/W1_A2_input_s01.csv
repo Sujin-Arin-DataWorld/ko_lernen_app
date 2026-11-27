@@ -1,0 +1,131 @@
+id,korean,nikl_grade,pos_de,pack_id,topic,german,english,example_korean,example_german,example_english
+vocab_a2_0257,열리다,2,Verb,a2_change_verbs_1,Zustandsverben,sich öffnen,to be opened,문이 저절로 열렸어요.,Die Tür öffnete sich von selbst.,The door opened by itself.
+vocab_a2_0258,닫히다,3,Verb,a2_change_verbs_1,Zustandsverben,sich schließen,to be closed,바람에 창문이 닫혔어요.,Der Wind hat das Fenster zugedrückt.,The wind blew the window shut.
+vocab_a2_0259,켜지다,1,Verb,a2_change_verbs_1,Zustandsverben,angehen (Licht),to be turned on,불이 자동으로 켜져요.,Das Licht geht automatisch an.,The light turns on automatically.
+vocab_a2_0260,꺼지다,3,Verb,a2_change_verbs_1,Zustandsverben,ausgehen (Licht),to be turned off,갑자기 불이 꺼졌어요.,Plötzlich ging das Licht aus.,The light suddenly went out.
+vocab_a2_0261,떨어지다,2,Verb,a2_change_verbs_1,Zustandsverben,herunterfallen,to fall,책이 책상에서 떨어졌어요.,Das Buch fiel vom Tisch.,The book fell off the desk.
+vocab_a2_0262,남다,2,Verb,a2_change_verbs_1,Zustandsverben,übrig bleiben,to remain,음식이 많이 남았어요.,Es ist viel Essen übrig geblieben.,A lot of food was left over.
+vocab_a2_0263,붙다,2,Verb,a2_change_verbs_1,Zustandsverben,kleben (haften),to stick,벽에 포스터가 붙어 있어요.,An der Wand klebt ein Poster.,A poster is stuck on the wall.
+vocab_a2_0264,걸리다,1,Verb,a2_change_verbs_1,Zustandsverben,hängen (dauern),to hang,벽에 그림이 걸려 있어요.,An der Wand hängt ein Bild.,A picture hangs on the wall.
+vocab_a2_0265,빼다,2,Verb,a2_change_verbs_1,Zustandsverben,herausziehen,to take out,가방에서 책을 뺐어요.,Ich habe das Buch aus der Tasche genommen.,I took the book out of the bag.
+vocab_a2_0266,세우다,2,Verb,a2_change_verbs_1,Zustandsverben,aufstellen (parken),to park,차를 여기에 세워 주세요.,Stellen Sie das Auto bitte hier ab.,Please park the car here.
+vocab_a2_0267,나가다,1,Verb,a2_change_verbs_1,Zustandsverben,hinausgehen,to go out,잠깐 밖에 나갔다 올게요.,Ich gehe kurz raus und komme wieder.,I will step out for a moment.
+vocab_a2_0268,나오다,1,Verb,a2_change_verbs_1,Zustandsverben,herauskommen,to come out,회의가 끝나고 방에서 나왔어요.,Nach der Sitzung kam ich aus dem Raum.,I came out of the room after the meeting.
+vocab_a2_0161,코트,3,Nomen,a2_clothing_1,Kleidung,Mantel,coat,겨울에는 코트를 입어요.,Im Winter trage ich einen Mantel.,I wear a coat in winter.
+vocab_a2_0162,치마,1,Nomen,a2_clothing_1,Kleidung,Rock,skirt,오늘은 치마를 입었어요.,Heute trage ich einen Rock.,I am wearing a skirt today.
+vocab_a2_0163,원피스,2,Nomen,a2_clothing_1,Kleidung,Kleid,dress,파티에 원피스를 입고 갔어요.,Ich bin im Kleid zur Party gegangen.,I went to the party in a dress.
+vocab_a2_0164,양복,2,Nomen,a2_clothing_1,Kleidung,Anzug,suit,아버지는 양복을 입고 출근해요.,Mein Vater geht im Anzug zur Arbeit.,My father goes to work in a suit.
+vocab_a2_0165,구두,1,Nomen,a2_clothing_1,Kleidung,Lederschuhe,dress shoes,새 구두가 조금 작아요.,Die neuen Schuhe sind etwas klein.,The new shoes are a bit small.
+vocab_a2_0166,양말,2,Nomen,a2_clothing_1,Kleidung,Socken,socks,따뜻한 양말을 신었어요.,Ich habe warme Socken angezogen.,I put on warm socks.
+vocab_a2_0167,장갑,2,Nomen,a2_clothing_1,Kleidung,Handschuhe,gloves,장갑을 어디에 뒀지요?,Wo habe ich meine Handschuhe hingelegt?,Where did I put my gloves?
+vocab_a2_0168,목도리,2,Nomen,a2_clothing_1,Kleidung,Schal,scarf,할머니가 목도리를 떠 주셨어요.,Meine Oma hat mir einen Schal gestrickt.,My grandma knitted me a scarf.
+vocab_a2_0169,반지,2,Nomen,a2_clothing_1,Kleidung,Ring,ring,예쁜 반지를 선물 받았어요.,Ich habe einen schönen Ring geschenkt bekommen.,I received a pretty ring as a gift.
+vocab_a2_0170,귀걸이,2,Nomen,a2_clothing_1,Kleidung,Ohrringe,earrings,새 귀걸이를 하고 나갔어요.,Ich bin mit neuen Ohrringen ausgegangen.,I went out wearing new earrings.
+vocab_a2_0171,넥타이,2,Nomen,a2_clothing_1,Kleidung,Krawatte,necktie,파란 넥타이가 잘 어울려요.,Die blaue Krawatte steht dir gut.,The blue tie suits you well.
+vocab_a2_0172,배낭,3,Nomen,a2_clothing_1,Kleidung,Rucksack,backpack,배낭을 메고 여행을 떠났어요.,Mit dem Rucksack bin ich auf Reisen gegangen.,I went traveling with a backpack.
+vocab_a2_0014,은행,1,Nomen,a2_daily_1,Alltag,Bank,bank,은행이 몇 시까지 열어요?,Bis wie viel Uhr hat die Bank geöffnet?,How late is the bank open?
+vocab_a2_0032,지갑,1,Nomen,a2_daily_1,Alltag,Geldbörse / Portemonnaie,wallet / purse,"아, 지갑을 집에 두고 왔어요.","Ach, ich habe meine Geldbörse zu Hause gelassen.","Oh no, I left my wallet at home."
+vocab_a2_0033,열쇠,1,Nomen,a2_daily_1,Alltag,Schlüssel,key,열쇠를 잃어버렸어요.,Ich habe den Schlüssel verloren.,I lost the key.
+vocab_a2_0045,쉬다,1,Verb,a2_daily_1,Alltag,sich ausruhen,to rest,오늘은 그냥 집에서 쉴래요.,Heute möchte ich mich einfach zu Hause ausruhen.,Today I just want to rest at home.
+vocab_a2_0046,기억하다,2,Verb,a2_daily_1,Alltag,sich erinnern,to remember,이름이 기억이 안 나요.,Ich kann mich nicht an den Namen erinnern.,I can't remember the name.
+vocab_a2_0050,찾다,1,Verb,a2_daily_1,Alltag,suchen / finden,to look for / to find,지금 열쇠를 찾고 있어요.,Ich suche gerade den Schlüssel.,I'm looking for the key right now.
+vocab_a2_0051,만들다,1,Verb,a2_daily_1,Alltag,machen / herstellen,to make,친구 생일에 케이크를 만들었어요.,Ich habe zum Geburtstag meines Freundes einen Kuchen gemacht.,I made a cake for my friend's birthday.
+vocab_a2_0054,잃어버리다,2,Verb,a2_daily_1,Alltag,verlieren,to lose,지갑을 잃어버려서 큰일 났어요.,"Ich habe meine Geldbörse verloren, jetzt habe ich ein großes Problem.","I lost my wallet, and now I'm in big trouble."
+vocab_a1_0332,늦잠,3,Nomen,a2_daily_1,Wochenendzusage,Ausschlafen,sleeping in,일요일에는 늦잠을 자고 싶어요.,Am Sonntag möchte ich ausschlafen.,On Sunday I want to sleep in.
+vocab_a2_0055,바꾸다,1,Verb,a2_daily_2,Alltag,wechseln / ändern / tauschen,to change / to swap,이거 다른 걸로 바꿀 수 있어요?,Kann ich das gegen etwas anderes umtauschen?,Can I exchange this for something else?
+vocab_a2_0061,바쁘다,1,Adjektiv,a2_daily_2,Alltag,beschäftigt (sein),to be busy,요즘 회사 일 때문에 좀 바빠요.,Zurzeit bin ich wegen der Arbeit ziemlich beschäftigt.,I'm pretty busy with work these days.
+vocab_a2_0080,정말,1,Adverb,a2_daily_2,Alltag,wirklich / tatsächlich,really / truly,이거 정말 맛있네요.,Das ist wirklich lecker!,It's really delicious!
+vocab_a2_0081,너무,1,Adverb,a2_daily_2,Alltag,zu sehr / sehr,too / very,오늘 너무 덥지 않아요?,Ist es heute nicht zu heiß?,Isn't it too hot today?
+vocab_a2_0082,조금,1,Adverb,a2_daily_2,Alltag,ein bisschen / etwas,a little / a bit,조금만 더 주세요.,Noch ein bisschen mehr bitte.,"A little more, please."
+vocab_a2_0083,많이,1,Adverb,a2_daily_2,Alltag,viel / sehr,a lot / much,오늘 진짜 많이 먹었어요.,Heute habe ich echt viel gegessen.,I ate so much today.
+vocab_a2_0084,혼자,1,Adverb,a2_daily_2,Alltag,alleine,alone,저 혼자 살고 있어요.,Ich wohne alleine.,I live alone.
+vocab_a2_0085,같이,1,Adverb,a2_daily_2,Alltag,zusammen / gemeinsam,together,우리 같이 갈까요?,Sollen wir zusammen gehen?,Shall we go together?
+vocab_a2_0086,또,1,Adverb,a2_daily_3,Alltag,auch / wieder / nochmal,again / also,저 사람 또 왔네요.,Diese Person ist ja schon wieder da.,That person is here again.
+vocab_a2_0129,일어나다,1,Verb,a2_daily_3,Alltag,aufstehen / aufwachen,to get up / to wake up,요즘 아침에 일찍 일어나기 힘들어요.,"Zurzeit fällt es mir schwer, morgens früh aufzustehen.",Lately it's hard for me to get up early in the morning.
+vocab_a2_0130,씻다,1,Verb,a2_daily_3,Alltag,sich waschen / putzen,to wash (oneself),자기 전에 꼭 씻어요.,Vor dem Schlafen wasche ich mich immer.,I always wash up before bed.
+vocab_a2_0131,화장하다,3,Verb,a2_daily_3,Alltag,Make-up auflegen,to put on makeup,저는 화장을 잘 안 해요.,Ich schminke mich kaum.,I don't really wear makeup.
+vocab_a2_0132,빨래하다,2,Verb,a2_daily_3,Alltag,Wäsche waschen,to do laundry,주말마다 빨래해요.,Jedes Wochenende mache ich Wäsche.,I do laundry every weekend.
+vocab_a2_0133,청소하다,1,Verb,a2_daily_3,Alltag,putzen / sauber machen,to clean,오늘 방 청소 좀 해야겠어요.,Heute sollte ich mal mein Zimmer putzen.,I really need to clean my room today.
+vocab_a2_0134,정리하다,2,Verb,a2_daily_3,Alltag,aufräumen / ordnen,to tidy up / to organize,책상 좀 정리했어요.,Ich habe den Schreibtisch aufgeräumt.,I tidied up the desk.
+vocab_a2_0135,설거지하다,2,Verb,a2_daily_3,Alltag,Geschirr spülen,to wash the dishes,밥 먹고 설거지는 제가 할게요.,Nach dem Essen übernehme ich den Abwasch.,I'll do the dishes after we eat.
+vocab_a2_0065,예쁘다,1,Adjektiv,a2_descriptions_1,Beschreibung,hübsch / schön (sein),to be pretty,이 옷 진짜 예뻐요.,Dieses Outfit ist echt hübsch.,This outfit is really pretty.
+vocab_a2_0066,재미있다,1,Adjektiv,a2_descriptions_1,Beschreibung,interessant / lustig (sein),to be interesting / fun,그 드라마 진짜 재미있어요.,Diese Serie ist wirklich unterhaltsam.,That drama is really fun.
+vocab_a2_0070,빠르다,1,Adjektiv,a2_descriptions_1,Beschreibung,schnell sein,to be fast,택시가 지하철보다 빨라요.,Das Taxi ist schneller als die U-Bahn.,A taxi is faster than the subway.
+vocab_a2_0071,느리다,2,Adjektiv,a2_descriptions_1,Beschreibung,langsam sein,to be slow,오늘따라 인터넷이 좀 느리네요.,Heute ist das Internet irgendwie langsam.,The internet is somehow slow today.
+vocab_a2_0072,무겁다,1,Adjektiv,a2_descriptions_1,Beschreibung,schwer sein,to be heavy,가방이 왜 이렇게 무거워요?,Warum ist die Tasche so schwer?,Why is this bag so heavy?
+vocab_a2_0073,가볍다,1,Adjektiv,a2_descriptions_1,Beschreibung,leicht sein,to be light,이 노트북 진짜 가벼워요.,Dieser Laptop ist echt leicht.,This laptop is really light.
+vocab_a2_0074,넓다,1,Adjektiv,a2_descriptions_1,Beschreibung,breit / geräumig sein,to be wide / spacious,새 집이 생각보다 넓어요.,"Die neue Wohnung ist geräumiger, als ich dachte.",The new place is more spacious than I expected.
+vocab_a2_0075,좁다,2,Adjektiv,a2_descriptions_1,Beschreibung,eng / schmal sein,to be narrow / cramped,여기 자리가 좀 좁네요.,Hier ist der Platz etwas eng.,The space here is a bit tight.
+vocab_a2_0111,가깝다,1,Adjektiv,a2_descriptions_2,Beschreibung,nah sein,to be near,집이랑 회사가 가까워서 좋아요.,"Es ist schön, dass meine Wohnung und die Firma so nah beieinander sind.",It's great that my home and work are so close.
+vocab_a2_0112,멀다,1,Adjektiv,a2_descriptions_2,Beschreibung,weit sein,to be far,집이 너무 멀어서 힘들어요.,"Meine Wohnung ist so weit weg, das ist echt anstrengend.","My place is so far away, it's exhausting."
+vocab_a2_0136,분홍색,2,Nomen,a2_descriptions_2,Farben,rosa,pink,분홍색이 정말 잘 어울리네요.,Das Rosa steht Ihnen wirklich gut.,That pink really suits you.
+vocab_a2_0137,보라색,2,Nomen,a2_descriptions_2,Farben,lila / violett,purple / violet,보라색 옷은 잘 안 입어요.,Lila Sachen trage ich eher selten.,I don't really wear purple.
+vocab_a2_0138,갈색,2,Nomen,a2_descriptions_2,Farben,braun,brown,저는 갈색 머리로 염색했어요.,Ich habe mir die Haare braun gefärbt.,I dyed my hair brown.
+vocab_a2_0139,회색,2,Nomen,a2_descriptions_2,Farben,grau,gray,오늘은 회색 코트 입을래요.,Heute ziehe ich den grauen Mantel an.,I'm going to wear my gray coat today.
+vocab_a2_0140,주황색,2,Nomen,a2_descriptions_2,Farben,orange,orange,가을엔 주황색이 예뻐요.,Im Herbst sieht Orange schön aus.,Orange looks pretty in the fall.
+vocab_a2_0501,하늘색,2,Nomen,a2_descriptions_2,Farben,Hellblau,sky blue,하늘색 셔츠가 잘 어울려요.,Das hellblaue Hemd steht dir gut.,The light blue shirt suits you.
+vocab_a2_0502,진하다,2,Adjektiv,a2_descriptions_2,Beschreibung,"kräftig, dunkel (Farbe); stark (Kaffee)",to be dark (color); to be strong (coffee),커피가 너무 진해요.,Der Kaffee ist zu stark.,The coffee is too strong.
+vocab_a2_0503,두껍다,2,Adjektiv,a2_descriptions_2,Beschreibung,dick,to be thick,코트가 두껍고 따뜻해요.,Der Mantel ist dick und warm.,The coat is thick and warm.
+vocab_a2_0020,시험,1,Nomen,a2_education,Bildung,Prüfung / Test,exam / test,다음 주에 시험이 있어서 걱정이에요.,"Ich mache mir Sorgen, weil ich nächste Woche eine Prüfung habe.",I'm worried because I have an exam next week.
+vocab_a2_0021,숙제,1,Nomen,a2_education,Bildung,Hausaufgaben,homework,숙제 다 했어요?,Hast du deine Hausaufgaben schon gemacht?,Did you finish your homework?
+vocab_a2_0022,성적,2,Nomen,a2_education,Bildung,Noten / Ergebnis,grades / results,이번엔 성적이 좀 올랐어요.,Diesmal sind meine Noten etwas besser geworden.,My grades went up a bit this time.
+vocab_a2_0039,공부하다,1,Verb,a2_education,Bildung,lernen / studieren,to study / to learn,요즘 한국어를 공부하고 있어요.,Zurzeit lerne ich Koreanisch.,I'm studying Korean these days.
+vocab_a2_0047,이해하다,2,Verb,a2_education,Bildung,verstehen,to understand,무슨 말인지 이해했어요.,"Ich hab verstanden, was du meinst.",I understood what you meant.
+vocab_a2_0048,배우다,1,Verb,a2_education,Bildung,lernen / etwas Neues erlernen,to learn (something new),요즘 기타를 배우고 있어요.,Zurzeit lerne ich Gitarre.,I'm learning guitar these days.
+vocab_a2_0049,가르치다,1,Verb,a2_education,Bildung,lehren / unterrichten,to teach,저희 언니가 영어를 가르쳐요.,Meine ältere Schwester unterrichtet Englisch.,My older sister teaches English.
+vocab_a2_0477,학년,2,Nomen,a2_education,Bildung,Schuljahr; Studienjahr,"school year, grade",저는 지금 대학교 2학년이에요.,Ich bin jetzt im zweiten Studienjahr.,I'm in my second year of university now.
+vocab_a2_0478,복습,2,Nomen,a2_education,Bildung,Wiederholung (des Gelernten),review (of a lesson),수업 후에 꼭 복습을 해요.,Nach dem Unterricht wiederhole ich den Stoff auf jeden Fall.,I always review after class.
+vocab_a2_0479,예습,2,Nomen,a2_education,Bildung,Vorbereitung auf den Unterricht,preparation (before a lesson),내일 수업 예습은 벌써 끝냈어요.,Mit der Vorbereitung für den Unterricht morgen bin ich schon fertig.,I've already finished preparing for tomorrow's class.
+vocab_a2_0057,걱정하다,2,Verb,a2_feelings_1,Gefühle,sich sorgen / besorgt sein,to worry,너무 걱정하지 마세요.,Machen Sie sich nicht zu viele Sorgen.,Don't worry too much.
+vocab_a2_0062,피곤하다,1,Adjektiv,a2_feelings_1,Gefühle,müde (sein),to be tired,오늘따라 좀 피곤하네요.,Heute bin ich irgendwie etwas müde.,For some reason I'm a bit tired today.
+vocab_a2_0063,행복하다,2,Adjektiv,a2_feelings_1,Gefühle,glücklich (sein),to be happy,요즘 진짜 행복해요.,Zurzeit bin ich richtig glücklich.,I'm really happy these days.
+vocab_a2_0064,슬프다,1,Adjektiv,a2_feelings_1,Gefühle,traurig (sein),to be sad,그 얘기 들으니까 슬퍼요.,"Wenn ich das höre, werde ich traurig.",Hearing that makes me sad.
+vocab_a2_0067,무섭다,2,Adjektiv,a2_feelings_1,Gefühle,Angst einflößend / beängstigend,to be scary,그 영화 좀 무서웠어요.,Der Film war ziemlich gruselig.,That movie was pretty scary.
+vocab_a2_0078,그립다,2,Adjektiv,a2_feelings_1,Gefühle,vermissen / sich sehnen,to miss / to long for,요즘 고향이 많이 그리워요.,Zurzeit vermisse ich meine Heimat sehr.,I really miss my hometown these days.
+vocab_a2_0079,외롭다,2,Adjektiv,a2_feelings_1,Gefühle,einsam sein,to be lonely,저는 혼자 살 때 가끔 외로워요.,"Ich fühle mich manchmal einsam, wenn ich allein wohne.",I sometimes feel lonely when I live alone.
+vocab_a2_0113,화나다,2,Verb,a2_feelings_1,Gefühle,wütend werden,to get angry,그 말 듣고 진짜 화났어요.,"Als ich das gehört habe, war ich richtig sauer.",I got really mad when I heard that.
+vocab_a2_0114,부끄럽다,2,Adjektiv,a2_feelings_2,Gefühle,sich schämen / schüchtern sein,to be embarrassed / shy,생각만 해도 부끄러워요.,Schon beim Gedanken daran ist es mir peinlich.,I get embarrassed just thinking about it.
+vocab_a2_0115,놀라다,2,Verb,a2_feelings_2,Gefühle,überrascht sein / sich erschrecken,to be surprised / startled,깜짝 놀랐어요!,Ich bin total erschrocken!,I was so startled!
+vocab_a2_0116,기쁘다,1,Adjektiv,a2_feelings_2,Gefühle,sich freuen / froh sein,to be glad / joyful,합격했다니 정말 기뻐요.,"Ich freue mich wirklich, dass Sie bestanden haben.",I'm so happy to hear you passed.
+vocab_a2_0117,답답하다,2,Adjektiv,a2_feelings_2,Gefühle,beklemmend / frustrierend sein,to feel stifled / frustrated,말이 안 통해서 답답해요.,"Es ist so frustrierend, dass wir uns nicht verständigen können.",It's so frustrating that we can't communicate.
+vocab_a2_0118,신나다,3,Verb,a2_feelings_2,Gefühle,aufgeregt sein / freudig erregt,to be excited,내일 여행 가서 진짜 신나요.,Ich freue mich riesig auf die Reise morgen.,I'm so excited about my trip tomorrow.
+vocab_a2_0119,지루하다,2,Adjektiv,a2_feelings_2,Gefühle,langweilig sein,to be boring,그 영화 좀 지루하지 않았어요?,War der Film nicht etwas langweilig?,Wasn't that movie a bit boring?
+vocab_a2_0120,긴장하다,2,Verb,a2_feelings_2,Gefühle,nervös / angespannt sein,to be nervous / tense,면접 앞두고 좀 긴장돼요.,Vor dem Vorstellungsgespräch bin ich etwas nervös.,I'm a little nervous about the upcoming interview.
+vocab_a2_0492,심심하다,2,Adjektiv,a2_feelings_2,Gefühle,sich langweilen,to be bored,주말에 혼자 있으니까 심심해요.,"Am Wochenende bin ich allein, deshalb ist mir langweilig.","I'm alone on the weekend, so I'm bored."
+vocab_a2_0493,편하다,2,Adjektiv,a2_feelings_2,Gefühle,bequem; angenehm,to be comfortable,이 신발은 정말 편해요.,Diese Schuhe sind wirklich bequem.,These shoes are really comfortable.
+vocab_a2_0494,즐겁다,2,Adjektiv,a2_feelings_2,Gefühle,"vergnüglich, fröhlich",to be enjoyable,오늘 하루가 정말 즐거웠어요.,Heute war ein wirklich schöner Tag.,Today was really enjoyable.
+vocab_a2_0012,식당,1,Nomen,a2_food_1,Essen & Trinken,Restaurant,restaurant,이 근처에 맛있는 식당 있어요?,Gibt es hier in der Nähe ein gutes Restaurant?,Is there a good restaurant around here?
+vocab_a2_0042,요리하다,1,Verb,a2_food_1,Essen & Trinken,kochen,to cook,저는 주말에 요리하는 걸 좋아해요.,Ich koche am Wochenende gern.,I like cooking on weekends.
+vocab_a2_0076,달다,1,Adjektiv,a2_food_1,Essen & Trinken,süß sein,to be sweet,이 케이크 너무 달아요.,Dieser Kuchen ist zu süß.,This cake is too sweet.
+vocab_a2_0077,맵다,1,Adjektiv,a2_food_1,Essen & Trinken,scharf sein,to be spicy,"아, 김치 진짜 맵네요.","Oh, das Kimchi ist echt scharf!","Wow, this kimchi is really spicy!"
+vocab_a2_0087,주문하다,2,Verb,a2_food_1,Essen & Trinken,bestellen,to order,저희 아직 주문 안 했어요.,Wir haben noch nicht bestellt.,We haven't ordered yet.
+vocab_a2_0088,메뉴판,3,Nomen,a2_food_1,Essen & Trinken,Speisekarte,menu,메뉴판 좀 볼 수 있을까요?,Könnte ich bitte die Speisekarte sehen?,"Could I see the menu, please?"
+vocab_a2_0089,추천하다,3,Verb,a2_food_1,Essen & Trinken,empfehlen,to recommend,여기서 뭐를 추천하세요?,Was empfehlen Sie hier?,What do you recommend here?
+vocab_a2_0480,국,2,Nomen,a2_food_1,Essen & Trinken,Suppe,soup,국이 좀 식었네요.,Die Suppe ist etwas kalt geworden.,The soup has gotten a bit cold.
+vocab_a2_0481,접시,2,Nomen,a2_food_1,Essen & Trinken,Teller,plate,접시 하나만 더 주세요.,Bitte noch einen Teller.,"One more plate, please."
+vocab_a2_0482,설탕,2,Nomen,a2_food_1,Essen & Trinken,Zucker,sugar,커피에 설탕은 안 넣어요.,In den Kaffee tue ich keinen Zucker.,I don't put sugar in my coffee.
+vocab_a2_0090,맛,1,Nomen,a2_food_2,Essen & Trinken,Geschmack,taste / flavor,이 집 김치찌개는 맛이 정말 좋아요.,Der Kimchi-Eintopf hier schmeckt wirklich gut.,The kimchi stew here tastes really good.
+vocab_a2_0091,짜다,1,Adjektiv,a2_food_2,Essen & Trinken,salzig sein,to be salty,국이 좀 짜네요.,Die Suppe ist etwas salzig.,The soup is a bit salty.
+vocab_a2_0092,시다,1,Adjektiv,a2_food_2,Essen & Trinken,sauer sein,to be sour,이 귤 좀 셔요.,Diese Mandarine ist etwas sauer.,This tangerine is a bit sour.
+vocab_a2_0093,싱겁다,1,Adjektiv,a2_food_2,Essen & Trinken,fade / wenig gewürzt sein,to be bland,국이 좀 싱거워요.,Die Suppe ist etwas fade.,The soup is a bit bland.
+vocab_a2_0094,포장하다,2,Verb,a2_food_2,Essen & Trinken,zum Mitnehmen / verpacken,to pack / to take away,이거 포장해 주세요.,Packen Sie mir das bitte zum Mitnehmen ein.,"Can I get this to go, please?"
+vocab_a2_0095,배달,2,Nomen,a2_food_2,Essen & Trinken,Lieferdienst / Lieferung,delivery service,오늘 저녁은 그냥 배달시켜요.,Bestellen wir heute Abend einfach beim Lieferdienst.,Let's just get delivery tonight.
+vocab_a2_0096,매콤하다,5,Adjektiv,a2_food_2,Essen & Trinken,leicht scharf sein,to be mildly spicy,이 떡볶이 딱 매콤해요.,Dieses Tteokbokki ist genau richtig scharf.,This tteokbokki is just the right amount of spicy.
+vocab_a2_0483,끓이다,2,Verb,a2_food_2,Essen & Trinken,"kochen (Wasser, Suppe)",to boil,물을 끓여서 차를 마셔요.,Ich koche Wasser und trinke Tee.,I boil water and drink tea.
+vocab_a2_0484,볶다,2,Verb,a2_food_2,Essen & Trinken,"anbraten, pfannenrühren",to stir-fry,고기를 먼저 볶으세요.,Braten Sie zuerst das Fleisch an.,Stir-fry the meat first.
+vocab_a2_0485,굽다,2,Verb,a2_food_2,Essen & Trinken,grillen; backen,"to grill, to bake",저는 생선은 구워 먹는 게 제일 좋아요.,Ich esse Fisch am liebsten gegrillt.,I like fish best grilled.
+vocab_a2_0209,야채,2,Nomen,a2_food_more_1,Essen & Zutaten,Gemüse,vegetables,저는 야채를 많이 먹어요.,Ich esse viel Gemüse.,I eat a lot of vegetables.
+vocab_a2_0210,수박,1,Nomen,a2_food_more_1,Essen & Zutaten,Wassermelone,watermelon,여름에는 수박이 최고예요.,Im Sommer ist Wassermelone das Beste.,Watermelon is the best in summer.
+vocab_a2_0211,배,1,Nomen,a2_food_more_1,Essen & Zutaten,Birne,pear,이 배는 크고 달아요.,Diese Birne ist groß und süß.,This pear is big and sweet.
+vocab_a2_0212,딸기,1,Nomen,a2_food_more_1,Essen & Zutaten,Erdbeere,strawberry,딸기 케이크를 좋아해요.,Ich mag Erdbeerkuchen.,I like strawberry cake.
+vocab_a2_0213,쇠고기,3,Nomen,a2_food_more_1,Essen & Zutaten,Rindfleisch,beef,쇠고기로 국을 끓였어요.,Ich habe Suppe mit Rindfleisch gekocht.,I made soup with beef.
+vocab_a2_0214,돼지고기,2,Nomen,a2_food_more_1,Essen & Zutaten,Schweinefleisch,pork,돼지고기를 구워 먹어요.,Ich grille Schweinefleisch.,I grill pork.
+vocab_a2_0215,불고기,1,Nomen,a2_food_more_1,Essen & Zutaten,Bulgogi,bulgogi,저녁에 불고기를 만들어요.,Zum Abendessen mache ich Bulgogi.,I am making bulgogi for dinner.
+vocab_a2_0216,비빔밥,1,Nomen,a2_food_more_1,Essen & Zutaten,Bibimbap,bibimbap,비빔밥에는 나물이 들어가요.,In Bibimbap kommen Gemüsebeilagen.,Bibimbap contains seasoned vegetables.
+vocab_a2_0217,냉면,1,Nomen,a2_food_more_1,Essen & Zutaten,kalte Nudeln,cold noodles,여름에 냉면을 자주 먹어요.,Im Sommer esse ich oft kalte Nudeln.,I often eat cold noodles in summer.
+vocab_a2_0218,땅콩,4,Nomen,a2_food_more_1,Essen & Zutaten,Erdnuss,peanut,땅콩 알레르기가 있어요?,Haben Sie eine Erdnussallergie?,Do you have a peanut allergy?
+vocab_a2_0219,잼,3,Nomen,a2_food_more_1,Essen & Zutaten,Marmelade,jam,빵에 딸기 잼을 발랐어요.,Ich habe Erdbeermarmelade aufs Brot gestrichen.,I spread strawberry jam on the bread.
+vocab_a2_0220,밀가루,2,Nomen,a2_food_more_1,Essen & Zutaten,Mehl,flour,밀가루로 빵을 만들어요.,Aus Mehl macht man Brot.,Bread is made from flour.
+vocab_a2_0389,헬스장,2,Nomen,a2_gym_class_1,Fitnesskurs,Fitnessstudio,gym,퇴근 후에 헬스장에 가요.,Nach der Arbeit gehe ich ins Fitnessstudio.,After work I go to the gym.
+vocab_a2_0390,운동복,2,Nomen,a2_gym_class_1,Fitnesskurs,Sportkleidung,workout clothes,운동복을 락커에 넣어 두어요.,Ich lasse die Sportkleidung im Spind.,I leave the workout clothes in the locker.
+vocab_a2_0391,러닝머신,2,Nomen,a2_gym_class_1,Fitnesskurs,Laufband,treadmill,러닝머신에서 십 분을 걸어요.,Auf dem Laufband gehe ich zehn Minuten.,I walk ten minutes on the treadmill.
