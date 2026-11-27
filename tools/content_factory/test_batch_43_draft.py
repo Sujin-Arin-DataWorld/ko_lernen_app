@@ -124,31 +124,38 @@ class TestBatch43DraftState(unittest.TestCase):
         for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON, PACKET_MD):
             self.assertTrue(path.exists(), path)
 
-    def test_manifest_is_draft_and_unapproved(self):
+    def test_manifest_is_merged_and_approved(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
         m = load_json(MANIFEST_JSON)
-        self.assertEqual(m["status"], "draft")
-        self.assertEqual(m["provenance"]["approval"], {})
-        self.assertFalse(m["promotion"]["assetsDataWritten"])
-        self.assertFalse(m["promotion"]["runtime"])
+        self.assertEqual(m["status"], "merged")
+        self.assertEqual(m["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(m["promotion"]["assetsDataWritten"])
+        self.assertTrue(m["promotion"]["runtime"])
         self.assertEqual(m["recordCount"], 3 * N_ROWS)
-
-    def test_ledgers_pending_and_match_ids(self):
+    def test_ledgers_approved_and_match_ids(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
         m = load_json(MANIFEST_JSON)
         for art in m["artifacts"]:
             ledger = load_rows(REPO_ROOT / art["review"])
-            self.assertEqual({r["상태"] for r in ledger}, {"pending"})
-            self.assertEqual({r["jin_memo"] for r in ledger}, {""})
+            self.assertEqual({r["상태"] for r in ledger}, {"approved"})
+            self.assertTrue(all(r["jin_memo"].startswith("Jin 승인 2026-11-27") for r in ledger))
             ids = [r["id"] for r in (load_rows(REPO_ROOT / art["draft"]) if art["kind"] == "vocab"
                                      else load_json(REPO_ROOT / art["draft"])["items"])]
             self.assertEqual([r["id"] for r in ledger], ids)
-
-    def test_no_headword_is_live_yet(self):
-        live = {r["korean"] for r in load_rows(VOCAB_CSV)}
+    def test_every_headword_is_live_once_with_matching_row(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
+        live = load_rows(VOCAB_CSV)
+        counts = Counter(r["korean"] for r in live)
+        by_id = {r["id"]: r for r in live}
         for row in load_rows(ROWS_CSV):
-            self.assertNotIn(row["korean"], live, row["id"])
-
+            self.assertEqual(counts[row["korean"]], 1, row["id"])
+            self.assertEqual(by_id.get(row["id"]), row, row["id"])
     def test_gap_arithmetic(self):
-        live = {r["korean"] for r in load_rows(VOCAB_CSV)}
+        # Post-promotion: the pre-batch live set excludes this batch's rows and
+        # the Batch 44/45 rows promoted with it (some share grade-3 homographs).
+        own_ids = {r["id"] for name in ("batch_43_b1_rows.csv", "batch_44_c1_rows.csv", "batch_45_a2_rows.csv")
+                   for r in load_rows(ROWS_CSV.parent / name)}
+        live = {r["korean"] for r in load_rows(VOCAB_CSV) if r["id"] not in own_ids}
         with R.NIKL_VOCAB_CSV.open(encoding="utf-8-sig", newline="") as f:
             g3 = {r["headword"] for r in csv.DictReader(f)
                   if r["grade"] == "3" and not r["headword"].startswith("-") and not r["headword"].endswith("-")}
@@ -160,14 +167,18 @@ class TestBatch43DraftState(unittest.TestCase):
         self.assertEqual(gap["missingAfter"], len(g3 - live - own))
 
     def test_generator_reproduces_checked_in_artifacts(self):
+        # Post-promotion: compare what promotion does not rewrite -- the rows
+        # and packet byte-for-byte, cloze/satz without the injected courseUnitId.
         with tempfile.TemporaryDirectory() as tmp:
             subprocess.run([sys.executable, str(GENERATOR), "--output-root", tmp], check=True,
                            capture_output=True, env={**os.environ, "PYTHONIOENCODING": "utf-8"})
-            for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON, PACKET_MD,
-                         REVIEW / "batch_43_b1_vocab_review.csv", REVIEW / "batch_43_b1_cloze_review.csv",
-                         REVIEW / "batch_43_b1_satz_review.csv"):
+            for path in (ROWS_CSV, PACKET_MD):
                 rel = path.relative_to(REPO_ROOT)
                 self.assertEqual((Path(tmp) / rel).read_bytes(), path.read_bytes(), f"drift: {rel}")
+            for path in (CLOZE_JSON, SATZ_JSON):
+                rel = path.relative_to(REPO_ROOT)
+                strip = [{k: v for k, v in i.items() if k != "courseUnitId"} for i in load_json(path)["items"]]
+                self.assertEqual(load_json(Path(tmp) / rel)["items"], strip, f"drift: {rel}")
 
 
 class TestBatch43Rows(unittest.TestCase):
@@ -189,7 +200,8 @@ class TestBatch43Rows(unittest.TestCase):
             live_src = {"vocab_b1_": [r["id"] for r in self.live],
                         "cloze_b1_": [c["id"] for c in load_json(REPO_ROOT / "assets/data/cloze.json")["items"]],
                         "satz_b1_": [s["id"] for s in load_json(REPO_ROOT / "assets/data/satz_sentences.json")["items"]]}[prefix]
-            live_max = max(int(i.rsplit("_", 1)[1]) for i in live_src if i.startswith(prefix))
+            # Post-promotion baseline: this batch's own lowest id - 1.
+            live_max = min(int(it["id"].rsplit("_", 1)[1]) for it in items) - 1
             nums = [int(it["id"].rsplit("_", 1)[1]) for it in items]
             self.assertEqual(nums, list(range(live_max + 1, live_max + 1 + N_ROWS)), prefix)
 
@@ -200,8 +212,10 @@ class TestBatch43Rows(unittest.TestCase):
             self.assertEqual(lex.word_grade(row["korean"]).grade, 3, row["korean"])
 
     def test_pack_slots_free_and_boss_convention(self):
-        live_slots = {(r["pack_id"], r["pack_order"]) for r in self.live}
-        live_packs = {r["pack_id"] for r in self.live}
+        own = {r["id"] for r in self.rows}
+        prior = [r for r in self.live if r["id"] not in own]
+        live_slots = {(r["pack_id"], r["pack_order"]) for r in prior}
+        live_packs = {r["pack_id"] for r in prior}
         for row in self.rows:
             self.assertNotIn((row["pack_id"], row["pack_order"]), live_slots, row["id"])
             self.assertEqual(row["pack_id"] in NEW_PACKS, row["pack_id"] not in live_packs, row["id"])

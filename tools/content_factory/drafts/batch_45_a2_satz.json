@@ -11,7 +11,8 @@
       ],
       "promptDe": "Wenn der Regen aufhört, gehen wir spazieren.",
       "promptEn": "When the rain stops, let's go for a walk.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0767",
@@ -24,7 +25,8 @@
       ],
       "promptDe": "Jetzt im Herbst ist das Wetter angenehm kühl.",
       "promptEn": "Now that it's autumn, the weather is pleasantly cool.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0768",
@@ -37,7 +39,8 @@
       ],
       "promptDe": "Es ist so kalt, dass die Straße vereist ist.",
       "promptEn": "It's so cold that the road has frozen.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0769",
@@ -50,7 +53,8 @@
       ],
       "promptDe": "Als ich nachts in den Himmel sah, waren da viele Sterne.",
       "promptEn": "Looking up at the night sky, I saw lots of stars.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0770",
@@ -63,7 +67,8 @@
       ],
       "promptDe": "Im Herbst bin ich mit Freunden in die Berge gefahren, um das Herbstlaub zu sehen.",
       "promptEn": "In autumn I went to the mountains with friends to see the autumn leaves.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0771",
@@ -76,7 +81,8 @@
       ],
       "promptDe": "In Korea gibt es vier Jahreszeiten, deshalb ist das Wetter in jeder Jahreszeit anders.",
       "promptEn": "Korea has four seasons, so the weather is different in each one.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0772",
@@ -89,7 +95,8 @@
       ],
       "promptDe": "Unser Hund geht sehr gern spazieren.",
       "promptEn": "Our puppy loves going for walks.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0773",
@@ -102,7 +109,8 @@
       ],
       "promptDe": "Ich mag Tiere, deshalb habe ich zwei Katzen.",
       "promptEn": "I like animals, so I have two cats.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0774",
@@ -115,7 +123,8 @@
       ],
       "promptDe": "Mein Großvater hält auf dem Land Schweine.",
       "promptEn": "My grandfather raises pigs in the countryside.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0775",
@@ -128,7 +137,8 @@
       ],
       "promptDe": "Als ich aufs Land kam, fraß gerade eine Kuh Gras.",
       "promptEn": "When I went to the countryside, a cow was eating grass.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0776",
@@ -141,7 +151,8 @@
       ],
       "promptDe": "Jeden Morgen kräht der Hahn, deshalb stehe ich früh auf.",
       "promptEn": "The rooster crows every morning, so I get up early.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0777",
@@ -154,20 +165,22 @@
       ],
       "promptDe": "Auf dem Berg habe ich eine Schlange gesehen und mich furchtbar erschrocken.",
       "promptEn": "I saw a snake on the mountain and got a big fright.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0778",
       "sourceVocabId": "vocab_a2_0786",
       "vocabKo": "강",
-      "targetKo": "주말에 강 옆에서 자전거를 탔어요.",
+      "targetKo": "주말에 강에 가서 사진을 찍었어요.",
       "distractors": [
-        "냉장고",
-        "침대"
+        "냉장고에",
+        "침대에"
       ],
-      "promptDe": "Am Wochenende bin ich am Fluss Fahrrad gefahren.",
-      "promptEn": "On the weekend I rode my bike by the river.",
-      "level": "a2"
+      "promptDe": "Am Wochenende bin ich zum Fluss gegangen und habe Fotos gemacht.",
+      "promptEn": "On the weekend I went to the river and took photos.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0779",
@@ -180,7 +193,8 @@
       ],
       "promptDe": "Der Apfel fiel vom Baum auf den Boden.",
       "promptEn": "The apple fell from the tree to the ground.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0780",
@@ -193,7 +207,8 @@
       ],
       "promptDe": "Auf dem Weg liegt ein großer Stein, da muss man aufpassen.",
       "promptEn": "There's a big rock on the path, so you have to be careful.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0781",
@@ -206,7 +221,8 @@
       ],
       "promptDe": "Ich möchte mich lieber in der Natur als in der Stadt erholen.",
       "promptEn": "I'd rather relax in nature than in the city.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0782",
@@ -219,7 +235,8 @@
       ],
       "promptDe": "Im Frühling habe ich im Garten einen Baum gepflanzt.",
       "promptEn": "In spring I planted a tree in the yard.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0783",
@@ -232,7 +249,8 @@
       ],
       "promptDe": "Der Baum, den ich letztes Jahr gepflanzt habe, ist stark gewachsen.",
       "promptEn": "The tree I planted last year has grown a lot.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "satz_a2_0784",
@@ -245,7 +263,8 @@
       ],
       "promptDe": "Zum Abendessen habe ich eine Suppe mit Kartoffeln gekocht.",
       "promptEn": "For dinner I made soup with potatoes.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0785",
@@ -258,7 +277,8 @@
       ],
       "promptDe": "Beim Filmschauen habe ich Knabberzeug gegessen.",
       "promptEn": "I ate snacks while watching a movie.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0786",
@@ -271,7 +291,8 @@
       ],
       "promptDe": "Jeden Morgen esse ich zwei Eier.",
       "promptEn": "I eat two eggs every morning.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0787",
@@ -284,7 +305,8 @@
       ],
       "promptDe": "Das Kind hat geweint, also habe ich ihm ein Bonbon gegeben.",
       "promptEn": "The child was crying, so I gave them a piece of candy.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0788",
@@ -297,7 +319,8 @@
       ],
       "promptDe": "Der Reis war alle, also habe ich im Supermarkt welchen gekauft.",
       "promptEn": "We ran out of rice, so I bought some at the supermarket.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0789",
@@ -310,7 +333,8 @@
       ],
       "promptDe": "Fleisch schmeckt gut, wenn man es in Salatblätter wickelt.",
       "promptEn": "Meat is tasty when you wrap it in lettuce.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0790",
@@ -323,7 +347,8 @@
       ],
       "promptDe": "Um Kimchi zu machen, habe ich auf dem Markt Chinakohl gekauft.",
       "promptEn": "I bought napa cabbage at the market to make kimchi.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0791",
@@ -336,7 +361,8 @@
       ],
       "promptDe": "Ich mag grünen Tee lieber als Kaffee.",
       "promptEn": "I like green tea more than coffee.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0792",
@@ -349,7 +375,8 @@
       ],
       "promptDe": "Zum Frühstück habe ich Toast mit Marmelade gegessen.",
       "promptEn": "For breakfast I had toast with jam.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0793",
@@ -362,7 +389,8 @@
       ],
       "promptDe": "Nach der Arbeit habe ich mit einem Freund ein kühles Bier getrunken.",
       "promptEn": "After work I had a cold beer with a friend.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0794",
@@ -375,7 +403,8 @@
       ],
       "promptDe": "In diesem Laden ist das Obst frisch, deshalb komme ich oft her.",
       "promptEn": "The fruit in this shop is fresh, so I come here often.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0795",
@@ -388,7 +417,8 @@
       ],
       "promptDe": "Essen Sie die Suppe schnell, bevor sie kalt wird.",
       "promptEn": "Please eat the soup quickly before it gets cold.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "satz_a2_0796",
@@ -401,7 +431,8 @@
       ],
       "promptDe": "Der Zug kommt gleich an, machen Sie sich bereit.",
       "promptEn": "The train is arriving soon, so get ready.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0797",
@@ -414,7 +445,8 @@
       ],
       "promptDe": "Warten Sie bitte kurz. Ich komme gleich.",
       "promptEn": "Please wait a moment. I'll be right there.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0798",
@@ -427,7 +459,8 @@
       ],
       "promptDe": "Es ist schon Dezember. Die Zeit vergeht wirklich schnell.",
       "promptEn": "It's already December. Time really flies.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0799",
@@ -440,7 +473,8 @@
       ],
       "promptDe": "Ich bin zum Restaurant gegangen, aber es hatte bereits geschlossen.",
       "promptEn": "I went to the restaurant, but it had already closed.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0800",
@@ -453,7 +487,8 @@
       ],
       "promptDe": "Ich bin gerade eben zu Hause angekommen.",
       "promptEn": "I just got home.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0801",
@@ -466,7 +501,8 @@
       ],
       "promptDe": "Das Kimbap, das ich vorhin gegessen habe, war wirklich lecker.",
       "promptEn": "The gimbap I ate earlier was really delicious.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0802",
@@ -479,7 +515,8 @@
       ],
       "promptDe": "Am Wochenende ist viel los, also reservieren Sie im Voraus.",
       "promptEn": "It's busy on weekends, so book in advance.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0803",
@@ -492,7 +529,8 @@
       ],
       "promptDe": "Das Wetter wird immer kälter.",
       "promptEn": "The weather is getting colder and colder.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0804",
@@ -505,7 +543,8 @@
       ],
       "promptDe": "In letzter Zeit verliere ich ständig meinen Regenschirm.",
       "promptEn": "Lately I keep losing my umbrella.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0805",
@@ -518,7 +557,8 @@
       ],
       "promptDe": "Ich kann überhaupt kein scharfes Essen essen.",
       "promptEn": "I can't eat spicy food at all.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0806",
@@ -531,7 +571,8 @@
       ],
       "promptDe": "Ich bin mit den Hausaufgaben fast fertig.",
       "promptEn": "I'm almost done with my homework.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0807",
@@ -544,7 +585,8 @@
       ],
       "promptDe": "Nach dem langen Warten auf den Bus taten mir die Beine weh.",
       "promptEn": "I waited a long time for the bus, so my legs hurt.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "satz_a2_0808",
@@ -557,7 +599,8 @@
       ],
       "promptDe": "Es sieht nach Regen aus, nehmen Sie einen Regenschirm mit.",
       "promptEn": "It looks like rain, so take an umbrella with you.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0809",
@@ -570,7 +613,8 @@
       ],
       "promptDe": "Bringen Sie morgen ein Wörterbuch zum Unterricht mit.",
       "promptEn": "Please bring a dictionary to class tomorrow.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0810",
@@ -583,7 +627,8 @@
       ],
       "promptDe": "Gehen Sie über die Straße, wenn die Ampel umschaltet.",
       "promptEn": "Cross the street when the light changes.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0811",
@@ -596,7 +641,8 @@
       ],
       "promptDe": "Die Schule ist nah, ich gehe täglich zu Fuß.",
       "promptEn": "School is close, so I walk there every day.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0812",
@@ -609,7 +655,8 @@
       ],
       "promptDe": "Der Aufzug war kaputt, deshalb bin ich die Treppe hinuntergegangen.",
       "promptEn": "The elevator was broken, so I took the stairs down.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0813",
@@ -622,7 +669,8 @@
       ],
       "promptDe": "Das Kind kommt nicht vom Baum herunter.",
       "promptEn": "The child won't come down from the tree.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0814",
@@ -635,7 +683,8 @@
       ],
       "promptDe": "Am Wochenende habe ich die Kinder in den Zoo mitgenommen.",
       "promptEn": "On the weekend I took the kids to the zoo.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0815",
@@ -648,7 +697,8 @@
       ],
       "promptDe": "Darf ich einen Freund zur Geburtstagsparty mitbringen?",
       "promptEn": "Can I bring a friend to the birthday party?",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0816",
@@ -661,7 +711,8 @@
       ],
       "promptDe": "Der Bus kam, deshalb bin ich zur Haltestelle gerannt.",
       "promptEn": "The bus came, so I ran to the stop.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0817",
@@ -674,7 +725,8 @@
       ],
       "promptDe": "Kommen Sie in den dritten Stock hoch. Der Besprechungsraum ist rechts.",
       "promptEn": "Come up to floor three. The meeting room is on the right.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0818",
@@ -687,7 +739,8 @@
       ],
       "promptDe": "Auf dem Heimweg bin ich kurz beim Kiosk vorbeigegangen.",
       "promptEn": "I stopped by the convenience store on my way home.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0819",
@@ -700,7 +753,8 @@
       ],
       "promptDe": "Wir sind spät dran, beeilen Sie sich.",
       "promptEn": "We're late, so please hurry.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "satz_a2_0820",
@@ -713,7 +767,8 @@
       ],
       "promptDe": "Ich habe die Augen geschlossen und Musik gehört.",
       "promptEn": "I closed my eyes and listened to music.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0821",
@@ -726,7 +781,8 @@
       ],
       "promptDe": "Als ich morgens die Augen öffnete, war es schon zehn Uhr.",
       "promptEn": "When I opened my eyes in the morning, it was already ten o'clock.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0822",
@@ -739,7 +795,8 @@
       ],
       "promptDe": "Draußen war es laut, deshalb bin ich früh am Morgen aufgewacht.",
       "promptEn": "It was noisy outside, so I woke up at dawn.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0823",
@@ -752,7 +809,8 @@
       ],
       "promptDe": "Ich nahm die Milch aus dem Kühlschrank.",
       "promptEn": "I took milk out of the fridge.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0824",
@@ -765,7 +823,8 @@
       ],
       "promptDe": "Ich war satt, deshalb habe ich etwas Reis übrig gelassen.",
       "promptEn": "I was full, so I left a little rice.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0825",
@@ -778,7 +837,8 @@
       ],
       "promptDe": "Es hat geschneit, und ich bin auf der Straße hingefallen.",
       "promptEn": "It snowed, and I fell down on the street.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0826",
@@ -791,7 +851,8 @@
       ],
       "promptDe": "Im Museum darf man die Bilder nicht anfassen.",
       "promptEn": "You must not touch the paintings in the museum.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0827",
@@ -804,7 +865,8 @@
       ],
       "promptDe": "Mischen Sie den Reis gut mit dem Gemüse und essen Sie dann.",
       "promptEn": "Mix the rice and vegetables well before you eat.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0828",
@@ -817,7 +879,8 @@
       ],
       "promptDe": "Ich habe das Gepäck ins Auto geladen.",
       "promptEn": "I loaded the luggage into the car.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0829",
@@ -830,7 +893,8 @@
       ],
       "promptDe": "Ich habe die Bücher auf dem Schreibtisch gestapelt.",
       "promptEn": "I stacked the books on the desk.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0830",
@@ -843,7 +907,8 @@
       ],
       "promptDe": "Meine Haare waren lang, ich ließ sie beim Friseur schneiden.",
       "promptEn": "My hair was long, so I got a haircut.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "satz_a2_0831",
@@ -856,7 +921,8 @@
       ],
       "promptDe": "Ich muss diese Arbeit bis heute fertig machen.",
       "promptEn": "I have to finish this work by today.",
-      "level": "a2"
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
     }
   ]
 }

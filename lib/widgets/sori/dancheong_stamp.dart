@@ -148,6 +148,7 @@ DancheongMotif motifForPackId(String packId) {
     'b1_work' ||
     'b2_work' ||
     'b1_work_career' ||
+    'c1_work_economy' ||
     'a2_people_jobs' => DancheongMotif.bamboo,
     'a2_education' ||
     'b2_education' ||

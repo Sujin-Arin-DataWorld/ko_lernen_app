@@ -14,7 +14,8 @@
       "de": "Die Politiker verfolgten, wie sich die öffentliche Meinung entwickelte, und passten den Ton ihrer Äußerungen an.",
       "en": "Politicians watched how public opinion was shifting and adjusted the tone of their remarks.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0252",
@@ -30,7 +31,8 @@
       "de": "Der Vorfall stand am nächsten Tag auf den Titelseiten der großen Tageszeitungen.",
       "en": "The incident made the front pages of the major daily newspapers the next day.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0253",
@@ -46,7 +48,8 @@
       "de": "Er schreibt jede Woche eine Wirtschaftskolumne für eine Zeitung.",
       "en": "He writes a weekly economics column for a newspaper.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0254",
@@ -62,7 +65,8 @@
       "de": "Unbestätigte Falschinformationen verbreiteten sich online rasant.",
       "en": "Unverified false information spread quickly online.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0255",
@@ -78,7 +82,8 @@
       "de": "Wegen des haltlosen Gerüchts, die Firma werde schließen, waren die Beschäftigten beunruhigt.",
       "en": "Employees were anxious because of a groundless rumor that the company would close.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0256",
@@ -94,7 +99,8 @@
       "de": "Der Sprecher nahm offiziell Stellung zu der umstrittenen Äußerung.",
       "en": "The spokesperson gave an official explanation of the controversial remark.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0257",
@@ -110,7 +116,8 @@
       "de": "Der Bericht zeigt im Detail, wie es um die Wohnprobleme junger Menschen tatsächlich steht.",
       "en": "The report shows in detail the reality of the housing problems young people face.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0258",
@@ -126,7 +133,8 @@
       "de": "Die Regierung veröffentlicht jeden Monat den aktuellen Stand der Arbeitsplätze nach Regionen.",
       "en": "Every month, the government publishes the current job situation by region.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0259",
@@ -142,7 +150,8 @@
       "de": "Der Trend zu immer mehr Einpersonenhaushalten wird sich voraussichtlich fortsetzen.",
       "en": "The trend toward more single-person households is expected to continue.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0260",
@@ -158,7 +167,8 @@
       "de": "Mehr als die Hälfte der Befragten nannte steigende Preise als ihre größte Sorge.",
       "en": "More than half of the respondents named rising prices as their biggest worry.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0261",
@@ -174,7 +184,8 @@
       "de": "Einige Medien überschätzten in ihren Berichten die Wirkung des neuen Medikaments.",
       "en": "Some media outlets overstated the new drug's effect in their reports.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0262",
@@ -190,7 +201,8 @@
       "de": "Der Journalist bemühte sich, ohne Partei zu ergreifen, aus einer neutralen Position zu berichten.",
       "en": "The reporter tried to report from a neutral position without taking either side.",
       "level": "c1",
-      "topic": "Medien & Evidenz"
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0263",
@@ -206,7 +218,8 @@
       "de": "Weil die Geburtenrate niedrig bleibt, schließen immer mehr Grundschulen.",
       "en": "As the birth rate stays low, more and more elementary schools are closing.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0264",
@@ -222,7 +235,8 @@
       "de": "Um die Geburtenrate zu erhöhen, hat die Regierung die Unterstützung bei der Kinderbetreuung ausgeweitet.",
       "en": "The government expanded childcare support to raise the birth rate.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0265",
@@ -238,7 +252,8 @@
       "de": "Durch die rasche Verstädterung ist die Landbevölkerung stark geschrumpft.",
       "en": "Rapid urbanization has sharply reduced the rural population.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0266",
@@ -254,7 +269,8 @@
       "de": "Mit der Zunahme der Kleinfamilien haben sich auch die Feiertage stark verändert.",
       "en": "As nuclear families have become more common, holidays have changed a great deal.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0267",
@@ -270,7 +286,8 @@
       "de": "Die junge und die ältere Generation blicken unterschiedlich auf das Verhältnis von Arbeit und Leben.",
       "en": "The younger and older generations see the balance between work and life differently.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0268",
@@ -286,7 +303,8 @@
       "de": "Für Doppelverdienerpaare ist die Kindererziehung nach wie vor eine große Belastung.",
       "en": "For dual-income couples, raising children is still a heavy burden.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0269",
@@ -302,7 +320,8 @@
       "de": "Dieser Dienst wurde so gestaltet, dass ihn alle Altersgruppen leicht nutzen können.",
       "en": "This service was designed so that people of all age groups can use it easily.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0270",
@@ -318,7 +337,8 @@
       "de": "Mit den steigenden Preisen ist das Leben der einfachen Leute noch schwerer geworden.",
       "en": "As prices have risen, life has become even harder for ordinary people.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0271",
@@ -334,7 +354,8 @@
       "de": "Ältere Menschen, die mit Smartphones nicht vertraut sind, fühlen sich leicht ausgegrenzt.",
       "en": "Older people who are not used to smartphones can easily feel left out.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0272",
@@ -350,7 +371,8 @@
       "de": "Da immer mehr ausländische Einwohner hier leben, ist auch an Schulen eine Bildung wichtig geworden, die kulturelle Vielfalt respektiert.",
       "en": "As the number of foreign residents grows, education that respects cultural diversity has become important in schools too.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0273",
@@ -366,7 +388,8 @@
       "de": "Mit starren Einheitskriterien, die für alle Regionen gleich gelten, lassen sich regionale Probleme kaum lösen.",
       "en": "Uniform standards applied identically to every region can hardly solve region-specific problems.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0274",
@@ -382,7 +405,8 @@
       "de": "Seit Smartphones allgemein verbreitet sind, lesen deutlich weniger Menschen gedruckte Zeitungen.",
       "en": "Since smartphones became widespread, far fewer people read print newspapers.",
       "level": "c1",
-      "topic": "Gesellschaft im Wandel"
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0275",
@@ -398,7 +422,8 @@
       "de": "Das Unternehmen hat in diesem Jahr doppelt so viele Berufseinsteiger eingestellt.",
       "en": "The company doubled its hiring of new employees this year.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0276",
@@ -414,7 +439,8 @@
       "de": "Viele Angestellte entschließen sich eher wegen des Arbeitsumfelds als wegen des Gehalts zu einem Jobwechsel.",
       "en": "Many employees decide to change jobs because of the work environment rather than the salary.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0277",
@@ -430,7 +456,8 @@
       "de": "Dank ihrer langjährigen Praxiserfahrung genießt Andrea das Vertrauen ihres Teams.",
       "en": "Thanks to years of hands-on experience, Andrea has her team's trust.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0278",
@@ -446,7 +473,8 @@
       "de": "Weil die Ergebnisse des vergangenen Jahres besser als erwartet ausfielen, stieg der Aktienkurs.",
       "en": "Last year's results were better than expected, so the share price rose.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0279",
@@ -462,7 +490,8 @@
       "de": "Zwei Jahre nach seinem Einstieg mit befristetem Vertrag wurde er fest angestellt.",
       "en": "Two years after joining on a fixed-term contract, he became a permanent employee.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0280",
@@ -478,7 +507,8 @@
       "de": "Ein Unternehmen darf Beschäftigte nicht einfach entlassen, nur weil es wirtschaftlich schwierig ist.",
       "en": "A company cannot simply dismiss employees on the grounds that business is difficult.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0281",
@@ -494,7 +524,8 @@
       "de": "Gleich nach dem Studium gründete er mit Freunden ein eigenes Unternehmen.",
       "en": "Right after graduating from university, he jumped into starting a business with friends.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0282",
@@ -510,7 +541,8 @@
       "de": "Da sich die Konjunktur verschlechtert, geben immer mehr Selbstständige ihr Geschäft auf.",
       "en": "As the economy worsens, more and more self-employed people are closing their businesses.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0283",
@@ -526,7 +558,8 @@
       "de": "Dank des wachsenden Onlinehandels ist der Umsatz in diesem Jahr deutlich höher als im Vorjahr.",
       "en": "Thanks to growing online sales, revenue rose sharply this year compared with last year.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0284",
@@ -542,7 +575,8 @@
       "de": "Weil die Konjunkturflaute anhält, ist auch die Kauflaune eingebrochen.",
       "en": "As the economic slump drags on, consumer sentiment has frozen too.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0285",
@@ -558,7 +592,8 @@
       "de": "Als die Banken die Zinsen anhoben, stieg die Zinslast für Kredite.",
       "en": "When banks raised interest rates, the interest burden on loans grew.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0286",
@@ -574,7 +609,8 @@
       "de": "Da diese Tätigkeit hohe Fachkompetenz erfordert, werden bevorzugt Berufserfahrene eingestellt.",
       "en": "Because this work requires a high level of expertise, experienced candidates are hired first.",
       "level": "c1",
-      "topic": "Arbeit & Wirtschaft"
+      "topic": "Arbeit & Wirtschaft",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "cloze_c1_0287",
@@ -590,7 +626,8 @@
       "de": "Diese Arbeit behandelt sowohl den theoretischen Hintergrund als auch konkrete Fallbeispiele.",
       "en": "This paper covers both the theoretical background and real cases.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0288",
@@ -606,7 +643,8 @@
       "de": "Wer seine Daten systematisch ordnet, kann sie später viel leichter auswerten.",
       "en": "If you organize your data systematically, it is much easier to analyze later.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0289",
@@ -622,7 +660,8 @@
       "de": "Freiheit und Gleichheit sind universelle Werte, die unabhängig von der Staatsangehörigkeit für alle gelten.",
       "en": "Freedom and equality are universal values that apply to everyone regardless of nationality.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0290",
@@ -638,7 +677,8 @@
       "de": "Dass die Menschen in die Städte drängen und sich die Dörfer leeren, ist ein typisches Phänomen der Industrialisierung.",
       "en": "People crowding into cities while villages empty out is a typical phenomenon of industrialization.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0291",
@@ -654,7 +694,8 @@
       "de": "Da dieses Ergebnis ein Ausnahmefall sein könnte, sind weitere Untersuchungen nötig.",
       "en": "This result may be an exceptional case, so further research is needed.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0292",
@@ -670,7 +711,8 @@
       "de": "Auf der Grundlage früherer Studien warf diese Arbeit neue Fragen auf.",
       "en": "Building on earlier studies, this paper raised new questions.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0293",
@@ -686,7 +728,8 @@
       "de": "Die Erkenntnisse der Grundlagenforschung werden in Medizin und Industrie breit angewendet.",
       "en": "Findings from basic science are widely applied in medicine and industry.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0294",
@@ -702,7 +745,8 @@
       "de": "Hyuna legte in der Einleitung ihrer Arbeit zuerst Ziel und Umfang der Forschung dar.",
       "en": "In the introduction of her thesis, Hyuna first set out the aim and scope of the research.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0295",
@@ -718,7 +762,8 @@
       "de": "Bei der Hochschulaufnahmeprüfung bewertet der Aufsatzteil die Fähigkeit, logisch zu schreiben.",
       "en": "In university entrance exams, the essay test assesses the ability to write logically.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0296",
@@ -734,7 +779,8 @@
       "de": "Fehlen Belege, die eine Behauptung untermauern, verliert sie an Überzeugungskraft.",
       "en": "If there is not enough evidence to back up a claim, it becomes less persuasive.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0297",
@@ -750,7 +796,8 @@
       "de": "Wenn man die Wurzel des Problems nicht findet, wiederholt sich derselbe Fehler zwangsläufig.",
       "en": "If the root of a problem is not found, the same error is bound to recur.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "cloze_c1_0298",
@@ -766,7 +813,8 @@
       "de": "Komplexe Statistiken sind auf einen Blick verständlich, wenn man sie in Diagrammen darstellt.",
       "en": "Complex statistics are easy to grasp at a glance when presented in charts.",
       "level": "c1",
-      "topic": "Forschung & Evidenz"
+      "topic": "Forschung & Evidenz",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     }
   ]
 }

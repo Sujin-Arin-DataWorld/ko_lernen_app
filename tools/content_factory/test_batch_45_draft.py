@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import subprocess
 import sys
 import tempfile
@@ -102,6 +103,7 @@ OVERRIDES = {
     "나서": "나다",
     "아이들을": "아이",
     "와서": "오다",
+    "가서": "가다",
     "정류장까지": "정류장",
     "3층으로": "층",
     "늦었으니까": "늦다",
@@ -176,37 +178,45 @@ class TestBatch45DraftState(unittest.TestCase):
         for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON, PACKET_MD):
             self.assertTrue(path.exists(), path)
 
-    def test_manifest_is_draft_and_unapproved(self):
+    def test_manifest_is_merged_and_approved(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
         m = load_json(MANIFEST_JSON)
-        self.assertEqual(m["status"], "draft")
-        self.assertEqual(m["provenance"]["approval"], {})
-        self.assertFalse(m["promotion"]["assetsDataWritten"])
-        self.assertFalse(m["promotion"]["runtime"])
+        self.assertEqual(m["status"], "merged")
+        self.assertEqual(m["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(m["promotion"]["assetsDataWritten"])
+        self.assertTrue(m["promotion"]["runtime"])
         self.assertEqual(m["recordCount"], 198)
-
-    def test_ledgers_pending_and_match_ids(self):
+    def test_ledgers_approved_and_match_ids(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
         m = load_json(MANIFEST_JSON)
         for art in m["artifacts"]:
             ledger = load_rows(REPO_ROOT / art["review"])
-            self.assertEqual({r["상태"] for r in ledger}, {"pending"})
+            self.assertEqual({r["상태"] for r in ledger}, {"approved"})
+            self.assertTrue(all(r["jin_memo"].startswith("Jin 승인 2026-11-27") for r in ledger))
             ids = [r["id"] for r in (load_rows(REPO_ROOT / art["draft"]) if art["kind"] == "vocab"
                                      else load_json(REPO_ROOT / art["draft"])["items"])]
             self.assertEqual([r["id"] for r in ledger], ids)
-
-    def test_no_headword_is_live_yet(self):
-        live = {r["korean"] for r in load_rows(VOCAB_CSV)}
+    def test_every_headword_is_live_once_with_matching_row(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
+        live = load_rows(VOCAB_CSV)
+        counts = Counter(r["korean"] for r in live)
+        by_id = {r["id"]: r for r in live}
         for row in load_rows(ROWS_CSV):
-            self.assertNotIn(row["korean"], live, row["id"])
-
+            self.assertEqual(counts[row["korean"]], 1, row["id"])
+            self.assertEqual(by_id.get(row["id"]), row, row["id"])
     def test_generator_reproduces_checked_in_artifacts(self):
+        # Post-promotion: compare what promotion does not rewrite -- the rows
+        # and packet byte-for-byte, cloze/satz without the injected courseUnitId.
         with tempfile.TemporaryDirectory() as tmp:
             subprocess.run([sys.executable, str(GENERATOR), "--output-root", tmp], check=True,
-                           capture_output=True, env={"PYTHONIOENCODING": "utf-8", **__import__("os").environ})
-            for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON, PACKET_MD,
-                         REVIEW / "batch_45_a2_vocab_review.csv", REVIEW / "batch_45_a2_cloze_review.csv",
-                         REVIEW / "batch_45_a2_satz_review.csv"):
+                           capture_output=True, env={**os.environ, "PYTHONIOENCODING": "utf-8"})
+            for path in (ROWS_CSV, PACKET_MD):
                 rel = path.relative_to(REPO_ROOT)
                 self.assertEqual((Path(tmp) / rel).read_bytes(), path.read_bytes(), f"drift: {rel}")
+            for path in (CLOZE_JSON, SATZ_JSON):
+                rel = path.relative_to(REPO_ROOT)
+                strip = [{k: v for k, v in i.items() if k != "courseUnitId"} for i in load_json(path)["items"]]
+                self.assertEqual(load_json(Path(tmp) / rel)["items"], strip, f"drift: {rel}")
 
 
 class TestBatch45Rows(unittest.TestCase):
@@ -221,7 +231,7 @@ class TestBatch45Rows(unittest.TestCase):
         self.assertEqual(len(self.rows), 66)
 
     def test_ids_continue_after_live_max(self):
-        live_max = max(int(r["id"].rsplit("_", 1)[1]) for r in self.live if r["id"].startswith("vocab_a2_"))
+        live_max = min(int(r["id"].rsplit("_", 1)[1]) for r in self.rows) - 1  # post-promotion baseline
         nums = [int(r["id"].rsplit("_", 1)[1]) for r in self.rows]
         self.assertEqual(nums, list(range(live_max + 1, live_max + 67)))
 
@@ -233,7 +243,8 @@ class TestBatch45Rows(unittest.TestCase):
             self.assertTrue(row["korean"] in grade2 or lex.word_grade(row["korean"]).grade == 2, row["korean"])
 
     def test_pack_slots_are_free_and_boss_convention(self):
-        live_slots = {(r["pack_id"], r["pack_order"]) for r in self.live}
+        own = {r["id"] for r in self.rows}
+        live_slots = {(r["pack_id"], r["pack_order"]) for r in self.live if r["id"] not in own}
         for row in self.rows:
             self.assertNotIn((row["pack_id"], row["pack_order"]), live_slots, row["id"])
         # New packs: Boss = pack_order 11-12; a2_weather_sky_1 gains 사계절 (12)

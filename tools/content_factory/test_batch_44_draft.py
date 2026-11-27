@@ -75,51 +75,49 @@ class TestBatch44DraftState(unittest.TestCase):
         for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON, PACKET_MD, *LEDGERS):
             self.assertTrue(path.exists(), path)
 
-    def test_manifest_is_draft_and_unapproved(self):
+    def test_manifest_is_merged_and_approved(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
         m = load_json(MANIFEST_JSON)
-        self.assertEqual(m["status"], "draft")
-        self.assertEqual(m["provenance"]["approval"], {})
-        self.assertTrue(m["provenance"]["requiresJinReview"])
-        self.assertFalse(m["provenance"]["humanLanguageQaClaim"])
-        for flag in ("assetsDataWritten", "runtime", "tts", "firebase"):
-            self.assertFalse(m["promotion"][flag], flag)
+        self.assertEqual(m["status"], "merged")
+        self.assertEqual(m["provenance"]["approval"].get("authority"), "Jin")
+        self.assertTrue(m["promotion"]["assetsDataWritten"])
+        self.assertTrue(m["promotion"]["runtime"])
         self.assertEqual(m["recordCount"], 144)
-        self.assertEqual({p["pack_id"] for p in m["newPacks"]}, NEW_PACKS)
-
-    def test_ledgers_pending_and_match_ids(self):
+    def test_ledgers_approved_and_match_ids(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
         m = load_json(MANIFEST_JSON)
         for art in m["artifacts"]:
             ledger = load_rows(REPO_ROOT / art["review"])
-            self.assertEqual({r["상태"] for r in ledger}, {"pending"})
-            self.assertEqual({r["jin_memo"] for r in ledger}, {""})
+            self.assertEqual({r["상태"] for r in ledger}, {"approved"})
+            self.assertTrue(all(r["jin_memo"].startswith("Jin 승인 2026-11-27") for r in ledger))
             ids = [r["id"] for r in (load_rows(REPO_ROOT / art["draft"]) if art["kind"] == "vocab"
                                      else load_json(REPO_ROOT / art["draft"])["items"])]
             self.assertEqual([r["id"] for r in ledger], ids)
-
-    def test_nothing_is_live_yet(self):
+    def test_every_headword_is_live_once_with_matching_row(self):
+        # C3-T8 (2026-11-27): Jin approved all three samples ('Approve all three'); promoted.
         live = load_rows(VOCAB_CSV)
-        live_words = {r["korean"] for r in live}
-        live_packs = {r["pack_id"] for r in live}
-        live_ids = {r["id"] for r in live}
-        live_ids |= {i["id"] for i in load_json(CLOZE_LIVE)["items"]}
-        live_ids |= {i["id"] for i in load_json(SATZ_LIVE)["items"]}
-        rows = load_rows(ROWS_CSV)
-        for row in rows:
-            self.assertNotIn(row["korean"], live_words, row["id"])
-        self.assertFalse(NEW_PACKS & live_packs)
-        draft_ids = {r["id"] for r in rows}
-        draft_ids |= {i["id"] for i in load_json(CLOZE_JSON)["items"]}
-        draft_ids |= {i["id"] for i in load_json(SATZ_JSON)["items"]}
-        self.assertFalse(draft_ids & live_ids)
+        counts = Counter(r["korean"] for r in live)
+        by_id = {r["id"]: r for r in live}
+        for row in load_rows(ROWS_CSV):
+            self.assertEqual(counts[row["korean"]], 1, row["id"])
+            self.assertEqual(by_id.get(row["id"]), row, row["id"])
 
+    def test_new_packs_are_live(self):
+        live_packs = {r["pack_id"] for r in load_rows(VOCAB_CSV)}
+        self.assertTrue(NEW_PACKS <= live_packs)
     def test_generator_reproduces_checked_in_artifacts(self):
+        # Post-promotion: compare what promotion does not rewrite -- the rows
+        # and packet byte-for-byte, cloze/satz without the injected courseUnitId.
         with tempfile.TemporaryDirectory() as tmp:
             subprocess.run([sys.executable, str(GENERATOR), "--output-root", tmp], check=True,
                            capture_output=True, env={**os.environ, "PYTHONIOENCODING": "utf-8"})
-            for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON, PACKET_MD, *LEDGERS):
+            for path in (ROWS_CSV, PACKET_MD):
                 rel = path.relative_to(REPO_ROOT)
                 self.assertEqual((Path(tmp) / rel).read_bytes(), path.read_bytes(), f"drift: {rel}")
-
+            for path in (CLOZE_JSON, SATZ_JSON):
+                rel = path.relative_to(REPO_ROOT)
+                strip = [{k: v for k, v in i.items() if k != "courseUnitId"} for i in load_json(path)["items"]]
+                self.assertEqual(load_json(Path(tmp) / rel)["items"], strip, f"drift: {rel}")
     def test_lf_line_endings(self):
         for path in (ROWS_CSV, CLOZE_JSON, SATZ_JSON, MANIFEST_JSON, PACKET_MD, *LEDGERS, GENERATOR):
             self.assertNotIn(b"\r\n", path.read_bytes(), path)
@@ -138,9 +136,11 @@ class TestBatch44Rows(unittest.TestCase):
         self.assertEqual(len({r["korean"] for r in self.rows}), 48)
 
     def test_ids_continue_after_live_max(self):
-        live_vocab = _max_live([r["id"] for r in self.live], "vocab_c1_")
-        live_cloze = _max_live([i["id"] for i in load_json(CLOZE_LIVE)["items"]], "cloze_c1_")
-        live_satz = _max_live([i["id"] for i in load_json(SATZ_LIVE)["items"]], "satz_c1_")
+        # Post-promotion baseline: this batch's own lowest id - 1.
+        low = lambda ids: min(int(i.rsplit("_", 1)[1]) for i in ids) - 1  # noqa: E731
+        live_vocab = low([r["id"] for r in self.rows])
+        live_cloze = low([i["id"] for i in load_json(CLOZE_JSON)["items"]])
+        live_satz = low([i["id"] for i in load_json(SATZ_JSON)["items"]])
         for ids, base, prefix in (
             ([r["id"] for r in self.rows], live_vocab, "vocab_c1_"),
             ([i["id"] for i in load_json(CLOZE_JSON)["items"]], live_cloze, "cloze_c1_"),

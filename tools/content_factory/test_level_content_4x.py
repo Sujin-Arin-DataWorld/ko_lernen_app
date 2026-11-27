@@ -199,7 +199,8 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         # (batches 35 and 37, merged into main 80f82470).
         # C3-T6 (2026-11-25): A2 Batches 32-34 add 192 rows (16 new packs).
         # C3-T7 (2026-11-26): A2 Batch 42 adds 14 rows.
-        self.assertEqual(inventory["vocab"], 3174)
+        # C3-T8 (2026-11-27): Batches 43-45 (B1/C1/A2) add 178 rows.
+        self.assertEqual(inventory["vocab"], 3352)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:

@@ -2612,7 +2612,8 @@
     "a2_dishes": "a2_05_delivery_services",
     "a2_home_routines": "a2_08_home_money",
     "a2_time_span": "a2_02_plans_proposals",
-    "a2_weather_sky": "a2_03_chat_relationships"
+    "a2_weather_sky": "a2_03_chat_relationships",
+    "c1_work_economy": "c1_02_inclusive_sustainable_systems"
   },
   "contentLinks": [
     {
@@ -7613,7 +7614,14 @@
     "a2:körper": "a2_04_feelings_health",
     "a2:kleidung": "a2_05_delivery_services",
     "a2:reisen": "a2_07_travel_repair",
-    "a2:zeit": "a2_02_plans_proposals"
+    "a2:zeit": "a2_02_plans_proposals",
+    "b1:nützliche verben": "b1_06_life_capstone",
+    "b1:zeit & lebenslauf": "b1_06_life_capstone",
+    "b1:sprache & ausdruck": "b1_02_indirect_speech",
+    "b1:gefühle": "b1_04_relationships",
+    "b1:krankenhaus & apotheke": "b1_05_complaint_resolution",
+    "b1:eigenschaften": "b1_06_life_capstone",
+    "c1:arbeit & wirtschaft": "c1_02_inclusive_sustainable_systems"
   },
   "scenarioCorpusGeneration": "canonical_120_v1",
   "scenarioCorpusSupplements": [

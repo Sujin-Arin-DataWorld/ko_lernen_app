@@ -113,7 +113,8 @@ REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_
 
 APPROVED_AT = "2026-09-16"
 # Batches 32-34 were Jin-approved later, after the 2026-11-25 Claude R9 review.
-APPROVED_AT_BY_BATCH = {32: "2026-11-25", 33: "2026-11-25", 34: "2026-11-25", 42: "2026-11-26"}
+APPROVED_AT_BY_BATCH = {32: "2026-11-25", 33: "2026-11-25", 34: "2026-11-25", 42: "2026-11-26",
+                        43: "2026-11-27", 44: "2026-11-27", 45: "2026-11-27"}
 APPROVAL_SOURCE = {
     26: "owner chat: 'Batch 26·27 승인'",
     27: "owner chat: 'Batch 26·27 승인'",
@@ -125,6 +126,9 @@ APPROVAL_SOURCE = {
     33: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
     34: "owner chat: '표본 승인' (Batch 32·33·34 packets after R9 review)",
     42: "owner chat: '표본 승인' (Batch 42 packet, all 14 rows shown)",
+    43: "owner chat: 'Approve all three' (Batch 43 B1 · 44 C1 · 45 A2 packets)",
+    44: "owner chat: 'Approve all three' (Batch 43 B1 · 44 C1 · 45 A2 packets)",
+    45: "owner chat: 'Approve all three' (Batch 43 B1 · 44 C1 · 45 A2 packets)",
 }
 BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows",
                  27: "7/63 rows (Batch 27); Batch 26 approved together, 7/66 rows",
@@ -135,12 +139,16 @@ BATCH_SAMPLE = {26: "7/66 rows (Batch 26); Batch 27 approved together, 7/63 rows
                  32: "7/64 each (32 · 33 · 34)",
                  33: "7/64 each (32 · 33 · 34)",
                  34: "7/64 each (32 · 33 · 34)",
-                 42: "14/14 (full batch shown)"}
+                 42: "14/14 (full batch shown)",
+                 43: "64/64 (full table in packet)",
+                 44: "48/48 (full table in packet)",
+                 45: "66/66 (full table in packet)"}
 # Task label per batch (26-28 were promoted together under C3-T3; 29 is
 # promoted separately under C3-T4; 30-31 together under C3-T5) -- used in
 # the memo/promotion-note text.
 TASK_LABEL = {26: "C3-T3", 27: "C3-T3", 28: "C3-T3", 29: "C3-T4", 30: "C3-T5", 31: "C3-T5",
-              32: "C3-T6", 33: "C3-T6", 34: "C3-T6", 42: "C3-T7"}
+              32: "C3-T6", 33: "C3-T6", 34: "C3-T6", 42: "C3-T7",
+              43: "C3-T8", 44: "C3-T8", 45: "C3-T8"}
 TOGETHER_NOTE = {
     26: "Batch 26·27 approved together",
     27: "Batch 26·27 approved together",
@@ -152,12 +160,16 @@ TOGETHER_NOTE = {
     33: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
     34: "Batch 32·33·34 approved together (A2 reinforcement, 16 new packs)",
     42: "Batch 42 approved on its own (Sejong-comparison grade-2 words, 1 new pack)",
+    43: "Batch 43·44·45 approved together (first B1 and C1 reinforcement + A2 Batch 45)",
+    44: "Batch 43·44·45 approved together (first B1 and C1 reinforcement + A2 Batch 45)",
+    45: "Batch 43·44·45 approved together (first B1 and C1 reinforcement + A2 Batch 45)",
 }
 # Level of each batch (lowercase) -- asserted against the --level flag so a
 # mistyped flag fails loudly instead of silently mis-tagging content.
-LEVEL_BY_BATCH = {26: "a1", 27: "a1", 28: "a1", 29: "a1", 30: "a1", 31: "a2", 32: "a2", 33: "a2", 34: "a2", 42: "a2"}
+LEVEL_BY_BATCH = {26: "a1", 27: "a1", 28: "a1", 29: "a1", 30: "a1", 31: "a2", 32: "a2", 33: "a2", 34: "a2", 42: "a2",
+                  43: "b1", 44: "c1", 45: "a2"}
 # NIKL kiiq grade number per level, used in the review-ledger field_notes text.
-LEVEL_GRADE = {"a1": 1, "a2": 2}
+LEVEL_GRADE = {"a1": 1, "a2": 2, "b1": 3, "b2": 4, "c1": 5, "c2": 6}
 
 
 def rj(p: Path):
@@ -165,7 +177,7 @@ def rj(p: Path):
 
 
 def wj(p: Path, v):
-    p.write_text(json.dumps(v, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    p.write_text(json.dumps(v, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def read_vocab_csv(p: Path):
@@ -371,7 +383,7 @@ def main(batch: int, level: str, apply: bool) -> None:
     grade = LEVEL_GRADE[level]
     vocab_entries = [
         (r["id"], level.upper(), r["korean"], r["german"], r["english"],
-         f"rights: original_clean_room; pack={r['pack_id']}; order={r['pack_order']}; boss=false; "
+         f"rights: original_clean_room; pack={r['pack_id']}; order={r['pack_order']}; boss={r['is_review_boss']}; "
          f"seed: NIKL 2017 kiiq grade-{grade} headword selection (KOGL 1유형); "
          f"C3 Batch {batch} {level.upper()} reinforcement",
          "approved", memo)
@@ -442,8 +454,8 @@ def main(batch: int, level: str, apply: bool) -> None:
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--batch", type=int, required=True, choices=(26, 27, 28, 29, 30, 31, 32, 33, 34, 42))
-    ap.add_argument("--level", type=str, required=True, choices=("a1", "a2", "A1", "A2"))
+    ap.add_argument("--batch", type=int, required=True, choices=tuple(sorted(LEVEL_BY_BATCH)))
+    ap.add_argument("--level", type=str, required=True, choices=("a1", "a2", "b1", "c1", "A1", "A2", "B1", "C1"))
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--check", action="store_true")
     g.add_argument("--apply", action="store_true")

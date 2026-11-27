@@ -20,7 +20,7 @@ typedef _LexicalAnswerKey = ({
   String fullKo,
 });
 
-// These corpus-matched lexical targets are price and month vocabulary, with
+// These corpus-matched lexical targets are price, month and time-adverb vocabulary, with
 // contextual meaning cues and distinct distractors, rather than number guesses.
 // Their complete source keys keep this exception from accepting new items.
 const _singleSyllableLexicalCases = <_LexicalAnswerKey>{
@@ -35,6 +35,14 @@ const _singleSyllableLexicalCases = <_LexicalAnswerKey>{
     sourceVocabId: 'vocab_a1_0704',
     answer: '달',
     fullKo: '일 년은 열두 달이에요.',
+  ),
+  // C3-T8 (2026-11-27): 곧 is a one-syllable adverb that takes no particle;
+  // its distractors are other adverbs (열심히, 깜짝, 혼자).
+  (
+    id: 'cloze_a2_0611',
+    sourceVocabId: 'vocab_a2_0804',
+    answer: '곧',
+    fullKo: '기차가 곧 도착하니까 준비하세요.',
   ),
 };
 

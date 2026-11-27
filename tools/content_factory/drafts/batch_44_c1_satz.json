@@ -11,7 +11,8 @@
       ],
       "promptDe": "Die Politiker verfolgten, wie sich die öffentliche Meinung entwickelte, und passten den Ton ihrer Äußerungen an.",
       "promptEn": "Politicians watched how public opinion was shifting and adjusted the tone of their remarks.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0254",
@@ -24,7 +25,8 @@
       ],
       "promptDe": "Der Vorfall stand am nächsten Tag auf den Titelseiten der großen Tageszeitungen.",
       "promptEn": "The incident made the front pages of the major daily newspapers the next day.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0255",
@@ -37,7 +39,8 @@
       ],
       "promptDe": "Er schreibt jede Woche eine Wirtschaftskolumne für eine Zeitung.",
       "promptEn": "He writes a weekly economics column for a newspaper.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0256",
@@ -50,7 +53,8 @@
       ],
       "promptDe": "Unbestätigte Falschinformationen verbreiteten sich online rasant.",
       "promptEn": "Unverified false information spread quickly online.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0257",
@@ -63,7 +67,8 @@
       ],
       "promptDe": "Wegen des haltlosen Gerüchts, die Firma werde schließen, waren die Beschäftigten beunruhigt.",
       "promptEn": "Employees were anxious because of a groundless rumor that the company would close.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0258",
@@ -76,7 +81,8 @@
       ],
       "promptDe": "Der Sprecher nahm offiziell Stellung zu der umstrittenen Äußerung.",
       "promptEn": "The spokesperson gave an official explanation of the controversial remark.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0259",
@@ -89,7 +95,8 @@
       ],
       "promptDe": "Der Bericht zeigt im Detail, wie es um die Wohnprobleme junger Menschen tatsächlich steht.",
       "promptEn": "The report shows in detail the reality of the housing problems young people face.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0260",
@@ -102,7 +109,8 @@
       ],
       "promptDe": "Die Regierung veröffentlicht jeden Monat den aktuellen Stand der Arbeitsplätze nach Regionen.",
       "promptEn": "Every month, the government publishes the current job situation by region.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0261",
@@ -115,7 +123,8 @@
       ],
       "promptDe": "Der Trend zu immer mehr Einpersonenhaushalten wird sich voraussichtlich fortsetzen.",
       "promptEn": "The trend toward more single-person households is expected to continue.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0262",
@@ -128,7 +137,8 @@
       ],
       "promptDe": "Mehr als die Hälfte der Befragten nannte steigende Preise als ihre größte Sorge.",
       "promptEn": "More than half of the respondents named rising prices as their biggest worry.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0263",
@@ -141,7 +151,8 @@
       ],
       "promptDe": "Einige Medien überschätzten in ihren Berichten die Wirkung des neuen Medikaments.",
       "promptEn": "Some media outlets overstated the new drug's effect in their reports.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0264",
@@ -154,7 +165,8 @@
       ],
       "promptDe": "Der Journalist bemühte sich, ohne Partei zu ergreifen, aus einer neutralen Position zu berichten.",
       "promptEn": "The reporter tried to report from a neutral position without taking either side.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0265",
@@ -167,7 +179,8 @@
       ],
       "promptDe": "Weil die Geburtenrate niedrig bleibt, schließen immer mehr Grundschulen.",
       "promptEn": "As the birth rate stays low, more and more elementary schools are closing.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0266",
@@ -180,7 +193,8 @@
       ],
       "promptDe": "Um die Geburtenrate zu erhöhen, hat die Regierung die Unterstützung bei der Kinderbetreuung ausgeweitet.",
       "promptEn": "The government expanded childcare support to raise the birth rate.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0267",
@@ -193,7 +207,8 @@
       ],
       "promptDe": "Durch die rasche Verstädterung ist die Landbevölkerung stark geschrumpft.",
       "promptEn": "Rapid urbanization has sharply reduced the rural population.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0268",
@@ -206,7 +221,8 @@
       ],
       "promptDe": "Mit der Zunahme der Kleinfamilien haben sich auch die Feiertage stark verändert.",
       "promptEn": "As nuclear families have become more common, holidays have changed a great deal.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0269",
@@ -219,7 +235,8 @@
       ],
       "promptDe": "Die junge und die ältere Generation blicken unterschiedlich auf das Verhältnis von Arbeit und Leben.",
       "promptEn": "The younger and older generations see the balance between work and life differently.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0270",
@@ -232,7 +249,8 @@
       ],
       "promptDe": "Für Doppelverdienerpaare ist die Kindererziehung nach wie vor eine große Belastung.",
       "promptEn": "For dual-income couples, raising children is still a heavy burden.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0271",
@@ -245,7 +263,8 @@
       ],
       "promptDe": "Dieser Dienst wurde so gestaltet, dass ihn alle Altersgruppen leicht nutzen können.",
       "promptEn": "This service was designed so that people of all age groups can use it easily.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0272",
@@ -258,7 +277,8 @@
       ],
       "promptDe": "Mit den steigenden Preisen ist das Leben der einfachen Leute noch schwerer geworden.",
       "promptEn": "As prices have risen, life has become even harder for ordinary people.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0273",
@@ -271,7 +291,8 @@
       ],
       "promptDe": "Ältere Menschen, die mit Smartphones nicht vertraut sind, fühlen sich leicht ausgegrenzt.",
       "promptEn": "Older people who are not used to smartphones can easily feel left out.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0274",
@@ -284,7 +305,8 @@
       ],
       "promptDe": "Da immer mehr ausländische Einwohner hier leben, ist auch an Schulen eine Bildung wichtig geworden, die kulturelle Vielfalt respektiert.",
       "promptEn": "As the number of foreign residents grows, education that respects cultural diversity has become important in schools too.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0275",
@@ -297,7 +319,8 @@
       ],
       "promptDe": "Mit starren Einheitskriterien, die für alle Regionen gleich gelten, lassen sich regionale Probleme kaum lösen.",
       "promptEn": "Uniform standards applied identically to every region can hardly solve region-specific problems.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0276",
@@ -310,7 +333,8 @@
       ],
       "promptDe": "Seit Smartphones allgemein verbreitet sind, lesen deutlich weniger Menschen gedruckte Zeitungen.",
       "promptEn": "Since smartphones became widespread, far fewer people read print newspapers.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0277",
@@ -323,7 +347,8 @@
       ],
       "promptDe": "Das Unternehmen hat in diesem Jahr doppelt so viele Berufseinsteiger eingestellt.",
       "promptEn": "The company doubled its hiring of new employees this year.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0278",
@@ -336,7 +361,8 @@
       ],
       "promptDe": "Viele Angestellte entschließen sich eher wegen des Arbeitsumfelds als wegen des Gehalts zu einem Jobwechsel.",
       "promptEn": "Many employees decide to change jobs because of the work environment rather than the salary.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0279",
@@ -349,7 +375,8 @@
       ],
       "promptDe": "Dank ihrer langjährigen Praxiserfahrung genießt Andrea das Vertrauen ihres Teams.",
       "promptEn": "Thanks to years of hands-on experience, Andrea has her team's trust.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0280",
@@ -362,7 +389,8 @@
       ],
       "promptDe": "Weil die Ergebnisse des vergangenen Jahres besser als erwartet ausfielen, stieg der Aktienkurs.",
       "promptEn": "Last year's results were better than expected, so the share price rose.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0281",
@@ -375,7 +403,8 @@
       ],
       "promptDe": "Zwei Jahre nach seinem Einstieg mit befristetem Vertrag wurde er fest angestellt.",
       "promptEn": "Two years after joining on a fixed-term contract, he became a permanent employee.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0282",
@@ -388,7 +417,8 @@
       ],
       "promptDe": "Ein Unternehmen darf Beschäftigte nicht einfach entlassen, nur weil es wirtschaftlich schwierig ist.",
       "promptEn": "A company cannot simply dismiss employees on the grounds that business is difficult.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0283",
@@ -401,7 +431,8 @@
       ],
       "promptDe": "Gleich nach dem Studium gründete er mit Freunden ein eigenes Unternehmen.",
       "promptEn": "Right after graduating from university, he jumped into starting a business with friends.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0284",
@@ -414,7 +445,8 @@
       ],
       "promptDe": "Da sich die Konjunktur verschlechtert, geben immer mehr Selbstständige ihr Geschäft auf.",
       "promptEn": "As the economy worsens, more and more self-employed people are closing their businesses.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0285",
@@ -427,7 +459,8 @@
       ],
       "promptDe": "Dank des wachsenden Onlinehandels ist der Umsatz in diesem Jahr deutlich höher als im Vorjahr.",
       "promptEn": "Thanks to growing online sales, revenue rose sharply this year compared with last year.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0286",
@@ -440,7 +473,8 @@
       ],
       "promptDe": "Weil die Konjunkturflaute anhält, ist auch die Kauflaune eingebrochen.",
       "promptEn": "As the economic slump drags on, consumer sentiment has frozen too.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0287",
@@ -453,7 +487,8 @@
       ],
       "promptDe": "Als die Banken die Zinsen anhoben, stieg die Zinslast für Kredite.",
       "promptEn": "When banks raised interest rates, the interest burden on loans grew.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0288",
@@ -466,7 +501,8 @@
       ],
       "promptDe": "Da diese Tätigkeit hohe Fachkompetenz erfordert, werden bevorzugt Berufserfahrene eingestellt.",
       "promptEn": "Because this work requires a high level of expertise, experienced candidates are hired first.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "id": "satz_c1_0289",
@@ -479,7 +515,8 @@
       ],
       "promptDe": "Diese Arbeit behandelt sowohl den theoretischen Hintergrund als auch konkrete Fallbeispiele.",
       "promptEn": "This paper covers both the theoretical background and real cases.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0290",
@@ -492,7 +529,8 @@
       ],
       "promptDe": "Wer seine Daten systematisch ordnet, kann sie später viel leichter auswerten.",
       "promptEn": "If you organize your data systematically, it is much easier to analyze later.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0291",
@@ -505,7 +543,8 @@
       ],
       "promptDe": "Freiheit und Gleichheit sind universelle Werte, die unabhängig von der Staatsangehörigkeit für alle gelten.",
       "promptEn": "Freedom and equality are universal values that apply to everyone regardless of nationality.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0292",
@@ -518,7 +557,8 @@
       ],
       "promptDe": "Dass die Menschen in die Städte drängen und sich die Dörfer leeren, ist ein typisches Phänomen der Industrialisierung.",
       "promptEn": "People crowding into cities while villages empty out is a typical phenomenon of industrialization.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0293",
@@ -531,7 +571,8 @@
       ],
       "promptDe": "Da dieses Ergebnis ein Ausnahmefall sein könnte, sind weitere Untersuchungen nötig.",
       "promptEn": "This result may be an exceptional case, so further research is needed.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0294",
@@ -544,7 +585,8 @@
       ],
       "promptDe": "Auf der Grundlage früherer Studien warf diese Arbeit neue Fragen auf.",
       "promptEn": "Building on earlier studies, this paper raised new questions.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0295",
@@ -557,7 +599,8 @@
       ],
       "promptDe": "Die Erkenntnisse der Grundlagenforschung werden in Medizin und Industrie breit angewendet.",
       "promptEn": "Findings from basic science are widely applied in medicine and industry.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0296",
@@ -570,7 +613,8 @@
       ],
       "promptDe": "Hyuna legte in der Einleitung ihrer Arbeit zuerst Ziel und Umfang der Forschung dar.",
       "promptEn": "In the introduction of her thesis, Hyuna first set out the aim and scope of the research.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0297",
@@ -583,7 +627,8 @@
       ],
       "promptDe": "Bei der Hochschulaufnahmeprüfung bewertet der Aufsatzteil die Fähigkeit, logisch zu schreiben.",
       "promptEn": "In university entrance exams, the essay test assesses the ability to write logically.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0298",
@@ -596,7 +641,8 @@
       ],
       "promptDe": "Fehlen Belege, die eine Behauptung untermauern, verliert sie an Überzeugungskraft.",
       "promptEn": "If there is not enough evidence to back up a claim, it becomes less persuasive.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0299",
@@ -609,7 +655,8 @@
       ],
       "promptDe": "Wenn man die Wurzel des Problems nicht findet, wiederholt sich derselbe Fehler zwangsläufig.",
       "promptEn": "If the root of a problem is not found, the same error is bound to recur.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "id": "satz_c1_0300",
@@ -622,7 +669,8 @@
       ],
       "promptDe": "Komplexe Statistiken sind auf einen Blick verständlich, wenn man sie in Diagrammen darstellt.",
       "promptEn": "Complex statistics are easy to grasp at a glance when presented in charts.",
-      "level": "c1"
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     }
   ]
 }

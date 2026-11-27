@@ -761,7 +761,8 @@ class TestVocabUnknownRatio(unittest.TestCase):
         # C2 Batch 35/37 (2026-10-03) add 24 words. 2944+24=2968.
         # C3-T6 (2026-11-25): A2 Batches 32-34 add 192 words. 2968+192=3160.
         # C3-T7 (2026-11-26): A2 Batch 42 adds 14 words. 3160+14=3174.
-        self.assertEqual(len(self.rows), 3174)
+        # C3-T8 (2026-11-27): Batches 43 (B1 64), 44 (C1 48), 45 (A2 66). 3174+178=3352.
+        self.assertEqual(len(self.rows), 3352)
 
 
 class TestSentenceUnknownRatio(unittest.TestCase):
@@ -776,7 +777,10 @@ class TestSentenceUnknownRatio(unittest.TestCase):
     # C3-T6 (2026-11-25): A2 Batches 32-34 add 192 cloze sentences; the
     # ratio moves 0.0187 -> 0.01875. The new unknowns are lemmatizer misses
     # of ordinary conjugations (아파서, 만나서, 가서), not out-of-lexicon words.
-    CAP_UNKNOWN_RATIO = 0.0188
+    # C3-T8 (2026-11-27): Batches 43-45 add 178 sentences; 28 exact surface
+    # repairs (-면서, ㅂ/르/ㄷ irregulars, written -ㄴ다) lower the live
+    # ratio to 0.0167, so the ratchet tightens.
+    CAP_UNKNOWN_RATIO = 0.0168
 
     @classmethod
     def setUpClass(cls):

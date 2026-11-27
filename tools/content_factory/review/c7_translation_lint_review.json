@@ -913,6 +913,90 @@
       ],
       "textSha256": "2a1318957df2bd8c340abd411a61b8c630f55e176b672e48a0822a886e22ff77",
       "reason": "2026-11-26 Claude review at A2 Batch 42 promotion: the headword is used correctly in an irregular or contracted conjugation (ㅂ-irregular 더러워서, ㅎ-irregular 파란, vowel fusion 생겼어요, 여쭙다 -> 여쭤봤어요) that a plain substring check cannot match."
+    },
+    "vocab_a2_0791": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "2d9c3a1ce0c0404e89fa5c8e70356f092ebd9b271cabdcd7159983d7ad25d260",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0820": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "b7ddfe36ae8c4a95cfe6fa807e137b6d1af17bdca65c5ef94fdcc5a328d5f287",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0822": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "2cab6ad86de311b533d1eae6e6cb87c686c9e88b4e8c7d902bc8ec325da71af7",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0823": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "63c52684b6656ba8063fdafdfb98cebda42deb4d7ed044a247b3ad784444b7ab",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0824": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "4bb0775f260e79b818208020db52a1d0c6ac135498c76f154eea1e509f651360",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0826": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "99be45bd391f1822db5d3ed9e522bb3df57bf6b09fe2b8c9716d39624e27f83a",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0830": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "a19008ef74444afd2c737fba77adff38c280f6c2d36df5893972e592a7215901",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0831": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "c6d7752d94f408558813a1982e9d0b95eb01f04c4a6e8d76538e1ffc55b2888f",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0832": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "0222bef01ada2704824b58ee3ba7b6c4baedcebb281c289f4852c67f5cda5bd2",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0833": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "4136e8beab96e34dcbaf804bf76928d3146a2bc7ecbab97742e77fedc59bf1f4",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0836": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "0a9eb1a3b0d774397911598d0caf1e21a16782f0d6ff5789e528adcc5e29b167",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
+    },
+    "vocab_a2_0838": {
+      "rules": [
+        "R3"
+      ],
+      "textSha256": "4eb0ec5bb2e72100ec8e0788a9595e392ca951b1af0309cec3b3855a8a449041",
+      "reason": "2026-11-27 Claude review at A2 Batch 45 promotion: the headword is used correctly in a contracted or irregular conjugation (vowel fusion 자랐어요/내려갔어요/데려갔어요/데려와도/뛰어갔어요/깼어요/꺼냈어요/남겼어요/넘어졌어요, 으-drop 들렀어요, ㄷ-irregular 실었어요, 르-irregular 잘랐어요) that a plain stem substring check cannot match."
     }
   }
 }

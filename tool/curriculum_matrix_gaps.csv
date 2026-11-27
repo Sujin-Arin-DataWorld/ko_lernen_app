@@ -219,7 +219,6 @@ B1,text_type,news_article_report,신문 기사·보도문,structural_gap,mode=R;
 B1,text_type,presentation_briefing_talk,발표·브리핑,thin,mode=P;count=1;surfaces=scenario,add_items_of_this_genre
 B1,text_type,review_critique_text,리뷰·비평문,structural_gap,mode=P;count=0;surfaces=none,verify_genre_content_and_placement
 B1,text_type,social_media_post_comment,SNS 게시물·댓글·포럼,missing,mode=R;count=0;surfaces=scenario,add_items_of_this_genre
-B1,vocab_domain,language_metalanguage,언어·문법·화법 메타언어,thin,words=7,add_pack_in_domain
 B2,grammar_anchor,grammar_b1_as_soon_as,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b1_more_more,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds
 B2,grammar_anchor,grammar_b1_reason_context,grammar.csv row never shown in a scenario or media line,no_scenario_anchor,not in any scenario.grammarIds / media.grammar_ids,link_to_scenario_grammarIds

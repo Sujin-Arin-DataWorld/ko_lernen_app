@@ -11,7 +11,8 @@
       ],
       "promptDe": "Denken Sie vor der Reise unbedingt an Ihren Reisepass.",
       "promptEn": "Make sure to pack your passport before the trip.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0486",
@@ -24,7 +25,8 @@
       ],
       "promptDe": "Die Jeju-Reise mit meinen Freunden ist eine wirklich schöne Erinnerung.",
       "promptEn": "The trip to Jeju with my friends is a really good memory.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0487",
@@ -37,7 +39,8 @@
       ],
       "promptDe": "Um Erkältungen vorzubeugen, wäscht man sich am besten oft die Hände.",
       "promptEn": "The best way to prevent colds is to wash your hands often.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0488",
@@ -50,7 +53,8 @@
       ],
       "promptDe": "Die Lehrerin hat so schnell gesprochen, dass ich sie kaum verstanden habe.",
       "promptEn": "The teacher spoke so fast that I couldn't really understand.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "satz_b1_0489",
@@ -63,7 +67,8 @@
       ],
       "promptDe": "Viele koreanische Wörter gehen auf chinesische Schriftzeichen zurück.",
       "promptEn": "Many Korean words come from Chinese characters.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "satz_b1_0490",
@@ -76,7 +81,8 @@
       ],
       "promptDe": "Lesen klappt bei mir ganz gut, aber Hören fällt mir noch schwer.",
       "promptEn": "Reading is fine for me, but listening is still hard.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "satz_b1_0491",
@@ -89,7 +95,8 @@
       ],
       "promptDe": "Heute habe ich als Schreibaufgabe für Koreanisch einen Tagebucheintrag geschrieben.",
       "promptEn": "Today I wrote a diary entry for my Korean writing homework.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "satz_b1_0492",
@@ -102,7 +109,8 @@
       ],
       "promptDe": "Lena, dein Koreanisch ist echt viel besser geworden!",
       "promptEn": "Lena, your Korean has really improved a lot!",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "satz_b1_0493",
@@ -115,7 +123,8 @@
       ],
       "promptDe": "Ich habe lange nicht geputzt, deshalb liegt viel Staub auf dem Schreibtisch.",
       "promptEn": "I haven't cleaned in a long time, so there's a lot of dust on the desk.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0494",
@@ -128,7 +137,8 @@
       ],
       "promptDe": "Der Boden war schmutzig, deshalb habe ich ihn mit dem Lappen gewischt.",
       "promptEn": "The floor was dirty, so I wiped it clean with a rag.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0495",
@@ -141,7 +151,8 @@
       ],
       "promptDe": "Beim Waschen wird die Wäsche schon mit wenig Waschmittel sauber.",
       "promptEn": "When you do laundry, even a little detergent gets things clean.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0496",
@@ -154,7 +165,8 @@
       ],
       "promptDe": "Fassen Sie das Bügeleisen nicht an, es ist noch heiß.",
       "promptEn": "Don't touch the iron, it's still hot.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0497",
@@ -167,7 +179,8 @@
       ],
       "promptDe": "Morgens war die Sonne so grell, dass ich die Vorhänge zugezogen habe.",
       "promptEn": "The morning sun was so bright that I closed the curtains.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0498",
@@ -180,7 +193,8 @@
       ],
       "promptDe": "Ich ziehe auf dem Balkon Tomaten.",
       "promptEn": "I grow tomatoes on the balcony.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0499",
@@ -193,7 +207,8 @@
       ],
       "promptDe": "Der Reis war kalt, also habe ich ihn etwa eine Minute in die Mikrowelle gestellt.",
       "promptEn": "The rice had gone cold, so I microwaved it for about a minute.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0500",
@@ -206,7 +221,8 @@
       ],
       "promptDe": "Ich brauche keine Tüte. Ich packe es einfach in meine Tasche.",
       "promptEn": "I don't need a plastic bag. I'll just put it in my own bag.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0501",
@@ -219,7 +235,8 @@
       ],
       "promptDe": "Die Restaurants bei der Firma sind teuer, deshalb nehme ich mir zurzeit Essen mit.",
       "promptEn": "The restaurants near work are expensive, so these days I bring a packed lunch.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0502",
@@ -232,7 +249,8 @@
       ],
       "promptDe": "Ich muss kurz etwas erledigen und gehe schnell zur Bank.",
       "promptEn": "I have a quick errand, so I'll pop over to the bank.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0503",
@@ -245,7 +263,8 @@
       ],
       "promptDe": "Mein Handyakku war leer, deshalb konnte ich nicht rangehen.",
       "promptEn": "My phone battery died, so I couldn't answer the call.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0504",
@@ -258,7 +277,8 @@
       ],
       "promptDe": "Ich weiß nicht so recht, wie die neue Waschmaschine funktioniert.",
       "promptEn": "I'm not really sure how to use the new washing machine.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "satz_b1_0505",
@@ -271,7 +291,8 @@
       ],
       "promptDe": "Um Geld zu sparen, koche ich zurzeit zu Hause.",
       "promptEn": "I've been cooking at home lately to save money.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0506",
@@ -284,7 +305,8 @@
       ],
       "promptDe": "Christian, kannst du mir helfen, diese Kiste zu tragen?",
       "promptEn": "Christian, could you help me carry this box?",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0507",
@@ -297,7 +319,8 @@
       ],
       "promptDe": "Bitte schließen Sie die Tür ab, wenn Sie aus dem Haus gehen.",
       "promptEn": "Please make sure to lock the door when you leave the house.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0508",
@@ -310,7 +333,8 @@
       ],
       "promptDe": "Bei dem schönen Wetter habe ich die Wäsche auf dem Balkon aufgehängt.",
       "promptEn": "The weather was nice, so I hung laundry on the balcony.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0509",
@@ -323,7 +347,8 @@
       ],
       "promptDe": "Als ich morgens in Eile losging, habe ich meinen Kaffee verschüttet.",
       "promptEn": "I spilled my coffee while rushing out this morning.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0510",
@@ -336,7 +361,8 @@
       ],
       "promptDe": "Gestern ist mir beim Abwaschen ein Teller zerbrochen.",
       "promptEn": "Yesterday a plate broke while I was doing the dishes.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0511",
@@ -349,7 +375,8 @@
       ],
       "promptDe": "Beim Sport binde ich mir die Haare zurück.",
       "promptEn": "When I work out, I tie my hair back.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0512",
@@ -362,7 +389,8 @@
       ],
       "promptDe": "Nachts ist es kalt, deshalb schlafe ich unter einer dicken Decke.",
       "promptEn": "It's cold at night, so I sleep under a thick blanket.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0513",
@@ -375,7 +403,8 @@
       ],
       "promptDe": "Ich habe im Supermarkt groß eingekauft, um den Kühlschrank zu füllen.",
       "promptEn": "I did a big grocery run to fill up the fridge.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0514",
@@ -388,7 +417,8 @@
       ],
       "promptDe": "Es ist Feierabendverkehr, deshalb staut es sich ziemlich.",
       "promptEn": "It's rush hour, so traffic is really backed up.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0515",
@@ -401,7 +431,8 @@
       ],
       "promptDe": "Ich habe verschlafen und den Bus verpasst.",
       "promptEn": "I overslept and missed the bus.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0516",
@@ -414,7 +445,8 @@
       ],
       "promptDe": "Das Fahrrad, das ich vor dem Haus abgestellt hatte, ist verschwunden.",
       "promptEn": "The bike I'd left in front of the house has disappeared.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0517",
@@ -427,7 +459,8 @@
       ],
       "promptDe": "Ich habe mich so gut vorbereitet und bin trotzdem durchgefallen, ich bin total geknickt.",
       "promptEn": "I prepared so hard and still failed the exam, so I'm really upset.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0518",
@@ -440,7 +473,8 @@
       ],
       "promptDe": "Wirklich schade, dass die Reise schon vorbei ist.",
       "promptEn": "It's a real shame the trip is already over.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0519",
@@ -453,7 +487,8 @@
       ],
       "promptDe": "Ich bin vor allen Leuten hingefallen, das war mir total peinlich.",
       "promptEn": "I fell over in front of everyone, and it was so embarrassing.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0520",
@@ -466,7 +501,8 @@
       ],
       "promptDe": "Ich hatte mir viel erhofft, aber das Ergebnis war schlecht, deshalb war ich enttäuscht.",
       "promptEn": "I had high hopes, but the result was bad, so I was disappointed.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0521",
@@ -479,7 +515,8 @@
       ],
       "promptDe": "Mein Kind hat geschrieben, dass es gut angekommen ist, da war ich erleichtert.",
       "promptEn": "My kid texted that they'd arrived safely, so I felt relieved.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0522",
@@ -492,7 +529,8 @@
       ],
       "promptDe": "Ich hatte meinen Geldbeutel verloren, aber zum Glück hat ihn jemand bei der Polizei abgegeben.",
       "promptEn": "I lost my wallet, but luckily someone handed it in to the police.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0523",
@@ -505,7 +543,8 @@
       ],
       "promptDe": "Als Kind hat mich meine Mutter oft ausgeschimpft, weil ich mich mit meinem Bruder gestritten habe.",
       "promptEn": "As a kid, I often got scolded by my mom for fighting with my brother.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0524",
@@ -518,7 +557,8 @@
       ],
       "promptDe": "Mein jüngerer Bruder beneidet mich sehr darum, dass ich im Ausland studiere.",
       "promptEn": "My younger brother really envies me for studying abroad.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0525",
@@ -531,7 +571,8 @@
       ],
       "promptDe": "Ein Gast hat sich beschwert, dass das Essen zu spät kam.",
       "promptEn": "A customer complained that the food came out late.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0526",
@@ -544,7 +585,8 @@
       ],
       "promptDe": "Ich habe großen Respekt vor meiner Oma, weil sie immer Bedürftigen hilft.",
       "promptEn": "I respect my grandmother, who always helps people in need.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0527",
@@ -557,7 +599,8 @@
       ],
       "promptDe": "Ich hoffe, dass sich unsere Freundschaft auch in Zukunft nicht ändert.",
       "promptEn": "I hope our friendship never changes.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0528",
@@ -570,7 +613,8 @@
       ],
       "promptDe": "Sujin, ich danke dir von Herzen. Dank dir hat der Umzug gut geklappt.",
       "promptEn": "Sujin, I'm truly grateful. Thanks to you, the move went smoothly.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "satz_b1_0529",
@@ -583,7 +627,8 @@
       ],
       "promptDe": "Seit ich dieses Medikament nehme, juckt es mich am ganzen Körper.",
       "promptEn": "Ever since I took this medicine, my body has been itching.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0530",
@@ -596,7 +641,8 @@
       ],
       "promptDe": "Ich habe nicht geschlafen, deshalb ist mir etwas schwindlig.",
       "promptEn": "I didn't sleep, so I feel a bit dizzy.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0531",
@@ -609,7 +655,8 @@
       ],
       "promptDe": "Ich habe gestern vor dem Schlafen Ramyeon gegessen, jetzt ist mein Gesicht ganz geschwollen.",
       "promptEn": "I ate ramyeon right before bed last night, so my face is really puffy.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0532",
@@ -622,7 +669,8 @@
       ],
       "promptDe": "Ich war so müde, dass ich heute Morgen Nasenbluten hatte.",
       "promptEn": "I was so tired that I got a nosebleed this morning.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0533",
@@ -635,7 +683,8 @@
       ],
       "promptDe": "Wenn ich lange Bus fahre, wird mir schlecht.",
       "promptEn": "I get carsick on long bus rides.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0534",
@@ -648,7 +697,8 @@
       ],
       "promptDe": "Ich habe mittags zu schnell gegessen und habe wohl eine Magenverstimmung.",
       "promptEn": "I ate lunch too fast, and I think I have indigestion.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0535",
@@ -661,7 +711,8 @@
       ],
       "promptDe": "Ich habe abends zu viel gegessen, jetzt liegt es mir schwer im Magen.",
       "promptEn": "I ate a lot for dinner, and it's not digesting well.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0536",
@@ -674,7 +725,8 @@
       ],
       "promptDe": "Ich bin gestern die Treppe hinuntergefallen und habe mir den Knöchel verletzt.",
       "promptEn": "I fell on the stairs yesterday and hurt my ankle.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0537",
@@ -687,7 +739,8 @@
       ],
       "promptDe": "Ich hatte zurzeit so viel Arbeit, dass ich jetzt Gliederschmerzen habe.",
       "promptEn": "I've had so much work lately that I've got body aches.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0538",
@@ -700,7 +753,8 @@
       ],
       "promptDe": "Ich bin zum Arzt gegangen, um mich gegen Grippe impfen zu lassen.",
       "promptEn": "I went to the clinic to get a flu shot.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0539",
@@ -713,7 +767,8 @@
       ],
       "promptDe": "Ich hatte immer noch Fieber, deshalb habe ich mich im Krankenhaus untersuchen lassen.",
       "promptEn": "My fever wouldn't go away, so I got examined at the hospital.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0540",
@@ -726,7 +781,8 @@
       ],
       "promptDe": "Nachts hatte ich so starke Bauchschmerzen, dass ich in die Notaufnahme gegangen bin.",
       "promptEn": "My stomach hurt so badly at night that I went to the emergency room.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "satz_b1_0541",
@@ -739,7 +795,8 @@
       ],
       "promptDe": "Meine Schuhe waren völlig abgelaufen, deshalb habe ich mir neue gekauft.",
       "promptEn": "My shoes were really worn out, so I bought a new pair.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0542",
@@ -752,7 +809,8 @@
       ],
       "promptDe": "Mein neues Zimmer ist klein, aber ordentlich, das gefällt mir.",
       "promptEn": "My new room is small but neat, and I like it.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0543",
@@ -765,7 +823,8 @@
       ],
       "promptDe": "Das Zimmer meines jüngeren Bruders war total unordentlich, deshalb haben wir zusammen aufgeräumt.",
       "promptEn": "My younger brother's room was so messy that we cleaned it together.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0544",
@@ -778,7 +837,8 @@
       ],
       "promptDe": "Der Fisch vom Markt ist wirklich frisch.",
       "promptEn": "The fish I bought at the market is really fresh.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0545",
@@ -791,7 +851,8 @@
       ],
       "promptDe": "Als ich zum ersten Mal nach Korea kam, war mir alles fremd.",
       "promptEn": "When I first came to Korea, everything felt unfamiliar.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0546",
@@ -804,7 +865,8 @@
       ],
       "promptDe": "Ich fand es echt erstaunlich, dass man sich in Korea auch spätabends Essen liefern lassen kann.",
       "promptEn": "I was really amazed that in Korea you can get food delivered even late at night.",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0547",
@@ -817,7 +879,8 @@
       ],
       "promptDe": "Maya, deine Jacke heute sieht echt toll aus!",
       "promptEn": "Maya, the jacket you're wearing today looks really great!",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "satz_b1_0548",
@@ -830,7 +893,8 @@
       ],
       "promptDe": "Daniel, du läufst jeden Morgen zehn Kilometer? Echt beeindruckend!",
       "promptEn": "Daniel, you run ten kilometers every morning? That's really impressive!",
-      "level": "b1"
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
     }
   ]
 }

@@ -22,12 +22,12 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         # scenarios. Batch 40 adds five pending records and remains outside live.
         # C3-T6 (2026-11-25): A2 Batches 32-34 (3 x 192 records) promoted.
         # C3-T7 (2026-11-26): A2 Batch 42 (14 x 3 records) promoted.
-        # Drafts B1 Batch 43, C1 Batch 44 and A2 Batch 45 are pending and stay outside live.
-        self.assertEqual(result["trackedIds"], 8411)
-        self.assertEqual(result["liveIds"], 8040)
-        # Batch 40 (5) + pending drafts: B1 Batch 43 (192), C1 Batch 44
-        # (144) and A2 Batch 45 (66 x 3 = 198).
-        self.assertEqual(result["pendingIds"], 539)
+        # C3-T8 (2026-11-27): B1 Batch 43 (192), C1 Batch 44 (144) and A2
+        # Batch 45 (198) promoted together: 8411 + 534 = 8945 tracked.
+        self.assertEqual(result["trackedIds"], 8945)
+        self.assertEqual(result["liveIds"], 8574)
+        # Only Batch 40's five persona-culture records remain pending.
+        self.assertEqual(result["pendingIds"], 5)
         self.assertEqual(result["retiredScenarioIds"], 371)
         self.assertEqual(
             result["trackedIds"],
@@ -74,19 +74,19 @@ class BatchLivePromotionAuditTest(unittest.TestCase):
         self.assertEqual(batch42["reviewStatuses"], {"approved": 42})
         batch43 = manifests["batch_43_b1_reinforcement_manifest.json"]
         self.assertEqual(batch43["tracked"], 192)
-        self.assertEqual(batch43["live"], 0)
-        self.assertEqual(batch43["auditStatus"], "pending_not_live")
-        self.assertEqual(batch43["reviewStatuses"], {"pending": 192})
+        self.assertEqual(batch43["live"], 192)
+        self.assertEqual(batch43["auditStatus"], "live_verified_modern")
+        self.assertEqual(batch43["reviewStatuses"], {"approved": 192})
         batch44 = manifests["batch_44_c1_reinforcement_manifest.json"]
         self.assertEqual(batch44["tracked"], 144)
-        self.assertEqual(batch44["live"], 0)
-        self.assertEqual(batch44["auditStatus"], "pending_not_live")
-        self.assertEqual(batch44["reviewStatuses"], {"pending": 144})
+        self.assertEqual(batch44["live"], 144)
+        self.assertEqual(batch44["auditStatus"], "live_verified_modern")
+        self.assertEqual(batch44["reviewStatuses"], {"approved": 144})
         batch45 = manifests["batch_45_a2_reinforcement_manifest.json"]
         self.assertEqual(batch45["tracked"], 198)
-        self.assertEqual(batch45["live"], 0)
-        self.assertEqual(batch45["auditStatus"], "pending_not_live")
-        self.assertEqual(batch45["reviewStatuses"], {"pending": 198})
+        self.assertEqual(batch45["live"], 198)
+        self.assertEqual(batch45["auditStatus"], "live_verified_modern")
+        self.assertEqual(batch45["reviewStatuses"], {"approved": 198})
         for number in (32, 33, 34):
             report = reports[f"c3_batch{number}_a2_reinforcement"]
             self.assertEqual(report["auditStatus"], "live_verified_modern")

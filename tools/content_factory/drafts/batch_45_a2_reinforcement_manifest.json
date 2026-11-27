@@ -1,13 +1,18 @@
 {
   "version": 1,
   "batch": "c3_batch45_a2_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "A2(2급) reinforcement - 66 high-frequency NIKL grade-2 headwords still missing after Batches 32-34 and 42; level follows the NIKL canon (Jin 2026-11-25).",
     "rights": "original_clean_room",
     "seedSource": "NIKL 2017 kiiq grade-2 headword list (KOGL 1유형)",
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-11-27",
+      "source": "owner chat: 'Approve all three' (Batch 43 B1 · 44 C1 · 45 A2 packets)",
+      "sample": "66/66 (full table in packet)"
+    },
     "modelLanguageQa": "CLAUDE_MODEL_QA",
     "humanLanguageQaClaim": false,
     "droppedCandidates": {}
@@ -84,10 +89,10 @@
   "personaRows": {},
   "reviewPacket": "docs/data/review_packets/batch_45_a2_jin_sample.md",
   "promotion": {
-    "assetsDataWritten": false,
-    "runtime": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "Draft only; Jin sample approval pending (level-canon D-4). Examples, translations and distractors authored by Claude 2026-11-26; MODEL_QA only, no human-language QA claim."
+    "note": "Promoted 2026-11-27 (C3-T8) after Jin approval (Batch 43·44·45 approved together (first B1 and C1 reinforcement + A2 Batch 45)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   }
 }
