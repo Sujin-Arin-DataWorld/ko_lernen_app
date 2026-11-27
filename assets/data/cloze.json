@@ -2521,15 +2521,15 @@
     {
       "id": "cloze_a1_0080",
       "level": "a1",
-      "sentenceKo": "우리는 ＿＿＿가 좋아요.",
+      "sentenceKo": "친구와 ＿＿＿가 좋아요.",
       "answer": "사이",
-      "fullKo": "우리는 사이가 좋아요.",
-      "de": "Wir verstehen uns gut.",
-      "en": "We get along well.",
+      "fullKo": "친구와 사이가 좋아요.",
+      "de": "Ich verstehe mich gut mit meinem Freund.",
+      "en": "I get along well with my friend.",
       "distractors": [
         "빌리다",
         "읽다",
-        "와"
+        "으로"
       ],
       "topic": "Beziehungen"
     },
@@ -8068,7 +8068,7 @@
       "sentenceKo": "할머니께 먼저 ＿＿＿.",
       "answer": "인사드렸어요",
       "fullKo": "할머니께 먼저 인사드렸어요.",
-      "de": "Als Erstes habe ich meine Großmutter respektvoll begrüßt.",
+      "de": "Zuerst habe ich meine Oma respektvoll begrüßt.",
       "en": "I greeted my grandmother respectfully first.",
       "distractors": [
         "보다",
@@ -15029,7 +15029,7 @@
       "answer": "늦을 것 같아요",
       "fullKo": "버스가 막혀서 늦을 것 같아요.",
       "de": "Der Bus steht im Stau, ich komme wahrscheinlich zu spät.",
-      "en": "The bus is stuck in traffic, so it looks like I will be late.",
+      "en": "The bus is stuck in traffic, so I'll probably be late.",
       "distractors": [
         "빠를 것 같아요",
         "추울 것 같아요",
@@ -15884,7 +15884,7 @@
       "answer": "제가 더요",
       "fullKo": "아니에요, 제가 더요!",
       "de": "Nein, ich danke dir!",
-      "en": "No, I'm the one who should thank you!",
+      "en": "No, it's me who should thank you!",
       "distractors": [
         "먹다",
         "읽다",
@@ -30130,7 +30130,7 @@
       "sentenceKo": "친구한테 책을 ＿＿＿.",
       "answer": "빌려요",
       "fullKo": "친구한테 책을 빌려요.",
-      "de": "Ich leihe mir ein Buch von einem Freund.",
+      "de": "Ich leihe mir ein Buch vom Freund.",
       "en": "I borrow a book from a friend.",
       "distractors": [
         "마셔요",
@@ -31983,7 +31983,7 @@
       "sentenceKo": "＿＿＿에 정말 바빴어요.",
       "answer": "지난달",
       "fullKo": "지난달에 정말 바빴어요.",
-      "de": "Letzten Monat hatte ich wirklich viel zu tun.",
+      "de": "Letzten Monat war ich wirklich beschäftigt.",
       "en": "I was really busy last month.",
       "distractors": [
         "대답",
@@ -32154,7 +32154,7 @@
       "answer": "산에",
       "fullKo": "주말에 산에 올라가요.",
       "de": "Am Wochenende gehe ich in die Berge.",
-      "en": "I go hiking in the mountains on weekends.",
+      "en": "On weekends I hike up a mountain.",
       "distractors": [
         "동안에",
         "학생증에",
@@ -32374,7 +32374,7 @@
       "sentenceKo": "＿＿＿해요, 정말 늦었어요.",
       "answer": "미안",
       "fullKo": "미안해요, 정말 늦었어요.",
-      "de": "Tut mir leid, ich bin wirklich spät dran.",
+      "de": "Entschuldigung, ich bin wirklich zu spät.",
       "en": "Sorry, I'm really late.",
       "distractors": [
         "나무",
@@ -32735,8 +32735,8 @@
       "en": "Excuse me, I have a favor to ask.",
       "distractors": [
         "월",
-        "잠시",
-        "주"
+        "명",
+        "번"
       ],
       "topic": "Höflichkeit",
       "sourceVocabId": "vocab_a1_0666",
@@ -33275,7 +33275,7 @@
       "sentenceKo": "＿＿＿ 카드가 없어요.",
       "answer": "교통",
       "fullKo": "교통 카드가 없어요.",
-      "de": "Ich habe keine Karte für Bus und Bahn.",
+      "de": "Ich habe keine Nahverkehrskarte.",
       "en": "I don't have a transit card.",
       "distractors": [
         "달",
@@ -33986,15 +33986,15 @@
     {
       "id": "cloze_a1_0674",
       "level": "a1",
-      "sentenceKo": "친구한테 시간을 ＿＿＿ 줘요.",
-      "answer": "알려",
-      "fullKo": "친구한테 시간을 알려 줘요.",
+      "sentenceKo": "친구한테 시간을 ＿＿＿.",
+      "answer": "알려요",
+      "fullKo": "친구한테 시간을 알려요.",
       "de": "Ich sage meinem Freund die Uhrzeit.",
       "en": "I tell my friend the time.",
       "distractors": [
-        "켜",
-        "닫아",
-        "팔아"
+        "켜요",
+        "타요",
+        "팔아요"
       ],
       "topic": "Kommunikation",
       "sourceVocabId": "vocab_a1_0740",
@@ -34003,11 +34003,11 @@
     {
       "id": "cloze_a1_0675",
       "level": "a1",
-      "sentenceKo": "인터넷에서 길을 ＿＿＿.",
+      "sentenceKo": "저는 학교를 ＿＿＿.",
       "answer": "찾아봐요",
-      "fullKo": "인터넷에서 길을 찾아봐요.",
-      "de": "Ich suche den Weg im Internet.",
-      "en": "I look up directions online.",
+      "fullKo": "저는 학교를 찾아봐요.",
+      "de": "Ich suche nach der Schule.",
+      "en": "I look for the school.",
       "distractors": [
         "풀어요",
         "가르쳐요",
@@ -34537,8 +34537,8 @@
       "en": "It's zero degrees today.",
       "distractors": [
         "영 마리",
-        "영 명",
-        "영 살"
+        "영 개",
+        "영 주"
       ],
       "topic": "Zahlen",
       "sourceVocabId": "vocab_a1_0772",
@@ -34870,8 +34870,8 @@
     {
       "id": "cloze_a1_0726",
       "sourceVocabId": "vocab_a1_0792",
-      "fullKo": "학교까지 얼마나 걸려요?",
-      "sentenceKo": "학교까지 ＿＿＿ 걸려요?",
+      "fullKo": "이 가방이 얼마나 비싸요?",
+      "sentenceKo": "이 가방이 ＿＿＿ 비싸요?",
       "answer": "얼마나",
       "distractors": [
         "천천히",
@@ -34880,8 +34880,8 @@
       ],
       "level": "a1",
       "topic": "Einkaufen",
-      "de": "Wie lange braucht man bis zur Schule?",
-      "en": "How long does it take to get to school?",
+      "de": "Wie teuer ist diese Tasche?",
+      "en": "How expensive is this bag?",
       "courseUnitId": "a1_13_register_switching"
     },
     {

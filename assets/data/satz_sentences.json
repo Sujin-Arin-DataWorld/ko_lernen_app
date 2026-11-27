@@ -1108,9 +1108,9 @@
     {
       "id": "satz_a1_0049",
       "level": "a1",
-      "targetKo": "우리는 사이가 좋아요.",
-      "promptDe": "Wir verstehen uns gut.",
-      "promptEn": "We get along well.",
+      "targetKo": "친구와 사이가 좋아요.",
+      "promptDe": "Ich verstehe mich gut mit meinem Freund.",
+      "promptEn": "I get along well with my friend.",
       "distractors": [
         "음식은",
         "매워요"
@@ -5457,7 +5457,7 @@
       "id": "satz_a1_0065",
       "level": "a1",
       "targetKo": "할머니께 먼저 인사드렸어요.",
-      "promptDe": "Als Erstes habe ich meine Großmutter respektvoll begrüßt.",
+      "promptDe": "Zuerst habe ich meine Oma respektvoll begrüßt.",
       "promptEn": "I greeted my grandmother respectfully first.",
       "distractors": [
         "이모티콘은",
@@ -11026,7 +11026,7 @@
       "level": "a1",
       "targetKo": "버스가 막혀서 늦을 것 같아요.",
       "promptDe": "Der Bus steht im Stau, ich komme wahrscheinlich zu spät.",
-      "promptEn": "The bus is stuck in traffic, so it looks like I will be late.",
+      "promptEn": "The bus is stuck in traffic, so I'll probably be late.",
       "distractors": [
         "문",
         "지금"
@@ -11710,7 +11710,7 @@
       "level": "a1",
       "targetKo": "아니에요, 제가 더요!",
       "promptDe": "Nein, ich danke dir!",
-      "promptEn": "No, I'm the one who should thank you!",
+      "promptEn": "No, it's me who should thank you!",
       "distractors": [
         "죄송하다",
         "감사하다"
@@ -17805,7 +17805,7 @@
       "id": "satz_a1_0278",
       "level": "a1",
       "targetKo": "늦었어요, 빨리 가요!",
-      "promptDe": "Wir sind spät dran, lass uns schnell gehen!",
+      "promptDe": "Wir sind spät dran, gehen wir schnell!",
       "promptEn": "We're late, let's hurry!",
       "distractors": [
         "안녕하세요",
@@ -30504,7 +30504,7 @@
       "id": "satz_a1_0428",
       "level": "a1",
       "targetKo": "친구한테 책을 빌려요.",
-      "promptDe": "Ich leihe mir ein Buch von einem Freund.",
+      "promptDe": "Ich leihe mir ein Buch vom Freund.",
       "promptEn": "I borrow a book from a friend.",
       "distractors": [
         "예약",
@@ -32030,7 +32030,7 @@
       "id": "satz_a1_0537",
       "level": "a1",
       "targetKo": "지난달에 정말 바빴어요.",
-      "promptDe": "Letzten Monat hatte ich wirklich viel zu tun.",
+      "promptDe": "Letzten Monat war ich wirklich beschäftigt.",
       "promptEn": "I was really busy last month.",
       "distractors": [
         "운동화",
@@ -32171,7 +32171,7 @@
       "level": "a1",
       "targetKo": "주말에 산에 올라가요.",
       "promptDe": "Am Wochenende gehe ich in die Berge.",
-      "promptEn": "I go hiking in the mountains on weekends.",
+      "promptEn": "On weekends I hike up a mountain.",
       "distractors": [
         "다음",
         "나중"
@@ -32352,7 +32352,7 @@
       "id": "satz_a1_0560",
       "level": "a1",
       "targetKo": "미안해요, 정말 늦었어요.",
-      "promptDe": "Tut mir leid, ich bin wirklich spät dran.",
+      "promptDe": "Entschuldigung, ich bin wirklich zu spät.",
       "promptEn": "Sorry, I'm really late.",
       "distractors": [
         "남자",
@@ -33094,7 +33094,7 @@
       "id": "satz_a1_0613",
       "level": "a1",
       "targetKo": "교통 카드가 없어요.",
-      "promptDe": "Ich habe keine Karte für Bus und Bahn.",
+      "promptDe": "Ich habe keine Nahverkehrskarte.",
       "promptEn": "I don't have a transit card.",
       "distractors": [
         "곳",
@@ -33681,7 +33681,7 @@
     {
       "id": "satz_a1_0655",
       "level": "a1",
-      "targetKo": "친구한테 시간을 알려 줘요.",
+      "targetKo": "친구한테 시간을 알려요.",
       "promptDe": "Ich sage meinem Freund die Uhrzeit.",
       "promptEn": "I tell my friend the time.",
       "distractors": [
@@ -33695,9 +33695,9 @@
     {
       "id": "satz_a1_0656",
       "level": "a1",
-      "targetKo": "인터넷에서 길을 찾아봐요.",
-      "promptDe": "Ich suche den Weg im Internet.",
-      "promptEn": "I look up directions online.",
+      "targetKo": "저는 학교를 찾아봐요.",
+      "promptDe": "Ich suche nach der Schule.",
+      "promptEn": "I look for the school.",
       "distractors": [
         "메뉴",
         "생일"
@@ -34410,14 +34410,14 @@
       "id": "satz_a1_0707",
       "sourceVocabId": "vocab_a1_0792",
       "vocabKo": "얼마나",
-      "targetKo": "학교까지 얼마나 걸려요?",
+      "targetKo": "이 가방이 얼마나 비싸요?",
       "distractors": [
         "천천히",
         "일찍"
       ],
       "level": "a1",
-      "promptDe": "Wie lange braucht man bis zur Schule?",
-      "promptEn": "How long does it take to get to school?",
+      "promptDe": "Wie teuer ist diese Tasche?",
+      "promptEn": "How expensive is this bag?",
       "courseUnitId": "a1_13_register_switching"
     },
     {

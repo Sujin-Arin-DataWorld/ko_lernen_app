@@ -46,14 +46,14 @@
       "rules": [
         "R4"
       ],
-      "textSha256": "dcc12306481d46cb6ac0a82f27b6589d4dcb9cdbfcdb44721d24690b3df22e95",
+      "textSha256": "29da0902e04b571185ef1bb0132e6a734298e901aa424dcb658322f0588eef39",
       "reason": "Husband's family/home needs a phrase in EN/DE; the increased word count does not add an unrelated event or spouse."
     },
     "vocab_b2_0432": {
       "rules": [
         "R4"
       ],
-      "textSha256": "782ae863c5801d274539e5431122403c5cf8f96f96616c489c64d6bc19013596",
+      "textSha256": "63bc1933c2ff46ba1c1992b65716ee7183a2c0a0957d5e473c928b5cb9c3922c",
       "reason": "Wife's family/home and Seollal need expansion; past visit and kinship direction are preserved."
     },
     "vocab_a1_0537": {
@@ -95,7 +95,7 @@
       "rules": [
         "R7"
       ],
-      "textSha256": "8b4decbf91f0662aa73a2e4b4a55a63c4d8bb9a32fca2a4e5ead193e31c865a6",
+      "textSha256": "82d495f4629acb02d180a0fdcf6135bf203587b7700b8b0e2460e73bcdcf3dac",
       "reason": "The place name legitimately has the same spelling; Daniel and the joint visit suggestion are preserved."
     },
     "vocab_a1_0583": {
@@ -160,14 +160,14 @@
       "rules": [
         "R4"
       ],
-      "textSha256": "49f5e71447fde636cbd73808f580392d426c07b7fa0e3282bcd298f587f48df7",
+      "textSha256": "b1fe6c8a27803c4bd4f32bf03bbf3801b079038745ab7513aedc34097eab1e3e",
       "reason": "A favor/request requires a phrase; friend, today and asking are preserved. German masculine Freund should not be treated as a sourced gender fact."
     },
     "vocab_a1_0673": {
       "rules": [
         "R7"
       ],
-      "textSha256": "b1dc3b80b945246cee2f24e7aaa410fb6007ed82ed774dba84dab1854cf18ed4",
+      "textSha256": "29f85e98ba3e4bf380748b7675b6205eeb7ff6de9d1ce07d1894a7407e89e015",
       "reason": "Taekwondo is the same Korean loanword in German and English; nine shared letters are not untranslated prose.",
       "reviewedText": {
         "korean": "태권도",
@@ -179,25 +179,18 @@
       },
       "humanApprovalClaim": false
     },
-    "vocab_a1_0688": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "73afa6a45972a867577bb47a8c06fbde2f3577018da985196c3c117ffa17e585",
-      "reason": "Drink something is an idiomatic beverage suggestion; heat and the joint suggestion remain intact."
-    },
     "vocab_a1_0716": {
       "rules": [
         "R3"
       ],
-      "textSha256": "6f52fb5b2e45761aa6dc7c734110a6636f4bf2d2f5673ea429f9d9e03169946a",
+      "textSha256": "01796a1c80c23cb7262b695b8c8fb193679c33abb5f1a91e1d8e1c4aa4e9270a",
       "reason": "그려요 contracts 그리다; drawing a picture is preserved."
     },
     "vocab_a1_0717": {
       "rules": [
         "R3"
       ],
-      "textSha256": "9db52abd37595d39cc5ccbfa827a3cc5eb563a93de8af3da70e63b12bb130b76",
+      "textSha256": "c2915d955d6e6bd00cd8785624966ef4147f3daab9f7b275c5689b4c4a564e14",
       "reason": "났어요 is the past form in 열이 나다; yesterday's fever is preserved."
     },
     "vocab_a1_0722": {
@@ -211,7 +204,7 @@
       "rules": [
         "R3"
       ],
-      "textSha256": "dbb92a03536040eaf1f725600d3f33440caea64d6784b5676ed8e1d024bdb89c",
+      "textSha256": "4a4f2bc6c3108b00e56ca85da6a8e7b0f2e6ab36f650d67bebfd29e0b8f53330",
       "reason": "시켜요 contracts 시키다; ordering coffee is preserved."
     },
     "vocab_a1_0725": {
@@ -225,7 +218,7 @@
       "rules": [
         "R3"
       ],
-      "textSha256": "3debd3d02dc71d4c3f732d508195ace9eaae4da68ce62d7eec5a41d2b848f205",
+      "textSha256": "49c2b02a9f28e6999523b1f8a07ab8e406cefc965960a06de87c29cfc01e2359",
       "reason": "쳐요 contracts 치다; tennis-playing sense is explicit in both translations."
     },
     "vocab_a1_0727": {
@@ -233,7 +226,7 @@
         "R3",
         "R4"
       ],
-      "textSha256": "3134b07928f5250f36dad0f8976fd1c25c30b18481272a7ab2e10ea095523d04",
+      "textSha256": "af5197838d560f100c4373a442596c67aa0ca0218f1b5c1a187ed91e81a3034c",
       "reason": "다녀왔어요 is a valid inflection; the repaired DE/EN explicitly preserve the return. The longer target text expresses this lexical meaning, not another event."
     },
     "vocab_a1_0731": {
@@ -247,7 +240,7 @@
       "rules": [
         "R3"
       ],
-      "textSha256": "e54ae33a23e22835ba0a11236b3248c44e33b71e85566ad23ef96e92683ff8f4",
+      "textSha256": "828b4e33c539eb251b2ed21384dd86a9c57beee4899b6bb1c6bc7420a7d2c176",
       "reason": "알려요 contracts 알리다; telling a friend the time is preserved. German masculine is not scene evidence of gender."
     },
     "vocab_a1_0741": {
@@ -289,7 +282,7 @@
       "rules": [
         "R3"
       ],
-      "textSha256": "5c3f643a34047834f9fd88a3431cc0b4b1eb9b1ad3049f05ea6085f077e1e816",
+      "textSha256": "25ba8d299d8bbb7f69e26539e0b7816086064ab38e5f2535249e2bd9e63cf289",
       "reason": "달라요 is the 르-irregular form; differing opinion is preserved."
     },
     "vocab_a1_0756": {
@@ -317,7 +310,7 @@
       "rules": [
         "R3"
       ],
-      "textSha256": "f96f0d7c465b5875261c4e933e7b6dda65bfffe697656a835e24f55205abaf0d",
+      "textSha256": "111e442fd595a795eecc72f717a6726bc159a6bf4151bac2894393c95f93b4f4",
       "reason": "흐릴까요 contains 흐리 + ㄹ까요; tomorrow's cloudiness remains a question in both targets."
     },
     "vocab_a1_0819": {
@@ -433,14 +426,14 @@
       "rules": [
         "R4"
       ],
-      "textSha256": "1bbfdb287d3342a2066fa398dd62848ae692d85a58dda9e5ef87be5bda464beb",
+      "textSha256": "6d7cb5969b45b5479878e4640a12485d2a52fd29b3cb5dddebc4fa90a9accbd9",
       "reason": "The Korean compound 수저 expands to spoon and chopsticks in both targets. The present act of putting the utensils down is preserved."
     },
     "vocab_a1_0261": {
       "rules": [
         "R4"
       ],
-      "textSha256": "c91676475fc55cc18af5cccda8e02ba316e92105d28c2f55ce021fbc3f62767d",
+      "textSha256": "1769e652e485dfd806fc4d4555036a86d748780d45ca195083e538dc8b18f067",
       "reason": "The revised English New Year bow phrase expands 세배. Both targets express the same first-person New Year bow, without adding an elder or a completed past event."
     },
     "vocab_a1_0399": {
@@ -479,22 +472,6 @@
         "example_korean": "가요를 들어요.",
         "example_german": "Ich höre koreanische Popmusik.",
         "example_english": "I listen to Korean pop music."
-      },
-      "humanApprovalClaim": false
-    },
-    "vocab_a1_0671": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "40a84f910aed751e14b043629ae0e257c4da38a53351004edde73db88f0b7d73",
-      "reason": "영화배우 is film actor, a multiword English predicate. The referenced person and present occupation are preserved.",
-      "reviewedText": {
-        "korean": "영화배우",
-        "german": "Filmschauspieler(in)",
-        "english": "movie actor",
-        "example_korean": "저분은 영화배우예요.",
-        "example_german": "Diese Person spielt in Filmen.",
-        "example_english": "That person is a film actor."
       },
       "humanApprovalClaim": false
     },
@@ -628,22 +605,6 @@
         "example_korean": "어른들께 세배 드려요.",
         "example_german": "Zum Neujahrsfest verbeuge ich mich vor den Älteren.",
         "example_english": "I give the elders a New Year's bow."
-      },
-      "humanApprovalClaim": false
-    },
-    "vocab_a1_0431": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "bca3073627b23e4f9bde1b4dbae63817c3fa123b55412f052e0b053d56ff15b2",
-      "reason": "외국인이에요 is a complete Korean predicate. German says the speaker comes from another country, the natural non-stigmatizing way to convey the speaker being foreign in context; the longer wording does not add a destination or legal status.",
-      "reviewedText": {
-        "korean": "외국인",
-        "german": "Person aus einem anderen Land",
-        "english": "person from another country",
-        "example_korean": "저는 외국인이에요.",
-        "example_german": "Ich komme aus einem anderen Land.",
-        "example_english": "I'm from another country."
       },
       "humanApprovalClaim": false
     },

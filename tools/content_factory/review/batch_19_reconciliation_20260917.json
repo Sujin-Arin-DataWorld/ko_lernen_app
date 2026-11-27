@@ -113,8 +113,8 @@
       "id": "vocab_a1_0408",
       "beforeSha256": "e354fe179bcb4713b7ca6a973d24775c844f19f352073234b2337767b3ef0d0e",
       "priorLiveSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
-      "actualAfterSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
-      "comparisonAfterSha256": "df98c0e00fe8f921910658b5b1e3f77ad7cc026e319f07ce35d810bbbb12eae8",
+      "actualAfterSha256": "40ffaf56f1a098403d53158ea47acad967b71c4602f460ec81bbaf9ed2ce2cdc",
+      "comparisonAfterSha256": "40ffaf56f1a098403d53158ea47acad967b71c4602f460ec81bbaf9ed2ce2cdc",
       "currentLevel": "A1",
       "revisionRegistered": true,
       "fields": {
@@ -1053,8 +1053,8 @@
       "id": "satz_a1_0315",
       "beforeSha256": "f895f4b2187a4809431d6a05635e14303c0dd1903040b2d473cc728823cd261a",
       "priorLiveSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
-      "actualAfterSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
-      "comparisonAfterSha256": "01422aaa0e28b53b0c0b1938c0bfbb24fbbb7a81183264c28f45a38b562e5d55",
+      "actualAfterSha256": "9f05ea85db32b324352d7f3024a7a4294cd501e8fd88a4797879484d6d35ee57",
+      "comparisonAfterSha256": "9f05ea85db32b324352d7f3024a7a4294cd501e8fd88a4797879484d6d35ee57",
       "currentLevel": "a1",
       "revisionRegistered": true,
       "fields": {

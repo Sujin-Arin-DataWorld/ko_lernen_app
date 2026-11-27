@@ -20,6 +20,7 @@ cloze,cloze_a1_0060,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_numbers_2
 cloze,cloze_a1_0083,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_self_intro,step_up_or_swap
 cloze,cloze_a1_0099,a1,a2,1,over1 lex_p90=1.9,,a1_daily_4,step_up_or_swap
 cloze,cloze_a1_0108,a1,a2,1,over1 lex_p90=1.9,,a1_partner_meet_names_1,step_up_or_swap
+cloze,cloze_a1_0111,a1,a2,1,over1 lex_p90=1.6,,a1_partner_meet_names_1,step_up_or_swap
 cloze,cloze_a1_0115,b1,b2,1,over1 lex_p90=3.7,,b1_partner_first_gift_1,step_up_or_swap
 cloze,cloze_a1_0117,b1,a1,-2,under2 grammar=grammar_a2_contrast:1,,b1_partner_first_gift_1,downgrade_candidate
 cloze,cloze_a1_0121,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_partner_first_gift_1,downgrade_candidate
@@ -66,12 +67,10 @@ cloze,cloze_a1_0329,a1,a2,1,over1 lex_p90=1.8,,a1_payment_delivery_1,step_up_or_
 cloze,cloze_a1_0331,a1,a2,1,over1 lex_p90=1.7,can_do_ref,,step_up_or_swap
 cloze,cloze_a1_0333,a1,a2,1,over1 lex_p90=1.7,can_do_ref,,step_up_or_swap
 cloze,cloze_a1_0399,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_food_2,step_up_or_swap
-cloze,cloze_a1_0425,a1,c2,5,over2 lex_p90=5.5,,a1_greetings_1,bundle_move
 cloze,cloze_a1_0427,a1,a2,1,over1 grammar=grammar_a2_try_experience:2,,a1_greetings_1,step_up_or_swap
 cloze,cloze_a1_0457,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_misc_1,step_up_or_swap
 cloze,cloze_a1_0458,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_misc_1,step_up_or_swap
-cloze,cloze_a1_0495,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_hobbies_1,step_up_or_swap
-cloze,cloze_a1_0497,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_hobbies_1,step_up_or_swap
+cloze,cloze_a1_0495,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_hobbies_1,step_up_or_swap
 cloze,cloze_a1_0510,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_korean_food_1,step_up_or_swap
 cloze,cloze_a1_0515,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_korean_places_1,step_up_or_swap
 cloze,cloze_a1_0520,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_korean_places_1,step_up_or_swap
@@ -83,7 +82,6 @@ cloze,cloze_a1_0611,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_culture_h
 cloze,cloze_a1_0636,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_school_work_1,step_up_or_swap
 cloze,cloze_a1_0653,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_verbs_daily_1,step_up_or_swap
 cloze,cloze_a1_0659,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_verbs_daily_1,step_up_or_swap
-cloze,cloze_a1_0662,a1,a2,1,over1 lex_p90=1.9,,a1_verbs_daily_2,step_up_or_swap
 cloze,cloze_a1_0675,a1,a2,1,over1 grammar=grammar_a2_try_experience:2,,a1_verbs_daily_3,step_up_or_swap
 cloze,cloze_a1_0676,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_verbs_daily_3,step_up_or_swap
 cloze,cloze_a1_0716,a1,a2,1,over1 grammar=grammar_a2_conditional:2,,a1_adverbs_1,step_up_or_swap
@@ -133,8 +131,6 @@ cloze,cloze_a2_0254,b1,b2,1,over1 grammar=grammar_b2_quoted_contractions:4,,b1_l
 cloze,cloze_a2_0262,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_festival_booth_1,downgrade_candidate
 cloze,cloze_a2_0265,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_festival_booth_1,downgrade_candidate
 cloze,cloze_a2_0336,a2,b1,1,over1 lex_p90=2.6,,a2_weather,step_up_or_swap
-cloze,cloze_a2_0473,a2,b1,1,over1 lex_p90=2.7,,a2_directions_1,step_up_or_swap
-cloze,cloze_a2_0557,a2,b1,1,over1 lex_p90=2.6,,a2_time_span_1,step_up_or_swap
 cloze,cloze_b1_0002,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,can_do_ref,,downgrade_candidate
 cloze,cloze_b1_0007,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,can_do_ref,,downgrade_candidate
 cloze,cloze_b1_0013,b1,b2,1,over1 lex_p90=3.9,can_do_ref,,step_up_or_swap
@@ -220,7 +216,6 @@ cloze,cloze_b2_0078,b2,c1,1,over1 lex_p90=5.0,,b2_formal_complaint_1,step_up_or_
 cloze,cloze_b2_0093,b2,a2,-2,under2 grammar=grammar_a2_try_experience:2,,b2_decisions_perspectives_1,downgrade_candidate
 cloze,cloze_b2_0098,b2,a2,-2,under2 lex_p90=2.5,,b2_reading_response_1,downgrade_candidate
 cloze,cloze_b2_0102,b2,c1,1,over1 lex_p90=5.0,can_do_ref,b2_reading_response_1,step_up_or_swap
-cloze,cloze_b2_0108,b2,a2,-2,under2 grammar=grammar_a2_conditional:2,can_do_ref,b2_language_society_1,downgrade_candidate
 cloze,cloze_b2_0118,b2,a2,-2,under2 grammar=grammar_a1_or_particle:2,,b2_collaborative_feedback_1,downgrade_candidate
 cloze,cloze_b2_0121,b2,a2,-2,under2 lex_p90=2.0,,b2_collaborative_feedback_1,downgrade_candidate
 cloze,cloze_b2_0122,b2,a2,-2,under2 grammar=grammar_b1_nominalization:2,,b2_collaborative_feedback_1,downgrade_candidate
@@ -425,7 +420,6 @@ cloze,cloze_c2_0028,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1
 cloze,cloze_c2_0029,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1,downgrade_candidate
 cloze,cloze_c2_0030,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1,downgrade_candidate
 cloze,cloze_c2_0031,c2,a2,-4,under2 lex_p90=2.2,can_do_ref,c2_language_framing_1,downgrade_candidate
-cloze,cloze_c2_0032,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1,downgrade_candidate
 cloze,cloze_c2_0033,c2,b1,-3,under2 length,can_do_ref,c2_language_framing_1,downgrade_candidate
 cloze,cloze_c2_0035,c2,b2,-2,under2 lex_p90=4.4,can_do_ref,c2_language_framing_1,downgrade_candidate
 cloze,cloze_c2_0036,c2,b2,-2,under2 lex_p90=4.2,can_do_ref,c2_language_framing_1,downgrade_candidate
@@ -488,7 +482,7 @@ cloze,cloze_c2_0100,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_institutional_voic
 cloze,cloze_c2_0101,c2,b1,-3,under2 lex_p90=3.3,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 cloze,cloze_c2_0102,c2,b1,-3,under2 grammar=nikl_g3_기_위해:3,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 cloze,cloze_c2_0103,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
-cloze,cloze_c2_0104,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
+cloze,cloze_c2_0104,c2,b2,-2,under2 lex_p90=4.3,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 cloze,cloze_c2_0105,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 cloze,cloze_c2_0106,c2,b2,-2,under2 lex_p90=3.9,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 cloze,cloze_c2_0107,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
@@ -627,7 +621,6 @@ cloze,cloze_c2_0268,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,d
 cloze,cloze_c2_0270,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
 cloze,cloze_c2_0271,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
 cloze,cloze_c2_0272,c2,b2,-2,under2 grammar=nikl_g4_고서_v1:4,can_do_ref,c2_argument_scope_1,downgrade_candidate
-cloze,cloze_c2_0273,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
 grammar,grammar_a1_degree_question,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,can_do_ref,,step_up_or_swap
 grammar,grammar_a1_topic_contrast,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,can_do_ref,,step_up_or_swap
 grammar,grammar_a1_with_connector,a1,a2,1,over1 grammar=grammar_a2_like:2,can_do_ref,,step_up_or_swap
@@ -694,6 +687,7 @@ media,media_015,a2,b1,1,over1 lex_p90=2.9,,,step_up_or_swap
 media,media_019,a1,a2,1,over1 lex_p90=1.9,,,step_up_or_swap
 media,media_020,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,,step_up_or_swap
 media,media_021,a2,b1,1,over1 grammar=nikl_g3_으면_안_되다_v1:3,,,step_up_or_swap
+media,media_032,a2,b1,1,over1 lex_p90=2.6,,,step_up_or_swap
 media,media_036,a2,b1,1,over1 lex_p90=2.8,,,step_up_or_swap
 media,media_041,a1,a2,1,over1 grammar=grammar_a2_try_experience:2,,,step_up_or_swap
 media,media_044,a2,b1,1,over1 lex_p90=3.0,,,step_up_or_swap
@@ -753,14 +747,14 @@ satz,satz_a1_0016,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_time_1,step_up_or_
 satz,satz_a1_0029,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_numbers_2,step_up_or_swap
 satz,satz_a1_0048,a1,a2,1,over1 grammar=grammar_a2_only_negative:2,,a1_position,step_up_or_swap
 satz,satz_a1_0053,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_self_intro,step_up_or_swap
+satz,satz_a1_0075,a1,a2,1,over1 lex_p90=1.6,,a1_partner_meet_names_1,step_up_or_swap
 satz,satz_a1_0079,b1,b2,1,over1 lex_p90=3.7,,b1_partner_first_gift_1,step_up_or_swap
 satz,satz_a1_0081,b1,a1,-2,under2 grammar=grammar_a2_contrast:1,,b1_partner_first_gift_1,downgrade_candidate
 satz,satz_a1_0085,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_partner_first_gift_1,downgrade_candidate
 satz,satz_a1_0086,b1,a1,-2,under2 grammar=grammar_a1_direction_means:1,,b1_partner_first_gift_1,downgrade_candidate
 satz,satz_a1_0091,a2,b1,1,over1 lex_p90=3.0,,a2_partner_house_entry_1,step_up_or_swap
 satz,satz_a1_0103,a1,a2,1,over1 length,,,step_up_or_swap
-satz,satz_a1_0107,a1,b1,2,over2 lex_p90=2.6,,,bundle_move
-satz,satz_a1_0108,a1,b1,2,over2 lex_p90=2.9,,,bundle_move
+satz,satz_a1_0108,a1,a2,1,over1 lex_p90=1.9,,,step_up_or_swap
 satz,satz_a1_0109,a1,a2,1,over1 lex_p90=2.0,,,step_up_or_swap
 satz,satz_a1_0110,a1,a2,1,over1 lex_p90=1.8,,,step_up_or_swap
 satz,satz_a1_0111,a1,a2,1,over1 lex_p90=2.0,,,step_up_or_swap
@@ -769,7 +763,6 @@ satz,satz_a1_0116,a1,a2,1,over1 lex_p90=1.8,,,step_up_or_swap
 satz,satz_a1_0117,a1,a2,1,over1 length,,,step_up_or_swap
 satz,satz_a1_0118,a1,a2,1,over1 lex_p90=2.4,,a1_partner_seollal_basic_1,step_up_or_swap
 satz,satz_a1_0119,a1,a2,1,over1 lex_p90=2.0,,,step_up_or_swap
-satz,satz_a1_0123,a1,b1,2,over2 lex_p90=3.0,,,bundle_move
 satz,satz_a1_0134,b2,a2,-2,under2 lex_p90=2.0,,b2_partner_holiday_duty_1,downgrade_candidate
 satz,satz_a1_0139,b1,b2,1,over1 grammar=nikl_g4_고_해서:4,,b1_partner_siblings_hello_1,step_up_or_swap
 satz,satz_a1_0144,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,b1_partner_siblings_hello_1,downgrade_candidate
@@ -800,7 +793,6 @@ satz,satz_a1_0271,a1,a2,1,over1 grammar=grammar_a2_conditional:2,,a1_food_1,step
 satz,satz_a1_0272,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_food_2,step_up_or_swap
 satz,satz_a1_0274,a1,a2,1,over1 lex_p90=1.7,,a1_food_2,step_up_or_swap
 satz,satz_a1_0287,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_numbers_2,step_up_or_swap
-satz,satz_a1_0294,a1,a2,1,over1 lex_p90=1.9,,a1_greetings_2,step_up_or_swap
 satz,satz_a1_0307,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,b1_communication_lang_1,downgrade_candidate
 satz,satz_a1_0308,a1,a2,1,over1 lex_p90=1.9,,a1_particles_in_use_1,step_up_or_swap
 satz,satz_a1_0312,a1,a2,1,over1 lex_p90=2.0,,,step_up_or_swap
@@ -812,12 +804,10 @@ satz,satz_a1_0330,a1,a2,1,over1 lex_p90=1.7,,,step_up_or_swap
 satz,satz_a1_0336,a1,a2,1,over1 lex_p90=1.8,,a1_city_services_2026_1,step_up_or_swap
 satz,satz_a1_0353,a1,a2,1,over1 lex_p90=2.0,,,step_up_or_swap
 satz,satz_a1_0380,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_food_2,step_up_or_swap
-satz,satz_a1_0406,a1,c2,5,over2 lex_p90=5.5,,a1_greetings_1,bundle_move
 satz,satz_a1_0438,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_misc_1,step_up_or_swap
 satz,satz_a1_0439,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_misc_1,step_up_or_swap
 satz,satz_a1_0469,a1,a2,1,over1 grammar=grammar_a2_like:2,,,step_up_or_swap
-satz,satz_a1_0476,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_hobbies_1,step_up_or_swap
-satz,satz_a1_0478,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_hobbies_1,step_up_or_swap
+satz,satz_a1_0476,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_hobbies_1,step_up_or_swap
 satz,satz_a1_0491,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_korean_food_1,step_up_or_swap
 satz,satz_a1_0496,a1,a2,1,over1 grammar=grammar_a2_like:2,,,step_up_or_swap
 satz,satz_a1_0501,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_korean_places_1,step_up_or_swap
@@ -828,7 +818,6 @@ satz,satz_a1_0592,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_culture_hob
 satz,satz_a1_0617,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_school_work_1,step_up_or_swap
 satz,satz_a1_0634,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_verbs_daily_1,step_up_or_swap
 satz,satz_a1_0640,a1,a2,1,over1 grammar=grammar_a1_or_particle:2,,a1_verbs_daily_1,step_up_or_swap
-satz,satz_a1_0643,a1,a2,1,over1 lex_p90=1.9,,a1_verbs_daily_2,step_up_or_swap
 satz,satz_a1_0656,a1,a2,1,over1 grammar=grammar_a2_try_experience:2,,a1_verbs_daily_3,step_up_or_swap
 satz,satz_a1_0657,a1,a2,1,over1 grammar=grammar_a2_like:2,,a1_verbs_daily_3,step_up_or_swap
 satz,satz_a1_0697,a1,a2,1,over1 grammar=grammar_a2_conditional:2,,a1_adverbs_1,step_up_or_swap
@@ -882,8 +871,6 @@ satz,satz_a2_0445,a2,b1,1,over1 lex_p90=2.8,,a2_change_verbs_1,step_up_or_swap
 satz,satz_a2_0465,b1,a1,-2,under2 grammar=grammar_a1_action_location_particle:1,,b1_housing_search_2026_1,downgrade_candidate
 satz,satz_a2_0466,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,b1_housing_search_2026_1,downgrade_candidate
 satz,satz_a2_0521,a2,b1,1,over1 lex_p90=2.6,,a2_weather,step_up_or_swap
-satz,satz_a2_0658,a2,b1,1,over1 lex_p90=2.7,,a2_directions_1,step_up_or_swap
-satz,satz_a2_0742,a2,b1,1,over1 lex_p90=2.6,,a2_time_span_1,step_up_or_swap
 satz,satz_b1_0002,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,,downgrade_candidate
 satz,satz_b1_0006,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,,downgrade_candidate
 satz,satz_b1_0008,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,,downgrade_candidate
@@ -891,6 +878,7 @@ satz,satz_b1_0011,b1,a1,-2,under2 grammar=grammar_a1_topic_particle:1,,,downgrad
 satz,satz_b1_0012,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,,downgrade_candidate
 satz,satz_b1_0013,b1,a1,-2,under2 grammar=grammar_a1_polite_request:1,,,downgrade_candidate
 satz,satz_b1_0014,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,,downgrade_candidate
+satz,satz_b1_0018,b1,b2,1,over1 lex_p90=3.8,,,step_up_or_swap
 satz,satz_b1_0025,b1,a1,-2,under2 grammar=grammar_a1_object_particle:1,,,downgrade_candidate
 satz,satz_b1_0026,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,,downgrade_candidate
 satz,satz_b1_0030,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,,,downgrade_candidate
@@ -1149,7 +1137,6 @@ satz,satz_b2_0326,b2,a2,-2,under2 lex_p90=2.4,,b2_customer_escalation_1,downgrad
 satz,satz_b2_0329,b2,a2,-2,under2 grammar=grammar_a2_after_finishing:2,,b2_customer_escalation_1,downgrade_candidate
 satz,satz_b2_0335,b2,c1,1,over1 lex_p90=5.0,,b2_customer_escalation_1,step_up_or_swap
 satz,satz_b2_0342,b2,a2,-2,under2 lex_p90=2.5,,b2_research_summary_1,downgrade_candidate
-satz,satz_b2_0354,b2,a2,-2,under2 grammar=grammar_a2_conditional:2,,b2_thinking_1,downgrade_candidate
 satz,satz_b2_0362,b2,a2,-2,under2 lex_p90=1.7,,b2_communication,downgrade_candidate
 satz,satz_b2_0368,b2,a2,-2,under2 lex_p90=2.4,,b2_misc,downgrade_candidate
 satz,satz_b2_0372,b2,a2,-2,under2 lex_p90=2.0,,b2_work,downgrade_candidate
@@ -1362,7 +1349,6 @@ satz,satz_c2_0028,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1,d
 satz,satz_c2_0029,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1,downgrade_candidate
 satz,satz_c2_0030,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1,downgrade_candidate
 satz,satz_c2_0031,c2,a2,-4,under2 lex_p90=2.2,can_do_ref,c2_language_framing_1,downgrade_candidate
-satz,satz_c2_0032,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_language_framing_1,downgrade_candidate
 satz,satz_c2_0033,c2,b1,-3,under2 length,can_do_ref,c2_language_framing_1,downgrade_candidate
 satz,satz_c2_0035,c2,b2,-2,under2 lex_p90=4.4,can_do_ref,c2_language_framing_1,downgrade_candidate
 satz,satz_c2_0036,c2,b2,-2,under2 lex_p90=4.2,can_do_ref,c2_language_framing_1,downgrade_candidate
@@ -1427,7 +1413,7 @@ satz,satz_c2_0102,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_institutional_voice_
 satz,satz_c2_0103,c2,b1,-3,under2 lex_p90=3.3,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 satz,satz_c2_0104,c2,b1,-3,under2 grammar=nikl_g3_기_위해:3,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 satz,satz_c2_0105,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
-satz,satz_c2_0106,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
+satz,satz_c2_0106,c2,b2,-2,under2 lex_p90=4.3,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 satz,satz_c2_0107,c2,b1,-3,under2 lex_p90=3.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 satz,satz_c2_0108,c2,b2,-2,under2 lex_p90=3.9,can_do_ref,c2_memory_narrative_1,downgrade_candidate
 satz,satz_c2_0109,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_memory_narrative_1,downgrade_candidate
@@ -1563,7 +1549,6 @@ satz,satz_c2_0270,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,dow
 satz,satz_c2_0272,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
 satz,satz_c2_0273,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
 satz,satz_c2_0274,c2,b2,-2,under2 grammar=nikl_g4_고서_v1:4,can_do_ref,c2_argument_scope_1,downgrade_candidate
-satz,satz_c2_0275,c2,b2,-2,under2 lex_p90=4.0,can_do_ref,c2_argument_scope_1,downgrade_candidate
 scenario,a1_message_contact_after_class_2026,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
 scenario,a1_theme_park_date_choices,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
 scenario,a1_w10_eat,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
@@ -1574,8 +1559,6 @@ scenario,after_hours_messages,c1,b1,-2,under2 grammar_ids_max=3,can_do_ref,,down
 scenario,ai_hiring_appeal,c2,b2,-2,under2 dialog_p75=4.0,can_do_ref,,downgrade_candidate
 scenario,ai_translation_voice_loss,c1,b1,-2,under2 dialog_p75=3.0,can_do_ref,,downgrade_candidate
 scenario,automated_benefit_denial,c2,b2,-2,under2 dialog_p75=4.2,can_do_ref,,downgrade_candidate
-scenario,b1_christian_sujin_suspicious_text_followup,b1,b2,1,over1 dialog_p75=3.5,can_do_ref,,step_up_or_swap
-scenario,b1_sujin_christian_asset_provenance_check,b1,b2,1,over1 dialog_p75=4.0,can_do_ref,,step_up_or_swap
 scenario,bakery_payment_bag,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
 scenario,bakery_queue,a1,a2,1,over1 dialog_p75=2.0,can_do_ref,,step_up_or_swap
 scenario,break_glass_apology,a1,a2,1,over1 dialog_p75=1.5,can_do_ref,,step_up_or_swap
@@ -1678,6 +1661,7 @@ smalltalk,smalltalk_a2_0060,a2,b1,1,over1 grammar=nikl_g3_으면_안_되다_v3:3
 smalltalk,smalltalk_a2_0073,a2,b1,1,over1 grammar=nikl_g3_으면_안_되다_v3:3,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a2_0078,a2,b1,1,over1 lex_p90=2.9,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a2_0080,a2,b1,1,over1 lex_p90=2.6,can_do_ref,,step_up_or_swap
+smalltalk,smalltalk_a2_0081,a2,b1,1,over1 lex_p90=2.6,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a2_0086,a2,b1,1,over1 lex_p90=2.7,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_a2_0091,a2,b1,1,over1 lex_p90=2.6,can_do_ref,,step_up_or_swap
 smalltalk,smalltalk_b1_0014,b1,a1,-2,under2 grammar=grammar_a1_subject_particle:1,can_do_ref,,downgrade_candidate
@@ -2277,6 +2261,7 @@ vocab,vocab_b1_0474,b1,c1,2,reviewed_owner raw_estimate=c1,satz_ref+can_do_ref+r
 vocab,vocab_b1_0477,b1,c2,3,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b1_work_entry_2026_1,keep_reviewed_owner
 vocab,vocab_b1_0481,b1,b2,1,over1,satz_ref+can_do_ref,b1_work_softening_1,step_up_or_swap
 vocab,vocab_b1_0483,b1,a1,-2,under2,satz_ref+can_do_ref,b1_work_softening_1,downgrade_candidate
+vocab,vocab_b2_0011,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_thinking_1,keep_reviewed_owner
 vocab,vocab_b2_0012,b2,c1,1,over1,satz_ref+can_do_ref,b2_society_1,step_up_or_swap
 vocab,vocab_b2_0014,b2,a2,-2,under2,satz_ref+can_do_ref,b2_society_1,downgrade_candidate
 vocab,vocab_b2_0025,b2,c1,1,over1,satz_ref+can_do_ref,b2_communication,step_up_or_swap
@@ -2400,7 +2385,9 @@ vocab,vocab_b2_0272,b2,a2,-2,under2,satz_ref+can_do_ref,b2_collaborative_feedbac
 vocab,vocab_b2_0275,b2,c1,1,over1,satz_ref+can_do_ref,b2_collaborative_feedback_1,step_up_or_swap
 vocab,vocab_b2_0276,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_collaborative_feedback_1,keep_reviewed_owner
 vocab,vocab_b2_0278,b2,c1,1,over1,satz_ref+can_do_ref,b2_digital_judgment_1,step_up_or_swap
+vocab,vocab_b2_0279,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_digital_judgment_1,keep_reviewed_owner
 vocab,vocab_b2_0281,b2,c1,1,over1,satz_ref+can_do_ref,b2_digital_judgment_1,step_up_or_swap
+vocab,vocab_b2_0287,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_digital_judgment_1,keep_reviewed_owner
 vocab,vocab_b2_0290,b2,a2,-2,under2,satz_ref+can_do_ref,b2_shared_space_coordination_1,downgrade_candidate
 vocab,vocab_b2_0291,b2,c1,1,over1,satz_ref+can_do_ref,b2_shared_space_coordination_1,step_up_or_swap
 vocab,vocab_b2_0293,b2,a2,-2,under2,satz_ref+can_do_ref,b2_shared_space_coordination_1,downgrade_candidate
@@ -2490,6 +2477,7 @@ vocab,vocab_b2_0549,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+r
 vocab,vocab_b2_0550,b2,c1,1,over1,satz_ref+can_do_ref,b2_housing_dispute_1,step_up_or_swap
 vocab,vocab_b2_0552,b2,c1,1,over1,satz_ref+can_do_ref,b2_media_literacy_1,step_up_or_swap
 vocab,vocab_b2_0553,b2,c1,1,over1,satz_ref+can_do_ref,b2_media_literacy_1,step_up_or_swap
+vocab,vocab_b2_0555,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_media_literacy_1,keep_reviewed_owner
 vocab,vocab_b2_0556,b2,c1,1,over1,satz_ref+can_do_ref,b2_media_literacy_1,step_up_or_swap
 vocab,vocab_b2_0557,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_media_literacy_1,keep_reviewed_owner
 vocab,vocab_b2_0558,b2,c2,2,reviewed_owner raw_estimate=c2,satz_ref+can_do_ref+reviewed_owner,b2_media_literacy_1,keep_reviewed_owner
@@ -2638,14 +2626,15 @@ vocab,vocab_c1_0220,c1,c2,1,over1,satz_ref+can_do_ref,c1_2026_social_topics_1,st
 vocab,vocab_c1_0223,c1,c2,1,over1,satz_ref+can_do_ref,c1_2026_social_topics_1,step_up_or_swap
 vocab,vocab_c1_0225,c1,c2,1,over1,satz_ref+can_do_ref,c1_2026_social_topics_1,step_up_or_swap
 vocab,vocab_c1_0227,c1,c2,1,over1 src=compound,satz_ref+can_do_ref,c1_2026_social_topics_1,step_up_or_swap
+vocab,vocab_c1_0228,c1,c2,1,over1,satz_ref+can_do_ref,c1_2026_social_topics_1,step_up_or_swap
 vocab,vocab_c1_0230,c1,c2,1,over1,can_do_ref,c1_ai_culture_labor_2026_1,step_up_or_swap
 vocab,vocab_c1_0232,c1,c2,1,over1,can_do_ref,c1_ai_culture_labor_2026_1,step_up_or_swap
 vocab,vocab_c1_0237,c1,c2,1,over1 src=compound,satz_ref+can_do_ref,c1_ai_culture_labor_2026_1,step_up_or_swap
+vocab,vocab_c1_0239,c1,c2,1,over1,satz_ref+can_do_ref,c1_ai_culture_labor_2026_1,step_up_or_swap
 vocab,vocab_c2_0004,c2,b2,-2,under2,satz_ref+can_do_ref,c2_institutional_mediation_1,downgrade_candidate
 vocab,vocab_c2_0010,c2,b1,-3,under2,satz_ref+can_do_ref,c2_institutional_mediation_1,downgrade_candidate
 vocab,vocab_c2_0011,c2,b2,-2,under2,satz_ref+can_do_ref,c2_institutional_mediation_1,downgrade_candidate
 vocab,vocab_c2_0016,c2,b1,-3,under2,satz_ref+can_do_ref,c2_narrative_perspective_1,downgrade_candidate
-vocab,vocab_c2_0018,c2,b2,-2,under2,satz_ref+can_do_ref,c2_narrative_perspective_1,downgrade_candidate
 vocab,vocab_c2_0021,c2,b2,-2,under2,satz_ref+can_do_ref,c2_narrative_perspective_1,downgrade_candidate
 vocab,vocab_c2_0023,c2,b2,-2,under2,satz_ref+can_do_ref,c2_narrative_perspective_1,downgrade_candidate
 vocab,vocab_c2_0026,c2,b2,-2,under2,satz_ref+can_do_ref,c2_language_framing_1,downgrade_candidate
@@ -2676,7 +2665,6 @@ vocab,vocab_c2_0088,c2,b2,-2,under2,satz_ref+can_do_ref,c2_institutional_voice_1
 vocab,vocab_c2_0090,c2,b2,-2,under2,satz_ref+can_do_ref,c2_institutional_voice_1,downgrade_candidate
 vocab,vocab_c2_0096,c2,b2,-2,under2,satz_ref+can_do_ref,c2_institutional_voice_1,downgrade_candidate
 vocab,vocab_c2_0098,c2,a2,-4,under2,satz_ref+can_do_ref,c2_memory_narrative_1,downgrade_candidate
-vocab,vocab_c2_0100,c2,b2,-2,under2,satz_ref+can_do_ref,c2_memory_narrative_1,downgrade_candidate
 vocab,vocab_c2_0101,c2,b2,-2,under2,satz_ref+can_do_ref,c2_memory_narrative_1,downgrade_candidate
 vocab,vocab_c2_0102,c2,b2,-2,under2,satz_ref+can_do_ref,c2_memory_narrative_1,downgrade_candidate
 vocab,vocab_c2_0103,c2,b1,-3,under2,satz_ref+can_do_ref,c2_memory_narrative_1,downgrade_candidate
@@ -2716,4 +2704,3 @@ vocab,vocab_c2_0234,c2,b2,-2,under2,can_do_ref,c2_demography_accountability_2026
 vocab,vocab_c2_0253,c2,b1,-3,under2 src=compound,satz_ref+can_do_ref,c2_argument_scope_1,downgrade_candidate
 vocab,vocab_c2_0255,c2,b2,-2,under2,satz_ref+can_do_ref,c2_argument_scope_1,downgrade_candidate
 vocab,vocab_c2_0257,c2,b2,-2,under2,satz_ref+can_do_ref,c2_argument_scope_1,downgrade_candidate
-vocab,vocab_c2_0263,c2,b2,-2,under2,satz_ref+can_do_ref,c2_argument_scope_1,downgrade_candidate

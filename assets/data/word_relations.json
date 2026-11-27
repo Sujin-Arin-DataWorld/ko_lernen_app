@@ -1919,8 +1919,8 @@
       "id": "rel_a1_0042",
       "sourceKo": "학생",
       "sourceVocabId": "vocab_a1_0013",
-      "sourceDe": "Student, Schüler",
-      "sourceEn": "student, pupil",
+      "sourceDe": "Student/in, Schüler/in",
+      "sourceEn": "student / pupil",
       "level": "A1",
       "synonyms": [
         {
@@ -1936,7 +1936,7 @@
       "related": [
         {
           "ko": "선생님",
-          "de": "Lehrer",
+          "de": "Lehrer/in",
           "en": "teacher",
           "nuanceDe": "Die Person, die den Schüler unterrichtet.",
           "nuanceEn": "The person who teaches the student.",
