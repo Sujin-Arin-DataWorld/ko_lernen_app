@@ -8518,7 +8518,7 @@
       "sentenceKo": "＿＿＿. 여기 있어요.",
       "answer": "물 드세요",
       "fullKo": "물 드세요. 여기 있어요.",
-      "de": "Trinken Sie etwas Wasser. Hier ist es.",
+      "de": "Trinken Sie doch etwas Wasser. Hier, bitte.",
       "en": "Please have some water. Here it is.",
       "distractors": [
         "실례해요",
@@ -8578,8 +8578,8 @@
       "sentenceKo": "＿＿＿을 간단히 확인했어요.",
       "answer": "방문 예절",
       "fullKo": "방문 예절을 간단히 확인했어요.",
-      "de": "Vor dem Besuch habe ich die Umgangsformen kurz geklärt.",
-      "en": "Before the visit, I checked the etiquette briefly.",
+      "de": "Ich habe die Benimmregeln für den Besuch kurz überprüft.",
+      "en": "I briefly checked the etiquette for visiting.",
       "distractors": [
         "모르다",
         "가다",
@@ -8995,11 +8995,11 @@
     {
       "id": "cloze_a1_0163",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 기차표를 사려고 알람을 다섯 개 맞췄어요.",
+      "sentenceKo": "＿＿＿ 기차표를 사려고 알람을 맞췄어요.",
       "answer": "귀성",
-      "fullKo": "귀성 기차표를 사려고 알람을 다섯 개 맞췄어요.",
-      "de": "Für die Zugtickets nach Hause stellte ich fünf Wecker.",
-      "en": "I set five alarms to get train tickets home for the holiday.",
+      "fullKo": "귀성 기차표를 사려고 알람을 맞췄어요.",
+      "de": "Für die Zugtickets zur Heimfahrt habe ich mir einen Wecker gestellt.",
+      "en": "I set an alarm to buy my holiday train tickets home.",
       "distractors": [
         "빈손",
         "사진 전송",
@@ -9025,11 +9025,11 @@
     {
       "id": "cloze_a1_0165",
       "level": "a2",
-      "sentenceKo": "＿＿＿는 산에 올라가서 무덤가 풀을 깎는 일이에요.",
+      "sentenceKo": "＿＿＿는 묘의 풀을 깎는 일이에요.",
       "answer": "벌초",
-      "fullKo": "벌초는 산에 올라가서 무덤가 풀을 깎는 일이에요.",
-      "de": "Grabpflege heißt, den Hügel hinaufzugehen und das Gras am Grab zu schneiden.",
-      "en": "Tending the grave means going up the hill and cutting the grass around it.",
+      "fullKo": "벌초는 묘의 풀을 깎는 일이에요.",
+      "de": "Grabpflege heißt, das Gras am Grab zu schneiden.",
+      "en": "Tending the grave means cutting the grass around it.",
       "distractors": [
         "막내",
         "맏이",
@@ -9058,7 +9058,7 @@
       "sentenceKo": "＿＿＿을 차례상에 올렸어요.",
       "answer": "햇과일",
       "fullKo": "햇과일을 차례상에 올렸어요.",
-      "de": "Ich habe Obst der neuen Ernte auf den Ahnentisch gestellt.",
+      "de": "Ich habe die ersten Früchte der Ernte für das Ahnenritual auf den Tisch gestellt.",
       "en": "I put newly harvested fruit on the ancestral rite table.",
       "distractors": [
         "귀성",
@@ -9070,11 +9070,11 @@
     {
       "id": "cloze_a1_0168",
       "level": "a2",
-      "sentenceKo": "＿＿＿에는 보름달이 크다고 아이들이 말했어요.",
+      "sentenceKo": "＿＿＿에는 보름달이 정말 커요.",
       "answer": "한가위",
-      "fullKo": "한가위에는 보름달이 크다고 아이들이 말했어요.",
-      "de": "An Hangawi sagten die Kinder, der Vollmond sei besonders groß.",
-      "en": "At Hangawi the children said the full moon was especially big.",
+      "fullKo": "한가위에는 보름달이 정말 커요.",
+      "de": "An Hangawi ist der Vollmond ganz besonders groß.",
+      "en": "At Hangawi, the full moon looks really big.",
       "distractors": [
         "올케",
         "윗목",
@@ -9310,11 +9310,11 @@
     {
       "id": "cloze_a1_0184",
       "level": "a2",
-      "sentenceKo": "＿＿＿은 올리지 말라고 현우가 먼저 말했어요.",
+      "sentenceKo": "＿＿＿은 인터넷에 올리지 마세요.",
       "answer": "인증샷",
-      "fullKo": "인증샷은 올리지 말라고 현우가 먼저 말했어요.",
-      "de": "Hyunwoo sagte zuerst, das Foto nicht hochzuladen.",
-      "en": "Hyunwoo said first not to post the pic.",
+      "fullKo": "인증샷은 인터넷에 올리지 마세요.",
+      "de": "Bitte stellen Sie das Foto nicht ins Internet.",
+      "en": "Please don't post the photo online.",
       "distractors": [
         "설날",
         "설빔",
@@ -9343,7 +9343,7 @@
       "sentenceKo": "차례상 앞에 ＿＿＿ 안내가 있었어요.",
       "answer": "촬영 금지",
       "fullKo": "차례상 앞에 촬영 금지 안내가 있었어요.",
-      "de": "Vor dem Ahnentisch stand ein Hinweis, dass nicht fotografiert werden soll.",
+      "de": "Vor dem Ahnentisch stand ein Schild mit dem Hinweis „Fotografieren verboten“.",
       "en": "There was a sign not to take photos in front of the ancestral table.",
       "distractors": [
         "동생이에요",
@@ -9355,11 +9355,11 @@
     {
       "id": "cloze_a1_0187",
       "level": "a2",
-      "sentenceKo": "나갈 때 인사했어요. ＿＿＿!",
+      "sentenceKo": "나갈 때 “＿＿＿!” 하고 인사했어요.",
       "answer": "잘 다녀오겠습니다",
-      "fullKo": "나갈 때 인사했어요. 잘 다녀오겠습니다!",
-      "de": "Beim Rausgehen habe ich mich verabschiedet. Ich mache mich dann auf den Weg!",
-      "en": "I said goodbye as I left. I'll be heading out now!",
+      "fullKo": "나갈 때 “잘 다녀오겠습니다!” 하고 인사했어요.",
+      "de": "Beim Rausgehen habe ich mich mit „Ich mache mich dann auf den Weg!“ verabschiedet.",
+      "en": "As I left, I said, “I'll be heading out now!”",
       "distractors": [
         "보다",
         "돕다",
@@ -9370,11 +9370,11 @@
     {
       "id": "cloze_a1_0188",
       "level": "a2",
-      "sentenceKo": "식사 후에 ＿＿＿ 하고 인사했어요.",
+      "sentenceKo": "식사 후에 “＿＿＿” 하고 인사했어요.",
       "answer": "잘 먹었습니다",
-      "fullKo": "식사 후에 잘 먹었습니다 하고 인사했어요.",
-      "de": "Nach dem Essen sagte ich beim Verabschieden: Danke für das Essen.",
-      "en": "After the meal, I said thank you for the food.",
+      "fullKo": "식사 후에 “잘 먹었습니다” 하고 인사했어요.",
+      "de": "Nach dem Essen habe ich mich mit „Danke, es hat geschmeckt!“ bedankt.",
+      "en": "After the meal, I said, “Thank you for the meal.”",
       "distractors": [
         "인사드리겠습니다",
         "자다",
@@ -9385,11 +9385,11 @@
     {
       "id": "cloze_a1_0189",
       "level": "a2",
-      "sentenceKo": "＿＿＿. 그 말을 듣고 신발을 거꾸로 신었어요.",
+      "sentenceKo": "사장님이 “＿＿＿” 하고 인사했어요.",
       "answer": "다음에 또 오세요",
-      "fullKo": "다음에 또 오세요. 그 말을 듣고 신발을 거꾸로 신었어요.",
-      "de": "Kommen Sie bald wieder. Ich hörte das und zog aus Eile die Schuhe verkehrt herum an.",
-      "en": "Please come again. I heard that and put my shoes on backwards in my hurry.",
+      "fullKo": "사장님이 “다음에 또 오세요” 하고 인사했어요.",
+      "de": "Der Inhaber hat sich mit „Kommen Sie bald wieder!“ verabschiedet.",
+      "en": "The owner said goodbye with “Please come again.”",
       "distractors": [
         "맛있어요",
         "몇 살이세요",
@@ -9400,9 +9400,9 @@
     {
       "id": "cloze_a1_0190",
       "level": "a2",
-      "sentenceKo": "문 앞에서 ＿＿＿ 하고 손을 흔들었어요.",
+      "sentenceKo": "문 앞에서 “＿＿＿” 하고 손을 흔들었어요.",
       "answer": "연락드릴게요",
-      "fullKo": "문 앞에서 연락드릴게요 하고 손을 흔들었어요.",
+      "fullKo": "문 앞에서 “연락드릴게요” 하고 손을 흔들었어요.",
       "de": "An der Tür sagte ich, ich melde mich, und winkte.",
       "en": "At the door I said I'd be in touch and waved.",
       "distractors": [
@@ -9445,11 +9445,11 @@
     {
       "id": "cloze_a1_0193",
       "level": "a2",
-      "sentenceKo": "다음 날 ＿＿＿를 짧게 물었어요.",
+      "sentenceKo": "다음 날 할머니께 ＿＿＿ 전화를 드렸어요.",
       "answer": "안부",
-      "fullKo": "다음 날 안부를 짧게 물었어요.",
-      "de": "Am nächsten Tag fragte ich kurz nach ihrem Befinden.",
-      "en": "The next day I asked briefly how they were doing.",
+      "fullKo": "다음 날 할머니께 안부 전화를 드렸어요.",
+      "de": "Am nächsten Tag habe ich bei meiner Großmutter angerufen und gefragt, wie es ihr geht.",
+      "en": "The next day, I called my grandmother to see how she was doing.",
       "distractors": [
         "설거지",
         "일교차",
@@ -9475,11 +9475,11 @@
     {
       "id": "cloze_a1_0195",
       "level": "a2",
-      "sentenceKo": "＿＿＿은 따뜻했다고만 적었어요.",
+      "sentenceKo": "＿＿＿을 편지에 짧게 적었어요.",
       "answer": "방문 소감",
-      "fullKo": "방문 소감은 따뜻했다고만 적었어요.",
-      "de": "Als Eindruck schrieb ich nur, es sei warm gewesen.",
-      "en": "For my impression of the visit I only wrote that it felt warm.",
+      "fullKo": "방문 소감을 편지에 짧게 적었어요.",
+      "de": "Meine Eindrücke vom Besuch habe ich kurz in einem Brief aufgeschrieben.",
+      "en": "I briefly wrote my impressions of the visit in a letter.",
       "distractors": [
         "모르다",
         "타다",
@@ -9505,11 +9505,11 @@
     {
       "id": "cloze_a2_0077",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 소리를 들으니 오히려 더 긴장됐어요.",
+      "sentenceKo": "＿＿＿! 어디에서 배웠어요?",
       "answer": "한국어 잘하시네요",
-      "fullKo": "한국어 잘하시네요 소리를 들으니 오히려 더 긴장됐어요.",
-      "de": "Das Lob für mein Koreanisch machte mich eher noch nervöser.",
-      "en": "Hearing that my Korean is good made me even more nervous.",
+      "fullKo": "한국어 잘하시네요! 어디에서 배웠어요?",
+      "de": "Sie sprechen aber gut Koreanisch! Wo haben Sie es gelernt?",
+      "en": "Your Korean is really good! Where did you learn it?",
       "distractors": [
         "앉으세요",
         "확인해 주세요",
@@ -9535,11 +9535,11 @@
     {
       "id": "cloze_a2_0079",
       "level": "a2",
-      "sentenceKo": "＿＿＿? 재작년에 왔어요.",
+      "sentenceKo": "한국에 ＿＿＿? 작년에 왔어요.",
       "answer": "언제 왔어요",
-      "fullKo": "언제 왔어요? 재작년에 왔어요.",
-      "de": "Wann sind Sie gekommen? Vorletztes Jahr.",
-      "en": "When did you come? The year before last.",
+      "fullKo": "한국에 언제 왔어요? 작년에 왔어요.",
+      "de": "Wann sind Sie nach Korea gekommen? Letztes Jahr.",
+      "en": "When did you come to Korea? Last year.",
       "distractors": [
         "아직 어색해요",
         "어디서 오셨어요",
@@ -9673,7 +9673,7 @@
       "sentenceKo": "오전에 할머니 댁에 ＿＿＿ 갔어요.",
       "answer": "세배하러",
       "fullKo": "오전에 할머니 댁에 세배하러 갔어요.",
-      "de": "Am Vormittag besuchte ich meine Großmutter zur Neujahrsverbeugung.",
+      "de": "Am Vormittag bin ich zu meiner Großmutter gegangen, um die Neujahrsverbeugung zu machen.",
       "en": "In the morning, I visited my grandmother to offer a New Year bow.",
       "distractors": [
         "환전하러",
@@ -9730,11 +9730,11 @@
     {
       "id": "cloze_a2_0092",
       "level": "a2",
-      "sentenceKo": "＿＿＿는 가족 어른께 여쭤봤어요.",
+      "sentenceKo": "＿＿＿는 할아버지께 물어봤어요.",
       "answer": "세배 순서",
-      "fullKo": "세배 순서는 가족 어른께 여쭤봤어요.",
-      "de": "Für die Reihenfolge der Neujahrsverbeugung fragte ich ein älteres Familienmitglied.",
-      "en": "I asked an older family member about the order for New Year bows.",
+      "fullKo": "세배 순서는 할아버지께 물어봤어요.",
+      "de": "Nach der Reihenfolge der Neujahrsverbeugung habe ich meinen Großvater gefragt.",
+      "en": "I asked my grandfather about the order of the New Year bows.",
       "distractors": [
         "팔찌",
         "스타일리스트",
@@ -9748,7 +9748,7 @@
       "sentenceKo": "아이 ＿＿＿에 세뱃돈을 넣어 주셨어요.",
       "answer": "복주머니",
       "fullKo": "아이 복주머니에 세뱃돈을 넣어 주셨어요.",
-      "de": "In den Glücksbeutel des Kindes steckten sie das Geld.",
+      "de": "Sie haben das Neujahrsgeld in den Glücksbeutel des Kindes gesteckt.",
       "en": "They put the New Year money into the child's lucky pouch.",
       "distractors": [
         "벌초 장갑",
@@ -9779,7 +9779,7 @@
       "answer": "세배 영상",
       "fullKo": "세배 영상을 가족에게만 보냈어요.",
       "de": "Das Video von der Neujahrsverbeugung schickte ich nur an die Familie.",
-      "en": "I sent the New Year-bow video only to family.",
+      "en": "I sent the video of the New Year bow only to my family.",
       "distractors": [
         "반말 연습",
         "반말 전환",
@@ -9793,7 +9793,7 @@
       "sentenceKo": "＿＿＿으로 전을 준비했어요.",
       "answer": "명절 음식",
       "fullKo": "명절 음식으로 전을 준비했어요.",
-      "de": "Für die Feiertage bereitete ich Jeon zu.",
+      "de": "Als Festtagsessen habe ich Jeon zubereitet.",
       "en": "I prepared jeon for the holiday.",
       "distractors": [
         "장갑",
@@ -9808,7 +9808,7 @@
       "sentenceKo": "＿＿＿다가 기름이 팔에 튀었어요.",
       "answer": "전 부치",
       "fullKo": "전 부치다가 기름이 팔에 튀었어요.",
-      "de": "Beim Jeon-Braten spritzte Öl auf meinen Arm.",
+      "de": "Beim Braten der Jeon spritzte mir Öl auf den Arm.",
       "en": "While frying jeon, oil splashed onto my arm.",
       "distractors": [
         "유창하",
@@ -9823,7 +9823,7 @@
       "sentenceKo": "＿＿＿을 거울 앞에서 열 번 했어요.",
       "answer": "세배 연습",
       "fullKo": "세배 연습을 거울 앞에서 열 번 했어요.",
-      "de": "Die Verbeugung übte ich zehnmal vor dem Spiegel.",
+      "de": "Ich habe die Neujahrsverbeugung zehnmal vor dem Spiegel geübt.",
       "en": "I practiced the bow ten times in front of the mirror.",
       "distractors": [
         "반말 전환",
@@ -9835,11 +9835,11 @@
     {
       "id": "cloze_a2_0099",
       "level": "a2",
-      "sentenceKo": "제 ＿＿＿는 한국어 일기예요.",
+      "sentenceKo": "제 ＿＿＿는 한국어 일기 쓰기예요.",
       "answer": "새해 목표",
-      "fullKo": "제 새해 목표는 한국어 일기예요.",
-      "de": "Mein Neujahrsvorsatz ist ein koreanisches Tagebuch.",
-      "en": "My new year's goal is a Korean diary.",
+      "fullKo": "제 새해 목표는 한국어 일기 쓰기예요.",
+      "de": "Mein Neujahrsvorsatz ist, Tagebuch auf Koreanisch zu schreiben.",
+      "en": "My New Year's goal is to keep a diary in Korean.",
       "distractors": [
         "야채",
         "계산서",
@@ -9850,11 +9850,11 @@
     {
       "id": "cloze_a2_0100",
       "level": "a2",
-      "sentenceKo": "＿＿＿에서 휴게소 호두과자를 샀어요.",
+      "sentenceKo": "＿＿＿에 휴게소에서 호두과자를 샀어요.",
       "answer": "귀성길",
-      "fullKo": "귀성길에서 휴게소 호두과자를 샀어요.",
-      "de": "Im Heimreiseverkehr kaufte ich Walnusskuchen an der Raststätte.",
-      "en": "In holiday traffic I bought walnut cakes at the rest stop.",
+      "fullKo": "귀성길에 휴게소에서 호두과자를 샀어요.",
+      "de": "Auf der Fahrt in die Heimat habe ich an der Raststätte Walnusskuchen gekauft.",
+      "en": "On the holiday drive home, I bought walnut cakes at a rest stop.",
       "distractors": [
         "친척 집",
         "코골이",
@@ -9883,7 +9883,7 @@
       "sentenceKo": "＿＿＿을 보면서 소원을 빌었어요.",
       "answer": "보름달",
       "fullKo": "보름달을 보면서 소원을 빌었어요.",
-      "de": "Beim Vollmond wünschte ich mir etwas.",
+      "de": "Beim Blick auf den Vollmond habe ich mir etwas gewünscht.",
       "en": "I made a wish while looking at the full moon.",
       "distractors": [
         "송편 맛",
@@ -9910,11 +9910,11 @@
     {
       "id": "cloze_a2_0104",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 끼고 가족 묘소의 풀을 깎았어요.",
+      "sentenceKo": "＿＿＿ 끼고 풀을 깎았어요.",
       "answer": "벌초용 장갑을",
-      "fullKo": "벌초용 장갑을 끼고 가족 묘소의 풀을 깎았어요.",
-      "de": "Ich trug Handschuhe für die Grabpflege und schnitt das Gras an unseren Familiengräbern.",
-      "en": "I wore gloves for clearing the grass around our family graves.",
+      "fullKo": "벌초용 장갑을 끼고 풀을 깎았어요.",
+      "de": "Ich zog Handschuhe für die Grabpflege an und schnitt das Gras.",
+      "en": "I put on gloves for grave clearing and cut the grass.",
       "distractors": [
         "운동화를",
         "모자를",
@@ -9940,11 +9940,11 @@
     {
       "id": "cloze_a2_0106",
       "level": "a2",
-      "sentenceKo": "＿＿＿는 처음이라 모양이 잘 안 됐어요.",
+      "sentenceKo": "＿＿＿는 처음이라 어려웠어요.",
       "answer": "송편 만들기",
-      "fullKo": "송편 만들기는 처음이라 모양이 잘 안 됐어요.",
-      "de": "Da ich Songpyeon zum ersten Mal machte, gelang die Form nicht so gut.",
-      "en": "It was my first time making songpyeon, so the shapes did not turn out very well.",
+      "fullKo": "송편 만들기는 처음이라 어려웠어요.",
+      "de": "Ich habe zum ersten Mal Songpyeon gemacht, das war schwer.",
+      "en": "Making songpyeon for the first time was hard.",
       "distractors": [
         "마을 버스",
         "말실수",
@@ -9955,11 +9955,11 @@
     {
       "id": "cloze_a2_0107",
       "level": "a2",
-      "sentenceKo": "카톡 ＿＿＿는 짧게, 하지만 존댓말로 보냈어요.",
+      "sentenceKo": "＿＿＿는 짧게 문자로 보냈어요.",
       "answer": "명절 인사",
-      "fullKo": "카톡 명절 인사는 짧게, 하지만 존댓말로 보냈어요.",
-      "de": "Die Feiertagsnachricht schickte ich kurz, aber höflich.",
-      "en": "I kept the holiday hello short, but polite.",
+      "fullKo": "명절 인사는 짧게 문자로 보냈어요.",
+      "de": "Die Feiertagsgrüße habe ich kurz per Nachricht geschickt.",
+      "en": "I sent a short holiday greeting by text.",
       "distractors": [
         "추석 연휴",
         "월세",
@@ -9974,7 +9974,7 @@
       "answer": "고향집",
       "fullKo": "고향집 마당에 감이 아직 열려 있었어요.",
       "de": "Im Hof des Elternhauses hingen noch Kakis.",
-      "en": "Persimmons were still hanging in the hometown yard.",
+      "en": "Persimmons were still hanging in the yard of my family home.",
       "distractors": [
         "마을 버스",
         "말실수",
@@ -10015,11 +10015,11 @@
     {
       "id": "cloze_a2_0111",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 마지막 날 기차표를 미리 샀어요.",
+      "sentenceKo": "＿＿＿ 기차표를 미리 샀어요.",
       "answer": "추석 연휴",
-      "fullKo": "추석 연휴 마지막 날 기차표를 미리 샀어요.",
-      "de": "Für den letzten Tag der Chuseok-Ferien kaufte ich das Zugticket frühzeitig.",
-      "en": "I bought my train ticket early for the last day of the Chuseok holiday.",
+      "fullKo": "추석 연휴 기차표를 미리 샀어요.",
+      "de": "Das Zugticket für die Chuseok-Ferien habe ich früh gekauft.",
+      "en": "I bought my train ticket for the Chuseok holiday early.",
       "distractors": [
         "문 닫기",
         "밀폐 용기",
@@ -10210,15 +10210,15 @@
     {
       "id": "cloze_a2_0124",
       "level": "a2",
-      "sentenceKo": "＿＿＿에 이불이 세 겹이라 더웠어요.",
+      "sentenceKo": "＿＿＿은 이불이 두꺼워서 더웠어요.",
       "answer": "손님방",
-      "fullKo": "손님방에 이불이 세 겹이라 더웠어요.",
-      "de": "Im Gästezimmer lagen drei Decken, es war zu warm.",
-      "en": "The guest room had three blankets, so it was too warm.",
+      "fullKo": "손님방은 이불이 두꺼워서 더웠어요.",
+      "de": "Die Bettdecke im Gästezimmer war so dick, mir war heiß.",
+      "en": "The guest room blanket was so thick I got hot.",
       "distractors": [
-        "한복 대여",
-        "호칭 연습",
-        "화장실 줄"
+        "화장실",
+        "부엌",
+        "현관"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -10243,7 +10243,7 @@
       "sentenceKo": "＿＿＿를 깜빡해서 새 칫솔을 받았어요.",
       "answer": "세면 도구",
       "fullKo": "세면 도구를 깜빡해서 새 칫솔을 받았어요.",
-      "de": "Ich hatte das Waschzeug vergessen und bekam eine neue Bürste.",
+      "de": "Ich hatte mein Waschzeug vergessen und bekam eine neue Zahnbürste.",
       "en": "I forgot my toiletries and was given a new toothbrush.",
       "distractors": [
         "존댓말 실수",
@@ -10258,8 +10258,8 @@
       "sentenceKo": "일어나서 먼저 ＿＿＿를 했어요.",
       "answer": "아침 인사",
       "fullKo": "일어나서 먼저 아침 인사를 했어요.",
-      "de": "Nach dem Aufstehen grüßte ich zuerst am Morgen.",
-      "en": "I greeted everyone first after getting up.",
+      "de": "Nach dem Aufstehen habe ich zuerst Guten Morgen gesagt.",
+      "en": "After getting up, I said good morning first.",
       "distractors": [
         "자리표",
         "냄새",
@@ -10270,11 +10270,11 @@
     {
       "id": "cloze_a2_0128",
       "level": "a2",
-      "sentenceKo": "＿＿＿려고 알람을 네 개 맞췄어요.",
+      "sentenceKo": "＿＿＿야 해서 알람을 네 개 맞췄어요.",
       "answer": "일찍 일어나",
-      "fullKo": "일찍 일어나려고 알람을 네 개 맞췄어요.",
-      "de": "Um früh aufzustehen, stellte ich vier Wecker.",
-      "en": "I set four alarms to get up early.",
+      "fullKo": "일찍 일어나야 해서 알람을 네 개 맞췄어요.",
+      "de": "Ich muss früh aufstehen, deshalb habe ich vier Wecker gestellt.",
+      "en": "I have to get up early, so I set four alarms.",
       "distractors": [
         "세배하러 가",
         "싸 주",
@@ -10285,11 +10285,11 @@
     {
       "id": "cloze_a2_0129",
       "level": "a2",
-      "sentenceKo": "＿＿＿이 있어서 잠깐 기다렸어요.",
+      "sentenceKo": "＿＿＿이 길어서 잠깐 기다렸어요.",
       "answer": "화장실 줄",
-      "fullKo": "화장실 줄이 있어서 잠깐 기다렸어요.",
-      "de": "Vor dem Bad war eine Schlange, deshalb wartete ich kurz.",
-      "en": "There was a line for the bathroom, so I waited a moment.",
+      "fullKo": "화장실 줄이 길어서 잠깐 기다렸어요.",
+      "de": "Die Schlange vor der Toilette war lang, deshalb habe ich kurz gewartet.",
+      "en": "The bathroom line was long, so I waited a bit.",
       "distractors": [
         "반말 연습",
         "반말 전환",
@@ -10300,11 +10300,11 @@
     {
       "id": "cloze_a2_0130",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 대신 편한 티를 입어도 되냐고 물었어요.",
+      "sentenceKo": "＿＿＿ 대신 편한 티셔츠를 입어도 돼요?",
       "answer": "잠옷",
-      "fullKo": "잠옷 대신 편한 티를 입어도 되냐고 물었어요.",
-      "de": "Ich fragte, ob statt Schlafanzug ein T-Shirt reicht.",
-      "en": "I asked whether a T-shirt was fine instead of pajamas.",
+      "fullKo": "잠옷 대신 편한 티셔츠를 입어도 돼요?",
+      "de": "Darf ich statt eines Schlafanzugs ein bequemes T-Shirt anziehen?",
+      "en": "Can I wear a comfy T-shirt instead of pajamas?",
       "distractors": [
         "음식 취향",
         "이불",
@@ -10318,7 +10318,7 @@
       "sentenceKo": "옆방에서 ＿＿＿ 소리가 들려서 잠을 못 잤어요.",
       "answer": "코골이",
       "fullKo": "옆방에서 코골이 소리가 들려서 잠을 못 잤어요.",
-      "de": "Ich konnte nicht schlafen, weil ich aus dem Nebenzimmer Schnarchen hörte.",
+      "de": "Aus dem Nebenzimmer war Schnarchen zu hören, deshalb konnte ich nicht schlafen.",
       "en": "I couldn't sleep because I could hear snoring from the next room.",
       "distractors": [
         "복주머니",
@@ -10360,11 +10360,11 @@
     {
       "id": "cloze_a2_0134",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 소리가 너무 커서 저도 깜짝 놀랐어요.",
+      "sentenceKo": "＿＿＿ 전에 가방을 한 번 확인했어요.",
       "answer": "문 닫기",
-      "fullKo": "문 닫기 소리가 너무 커서 저도 깜짝 놀랐어요.",
-      "de": "Die Tür fiel so laut zu, dass ich selbst erschrak.",
-      "en": "The door shut so loudly that I startled myself.",
+      "fullKo": "문 닫기 전에 가방을 한 번 확인했어요.",
+      "de": "Bevor ich die Tür geschlossen habe, habe ich noch einmal meine Tasche kontrolliert.",
+      "en": "Before closing the door, I checked my bag once more.",
       "distractors": [
         "별명",
         "보름달",
@@ -10375,11 +10375,11 @@
     {
       "id": "cloze_a2_0135",
       "level": "a2",
-      "sentenceKo": "아침에 할머니께 “＿＿＿?” 하고 여쭤봤어요.",
+      "sentenceKo": "아침에 할머니께 “＿＿＿?” 하고 인사했어요.",
       "answer": "잘 주무셨어요",
-      "fullKo": "아침에 할머니께 “잘 주무셨어요?” 하고 여쭤봤어요.",
-      "de": "Am Morgen fragte ich meine Großmutter: „Hast du gut geschlafen?“",
-      "en": "In the morning, I asked my grandmother, “Did you sleep well?”",
+      "fullKo": "아침에 할머니께 “잘 주무셨어요?” 하고 인사했어요.",
+      "de": "Am Morgen habe ich meine Großmutter begrüßt: „Hast du gut geschlafen?“",
+      "en": "In the morning, I greeted my grandmother with “Did you sleep well?”",
       "distractors": [
         "필요",
         "직업이 뭐예요",
@@ -10573,8 +10573,8 @@
       "sentenceKo": "＿＿＿ 좌석이 창가라서 할머니께 사진을 보냈어요.",
       "answer": "고속버스",
       "fullKo": "고속버스 좌석이 창가라서 할머니께 사진을 보냈어요.",
-      "de": "Der Fernbusplatz war am Fenster, also schickte ich der Großmutter ein Foto.",
-      "en": "The express-bus seat was by the window, so I sent grandmother a photo.",
+      "de": "Mein Platz im Fernbus war am Fenster, also schickte ich meiner Großmutter ein Foto.",
+      "en": "My express-bus seat was by the window, so I sent my grandmother a photo.",
       "distractors": [
         "손님방",
         "송편 만들기",
@@ -10588,7 +10588,7 @@
       "sentenceKo": "＿＿＿에서 호두과자를 사서 같이 먹었어요.",
       "answer": "휴게소",
       "fullKo": "휴게소에서 호두과자를 사서 같이 먹었어요.",
-      "de": "An der Raststätte kaufte ich Walnusskuchen, den wir zusammen aßen.",
+      "de": "An der Raststätte habe ich Walnusskuchen gekauft, und wir haben ihn zusammen gegessen.",
       "en": "I bought walnut cakes at the rest stop, and we ate them together.",
       "distractors": [
         "복주머니",
@@ -10600,11 +10600,11 @@
     {
       "id": "cloze_a2_0150",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 금방 매진되니까 미리 예매했어요.",
+      "sentenceKo": "＿＿＿ 금방 팔려서 미리 샀어요.",
       "answer": "명절 기차표는",
-      "fullKo": "명절 기차표는 금방 매진되니까 미리 예매했어요.",
-      "de": "Zugtickets für die Feiertage sind schnell ausverkauft, deshalb habe ich früh gebucht.",
-      "en": "Holiday train tickets sell out quickly, so I booked mine early.",
+      "fullKo": "명절 기차표는 금방 팔려서 미리 샀어요.",
+      "de": "Zugtickets für die Feiertage sind schnell vergriffen, deshalb habe ich meines früh gekauft.",
+      "en": "Holiday train tickets sell fast, so I bought mine early.",
       "distractors": [
         "명절 음식은",
         "추석 선물은",
@@ -10630,26 +10630,26 @@
     {
       "id": "cloze_a2_0152",
       "level": "a2",
-      "sentenceKo": "기차를 타기 전에 큰 ＿＿＿ 택배로 부쳤어요.",
-      "answer": "짐을",
-      "fullKo": "기차를 타기 전에 큰 짐을 택배로 부쳤어요.",
-      "de": "Vor der Zugfahrt schickte ich mein großes Gepäck per Paketdienst voraus.",
-      "en": "Before taking the train, I sent my large bag ahead by courier.",
+      "sentenceKo": "큰 ＿＿＿ 택배로 미리 부쳤어요.",
+      "answer": "짐은",
+      "fullKo": "큰 짐은 택배로 미리 부쳤어요.",
+      "de": "Das große Gepäck habe ich vorab per Paketdienst geschickt.",
+      "en": "I sent my big bags ahead by courier.",
       "distractors": [
-        "지도를",
-        "수건을",
-        "열쇠를"
+        "지도는",
+        "수건은",
+        "열쇠는"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_a2_0153",
       "level": "a2",
-      "sentenceKo": "역에 도착해서 가족에게 ＿＿＿ 했어요.",
+      "sentenceKo": "역에 내려서 가족에게 ＿＿＿ 했어요.",
       "answer": "도착 연락을",
-      "fullKo": "역에 도착해서 가족에게 도착 연락을 했어요.",
-      "de": "Nach meiner Ankunft am Bahnhof gab ich meiner Familie Bescheid.",
-      "en": "When I arrived at the station, I let my family know.",
+      "fullKo": "역에 내려서 가족에게 도착 연락을 했어요.",
+      "de": "Nach dem Aussteigen am Bahnhof habe ich meiner Familie Bescheid gegeben, dass ich angekommen bin.",
+      "en": "After getting off at the station, I let my family know I had arrived.",
       "distractors": [
         "장갑을",
         "지도를",
@@ -10664,7 +10664,7 @@
       "answer": "친척 집",
       "fullKo": "친척 집이 언덕 위라 천천히 걸어갔어요.",
       "de": "Das Haus der Verwandten lag auf einem Hügel, deshalb ging ich langsam hinauf.",
-      "en": "The relatives’ house was up a hill, so I walked up slowly.",
+      "en": "My relatives' house was up on a hill, so I walked up slowly.",
       "distractors": [
         "나이 확인",
         "남은 반찬",
@@ -14710,11 +14710,11 @@
     {
       "id": "cloze_a1_0208",
       "level": "a2",
-      "sentenceKo": "＿＿＿는 어떻게 바르는지 약사에게 물어봤어요.",
+      "sentenceKo": "＿＿＿ 바르는 방법을 약사에게 물어봤어요.",
       "answer": "연고",
-      "fullKo": "연고는 어떻게 바르는지 약사에게 물어봤어요.",
-      "de": "Ich fragte in der Apotheke, wie ich die Salbe anwenden soll.",
-      "en": "I asked at the pharmacy how to use the ointment.",
+      "fullKo": "연고 바르는 방법을 약사에게 물어봤어요.",
+      "de": "Ich habe in der Apotheke gefragt, wie man die Salbe aufträgt.",
+      "en": "I asked the pharmacist how to apply the ointment.",
       "distractors": [
         "케이크",
         "우표",
@@ -14725,11 +14725,11 @@
     {
       "id": "cloze_a1_0209",
       "level": "a2",
-      "sentenceKo": "약국에서 ＿＿＿를 한 통 샀어요.",
+      "sentenceKo": "약국에서 ＿＿＿를 한 상자 샀어요.",
       "answer": "마스크",
-      "fullKo": "약국에서 마스크를 한 통 샀어요.",
+      "fullKo": "약국에서 마스크를 한 상자 샀어요.",
       "de": "In der Apotheke habe ich eine Packung Masken gekauft.",
-      "en": "I bought a pack of masks at the pharmacy.",
+      "en": "I bought a box of masks at the pharmacy.",
       "distractors": [
         "연고",
         "계산대",
@@ -14743,8 +14743,8 @@
       "sentenceKo": "＿＿＿ 앞에서 카드를 꺼냈어요.",
       "answer": "계산대",
       "fullKo": "계산대 앞에서 카드를 꺼냈어요.",
-      "de": "Vor der Kasse habe ich meine Karte herausgenommen.",
-      "en": "I took out my card in front of the checkout.",
+      "de": "An der Kasse habe ich meine Karte herausgeholt.",
+      "en": "I took out my card at the checkout.",
       "distractors": [
         "연고",
         "마스크",
@@ -14758,8 +14758,8 @@
       "sentenceKo": "＿＿＿을 종이에 적어 주세요.",
       "answer": "복용 시간",
       "fullKo": "복용 시간을 종이에 적어 주세요.",
-      "de": "Bitte schreiben Sie die Einnahmezeiten auf Papier.",
-      "en": "Please write the dose times on paper.",
+      "de": "Bitte schreiben Sie mir die Einnahmezeiten auf.",
+      "en": "Please write down the dosing times for me.",
       "distractors": [
         "보다",
         "팔다",
@@ -14800,11 +14800,11 @@
     {
       "id": "cloze_a1_0214",
       "level": "a2",
-      "sentenceKo": "＿＿＿이 있는지 찾고 있어요.",
+      "sentenceKo": "＿＿＿은 어디에 있어요?",
       "answer": "가글액",
-      "fullKo": "가글액이 있는지 찾고 있어요.",
-      "de": "Ich suche nach Mundspülung.",
-      "en": "I am looking for mouthwash.",
+      "fullKo": "가글액은 어디에 있어요?",
+      "de": "Wo ist die Mundspülung?",
+      "en": "Where is the mouthwash?",
       "distractors": [
         "계절",
         "손질",
@@ -14815,11 +14815,11 @@
     {
       "id": "cloze_a1_0215",
       "level": "a2",
-      "sentenceKo": "＿＿＿를 사서 집에 두었어요.",
+      "sentenceKo": "매일 아침 ＿＿＿를 먹어요.",
       "answer": "비타민제",
-      "fullKo": "비타민제를 사서 집에 두었어요.",
-      "de": "Ich kaufte ein Vitaminpräparat und stellte es zu Hause hin.",
-      "en": "I bought a vitamin supplement and put it away at home.",
+      "fullKo": "매일 아침 비타민제를 먹어요.",
+      "de": "Ich nehme jeden Morgen ein Vitaminpräparat.",
+      "en": "I take a vitamin supplement every morning.",
       "distractors": [
         "연고",
         "마스크",
@@ -14830,11 +14830,11 @@
     {
       "id": "cloze_a1_0216",
       "level": "a2",
-      "sentenceKo": "약을 사기 전에 ＿＿＿가 있는지 약사에게 말했어요.",
+      "sentenceKo": "＿＿＿가 있어서 약사에게 먼저 말했어요.",
       "answer": "알레르기",
-      "fullKo": "약을 사기 전에 알레르기가 있는지 약사에게 말했어요.",
-      "de": "Bevor ich das Mittel kaufte, sagte ich in der Apotheke, welche Allergien ich habe.",
-      "en": "Before buying the medicine, I told the pharmacist about any allergies I have.",
+      "fullKo": "알레르기가 있어서 약사에게 먼저 말했어요.",
+      "de": "Ich habe eine Allergie und habe das gleich in der Apotheke gesagt.",
+      "en": "I have an allergy, so I told the pharmacist first.",
       "distractors": [
         "연고",
         "마스크",
@@ -15265,11 +15265,11 @@
     {
       "id": "cloze_a1_0245",
       "level": "a2",
-      "sentenceKo": "연필 실수를 ＿＿＿로 지워요.",
+      "sentenceKo": "연필로 쓴 걸 ＿＿＿로 지워요.",
       "answer": "지우개",
-      "fullKo": "연필 실수를 지우개로 지워요.",
-      "de": "Ich radiere den Bleistiftfehler mit dem Radiergummi weg.",
-      "en": "I erase the pencil mistake with an eraser.",
+      "fullKo": "연필로 쓴 걸 지우개로 지워요.",
+      "de": "Was ich mit Bleistift geschrieben habe, radiere ich mit dem Radiergummi weg.",
+      "en": "I erase what I wrote in pencil with an eraser.",
       "distractors": [
         "횟수",
         "드라이",
@@ -15343,8 +15343,8 @@
       "sentenceKo": "내일 수업 ＿＿＿을 가방에 넣어요.",
       "answer": "준비물",
       "fullKo": "내일 수업 준비물을 가방에 넣어요.",
-      "de": "Ich packe die Sachen für den Unterricht in die Tasche.",
-      "en": "I'm putting what I need for class in my bag.",
+      "de": "Ich packe die Sachen für den morgigen Unterricht in die Tasche.",
+      "en": "I'm putting what I need for tomorrow's class in my bag.",
       "distractors": [
         "필통",
         "스타킹",
@@ -15373,7 +15373,7 @@
       "sentenceKo": "선생님이 ＿＿＿에 단어를 썼어요.",
       "answer": "화이트보드",
       "fullKo": "선생님이 화이트보드에 단어를 썼어요.",
-      "de": "Die Lehrkraft hat das Wort auf das Whiteboard geschrieben.",
+      "de": "Der Lehrer hat ein Wort an das Whiteboard geschrieben.",
       "en": "The teacher wrote the word on the whiteboard.",
       "distractors": [
         "필통",
@@ -15415,11 +15415,11 @@
     {
       "id": "cloze_a1_0255",
       "level": "a2",
-      "sentenceKo": "수업 시작 전에 ＿＿＿?",
+      "sentenceKo": "곧 수업이 시작돼요. ＿＿＿?",
       "answer": "준비됐나요",
-      "fullKo": "수업 시작 전에 준비됐나요?",
-      "de": "Sind Sie bereit, bevor der Unterricht beginnt?",
-      "en": "Are you ready before class starts?",
+      "fullKo": "곧 수업이 시작돼요. 준비됐나요?",
+      "de": "Der Unterricht fängt gleich an. Seid ihr bereit?",
+      "en": "Class is about to start. Are you ready?",
       "distractors": [
         "타다",
         "읽다",
@@ -15478,7 +15478,7 @@
       "sentenceKo": "＿＿＿ 시간을 먼저 확인해요.",
       "answer": "막차",
       "fullKo": "막차 시간을 먼저 확인해요.",
-      "de": "Ich prüfe zuerst die Zeit des letzten Zuges.",
+      "de": "Ich prüfe zuerst, wann der letzte Zug fährt.",
       "en": "I check the last-train time first.",
       "distractors": [
         "출구",
@@ -15493,7 +15493,7 @@
       "sentenceKo": "시청역에서 ＿＿＿하면 됩니다.",
       "answer": "하차",
       "fullKo": "시청역에서 하차하면 됩니다.",
-      "de": "Sie können am Rathaus aussteigen.",
+      "de": "Sie können an der Station Rathaus aussteigen.",
       "en": "You can get off at City Hall station.",
       "distractors": [
         "환승",
@@ -15554,7 +15554,7 @@
       "answer": "노선도",
       "fullKo": "노선도에서 빨간 선을 찾아요.",
       "de": "Auf dem Linienplan suche ich die rote Linie.",
-      "en": "I look for the red line on the map.",
+      "en": "I look for the red line on the route map.",
       "distractors": [
         "환승",
         "출구",
@@ -15643,7 +15643,7 @@
       "sentenceKo": "＿＿＿를 보고 옷을 골라요.",
       "answer": "일기예보",
       "fullKo": "일기예보를 보고 옷을 골라요.",
-      "de": "Ich schaue den Wetterbericht und wähle die Kleidung.",
+      "de": "Ich schaue den Wetterbericht an und wähle Kleidung.",
       "en": "I check the forecast and choose clothes.",
       "distractors": [
         "미세먼지",
@@ -15658,7 +15658,7 @@
       "sentenceKo": "소나기 예보가 있어서 ＿＿＿를 챙겼어요.",
       "answer": "우비",
       "fullKo": "소나기 예보가 있어서 우비를 챙겼어요.",
-      "de": "Da ein Schauer vorhergesagt war, packte ich eine Regenjacke ein.",
+      "de": "Es war ein Schauer vorhergesagt, deshalb habe ich eine Regenjacke eingepackt.",
       "en": "A shower was forecast, so I packed a rain jacket.",
       "distractors": [
         "미세먼지",
@@ -15688,7 +15688,7 @@
       "sentenceKo": "밤에는 ＿＿＿을 입었어요.",
       "answer": "두꺼운 옷",
       "fullKo": "밤에는 두꺼운 옷을 입었어요.",
-      "de": "Nachts trug ich dicke Kleidung.",
+      "de": "Nachts habe ich dicke Kleidung angezogen.",
       "en": "I wore thick clothes at night.",
       "distractors": [
         "계란",
@@ -15703,7 +15703,7 @@
       "sentenceKo": "봄에는 ＿＿＿가 커서 겉옷이 필요해요.",
       "answer": "일교차",
       "fullKo": "봄에는 일교차가 커서 겉옷이 필요해요.",
-      "de": "Im Frühling ist der Temperaturunterschied groß, deshalb brauche ich eine Jacke.",
+      "de": "Im Frühling ist der Tag-Nacht-Unterschied groß, ich brauche eine Jacke.",
       "en": "In spring the day-to-night swing is big, so I need a jacket.",
       "distractors": [
         "미세먼지",
@@ -15715,15 +15715,15 @@
     {
       "id": "cloze_a1_0275",
       "level": "a2",
-      "sentenceKo": "오늘은 공기가 ＿＿＿ 창문을 열어요.",
-      "answer": "습해서",
-      "fullKo": "오늘은 공기가 습해서 창문을 열어요.",
-      "de": "Die Luft fühlt sich heute feucht an, deshalb öffne ich das Fenster.",
-      "en": "The air feels humid today, so I open the window.",
+      "sentenceKo": "오늘은 날씨가 정말 ＿＿＿.",
+      "answer": "습해요",
+      "fullKo": "오늘은 날씨가 정말 습해요.",
+      "de": "Heute ist es wirklich schwül.",
+      "en": "It's really humid today.",
       "distractors": [
-        "제출해서",
-        "졸업해서",
-        "입어서"
+        "제출해요",
+        "졸업해요",
+        "입어요"
       ],
       "topic": "Wetterschicht"
     },
@@ -15733,7 +15733,7 @@
       "sentenceKo": "아침이 ＿＿＿ 목도리를 했어요.",
       "answer": "쌀쌀해서",
       "fullKo": "아침이 쌀쌀해서 목도리를 했어요.",
-      "de": "Weil es am Morgen kühl war, wickelte ich mir einen Schal um.",
+      "de": "Weil es am Morgen kühl war, habe ich mir einen Schal umgelegt.",
       "en": "Because the morning was chilly, I put on a scarf.",
       "distractors": [
         "제출해서",
@@ -15748,8 +15748,8 @@
       "sentenceKo": "오후 예보가 ＿＿＿이에요.",
       "answer": "맑음",
       "fullKo": "오후 예보가 맑음이에요.",
-      "de": "Die Nachmittagsvorhersage ist heiter.",
-      "en": "The afternoon forecast is clear skies.",
+      "de": "Für den Nachmittag ist heiteres Wetter vorhergesagt.",
+      "en": "The forecast says clear skies this afternoon.",
       "distractors": [
         "겉옷",
         "준비운동",
@@ -15763,7 +15763,7 @@
       "sentenceKo": "＿＿＿가 금방 지나갈 것 같아요.",
       "answer": "소나기",
       "fullKo": "소나기가 금방 지나갈 것 같아요.",
-      "de": "Der Schauer scheint bald vorüberzuziehen.",
+      "de": "Der Schauer zieht wohl gleich vorüber.",
       "en": "It looks like the shower will pass soon.",
       "distractors": [
         "미세먼지",
@@ -15778,8 +15778,8 @@
       "sentenceKo": "일교차가 클 때는 옷을 ＿＿＿.",
       "answer": "겹쳐 입어요",
       "fullKo": "일교차가 클 때는 옷을 겹쳐 입어요.",
-      "de": "Bei großem Temperaturunterschied trage ich Kleidung in Lagen.",
-      "en": "When the temperature gap is large, I layer clothes.",
+      "de": "Wenn der Temperaturunterschied groß ist, ziehe ich mich nach dem Zwiebelprinzip an.",
+      "en": "When temperatures swing a lot, I dress in layers.",
       "distractors": [
         "새해 복 많이 받으세요",
         "앉으세요",
@@ -16345,9 +16345,9 @@
     {
       "id": "cloze_a2_0197",
       "level": "a2",
-      "sentenceKo": "＿＿＿을 락커에 넣어 두어요.",
+      "sentenceKo": "＿＿＿을 락커에 넣어 둬요.",
       "answer": "운동복",
-      "fullKo": "운동복을 락커에 넣어 두어요.",
+      "fullKo": "운동복을 락커에 넣어 둬요.",
       "de": "Ich lasse die Sportkleidung im Spind.",
       "en": "I leave the workout clothes in the locker.",
       "distractors": [
@@ -16378,7 +16378,7 @@
       "sentenceKo": "시작 전에 ＿＿＿을 해요.",
       "answer": "스트레칭",
       "fullKo": "시작 전에 스트레칭을 해요.",
-      "de": "Vor dem Start mache ich Dehnungen.",
+      "de": "Bevor ich anfange, mache ich Dehnübungen.",
       "en": "I do stretching before starting.",
       "distractors": [
         "헬스장",
@@ -16513,7 +16513,7 @@
       "sentenceKo": "토요일 오전에 ＿＿＿에 예약했어요.",
       "answer": "미용실",
       "fullKo": "토요일 오전에 미용실에 예약했어요.",
-      "de": "Am Samstagvormittag habe ich im Friseursalon reserviert.",
+      "de": "Für Samstagvormittag habe ich einen Termin im Friseursalon gemacht.",
       "en": "I booked the hair salon for Saturday morning.",
       "distractors": [
         "커트",
@@ -16555,11 +16555,11 @@
     {
       "id": "cloze_a2_0211",
       "level": "a2",
-      "sentenceKo": "이번 ＿＿＿ 펌을 안 하려고요.",
+      "sentenceKo": "이번 ＿＿＿ 펌을 안 할 거예요.",
       "answer": "여름에는",
-      "fullKo": "이번 여름에는 펌을 안 하려고요.",
+      "fullKo": "이번 여름에는 펌을 안 할 거예요.",
       "de": "Diesen Sommer lasse ich mir keine Dauerwelle machen.",
-      "en": "This summer I will not get a perm.",
+      "en": "I'm not getting a perm this summer.",
       "distractors": [
         "겨울에는",
         "봄에는",
@@ -16618,7 +16618,7 @@
       "sentenceKo": "주말 예약이라 ＿＿＿을 냈어요.",
       "answer": "예약금",
       "fullKo": "주말 예약이라 예약금을 냈어요.",
-      "de": "Da ich fürs Wochenende reserviert habe, habe ich eine Anzahlung gezahlt.",
+      "de": "Für den Termin am Wochenende habe ich eine Anzahlung geleistet.",
       "en": "Because I booked for the weekend, I paid a deposit.",
       "distractors": [
         "반찬",
@@ -16633,7 +16633,7 @@
       "sentenceKo": "향이 약한 ＿＿＿로 감겨 주세요.",
       "answer": "샴푸",
       "fullKo": "향이 약한 샴푸로 감겨 주세요.",
-      "de": "Bitte waschen Sie mir die Haare mit einem Shampoo mit mildem Duft.",
+      "de": "Bitte waschen Sie mir die Haare mit einem dezent duftenden Shampoo.",
       "en": "Please wash my hair with a lightly scented shampoo.",
       "distractors": [
         "택시",
@@ -16649,7 +16649,7 @@
       "answer": "트리트먼트",
       "fullKo": "머리 끝이 갈라져서 트리트먼트를 추가했어요.",
       "de": "Meine Haarspitzen waren splissig, deshalb habe ich eine Kur dazugebucht.",
-      "en": "My hair ends were split, so I added a treatment.",
+      "en": "I had split ends, so I added a treatment.",
       "distractors": [
         "커트",
         "날씨",
@@ -16663,8 +16663,8 @@
       "sentenceKo": "＿＿＿가 귀를 덮지 않게 해 주세요.",
       "answer": "옆머리",
       "fullKo": "옆머리가 귀를 덮지 않게 해 주세요.",
-      "de": "Bitte schneiden Sie das Seitenhaar so, dass es die Ohren nicht bedeckt.",
-      "en": "Please keep the side hair from covering my ears.",
+      "de": "Bitte schneiden Sie die Haare an den Seiten so, dass sie meine Ohren nicht bedecken.",
+      "en": "Please make sure the hair on the sides doesn't cover my ears.",
       "distractors": [
         "커트",
         "파스",
@@ -28653,7 +28653,7 @@
       "fullKo": "단추가 하나 떨어졌어요.",
       "answer": "단추",
       "sentenceKo": "＿＿＿가 하나 떨어졌어요.",
-      "de": "Ein Knopf ist abgegangen.",
+      "de": "Ein Knopf ist abgefallen.",
       "en": "A button has come off.",
       "distractors": [
         "컴퓨터",

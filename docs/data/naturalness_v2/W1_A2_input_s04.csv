@@ -1,0 +1,66 @@
+id,korean,nikl_grade,pos_de,pack_id,topic,german,english,example_korean,example_german,example_english
+vocab_a1_0368,환승,2,Nomen,a2_subway_card_1,U-Bahnkarte,Umsteigen,transfer,다음 역에서 환승하세요.,Steigen Sie an der nächsten Station um.,Transfer at the next station.
+vocab_a1_0369,출구,1,Nomen,a2_subway_card_1,U-Bahnkarte,Ausgang,exit,사 번 출구로 나가면 은행이 있어요.,"Wenn Sie Ausgang vier nehmen, ist dort eine Bank.","If you take exit four, there is a bank."
+vocab_a1_0370,승강장,2,Nomen,a2_subway_card_1,U-Bahnkarte,Bahnsteig,platform,승강장에서 노란 선 뒤에 서요.,Auf dem Bahnsteig stehe ich hinter der gelben Linie.,On the platform I stand behind the yellow line.
+vocab_a1_0371,막차,3,Nomen,a2_subway_card_1,U-Bahnkarte,letzter Zug,last train,막차 시간을 먼저 확인해요.,Ich prüfe zuerst die Zeit des letzten Zuges.,I check the last-train time first.
+vocab_a1_0372,하차,3,Nomen,a2_subway_card_1,U-Bahnkarte,Aussteigen,getting off,시청역에서 하차하면 됩니다.,Sie können am Rathaus aussteigen.,You can get off at City Hall station.
+vocab_a1_0373,승차,3,Nomen,a2_subway_card_1,U-Bahnkarte,Einsteigen,boarding,문이 열리면 천천히 승차하세요.,"Wenn die Tür aufgeht, steigen Sie bitte langsam ein.","When the door opens, please board slowly."
+vocab_a1_0374,정기권,2,Nomen,a2_subway_card_1,U-Bahnkarte,Zeitkarte,pass,한 달 정기권을 충전했어요.,Ich habe eine Monatskarte aufgeladen.,I loaded a one-month pass.
+vocab_a1_0375,개찰구,2,Nomen,a2_subway_card_1,U-Bahnkarte,Sperre,ticket gate,개찰구에 카드를 찍고 들어가요.,Ich halte die Karte an die Sperre und gehe hinein.,I tap the card at the ticket gate and go in.
+vocab_a1_0376,노선도,3,Nomen,a2_subway_card_1,U-Bahnkarte,Linienplan,line map,노선도에서 빨간 선을 찾아요.,Auf dem Linienplan suche ich die rote Linie.,I look for the red line on the map.
+vocab_a1_0377,도착 안내,1,Ausdruck,a2_subway_card_1,U-Bahnkarte,Ansage,arrival announcement,도착 안내가 나오면 일어나요.,"Wenn die Ansage kommt, stehe ich auf.","When the arrival announcement comes, I stand up."
+vocab_a1_0378,카드 잔액,2,Ausdruck,a2_subway_card_1,U-Bahnkarte,Kartenguthaben,card balance,카드 잔액이 부족해서 충전이 필요해요.,"Das Kartenguthaben reicht nicht, ich muss aufladen.","The card balance is low, so I need to top up."
+vocab_a1_0379,내리는 문,5,Ausdruck,a2_subway_card_1,U-Bahnkarte,Ausstiegstür,exit door,내리는 문은 오른쪽이에요.,Die Ausstiegstür ist rechts.,The exit door is on the right.
+vocab_a1_0420,환승 안내,2,Nomen,a2_subway_card_1,도시 생활,Umstiegshinweis,transfer directions,앱에서 환승 안내를 확인해요.,Ich prüfe in der App die Informationen zum Umsteigen.,I check the transfer directions in the app.
+vocab_a1_0421,교통카드 잔액,2,Nomen,a2_subway_card_1,도시 생활,Fahrkartenguthaben,transit-card balance,교통카드 잔액은 만 원이에요.,Das Guthaben der Fahrkarte beträgt 10.000 Won.,"The transit-card balance is 10,000 won."
+vocab_a2_0016,비행기,1,Nomen,a2_transport,Verkehr,Flugzeug,airplane,비행기가 곧 도착해요.,Das Flugzeug kommt gleich an.,The plane is arriving soon.
+vocab_a2_0025,택시,1,Nomen,a2_transport,Verkehr,Taxi,taxi,여기서 택시 잡기 힘들어요.,"Hier ist es schwer, ein Taxi zu bekommen.",It's hard to catch a taxi here.
+vocab_a2_0026,기차,1,Nomen,a2_transport,Verkehr,Zug / Bahn,train,기차 시간에 늦었어요.,Ich war zu spät für den Zug.,I was late for the train.
+vocab_a2_0027,자전거,1,Nomen,a2_transport,Verkehr,Fahrrad,bicycle,요즘 자전거로 출근해요.,Zurzeit fahre ich mit dem Fahrrad zur Arbeit.,These days I ride my bike to work.
+vocab_a2_0044,도착하다,1,Verb,a2_transport,Bewegung,ankommen,to arrive,지금 막 도착했어요.,Ich bin gerade angekommen.,I just arrived.
+vocab_a2_0056,걷다,1,Verb,a2_transport,Bewegung,zu Fuß gehen / laufen,to walk,회사까지 30분 걸어요.,Bis zur Firma laufe ich 30 Minuten.,I walk 30 minutes to work.
+vocab_a2_0105,길,1,Nomen,a2_transport,Verkehr,Weg / Straße,road / way,가다가 길을 잃어버렸어요.,Ich habe mich unterwegs verlaufen.,I got lost on the way.
+vocab_a2_0106,곧장,3,Adverb,a2_transport,Verkehr,geradeaus,straight ahead,여기서 곧장 가세요.,Gehen Sie von hier einfach geradeaus.,Just go straight from here.
+vocab_a2_0107,신호등,2,Nomen,a2_transport,Verkehr,Ampel,traffic light,저 신호등에서 오른쪽으로 가세요.,Biegen Sie an der Ampel dort rechts ab.,Turn right at that traffic light.
+vocab_a2_0108,횡단보도,2,Nomen,a2_transport,Verkehr,Zebrastreifen,crosswalk,횡단보도를 건너면 왼쪽에 약국이 있어요.,"Wenn Sie den Zebrastreifen überqueren, ist die Apotheke links.","Cross at the crosswalk, and the pharmacy is on your left."
+vocab_a2_0110,안내하다,1,Verb,a2_transport,Verkehr,führen / Auskunft geben,to guide / to give directions,제가 길을 안내해 드릴게요.,Ich zeige Ihnen den Weg.,I'll show you the way.
+vocab_a2_0173,신다,1,Verb,a2_wearing_verbs_1,Anziehen & Accessoires,anziehen (Schuhe),to wear (feet),운동화를 신고 뛰어요.,Ich laufe in Turnschuhen.,I run wearing sneakers.
+vocab_a2_0174,벗다,2,Verb,a2_wearing_verbs_1,Anziehen & Accessoires,ausziehen,to take off,집에서는 신발을 벗어요.,Zu Hause zieht man die Schuhe aus.,You take off your shoes at home.
+vocab_a2_0175,매다,2,Verb,a2_wearing_verbs_1,Anziehen & Accessoires,binden,to tie,넥타이를 매는 법을 배웠어요.,"Ich habe gelernt, eine Krawatte zu binden.",I learned how to tie a tie.
+vocab_a2_0176,끼다,2,Verb,a2_wearing_verbs_1,Anziehen & Accessoires,anziehen (Hände),to wear (hands),추워서 장갑을 꼈어요.,Wegen der Kälte habe ich Handschuhe angezogen.,I put on gloves because it was cold.
+vocab_a2_0177,차다,2,Verb,a2_wearing_verbs_1,Anziehen & Accessoires,umlegen (Uhr),to wear (watch),새 시계를 차고 있어요.,Ich trage eine neue Uhr.,I am wearing a new watch.
+vocab_a2_0178,메다,2,Verb,a2_wearing_verbs_1,Anziehen & Accessoires,schultern,to carry (shoulder),가방을 메고 학교에 가요.,Ich gehe mit der Tasche über der Schulter zur Schule.,I go to school with a bag on my shoulder.
+vocab_a2_0179,벨트,3,Nomen,a2_wearing_verbs_1,Anziehen & Accessoires,Gürtel,belt,바지가 너무 커서 벨트를 했어요.,"Die Hose war zu groß, deshalb habe ich einen Gürtel getragen.","The pants were too big, so I wore a belt."
+vocab_a2_0180,팔찌,2,Nomen,a2_wearing_verbs_1,Anziehen & Accessoires,Armband,bracelet,은 팔찌를 자주 해요.,Ich trage oft ein silbernes Armband.,I often wear a silver bracelet.
+vocab_a2_0181,부츠,3,Nomen,a2_wearing_verbs_1,Anziehen & Accessoires,Stiefel,boots,눈이 와서 부츠를 신었어요.,Es hat geschneit und ich habe Stiefel angezogen.,It snowed so I wore boots.
+vocab_a2_0182,샌들,3,Nomen,a2_wearing_verbs_1,Anziehen & Accessoires,Sandalen,sandals,여름에는 샌들이 편해요.,Im Sommer sind Sandalen bequem.,Sandals are comfortable in summer.
+vocab_a2_0183,슬리퍼,3,Nomen,a2_wearing_verbs_1,Anziehen & Accessoires,Hausschuhe,slippers,집에서 슬리퍼를 신어요.,Zu Hause trage ich Hausschuhe.,I wear slippers at home.
+vocab_a2_0184,스타킹,3,Nomen,a2_wearing_verbs_1,Anziehen & Accessoires,Strumpfhose,stockings,스타킹에 구멍이 났어요.,Meine Strumpfhose hat ein Loch.,My stockings have a hole.
+vocab_a2_0006,봄,1,Nomen,a2_weather,Wetter,Frühling,spring,이제 봄이 왔네요.,Jetzt ist der Frühling da.,Spring is here now.
+vocab_a2_0007,여름,1,Nomen,a2_weather,Wetter,Sommer,summer,한국 여름은 진짜 더워요.,Der Sommer in Korea ist echt heiß.,Summer in Korea is really hot.
+vocab_a2_0008,가을,1,Nomen,a2_weather,Wetter,Herbst,autumn / fall,가을 단풍이 정말 예뻐요.,Das Herbstlaub ist wirklich schön.,The autumn leaves are really beautiful.
+vocab_a2_0009,겨울,1,Nomen,a2_weather,Wetter,Winter,winter,한국 겨울은 좀 추워요.,Der Winter in Korea ist ziemlich kalt.,Winter in Korea is pretty cold.
+vocab_a2_0034,우산,1,Nomen,a2_weather,Wetter,Regenschirm,umbrella,우산 안 가져왔는데 어떡해요?,"Ich habe keinen Regenschirm dabei, was soll ich machen?","I didn't bring an umbrella, what should I do?"
+vocab_a2_0059,덥다,1,Adjektiv,a2_weather,Wetter,heiß (sein),to be hot (weather),오늘 진짜 덥네요.,Heute ist es echt heiß.,It's really hot today.
+vocab_a2_0060,춥다,1,Adjektiv,a2_weather,Wetter,kalt (sein),to be cold (weather),밖에 날씨가 많이 추워요.,Draußen ist es sehr kalt.,It's very cold outside.
+vocab_a1_0380,겉옷,3,Nomen,a2_weather_layer_1,Wetterschicht,Jacke / etwas drüber,jacket / something over it,바람이 불어서 겉옷을 입어요.,"Es ist windig, deshalb ziehe ich eine Jacke an.","It is windy, so I put on a jacket."
+vocab_a1_0381,미세먼지,2,Nomen,a2_weather_layer_1,Wetterschicht,Feinstaub,fine dust,오늘 미세먼지가 많아서 마스크를 써요.,"Heute gibt es viel Feinstaub, deshalb trage ich eine Maske.","There is a lot of fine dust today, so I wear a mask."
+vocab_a1_0382,일기예보,3,Nomen,a2_weather_layer_1,Wetterschicht,Wetterbericht,weather forecast,일기예보를 보고 옷을 골라요.,Ich schaue den Wetterbericht und wähle die Kleidung.,I check the forecast and choose clothes.
+vocab_a1_0383,우비,3,Nomen,a2_weather_layer_1,Wetterschicht,Regenjacke,rain jacket,소나기 예보가 있어서 우비를 챙겼어요.,"Da ein Schauer vorhergesagt war, packte ich eine Regenjacke ein.","A shower was forecast, so I packed a rain jacket."
+vocab_a1_0384,얇은 옷,1,Ausdruck,a2_weather_layer_1,Wetterschicht,leichte Kleidung,light clothes,낮에는 얇은 옷이 편해요.,Tagsüber ist leichte Kleidung angenehm.,Light clothes are comfortable during the day.
+vocab_a1_0385,두꺼운 옷,1,Ausdruck,a2_weather_layer_1,Wetterschicht,dicke Kleidung,thick clothes,밤에는 두꺼운 옷을 입었어요.,Nachts trug ich dicke Kleidung.,I wore thick clothes at night.
+vocab_a1_0386,일교차,2,Nomen,a2_weather_layer_1,Wetterschicht,Temperaturunterschied,day-to-night temperature swing,봄에는 일교차가 커서 겉옷이 필요해요.,"Im Frühling ist der Temperaturunterschied groß, deshalb brauche ich eine Jacke.","In spring the day-to-night swing is big, so I need a jacket."
+vocab_a1_0387,습하다,3,Adjektiv,a2_weather_layer_1,Wetterschicht,schwül,humid,오늘은 공기가 습해서 창문을 열어요.,"Die Luft fühlt sich heute feucht an, deshalb öffne ich das Fenster.","The air feels humid today, so I open the window."
+vocab_a1_0388,쌀쌀하다,2,Adjektiv,a2_weather_layer_1,Wetterschicht,kühl,chilly,아침이 쌀쌀해서 목도리를 했어요.,"Weil es am Morgen kühl war, wickelte ich mir einen Schal um.","Because the morning was chilly, I put on a scarf."
+vocab_a1_0389,맑음,1,Nomen,a2_weather_layer_1,Wetterschicht,heiter,clear skies,오후 예보가 맑음이에요.,Die Nachmittagsvorhersage ist heiter.,The afternoon forecast is clear skies.
+vocab_a1_0390,소나기,3,Nomen,a2_weather_layer_1,Wetterschicht,Schauer,shower,소나기가 금방 지나갈 것 같아요.,Der Schauer scheint bald vorüberzuziehen.,It looks like the shower will pass soon.
+vocab_a1_0391,겹쳐 입다,1,Ausdruck,a2_weather_layer_1,Wetterschicht,in Lagen tragen,to layer clothes,일교차가 클 때는 옷을 겹쳐 입어요.,Bei großem Temperaturunterschied trage ich Kleidung in Lagen.,"When the temperature gap is large, I layer clothes."
+vocab_a2_0023,휴가,1,Nomen,a2_work,Beruf,Urlaub / Freizeit,vacation / time off,다음 주부터 휴가예요.,Ab nächster Woche habe ich Urlaub.,I'm on vacation starting next week.
+vocab_a2_0024,회의,1,Nomen,a2_work,Beruf,Meeting / Besprechung,meeting,지금 회의 중이에요.,Ich bin gerade in einem Meeting.,I'm in a meeting right now.
+vocab_a2_0121,동료,3,Nomen,a2_work,Beruf,Kollege/in,colleague,같이 일하는 동료들이 좋아요.,"Ich mag die Kollegen, mit denen ich arbeite.",I like the coworkers I work with.
+vocab_a2_0122,사장,2,Nomen,a2_work,Beruf,Chef / Firmeninhaber,boss / company owner,오늘 사장님이 새 근무 시간을 설명해 주셨어요.,Heute hat mir der Chef die neuen Arbeitszeiten erklärt.,The boss explained the new work hours to me today.
+vocab_a2_0124,출근하다,2,Verb,a2_work,Beruf,zur Arbeit gehen,to go to work,매일 아홉 시에 출근해요.,Ich gehe jeden Tag um neun zur Arbeit.,I go to work at nine every day.
+vocab_a2_0125,퇴근하다,1,Verb,a2_work,Beruf,Feierabend machen,to leave work,오늘은 좀 일찍 퇴근하고 싶어요.,Heute möchte ich etwas früher Feierabend machen.,I want to leave work a little early today.
+vocab_a2_0126,야근하다,3,Verb,a2_work,Beruf,Überstunden machen,to work overtime,이번 주 계속 야근했어요.,Diese Woche habe ich ständig Überstunden gemacht.,I've worked overtime all week.
+vocab_a2_0127,월급,2,Nomen,a2_work,Beruf,Monatsgehalt,monthly salary,이번 달 월급이 좀 올랐어요.,Diesen Monat ist mein Gehalt etwas gestiegen.,My pay went up a bit this month.
+vocab_a2_0128,면접,3,Nomen,a2_work,Beruf,Vorstellungsgespräch,job interview,내일 오후에 면접이 있어요.,Morgen Nachmittag habe ich ein Vorstellungsgespräch.,I have a job interview tomorrow afternoon.

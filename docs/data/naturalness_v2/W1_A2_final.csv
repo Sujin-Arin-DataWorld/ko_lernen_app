@@ -1,0 +1,456 @@
+id,korean,reviewer_verdict,final,changed_fields,reason
+vocab_a2_0257,열리다,KEEP,KEEP,{},
+vocab_a2_0258,닫히다,FIX_DE,ACCEPT,"{""example_german"": ""Das Fenster ist im Wind zugefallen.""}",zugedrückt wirkt aktiv/gestelzt; KO ist Zustandsform
+vocab_a2_0259,켜지다,KEEP,KEEP,{},
+vocab_a2_0260,꺼지다,KEEP,KEEP,{},
+vocab_a2_0261,떨어지다,KEEP,KEEP,{},
+vocab_a2_0262,남다,KEEP,KEEP,{},
+vocab_a2_0263,붙다,KEEP,KEEP,{},
+vocab_a2_0264,걸리다,KEEP,KEEP,{},"글로스 hängen (dauern)/to hang는 뜻 혼합, 확인 필요"
+vocab_a2_0265,빼다,KEEP,KEEP,{},
+vocab_a2_0266,세우다,KEEP,KEEP,{},
+vocab_a2_0267,나가다,KEEP,KEEP,{},
+vocab_a2_0268,나오다,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""회의가 끝나고 회의실에서 나왔어요."", ""example_german"": ""Nach der Besprechung bin ich aus dem Besprechungsraum gekommen."", ""example_english"": ""I came out of the conference room after the meeting.""}","방은 회의 후 장면에 어색, 회의실로"
+vocab_a2_0161,코트,KEEP,KEEP,{},
+vocab_a2_0162,치마,KEEP,KEEP,{},
+vocab_a2_0163,원피스,KEEP,KEEP,{},
+vocab_a2_0164,양복,KEEP,KEEP,{},
+vocab_a2_0165,구두,KEEP,KEEP,{},
+vocab_a2_0166,양말,KEEP,KEEP,{},
+vocab_a2_0167,장갑,KEEP,KEEP,{},
+vocab_a2_0168,목도리,KEEP,KEEP,{},
+vocab_a2_0169,반지,KEEP,KEEP,{},
+vocab_a2_0170,귀걸이,KEEP,KEEP,{},
+vocab_a2_0171,넥타이,KEEP,KEEP,{},
+vocab_a2_0172,배낭,KEEP,KEEP,{},
+vocab_a2_0014,은행,KEEP,KEEP,{},
+vocab_a2_0032,지갑,KEEP,KEEP,{},
+vocab_a2_0033,열쇠,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""집 열쇠를 잃어버렸어요."", ""example_german"": ""Ich habe meinen Hausschlüssel verloren."", ""example_english"": ""I lost my house key.""}",2어절이라 3어절로 확장
+vocab_a2_0045,쉬다,KEEP,KEEP,{},
+vocab_a2_0046,기억하다,KEEP,KEEP,{},"기억이 안 나요가 대표 용법, 유지"
+vocab_a2_0050,찾다,KEEP,KEEP,{},
+vocab_a2_0051,만들다,KEEP,KEEP,{},
+vocab_a2_0054,잃어버리다,KEEP,KEEP,{},
+vocab_a1_0332,늦잠,KEEP,KEEP,{},
+vocab_a2_0055,바꾸다,KEEP,KEEP,{},
+vocab_a2_0061,바쁘다,KEEP,KEEP,{},
+vocab_a2_0080,정말,KEEP,KEEP,{},
+vocab_a2_0081,너무,KEEP,KEEP,{},
+vocab_a2_0082,조금,KEEP,KEEP,{},
+vocab_a2_0083,많이,KEEP,KEEP,{},
+vocab_a2_0084,혼자,KEEP,KEEP,{},
+vocab_a2_0085,같이,KEEP,KEEP,{},
+vocab_a2_0086,또,KEEP,KEEP,{},
+vocab_a2_0129,일어나다,KEEP,KEEP,{},
+vocab_a2_0130,씻다,KEEP,KEEP,{},글로스 putzen은 부정확(씻다=waschen)
+vocab_a2_0131,화장하다,KEEP,KEEP,{},
+vocab_a2_0132,빨래하다,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""보통 주말마다 빨래해요."", ""example_german"": ""Normalerweise mache ich am Wochenende Wäsche."", ""example_english"": ""I usually do laundry on weekends.""}",2어절이라 3어절로 확장
+vocab_a2_0133,청소하다,KEEP,KEEP,{},
+vocab_a2_0134,정리하다,KEEP,KEEP,{},
+vocab_a2_0135,설거지하다,KEEP,KEEP,{},
+vocab_a2_0065,예쁘다,KEEP,KEEP,{},
+vocab_a2_0066,재미있다,KEEP,KEEP,{},
+vocab_a2_0070,빠르다,KEEP,KEEP,{},
+vocab_a2_0071,느리다,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""오늘은 인터넷이 좀 느리네요."", ""example_german"": ""Heute ist das Internet ziemlich langsam."", ""example_english"": ""The internet is a bit slow today.""}","오늘따라는 A2 밖 표현, 번역도 부정확"
+vocab_a2_0072,무겁다,KEEP,KEEP,{},
+vocab_a2_0073,가볍다,KEEP,KEEP,{},
+vocab_a2_0074,넓다,KEEP,KEEP,{},
+vocab_a2_0075,좁다,KEEP,KEEP,{},
+vocab_a2_0111,가깝다,KEEP,KEEP,{},
+vocab_a2_0112,멀다,KEEP,KEEP,{},
+vocab_a2_0136,분홍색,KEEP,KEEP,{},
+vocab_a2_0137,보라색,KEEP,KEEP,{},
+vocab_a2_0138,갈색,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""제 머리는 갈색이에요."", ""example_german"": ""Ich habe braune Haare."", ""example_english"": ""I have brown hair.""}",염색은 A2 어휘 초과 가능성(3급 초과)
+vocab_a2_0139,회색,KEEP,KEEP,{},
+vocab_a2_0140,주황색,KEEP,KEEP,{},
+vocab_a2_0501,하늘색,KEEP,KEEP,{},
+vocab_a2_0502,진하다,KEEP,KEEP,{},
+vocab_a2_0503,두껍다,KEEP,KEEP,{},
+vocab_a2_0020,시험,KEEP,KEEP,{},
+vocab_a2_0021,숙제,KEEP,KEEP,{},
+vocab_a2_0022,성적,KEEP,KEEP,{},
+vocab_a2_0039,공부하다,KEEP,KEEP,{},
+vocab_a2_0047,이해하다,KEEP,KEEP,{},
+vocab_a2_0048,배우다,KEEP,KEEP,{},
+vocab_a2_0049,가르치다,KEEP,KEEP,{},
+vocab_a2_0477,학년,KEEP,KEEP,{},
+vocab_a2_0478,복습,KEEP,KEEP,{},
+vocab_a2_0479,예습,KEEP,KEEP,{},
+vocab_a2_0057,걱정하다,KEEP,KEEP,{},
+vocab_a2_0062,피곤하다,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""오늘은 좀 피곤하네요."", ""example_german"": ""Heute bin ich ein bisschen müde."", ""example_english"": ""I'm a bit tired today.""}",오늘따라는 A2 밖 표현
+vocab_a2_0063,행복하다,KEEP,KEEP,{},
+vocab_a2_0064,슬프다,KEEP,KEEP,{},
+vocab_a2_0067,무섭다,KEEP,KEEP,{},
+vocab_a2_0078,그립다,KEEP,KEEP,{},
+vocab_a2_0079,외롭다,KEEP,KEEP,{},
+vocab_a2_0113,화나다,KEEP,KEEP,{},
+vocab_a2_0114,부끄럽다,KEEP,KEEP,{},
+vocab_a2_0115,놀라다,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""큰 소리에 깜짝 놀랐어요!"", ""example_german"": ""Von dem lauten Geräusch bin ich total erschrocken!"", ""example_english"": ""The loud noise really startled me!""}",2어절이라 3어절로 확장
+vocab_a2_0116,기쁘다,FIX_KO+FIX_DE+FIX_EN,ACCEPT,"{""example_korean"": ""시험에 합격해서 정말 기뻐요."", ""example_german"": ""Ich bin so froh, dass ich die Prüfung bestanden habe."", ""example_english"": ""I'm so happy that I passed the exam.""}",-다니는 A2 문법 초과
+vocab_a2_0117,답답하다,KEEP,KEEP,{},
+vocab_a2_0118,신나다,FIX_KO,ACCEPT,"{""example_korean"": ""내일 여행을 가니까 정말 신나요.""}",미래 사건에 가서는 부자연; 가니까로
+vocab_a2_0119,지루하다,KEEP,KEEP,{},
+vocab_a2_0120,긴장하다,KEEP,KEEP,{},
+vocab_a2_0492,심심하다,KEEP,KEEP,{},
+vocab_a2_0493,편하다,KEEP,KEEP,{},
+vocab_a2_0494,즐겁다,KEEP,KEEP,{},
+vocab_a2_0012,식당,KEEP,KEEP,{},
+vocab_a2_0042,요리하다,KEEP,KEEP,{},
+vocab_a2_0076,달다,KEEP,KEEP,{},
+vocab_a2_0077,맵다,KEEP,KEEP,{},
+vocab_a2_0087,주문하다,KEEP,KEEP,{},
+vocab_a2_0088,메뉴판,KEEP,KEEP,{},
+vocab_a2_0089,추천하다,KEEP,KEEP,{},
+vocab_a2_0480,국,KEEP,KEEP,{},
+vocab_a2_0481,접시,KEEP,KEEP,{},
+vocab_a2_0482,설탕,KEEP,KEEP,{},
+vocab_a2_0090,맛,KEEP,KEEP,{},
+vocab_a2_0091,짜다,KEEP,KEEP,{},
+vocab_a2_0092,시다,KEEP,KEEP,{},
+vocab_a2_0093,싱겁다,KEEP,KEEP,{},
+vocab_a2_0094,포장하다,KEEP,KEEP,{},
+vocab_a2_0095,배달,KEEP,KEEP,{},
+vocab_a2_0096,매콤하다,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / NIKL 5급; B2 권장
+vocab_a2_0483,끓이다,KEEP,KEEP,{},
+vocab_a2_0484,볶다,KEEP,KEEP,{},
+vocab_a2_0485,굽다,KEEP,KEEP,{},
+vocab_a2_0209,야채,KEEP,KEEP,{},
+vocab_a2_0210,수박,KEEP,KEEP,{},
+vocab_a2_0211,배,KEEP,KEEP,{},
+vocab_a2_0212,딸기,KEEP,KEEP,{},
+vocab_a2_0213,쇠고기,KEEP,KEEP,{},
+vocab_a2_0214,돼지고기,KEEP,KEEP,{},
+vocab_a2_0215,불고기,KEEP,KEEP,{},
+vocab_a2_0216,비빔밥,KEEP,KEEP,{},
+vocab_a2_0217,냉면,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Im Sommer esse ich oft Naengmyeon."", ""example_english"": ""I often eat naengmyeon in summer.""}",불고기·비빔밥처럼 고유명 유지; 글로스 kalte Nudeln은 보조 설명으로 약함
+vocab_a2_0218,땅콩,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / NIKL 4급; B1 권장
+vocab_a2_0219,잼,KEEP,KEEP,{},
+vocab_a2_0220,밀가루,KEEP,KEEP,{},
+vocab_a2_0389,헬스장,KEEP,KEEP,{},
+vocab_a2_0390,운동복,FIX_KO,ACCEPT,"{""example_korean"": ""운동복을 락커에 넣어 둬요.""}",구어는 두어요보다 둬요; 락커 등급 미확인
+vocab_a2_0391,러닝머신,KEEP,KEEP,{},
+vocab_a2_0392,스트레칭,FIX_DE,ACCEPT,"{""example_german"": ""Bevor ich anfange, mache ich Dehnübungen.""}",DE 직역투 Start 수정
+vocab_a2_0393,횟수,KEEP,KEEP,{},
+vocab_a2_0394,세트,KEEP,KEEP,{},
+vocab_a2_0395,트레이너,KEEP,KEEP,{},
+vocab_a2_0396,락커,KEEP,KEEP,{},
+vocab_a2_0397,회원권,KEEP,KEEP,{},
+vocab_a2_0398,준비운동,KEEP,KEEP,{},
+vocab_a2_0399,근력,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 6급: B2 권장. 문장은 자연스러움
+vocab_a2_0400,유산소,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 4급: B1 권장. 예문 숨이 고르게 돌아와요도 어색
+vocab_a2_0010,병원,KEEP,KEEP,{},
+vocab_a2_0011,약,FIX_DE,ACCEPT,"{""example_german"": ""Ich möchte ein Erkältungsmittel kaufen.""}","DE 직역투(Ich bin hier, um)"
+vocab_a2_0015,여행,KEEP,KEEP,{},
+vocab_a2_0017,호텔,KEEP,KEEP,{},
+vocab_a2_0018,음악,KEEP,KEEP,{},
+vocab_a2_0019,영화,KEEP,KEEP,{},
+vocab_a2_0028,전화,KEEP,KEEP,{},
+vocab_a2_0029,문자,FIX_DE,REJECT,{},"SMS-Antwort 어색, 원래 번역 자연스러움 — 원문 유지"
+vocab_b1_0013,건강,KEEP,KEEP,{},
+vocab_a2_0030,인터넷,KEEP,KEEP,{},
+vocab_a2_0031,컴퓨터,KEEP,KEEP,{},
+vocab_a2_0040,운동하다,KEEP,KEEP,{},
+vocab_a2_0041,여행하다,KEEP,KEEP,{},
+vocab_a2_0043,전화하다,KEEP,KEEP,{},
+vocab_a2_0052,예약하다,KEEP,KEEP,{},
+vocab_a2_0053,보내다,KEEP,KEEP,{},
+vocab_a2_0068,건강하다,KEEP,KEEP,{},
+vocab_a2_0069,아프다,KEEP,KEEP,{},
+vocab_b1_0192,대화,KEEP,KEEP,{},
+vocab_b1_0195,질문,KEEP,KEEP,{},
+vocab_a2_0141,거실,KEEP,KEEP,{},
+vocab_a2_0142,부엌,KEEP,KEEP,{},
+vocab_a2_0143,냉장고,KEEP,KEEP,{},
+vocab_a2_0144,세탁기,KEEP,KEEP,{},
+vocab_a2_0145,청소기,KEEP,KEEP,{},
+vocab_a2_0146,가구,KEEP,KEEP,{},
+vocab_a2_0147,이사하다,KEEP,KEEP,{},
+vocab_a2_0148,월세,KEEP,KEEP,{},
+vocab_a2_0150,집주인,KEEP,KEEP,{},
+vocab_a2_0197,거울,KEEP,KEEP,{},
+vocab_a2_0198,달력,KEEP,KEEP,{},
+vocab_a2_0199,비누,KEEP,KEEP,{},
+vocab_a2_0200,칫솔,FIX_DE,ACCEPT,"{""example_german"": ""Ich habe auf eine neue Zahnbürste gewechselt.""}",바꿨다=전환의 뜻
+vocab_a2_0201,수건,KEEP,KEEP,{},
+vocab_a2_0202,그릇,KEEP,KEEP,{},gloss Schüssel; 예문은 Geschirr가 더 자연
+vocab_a2_0203,컵,KEEP,KEEP,{},Tasse보다 Glas/Becher가 자연
+vocab_a2_0204,냄새,FIX_DE,ACCEPT,"{""example_german"": ""Aus der Küche riecht es gut.""}",Geruch는 어색
+vocab_a2_0205,창문,KEEP,KEEP,{},
+vocab_a2_0206,꽃병,KEEP,KEEP,{},
+vocab_a2_0207,화분,KEEP,KEEP,{},
+vocab_a2_0208,옷걸이,KEEP,KEEP,{},
+vocab_a2_0151,현금,KEEP,KEEP,{},
+vocab_a2_0152,통장,KEEP,KEEP,{},"gloss Bankbuch는 부자연, Sparbuch/Konto 권장"
+vocab_a2_0153,입금하다,KEEP,KEEP,{},
+vocab_a2_0154,출금하다,KEEP,KEEP,{},
+vocab_a2_0155,송금하다,KEEP,KEEP,{},
+vocab_a2_0156,잔액,KEEP,KEEP,{},
+vocab_a2_0157,수수료,KEEP,KEEP,{},
+vocab_a2_0158,환전하다,KEEP,KEEP,{},
+vocab_a2_0159,통화,KEEP,KEEP,{},
+vocab_a2_0160,저축하다,KEEP,KEEP,{},
+vocab_a2_0223,숲,FIX_KO,ACCEPT,"{""example_korean"": ""어제 숲에서 산책했어요."", ""example_german"": ""Gestern bin ich im Wald spazieren gegangen."", ""example_english"": ""I took a walk in the forest yesterday.""}",2어절이라 3어절 충족
+vocab_a2_0224,물고기,KEEP,KEEP,{},
+vocab_a2_0225,모기,KEEP,KEEP,{},
+vocab_a2_0226,풀,KEEP,KEEP,{},
+vocab_a2_0227,잎,KEEP,KEEP,{},
+vocab_a2_0228,용,KEEP,KEEP,{},
+vocab_a2_0229,바람,KEEP,KEEP,{},
+vocab_a2_0230,눈사람,KEEP,KEEP,{},
+vocab_a2_0231,눈싸움,KEEP,KEEP,{},
+vocab_a2_0232,동네,KEEP,KEEP,{},
+vocab_a1_0272,추석,KEEP,KEEP,{},gloss Erntedank는 부정확 (gloss 수정 필요)
+vocab_a1_0273,송편,KEEP,KEEP,{},
+vocab_a1_0274,송편 빚다,FIX_KO,REJECT,{},새 문장의 cloze 정답(빚었는데) 품사를 감사기가 판정 못해 D3 위반 — A2 문법 안의 원문 유지
+vocab_a1_0275,귀성,FIX_KO,ACCEPT,"{""example_korean"": ""귀성 기차표를 사려고 알람을 맞췄어요."", ""example_german"": ""Für die Zugtickets zur Heimfahrt habe ich mir einen Wecker gestellt."", ""example_english"": ""I set an alarm to buy my train tickets home for the holiday.""}",7어절 초과로 단축
+vocab_a1_0276,성묘,KEEP,KEEP,{},
+vocab_a1_0277,벌초,FIX_KO,ACCEPT,"{""example_korean"": ""벌초는 묘의 풀을 깎는 일이에요."", ""example_german"": ""Grabpflege heißt, das Gras am Grab zu schneiden."", ""example_english"": ""Tending the grave means cutting the grass around it.""}",7어절·무덤가 어려움
+vocab_a1_0278,송편 찌다,FIX_KO,REJECT,{},새 문장에 표제어 어간이 빠져 번역쌍 R3 위반 — 원문 유지
+vocab_a1_0279,햇과일,FIX_DE,ACCEPT,"{""example_german"": ""Ich habe die ersten Früchte der Ernte für das Ahnenritual auf den Tisch gestellt.""}",Ahnentisch는 없는 말
+vocab_a1_0280,한가위,FIX_KO,ACCEPT,"{""example_korean"": ""한가위에는 보름달이 정말 커요."", ""example_german"": ""An Hangawi ist der Vollmond ganz besonders groß."", ""example_english"": ""At Hangawi, the full moon looks really big.""}",-다고 인용은 A2 문법 밖
+vocab_a1_0281,솔잎,KEEP,KEEP,{},
+vocab_a1_0283,차례,KEEP,KEEP,{},
+vocab_a2_0293,귀성길,FIX_KO,ACCEPT,"{""example_korean"": ""귀성길에 휴게소에서 호두과자를 샀어요."", ""example_german"": ""Auf der Fahrt in die Heimat habe ich an der Raststätte Walnusskuchen gekauft."", ""example_english"": ""On the holiday drive home, I bought walnut cakes at a rest stop.""}",귀성길에서 부자연
+vocab_a2_0294,송편 맛,FIX_KO,REJECT,{},새 문장(송편 맛은 깨가 제일 좋아요)이 원문보다 어색 — 원문 유지
+vocab_a2_0295,보름달,FIX_DE,ACCEPT,"{""example_german"": ""Beim Blick auf den Vollmond habe ich mir etwas gewünscht.""}",Beim Vollmond 어색
+vocab_a2_0296,성묘 옷,KEEP,KEEP,{},
+vocab_a2_0297,벌초용 장갑,FIX_KO,ACCEPT,"{""example_korean"": ""벌초용 장갑을 끼고 풀을 깎았어요."", ""example_german"": ""Ich zog Handschuhe für die Grabpflege an und schnitt das Gras."", ""example_english"": ""I put on gloves for grave clearing and cut the grass.""}",7어절·묘소 어려움
+vocab_a2_0298,차례 음식,KEEP,KEEP,{},
+vocab_a2_0299,송편 만들기,FIX_KO,ACCEPT,"{""example_korean"": ""송편 만들기는 처음이라 어려웠어요."", ""example_german"": ""Ich habe zum ersten Mal Songpyeon gemacht, deshalb war es schwer."", ""example_english"": ""It was my first time making songpyeon, so it was hard.""}",7어절 초과로 단축
+vocab_a2_0300,명절 인사,FIX_KO,ACCEPT,"{""example_korean"": ""명절 인사는 짧게 문자로 보냈어요."", ""example_german"": ""Die Feiertagsgrüße habe ich kurz per Nachricht geschickt."", ""example_english"": ""I sent a short holiday greeting by text.""}","7어절·카톡 브랜드명 제거, EN holiday hello 번역투"
+vocab_a2_0301,고향집,FIX_EN,ACCEPT,"{""example_english"": ""Persimmons were still hanging in the yard of my family home.""}",EN 번역투
+vocab_a2_0302,친척을 방문하다,KEEP,KEEP,{},
+vocab_a2_0303,송편 점,KEEP,KEEP,{},"송편 점은 실제 관습 근거 약함, 확인 권장"
+vocab_a2_0304,추석 연휴,FIX_KO,ACCEPT,"{""example_korean"": ""추석 연휴 기차표를 미리 샀어요."", ""example_german"": ""Das Zugticket für die Chuseok-Ferien habe ich früh gekauft."", ""example_english"": ""I bought my train ticket for the Chuseok holiday early.""}",7어절 초과로 단축
+vocab_a2_0269,어디서 오셨어요,KEEP,KEEP,{},
+vocab_a2_0270,한국어 잘하시네요,FIX_KO,OPUS_FIX,"{""example_korean"": ""한국어 잘하시네요! 어디에서 배웠어요?"", ""example_german"": ""Sie sprechen aber gut Koreanisch! Wo haben Sie es gelernt?"", ""example_english"": ""Your Korean is really good! Where did you learn it?""}",Opus 직접 수정 / 구두점 없는 비문·7어절
+vocab_a2_0271,직업이 뭐예요,KEEP,KEEP,{},
+vocab_a2_0272,언제 왔어요,FIX_KO,ACCEPT,"{""example_korean"": ""한국에 언제 왔어요? 작년에 왔어요."", ""example_german"": ""Wann sind Sie nach Korea gekommen? Letztes Jahr."", ""example_english"": ""When did you come to Korea? Last year.""}","맥락 보완, 재작년 대신 작년"
+vocab_a2_0273,얼마나 됐어요,KEEP,KEEP,{},
+vocab_a2_0274,소개팅,KEEP,KEEP,{},
+vocab_a2_0276,통역 부탁,KEEP,KEEP,{},
+vocab_a2_0277,자기소개,KEEP,KEEP,{},
+vocab_a2_0278,고향 이야기,KEEP,KEEP,{},
+vocab_a2_0279,음식 취향,KEEP,KEEP,{},
+vocab_a2_0341,고속버스,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Mein Platz im Fernbus war am Fenster, also schickte ich meiner Großmutter ein Foto."", ""example_english"": ""My express-bus seat was by the window, so I sent my grandmother a photo.""}","DE 어색 Fernbusplatz, EN my 누락"
+vocab_a2_0342,휴게소,FIX_DE,ACCEPT,"{""example_german"": ""An der Raststätte habe ich Walnusskuchen gekauft, und wir haben ihn zusammen gegessen.""}",단복수 불일치(den)
+vocab_a2_0343,명절 기차표,FIX_KO,ACCEPT,"{""example_korean"": ""명절 기차표는 금방 팔려서 미리 샀어요."", ""example_german"": ""Zugtickets für die Feiertage sind schnell vergriffen, deshalb habe ich meines früh gekauft."", ""example_english"": ""Holiday train tickets sell fast, so I bought mine early.""}",매진/예매 어려움·7어절
+vocab_a2_0345,짐 부치다,FIX_KO,ACCEPT,"{""example_korean"": ""큰 짐은 택배로 미리 부쳤어요."", ""example_german"": ""Das große Gepäck habe ich vorab per Paketdienst geschickt."", ""example_english"": ""I sent my big bags ahead by courier.""}",7어절 초과로 단축
+vocab_a2_0346,도착 연락,FIX_KO,ACCEPT,"{""example_korean"": ""역에 내려서 가족에게 도착 연락을 했어요."", ""example_german"": ""Nach dem Aussteigen am Bahnhof habe ich meiner Familie Bescheid gegeben, dass ich angekommen bin."", ""example_english"": ""After getting off at the station, I let my family know I had arrived.""}",도착해서 도착 연락 중복
+vocab_a2_0347,친척 집,FIX_EN,ACCEPT,"{""example_english"": ""My relatives' house was up on a hill, so I walked up slowly.""}",곡선 아포스트로피 제거
+vocab_a2_0348,마을 버스,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 4급: B1 권장
+vocab_a2_0349,집 마당,KEEP,KEEP,{},
+vocab_a2_0350,밤참,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 6급: B2 권장
+vocab_a2_0351,돌아가는 길,KEEP,KEEP,{},
+vocab_a2_0352,안부 전화,KEEP,KEEP,{},
+vocab_a1_0236,현관,KEEP,KEEP,{},
+vocab_a1_0237,손님 슬리퍼,KEEP,KEEP,{},
+vocab_a1_0238,앉으세요,KEEP,KEEP,{},
+vocab_a1_0239,윗목,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 6급: B2 권장. DE 윗목 설명도 불명확
+vocab_a1_0240,아랫목,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 6급: B2 권장
+vocab_a1_0241,무릎,KEEP,KEEP,{},
+vocab_a1_0242,방석,KEEP,KEEP,{},
+vocab_a1_0243,물 드세요,FIX_DE,ACCEPT,"{""example_german"": ""Trinken Sie doch etwas Wasser. Hier, bitte.""}",Hier ist es 어색
+vocab_a1_0244,손 씻기,KEEP,KEEP,{},
+vocab_a1_0245,화장실 문,KEEP,KEEP,{},
+vocab_a1_0246,조용히 하다,KEEP,KEEP,{},
+vocab_a1_0247,방문 예절,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Ich habe die Benimmregeln für den Besuch kurz überprüft."", ""example_english"": ""I briefly checked the etiquette for visiting.""}",Vor dem Besuch 추가 정보 제거
+vocab_a2_0317,손님방,FIX_KO,ACCEPT,"{""example_korean"": ""손님방은 이불이 두꺼워서 더웠어요."", ""example_german"": ""Im Gästezimmer war die Bettdecke so dick, dass mir zu warm war."", ""example_english"": ""The blanket in the guest room was so thick that I got too hot.""}",겹 어려운 단위
+vocab_a2_0318,이불,KEEP,KEEP,{},
+vocab_a2_0319,세면 도구,RELEVEL+FIX_DE,ACCEPT,"{""example_german"": ""Ich hatte mein Waschzeug vergessen und bekam eine neue Zahnbürste.""}",레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 5급: B2 권장. Bürste는 칫솔 누락
+vocab_a2_0320,아침 인사,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Nach dem Aufstehen habe ich zuerst Guten Morgen gesagt."", ""example_english"": ""After getting up, I said good morning first.""}","DE 어색, EN everyone 추가"
+vocab_a2_0321,일찍 일어나다,FIX_KO,ACCEPT,"{""example_korean"": ""일찍 일어나야 해서 알람을 네 개 맞췄어요."", ""example_german"": ""Ich muss früh aufstehen, deshalb habe ich vier Wecker gestellt."", ""example_english"": ""I have to get up early, so I set four alarms.""}",-(으)려고는 A2 문법표 밖; -어야 해서로 교체
+vocab_a2_0322,화장실 줄,FIX_KO,ACCEPT,"{""example_korean"": ""화장실 줄이 길어서 잠깐 기다렸어요."", ""example_german"": ""Die Schlange vor der Toilette war lang, deshalb habe ich kurz gewartet."", ""example_english"": ""The bathroom line was long, so I waited a bit.""}","""줄이 있어서""는 어색, ""줄이 길어서""가 자연스러움; DE ""Bad""는 오역"
+vocab_a2_0323,잠옷,FIX_KO,ACCEPT,"{""example_korean"": ""잠옷 대신 편한 티셔츠를 입어도 돼요?"", ""example_german"": ""Darf ich statt eines Schlafanzugs ein bequemes T-Shirt anziehen?"", ""example_english"": ""Can I wear a comfy T-shirt instead of pajamas?""}",간접화법 -냐고는 B1 문법; 직접 질문으로 교체
+vocab_a2_0324,코골이,FIX_DE,ACCEPT,"{""example_german"": ""Aus dem Nebenzimmer war Schnarchen zu hören, deshalb konnte ich nicht schlafen.""}","DE 직역투 ""Schnarchen hörte"" 정리"
+vocab_a2_0325,아침밥,KEEP,KEEP,{},
+vocab_a2_0326,손님 수건,KEEP,KEEP,{},
+vocab_a2_0327,문 닫기,FIX_KO,ACCEPT,"{""example_korean"": ""문 닫기 전에 가방을 한 번 확인했어요."", ""example_german"": ""Bevor ich die Tür geschlossen habe, habe ich noch einmal meine Tasche kontrolliert."", ""example_english"": ""Before closing the door, I checked my bag once more.""}","""문 닫기 소리""는 부자연스럽고 대표 용법도 아님; -기 전에 용법으로 교체"
+vocab_a2_0328,잘 주무셨어요,FIX_KO,ACCEPT,"{""example_korean"": ""아침에 할머니께 “잘 주무셨어요?” 하고 인사했어요."", ""example_german"": ""Am Morgen habe ich meine Großmutter begrüßt: „Hast du gut geschlafen?“"", ""example_english"": ""In the morning, I greeted my grandmother with “Did you sleep well?”""}","여쭙다는 A2 밖 가능성이라 교체; 표제어 gloss는 Sie, 예문은 du(가족)로 불일치: gloss 확인"
+vocab_a1_0296,인증샷,FIX_KO,ACCEPT,"{""example_korean"": ""인증샷은 인터넷에 올리지 마세요."", ""example_german"": ""Bitte stellen Sie das Foto nicht ins Internet."", ""example_english"": ""Please don't post the photo online.""}","간접화법 -지 말라고는 B1; gloss ""Foto fürs Netz""는 인증샷 뜻(증명용 사진)을 못 담음"
+vocab_a1_0297,가족 앨범,KEEP,KEEP,{},
+vocab_a1_0298,촬영 금지,FIX_DE,ACCEPT,"{""example_german"": ""Vor dem Ahnentisch stand ein Schild mit dem Hinweis „Fotografieren verboten“.""}",DE 관청식 종속절을 간결한 문장으로
+vocab_a1_0299,잘 다녀오겠습니다,FIX_KO,ACCEPT,"{""example_korean"": ""나갈 때 “잘 다녀오겠습니다!” 하고 인사했어요."", ""example_german"": ""Beim Rausgehen habe ich mich mit „Ich mache mich dann auf den Weg!“ verabschiedet."", ""example_english"": ""As I left, I said, “I'll be heading out now!”""}",인용부호 없이 화자가 섞임; 따옴표로 발화 분리
+vocab_a1_0300,잘 먹었습니다,FIX_KO,ACCEPT,"{""example_korean"": ""식사 후에 “잘 먹었습니다” 하고 인사했어요."", ""example_german"": ""Nach dem Essen habe ich mich mit „Danke, es hat geschmeckt!“ bedankt."", ""example_english"": ""After the meal, I said, “Thank you for the meal.”""}","""beim Verabschieden"" 첨가 삭제, 따옴표 추가"
+vocab_a1_0301,다음에 또 오세요,FIX_KO,ACCEPT,"{""example_korean"": ""사장님이 “다음에 또 오세요” 하고 인사했어요."", ""example_german"": ""Der Inhaber hat sich mit „Kommen Sie bald wieder!“ verabschiedet."", ""example_english"": ""The owner said goodbye with “Please come again.”""}","""신발을 거꾸로 신었어요""는 맥락 없는 서술+DE의 ""aus Eile"" 첨가"
+vocab_a1_0302,연락드릴게요,FIX_KO,ACCEPT,"{""example_korean"": ""문 앞에서 “연락드릴게요” 하고 손을 흔들었어요.""}",발화에 따옴표만 추가(DE·EN은 동일)
+vocab_a1_0303,카톡,KEEP,KEEP,{},
+vocab_a1_0304,이모티콘,KEEP,KEEP,{},
+vocab_a1_0305,안부,FIX_KO,ACCEPT,"{""example_korean"": ""다음 날 할머니께 안부 전화를 드렸어요."", ""example_german"": ""Am nächsten Tag habe ich bei meiner Großmutter angerufen und gefragt, wie es ihr geht."", ""example_english"": ""The next day, I called my grandmother to see how she was doing.""}","DE ""ihrem Befinden"" 대상 불명(N5); 안부 전화 연어로 교체"
+vocab_a1_0306,사진 전송,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 5급; 제안 B2 (예문 7어절도 A2 밴드 초과)
+vocab_a1_0307,방문 소감,FIX_KO,ACCEPT,"{""example_korean"": ""방문 소감을 편지에 짧게 적었어요."", ""example_german"": ""Meine Eindrücke vom Besuch habe ich kurz in einem Brief aufgeschrieben."", ""example_english"": ""I briefly wrote my impressions of the visit in a letter.""}",-다고만 간접화법은 B1
+vocab_a2_0281,세배하러 가다,FIX_DE,ACCEPT,"{""example_german"": ""Am Vormittag bin ich zu meiner Großmutter gegangen, um die Neujahrsverbeugung zu machen.""}","DE ""besuchte ... zur Neujahrsverbeugung"" 어색"
+vocab_a2_0282,떡국 먹다,KEEP,KEEP,{},
+vocab_a2_0285,세배 순서,FIX_KO,ACCEPT,"{""example_korean"": ""세배 순서는 할아버지께 물어봤어요."", ""example_german"": ""Nach der Reihenfolge der Neujahrsverbeugung habe ich meinen Großvater gefragt."", ""example_english"": ""I asked my grandfather about the order of the New Year bows.""}","여쭙다 회피, ""ein älteres Familienmitglied"" 우회표현 제거"
+vocab_a2_0286,복주머니,FIX_DE,ACCEPT,"{""example_german"": ""Sie haben das Neujahrsgeld in den Glücksbeutel des Kindes gesteckt.""}",DE에서 세뱃돈 누락
+vocab_a2_0287,설날 인사말,KEEP,KEEP,{},
+vocab_a2_0288,세배 영상,FIX_EN,ACCEPT,"{""example_english"": ""I sent the video of the New Year bow only to my family.""}","EN ""New Year-bow video"" 어색"
+vocab_a2_0289,명절 음식,FIX_DE,ACCEPT,"{""example_german"": ""Als Festtagsessen habe ich Jeon zubereitet.""}","DE Präteritum ""bereitete"" 문어체"
+vocab_a2_0290,전 부치다,FIX_DE,ACCEPT,"{""example_german"": ""Beim Braten der Jeon spritzte mir Öl auf den Arm.""}",
+vocab_a2_0291,세배 연습,FIX_DE,ACCEPT,"{""example_german"": ""Ich habe die Neujahrsverbeugung zehnmal vor dem Spiegel geübt.""}",DE에서 세배 의미 누락
+vocab_a2_0292,새해 목표,FIX_KO,ACCEPT,"{""example_korean"": ""제 새해 목표는 한국어 일기 쓰기예요."", ""example_german"": ""Mein Neujahrsvorsatz ist, Tagebuch auf Koreanisch zu schreiben."", ""example_english"": ""My New Year's goal is to keep a diary in Korean.""}","""목표는 일기예요""는 논리 불일치; 일기 쓰기로"
+vocab_a2_0233,가수,FIX_DE+FIX_EN,OPUS_FIX,"{""example_german"": ""Die Lieder von diesem Sänger gefallen mir sehr."", ""example_english"": ""I really like that singer's songs.""}",Opus 직접 수정 / DE/EN이 가수·노래를 잃은 오역
+vocab_a2_0234,변호사,KEEP,KEEP,{},
+vocab_a2_0235,경찰,KEEP,KEEP,{},
+vocab_a2_0236,군인,KEEP,KEEP,{},
+vocab_a2_0238,주인,KEEP,KEEP,{},
+vocab_a2_0239,아저씨,KEEP,KEEP,{},
+vocab_a2_0240,아주머니,KEEP,KEEP,{},
+vocab_a2_0241,왕,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Sejong der Große ist ein berühmter König."", ""example_english"": ""Sejong the Great is a famous king.""}","""König Sejong ... König"" 중복"
+vocab_a2_0242,왕비,KEEP,KEEP,{},
+vocab_a2_0243,왕자,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 5급; 제안 B2
+vocab_a2_0244,공주,KEEP,KEEP,{},
+vocab_a1_0320,연고,FIX_KO,ACCEPT,"{""example_korean"": ""연고 바르는 방법을 약사에게 물어봤어요."", ""example_german"": ""Ich habe in der Apotheke gefragt, wie man die Salbe aufträgt."", ""example_english"": ""I asked the pharmacist how to apply the ointment.""}",-는지는 B1; 명사구 방법으로 교체
+vocab_a1_0321,마스크,FIX_KO,ACCEPT,"{""example_korean"": ""약국에서 마스크를 한 상자 샀어요."", ""example_english"": ""I bought a box of masks at the pharmacy.""}","마스크는 ""한 통""이 아니라 ""한 상자"""
+vocab_a1_0322,계산대,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""An der Kasse habe ich meine Karte herausgeholt."", ""example_english"": ""I took out my card at the checkout.""}","""vor der Kasse""/""in front of the checkout"" 직역"
+vocab_a1_0323,복용 시간,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Bitte schreiben Sie mir die Einnahmezeiten auf."", ""example_english"": ""Please write down the dosing times for me.""}","""auf Papier""/""on paper"" 직역"
+vocab_a1_0324,일회용 밴드,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 4급; 제안 B1
+vocab_a1_0326,가글액,FIX_KO,ACCEPT,"{""example_korean"": ""가글액은 어디에 있어요?"", ""example_german"": ""Wo ist die Mundspülung?"", ""example_english"": ""Where is the mouthwash?""}","-는지는 B1, ""있는지 찾고 있어요""도 어색"
+vocab_a1_0327,비타민제,FIX_KO,ACCEPT,"{""example_korean"": ""매일 아침 비타민제를 먹어요."", ""example_german"": ""Ich nehme jeden Morgen ein Vitaminpräparat."", ""example_english"": ""I take a vitamin supplement every morning.""}","""사서 집에 두었어요""는 목적 없는 서술"
+vocab_a1_0328,알레르기,FIX_KO,ACCEPT,"{""example_korean"": ""알레르기가 있어서 약사에게 먼저 말했어요."", ""example_german"": ""Ich habe eine Allergie und habe das gleich in der Apotheke gesagt."", ""example_english"": ""I have an allergy, so I told the pharmacist first.""}","-는지는 B1; DE도 ""welche Allergien""으로 의미 이탈"
+vocab_a1_0329,무처방,RELEVEL,KEEP,{},"레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 4급; 제안 B1. 실제론 ""처방전 없이/일반의약품""이 자연스러움"
+vocab_a1_0330,파스,KEEP,KEEP,{},
+vocab_a1_0331,제산제,KEEP,KEEP,{},
+vocab_a2_0461,약속을 잡다,KEEP,KEEP,{},
+vocab_a2_0462,일정을 바꾸다,KEEP,KEEP,{},
+vocab_a2_0463,시간이 되다,KEEP,KEEP,{},
+vocab_a2_0464,만날 곳을 정하다,RELEVEL,KEEP,{},"레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 5급 표기, 구성 어휘(만나다·곳·정하다)는 모두 저등급이라 등급 데이터 재확인 권고"
+vocab_a2_0495,약속,KEEP,KEEP,{},
+vocab_a2_0496,계획,KEEP,KEEP,{},
+vocab_a2_0497,시간표,KEEP,KEEP,{},
+vocab_a2_0498,비다,KEEP,KEEP,{},
+vocab_a2_0499,가능하다,KEEP,KEEP,{},
+vocab_a2_0500,휴일,KEEP,KEEP,{},
+vocab_a2_0185,반찬,KEEP,KEEP,{},
+vocab_a2_0186,소금,KEEP,KEEP,{},
+vocab_a2_0187,후추,KEEP,KEEP,{},
+vocab_a2_0188,젓가락,KEEP,KEEP,{},
+vocab_a2_0189,숟가락,KEEP,KEEP,{},
+vocab_a2_0190,계산서,KEEP,KEEP,{},
+vocab_a2_0191,차림표,KEEP,KEEP,{},
+vocab_a2_0192,인분,KEEP,KEEP,{},
+vocab_a2_0193,배부르다,KEEP,KEEP,{},
+vocab_a2_0194,씹다,KEEP,KEEP,{},
+vocab_a2_0195,맛보다,KEEP,KEEP,{},
+vocab_a2_0196,후식,KEEP,KEEP,{},
+vocab_a2_0401,미용실,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Für Samstagvormittag habe ich einen Termin im Friseursalon gemacht."", ""example_english"": ""I booked an appointment at the hair salon for Saturday morning.""}","미용실 ""예약"" = Termin; ""reserviert""는 어색, EN ""booked the hair salon""은 오류"
+vocab_a2_0402,커트,KEEP,KEEP,{},
+vocab_a2_0403,염색,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 4급; 제안 B1
+vocab_a2_0404,펌,FIX_KO,ACCEPT,"{""example_korean"": ""이번 여름에는 펌을 안 할 거예요."", ""example_english"": ""I'm not getting a perm this summer.""}",-려고요는 A2 표 밖; -ㄹ 거예요로
+vocab_a2_0405,앞머리,KEEP,KEEP,{},
+vocab_a2_0406,드라이,KEEP,KEEP,{},
+vocab_a2_0407,스타일리스트,KEEP,KEEP,{},
+vocab_a2_0408,예약금,FIX_DE,ACCEPT,"{""example_german"": ""Für den Termin am Wochenende habe ich eine Anzahlung geleistet.""}","""reserviert""→Termin, ""gezahlt""→geleistet"
+vocab_a2_0409,샴푸,FIX_DE,ACCEPT,"{""example_german"": ""Bitte waschen Sie mir die Haare mit einem Shampoo, das nicht so stark duftet.""}","""Shampoo mit mildem Duft"" 어색"
+vocab_a2_0410,트리트먼트,FIX_EN,ACCEPT,"{""example_english"": ""I had split ends, so I added a treatment.""}","""hair ends were split"" 직역"
+vocab_a2_0411,옆머리,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Bitte schneiden Sie die Haare an den Seiten so, dass sie meine Ohren nicht bedecken."", ""example_english"": ""Please make sure the hair on the sides doesn't cover my ears.""}","""Seitenhaar""/""side hair"" 직역"
+vocab_a2_0412,손질,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 4급; 제안 B1
+vocab_a1_0356,필통,KEEP,KEEP,{},
+vocab_a1_0357,지우개,FIX_KO,ACCEPT,"{""example_korean"": ""연필로 쓴 걸 지우개로 지워요."", ""example_german"": ""Was ich mit Bleistift geschrieben habe, radiere ich mit dem Radiergummi weg."", ""example_english"": ""I erase what I wrote in pencil with an eraser.""}","""연필 실수""는 부자연스러운 합성어"
+vocab_a1_0358,가위,KEEP,KEEP,{},
+vocab_a1_0359,자,KEEP,KEEP,{},
+vocab_a1_0360,색연필,KEEP,KEEP,{},
+vocab_a1_0361,연습장,KEEP,KEEP,{},
+vocab_a1_0362,준비물,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Ich packe die Sachen für den morgigen Unterricht in die Tasche."", ""example_english"": ""I'm putting what I need for tomorrow's class in my bag.""}",내일 누락
+vocab_a1_0363,제출하다,KEEP,KEEP,{},
+vocab_a1_0364,화이트보드,FIX_DE,ACCEPT,"{""example_german"": ""Der Lehrer hat ein Wort an das Whiteboard geschrieben.""}","""Lehrkraft"" 우회 중성어 → 한 형태로"
+vocab_a1_0365,자리표,KEEP,KEEP,{},
+vocab_a1_0366,필기하다,RELEVEL,KEEP,{},레벨 이동은 이번 PR 밖(재분류 도구·게이트 필요) / nikl 4급; 제안 B1
+vocab_a1_0367,준비됐나요,FIX_KO,OPUS_FIX,"{""example_korean"": ""곧 수업이 시작돼요. 준비됐나요?"", ""example_german"": ""Der Unterricht fängt gleich an. Seid ihr bereit?"", ""example_english"": ""Class is about to start. Are you ready?""}","Opus 직접 수정 / 원문 ""수업 시작 전에 준비됐나요?""가 어색, DE도 직역"
+vocab_a2_0245,교실,KEEP,KEEP,{},
+vocab_a2_0246,교과서,KEEP,KEEP,{},
+vocab_a2_0247,공책,KEEP,KEEP,{},
+vocab_a2_0248,칠판,FIX_DE,ACCEPT,"{""example_german"": ""Der Lehrer schreibt an die Tafel.""}","""Lehrkraft"" 우회 중성어 → 한 형태로"
+vocab_a2_0249,대학교,KEEP,KEEP,{},
+vocab_a2_0250,대학생,FIX_KO,ACCEPT,"{""example_korean"": ""제 친구는 대학생이에요."", ""example_german"": ""Mein Freund ist Student."", ""example_english"": ""My friend is a college student.""}","2어절(<3); DE도 ""Ich studiere""로 표제어 이탈"
+vocab_a2_0251,고등학생,FIX_KO,ACCEPT,"{""example_korean"": ""제 동생은 고등학생이에요."", ""example_german"": ""Mein kleiner Bruder ist in der Oberstufe.""}","2어절(<3); gloss ""Oberschüler""는 독일어에 없는 단어: 재검토 권고(Oberstufenschüler)"
+vocab_a2_0252,중학생,KEEP,KEEP,{},
+vocab_a2_0253,반,KEEP,KEEP,{},
+vocab_a2_0254,교수,FIX_DE,ACCEPT,"{""example_german"": ""Die Vorlesung vom Professor ist interessant.""}",DE에서 교수님 누락
+vocab_a2_0255,유학,KEEP,KEEP,{},
+vocab_a2_0256,유학생,KEEP,KEEP,{},
+vocab_a2_0013,시장,KEEP,KEEP,{},
+vocab_a2_0035,얼마,KEEP,KEEP,{},
+vocab_a2_0036,할인,KEEP,KEEP,{},
+vocab_a2_0037,영수증,KEEP,KEEP,{},
+vocab_a2_0038,카드,FIX_KO,ACCEPT,"{""example_korean"": ""이 카드로 결제할게요."", ""example_german"": ""Ich zahle mit dieser Karte."", ""example_english"": ""I'll pay with this card.""}",2어절(<3)
+vocab_a2_0058,계산하다,KEEP,KEEP,{},
+vocab_a2_0097,사이즈,FIX_EN,ACCEPT,"{""example_english"": ""Do you have this one size larger?""}","""one size bigger"" 어순 어색"
+vocab_a2_0486,마트,KEEP,KEEP,{},
+vocab_a2_0487,상자,KEEP,KEEP,{},
+vocab_a2_0488,디자인,KEEP,KEEP,{},
+vocab_a2_0098,색깔,KEEP,KEEP,{},
+vocab_a2_0099,입어보다,KEEP,KEEP,{},
+vocab_a2_0100,어울리다,KEEP,KEEP,{},
+vocab_a2_0101,환불,KEEP,KEEP,{},
+vocab_a2_0102,교환,KEEP,KEEP,{},
+vocab_a2_0103,손님,FIX_DE,ACCEPT,"{""example_german"": ""Sie haben heute aber viele Kunden.""}",가게 맥락은 Gäste가 아니라 Kunden
+vocab_a2_0104,점원,FIX_DE,ACCEPT,"{""example_german"": ""Heute hat mir der Verkäufer meine Größe herausgesucht.""}","""Verkaufspersonal"" 우회어"
+vocab_a2_0489,반바지,KEEP,KEEP,{},
+vocab_a2_0490,단추,FIX_DE,ACCEPT,"{""example_german"": ""Ein Knopf ist abgefallen.""}",abgegangen은 지역어/오용
+vocab_a2_0491,모양,KEEP,KEEP,{},
+vocab_a1_0368,환승,KEEP,KEEP,{},자연스러움.
+vocab_a1_0369,출구,KEEP,KEEP,{},자연스러움.
+vocab_a1_0370,승강장,KEEP,KEEP,{},자연스러움.
+vocab_a1_0371,막차,FIX_DE,ACCEPT,"{""example_german"": ""Ich prüfe zuerst, wann der letzte Zug fährt.""}",DE Zeit des letzten Zuges steif.
+vocab_a1_0372,하차,FIX_DE,ACCEPT,"{""example_german"": ""Sie können an der Station Rathaus aussteigen.""}",DE ließ 역 (Station) weg.
+vocab_a1_0373,승차,KEEP,KEEP,{},자연스러움.
+vocab_a1_0374,정기권,KEEP,KEEP,{},자연스러움.
+vocab_a1_0375,개찰구,KEEP,KEEP,{},Gloss 'Sperre' ist eher österr.; 'Zugangssperre/Drehkreuz' wäre allgemeiner.
+vocab_a1_0376,노선도,FIX_EN,ACCEPT,"{""example_english"": ""I look for the red line on the route map.""}",EN ließ 노선도 (Linienplan) zu 'map' verkürzt.
+vocab_a1_0377,도착 안내,KEEP,KEEP,{},자연스러움.
+vocab_a1_0378,카드 잔액,KEEP,KEEP,{},자연스러움.
+vocab_a1_0379,내리는 문,NEEDS_JIN,KEEP,{},"nikl 5 = ungelistete Phrase aus 내리다+문 (beide 1급), transparent; A1/A2 vertretbar, Jin entscheiden."
+vocab_a1_0420,환승 안내,KEEP,KEEP,{},자연스러움.
+vocab_a1_0421,교통카드 잔액,KEEP,KEEP,{},자연스러움.
+vocab_a2_0016,비행기,KEEP,KEEP,{},자연스러움.
+vocab_a2_0025,택시,KEEP,KEEP,{},자연스러움.
+vocab_a2_0026,기차,KEEP,KEEP,{},Gloss 'Zug / Bahn' unsauber; nur Zug.
+vocab_a2_0027,자전거,KEEP,KEEP,{},자연스러움.
+vocab_a2_0044,도착하다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0056,걷다,FIX_KO,REJECT,{},30분은 TTS가 바르게 읽고 학습자에게 숫자 표기가 필요 — 원문 유지
+vocab_a2_0105,길,KEEP,KEEP,{},자연스러움.
+vocab_a2_0106,곧장,KEEP,KEEP,{},자연스러움.
+vocab_a2_0107,신호등,KEEP,KEEP,{},자연스러움.
+vocab_a2_0108,횡단보도,FIX_EN,ACCEPT,"{""example_english"": ""After you cross at the crosswalk, the pharmacy is on your left.""}",EN 'Cross at the crosswalk' klingt falsch.
+vocab_a2_0110,안내하다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0173,신다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0174,벗다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0175,매다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0176,끼다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0177,차다,KEEP,KEEP,{},Gloss 'umlegen' für Uhr ungeschickt (tragen/umbinden).
+vocab_a2_0178,메다,KEEP,KEEP,{},Gloss 'schultern' ungeschickt (umhängen/auf dem Rücken tragen).
+vocab_a2_0179,벨트,FIX_DE,ACCEPT,"{""example_german"": ""Die Hose war zu groß, deshalb habe ich einen Gürtel angelegt.""}",DE 'Gürtel getragen' statt anlegen.
+vocab_a2_0180,팔찌,FIX_KO,ACCEPT,"{""example_korean"": ""예쁜 팔찌를 자주 해요."", ""example_german"": ""Ich trage oft ein schönes Armband."", ""example_english"": ""I often wear a pretty bracelet.""}",'은 팔찌'는 조사 은으로 읽혀 TTS·이해 위험; 은색은 레벨 밖.
+vocab_a2_0181,부츠,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Es hat geschneit, deshalb habe ich Stiefel angezogen."", ""example_english"": ""Since it snowed, I wore boots.""}",kausales -아서 in DE/EN verdeutlicht.
+vocab_a2_0182,샌들,KEEP,KEEP,{},자연스러움.
+vocab_a2_0183,슬리퍼,KEEP,KEEP,{},자연스러움.
+vocab_a2_0184,스타킹,KEEP,KEEP,{},자연스러움.
+vocab_a2_0006,봄,KEEP,KEEP,{},자연스러움.
+vocab_a2_0007,여름,KEEP,KEEP,{},자연스러움.
+vocab_a2_0008,가을,KEEP,KEEP,{},자연스러움.
+vocab_a2_0009,겨울,KEEP,KEEP,{},자연스러움.
+vocab_a2_0034,우산,FIX_EN,ACCEPT,"{""example_english"": ""I didn't bring an umbrella. What should I do?""}",EN Komma-Splice.
+vocab_a2_0059,덥다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0060,춥다,FIX_KO,ACCEPT,"{""example_korean"": ""밖이 많이 추워요.""}",'밖에 날씨가'는 어색하고 밖에(only)와 혼동; 밖이로.
+vocab_a1_0380,겉옷,KEEP,KEEP,{},자연스러움.
+vocab_a1_0381,미세먼지,KEEP,KEEP,{},자연스러움.
+vocab_a1_0382,일기예보,FIX_DE,ACCEPT,"{""example_german"": ""Ich schaue mir den Wetterbericht an und suche mir Kleidung aus.""}",DE 'wähle die Kleidung' hölzern.
+vocab_a1_0383,우비,FIX_DE,ACCEPT,"{""example_german"": ""Es war ein Schauer vorhergesagt, deshalb habe ich eine Regenjacke eingepackt.""}",Präteritum 'packte' unnatürlich gesprochen; Perfekt.
+vocab_a1_0384,얇은 옷,KEEP,KEEP,{},자연스러움.
+vocab_a1_0385,두꺼운 옷,FIX_DE,ACCEPT,"{""example_german"": ""Nachts habe ich dicke Kleidung angezogen.""}",Präteritum im Gespräch; Perfekt.
+vocab_a1_0386,일교차,FIX_DE,ACCEPT,"{""example_german"": ""Im Frühling ist der Unterschied zwischen Tag und Nacht groß, deshalb brauche ich eine Jacke.""}",Temperaturunterschied ohne Tag/Nacht unvollständig.
+vocab_a1_0387,습하다,FIX_KO,ACCEPT,"{""example_korean"": ""오늘은 날씨가 정말 습해요."", ""example_german"": ""Heute ist es wirklich schwül."", ""example_english"": ""It's really humid today.""}",습해서 창문을 연다는 논리가 부자연스러움; DE feucht/schwül 불일치도 정리.
+vocab_a1_0388,쌀쌀하다,FIX_DE,ACCEPT,"{""example_german"": ""Weil es am Morgen kühl war, habe ich mir einen Schal umgelegt.""}",Präteritum 'wickelte' schriftsprachlich.
+vocab_a1_0389,맑음,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Für den Nachmittag ist heiteres Wetter vorhergesagt."", ""example_english"": ""The forecast says clear skies this afternoon.""}",'Vorhersage ist heiter' unnatürlich.
+vocab_a1_0390,소나기,FIX_DE,ACCEPT,"{""example_german"": ""Der Schauer zieht wohl gleich vorüber.""}",'scheint vorüberzuziehen' steif.
+vocab_a1_0391,겹쳐 입다,FIX_DE+FIX_EN,ACCEPT,"{""example_german"": ""Wenn der Temperaturunterschied groß ist, ziehe ich mich nach dem Zwiebelprinzip an."", ""example_english"": ""When temperatures swing a lot, I dress in layers.""}",'Kleidung in Lagen tragen' Calque; Zwiebelprinzip.
+vocab_a2_0023,휴가,KEEP,KEEP,{},자연스러움.
+vocab_a2_0024,회의,KEEP,KEEP,{},자연스러움.
+vocab_a2_0121,동료,KEEP,KEEP,{},자연스러움.
+vocab_a2_0122,사장,FIX_KO,ACCEPT,"{""example_korean"": ""사장님이 새 근무 시간을 설명해 주셨어요."", ""example_german"": ""Der Chef hat mir die neuen Arbeitszeiten erklärt."", ""example_english"": ""The boss explained the new work hours to me.""}",7어절 > A2 상한 6; '오늘' 삭제.
+vocab_a2_0124,출근하다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0125,퇴근하다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0126,야근하다,KEEP,KEEP,{},자연스러움.
+vocab_a2_0127,월급,KEEP,KEEP,{},자연스러움.
+vocab_a2_0128,면접,KEEP,KEEP,{},자연스러움.

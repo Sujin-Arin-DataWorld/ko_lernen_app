@@ -507,7 +507,7 @@
       "rules": [
         "R4"
       ],
-      "textSha256": "eb2af6131ba493d24077e34c3f8722674b818b95a5a88493cbce53accf4ff49b",
+      "textSha256": "ab0066588aa28be4f36b10b9c4531f780516582a8ff1833534da02764db4b93b",
       "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 햇과일을 차례상에 올렸어요. corresponds to Ich habe Obst der neuen Ernte auf den Ahnentisch gestellt. / I put newly harvested fruit on the ancestral rite table.."
     },
     "vocab_a2_0276": {
@@ -522,50 +522,36 @@
         "R3",
         "R4"
       ],
-      "textSha256": "c5e57291f2bec05c628351f560bb1117cbcd04bc9be6d1357770b477600fd100",
+      "textSha256": "1e1045a73d0af2a185432477b85a7ceb77d070f2012e6d3c73535642637e3604",
       "reason": "가다 becomes 갔어요; morning visit to grandmother for the bow is preserved. Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 오전에 할머니 댁에 세배하러 갔어요. corresponds to Am Vormittag besuchte ich meine Großmutter zur Neujahrsverbeugung. / In the morning, I visited my grandmother to offer a New Year bow.."
     },
     "vocab_a2_0285": {
       "rules": [
         "R4"
       ],
-      "textSha256": "0d511b5f4ca7f1a5d53abe15caf65bac1fea069e4a142347b17131ceb47bef8a",
+      "textSha256": "cb493341b5716d05c6af884f6fa72b065a93af81dd2fbc9ccd5901a1130bf347",
       "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 세배 순서는 가족 어른께 여쭤봤어요. corresponds to Für die Reihenfolge der Neujahrsverbeugung fragte ich ein älteres Familienmitglied. / I asked an older family member about the order for New Year bows.."
     },
     "vocab_a2_0288": {
       "rules": [
         "R4"
       ],
-      "textSha256": "c694a63954627b9affc53b3cf5b830e6fabce81b7f1dd5d46361e2113efc8d56",
+      "textSha256": "5d2f7ae2e75f6fb783e7bd01bf1a3240e48e507297acd3f7e333a4ca351f78ca",
       "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 세배 영상을 가족에게만 보냈어요. corresponds to Das Video von der Neujahrsverbeugung schickte ich nur an die Familie. / I sent the New Year-bow video only to family.."
     },
     "vocab_a2_0342": {
       "rules": [
         "R4"
       ],
-      "textSha256": "a676c12d538915c8e08b2a1794178a6f498209ecc907dc359f82c59d6c3133ae",
+      "textSha256": "4e80df7d3bbc117c3621eef0c9846a6999a32df93a6a7448d902117a541f073c",
       "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 휴게소에서 호두과자를 사서 같이 먹었어요. corresponds to An der Raststätte kaufte ich Walnusskuchen, den wir zusammen aßen. / I bought walnut cakes at the rest stop, and we ate them together.."
-    },
-    "vocab_a1_0327": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "419699c3673ec7eaaf95110e95ad6708fca76bb3a850e0253d2cac433da267cc",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 비타민제를 사서 집에 두었어요. corresponds to Ich kaufte ein Vitaminpräparat und stellte es zu Hause hin. / I bought a vitamin supplement and put it away at home.."
     },
     "vocab_a1_0388": {
       "rules": [
         "R4"
       ],
-      "textSha256": "454eaed8e46f1a9d312a44f708d576093140bd13444fa388fe12631fab10cd1a",
+      "textSha256": "23226dd0edc1410a45640a163eb6d3dfbebe9c7378811bde5aaf8609f1fe250c",
       "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 아침이 쌀쌀해서 목도리를 했어요. corresponds to Weil es am Morgen kühl war, wickelte ich mir einen Schal um. / Because the morning was chilly, I put on a scarf.."
-    },
-    "vocab_a2_0408": {
-      "rules": [
-        "R4"
-      ],
-      "textSha256": "b12aa5af845ea7a874ffb48c46fb80703e7eae573eaafc89dac8cc96a78cf490",
-      "reason": "Directly compared KO/DE/EN: articles, explicit subjects and the named action or culture-specific expression require more target-language words. 주말 예약이라 예약금을 냈어요. corresponds to Da ich fürs Wochenende reserviert habe, habe ich eine Anzahlung gezahlt. / Because I booked for the weekend, I paid a deposit.."
     },
     "vocab_a2_0485": {
       "rules": [

@@ -6,9 +6,9 @@
   "humanReviewStatus": "required_before_native-quality-claim",
   "predecessorGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
   "predecessorLedgerSha256": "5ab0dc738ce392b03cbb5a84c4bd18eee481a0588180be25eaf94df8addd707b",
-  "firstAmendmentLedgerSha256": "f1807ee0f5328ba7b9fa52d7ea37849448c3fe27c8fa77c11ae28326aee4ce77",
-  "firstFollowupLedgerSha256": "eb2fb8c90f14a5eff5df948f3e9ac77c92e9fb7aad59e2518c521ea52501caa6",
-  "copyRevisionLedgerSha256": "c2d7fc33f6c20bdbe46ba16a051fff49f89391d45aa7ddb93ea45c07e0525c68",
+  "firstAmendmentLedgerSha256": "616f813b6a034b10eca6c606d5687dd3bd83c3498a7446a92443e18dae515928",
+  "firstFollowupLedgerSha256": "897e2b19eb7dade66e5e7c0aae2d3daee283d04ba4d48f618ae74ca1173e0e3a",
+  "copyRevisionLedgerSha256": "76ab0206cb156e59c5ab6851c0ab3159c350a6998d93dba66a5c1d27c8d8ccb9",
   "entries": [
     {
       "manifest": "tools/content_factory/drafts/batch_01_manifest.json",
@@ -2688,11 +2688,11 @@
       "after": {
         "id": "cloze_a1_0255",
         "level": "a1",
-        "sentenceKo": "수업 시작 전에 ＿＿＿?",
+        "sentenceKo": "곧 수업이 시작돼요. ＿＿＿?",
         "answer": "준비됐나요",
-        "fullKo": "수업 시작 전에 준비됐나요?",
-        "de": "Sind Sie bereit, bevor der Unterricht beginnt?",
-        "en": "Are you ready before class starts?",
+        "fullKo": "곧 수업이 시작돼요. 준비됐나요?",
+        "de": "Der Unterricht fängt gleich an. Seid ihr bereit?",
+        "en": "Class is about to start. Are you ready?",
         "distractors": [
           "타다",
           "읽다",
@@ -2701,10 +2701,13 @@
         "topic": "Schultasche"
       },
       "fields": [
-        "de"
+        "de",
+        "en",
+        "fullKo",
+        "sentenceKo"
       ],
       "beforeSha256": "cfac50e24bd16450e4786bd64971b80d049def0fd72a1be78ef844567cdd5b1a",
-      "afterSha256": "3245655847a1485f6b9eb825b94564ef844a7d56973d0524d610a87896982892",
+      "afterSha256": "44cfa473fef5092a0e972d9a525d86db7976d5b899d0ffcc3301f69df3818432",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/cloze.json",
       "predecessorSuccessorSha256": null,
@@ -2874,7 +2877,7 @@
         "sentenceKo": "향이 약한 ＿＿＿로 감겨 주세요.",
         "answer": "샴푸",
         "fullKo": "향이 약한 샴푸로 감겨 주세요.",
-        "de": "Bitte waschen Sie mir die Haare mit einem Shampoo mit mildem Duft.",
+        "de": "Bitte waschen Sie mir die Haare mit einem dezent duftenden Shampoo.",
         "en": "Please wash my hair with a lightly scented shampoo.",
         "distractors": [
           "택시",
@@ -2888,7 +2891,7 @@
         "en"
       ],
       "beforeSha256": "673f5fa008d2fe2a152f914486fad81b55ed3a6729fadd8ce4c7a68985391765",
-      "afterSha256": "06716dbcfdb0018de55a221cc8d488cfc45335c392be25d228ec6f6f7aa1e818",
+      "afterSha256": "685a449b45aabadcdd6a6227e5f65dd1ac6397d98cfb0c47e8b2daaa8967abf2",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/cloze.json",
       "predecessorSuccessorSha256": null,
@@ -3969,9 +3972,9 @@
       "after": {
         "id": "satz_a1_0219",
         "level": "a1",
-        "targetKo": "수업 시작 전에 준비됐나요?",
-        "promptDe": "Sind Sie bereit, bevor der Unterricht beginnt?",
-        "promptEn": "Are you ready before class starts?",
+        "targetKo": "곧 수업이 시작돼요. 준비됐나요?",
+        "promptDe": "Der Unterricht fängt gleich an. Seid ihr bereit?",
+        "promptEn": "Class is about to start. Are you ready?",
         "distractors": [
           "필통",
           "지우개"
@@ -3979,10 +3982,12 @@
         "vocabKo": "준비됐나요"
       },
       "fields": [
-        "promptDe"
+        "promptDe",
+        "promptEn",
+        "targetKo"
       ],
       "beforeSha256": "90ddb6a292df857585aaa97ceafb1fd81d051c69ed000900364ef3d1a55373ce",
-      "afterSha256": "524f7c3d962c986f483e9008ae11e4f24fdab7add1ea85ecf2649693dec96f44",
+      "afterSha256": "a79929aa0a7c785cb74c588b26671ace55fe9a96e05e9d6065ae8914f668ffc3",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -4129,7 +4134,7 @@
         "id": "satz_a2_0179",
         "level": "a2",
         "targetKo": "향이 약한 샴푸로 감겨 주세요.",
-        "promptDe": "Bitte waschen Sie mir die Haare mit einem Shampoo mit mildem Duft.",
+        "promptDe": "Bitte waschen Sie mir die Haare mit einem dezent duftenden Shampoo.",
         "promptEn": "Please wash my hair with a lightly scented shampoo.",
         "distractors": [
           "미용실",
@@ -4142,7 +4147,7 @@
         "promptEn"
       ],
       "beforeSha256": "5d68c9acbd370e73c5fbc237cbd2f0da4fae1d7d6498e6ecdc01ef15bbb3d14d",
-      "afterSha256": "617ca416b4dd93c99d00c5fe780c15e434530932def8275e55d63a7c6ede2132",
+      "afterSha256": "d0648eb88a3370c810fe25dc9d6429973fbfa7a991b872e1bbd23e90e17e6266",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,
@@ -6358,7 +6363,7 @@
         "id": "satz_a2_0440",
         "level": "a2",
         "targetKo": "교수님 수업이 재미있어요.",
-        "promptDe": "Die Vorlesung ist interessant.",
+        "promptDe": "Die Vorlesung vom Professor ist interessant.",
         "promptEn": "The professor's lecture is interesting.",
         "distractors": [
           "회사",
@@ -6370,7 +6375,7 @@
         "promptDe"
       ],
       "beforeSha256": "cec13e86bc8ccf65469af4200f6bff4d10a0466923972bc0c01400da2cc4b3b4",
-      "afterSha256": "f837324452928513445c8f5a7b4dbe3b4fef657b63bd8f316022c8eb3c20fe1b",
+      "afterSha256": "a89297c68ba2546ed674c2204bbdfdeb640edb17794d053c239ee63129a4988a",
       "sourceGitCommit": "b77e7d4ea6c931d5a81251f8b9038d75f0caf839",
       "sourceGitPath": "assets/data/satz_sentences.json",
       "predecessorSuccessorSha256": null,

@@ -1,0 +1,131 @@
+id,verdict,codes,example_korean_new,example_german_new,example_english_new,note
+vocab_a2_0321,FIX_KO,L1,일찍 일어나야 해서 알람을 네 개 맞췄어요.,"Ich muss früh aufstehen, deshalb habe ich vier Wecker gestellt.","I have to get up early, so I set four alarms.",-(으)려고는 A2 문법표 밖; -어야 해서로 교체
+vocab_a2_0322,FIX_KO,N1,화장실 줄이 길어서 잠깐 기다렸어요.,"Die Schlange vor der Toilette war lang, deshalb habe ich kurz gewartet.","The bathroom line was long, so I waited a bit.","""줄이 있어서""는 어색, ""줄이 길어서""가 자연스러움; DE ""Bad""는 오역"
+vocab_a2_0323,FIX_KO,L1;N1,잠옷 대신 편한 티셔츠를 입어도 돼요?,Darf ich statt eines Schlafanzugs ein bequemes T-Shirt anziehen?,Can I wear a comfy T-shirt instead of pajamas?,간접화법 -냐고는 B1 문법; 직접 질문으로 교체
+vocab_a2_0324,FIX_DE,T1,,"Aus dem Nebenzimmer war Schnarchen zu hören, deshalb konnte ich nicht schlafen.",,"DE 직역투 ""Schnarchen hörte"" 정리"
+vocab_a2_0325,KEEP,,,,,
+vocab_a2_0326,KEEP,,,,,
+vocab_a2_0327,FIX_KO,N6,문 닫기 전에 가방을 한 번 확인했어요.,"Bevor ich die Tür geschlossen habe, habe ich noch einmal meine Tasche kontrolliert.","Before closing the door, I checked my bag once more.","""문 닫기 소리""는 부자연스럽고 대표 용법도 아님; -기 전에 용법으로 교체"
+vocab_a2_0328,FIX_KO,L1;T5,아침에 할머니께 “잘 주무셨어요?” 하고 인사했어요.,Am Morgen habe ich meine Großmutter begrüßt: „Hast du gut geschlafen?“,"In the morning, I greeted my grandmother with “Did you sleep well?”","여쭙다는 A2 밖 가능성이라 교체; 표제어 gloss는 Sie, 예문은 du(가족)로 불일치: gloss 확인"
+vocab_a1_0296,FIX_KO,L1;N1,인증샷은 인터넷에 올리지 마세요.,Bitte stellen Sie das Foto nicht ins Internet.,Please don't post the photo online.,"간접화법 -지 말라고는 B1; gloss ""Foto fürs Netz""는 인증샷 뜻(증명용 사진)을 못 담음"
+vocab_a1_0297,KEEP,,,,,
+vocab_a1_0298,FIX_DE,T1,,Vor dem Ahnentisch stand ein Schild mit dem Hinweis „Fotografieren verboten“.,,DE 관청식 종속절을 간결한 문장으로
+vocab_a1_0299,FIX_KO,N5;T1,나갈 때 “잘 다녀오겠습니다!” 하고 인사했어요.,Beim Rausgehen habe ich mich mit „Ich mache mich dann auf den Weg!“ verabschiedet.,"As I left, I said, “I'll be heading out now!”",인용부호 없이 화자가 섞임; 따옴표로 발화 분리
+vocab_a1_0300,FIX_KO,N5;T1,식사 후에 “잘 먹었습니다” 하고 인사했어요.,"Nach dem Essen habe ich mich mit „Danke, es hat geschmeckt!“ bedankt.","After the meal, I said, “Thank you for the meal.”","""beim Verabschieden"" 첨가 삭제, 따옴표 추가"
+vocab_a1_0301,FIX_KO,N1;T6,사장님이 “다음에 또 오세요” 하고 인사했어요.,Der Inhaber hat sich mit „Kommen Sie bald wieder!“ verabschiedet.,The owner said goodbye with “Please come again.”,"""신발을 거꾸로 신었어요""는 맥락 없는 서술+DE의 ""aus Eile"" 첨가"
+vocab_a1_0302,FIX_KO,N5,문 앞에서 “연락드릴게요” 하고 손을 흔들었어요.,"An der Tür sagte ich, ich melde mich, und winkte.",At the door I said I'd be in touch and waved.,발화에 따옴표만 추가(DE·EN은 동일)
+vocab_a1_0303,KEEP,,,,,
+vocab_a1_0304,KEEP,,,,,
+vocab_a1_0305,FIX_KO,N5,다음 날 할머니께 안부 전화를 드렸어요.,"Am nächsten Tag habe ich bei meiner Großmutter angerufen und gefragt, wie es ihr geht.","The next day, I called my grandmother to see how she was doing.","DE ""ihrem Befinden"" 대상 불명(N5); 안부 전화 연어로 교체"
+vocab_a1_0306,RELEVEL,L1,,,,nikl 5급; 제안 B2 (예문 7어절도 A2 밴드 초과)
+vocab_a1_0307,FIX_KO,L1,방문 소감을 편지에 짧게 적었어요.,Meine Eindrücke vom Besuch habe ich kurz in einem Brief aufgeschrieben.,I briefly wrote my impressions of the visit in a letter.,-다고만 간접화법은 B1
+vocab_a2_0281,FIX_DE,T1,,"Am Vormittag bin ich zu meiner Großmutter gegangen, um die Neujahrsverbeugung zu machen.",,"DE ""besuchte ... zur Neujahrsverbeugung"" 어색"
+vocab_a2_0282,KEEP,,,,,
+vocab_a2_0285,FIX_KO,N6;T4,세배 순서는 할아버지께 물어봤어요.,Nach der Reihenfolge der Neujahrsverbeugung habe ich meinen Großvater gefragt.,I asked my grandfather about the order of the New Year bows.,"여쭙다 회피, ""ein älteres Familienmitglied"" 우회표현 제거"
+vocab_a2_0286,FIX_DE,T6,,Sie haben das Neujahrsgeld in den Glücksbeutel des Kindes gesteckt.,,DE에서 세뱃돈 누락
+vocab_a2_0287,KEEP,,,,,
+vocab_a2_0288,FIX_EN,T1,,,I sent the video of the New Year bow only to my family.,"EN ""New Year-bow video"" 어색"
+vocab_a2_0289,FIX_DE,T1,,Als Festtagsessen habe ich Jeon zubereitet.,,"DE Präteritum ""bereitete"" 문어체"
+vocab_a2_0290,FIX_DE,T1,,Beim Braten der Jeon spritzte mir Öl auf den Arm.,,
+vocab_a2_0291,FIX_DE,T6,,Ich habe die Neujahrsverbeugung zehnmal vor dem Spiegel geübt.,,DE에서 세배 의미 누락
+vocab_a2_0292,FIX_KO,N2,제 새해 목표는 한국어 일기 쓰기예요.,"Mein Neujahrsvorsatz ist, Tagebuch auf Koreanisch zu schreiben.",My New Year's goal is to keep a diary in Korean.,"""목표는 일기예요""는 논리 불일치; 일기 쓰기로"
+vocab_a2_0233,FIX_DE+FIX_EN,T6,,Das Lied von dem Sänger da gefällt mir wirklich gut.,That singer's song is really good.,DE/EN이 가수·노래를 잃은 오역
+vocab_a2_0234,KEEP,,,,,
+vocab_a2_0235,KEEP,,,,,
+vocab_a2_0236,KEEP,,,,,
+vocab_a2_0238,KEEP,,,,,
+vocab_a2_0239,KEEP,,,,,
+vocab_a2_0240,KEEP,,,,,
+vocab_a2_0241,FIX_DE+FIX_EN,T1,,Sejong der Große ist ein berühmter König.,Sejong the Great is a famous king.,"""König Sejong ... König"" 중복"
+vocab_a2_0242,KEEP,,,,,
+vocab_a2_0243,RELEVEL,L1,,,,nikl 5급; 제안 B2
+vocab_a2_0244,KEEP,,,,,
+vocab_a1_0320,FIX_KO,L1,연고 바르는 방법을 약사에게 물어봤어요.,"Ich habe in der Apotheke gefragt, wie man die Salbe aufträgt.",I asked the pharmacist how to apply the ointment.,-는지는 B1; 명사구 방법으로 교체
+vocab_a1_0321,FIX_KO,N4,약국에서 마스크를 한 상자 샀어요.,In der Apotheke habe ich eine Packung Masken gekauft.,I bought a box of masks at the pharmacy.,"마스크는 ""한 통""이 아니라 ""한 상자"""
+vocab_a1_0322,FIX_DE+FIX_EN,T1,,An der Kasse habe ich meine Karte herausgeholt.,I took out my card at the checkout.,"""vor der Kasse""/""in front of the checkout"" 직역"
+vocab_a1_0323,FIX_DE+FIX_EN,T1,,Bitte schreiben Sie mir die Einnahmezeiten auf.,Please write down the dosing times for me.,"""auf Papier""/""on paper"" 직역"
+vocab_a1_0324,RELEVEL,L1,,,,nikl 4급; 제안 B1
+vocab_a1_0326,FIX_KO,L1;N1,가글액은 어디에 있어요?,Wo ist die Mundspülung?,Where is the mouthwash?,"-는지는 B1, ""있는지 찾고 있어요""도 어색"
+vocab_a1_0327,FIX_KO,N1,매일 아침 비타민제를 먹어요.,Ich nehme jeden Morgen ein Vitaminpräparat.,I take a vitamin supplement every morning.,"""사서 집에 두었어요""는 목적 없는 서술"
+vocab_a1_0328,FIX_KO,L1;T6,알레르기가 있어서 약사에게 먼저 말했어요.,Ich habe eine Allergie und habe das gleich in der Apotheke gesagt.,"I have an allergy, so I told the pharmacist first.","-는지는 B1; DE도 ""welche Allergien""으로 의미 이탈"
+vocab_a1_0329,RELEVEL,L1;N1,,,,"nikl 4급; 제안 B1. 실제론 ""처방전 없이/일반의약품""이 자연스러움"
+vocab_a1_0330,KEEP,,,,,
+vocab_a1_0331,KEEP,,,,,
+vocab_a2_0461,KEEP,,,,,
+vocab_a2_0462,KEEP,,,,,
+vocab_a2_0463,KEEP,,,,,
+vocab_a2_0464,RELEVEL,L1,,,,"nikl 5급 표기, 구성 어휘(만나다·곳·정하다)는 모두 저등급이라 등급 데이터 재확인 권고"
+vocab_a2_0495,KEEP,,,,,
+vocab_a2_0496,KEEP,,,,,
+vocab_a2_0497,KEEP,,,,,
+vocab_a2_0498,KEEP,,,,,
+vocab_a2_0499,KEEP,,,,,
+vocab_a2_0500,KEEP,,,,,
+vocab_a2_0185,KEEP,,,,,
+vocab_a2_0186,KEEP,,,,,
+vocab_a2_0187,KEEP,,,,,
+vocab_a2_0188,KEEP,,,,,
+vocab_a2_0189,KEEP,,,,,
+vocab_a2_0190,KEEP,,,,,
+vocab_a2_0191,KEEP,,,,,
+vocab_a2_0192,KEEP,,,,,
+vocab_a2_0193,KEEP,,,,,
+vocab_a2_0194,KEEP,,,,,
+vocab_a2_0195,KEEP,,,,,
+vocab_a2_0196,KEEP,,,,,
+vocab_a2_0401,FIX_DE+FIX_EN,T1,,Für Samstagvormittag habe ich einen Termin im Friseursalon gemacht.,I booked an appointment at the hair salon for Saturday morning.,"미용실 ""예약"" = Termin; ""reserviert""는 어색, EN ""booked the hair salon""은 오류"
+vocab_a2_0402,KEEP,,,,,
+vocab_a2_0403,RELEVEL,L1,,,,nikl 4급; 제안 B1
+vocab_a2_0404,FIX_KO,L1,이번 여름에는 펌을 안 할 거예요.,Diesen Sommer lasse ich mir keine Dauerwelle machen.,I'm not getting a perm this summer.,-려고요는 A2 표 밖; -ㄹ 거예요로
+vocab_a2_0405,KEEP,,,,,
+vocab_a2_0406,KEEP,,,,,
+vocab_a2_0407,KEEP,,,,,
+vocab_a2_0408,FIX_DE,T1,,Für den Termin am Wochenende habe ich eine Anzahlung geleistet.,,"""reserviert""→Termin, ""gezahlt""→geleistet"
+vocab_a2_0409,FIX_DE,T1,,"Bitte waschen Sie mir die Haare mit einem Shampoo, das nicht so stark duftet.",,"""Shampoo mit mildem Duft"" 어색"
+vocab_a2_0410,FIX_EN,T1,,,"I had split ends, so I added a treatment.","""hair ends were split"" 직역"
+vocab_a2_0411,FIX_DE+FIX_EN,T1,,"Bitte schneiden Sie die Haare an den Seiten so, dass sie meine Ohren nicht bedecken.",Please make sure the hair on the sides doesn't cover my ears.,"""Seitenhaar""/""side hair"" 직역"
+vocab_a2_0412,RELEVEL,L1,,,,nikl 4급; 제안 B1
+vocab_a1_0356,KEEP,,,,,
+vocab_a1_0357,FIX_KO,N1,연필로 쓴 걸 지우개로 지워요.,"Was ich mit Bleistift geschrieben habe, radiere ich mit dem Radiergummi weg.",I erase what I wrote in pencil with an eraser.,"""연필 실수""는 부자연스러운 합성어"
+vocab_a1_0358,KEEP,,,,,
+vocab_a1_0359,KEEP,,,,,
+vocab_a1_0360,KEEP,,,,,
+vocab_a1_0361,KEEP,,,,,
+vocab_a1_0362,FIX_DE+FIX_EN,T6,,Ich packe die Sachen für den morgigen Unterricht in die Tasche.,I'm putting what I need for tomorrow's class in my bag.,내일 누락
+vocab_a1_0363,KEEP,,,,,
+vocab_a1_0364,FIX_DE,T4,,Der Lehrer hat ein Wort an das Whiteboard geschrieben.,,"""Lehrkraft"" 우회 중성어 → 한 형태로"
+vocab_a1_0365,KEEP,,,,,
+vocab_a1_0366,RELEVEL,L1,,,,nikl 4급; 제안 B1
+vocab_a1_0367,FIX_KO,N5;T1,곧 수업이 시작돼요. 준비됐나요?,Der Unterricht fängt gleich an. Bist du bereit?,Class is about to start. Are you ready?,"원문 ""수업 시작 전에 준비됐나요?""가 어색, DE도 직역"
+vocab_a2_0245,KEEP,,,,,
+vocab_a2_0246,KEEP,,,,,
+vocab_a2_0247,KEEP,,,,,
+vocab_a2_0248,FIX_DE,T4,,Der Lehrer schreibt an die Tafel.,,"""Lehrkraft"" 우회 중성어 → 한 형태로"
+vocab_a2_0249,KEEP,,,,,
+vocab_a2_0250,FIX_KO,L3,제 친구는 대학생이에요.,Mein Freund ist Student.,My friend is a college student.,"2어절(<3); DE도 ""Ich studiere""로 표제어 이탈"
+vocab_a2_0251,FIX_KO,L3;T1,제 동생은 고등학생이에요.,Mein kleiner Bruder ist in der Oberstufe.,My younger brother is a high school student.,"2어절(<3); gloss ""Oberschüler""는 독일어에 없는 단어: 재검토 권고(Oberstufenschüler)"
+vocab_a2_0252,KEEP,,,,,
+vocab_a2_0253,KEEP,,,,,
+vocab_a2_0254,FIX_DE,T6,,Die Vorlesung vom Professor ist interessant.,,DE에서 교수님 누락
+vocab_a2_0255,KEEP,,,,,
+vocab_a2_0256,KEEP,,,,,
+vocab_a2_0013,KEEP,,,,,
+vocab_a2_0035,KEEP,,,,,
+vocab_a2_0036,KEEP,,,,,
+vocab_a2_0037,KEEP,,,,,
+vocab_a2_0038,FIX_KO,L3,이 카드로 결제할게요.,Ich zahle mit dieser Karte.,I'll pay with this card.,2어절(<3)
+vocab_a2_0058,KEEP,,,,,
+vocab_a2_0097,FIX_EN,T1,,,Do you have this one size larger?,"""one size bigger"" 어순 어색"
+vocab_a2_0486,KEEP,,,,,
+vocab_a2_0487,KEEP,,,,,
+vocab_a2_0488,KEEP,,,,,
+vocab_a2_0098,KEEP,,,,,
+vocab_a2_0099,KEEP,,,,,
+vocab_a2_0100,KEEP,,,,,
+vocab_a2_0101,KEEP,,,,,
+vocab_a2_0102,KEEP,,,,,
+vocab_a2_0103,FIX_DE,T1,,Sie haben heute aber viele Kunden.,,가게 맥락은 Gäste가 아니라 Kunden
+vocab_a2_0104,FIX_DE,T1,,Heute hat mir der Verkäufer meine Größe herausgesucht.,,"""Verkaufspersonal"" 우회어"
+vocab_a2_0489,KEEP,,,,,
+vocab_a2_0490,FIX_DE,T1,,Ein Knopf ist abgefallen.,,abgegangen은 지역어/오용
+vocab_a2_0491,KEEP,,,,,
