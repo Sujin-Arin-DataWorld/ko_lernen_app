@@ -1272,7 +1272,10 @@ class LiveRatchetTest(unittest.TestCase):
         "satz": 0, "smalltalk": 0, "pronunciation": 0, "media": 0,
     }
     CAP_REPLACEMENT_BACKLOG = 0
-    REVIEWED_OWNER_EXPECTED = 146
+    # 2026-11-26: 153 ledger decisions - 7 now accepted_relevel - 4 맥락 B2
+    # owners (vocab_b2_0011/0279/0287/0555) that the lexicon now grades at
+    # level, so they are no longer over2 and drop out of reviewed_owner.
+    REVIEWED_OWNER_EXPECTED = 142
     REVIEWED_OWNER_DECISIONS_EXPECTED = 153
     # 2026-10-05 Stage C-1: coverage is now measured for all six NIKL
     # grades. These are lower-only missing caps and upper-only at-level
