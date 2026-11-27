@@ -14,7 +14,8 @@
       "de": "Denken Sie vor der Reise unbedingt an Ihren Reisepass.",
       "en": "Make sure to pack your passport before the trip.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0293",
@@ -30,7 +31,8 @@
       "de": "Die Jeju-Reise mit meinen Freunden ist eine wirklich schöne Erinnerung.",
       "en": "The trip to Jeju with my friends is a really good memory.",
       "level": "b1",
-      "topic": "Zeit & Lebenslauf"
+      "topic": "Zeit & Lebenslauf",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0294",
@@ -46,7 +48,8 @@
       "de": "Um Erkältungen vorzubeugen, wäscht man sich am besten oft die Hände.",
       "en": "The best way to prevent colds is to wash your hands often.",
       "level": "b1",
-      "topic": "Gesundheit"
+      "topic": "Gesundheit",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0295",
@@ -62,7 +65,8 @@
       "de": "Die Lehrerin hat so schnell gesprochen, dass ich sie kaum verstanden habe.",
       "en": "The teacher spoke so fast that I couldn't really understand.",
       "level": "b1",
-      "topic": "Sprache & Ausdruck"
+      "topic": "Sprache & Ausdruck",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "cloze_b1_0296",
@@ -78,7 +82,8 @@
       "de": "Viele koreanische Wörter gehen auf chinesische Schriftzeichen zurück.",
       "en": "Many Korean words come from Chinese characters.",
       "level": "b1",
-      "topic": "Sprache & Ausdruck"
+      "topic": "Sprache & Ausdruck",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "cloze_b1_0297",
@@ -94,7 +99,8 @@
       "de": "Lesen klappt bei mir ganz gut, aber Hören fällt mir noch schwer.",
       "en": "Reading is fine for me, but listening is still hard.",
       "level": "b1",
-      "topic": "Sprache & Ausdruck"
+      "topic": "Sprache & Ausdruck",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "cloze_b1_0298",
@@ -110,7 +116,8 @@
       "de": "Heute habe ich als Schreibaufgabe für Koreanisch einen Tagebucheintrag geschrieben.",
       "en": "Today I wrote a diary entry for my Korean writing homework.",
       "level": "b1",
-      "topic": "Sprache & Ausdruck"
+      "topic": "Sprache & Ausdruck",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "cloze_b1_0299",
@@ -126,7 +133,8 @@
       "de": "Lena, dein Koreanisch ist echt viel besser geworden!",
       "en": "Lena, your Korean has really improved a lot!",
       "level": "b1",
-      "topic": "Sprache & Ausdruck"
+      "topic": "Sprache & Ausdruck",
+      "courseUnitId": "b1_02_indirect_speech"
     },
     {
       "id": "cloze_b1_0300",
@@ -142,7 +150,8 @@
       "de": "Ich habe lange nicht geputzt, deshalb liegt viel Staub auf dem Schreibtisch.",
       "en": "I haven't cleaned in a long time, so there's a lot of dust on the desk.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0301",
@@ -158,7 +167,8 @@
       "de": "Der Boden war schmutzig, deshalb habe ich ihn mit dem Lappen gewischt.",
       "en": "The floor was dirty, so I wiped it clean with a rag.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0302",
@@ -174,7 +184,8 @@
       "de": "Beim Waschen wird die Wäsche schon mit wenig Waschmittel sauber.",
       "en": "When you do laundry, even a little detergent gets things clean.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0303",
@@ -190,7 +201,8 @@
       "de": "Fassen Sie das Bügeleisen nicht an, es ist noch heiß.",
       "en": "Don't touch the iron, it's still hot.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0304",
@@ -206,7 +218,8 @@
       "de": "Morgens war die Sonne so grell, dass ich die Vorhänge zugezogen habe.",
       "en": "The morning sun was so bright that I closed the curtains.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0305",
@@ -222,7 +235,8 @@
       "de": "Ich ziehe auf dem Balkon Tomaten.",
       "en": "I grow tomatoes on the balcony.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0306",
@@ -238,7 +252,8 @@
       "de": "Der Reis war kalt, also habe ich ihn etwa eine Minute in die Mikrowelle gestellt.",
       "en": "The rice had gone cold, so I microwaved it for about a minute.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0307",
@@ -254,7 +269,8 @@
       "de": "Ich brauche keine Tüte. Ich packe es einfach in meine Tasche.",
       "en": "I don't need a plastic bag. I'll just put it in my own bag.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0308",
@@ -270,7 +286,8 @@
       "de": "Die Restaurants bei der Firma sind teuer, deshalb nehme ich mir zurzeit Essen mit.",
       "en": "The restaurants near work are expensive, so these days I bring a packed lunch.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0309",
@@ -286,7 +303,8 @@
       "de": "Ich muss kurz etwas erledigen und gehe schnell zur Bank.",
       "en": "I have a quick errand, so I'll pop over to the bank.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0310",
@@ -302,7 +320,8 @@
       "de": "Mein Handyakku war leer, deshalb konnte ich nicht rangehen.",
       "en": "My phone battery died, so I couldn't answer the call.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0311",
@@ -318,7 +337,8 @@
       "de": "Ich weiß nicht so recht, wie die neue Waschmaschine funktioniert.",
       "en": "I'm not really sure how to use the new washing machine.",
       "level": "b1",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "id": "cloze_b1_0312",
@@ -334,7 +354,8 @@
       "de": "Um Geld zu sparen, koche ich zurzeit zu Hause.",
       "en": "I've been cooking at home lately to save money.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0313",
@@ -350,7 +371,8 @@
       "de": "Christian, kannst du mir helfen, diese Kiste zu tragen?",
       "en": "Christian, could you help me carry this box?",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0314",
@@ -366,7 +388,8 @@
       "de": "Bitte schließen Sie die Tür ab, wenn Sie aus dem Haus gehen.",
       "en": "Please make sure to lock the door when you leave the house.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0315",
@@ -382,7 +405,8 @@
       "de": "Bei dem schönen Wetter habe ich die Wäsche auf dem Balkon aufgehängt.",
       "en": "The weather was nice, so I hung laundry on the balcony.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0316",
@@ -398,7 +422,8 @@
       "de": "Als ich morgens in Eile losging, habe ich meinen Kaffee verschüttet.",
       "en": "I spilled my coffee while rushing out this morning.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0317",
@@ -414,7 +439,8 @@
       "de": "Gestern ist mir beim Abwaschen ein Teller zerbrochen.",
       "en": "Yesterday a plate broke while I was doing the dishes.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0318",
@@ -430,7 +456,8 @@
       "de": "Beim Sport binde ich mir die Haare zurück.",
       "en": "When I work out, I tie my hair back.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0319",
@@ -446,7 +473,8 @@
       "de": "Nachts ist es kalt, deshalb schlafe ich unter einer dicken Decke.",
       "en": "It's cold at night, so I sleep under a thick blanket.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0320",
@@ -462,7 +490,8 @@
       "de": "Ich habe im Supermarkt groß eingekauft, um den Kühlschrank zu füllen.",
       "en": "I did a big grocery run to fill up the fridge.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0321",
@@ -478,7 +507,8 @@
       "de": "Es ist Feierabendverkehr, deshalb staut es sich ziemlich.",
       "en": "It's rush hour, so traffic is really backed up.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0322",
@@ -494,7 +524,8 @@
       "de": "Ich habe verschlafen und den Bus verpasst.",
       "en": "I overslept and missed the bus.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0323",
@@ -510,7 +541,8 @@
       "de": "Das Fahrrad, das ich vor dem Haus abgestellt hatte, ist verschwunden.",
       "en": "The bike I'd left in front of the house has disappeared.",
       "level": "b1",
-      "topic": "Nützliche Verben"
+      "topic": "Nützliche Verben",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0324",
@@ -526,7 +558,8 @@
       "de": "Ich habe mich so gut vorbereitet und bin trotzdem durchgefallen, ich bin total geknickt.",
       "en": "I prepared so hard and still failed the exam, so I'm really upset.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0325",
@@ -542,7 +575,8 @@
       "de": "Wirklich schade, dass die Reise schon vorbei ist.",
       "en": "It's a real shame the trip is already over.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0326",
@@ -558,7 +592,8 @@
       "de": "Ich bin vor allen Leuten hingefallen, das war mir total peinlich.",
       "en": "I fell over in front of everyone, and it was so embarrassing.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0327",
@@ -574,7 +609,8 @@
       "de": "Ich hatte mir viel erhofft, aber das Ergebnis war schlecht, deshalb war ich enttäuscht.",
       "en": "I had high hopes, but the result was bad, so I was disappointed.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0328",
@@ -590,7 +626,8 @@
       "de": "Mein Kind hat geschrieben, dass es gut angekommen ist, da war ich erleichtert.",
       "en": "My kid texted that they'd arrived safely, so I felt relieved.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0329",
@@ -606,7 +643,8 @@
       "de": "Ich hatte meinen Geldbeutel verloren, aber zum Glück hat ihn jemand bei der Polizei abgegeben.",
       "en": "I lost my wallet, but luckily someone handed it in to the police.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0330",
@@ -622,7 +660,8 @@
       "de": "Als Kind hat mich meine Mutter oft ausgeschimpft, weil ich mich mit meinem Bruder gestritten habe.",
       "en": "As a kid, I often got scolded by my mom for fighting with my brother.",
       "level": "b1",
-      "topic": "Beziehungen"
+      "topic": "Beziehungen",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0331",
@@ -638,7 +677,8 @@
       "de": "Mein jüngerer Bruder beneidet mich sehr darum, dass ich im Ausland studiere.",
       "en": "My younger brother really envies me for studying abroad.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0332",
@@ -654,7 +694,8 @@
       "de": "Ein Gast hat sich beschwert, dass das Essen zu spät kam.",
       "en": "A customer complained that the food came out late.",
       "level": "b1",
-      "topic": "Gefühle"
+      "topic": "Gefühle",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0333",
@@ -670,7 +711,8 @@
       "de": "Ich habe großen Respekt vor meiner Oma, weil sie immer Bedürftigen hilft.",
       "en": "I respect my grandmother, who always helps people in need.",
       "level": "b1",
-      "topic": "Beziehungen"
+      "topic": "Beziehungen",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0334",
@@ -686,7 +728,8 @@
       "de": "Ich hoffe, dass sich unsere Freundschaft auch in Zukunft nicht ändert.",
       "en": "I hope our friendship never changes.",
       "level": "b1",
-      "topic": "Beziehungen"
+      "topic": "Beziehungen",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0335",
@@ -702,7 +745,8 @@
       "de": "Sujin, ich danke dir von Herzen. Dank dir hat der Umzug gut geklappt.",
       "en": "Sujin, I'm truly grateful. Thanks to you, the move went smoothly.",
       "level": "b1",
-      "topic": "Beziehungen"
+      "topic": "Beziehungen",
+      "courseUnitId": "b1_04_relationships"
     },
     {
       "id": "cloze_b1_0336",
@@ -718,7 +762,8 @@
       "de": "Seit ich dieses Medikament nehme, juckt es mich am ganzen Körper.",
       "en": "Ever since I took this medicine, my body has been itching.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0337",
@@ -734,7 +779,8 @@
       "de": "Ich habe nicht geschlafen, deshalb ist mir etwas schwindlig.",
       "en": "I didn't sleep, so I feel a bit dizzy.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0338",
@@ -750,7 +796,8 @@
       "de": "Ich habe gestern vor dem Schlafen Ramyeon gegessen, jetzt ist mein Gesicht ganz geschwollen.",
       "en": "I ate ramyeon right before bed last night, so my face is really puffy.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0339",
@@ -766,7 +813,8 @@
       "de": "Ich war so müde, dass ich heute Morgen Nasenbluten hatte.",
       "en": "I was so tired that I got a nosebleed this morning.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0340",
@@ -782,7 +830,8 @@
       "de": "Wenn ich lange Bus fahre, wird mir schlecht.",
       "en": "I get carsick on long bus rides.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0341",
@@ -798,7 +847,8 @@
       "de": "Ich habe mittags zu schnell gegessen und habe wohl eine Magenverstimmung.",
       "en": "I ate lunch too fast, and I think I have indigestion.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0342",
@@ -814,7 +864,8 @@
       "de": "Ich habe abends zu viel gegessen, jetzt liegt es mir schwer im Magen.",
       "en": "I ate a lot for dinner, and it's not digesting well.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0343",
@@ -830,7 +881,8 @@
       "de": "Ich bin gestern die Treppe hinuntergefallen und habe mir den Knöchel verletzt.",
       "en": "I fell on the stairs yesterday and hurt my ankle.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0344",
@@ -846,7 +898,8 @@
       "de": "Ich hatte zurzeit so viel Arbeit, dass ich jetzt Gliederschmerzen habe.",
       "en": "I've had so much work lately that I've got body aches.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0345",
@@ -862,7 +915,8 @@
       "de": "Ich bin zum Arzt gegangen, um mich gegen Grippe impfen zu lassen.",
       "en": "I went to the clinic to get a flu shot.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0346",
@@ -878,7 +932,8 @@
       "de": "Ich hatte immer noch Fieber, deshalb habe ich mich im Krankenhaus untersuchen lassen.",
       "en": "My fever wouldn't go away, so I got examined at the hospital.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0347",
@@ -894,7 +949,8 @@
       "de": "Nachts hatte ich so starke Bauchschmerzen, dass ich in die Notaufnahme gegangen bin.",
       "en": "My stomach hurt so badly at night that I went to the emergency room.",
       "level": "b1",
-      "topic": "Krankenhaus & Apotheke"
+      "topic": "Krankenhaus & Apotheke",
+      "courseUnitId": "b1_05_complaint_resolution"
     },
     {
       "id": "cloze_b1_0348",
@@ -910,7 +966,8 @@
       "de": "Meine Schuhe waren völlig abgelaufen, deshalb habe ich mir neue gekauft.",
       "en": "My shoes were really worn out, so I bought a new pair.",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0349",
@@ -926,7 +983,8 @@
       "de": "Mein neues Zimmer ist klein, aber ordentlich, das gefällt mir.",
       "en": "My new room is small but neat, and I like it.",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0350",
@@ -942,7 +1000,8 @@
       "de": "Das Zimmer meines jüngeren Bruders war total unordentlich, deshalb haben wir zusammen aufgeräumt.",
       "en": "My younger brother's room was so messy that we cleaned it together.",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0351",
@@ -958,7 +1017,8 @@
       "de": "Der Fisch vom Markt ist wirklich frisch.",
       "en": "The fish I bought at the market is really fresh.",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0352",
@@ -974,7 +1034,8 @@
       "de": "Als ich zum ersten Mal nach Korea kam, war mir alles fremd.",
       "en": "When I first came to Korea, everything felt unfamiliar.",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0353",
@@ -990,7 +1051,8 @@
       "de": "Ich fand es echt erstaunlich, dass man sich in Korea auch spätabends Essen liefern lassen kann.",
       "en": "I was really amazed that in Korea you can get food delivered even late at night.",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0354",
@@ -1006,7 +1068,8 @@
       "de": "Maya, deine Jacke heute sieht echt toll aus!",
       "en": "Maya, the jacket you're wearing today looks really great!",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     },
     {
       "id": "cloze_b1_0355",
@@ -1022,7 +1085,8 @@
       "de": "Daniel, du läufst jeden Morgen zehn Kilometer? Echt beeindruckend!",
       "en": "Daniel, you run ten kilometers every morning? That's really impressive!",
       "level": "b1",
-      "topic": "Eigenschaften"
+      "topic": "Eigenschaften",
+      "courseUnitId": "b1_06_life_capstone"
     }
   ]
 }

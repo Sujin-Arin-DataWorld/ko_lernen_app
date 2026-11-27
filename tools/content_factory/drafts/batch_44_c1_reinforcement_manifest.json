@@ -1,7 +1,7 @@
 {
   "version": 1,
   "batch": "c3_batch44_c1_reinforcement",
-  "status": "draft",
+  "status": "merged",
   "provenance": {
     "scope": "C1(5급) reinforcement - 48 NIKL grade-5 headwords missing from live (news, work, academic, society); placed at C1 by the 2026-11-25 Jin decision to follow the NIKL canon.",
     "rights": "original_clean_room",
@@ -12,7 +12,12 @@
       "missing": 2157
     },
     "requiresJinReview": true,
-    "approval": {},
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-11-27",
+      "source": "owner chat: 'Approve all three' (Batch 43 B1 · 44 C1 · 45 A2 packets)",
+      "sample": "48/48 (full table in packet)"
+    },
     "modelLanguageQa": "CLAUDE_MODEL_QA",
     "humanLanguageQaClaim": false
   },
@@ -100,10 +105,10 @@
   },
   "reviewPacket": "docs/data/review_packets/batch_44_c1_jin_sample.md",
   "promotion": {
-    "assetsDataWritten": false,
-    "runtime": false,
+    "runtime": true,
+    "assetsDataWritten": true,
     "tts": false,
     "firebase": false,
-    "note": "Draft only; Jin sample approval pending (level-canon D-4). Examples, translations and distractors authored by Claude 2026-11-26; MODEL_QA only, no human-language QA claim."
+    "note": "Promoted 2026-11-27 (C3-T8) after Jin approval (Batch 43·44·45 approved together (first B1 and C1 reinforcement + A2 Batch 45)). TTS synthesis pending -- run tool/generate_tts.py --missing-from-storage before this batch's audio is available (no OS-voice fallback)."
   }
 }

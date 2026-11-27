@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "generatedFrom": "assets/data/korean_vocab.csv",
   "snapshotDate": "2026-09-10",
-  "packCount": 271,
+  "packCount": 285,
   "dedicatedAssetCount": 184,
   "notes": [
     "The approved plan snapshot contained 223 packs; the live CSV now contains 224.",
@@ -1353,7 +1353,8 @@
         "vocab_b1_0078",
         "vocab_b1_0079",
         "vocab_b1_0088",
-        "vocab_b1_0089"
+        "vocab_b1_0089",
+        "vocab_b1_0492"
       ],
       "status": "approved_dedicated",
       "sha256": "f8cdc7527e63b97f96d283788497b1f4d6ec977a820172719e14334b326ecc3e",
@@ -2879,7 +2880,12 @@
         "vocab_b1_0197",
         "vocab_b1_0198",
         "vocab_b1_0199",
-        "vocab_a1_0405"
+        "vocab_a1_0405",
+        "vocab_b1_0493",
+        "vocab_b1_0494",
+        "vocab_b1_0495",
+        "vocab_b1_0496",
+        "vocab_b1_0497"
       ],
       "status": "approved_dedicated",
       "sha256": "908b7429a940c7085483887e6c88a247a2beca4f4ea05b5f3069fd393e859c8e",
@@ -2954,7 +2960,8 @@
         "vocab_b1_0220",
         "vocab_b1_0221",
         "vocab_b1_0222",
-        "vocab_b1_0223"
+        "vocab_b1_0223",
+        "vocab_b1_0490"
       ],
       "status": "approved_dedicated",
       "sha256": "eb935b04ae97ca2f57d4c12e70435f6762bdb7efd938f95bb899ae69fccb2fcb",
@@ -3029,7 +3036,8 @@
         "vocab_b1_0244",
         "vocab_b1_0245",
         "vocab_b1_0246",
-        "vocab_b1_0247"
+        "vocab_b1_0247",
+        "vocab_b1_0491"
       ],
       "status": "approved_dedicated",
       "sha256": "e6cc9ba4bc1f94e2047042acfc520ac63b073d75a2df564cac31db7980e03e60",
@@ -10175,7 +10183,13 @@
         "vocab_a2_0756",
         "vocab_a2_0757",
         "vocab_a2_0758",
-        "vocab_a2_0759"
+        "vocab_a2_0759",
+        "vocab_a2_0774",
+        "vocab_a2_0775",
+        "vocab_a2_0776",
+        "vocab_a2_0777",
+        "vocab_a2_0778",
+        "vocab_a2_0779"
       ],
       "status": "approved_motif_fallback",
       "sha256": "e6457666fd5c389d61d4a90b097638f6202d66ca18af4dbe3817d8fef8f280e3",
@@ -10215,6 +10229,534 @@
       ],
       "status": "approved_motif_fallback",
       "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_nature_2",
+      "level": "A2",
+      "rewardMotif": "suryeon",
+      "primaryAsset": "assets/illustrations/packs/suryeon.webp",
+      "subjectKo": "강아지 · 동물 · 돼지 · 소",
+      "subjectPromptEn": "a modern still life expressing puppy, little dog, animal, pig, cow",
+      "evidenceWordIds": [
+        "vocab_a2_0780",
+        "vocab_a2_0781",
+        "vocab_a2_0782",
+        "vocab_a2_0783",
+        "vocab_a2_0784",
+        "vocab_a2_0785",
+        "vocab_a2_0786",
+        "vocab_a2_0787",
+        "vocab_a2_0788",
+        "vocab_a2_0789",
+        "vocab_a2_0790",
+        "vocab_a2_0791"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "b244eb1aaf88ea71fb35f684195696b36ee675ec1d57c6264ca4db8c2d9499f6",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_food_4",
+      "level": "A2",
+      "rewardMotif": "soban",
+      "primaryAsset": "assets/illustrations/packs/soban.webp",
+      "subjectKo": "감자 · 과자 · 달걀 · 사탕",
+      "subjectPromptEn": "a modern still life expressing potato, snacks, cookies, egg, candy",
+      "evidenceWordIds": [
+        "vocab_a2_0792",
+        "vocab_a2_0793",
+        "vocab_a2_0794",
+        "vocab_a2_0795",
+        "vocab_a2_0796",
+        "vocab_a2_0797",
+        "vocab_a2_0798",
+        "vocab_a2_0799",
+        "vocab_a2_0800",
+        "vocab_a2_0801",
+        "vocab_a2_0802",
+        "vocab_a2_0803"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "398aa01eef38e79fbb8eb783ac407f48c1322f0dc934c07d3f03aaed695ffc94",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_time_span_2",
+      "level": "A2",
+      "rewardMotif": "chrysanthemum",
+      "primaryAsset": "assets/illustrations/packs/chrysanthemum.webp",
+      "subjectKo": "곧 · 금방 · 벌써 · 이미",
+      "subjectPromptEn": "a modern still life expressing soon, right away, already, already",
+      "evidenceWordIds": [
+        "vocab_a2_0804",
+        "vocab_a2_0805",
+        "vocab_a2_0806",
+        "vocab_a2_0807",
+        "vocab_a2_0808",
+        "vocab_a2_0809",
+        "vocab_a2_0810",
+        "vocab_a2_0811",
+        "vocab_a2_0812",
+        "vocab_a2_0813",
+        "vocab_a2_0814",
+        "vocab_a2_0815"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2ccc6d924a6ead04fc4766535c9531df1837fd1f8ccd5a4ac82f413200804d72",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_directions_2",
+      "level": "A2",
+      "rewardMotif": "mountain",
+      "primaryAsset": "assets/illustrations/packs/mountain.webp",
+      "subjectKo": "가져가다 · 가져오다 · 건너가다 · 걸어가다",
+      "subjectPromptEn": "a modern still life expressing to take (along), to bring (along), to go across, to walk (there)",
+      "evidenceWordIds": [
+        "vocab_a2_0816",
+        "vocab_a2_0817",
+        "vocab_a2_0818",
+        "vocab_a2_0819",
+        "vocab_a2_0820",
+        "vocab_a2_0821",
+        "vocab_a2_0822",
+        "vocab_a2_0823",
+        "vocab_a2_0824",
+        "vocab_a2_0825",
+        "vocab_a2_0826",
+        "vocab_a2_0827"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "6bfd3f78f41fb7c70e77349c1031095e12f26c90bf2e76ff8165b8fb6718bc53",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "a2_daily_actions_2",
+      "level": "A2",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "감다 · 뜨다 · 깨다 · 꺼내다",
+      "subjectPromptEn": "a modern still life expressing to close (one's eyes), to open (one's eyes), to wake up, to take out",
+      "evidenceWordIds": [
+        "vocab_a2_0828",
+        "vocab_a2_0829",
+        "vocab_a2_0830",
+        "vocab_a2_0831",
+        "vocab_a2_0832",
+        "vocab_a2_0833",
+        "vocab_a2_0834",
+        "vocab_a2_0835",
+        "vocab_a2_0836",
+        "vocab_a2_0837",
+        "vocab_a2_0838",
+        "vocab_a2_0839"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "b1_daily_4",
+      "level": "B1",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "먼지 · 걸레 · 세제 · 다리미",
+      "subjectPromptEn": "a modern still life expressing dust, rag / cleaning cloth, detergent, iron (for clothes)",
+      "evidenceWordIds": [
+        "vocab_b1_0498",
+        "vocab_b1_0499",
+        "vocab_b1_0500",
+        "vocab_b1_0501",
+        "vocab_b1_0502",
+        "vocab_b1_0503",
+        "vocab_b1_0504",
+        "vocab_b1_0505",
+        "vocab_b1_0506",
+        "vocab_b1_0507",
+        "vocab_b1_0508",
+        "vocab_b1_0509"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "b1_verbs_daily_2",
+      "level": "B1",
+      "rewardMotif": "vine",
+      "primaryAsset": "assets/illustrations/packs/vine.webp",
+      "subjectKo": "아끼다 · 옮기다 · 잠그다 · 널다",
+      "subjectPromptEn": "a modern still life expressing to save / to use sparingly, to move / to carry, to lock, to hang out (laundry)",
+      "evidenceWordIds": [
+        "vocab_b1_0510",
+        "vocab_b1_0511",
+        "vocab_b1_0512",
+        "vocab_b1_0513",
+        "vocab_b1_0514",
+        "vocab_b1_0515",
+        "vocab_b1_0516",
+        "vocab_b1_0517",
+        "vocab_b1_0518",
+        "vocab_b1_0519",
+        "vocab_b1_0520",
+        "vocab_b1_0521"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "7e1327c786c346c137f0843390ccbbf958f6d026ce69670ab3de5b61ba5838be",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "b1_emotions_relations_4",
+      "level": "B1",
+      "rewardMotif": "plum",
+      "primaryAsset": "assets/illustrations/packs/plum.webp",
+      "subjectKo": "속상하다 · 아쉽다 · 창피 · 실망",
+      "subjectPromptEn": "a modern still life expressing to be upset, to be a shame / to feel sorry, embarrassment, disappointment",
+      "evidenceWordIds": [
+        "vocab_b1_0522",
+        "vocab_b1_0523",
+        "vocab_b1_0524",
+        "vocab_b1_0525",
+        "vocab_b1_0526",
+        "vocab_b1_0527",
+        "vocab_b1_0528",
+        "vocab_b1_0529",
+        "vocab_b1_0530",
+        "vocab_b1_0531",
+        "vocab_b1_0532",
+        "vocab_b1_0533"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "b1_health_hospital_2",
+      "level": "B1",
+      "rewardMotif": "crane",
+      "primaryAsset": "assets/illustrations/packs/crane.webp",
+      "subjectKo": "가렵다 · 어지럽다 · 붓다 · 코피",
+      "subjectPromptEn": "a modern still life expressing to be itchy, to be dizzy, to swell / to get puffy, nosebleed",
+      "evidenceWordIds": [
+        "vocab_b1_0534",
+        "vocab_b1_0535",
+        "vocab_b1_0536",
+        "vocab_b1_0537",
+        "vocab_b1_0538",
+        "vocab_b1_0539",
+        "vocab_b1_0540",
+        "vocab_b1_0541",
+        "vocab_b1_0542",
+        "vocab_b1_0543",
+        "vocab_b1_0544",
+        "vocab_b1_0545"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "84fe89e8688f4e732ce2130ba536a77459cc7d16f65e7aa178dbf140f2ec7a20",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "b1_descriptions_adj_2",
+      "level": "B1",
+      "rewardMotif": "plum",
+      "primaryAsset": "assets/illustrations/packs/plum.webp",
+      "subjectKo": "낡다 · 깔끔하다 · 지저분하다 · 싱싱하다",
+      "subjectPromptEn": "a modern still life expressing to be worn out / old, to be neat / tidy, to be messy, to be fresh",
+      "evidenceWordIds": [
+        "vocab_b1_0546",
+        "vocab_b1_0547",
+        "vocab_b1_0548",
+        "vocab_b1_0549",
+        "vocab_b1_0550",
+        "vocab_b1_0551",
+        "vocab_b1_0552",
+        "vocab_b1_0553"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "2cfed8051d3b32b24cc3ea33315620a9e18d66fd1b136a993b2388d9c7c3033c",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "c1_media_evidence_2",
+      "level": "C1",
+      "rewardMotif": "gwigap",
+      "primaryAsset": "assets/illustrations/packs/gwigap.webp",
+      "subjectKo": "여론 · 일간지 · 칼럼 · 허위",
+      "subjectPromptEn": "a modern still life expressing public opinion, daily newspaper, column, falsehood, false",
+      "evidenceWordIds": [
+        "vocab_c1_0241",
+        "vocab_c1_0242",
+        "vocab_c1_0243",
+        "vocab_c1_0244",
+        "vocab_c1_0245",
+        "vocab_c1_0246",
+        "vocab_c1_0247",
+        "vocab_c1_0248",
+        "vocab_c1_0249",
+        "vocab_c1_0250",
+        "vocab_c1_0251",
+        "vocab_c1_0252"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "f763dafde98dc35ab25c92f38f962a51183bdba53913811196351f8ae5a95817",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "c1_2026_social_topics_2",
+      "level": "C1",
+      "rewardMotif": "taegeuk",
+      "primaryAsset": "assets/illustrations/packs/taegeuk.webp",
+      "subjectKo": "저출산 · 출산율 · 도시화 · 핵가족",
+      "subjectPromptEn": "a modern still life expressing low birth rate, birth rate, urbanization, nuclear family",
+      "evidenceWordIds": [
+        "vocab_c1_0253",
+        "vocab_c1_0254",
+        "vocab_c1_0255",
+        "vocab_c1_0256",
+        "vocab_c1_0257",
+        "vocab_c1_0258",
+        "vocab_c1_0259",
+        "vocab_c1_0260",
+        "vocab_c1_0261",
+        "vocab_c1_0262",
+        "vocab_c1_0263",
+        "vocab_c1_0264"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "134b57e57d590f67a44a308718a801971bc96c6a9647ee859c42c3f279585091",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "c1_work_economy_1",
+      "level": "C1",
+      "rewardMotif": "bamboo",
+      "primaryAsset": "assets/illustrations/packs/bamboo.webp",
+      "subjectKo": "채용 · 이직 · 실무 · 실적",
+      "subjectPromptEn": "a modern still life expressing hiring, job change, practical work, results, performance",
+      "evidenceWordIds": [
+        "vocab_c1_0265",
+        "vocab_c1_0266",
+        "vocab_c1_0267",
+        "vocab_c1_0268",
+        "vocab_c1_0269",
+        "vocab_c1_0270",
+        "vocab_c1_0271",
+        "vocab_c1_0272",
+        "vocab_c1_0273",
+        "vocab_c1_0274",
+        "vocab_c1_0275",
+        "vocab_c1_0276"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "807afdbea0af9827d6a6c8acdcde4f27a4fbcbba6b80e0510a859826f40fe42e",
+      "qa": {
+        "fourThree": {
+          "status": "pass",
+          "detail": "800x600"
+        },
+        "sixteenTenCenterCrop": {
+          "status": "not_rechecked",
+          "detail": null
+        },
+        "hundredPx": {
+          "status": "not_rechecked",
+          "detail": null
+        }
+      }
+    },
+    {
+      "packId": "c1_evidence_reasoning_2",
+      "level": "C1",
+      "rewardMotif": "munbangsau",
+      "primaryAsset": "assets/illustrations/packs/munbangsau.webp",
+      "subjectKo": "이론적 · 체계적 · 보편적 · 전형적",
+      "subjectPromptEn": "a modern still life expressing theoretical, systematic, universal, typical",
+      "evidenceWordIds": [
+        "vocab_c1_0277",
+        "vocab_c1_0278",
+        "vocab_c1_0279",
+        "vocab_c1_0280",
+        "vocab_c1_0281",
+        "vocab_c1_0282",
+        "vocab_c1_0283",
+        "vocab_c1_0284",
+        "vocab_c1_0285",
+        "vocab_c1_0286",
+        "vocab_c1_0287",
+        "vocab_c1_0288"
+      ],
+      "status": "approved_motif_fallback",
+      "sha256": "59baeed37d95bb06076ee54b6fe18440799fb69497c2777697347497a6317359",
       "qa": {
         "fourThree": {
           "status": "pass",

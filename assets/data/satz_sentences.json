@@ -1,12 +1,12 @@
 {
   "meta": {
-    "total": 3091,
+    "total": 3269,
     "perLevel": {
       "a1": 650,
-      "a2": 719,
-      "b1": 630,
+      "a2": 785,
+      "b1": 694,
       "b2": 564,
-      "c1": 252,
+      "c1": 300,
       "c2": 276
     },
     "source": "korean_vocab.csv example sentences (native-reviewed)",
@@ -39207,6 +39207,2498 @@
       "promptEn": "I take the subway to commute.",
       "level": "a2",
       "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0766",
+      "sourceVocabId": "vocab_a2_0774",
+      "vocabKo": "그치다",
+      "targetKo": "비가 그치면 산책하러 나가요.",
+      "distractors": [
+        "읽으면",
+        "입으면"
+      ],
+      "promptDe": "Wenn der Regen aufhört, gehen wir spazieren.",
+      "promptEn": "When the rain stops, let's go for a walk.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0767",
+      "sourceVocabId": "vocab_a2_0775",
+      "vocabKo": "선선하다",
+      "targetKo": "가을이 되니까 날씨가 선선해요.",
+      "distractors": [
+        "친절해요",
+        "조용해요"
+      ],
+      "promptDe": "Jetzt im Herbst ist das Wetter angenehm kühl.",
+      "promptEn": "Now that it's autumn, the weather is pleasantly cool.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0768",
+      "sourceVocabId": "vocab_a2_0776",
+      "vocabKo": "얼다",
+      "targetKo": "날씨가 너무 추워서 길이 얼었어요.",
+      "distractors": [
+        "웃었어요",
+        "울었어요"
+      ],
+      "promptDe": "Es ist so kalt, dass die Straße vereist ist.",
+      "promptEn": "It's so cold that the road has frozen.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0769",
+      "sourceVocabId": "vocab_a2_0777",
+      "vocabKo": "별",
+      "targetKo": "밤에 하늘을 보니까 별이 많았어요.",
+      "distractors": [
+        "책상이",
+        "연필이"
+      ],
+      "promptDe": "Als ich nachts in den Himmel sah, waren da viele Sterne.",
+      "promptEn": "Looking up at the night sky, I saw lots of stars.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0770",
+      "sourceVocabId": "vocab_a2_0778",
+      "vocabKo": "단풍",
+      "targetKo": "가을에 친구들과 단풍을 보러 산에 갔어요.",
+      "distractors": [
+        "숙제를",
+        "냉장고를"
+      ],
+      "promptDe": "Im Herbst bin ich mit Freunden in die Berge gefahren, um das Herbstlaub zu sehen.",
+      "promptEn": "In autumn I went to the mountains with friends to see the autumn leaves.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0771",
+      "sourceVocabId": "vocab_a2_0779",
+      "vocabKo": "사계절",
+      "targetKo": "한국에는 사계절이 있어서 계절마다 날씨가 달라요.",
+      "distractors": [
+        "지하철이",
+        "운동장이"
+      ],
+      "promptDe": "In Korea gibt es vier Jahreszeiten, deshalb ist das Wetter in jeder Jahreszeit anders.",
+      "promptEn": "Korea has four seasons, so the weather is different in each one.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0772",
+      "sourceVocabId": "vocab_a2_0780",
+      "vocabKo": "강아지",
+      "targetKo": "우리 집 강아지는 산책을 정말 좋아해요.",
+      "distractors": [
+        "냉장고는",
+        "시계는"
+      ],
+      "promptDe": "Unser Hund geht sehr gern spazieren.",
+      "promptEn": "Our puppy loves going for walks.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0773",
+      "sourceVocabId": "vocab_a2_0781",
+      "vocabKo": "동물",
+      "targetKo": "저는 동물을 좋아해서 고양이를 두 마리 키워요.",
+      "distractors": [
+        "숙제를",
+        "청소를"
+      ],
+      "promptDe": "Ich mag Tiere, deshalb habe ich zwei Katzen.",
+      "promptEn": "I like animals, so I have two cats.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0774",
+      "sourceVocabId": "vocab_a2_0782",
+      "vocabKo": "돼지",
+      "targetKo": "할아버지는 시골에서 돼지를 키우세요.",
+      "distractors": [
+        "휴지를",
+        "바지를"
+      ],
+      "promptDe": "Mein Großvater hält auf dem Land Schweine.",
+      "promptEn": "My grandfather raises pigs in the countryside.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0775",
+      "sourceVocabId": "vocab_a2_0783",
+      "vocabKo": "소",
+      "targetKo": "시골에 가니까 소가 풀을 먹고 있었어요.",
+      "distractors": [
+        "의자가",
+        "버스가"
+      ],
+      "promptDe": "Als ich aufs Land kam, fraß gerade eine Kuh Gras.",
+      "promptEn": "When I went to the countryside, a cow was eating grass.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0776",
+      "sourceVocabId": "vocab_a2_0784",
+      "vocabKo": "닭",
+      "targetKo": "아침마다 닭이 울어서 일찍 일어나요.",
+      "distractors": [
+        "책이",
+        "물이"
+      ],
+      "promptDe": "Jeden Morgen kräht der Hahn, deshalb stehe ich früh auf.",
+      "promptEn": "The rooster crows every morning, so I get up early.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0777",
+      "sourceVocabId": "vocab_a2_0785",
+      "vocabKo": "뱀",
+      "targetKo": "산에서 뱀을 보고 깜짝 놀랐어요.",
+      "distractors": [
+        "양말을",
+        "숟가락을"
+      ],
+      "promptDe": "Auf dem Berg habe ich eine Schlange gesehen und mich furchtbar erschrocken.",
+      "promptEn": "I saw a snake on the mountain and got a big fright.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0778",
+      "sourceVocabId": "vocab_a2_0786",
+      "vocabKo": "강",
+      "targetKo": "주말에 강에 가서 사진을 찍었어요.",
+      "distractors": [
+        "냉장고에",
+        "침대에"
+      ],
+      "promptDe": "Am Wochenende bin ich zum Fluss gegangen und habe Fotos gemacht.",
+      "promptEn": "On the weekend I went to the river and took photos.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0779",
+      "sourceVocabId": "vocab_a2_0787",
+      "vocabKo": "땅",
+      "targetKo": "사과가 나무에서 땅으로 떨어졌어요.",
+      "distractors": [
+        "하늘로",
+        "학교로"
+      ],
+      "promptDe": "Der Apfel fiel vom Baum auf den Boden.",
+      "promptEn": "The apple fell from the tree to the ground.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0780",
+      "sourceVocabId": "vocab_a2_0788",
+      "vocabKo": "돌",
+      "targetKo": "길에 큰 돌이 있어서 조심해야 돼요.",
+      "distractors": [
+        "물이",
+        "책이"
+      ],
+      "promptDe": "Auf dem Weg liegt ein großer Stein, da muss man aufpassen.",
+      "promptEn": "There's a big rock on the path, so you have to be careful.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0781",
+      "sourceVocabId": "vocab_a2_0789",
+      "vocabKo": "자연",
+      "targetKo": "저는 도시보다 자연 속에서 쉬고 싶어요.",
+      "distractors": [
+        "냉장고",
+        "가방"
+      ],
+      "promptDe": "Ich möchte mich lieber in der Natur als in der Stadt erholen.",
+      "promptEn": "I'd rather relax in nature than in the city.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0782",
+      "sourceVocabId": "vocab_a2_0790",
+      "vocabKo": "심다",
+      "targetKo": "봄에 마당에 나무를 심었어요.",
+      "distractors": [
+        "마셨어요",
+        "빌렸어요"
+      ],
+      "promptDe": "Im Frühling habe ich im Garten einen Baum gepflanzt.",
+      "promptEn": "In spring I planted a tree in the yard.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0783",
+      "sourceVocabId": "vocab_a2_0791",
+      "vocabKo": "자라다",
+      "targetKo": "작년에 심은 나무가 많이 자랐어요.",
+      "distractors": [
+        "샀어요",
+        "잤어요"
+      ],
+      "promptDe": "Der Baum, den ich letztes Jahr gepflanzt habe, ist stark gewachsen.",
+      "promptEn": "The tree I planted last year has grown a lot.",
+      "level": "a2",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "id": "satz_a2_0784",
+      "sourceVocabId": "vocab_a2_0792",
+      "vocabKo": "감자",
+      "targetKo": "저녁에 감자로 국을 끓였어요.",
+      "distractors": [
+        "지우개로",
+        "연필로"
+      ],
+      "promptDe": "Zum Abendessen habe ich eine Suppe mit Kartoffeln gekocht.",
+      "promptEn": "For dinner I made soup with potatoes.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0785",
+      "sourceVocabId": "vocab_a2_0793",
+      "vocabKo": "과자",
+      "targetKo": "영화를 보면서 과자를 먹었어요.",
+      "distractors": [
+        "편지를",
+        "숙제를"
+      ],
+      "promptDe": "Beim Filmschauen habe ich Knabberzeug gegessen.",
+      "promptEn": "I ate snacks while watching a movie.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0786",
+      "sourceVocabId": "vocab_a2_0794",
+      "vocabKo": "달걀",
+      "targetKo": "아침마다 달걀 두 개를 먹어요.",
+      "distractors": [
+        "의자",
+        "가방"
+      ],
+      "promptDe": "Jeden Morgen esse ich zwei Eier.",
+      "promptEn": "I eat two eggs every morning.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0787",
+      "sourceVocabId": "vocab_a2_0795",
+      "vocabKo": "사탕",
+      "targetKo": "아이가 울어서 사탕을 하나 줬어요.",
+      "distractors": [
+        "청소를",
+        "운동을"
+      ],
+      "promptDe": "Das Kind hat geweint, also habe ich ihm ein Bonbon gegeben.",
+      "promptEn": "The child was crying, so I gave them a piece of candy.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0788",
+      "sourceVocabId": "vocab_a2_0796",
+      "vocabKo": "쌀",
+      "targetKo": "쌀이 다 떨어져서 마트에서 샀어요.",
+      "distractors": [
+        "시험이",
+        "수업이"
+      ],
+      "promptDe": "Der Reis war alle, also habe ich im Supermarkt welchen gekauft.",
+      "promptEn": "We ran out of rice, so I bought some at the supermarket.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0789",
+      "sourceVocabId": "vocab_a2_0797",
+      "vocabKo": "상추",
+      "targetKo": "고기를 상추에 싸서 먹으면 맛있어요.",
+      "distractors": [
+        "가방에",
+        "침대에"
+      ],
+      "promptDe": "Fleisch schmeckt gut, wenn man es in Salatblätter wickelt.",
+      "promptEn": "Meat is tasty when you wrap it in lettuce.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0790",
+      "sourceVocabId": "vocab_a2_0798",
+      "vocabKo": "배추",
+      "targetKo": "김치를 만들려고 시장에서 배추를 샀어요.",
+      "distractors": [
+        "치마를",
+        "휴지를"
+      ],
+      "promptDe": "Um Kimchi zu machen, habe ich auf dem Markt Chinakohl gekauft.",
+      "promptEn": "I bought napa cabbage at the market to make kimchi.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0791",
+      "sourceVocabId": "vocab_a2_0799",
+      "vocabKo": "녹차",
+      "targetKo": "저는 커피보다 녹차를 더 좋아해요.",
+      "distractors": [
+        "모자를",
+        "구두를"
+      ],
+      "promptDe": "Ich mag grünen Tee lieber als Kaffee.",
+      "promptEn": "I like green tea more than coffee.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0792",
+      "sourceVocabId": "vocab_a2_0800",
+      "vocabKo": "식빵",
+      "targetKo": "아침에 식빵에 잼을 발라 먹었어요.",
+      "distractors": [
+        "창문에",
+        "신발에"
+      ],
+      "promptDe": "Zum Frühstück habe ich Toast mit Marmelade gegessen.",
+      "promptEn": "For breakfast I had toast with jam.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0793",
+      "sourceVocabId": "vocab_a2_0801",
+      "vocabKo": "맥주",
+      "targetKo": "퇴근 후에 친구랑 시원한 맥주를 마셨어요.",
+      "distractors": [
+        "치마를",
+        "지도를"
+      ],
+      "promptDe": "Nach der Arbeit habe ich mit einem Freund ein kühles Bier getrunken.",
+      "promptEn": "After work I had a cold beer with a friend.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0794",
+      "sourceVocabId": "vocab_a2_0802",
+      "vocabKo": "신선하다",
+      "targetKo": "이 가게는 과일이 신선해서 자주 와요.",
+      "distractors": [
+        "피곤해서",
+        "심심해서"
+      ],
+      "promptDe": "In diesem Laden ist das Obst frisch, deshalb komme ich oft her.",
+      "promptEn": "The fruit in this shop is fresh, so I come here often.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0795",
+      "sourceVocabId": "vocab_a2_0803",
+      "vocabKo": "식다",
+      "targetKo": "국이 식기 전에 빨리 드세요.",
+      "distractors": [
+        "읽기",
+        "씻기"
+      ],
+      "promptDe": "Essen Sie die Suppe schnell, bevor sie kalt wird.",
+      "promptEn": "Please eat the soup quickly before it gets cold.",
+      "level": "a2",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "id": "satz_a2_0796",
+      "sourceVocabId": "vocab_a2_0804",
+      "vocabKo": "곧",
+      "targetKo": "기차가 곧 도착하니까 준비하세요.",
+      "distractors": [
+        "열심히",
+        "깜짝"
+      ],
+      "promptDe": "Der Zug kommt gleich an, machen Sie sich bereit.",
+      "promptEn": "The train is arriving soon, so get ready.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0797",
+      "sourceVocabId": "vocab_a2_0805",
+      "vocabKo": "금방",
+      "targetKo": "잠깐만 기다려 주세요. 금방 갈게요.",
+      "distractors": [
+        "열심히",
+        "깜짝"
+      ],
+      "promptDe": "Warten Sie bitte kurz. Ich komme gleich.",
+      "promptEn": "Please wait a moment. I'll be right there.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0798",
+      "sourceVocabId": "vocab_a2_0806",
+      "vocabKo": "벌써",
+      "targetKo": "벌써 12월이에요. 시간이 정말 빨라요.",
+      "distractors": [
+        "천천히",
+        "열심히"
+      ],
+      "promptDe": "Es ist schon Dezember. Die Zeit vergeht wirklich schnell.",
+      "promptEn": "It's already December. Time really flies.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0799",
+      "sourceVocabId": "vocab_a2_0807",
+      "vocabKo": "이미",
+      "targetKo": "식당에 갔는데 이미 문을 닫았어요.",
+      "distractors": [
+        "열심히",
+        "가끔"
+      ],
+      "promptDe": "Ich bin zum Restaurant gegangen, aber es hatte bereits geschlossen.",
+      "promptEn": "I went to the restaurant, but it had already closed.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0800",
+      "sourceVocabId": "vocab_a2_0808",
+      "vocabKo": "방금",
+      "targetKo": "방금 집에 도착했어요.",
+      "distractors": [
+        "가끔",
+        "자주"
+      ],
+      "promptDe": "Ich bin gerade eben zu Hause angekommen.",
+      "promptEn": "I just got home.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0801",
+      "sourceVocabId": "vocab_a2_0809",
+      "vocabKo": "아까",
+      "targetKo": "아까 먹은 김밥이 정말 맛있었어요.",
+      "distractors": [
+        "별로",
+        "어서"
+      ],
+      "promptDe": "Das Kimbap, das ich vorhin gegessen habe, war wirklich lecker.",
+      "promptEn": "The gimbap I ate earlier was really delicious.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0802",
+      "sourceVocabId": "vocab_a2_0810",
+      "vocabKo": "미리",
+      "targetKo": "주말에는 사람이 많으니까 미리 예약하세요.",
+      "distractors": [
+        "천천히",
+        "가끔"
+      ],
+      "promptDe": "Am Wochenende ist viel los, also reservieren Sie im Voraus.",
+      "promptEn": "It's busy on weekends, so book in advance.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0803",
+      "sourceVocabId": "vocab_a2_0811",
+      "vocabKo": "점점",
+      "targetKo": "날씨가 점점 추워지고 있어요.",
+      "distractors": [
+        "혼자",
+        "일찍"
+      ],
+      "promptDe": "Das Wetter wird immer kälter.",
+      "promptEn": "The weather is getting colder and colder.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0804",
+      "sourceVocabId": "vocab_a2_0812",
+      "vocabKo": "자꾸",
+      "targetKo": "요즘 우산을 자꾸 잃어버려요.",
+      "distractors": [
+        "천천히",
+        "함께"
+      ],
+      "promptDe": "In letzter Zeit verliere ich ständig meinen Regenschirm.",
+      "promptEn": "Lately I keep losing my umbrella.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0805",
+      "sourceVocabId": "vocab_a2_0813",
+      "vocabKo": "전혀",
+      "targetKo": "저는 매운 음식을 전혀 못 먹어요.",
+      "distractors": [
+        "일찍",
+        "늦게"
+      ],
+      "promptDe": "Ich kann überhaupt kein scharfes Essen essen.",
+      "promptEn": "I can't eat spicy food at all.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0806",
+      "sourceVocabId": "vocab_a2_0814",
+      "vocabKo": "거의",
+      "targetKo": "숙제를 거의 다 했어요.",
+      "distractors": [
+        "늦게",
+        "가끔"
+      ],
+      "promptDe": "Ich bin mit den Hausaufgaben fast fertig.",
+      "promptEn": "I'm almost done with my homework.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0807",
+      "sourceVocabId": "vocab_a2_0815",
+      "vocabKo": "오래",
+      "targetKo": "버스를 오래 기다려서 다리가 아팠어요.",
+      "distractors": [
+        "일찍",
+        "보통"
+      ],
+      "promptDe": "Nach dem langen Warten auf den Bus taten mir die Beine weh.",
+      "promptEn": "I waited a long time for the bus, so my legs hurt.",
+      "level": "a2",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "id": "satz_a2_0808",
+      "sourceVocabId": "vocab_a2_0816",
+      "vocabKo": "가져가다",
+      "targetKo": "비가 올 것 같으니까 우산을 가져가세요.",
+      "distractors": [
+        "버리세요",
+        "씻으세요"
+      ],
+      "promptDe": "Es sieht nach Regen aus, nehmen Sie einen Regenschirm mit.",
+      "promptEn": "It looks like rain, so take an umbrella with you.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0809",
+      "sourceVocabId": "vocab_a2_0817",
+      "vocabKo": "가져오다",
+      "targetKo": "내일 수업에 사전을 가져오세요.",
+      "distractors": [
+        "버리세요",
+        "씻으세요"
+      ],
+      "promptDe": "Bringen Sie morgen ein Wörterbuch zum Unterricht mit.",
+      "promptEn": "Please bring a dictionary to class tomorrow.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0810",
+      "sourceVocabId": "vocab_a2_0818",
+      "vocabKo": "건너가다",
+      "targetKo": "신호등이 바뀌면 길을 건너가세요.",
+      "distractors": [
+        "주무세요",
+        "앉으세요"
+      ],
+      "promptDe": "Gehen Sie über die Straße, wenn die Ampel umschaltet.",
+      "promptEn": "Cross the street when the light changes.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0811",
+      "sourceVocabId": "vocab_a2_0819",
+      "vocabKo": "걸어가다",
+      "targetKo": "학교가 가까워서 매일 걸어가요.",
+      "distractors": [
+        "자요",
+        "울어요"
+      ],
+      "promptDe": "Die Schule ist nah, ich gehe täglich zu Fuß.",
+      "promptEn": "School is close, so I walk there every day.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0812",
+      "sourceVocabId": "vocab_a2_0820",
+      "vocabKo": "내려가다",
+      "targetKo": "엘리베이터가 고장 나서 계단으로 내려갔어요.",
+      "distractors": [
+        "먹었어요",
+        "씻었어요"
+      ],
+      "promptDe": "Der Aufzug war kaputt, deshalb bin ich die Treppe hinuntergegangen.",
+      "promptEn": "The elevator was broken, so I took the stairs down.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0813",
+      "sourceVocabId": "vocab_a2_0821",
+      "vocabKo": "내려오다",
+      "targetKo": "아이가 나무에서 내려오지 않아요.",
+      "distractors": [
+        "먹지",
+        "읽지"
+      ],
+      "promptDe": "Das Kind kommt nicht vom Baum herunter.",
+      "promptEn": "The child won't come down from the tree.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0814",
+      "sourceVocabId": "vocab_a2_0822",
+      "vocabKo": "데려가다",
+      "targetKo": "주말에 아이들을 동물원에 데려갔어요.",
+      "distractors": [
+        "씻었어요",
+        "입었어요"
+      ],
+      "promptDe": "Am Wochenende habe ich die Kinder in den Zoo mitgenommen.",
+      "promptEn": "On the weekend I took the kids to the zoo.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0815",
+      "sourceVocabId": "vocab_a2_0823",
+      "vocabKo": "데려오다",
+      "targetKo": "생일 파티에 친구를 데려와도 돼요?",
+      "distractors": [
+        "먹어도",
+        "씻어도"
+      ],
+      "promptDe": "Darf ich einen Freund zur Geburtstagsparty mitbringen?",
+      "promptEn": "Can I bring a friend to the birthday party?",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0816",
+      "sourceVocabId": "vocab_a2_0824",
+      "vocabKo": "뛰어가다",
+      "targetKo": "버스가 와서 정류장까지 뛰어갔어요.",
+      "distractors": [
+        "잤어요",
+        "씻었어요"
+      ],
+      "promptDe": "Der Bus kam, deshalb bin ich zur Haltestelle gerannt.",
+      "promptEn": "The bus came, so I ran to the stop.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0817",
+      "sourceVocabId": "vocab_a2_0825",
+      "vocabKo": "올라오다",
+      "targetKo": "3층으로 올라오세요. 회의실은 오른쪽에 있어요.",
+      "distractors": [
+        "주무세요",
+        "드세요"
+      ],
+      "promptDe": "Kommen Sie in den dritten Stock hoch. Der Besprechungsraum ist rechts.",
+      "promptEn": "Come up to floor three. The meeting room is on the right.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0818",
+      "sourceVocabId": "vocab_a2_0826",
+      "vocabKo": "들르다",
+      "targetKo": "집에 가는 길에 편의점에 들렀어요.",
+      "distractors": [
+        "잤어요",
+        "울었어요"
+      ],
+      "promptDe": "Auf dem Heimweg bin ich kurz beim Kiosk vorbeigegangen.",
+      "promptEn": "I stopped by the convenience store on my way home.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0819",
+      "sourceVocabId": "vocab_a2_0827",
+      "vocabKo": "서두르다",
+      "targetKo": "늦었으니까 좀 서두르세요.",
+      "distractors": [
+        "주무세요",
+        "쉬세요"
+      ],
+      "promptDe": "Wir sind spät dran, beeilen Sie sich.",
+      "promptEn": "We're late, so please hurry.",
+      "level": "a2",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "id": "satz_a2_0820",
+      "sourceVocabId": "vocab_a2_0828",
+      "vocabKo": "감다",
+      "targetKo": "눈을 감고 음악을 들었어요.",
+      "distractors": [
+        "먹고",
+        "입고"
+      ],
+      "promptDe": "Ich habe die Augen geschlossen und Musik gehört.",
+      "promptEn": "I closed my eyes and listened to music.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0821",
+      "sourceVocabId": "vocab_a2_0829",
+      "vocabKo": "뜨다",
+      "targetKo": "아침에 눈을 뜨니까 벌써 열 시였어요.",
+      "distractors": [
+        "먹으니까",
+        "입으니까"
+      ],
+      "promptDe": "Als ich morgens die Augen öffnete, war es schon zehn Uhr.",
+      "promptEn": "When I opened my eyes in the morning, it was already ten o'clock.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0822",
+      "sourceVocabId": "vocab_a2_0830",
+      "vocabKo": "깨다",
+      "targetKo": "밖이 시끄러워서 새벽에 잠이 깼어요.",
+      "distractors": [
+        "샀어요",
+        "팔았어요"
+      ],
+      "promptDe": "Draußen war es laut, deshalb bin ich früh am Morgen aufgewacht.",
+      "promptEn": "It was noisy outside, so I woke up at dawn.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0823",
+      "sourceVocabId": "vocab_a2_0831",
+      "vocabKo": "꺼내다",
+      "targetKo": "냉장고에서 우유를 꺼냈어요.",
+      "distractors": [
+        "배웠어요",
+        "불렀어요"
+      ],
+      "promptDe": "Ich nahm die Milch aus dem Kühlschrank.",
+      "promptEn": "I took milk out of the fridge.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0824",
+      "sourceVocabId": "vocab_a2_0832",
+      "vocabKo": "남기다",
+      "targetKo": "배가 불러서 밥을 조금 남겼어요.",
+      "distractors": [
+        "배웠어요",
+        "입었어요"
+      ],
+      "promptDe": "Ich war satt, deshalb habe ich etwas Reis übrig gelassen.",
+      "promptEn": "I was full, so I left a little rice.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0825",
+      "sourceVocabId": "vocab_a2_0833",
+      "vocabKo": "넘어지다",
+      "targetKo": "눈이 와서 길에서 넘어졌어요.",
+      "distractors": [
+        "공부했어요",
+        "노래했어요"
+      ],
+      "promptDe": "Es hat geschneit, und ich bin auf der Straße hingefallen.",
+      "promptEn": "It snowed, and I fell down on the street.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0826",
+      "sourceVocabId": "vocab_a2_0834",
+      "vocabKo": "만지다",
+      "targetKo": "미술관에서는 그림을 만지면 안 돼요.",
+      "distractors": [
+        "보면",
+        "그리면"
+      ],
+      "promptDe": "Im Museum darf man die Bilder nicht anfassen.",
+      "promptEn": "You must not touch the paintings in the museum.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0827",
+      "sourceVocabId": "vocab_a2_0835",
+      "vocabKo": "섞다",
+      "targetKo": "밥과 채소를 잘 섞어서 드세요.",
+      "distractors": [
+        "입어서",
+        "읽어서"
+      ],
+      "promptDe": "Mischen Sie den Reis gut mit dem Gemüse und essen Sie dann.",
+      "promptEn": "Mix the rice and vegetables well before you eat.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0828",
+      "sourceVocabId": "vocab_a2_0836",
+      "vocabKo": "싣다",
+      "targetKo": "짐을 차에 실었어요.",
+      "distractors": [
+        "읽었어요",
+        "입었어요"
+      ],
+      "promptDe": "Ich habe das Gepäck ins Auto geladen.",
+      "promptEn": "I loaded the luggage into the car.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0829",
+      "sourceVocabId": "vocab_a2_0837",
+      "vocabKo": "쌓다",
+      "targetKo": "책을 책상 위에 쌓아 두었어요.",
+      "distractors": [
+        "먹어",
+        "울어"
+      ],
+      "promptDe": "Ich habe die Bücher auf dem Schreibtisch gestapelt.",
+      "promptEn": "I stacked the books on the desk.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0830",
+      "sourceVocabId": "vocab_a2_0838",
+      "vocabKo": "자르다",
+      "targetKo": "머리가 길어서 미용실에서 잘랐어요.",
+      "distractors": [
+        "불렀어요",
+        "몰랐어요"
+      ],
+      "promptDe": "Meine Haare waren lang, ich ließ sie beim Friseur schneiden.",
+      "promptEn": "My hair was long, so I got a haircut.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_a2_0831",
+      "sourceVocabId": "vocab_a2_0839",
+      "vocabKo": "끝내다",
+      "targetKo": "오늘까지 이 일을 끝내야 돼요.",
+      "distractors": [
+        "자야",
+        "울어야"
+      ],
+      "promptDe": "Ich muss diese Arbeit bis heute fertig machen.",
+      "promptEn": "I have to finish this work by today.",
+      "level": "a2",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "id": "satz_b1_0485",
+      "sourceVocabId": "vocab_b1_0490",
+      "vocabKo": "챙기다",
+      "targetKo": "여행 가기 전에 여권을 꼭 챙기세요.",
+      "distractors": [
+        "버리세요",
+        "고치세요"
+      ],
+      "promptDe": "Denken Sie vor der Reise unbedingt an Ihren Reisepass.",
+      "promptEn": "Make sure to pack your passport before the trip.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0486",
+      "sourceVocabId": "vocab_b1_0491",
+      "vocabKo": "추억",
+      "targetKo": "친구들하고 간 제주도 여행은 정말 좋은 추억이에요.",
+      "distractors": [
+        "습관이에요",
+        "직업이에요"
+      ],
+      "promptDe": "Die Jeju-Reise mit meinen Freunden ist eine wirklich schöne Erinnerung.",
+      "promptEn": "The trip to Jeju with my friends is a really good memory.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0487",
+      "sourceVocabId": "vocab_b1_0492",
+      "vocabKo": "예방",
+      "targetKo": "감기 예방에는 손을 자주 씻는 게 제일 좋아요.",
+      "distractors": [
+        "검사에는",
+        "주사에는"
+      ],
+      "promptDe": "Um Erkältungen vorzubeugen, wäscht man sich am besten oft die Hände.",
+      "promptEn": "The best way to prevent colds is to wash your hands often.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0488",
+      "sourceVocabId": "vocab_b1_0493",
+      "vocabKo": "알아듣다",
+      "targetKo": "선생님이 너무 빨리 말씀하셔서 잘 못 알아들었어요.",
+      "distractors": [
+        "들어왔어요",
+        "돌아왔어요"
+      ],
+      "promptDe": "Die Lehrerin hat so schnell gesprochen, dass ich sie kaum verstanden habe.",
+      "promptEn": "The teacher spoke so fast that I couldn't really understand.",
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "id": "satz_b1_0489",
+      "sourceVocabId": "vocab_b1_0494",
+      "vocabKo": "한자",
+      "targetKo": "한국어 단어 중에는 한자로 된 말이 많아요.",
+      "distractors": [
+        "숫자로",
+        "모자로"
+      ],
+      "promptDe": "Viele koreanische Wörter gehen auf chinesische Schriftzeichen zurück.",
+      "promptEn": "Many Korean words come from Chinese characters.",
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "id": "satz_b1_0490",
+      "sourceVocabId": "vocab_b1_0495",
+      "vocabKo": "읽기",
+      "targetKo": "저는 읽기는 괜찮은데 듣기가 아직 어려워요.",
+      "distractors": [
+        "노래는",
+        "요리는"
+      ],
+      "promptDe": "Lesen klappt bei mir ganz gut, aber Hören fällt mir noch schwer.",
+      "promptEn": "Reading is fine for me, but listening is still hard.",
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "id": "satz_b1_0491",
+      "sourceVocabId": "vocab_b1_0496",
+      "vocabKo": "쓰기",
+      "targetKo": "오늘 한국어 쓰기 숙제로 일기를 썼어요.",
+      "distractors": [
+        "듣기",
+        "수학"
+      ],
+      "promptDe": "Heute habe ich als Schreibaufgabe für Koreanisch einen Tagebucheintrag geschrieben.",
+      "promptEn": "Today I wrote a diary entry for my Korean writing homework.",
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "id": "satz_b1_0492",
+      "sourceVocabId": "vocab_b1_0497",
+      "vocabKo": "한국말",
+      "targetKo": "레나 씨, 한국말 정말 많이 늘었네요!",
+      "distractors": [
+        "노래",
+        "운전"
+      ],
+      "promptDe": "Lena, dein Koreanisch ist echt viel besser geworden!",
+      "promptEn": "Lena, your Korean has really improved a lot!",
+      "level": "b1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "id": "satz_b1_0493",
+      "sourceVocabId": "vocab_b1_0498",
+      "vocabKo": "먼지",
+      "targetKo": "오랫동안 청소를 안 해서 책상 위에 먼지가 많아요.",
+      "distractors": [
+        "우유가",
+        "의자가"
+      ],
+      "promptDe": "Ich habe lange nicht geputzt, deshalb liegt viel Staub auf dem Schreibtisch.",
+      "promptEn": "I haven't cleaned in a long time, so there's a lot of dust on the desk.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0494",
+      "sourceVocabId": "vocab_b1_0499",
+      "vocabKo": "걸레",
+      "targetKo": "바닥이 더러워서 걸레로 깨끗하게 닦았어요.",
+      "distractors": [
+        "치마로",
+        "모자로"
+      ],
+      "promptDe": "Der Boden war schmutzig, deshalb habe ich ihn mit dem Lappen gewischt.",
+      "promptEn": "The floor was dirty, so I wiped it clean with a rag.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0495",
+      "sourceVocabId": "vocab_b1_0500",
+      "vocabKo": "세제",
+      "targetKo": "빨래할 때 세제를 조금만 넣어도 깨끗해져요.",
+      "distractors": [
+        "주스를",
+        "커피를"
+      ],
+      "promptDe": "Beim Waschen wird die Wäsche schon mit wenig Waschmittel sauber.",
+      "promptEn": "When you do laundry, even a little detergent gets things clean.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0496",
+      "sourceVocabId": "vocab_b1_0501",
+      "vocabKo": "다리미",
+      "targetKo": "다리미가 아직 뜨거우니까 만지지 마세요.",
+      "distractors": [
+        "치마가",
+        "카메라가"
+      ],
+      "promptDe": "Fassen Sie das Bügeleisen nicht an, es ist noch heiß.",
+      "promptEn": "Don't touch the iron, it's still hot.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0497",
+      "sourceVocabId": "vocab_b1_0502",
+      "vocabKo": "커튼",
+      "targetKo": "아침에 햇빛이 너무 강해서 커튼을 쳤어요.",
+      "distractors": [
+        "신발을",
+        "선물을"
+      ],
+      "promptDe": "Morgens war die Sonne so grell, dass ich die Vorhänge zugezogen habe.",
+      "promptEn": "The morning sun was so bright that I closed the curtains.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0498",
+      "sourceVocabId": "vocab_b1_0503",
+      "vocabKo": "베란다",
+      "targetKo": "저는 베란다에서 토마토를 키워요.",
+      "distractors": [
+        "교실에서",
+        "지하철에서"
+      ],
+      "promptDe": "Ich ziehe auf dem Balkon Tomaten.",
+      "promptEn": "I grow tomatoes on the balcony.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0499",
+      "sourceVocabId": "vocab_b1_0504",
+      "vocabKo": "전자레인지",
+      "targetKo": "밥이 식어서 전자레인지에 1분 정도 돌렸어요.",
+      "distractors": [
+        "세탁기에",
+        "가방에"
+      ],
+      "promptDe": "Der Reis war kalt, also habe ich ihn etwa eine Minute in die Mikrowelle gestellt.",
+      "promptEn": "The rice had gone cold, so I microwaved it for about a minute.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0500",
+      "sourceVocabId": "vocab_b1_0505",
+      "vocabKo": "봉지",
+      "targetKo": "봉지는 괜찮아요. 그냥 가방에 넣어 갈게요.",
+      "distractors": [
+        "의자는",
+        "치마는"
+      ],
+      "promptDe": "Ich brauche keine Tüte. Ich packe es einfach in meine Tasche.",
+      "promptEn": "I don't need a plastic bag. I'll just put it in my own bag.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0501",
+      "sourceVocabId": "vocab_b1_0506",
+      "vocabKo": "도시락",
+      "targetKo": "회사 근처 식당이 비싸서 요즘 도시락을 싸 가요.",
+      "distractors": [
+        "책상을",
+        "신발을"
+      ],
+      "promptDe": "Die Restaurants bei der Firma sind teuer, deshalb nehme ich mir zurzeit Essen mit.",
+      "promptEn": "The restaurants near work are expensive, so these days I bring a packed lunch.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0502",
+      "sourceVocabId": "vocab_b1_0507",
+      "vocabKo": "볼일",
+      "targetKo": "잠깐 볼일이 있어서 은행에 다녀올게요.",
+      "distractors": [
+        "음식이",
+        "선물이"
+      ],
+      "promptDe": "Ich muss kurz etwas erledigen und gehe schnell zur Bank.",
+      "promptEn": "I have a quick errand, so I'll pop over to the bank.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0503",
+      "sourceVocabId": "vocab_b1_0508",
+      "vocabKo": "배터리",
+      "targetKo": "휴대폰 배터리가 다 돼서 전화를 못 받았어요.",
+      "distractors": [
+        "카메라가",
+        "라디오가"
+      ],
+      "promptDe": "Mein Handyakku war leer, deshalb konnte ich nicht rangehen.",
+      "promptEn": "My phone battery died, so I couldn't answer the call.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0504",
+      "sourceVocabId": "vocab_b1_0509",
+      "vocabKo": "사용법",
+      "targetKo": "새로 산 세탁기 사용법을 잘 모르겠어요.",
+      "distractors": [
+        "이름을",
+        "색깔을"
+      ],
+      "promptDe": "Ich weiß nicht so recht, wie die neue Waschmaschine funktioniert.",
+      "promptEn": "I'm not really sure how to use the new washing machine.",
+      "level": "b1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "id": "satz_b1_0505",
+      "sourceVocabId": "vocab_b1_0510",
+      "vocabKo": "아끼다",
+      "targetKo": "돈을 아끼려고 요즘 집에서 밥을 해 먹어요.",
+      "distractors": [
+        "버리려고",
+        "빌리려고"
+      ],
+      "promptDe": "Um Geld zu sparen, koche ich zurzeit zu Hause.",
+      "promptEn": "I've been cooking at home lately to save money.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0506",
+      "sourceVocabId": "vocab_b1_0511",
+      "vocabKo": "옮기다",
+      "targetKo": "크리스티안 씨, 이 상자 좀 같이 옮겨 줄 수 있어요?",
+      "distractors": [
+        "입어",
+        "읽어"
+      ],
+      "promptDe": "Christian, kannst du mir helfen, diese Kiste zu tragen?",
+      "promptEn": "Christian, could you help me carry this box?",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0507",
+      "sourceVocabId": "vocab_b1_0512",
+      "vocabKo": "잠그다",
+      "targetKo": "집에서 나갈 때 문을 꼭 잠가 주세요.",
+      "distractors": [
+        "팔아",
+        "찾아"
+      ],
+      "promptDe": "Bitte schließen Sie die Tür ab, wenn Sie aus dem Haus gehen.",
+      "promptEn": "Please make sure to lock the door when you leave the house.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0508",
+      "sourceVocabId": "vocab_b1_0513",
+      "vocabKo": "널다",
+      "targetKo": "날씨가 좋아서 베란다에 빨래를 널었어요.",
+      "distractors": [
+        "먹었어요",
+        "읽었어요"
+      ],
+      "promptDe": "Bei dem schönen Wetter habe ich die Wäsche auf dem Balkon aufgehängt.",
+      "promptEn": "The weather was nice, so I hung laundry on the balcony.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0509",
+      "sourceVocabId": "vocab_b1_0514",
+      "vocabKo": "쏟다",
+      "targetKo": "아침에 급하게 나가다가 커피를 쏟았어요.",
+      "distractors": [
+        "팔았어요",
+        "닫았어요"
+      ],
+      "promptDe": "Als ich morgens in Eile losging, habe ich meinen Kaffee verschüttet.",
+      "promptEn": "I spilled my coffee while rushing out this morning.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0510",
+      "sourceVocabId": "vocab_b1_0515",
+      "vocabKo": "깨지다",
+      "targetKo": "어제 설거지하다가 접시가 하나 깨졌어요.",
+      "distractors": [
+        "커졌어요",
+        "길어졌어요"
+      ],
+      "promptDe": "Gestern ist mir beim Abwaschen ein Teller zerbrochen.",
+      "promptEn": "Yesterday a plate broke while I was doing the dishes.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0511",
+      "sourceVocabId": "vocab_b1_0516",
+      "vocabKo": "묶다",
+      "targetKo": "저는 운동할 때 머리를 뒤로 묶어요.",
+      "distractors": [
+        "씻어요",
+        "그려요"
+      ],
+      "promptDe": "Beim Sport binde ich mir die Haare zurück.",
+      "promptEn": "When I work out, I tie my hair back.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0512",
+      "sourceVocabId": "vocab_b1_0517",
+      "vocabKo": "덮다",
+      "targetKo": "밤에는 추워서 두꺼운 이불을 덮고 자요.",
+      "distractors": [
+        "팔고",
+        "찾고"
+      ],
+      "promptDe": "Nachts ist es kalt, deshalb schlafe ich unter einer dicken Decke.",
+      "promptEn": "It's cold at night, so I sleep under a thick blanket.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0513",
+      "sourceVocabId": "vocab_b1_0518",
+      "vocabKo": "채우다",
+      "targetKo": "냉장고를 채우려고 마트에서 장을 많이 봤어요.",
+      "distractors": [
+        "고치려고",
+        "버리려고"
+      ],
+      "promptDe": "Ich habe im Supermarkt groß eingekauft, um den Kühlschrank zu füllen.",
+      "promptEn": "I did a big grocery run to fill up the fridge.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0514",
+      "sourceVocabId": "vocab_b1_0519",
+      "vocabKo": "밀리다",
+      "targetKo": "퇴근 시간이라 길이 많이 밀려요.",
+      "distractors": [
+        "열려요",
+        "팔려요"
+      ],
+      "promptDe": "Es ist Feierabendverkehr, deshalb staut es sich ziemlich.",
+      "promptEn": "It's rush hour, so traffic is really backed up.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0515",
+      "sourceVocabId": "vocab_b1_0520",
+      "vocabKo": "놓치다",
+      "targetKo": "늦잠을 자서 버스를 놓쳤어요.",
+      "distractors": [
+        "고쳤어요",
+        "가르쳤어요"
+      ],
+      "promptDe": "Ich habe verschlafen und den Bus verpasst.",
+      "promptEn": "I overslept and missed the bus.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0516",
+      "sourceVocabId": "vocab_b1_0521",
+      "vocabKo": "사라지다",
+      "targetKo": "집 앞에 세워 둔 자전거가 사라졌어요.",
+      "distractors": [
+        "열렸어요",
+        "닫혔어요"
+      ],
+      "promptDe": "Das Fahrrad, das ich vor dem Haus abgestellt hatte, ist verschwunden.",
+      "promptEn": "The bike I'd left in front of the house has disappeared.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0517",
+      "sourceVocabId": "vocab_b1_0522",
+      "vocabKo": "속상하다",
+      "targetKo": "열심히 준비했는데 시험에 떨어져서 너무 속상해요.",
+      "distractors": [
+        "행복해요",
+        "편해요"
+      ],
+      "promptDe": "Ich habe mich so gut vorbereitet und bin trotzdem durchgefallen, ich bin total geknickt.",
+      "promptEn": "I prepared so hard and still failed the exam, so I'm really upset.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0518",
+      "sourceVocabId": "vocab_b1_0523",
+      "vocabKo": "아쉽다",
+      "targetKo": "벌써 여행이 끝나서 정말 아쉬워요.",
+      "distractors": [
+        "가벼워요",
+        "무거워요"
+      ],
+      "promptDe": "Wirklich schade, dass die Reise schon vorbei ist.",
+      "promptEn": "It's a real shame the trip is already over.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0519",
+      "sourceVocabId": "vocab_b1_0524",
+      "vocabKo": "창피",
+      "targetKo": "사람들 앞에서 넘어져서 너무 창피했어요.",
+      "distractors": [
+        "시원했어요",
+        "깨끗했어요"
+      ],
+      "promptDe": "Ich bin vor allen Leuten hingefallen, das war mir total peinlich.",
+      "promptEn": "I fell over in front of everyone, and it was so embarrassing.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0520",
+      "sourceVocabId": "vocab_b1_0525",
+      "vocabKo": "실망",
+      "targetKo": "기대를 많이 했는데 결과가 안 좋아서 실망했어요.",
+      "distractors": [
+        "졸업했어요",
+        "출발했어요"
+      ],
+      "promptDe": "Ich hatte mir viel erhofft, aber das Ergebnis war schlecht, deshalb war ich enttäuscht.",
+      "promptEn": "I had high hopes, but the result was bad, so I was disappointed.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0521",
+      "sourceVocabId": "vocab_b1_0526",
+      "vocabKo": "안심",
+      "targetKo": "아이한테서 잘 도착했다고 문자가 와서 안심했어요.",
+      "distractors": [
+        "실수했어요",
+        "결석했어요"
+      ],
+      "promptDe": "Mein Kind hat geschrieben, dass es gut angekommen ist, da war ich erleichtert.",
+      "promptEn": "My kid texted that they'd arrived safely, so I felt relieved.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0522",
+      "sourceVocabId": "vocab_b1_0527",
+      "vocabKo": "다행히",
+      "targetKo": "지갑을 잃어버렸는데 다행히 누가 경찰서에 맡겨 줬어요.",
+      "distractors": [
+        "천천히",
+        "조용히"
+      ],
+      "promptDe": "Ich hatte meinen Geldbeutel verloren, aber zum Glück hat ihn jemand bei der Polizei abgegeben.",
+      "promptEn": "I lost my wallet, but luckily someone handed it in to the police.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0523",
+      "sourceVocabId": "vocab_b1_0528",
+      "vocabKo": "혼나다",
+      "targetKo": "어릴 때 동생이랑 싸워서 엄마한테 많이 혼났어요.",
+      "distractors": [
+        "만났어요",
+        "끝났어요"
+      ],
+      "promptDe": "Als Kind hat mich meine Mutter oft ausgeschimpft, weil ich mich mit meinem Bruder gestritten habe.",
+      "promptEn": "As a kid, I often got scolded by my mom for fighting with my brother.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0524",
+      "sourceVocabId": "vocab_b1_0529",
+      "vocabKo": "부러워하다",
+      "targetKo": "동생은 제가 해외에서 공부하는 걸 많이 부러워해요.",
+      "distractors": [
+        "무서워해요",
+        "어려워해요"
+      ],
+      "promptDe": "Mein jüngerer Bruder beneidet mich sehr darum, dass ich im Ausland studiere.",
+      "promptEn": "My younger brother really envies me for studying abroad.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0525",
+      "sourceVocabId": "vocab_b1_0530",
+      "vocabKo": "불만",
+      "targetKo": "손님이 음식이 늦게 나왔다고 불만을 이야기했어요.",
+      "distractors": [
+        "이름을",
+        "선물을"
+      ],
+      "promptDe": "Ein Gast hat sich beschwert, dass das Essen zu spät kam.",
+      "promptEn": "A customer complained that the food came out late.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0526",
+      "sourceVocabId": "vocab_b1_0531",
+      "vocabKo": "존경",
+      "targetKo": "저는 어려운 사람을 늘 돕는 할머니를 존경해요.",
+      "distractors": [
+        "졸업해요",
+        "출발해요"
+      ],
+      "promptDe": "Ich habe großen Respekt vor meiner Oma, weil sie immer Bedürftigen hilft.",
+      "promptEn": "I respect my grandmother, who always helps people in need.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0527",
+      "sourceVocabId": "vocab_b1_0532",
+      "vocabKo": "우정",
+      "targetKo": "앞으로도 우리 우정이 변하지 않았으면 좋겠어요.",
+      "distractors": [
+        "시험이",
+        "수업이"
+      ],
+      "promptDe": "Ich hoffe, dass sich unsere Freundschaft auch in Zukunft nicht ändert.",
+      "promptEn": "I hope our friendship never changes.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0528",
+      "sourceVocabId": "vocab_b1_0533",
+      "vocabKo": "진심",
+      "targetKo": "수진 씨, 진심으로 고마워요. 덕분에 이사를 잘 끝냈어요.",
+      "distractors": [
+        "오른쪽으로",
+        "왼쪽으로"
+      ],
+      "promptDe": "Sujin, ich danke dir von Herzen. Dank dir hat der Umzug gut geklappt.",
+      "promptEn": "Sujin, I'm truly grateful. Thanks to you, the move went smoothly.",
+      "level": "b1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "id": "satz_b1_0529",
+      "sourceVocabId": "vocab_b1_0534",
+      "vocabKo": "가렵다",
+      "targetKo": "이 약을 먹은 후부터 몸이 계속 가려워요.",
+      "distractors": [
+        "쉬워요",
+        "귀여워요"
+      ],
+      "promptDe": "Seit ich dieses Medikament nehme, juckt es mich am ganzen Körper.",
+      "promptEn": "Ever since I took this medicine, my body has been itching.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0530",
+      "sourceVocabId": "vocab_b1_0535",
+      "vocabKo": "어지럽다",
+      "targetKo": "잠을 못 자서 머리가 좀 어지러워요.",
+      "distractors": [
+        "가까워요",
+        "부드러워요"
+      ],
+      "promptDe": "Ich habe nicht geschlafen, deshalb ist mir etwas schwindlig.",
+      "promptEn": "I didn't sleep, so I feel a bit dizzy.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0531",
+      "sourceVocabId": "vocab_b1_0536",
+      "vocabKo": "붓다",
+      "targetKo": "어제 라면을 먹고 자서 얼굴이 많이 부었어요.",
+      "distractors": [
+        "웃었어요",
+        "씻었어요"
+      ],
+      "promptDe": "Ich habe gestern vor dem Schlafen Ramyeon gegessen, jetzt ist mein Gesicht ganz geschwollen.",
+      "promptEn": "I ate ramyeon right before bed last night, so my face is really puffy.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0532",
+      "sourceVocabId": "vocab_b1_0537",
+      "vocabKo": "코피",
+      "targetKo": "너무 피곤해서 아침에 코피가 났어요.",
+      "distractors": [
+        "주스가",
+        "커피가"
+      ],
+      "promptDe": "Ich war so müde, dass ich heute Morgen Nasenbluten hatte.",
+      "promptEn": "I was so tired that I got a nosebleed this morning.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0533",
+      "sourceVocabId": "vocab_b1_0538",
+      "vocabKo": "멀미",
+      "targetKo": "버스를 오래 타면 멀미가 나요.",
+      "distractors": [
+        "허리가",
+        "모자가"
+      ],
+      "promptDe": "Wenn ich lange Bus fahre, wird mir schlecht.",
+      "promptEn": "I get carsick on long bus rides.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0534",
+      "sourceVocabId": "vocab_b1_0539",
+      "vocabKo": "체하다",
+      "targetKo": "점심을 너무 빨리 먹어서 체한 것 같아요.",
+      "distractors": [
+        "운동한",
+        "청소한"
+      ],
+      "promptDe": "Ich habe mittags zu schnell gegessen und habe wohl eine Magenverstimmung.",
+      "promptEn": "I ate lunch too fast, and I think I have indigestion.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0535",
+      "sourceVocabId": "vocab_b1_0540",
+      "vocabKo": "소화",
+      "targetKo": "저녁을 많이 먹어서 소화가 잘 안 돼요.",
+      "distractors": [
+        "시계가",
+        "치마가"
+      ],
+      "promptDe": "Ich habe abends zu viel gegessen, jetzt liegt es mir schwer im Magen.",
+      "promptEn": "I ate a lot for dinner, and it's not digesting well.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0536",
+      "sourceVocabId": "vocab_b1_0541",
+      "vocabKo": "발목",
+      "targetKo": "어제 계단에서 넘어져서 발목을 다쳤어요.",
+      "distractors": [
+        "가방을",
+        "책상을"
+      ],
+      "promptDe": "Ich bin gestern die Treppe hinuntergefallen und habe mir den Knöchel verletzt.",
+      "promptEn": "I fell on the stairs yesterday and hurt my ankle.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0537",
+      "sourceVocabId": "vocab_b1_0542",
+      "vocabKo": "몸살",
+      "targetKo": "요즘 일이 많아서 몸살이 났어요.",
+      "distractors": [
+        "시험이",
+        "약속이"
+      ],
+      "promptDe": "Ich hatte zurzeit so viel Arbeit, dass ich jetzt Gliederschmerzen habe.",
+      "promptEn": "I've had so much work lately that I've got body aches.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0538",
+      "sourceVocabId": "vocab_b1_0543",
+      "vocabKo": "독감",
+      "targetKo": "독감 예방 주사를 맞으러 병원에 갔어요.",
+      "distractors": [
+        "치과",
+        "두통"
+      ],
+      "promptDe": "Ich bin zum Arzt gegangen, um mich gegen Grippe impfen zu lassen.",
+      "promptEn": "I went to the clinic to get a flu shot.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0539",
+      "sourceVocabId": "vocab_b1_0544",
+      "vocabKo": "진찰",
+      "targetKo": "열이 계속 나서 병원에서 진찰을 받았어요.",
+      "distractors": [
+        "월급을",
+        "선물을"
+      ],
+      "promptDe": "Ich hatte immer noch Fieber, deshalb habe ich mich im Krankenhaus untersuchen lassen.",
+      "promptEn": "My fever wouldn't go away, so I got examined at the hospital.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0540",
+      "sourceVocabId": "vocab_b1_0545",
+      "vocabKo": "응급실",
+      "targetKo": "밤에 배가 너무 아파서 응급실에 갔어요.",
+      "distractors": [
+        "도서관에",
+        "영화관에"
+      ],
+      "promptDe": "Nachts hatte ich so starke Bauchschmerzen, dass ich in die Notaufnahme gegangen bin.",
+      "promptEn": "My stomach hurt so badly at night that I went to the emergency room.",
+      "level": "b1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "id": "satz_b1_0541",
+      "sourceVocabId": "vocab_b1_0546",
+      "vocabKo": "낡다",
+      "targetKo": "신발이 너무 낡아서 새로 하나 샀어요.",
+      "distractors": [
+        "좋아서",
+        "괜찮아서"
+      ],
+      "promptDe": "Meine Schuhe waren völlig abgelaufen, deshalb habe ich mir neue gekauft.",
+      "promptEn": "My shoes were really worn out, so I bought a new pair.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0542",
+      "sourceVocabId": "vocab_b1_0547",
+      "vocabKo": "깔끔하다",
+      "targetKo": "새로 이사한 방은 작지만 깔끔해서 마음에 들어요.",
+      "distractors": [
+        "복잡해서",
+        "불편해서"
+      ],
+      "promptDe": "Mein neues Zimmer ist klein, aber ordentlich, das gefällt mir.",
+      "promptEn": "My new room is small but neat, and I like it.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0543",
+      "sourceVocabId": "vocab_b1_0548",
+      "vocabKo": "지저분하다",
+      "targetKo": "동생 방이 너무 지저분해서 같이 청소했어요.",
+      "distractors": [
+        "따뜻해서",
+        "편해서"
+      ],
+      "promptDe": "Das Zimmer meines jüngeren Bruders war total unordentlich, deshalb haben wir zusammen aufgeräumt.",
+      "promptEn": "My younger brother's room was so messy that we cleaned it together.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0544",
+      "sourceVocabId": "vocab_b1_0549",
+      "vocabKo": "싱싱하다",
+      "targetKo": "시장에서 산 생선이 정말 싱싱해요.",
+      "distractors": [
+        "똑똑해요",
+        "친절해요"
+      ],
+      "promptDe": "Der Fisch vom Markt ist wirklich frisch.",
+      "promptEn": "The fish I bought at the market is really fresh.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0545",
+      "sourceVocabId": "vocab_b1_0550",
+      "vocabKo": "낯설다",
+      "targetKo": "한국에 처음 왔을 때 모든 것이 낯설었어요.",
+      "distractors": [
+        "길었어요",
+        "멀었어요"
+      ],
+      "promptDe": "Als ich zum ersten Mal nach Korea kam, war mir alles fremd.",
+      "promptEn": "When I first came to Korea, everything felt unfamiliar.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0546",
+      "sourceVocabId": "vocab_b1_0551",
+      "vocabKo": "신기하다",
+      "targetKo": "한국에서는 밤늦게도 음식을 배달해 줘서 정말 신기했어요.",
+      "distractors": [
+        "심심했어요",
+        "피곤했어요"
+      ],
+      "promptDe": "Ich fand es echt erstaunlich, dass man sich in Korea auch spätabends Essen liefern lassen kann.",
+      "promptEn": "I was really amazed that in Korea you can get food delivered even late at night.",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0547",
+      "sourceVocabId": "vocab_b1_0552",
+      "vocabKo": "멋지다",
+      "targetKo": "마야 씨, 오늘 입은 재킷 정말 멋지네요!",
+      "distractors": [
+        "시끄럽네요",
+        "짜네요"
+      ],
+      "promptDe": "Maya, deine Jacke heute sieht echt toll aus!",
+      "promptEn": "Maya, the jacket you're wearing today looks really great!",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_b1_0548",
+      "sourceVocabId": "vocab_b1_0553",
+      "vocabKo": "대단하다",
+      "targetKo": "다니엘 씨, 매일 아침 10킬로미터씩 뛰어요? 정말 대단해요!",
+      "distractors": [
+        "심심해요",
+        "답답해요"
+      ],
+      "promptDe": "Daniel, du läufst jeden Morgen zehn Kilometer? Echt beeindruckend!",
+      "promptEn": "Daniel, you run ten kilometers every morning? That's really impressive!",
+      "level": "b1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "id": "satz_c1_0253",
+      "sourceVocabId": "vocab_c1_0241",
+      "vocabKo": "여론",
+      "targetKo": "정치인들은 여론의 흐름을 살피며 발언 수위를 조절했다.",
+      "distractors": [
+        "서론의",
+        "토대의"
+      ],
+      "promptDe": "Die Politiker verfolgten, wie sich die öffentliche Meinung entwickelte, und passten den Ton ihrer Äußerungen an.",
+      "promptEn": "Politicians watched how public opinion was shifting and adjusted the tone of their remarks.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0254",
+      "sourceVocabId": "vocab_c1_0242",
+      "vocabKo": "일간지",
+      "targetKo": "그 사건은 다음 날 주요 일간지의 1면을 차지했다.",
+      "distractors": [
+        "응답자의",
+        "실무의"
+      ],
+      "promptDe": "Der Vorfall stand am nächsten Tag auf den Titelseiten der großen Tageszeitungen.",
+      "promptEn": "The incident made the front pages of the major daily newspapers the next day.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0255",
+      "sourceVocabId": "vocab_c1_0243",
+      "vocabKo": "칼럼",
+      "targetKo": "그는 매주 신문에 경제 칼럼을 쓰고 있다.",
+      "distractors": [
+        "매출을",
+        "응용을"
+      ],
+      "promptDe": "Er schreibt jede Woche eine Wirtschaftskolumne für eine Zeitung.",
+      "promptEn": "He writes a weekly economics column for a newspaper.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0256",
+      "sourceVocabId": "vocab_c1_0244",
+      "vocabKo": "허위",
+      "targetKo": "확인되지 않은 허위 정보가 온라인에서 빠르게 퍼졌다.",
+      "distractors": [
+        "서론",
+        "토대"
+      ],
+      "promptDe": "Unbestätigte Falschinformationen verbreiteten sich online rasant.",
+      "promptEn": "Unverified false information spread quickly online.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0257",
+      "sourceVocabId": "vocab_c1_0245",
+      "vocabKo": "헛소문",
+      "targetKo": "회사가 문을 닫는다는 헛소문 때문에 직원들이 불안해했다.",
+      "distractors": [
+        "핵가족",
+        "응용"
+      ],
+      "promptDe": "Wegen des haltlosen Gerüchts, die Firma werde schließen, waren die Beschäftigten beunruhigt.",
+      "promptEn": "Employees were anxious because of a groundless rumor that the company would close.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0258",
+      "sourceVocabId": "vocab_c1_0246",
+      "vocabKo": "해명",
+      "targetKo": "대변인은 문제가 된 발언에 대해 공식적으로 해명했다.",
+      "distractors": [
+        "응용했다",
+        "양육했다"
+      ],
+      "promptDe": "Der Sprecher nahm offiziell Stellung zu der umstrittenen Äußerung.",
+      "promptEn": "The spokesperson gave an official explanation of the controversial remark.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0259",
+      "sourceVocabId": "vocab_c1_0247",
+      "vocabKo": "실태",
+      "targetKo": "이번 보도는 청년들이 겪는 주거 문제의 실태를 자세히 보여 준다.",
+      "distractors": [
+        "금리를",
+        "해고를"
+      ],
+      "promptDe": "Der Bericht zeigt im Detail, wie es um die Wohnprobleme junger Menschen tatsächlich steht.",
+      "promptEn": "The report shows in detail the reality of the housing problems young people face.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0260",
+      "sourceVocabId": "vocab_c1_0248",
+      "vocabKo": "현황",
+      "targetKo": "정부는 매달 지역별 일자리 현황을 발표한다.",
+      "distractors": [
+        "서론을",
+        "근원을"
+      ],
+      "promptDe": "Die Regierung veröffentlicht jeden Monat den aktuellen Stand der Arbeitsplätze nach Regionen.",
+      "promptEn": "Every month, the government publishes the current job situation by region.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0261",
+      "sourceVocabId": "vocab_c1_0249",
+      "vocabKo": "추세",
+      "targetKo": "1인 가구가 늘어나는 추세는 앞으로도 이어질 전망이다.",
+      "distractors": [
+        "토대는",
+        "금리는"
+      ],
+      "promptDe": "Der Trend zu immer mehr Einpersonenhaushalten wird sich voraussichtlich fortsetzen.",
+      "promptEn": "The trend toward more single-person households is expected to continue.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0262",
+      "sourceVocabId": "vocab_c1_0250",
+      "vocabKo": "응답자",
+      "targetKo": "응답자의 절반 이상이 물가 상승을 가장 큰 걱정으로 꼽았다.",
+      "distractors": [
+        "도표의",
+        "서론의"
+      ],
+      "promptDe": "Mehr als die Hälfte der Befragten nannte steigende Preise als ihre größte Sorge.",
+      "promptEn": "More than half of the respondents named rising prices as their biggest worry.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0263",
+      "sourceVocabId": "vocab_c1_0251",
+      "vocabKo": "과대평가",
+      "targetKo": "일부 언론은 신약의 효과를 과대평가해 보도했다.",
+      "distractors": [
+        "양육해",
+        "창업해"
+      ],
+      "promptDe": "Einige Medien überschätzten in ihren Berichten die Wirkung des neuen Medikaments.",
+      "promptEn": "Some media outlets overstated the new drug's effect in their reports.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0264",
+      "sourceVocabId": "vocab_c1_0252",
+      "vocabKo": "중립적",
+      "targetKo": "기자는 어느 한쪽 편을 들지 않고 중립적인 입장에서 보도하려고 했다.",
+      "distractors": [
+        "일방적인",
+        "감정적인"
+      ],
+      "promptDe": "Der Journalist bemühte sich, ohne Partei zu ergreifen, aus einer neutralen Position zu berichten.",
+      "promptEn": "The reporter tried to report from a neutral position without taking either side.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0265",
+      "sourceVocabId": "vocab_c1_0253",
+      "vocabKo": "저출산",
+      "targetKo": "저출산이 계속되면서 문을 닫는 초등학교가 늘고 있다.",
+      "distractors": [
+        "매출이",
+        "실적이"
+      ],
+      "promptDe": "Weil die Geburtenrate niedrig bleibt, schließen immer mehr Grundschulen.",
+      "promptEn": "As the birth rate stays low, more and more elementary schools are closing.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0266",
+      "sourceVocabId": "vocab_c1_0254",
+      "vocabKo": "출산율",
+      "targetKo": "정부는 출산율을 높이기 위해 육아 지원을 확대했다.",
+      "distractors": [
+        "실업률을",
+        "소외감을"
+      ],
+      "promptDe": "Um die Geburtenrate zu erhöhen, hat die Regierung die Unterstützung bei der Kinderbetreuung ausgeweitet.",
+      "promptEn": "The government expanded childcare support to raise the birth rate.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0267",
+      "sourceVocabId": "vocab_c1_0255",
+      "vocabKo": "도시화",
+      "targetKo": "빠른 도시화로 농촌 인구가 크게 줄었다.",
+      "distractors": [
+        "도표로",
+        "응답자로"
+      ],
+      "promptDe": "Durch die rasche Verstädterung ist die Landbevölkerung stark geschrumpft.",
+      "promptEn": "Rapid urbanization has sharply reduced the rural population.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0268",
+      "sourceVocabId": "vocab_c1_0256",
+      "vocabKo": "핵가족",
+      "targetKo": "핵가족이 늘면서 명절 풍경도 많이 달라졌다.",
+      "distractors": [
+        "실적이",
+        "논술이"
+      ],
+      "promptDe": "Mit der Zunahme der Kleinfamilien haben sich auch die Feiertage stark verändert.",
+      "promptEn": "As nuclear families have become more common, holidays have changed a great deal.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0269",
+      "sourceVocabId": "vocab_c1_0257",
+      "vocabKo": "기성세대",
+      "targetKo": "젊은 세대와 기성세대는 일과 삶의 균형을 바라보는 시각이 다르다.",
+      "distractors": [
+        "금리는",
+        "해고는"
+      ],
+      "promptDe": "Die junge und die ältere Generation blicken unterschiedlich auf das Verhältnis von Arbeit und Leben.",
+      "promptEn": "The younger and older generations see the balance between work and life differently.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0270",
+      "sourceVocabId": "vocab_c1_0258",
+      "vocabKo": "양육",
+      "targetKo": "맞벌이 부부에게 자녀 양육은 여전히 큰 부담이다.",
+      "distractors": [
+        "응용은",
+        "매출은"
+      ],
+      "promptDe": "Für Doppelverdienerpaare ist die Kindererziehung nach wie vor eine große Belastung.",
+      "promptEn": "For dual-income couples, raising children is still a heavy burden.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0271",
+      "sourceVocabId": "vocab_c1_0259",
+      "vocabKo": "연령층",
+      "targetKo": "이 서비스는 모든 연령층이 쉽게 이용할 수 있도록 설계되었다.",
+      "distractors": [
+        "현황이",
+        "실적이"
+      ],
+      "promptDe": "Dieser Dienst wurde so gestaltet, dass ihn alle Altersgruppen leicht nutzen können.",
+      "promptEn": "This service was designed so that people of all age groups can use it easily.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0272",
+      "sourceVocabId": "vocab_c1_0260",
+      "vocabKo": "서민",
+      "targetKo": "물가가 오르면서 서민의 생활은 더욱 어려워졌다.",
+      "distractors": [
+        "도표의",
+        "논술의"
+      ],
+      "promptDe": "Mit den steigenden Preisen ist das Leben der einfachen Leute noch schwerer geworden.",
+      "promptEn": "As prices have risen, life has become even harder for ordinary people.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0273",
+      "sourceVocabId": "vocab_c1_0261",
+      "vocabKo": "소외감",
+      "targetKo": "스마트폰 사용에 익숙하지 않은 노인들은 소외감을 느끼기 쉽다.",
+      "distractors": [
+        "현황을",
+        "실업률을"
+      ],
+      "promptDe": "Ältere Menschen, die mit Smartphones nicht vertraut sind, fühlen sich leicht ausgegrenzt.",
+      "promptEn": "Older people who are not used to smartphones can easily feel left out.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0274",
+      "sourceVocabId": "vocab_c1_0262",
+      "vocabKo": "다양성",
+      "targetKo": "외국인 주민이 늘면서 학교에서도 문화적 다양성을 존중하는 교육이 중요해졌다.",
+      "distractors": [
+        "실업률을",
+        "출산율을"
+      ],
+      "promptDe": "Da immer mehr ausländische Einwohner hier leben, ist auch an Schulen eine Bildung wichtig geworden, die kulturelle Vielfalt respektiert.",
+      "promptEn": "As the number of foreign residents grows, education that respects cultural diversity has become important in schools too.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0275",
+      "sourceVocabId": "vocab_c1_0263",
+      "vocabKo": "획일적",
+      "targetKo": "모든 지역에 똑같이 적용되는 획일적인 기준으로는 지역별 문제를 해결하기 어렵다.",
+      "distractors": [
+        "낙천적인",
+        "감상적인"
+      ],
+      "promptDe": "Mit starren Einheitskriterien, die für alle Regionen gleich gelten, lassen sich regionale Probleme kaum lösen.",
+      "promptEn": "Uniform standards applied identically to every region can hardly solve region-specific problems.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0276",
+      "sourceVocabId": "vocab_c1_0264",
+      "vocabKo": "보편화",
+      "targetKo": "스마트폰이 보편화되면서 종이 신문을 읽는 사람이 크게 줄었다.",
+      "distractors": [
+        "도시화되면서",
+        "해고되면서"
+      ],
+      "promptDe": "Seit Smartphones allgemein verbreitet sind, lesen deutlich weniger Menschen gedruckte Zeitungen.",
+      "promptEn": "Since smartphones became widespread, far fewer people read print newspapers.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0277",
+      "sourceVocabId": "vocab_c1_0265",
+      "vocabKo": "채용",
+      "targetKo": "그 회사는 올해 신입 사원 채용을 두 배로 늘렸다.",
+      "distractors": [
+        "실업률을",
+        "출산율을"
+      ],
+      "promptDe": "Das Unternehmen hat in diesem Jahr doppelt so viele Berufseinsteiger eingestellt.",
+      "promptEn": "The company doubled its hiring of new employees this year.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0278",
+      "sourceVocabId": "vocab_c1_0266",
+      "vocabKo": "이직",
+      "targetKo": "연봉보다 근무 환경 때문에 이직을 결심하는 직장인이 많다.",
+      "distractors": [
+        "전문성을",
+        "다양성을"
+      ],
+      "promptDe": "Viele Angestellte entschließen sich eher wegen des Arbeitsumfelds als wegen des Gehalts zu einem Jobwechsel.",
+      "promptEn": "Many employees decide to change jobs because of the work environment rather than the salary.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0279",
+      "sourceVocabId": "vocab_c1_0267",
+      "vocabKo": "실무",
+      "targetKo": "안드레아 씨는 오랫동안 쌓은 실무 경험 덕분에 팀원들의 신뢰를 받는다.",
+      "distractors": [
+        "계절",
+        "평등"
+      ],
+      "promptDe": "Dank ihrer langjährigen Praxiserfahrung genießt Andrea das Vertrauen ihres Teams.",
+      "promptEn": "Thanks to years of hands-on experience, Andrea has her team's trust.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0280",
+      "sourceVocabId": "vocab_c1_0268",
+      "vocabKo": "실적",
+      "targetKo": "지난해 실적이 예상보다 좋아 주가가 올랐다.",
+      "distractors": [
+        "습관이",
+        "가설이"
+      ],
+      "promptDe": "Weil die Ergebnisse des vergangenen Jahres besser als erwartet ausfielen, stieg der Aktienkurs.",
+      "promptEn": "Last year's results were better than expected, so the share price rose.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0281",
+      "sourceVocabId": "vocab_c1_0269",
+      "vocabKo": "정규직",
+      "targetKo": "그는 계약직으로 입사한 지 2년 만에 정규직으로 전환되었다.",
+      "distractors": [
+        "균형으로",
+        "평등으로"
+      ],
+      "promptDe": "Zwei Jahre nach seinem Einstieg mit befristetem Vertrag wurde er fest angestellt.",
+      "promptEn": "Two years after joining on a fixed-term contract, he became a permanent employee.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0282",
+      "sourceVocabId": "vocab_c1_0270",
+      "vocabKo": "해고",
+      "targetKo": "회사는 경영이 어렵다는 이유로 직원을 함부로 해고할 수 없다.",
+      "distractors": [
+        "양육할",
+        "창업할"
+      ],
+      "promptDe": "Ein Unternehmen darf Beschäftigte nicht einfach entlassen, nur weil es wirtschaftlich schwierig ist.",
+      "promptEn": "A company cannot simply dismiss employees on the grounds that business is difficult.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0283",
+      "sourceVocabId": "vocab_c1_0271",
+      "vocabKo": "창업",
+      "targetKo": "그는 대학을 졸업하자마자 친구들과 창업에 뛰어들었다.",
+      "distractors": [
+        "균형에",
+        "기억에"
+      ],
+      "promptDe": "Gleich nach dem Studium gründete er mit Freunden ein eigenes Unternehmen.",
+      "promptEn": "Right after graduating from university, he jumped into starting a business with friends.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0284",
+      "sourceVocabId": "vocab_c1_0272",
+      "vocabKo": "자영업자",
+      "targetKo": "경기가 나빠지면서 문을 닫는 자영업자가 늘고 있다.",
+      "distractors": [
+        "휴가가",
+        "날씨가"
+      ],
+      "promptDe": "Da sich die Konjunktur verschlechtert, geben immer mehr Selbstständige ihr Geschäft auf.",
+      "promptEn": "As the economy worsens, more and more self-employed people are closing their businesses.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0285",
+      "sourceVocabId": "vocab_c1_0273",
+      "vocabKo": "매출",
+      "targetKo": "온라인 판매가 늘어난 덕분에 올해 매출이 작년보다 크게 올랐다.",
+      "distractors": [
+        "습관이",
+        "가설이"
+      ],
+      "promptDe": "Dank des wachsenden Onlinehandels ist der Umsatz in diesem Jahr deutlich höher als im Vorjahr.",
+      "promptEn": "Thanks to growing online sales, revenue rose sharply this year compared with last year.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0286",
+      "sourceVocabId": "vocab_c1_0274",
+      "vocabKo": "침체",
+      "targetKo": "경기 침체가 길어지면서 소비 심리도 얼어붙었다.",
+      "distractors": [
+        "휴가가",
+        "교과서가"
+      ],
+      "promptDe": "Weil die Konjunkturflaute anhält, ist auch die Kauflaune eingebrochen.",
+      "promptEn": "As the economic slump drags on, consumer sentiment has frozen too.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0287",
+      "sourceVocabId": "vocab_c1_0275",
+      "vocabKo": "금리",
+      "targetKo": "은행들이 금리를 올리자 대출 이자 부담이 커졌다.",
+      "distractors": [
+        "응답자를",
+        "교과서를"
+      ],
+      "promptDe": "Als die Banken die Zinsen anhoben, stieg die Zinslast für Kredite.",
+      "promptEn": "When banks raised interest rates, the interest burden on loans grew.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0288",
+      "sourceVocabId": "vocab_c1_0276",
+      "vocabKo": "전문성",
+      "targetKo": "이 업무는 높은 전문성이 요구되기 때문에 경력자를 우선 채용한다.",
+      "distractors": [
+        "소외감이",
+        "기억이"
+      ],
+      "promptDe": "Da diese Tätigkeit hohe Fachkompetenz erfordert, werden bevorzugt Berufserfahrene eingestellt.",
+      "promptEn": "Because this work requires a high level of expertise, experienced candidates are hired first.",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "id": "satz_c1_0289",
+      "sourceVocabId": "vocab_c1_0277",
+      "vocabKo": "이론적",
+      "targetKo": "이 논문은 이론적 배경과 실제 사례를 함께 다룬다.",
+      "distractors": [
+        "일방적",
+        "감정적"
+      ],
+      "promptDe": "Diese Arbeit behandelt sowohl den theoretischen Hintergrund als auch konkrete Fallbeispiele.",
+      "promptEn": "This paper covers both the theoretical background and real cases.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0290",
+      "sourceVocabId": "vocab_c1_0278",
+      "vocabKo": "체계적",
+      "targetKo": "자료를 체계적으로 정리해 두면 나중에 분석하기가 훨씬 쉽다.",
+      "distractors": [
+        "감정적으로",
+        "극단적으로"
+      ],
+      "promptDe": "Wer seine Daten systematisch ordnet, kann sie später viel leichter auswerten.",
+      "promptEn": "If you organize your data systematically, it is much easier to analyze later.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0291",
+      "sourceVocabId": "vocab_c1_0279",
+      "vocabKo": "보편적",
+      "targetKo": "자유와 평등은 국적과 관계없이 누구에게나 적용되는 보편적 가치이다.",
+      "distractors": [
+        "예외적",
+        "일방적"
+      ],
+      "promptDe": "Freiheit und Gleichheit sind universelle Werte, die unabhängig von der Staatsangehörigkeit für alle gelten.",
+      "promptEn": "Freedom and equality are universal values that apply to everyone regardless of nationality.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0292",
+      "sourceVocabId": "vocab_c1_0280",
+      "vocabKo": "전형적",
+      "targetKo": "도시로 인구가 몰리고 농촌이 비는 것은 산업화 과정의 전형적인 현상이다.",
+      "distractors": [
+        "비관적인",
+        "낙천적인"
+      ],
+      "promptDe": "Dass die Menschen in die Städte drängen und sich die Dörfer leeren, ist ein typisches Phänomen der Industrialisierung.",
+      "promptEn": "People crowding into cities while villages empty out is a typical phenomenon of industrialization.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0293",
+      "sourceVocabId": "vocab_c1_0281",
+      "vocabKo": "예외적",
+      "targetKo": "이번 결과는 예외적인 경우일 수 있으므로 추가 연구가 필요하다.",
+      "distractors": [
+        "폭력적인",
+        "낙천적인"
+      ],
+      "promptDe": "Da dieses Ergebnis ein Ausnahmefall sein könnte, sind weitere Untersuchungen nötig.",
+      "promptEn": "This result may be an exceptional case, so further research is needed.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0294",
+      "sourceVocabId": "vocab_c1_0282",
+      "vocabKo": "토대",
+      "targetKo": "이 논문은 기존 연구를 토대로 새로운 질문을 던졌다.",
+      "distractors": [
+        "휴가로",
+        "교과서로"
+      ],
+      "promptDe": "Auf der Grundlage früherer Studien warf diese Arbeit neue Fragen auf.",
+      "promptEn": "Building on earlier studies, this paper raised new questions.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0295",
+      "sourceVocabId": "vocab_c1_0283",
+      "vocabKo": "응용",
+      "targetKo": "기초 과학의 성과는 의료와 산업 분야에 폭넓게 응용된다.",
+      "distractors": [
+        "채용된다",
+        "도시화된다"
+      ],
+      "promptDe": "Die Erkenntnisse der Grundlagenforschung werden in Medizin und Industrie breit angewendet.",
+      "promptEn": "Findings from basic science are widely applied in medicine and industry.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0296",
+      "sourceVocabId": "vocab_c1_0284",
+      "vocabKo": "서론",
+      "targetKo": "현아 씨는 논문 서론에서 연구의 목적과 범위를 먼저 밝혔다.",
+      "distractors": [
+        "날씨에서",
+        "산책에서"
+      ],
+      "promptDe": "Hyuna legte in der Einleitung ihrer Arbeit zuerst Ziel und Umfang der Forschung dar.",
+      "promptEn": "In the introduction of her thesis, Hyuna first set out the aim and scope of the research.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0297",
+      "sourceVocabId": "vocab_c1_0285",
+      "vocabKo": "논술",
+      "targetKo": "대학 입시에서 논술 시험은 논리적으로 글을 쓰는 능력을 평가한다.",
+      "distractors": [
+        "침체",
+        "산책"
+      ],
+      "promptDe": "Bei der Hochschulaufnahmeprüfung bewertet der Aufsatzteil die Fähigkeit, logisch zu schreiben.",
+      "promptEn": "In university entrance exams, the essay test assesses the ability to write logically.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0298",
+      "sourceVocabId": "vocab_c1_0286",
+      "vocabKo": "뒷받침",
+      "targetKo": "주장을 뒷받침할 만한 근거가 부족하면 설득력이 떨어진다.",
+      "distractors": [
+        "양육할",
+        "창업할"
+      ],
+      "promptDe": "Fehlen Belege, die eine Behauptung untermauern, verliert sie an Überzeugungskraft.",
+      "promptEn": "If there is not enough evidence to back up a claim, it becomes less persuasive.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0299",
+      "sourceVocabId": "vocab_c1_0287",
+      "vocabKo": "근원",
+      "targetKo": "문제의 근원을 찾지 못하면 같은 오류가 되풀이될 수밖에 없다.",
+      "distractors": [
+        "다양성을",
+        "전문성을"
+      ],
+      "promptDe": "Wenn man die Wurzel des Problems nicht findet, wiederholt sich derselbe Fehler zwangsläufig.",
+      "promptEn": "If the root of a problem is not found, the same error is bound to recur.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "id": "satz_c1_0300",
+      "sourceVocabId": "vocab_c1_0288",
+      "vocabKo": "도표",
+      "targetKo": "복잡한 통계는 도표로 정리하면 한눈에 이해하기 쉽다.",
+      "distractors": [
+        "가설로",
+        "침체로"
+      ],
+      "promptDe": "Komplexe Statistiken sind auf einen Blick verständlich, wenn man sie in Diagrammen darstellt.",
+      "promptEn": "Complex statistics are easy to grasp at a glance when presented in charts.",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     }
   ]
 }

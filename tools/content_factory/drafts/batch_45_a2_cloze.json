@@ -14,7 +14,8 @@
       "de": "Wenn der Regen aufhört, gehen wir spazieren.",
       "en": "When the rain stops, let's go for a walk.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0582",
@@ -30,7 +31,8 @@
       "de": "Jetzt im Herbst ist das Wetter angenehm kühl.",
       "en": "Now that it's autumn, the weather is pleasantly cool.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0583",
@@ -46,7 +48,8 @@
       "de": "Es ist so kalt, dass die Straße vereist ist.",
       "en": "It's so cold that the road has frozen.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0584",
@@ -62,7 +65,8 @@
       "de": "Als ich nachts in den Himmel sah, waren da viele Sterne.",
       "en": "Looking up at the night sky, I saw lots of stars.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0585",
@@ -78,7 +82,8 @@
       "de": "Im Herbst bin ich mit Freunden in die Berge gefahren, um das Herbstlaub zu sehen.",
       "en": "In autumn I went to the mountains with friends to see the autumn leaves.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0586",
@@ -94,7 +99,8 @@
       "de": "In Korea gibt es vier Jahreszeiten, deshalb ist das Wetter in jeder Jahreszeit anders.",
       "en": "Korea has four seasons, so the weather is different in each one.",
       "level": "a2",
-      "topic": "Wetter"
+      "topic": "Wetter",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0587",
@@ -110,7 +116,8 @@
       "de": "Unser Hund geht sehr gern spazieren.",
       "en": "Our puppy loves going for walks.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0588",
@@ -126,7 +133,8 @@
       "de": "Ich mag Tiere, deshalb habe ich zwei Katzen.",
       "en": "I like animals, so I have two cats.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0589",
@@ -142,7 +150,8 @@
       "de": "Mein Großvater hält auf dem Land Schweine.",
       "en": "My grandfather raises pigs in the countryside.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0590",
@@ -158,7 +167,8 @@
       "de": "Als ich aufs Land kam, fraß gerade eine Kuh Gras.",
       "en": "When I went to the countryside, a cow was eating grass.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0591",
@@ -174,7 +184,8 @@
       "de": "Jeden Morgen kräht der Hahn, deshalb stehe ich früh auf.",
       "en": "The rooster crows every morning, so I get up early.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0592",
@@ -190,23 +201,25 @@
       "de": "Auf dem Berg habe ich eine Schlange gesehen und mich furchtbar erschrocken.",
       "en": "I saw a snake on the mountain and got a big fright.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0593",
       "sourceVocabId": "vocab_a2_0786",
-      "fullKo": "주말에 강 옆에서 자전거를 탔어요.",
-      "sentenceKo": "주말에 ＿＿＿ 옆에서 자전거를 탔어요.",
-      "answer": "강",
+      "fullKo": "주말에 강에 가서 사진을 찍었어요.",
+      "sentenceKo": "주말에 ＿＿＿ 가서 사진을 찍었어요.",
+      "answer": "강에",
       "distractors": [
-        "냉장고",
-        "침대",
-        "책상"
+        "냉장고에",
+        "침대에",
+        "책상에"
       ],
-      "de": "Am Wochenende bin ich am Fluss Fahrrad gefahren.",
-      "en": "On the weekend I rode my bike by the river.",
+      "de": "Am Wochenende bin ich zum Fluss gegangen und habe Fotos gemacht.",
+      "en": "On the weekend I went to the river and took photos.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0594",
@@ -222,7 +235,8 @@
       "de": "Der Apfel fiel vom Baum auf den Boden.",
       "en": "The apple fell from the tree to the ground.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0595",
@@ -238,7 +252,8 @@
       "de": "Auf dem Weg liegt ein großer Stein, da muss man aufpassen.",
       "en": "There's a big rock on the path, so you have to be careful.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0596",
@@ -254,7 +269,8 @@
       "de": "Ich möchte mich lieber in der Natur als in der Stadt erholen.",
       "en": "I'd rather relax in nature than in the city.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0597",
@@ -270,7 +286,8 @@
       "de": "Im Frühling habe ich im Garten einen Baum gepflanzt.",
       "en": "In spring I planted a tree in the yard.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0598",
@@ -286,7 +303,8 @@
       "de": "Der Baum, den ich letztes Jahr gepflanzt habe, ist stark gewachsen.",
       "en": "The tree I planted last year has grown a lot.",
       "level": "a2",
-      "topic": "Natur & Draußen"
+      "topic": "Natur & Draußen",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "id": "cloze_a2_0599",
@@ -302,7 +320,8 @@
       "de": "Zum Abendessen habe ich eine Suppe mit Kartoffeln gekocht.",
       "en": "For dinner I made soup with potatoes.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0600",
@@ -318,7 +337,8 @@
       "de": "Beim Filmschauen habe ich Knabberzeug gegessen.",
       "en": "I ate snacks while watching a movie.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0601",
@@ -334,7 +354,8 @@
       "de": "Jeden Morgen esse ich zwei Eier.",
       "en": "I eat two eggs every morning.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0602",
@@ -350,7 +371,8 @@
       "de": "Das Kind hat geweint, also habe ich ihm ein Bonbon gegeben.",
       "en": "The child was crying, so I gave them a piece of candy.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0603",
@@ -366,7 +388,8 @@
       "de": "Der Reis war alle, also habe ich im Supermarkt welchen gekauft.",
       "en": "We ran out of rice, so I bought some at the supermarket.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0604",
@@ -382,7 +405,8 @@
       "de": "Fleisch schmeckt gut, wenn man es in Salatblätter wickelt.",
       "en": "Meat is tasty when you wrap it in lettuce.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0605",
@@ -398,7 +422,8 @@
       "de": "Um Kimchi zu machen, habe ich auf dem Markt Chinakohl gekauft.",
       "en": "I bought napa cabbage at the market to make kimchi.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0606",
@@ -414,7 +439,8 @@
       "de": "Ich mag grünen Tee lieber als Kaffee.",
       "en": "I like green tea more than coffee.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0607",
@@ -430,7 +456,8 @@
       "de": "Zum Frühstück habe ich Toast mit Marmelade gegessen.",
       "en": "For breakfast I had toast with jam.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0608",
@@ -446,7 +473,8 @@
       "de": "Nach der Arbeit habe ich mit einem Freund ein kühles Bier getrunken.",
       "en": "After work I had a cold beer with a friend.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0609",
@@ -462,7 +490,8 @@
       "de": "In diesem Laden ist das Obst frisch, deshalb komme ich oft her.",
       "en": "The fruit in this shop is fresh, so I come here often.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0610",
@@ -478,7 +507,8 @@
       "de": "Essen Sie die Suppe schnell, bevor sie kalt wird.",
       "en": "Please eat the soup quickly before it gets cold.",
       "level": "a2",
-      "topic": "Essen & Trinken"
+      "topic": "Essen & Trinken",
+      "courseUnitId": "a2_05_delivery_services"
     },
     {
       "id": "cloze_a2_0611",
@@ -494,7 +524,8 @@
       "de": "Der Zug kommt gleich an, machen Sie sich bereit.",
       "en": "The train is arriving soon, so get ready.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0612",
@@ -510,7 +541,8 @@
       "de": "Warten Sie bitte kurz. Ich komme gleich.",
       "en": "Please wait a moment. I'll be right there.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0613",
@@ -526,7 +558,8 @@
       "de": "Es ist schon Dezember. Die Zeit vergeht wirklich schnell.",
       "en": "It's already December. Time really flies.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0614",
@@ -542,7 +575,8 @@
       "de": "Ich bin zum Restaurant gegangen, aber es hatte bereits geschlossen.",
       "en": "I went to the restaurant, but it had already closed.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0615",
@@ -558,7 +592,8 @@
       "de": "Ich bin gerade eben zu Hause angekommen.",
       "en": "I just got home.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0616",
@@ -574,7 +609,8 @@
       "de": "Das Kimbap, das ich vorhin gegessen habe, war wirklich lecker.",
       "en": "The gimbap I ate earlier was really delicious.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0617",
@@ -590,7 +626,8 @@
       "de": "Am Wochenende ist viel los, also reservieren Sie im Voraus.",
       "en": "It's busy on weekends, so book in advance.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0618",
@@ -606,7 +643,8 @@
       "de": "Das Wetter wird immer kälter.",
       "en": "The weather is getting colder and colder.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0619",
@@ -622,7 +660,8 @@
       "de": "In letzter Zeit verliere ich ständig meinen Regenschirm.",
       "en": "Lately I keep losing my umbrella.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0620",
@@ -638,7 +677,8 @@
       "de": "Ich kann überhaupt kein scharfes Essen essen.",
       "en": "I can't eat spicy food at all.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0621",
@@ -654,7 +694,8 @@
       "de": "Ich bin mit den Hausaufgaben fast fertig.",
       "en": "I'm almost done with my homework.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0622",
@@ -670,7 +711,8 @@
       "de": "Nach dem langen Warten auf den Bus taten mir die Beine weh.",
       "en": "I waited a long time for the bus, so my legs hurt.",
       "level": "a2",
-      "topic": "Zeit"
+      "topic": "Zeit",
+      "courseUnitId": "a2_02_plans_proposals"
     },
     {
       "id": "cloze_a2_0623",
@@ -686,7 +728,8 @@
       "de": "Es sieht nach Regen aus, nehmen Sie einen Regenschirm mit.",
       "en": "It looks like rain, so take an umbrella with you.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0624",
@@ -702,7 +745,8 @@
       "de": "Bringen Sie morgen ein Wörterbuch zum Unterricht mit.",
       "en": "Please bring a dictionary to class tomorrow.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0625",
@@ -718,7 +762,8 @@
       "de": "Gehen Sie über die Straße, wenn die Ampel umschaltet.",
       "en": "Cross the street when the light changes.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0626",
@@ -734,7 +779,8 @@
       "de": "Die Schule ist nah, ich gehe täglich zu Fuß.",
       "en": "School is close, so I walk there every day.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0627",
@@ -750,7 +796,8 @@
       "de": "Der Aufzug war kaputt, deshalb bin ich die Treppe hinuntergegangen.",
       "en": "The elevator was broken, so I took the stairs down.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0628",
@@ -766,7 +813,8 @@
       "de": "Das Kind kommt nicht vom Baum herunter.",
       "en": "The child won't come down from the tree.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0629",
@@ -782,7 +830,8 @@
       "de": "Am Wochenende habe ich die Kinder in den Zoo mitgenommen.",
       "en": "On the weekend I took the kids to the zoo.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0630",
@@ -798,7 +847,8 @@
       "de": "Darf ich einen Freund zur Geburtstagsparty mitbringen?",
       "en": "Can I bring a friend to the birthday party?",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0631",
@@ -814,7 +864,8 @@
       "de": "Der Bus kam, deshalb bin ich zur Haltestelle gerannt.",
       "en": "The bus came, so I ran to the stop.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0632",
@@ -830,7 +881,8 @@
       "de": "Kommen Sie in den dritten Stock hoch. Der Besprechungsraum ist rechts.",
       "en": "Come up to floor three. The meeting room is on the right.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0633",
@@ -846,7 +898,8 @@
       "de": "Auf dem Heimweg bin ich kurz beim Kiosk vorbeigegangen.",
       "en": "I stopped by the convenience store on my way home.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0634",
@@ -862,7 +915,8 @@
       "de": "Wir sind spät dran, beeilen Sie sich.",
       "en": "We're late, so please hurry.",
       "level": "a2",
-      "topic": "Verkehr"
+      "topic": "Verkehr",
+      "courseUnitId": "a2_07_travel_repair"
     },
     {
       "id": "cloze_a2_0635",
@@ -878,7 +932,8 @@
       "de": "Ich habe die Augen geschlossen und Musik gehört.",
       "en": "I closed my eyes and listened to music.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0636",
@@ -894,7 +949,8 @@
       "de": "Als ich morgens die Augen öffnete, war es schon zehn Uhr.",
       "en": "When I opened my eyes in the morning, it was already ten o'clock.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0637",
@@ -910,7 +966,8 @@
       "de": "Draußen war es laut, deshalb bin ich früh am Morgen aufgewacht.",
       "en": "It was noisy outside, so I woke up at dawn.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0638",
@@ -926,7 +983,8 @@
       "de": "Ich nahm die Milch aus dem Kühlschrank.",
       "en": "I took milk out of the fridge.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0639",
@@ -942,7 +1000,8 @@
       "de": "Ich war satt, deshalb habe ich etwas Reis übrig gelassen.",
       "en": "I was full, so I left a little rice.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0640",
@@ -958,7 +1017,8 @@
       "de": "Es hat geschneit, und ich bin auf der Straße hingefallen.",
       "en": "It snowed, and I fell down on the street.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0641",
@@ -974,7 +1034,8 @@
       "de": "Im Museum darf man die Bilder nicht anfassen.",
       "en": "You must not touch the paintings in the museum.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0642",
@@ -990,7 +1051,8 @@
       "de": "Mischen Sie den Reis gut mit dem Gemüse und essen Sie dann.",
       "en": "Mix the rice and vegetables well before you eat.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0643",
@@ -1006,7 +1068,8 @@
       "de": "Ich habe das Gepäck ins Auto geladen.",
       "en": "I loaded the luggage into the car.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0644",
@@ -1022,7 +1085,8 @@
       "de": "Ich habe die Bücher auf dem Schreibtisch gestapelt.",
       "en": "I stacked the books on the desk.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0645",
@@ -1038,7 +1102,8 @@
       "de": "Meine Haare waren lang, ich ließ sie beim Friseur schneiden.",
       "en": "My hair was long, so I got a haircut.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "id": "cloze_a2_0646",
@@ -1054,7 +1119,8 @@
       "de": "Ich muss diese Arbeit bis heute fertig machen.",
       "en": "I have to finish this work by today.",
       "level": "a2",
-      "topic": "Alltag"
+      "topic": "Alltag",
+      "courseUnitId": "a2_01_haeyo_transition"
     }
   ]
 }

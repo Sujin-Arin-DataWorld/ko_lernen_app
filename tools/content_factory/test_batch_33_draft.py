@@ -884,10 +884,10 @@ class TestBatch33Packs(unittest.TestCase):
         with NIKL_CSV.open(encoding="utf-8-sig", newline="") as f:
             g2 = {r["headword"] for r in csv.DictReader(f) if r["grade"] == "2" and not (r["headword"].startswith("-") or r["headword"].endswith("-"))}
         # Post-promotion: today's live minus the later Batch 34 rows keeps the
-        # historical post-Batch-33 receipt (Batches 34 and 42 are later).
+        # historical post-Batch-33 receipt (Batches 34, 42 and 45 are later).
         later_ids = {
             r["id"]
-            for n in (34, 42)
+            for n in (34, 42, 45)
             for r in _load_vocab_rows(DRAFTS / f"batch_{n}_a2_rows.csv")
         }
         live = {r["korean"] for r in _load_vocab_rows(VOCAB_CSV) if r["id"] not in later_ids}

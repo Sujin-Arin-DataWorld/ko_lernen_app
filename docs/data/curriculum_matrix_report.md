@@ -213,15 +213,15 @@
 
 ## 1. 기존 앱 인벤토리 및 후보 매칭 (학습 완료 판정 아님)
 
-- 콘텐츠 규모: 어휘 3174 · 문법 264 · 시나리오 219 · 코스유닛 48 · cloze 2571 · satz 3091 · 스몰토크 590 · 미디어 136 · 발음 84 · 문화노트 36
+- 콘텐츠 규모: 어휘 3352 · 문법 264 · 시나리오 219 · 코스유닛 48 · cloze 2749 · satz 3269 · 스몰토크 590 · 미디어 136 · 발음 84 · 문화노트 36
 - 매트릭스 규모: 주제 32 · 기능 39 · 텍스트 유형 31 · 어휘 영역 26 · 기능 문법 34 · 국제통용 문법 336
-- 갭 행 합계: **502** (`tool/curriculum_matrix_gaps.csv`)
+- 갭 행 합계: **501** (`tool/curriculum_matrix_gaps.csv`)
 
 | 레벨 | 주제(필수) ✅/🟡/❌ | 국제통용 문법 match/mismatch/missing | 브리프 하이라이트 ✅/🟡/❌ | 담화 특징 ✅/❌ | 기능(산출) ✅/🟡/❌ | 텍스트 유형 ✅/🟡/❌/⛔ | 어휘 영역 ✅/🟡/❌ | 문체 ✅/❌ | 시나리오 미연결 문법/전체 |
 |---|---|---|---|---|---|---|---|---|---|
 | A1 | 17/0/0 | 45/0/0 (of 45) | 24/2/1 | 2/0 | 11/4/0 | 4/0/1/5 | 14/0/0 | 2/1 | 28/55 |
 | A2 | 17/0/0 | 43/0/2 (of 45) | 16/8/0 | 1/1 | 8/6/1 | 2/0/3/5 | 11/0/0 | 3/1 | 45/63 |
-| B1 | 18/0/0 | 14/9/44 (of 67) | 7/10/4 | 4/0 | 12/3/0 | 1/1/1/6 | 8/1/0 | 4/0 | 26/38 |
+| B1 | 18/0/0 | 14/9/44 (of 67) | 7/10/4 | 4/0 | 12/3/0 | 1/1/1/6 | 9/0/0 | 4/0 | 26/38 |
 | B2 | 17/0/0 | 16/8/43 (of 67) | 5/3/9 | 3/1 | 12/1/1 | 2/0/0/7 | 7/0/0 | 4/0 | 37/54 |
 | C1 | 12/0/0 | 6/6/44 (of 56) | 1/9/4 | 3/1 | 9/2/1 | 2/0/0/7 | 4/0/2 | 3/1 | 10/28 |
 | C2 | 12/0/0 | 6/10/40 (of 56) | 3/0/5 | 3/0 | 10/0/2 | 1/1/0/8 | 6/0/0 | 3/4 | 11/26 |
@@ -405,11 +405,11 @@
 | 상태 | 주제 | 초점(매트릭스) | 단어 | 팩 | 시나리오 | 유닛 | 스몰토크 | cloze | 근거 출처 |
 |---|---|---|---|---|---|---|---|---|---|
 | ✅ covered | `communication_phone_digital` 전화·메신저·인터넷 소통 | 전화·메신저·인터넷·약속 변경 알리기 | 16 | 3 | 5 | 1 | 4 | 14 | model_knowledge |
-| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 약속·일정·문제 상황 | 108 | 10 | 9 | 0 | 7 | 85 | model_knowledge |
+| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 약속·일정·문제 상황 | 120 | 11 | 9 | 0 | 7 | 97 | model_knowledge |
 | ✅ covered | `education_study` 교육·학교·학습 | 학교생활·수업 등록·실수 바로잡기 | 48 | 5 | 5 | 1 | 2 | 32 | model_knowledge |
 | ✅ covered | `family_relationships` 가족·인간관계 | 초대·외모/성격·연인·파트너 가족 명절 | 96 | 8 | 4 | 0 | 30 | 96 | model_knowledge |
 | ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 감정·기분·성격 묘사 | 60 | 5 | 1 | 1 | 4 | 35 | model_knowledge |
-| ✅ covered | `food_drink` 식음료·식당 | 식당 예약·메뉴 취향·맵기 조절 | 72 | 6 | 4 | 0 | 4 | 37 | model_knowledge |
+| ✅ covered | `food_drink` 식음료·식당 | 식당 예약·메뉴 취향·맵기 조절 | 84 | 7 | 4 | 0 | 4 | 49 | model_knowledge |
 | ✅ covered | `free_time_hobbies_sport` 여가·취미·운동 | 취미·운동·휴가·주말 계획 | 30 | 5 | 13 | 0 | 20 | 30 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 건강·병원·약국·증상·운동 | 53 | 6 | 2 | 1 | 8 | 49 | model_knowledge |
 | ✅ covered | `house_home` 주거·집 | 주거·집 구하기·이사·집안 문제 | 24 | 5 | 3 | 2 | 8 | 11 | model_knowledge |
@@ -418,14 +418,14 @@
 | ✅ covered | `services_public_admin` 공공 서비스·관공서·은행·우체국 | 은행·우체국·통신 요금·행정 창구 기초 | 12 | 1 | 3 | 1 | 3 | 12 | model_knowledge |
 | ✅ covered | `shopping_consumption` 쇼핑·소비·결제 | 교환·택배·배달·옷 사이즈 | 66 | 6 | 8 | 1 | 6 | 37 | model_knowledge |
 | ✅ covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 명절 의례(세배·차례)·전통 놀이·초대 예절 | 0 | 2 | 1 | 0 | 16 | 0 | verified_repo |
-| ✅ covered | `transport_wayfinding` 교통·길 찾기 | 대중교통·길 찾기·이동 중 불편 요청 | 34 | 3 | 4 | 0 | 6 | 33 | model_knowledge |
+| ✅ covered | `transport_wayfinding` 교통·길 찾기 | 대중교통·길 찾기·이동 중 불편 요청 | 46 | 4 | 4 | 0 | 6 | 45 | model_knowledge |
 | ✅ covered | `travel_accommodation` 여행·숙박 | 여행·숙박·분실물 | 16 | 4 | 4 | 1 | 2 | 14 | model_knowledge |
 | ✅ covered | `work_career` 직업·직장·취업 | 직장 첫걸음·근무표·학교생활 | 36 | 3 | 4 | 1 | 6 | 22 | model_knowledge |
 | 🟡 optional_thin | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 | 반말 실수 복구·말투 확인 | 2 | 1 | 0 | 0 | 0 | 0 | model_knowledge |
 | ✅ optional_covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 드라마·음악·굿즈 등 취향 이야기 | 0 | 0 | 2 | 0 | 6 | 0 | model_knowledge |
-| ✅ optional_covered | `numbers_time_dates` 숫자·시간·날짜 | 시간 조정·기간 표현 | 12 | 1 | 3 | 0 | 0 | 12 | model_knowledge |
+| ✅ optional_covered | `numbers_time_dates` 숫자·시간·날짜 | 시간 조정·기간 표현 | 24 | 2 | 3 | 0 | 0 | 24 | model_knowledge |
 | ❌ optional_missing | `personal_identification` 개인 신상·자기소개 | 한국 생활 소개·온 기간 | 0 | 0 | 0 | 0 | 0 | 0 | model_knowledge |
-| ✅ optional_covered | `weather_nature_climate` 날씨·계절·자연 | 날씨에 따른 계획 변경 | 42 | 4 | 3 | 0 | 2 | 30 | model_knowledge |
+| ✅ optional_covered | `weather_nature_climate` 날씨·계절·자연 | 날씨에 따른 계획 변경 | 60 | 5 | 3 | 0 | 2 | 48 | model_knowledge |
 | ➕ beyond_matrix | `economy_business_labour` 경제·기업·노동시장 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 | ➕ beyond_matrix | `environment_sustainability` 환경·기후·지속가능성 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `intercultural_globalisation_migration` 문화 차이·세계화·이주 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
@@ -519,18 +519,18 @@
 | ✅ covered | `public_services_admin_vocab` 행정·공공 서비스 어휘 | 12 |
 | ✅ covered | `body_health_symptoms` 신체·증상·의료 | 53 |
 | ✅ covered | `home_objects_furniture` 집·가구·생활용품 | 24 |
-| ✅ covered | `transport_travel_vocab` 교통·여행 어휘 | 50 |
-| ✅ covered | `food_cooking` 음식·재료·조리 | 72 |
+| ✅ covered | `transport_travel_vocab` 교통·여행 어휘 | 62 |
+| ✅ covered | `food_cooking` 음식·재료·조리 | 84 |
 | ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 33 |
 | ➕ beyond_matrix | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 24 |
 | ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 96 |
 | ➕ beyond_matrix | `language_metalanguage` 언어·문법·화법 메타언어 | 2 |
-| ➕ beyond_matrix | `numbers_quantity_units` 수·수량·단위명사 | 12 |
+| ➕ beyond_matrix | `numbers_quantity_units` 수·수량·단위명사 | 24 |
 | ➕ beyond_matrix | `places_buildings_city` 장소·건물·도시 | 2 |
 | ➕ beyond_matrix | `professions_workplace` 직업·직장 어휘 | 36 |
 | ➕ beyond_matrix | `school_study_terms` 학교·학습 어휘 | 48 |
-| ➕ beyond_matrix | `time_calendar` 시간·날짜·요일·계절 | 25 |
-| ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 42 |
+| ➕ beyond_matrix | `time_calendar` 시간·날짜·요일·계절 | 37 |
+| ➕ beyond_matrix | `weather_nature` 날씨·자연 어휘 | 60 |
 
 ### A2 문체·존대 — 시나리오 분포: banmal_casual 14, haeyo_polite 21, intimate 3
 
@@ -548,13 +548,13 @@
 
 | 상태 | 주제 | 초점(매트릭스) | 단어 | 팩 | 시나리오 | 유닛 | 스몰토크 | cloze | 근거 출처 |
 |---|---|---|---|---|---|---|---|---|---|
-| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 습관·생활 문제 | 39 | 4 | 0 | 0 | 4 | 21 | model_knowledge |
+| ✅ covered | `daily_life_routines` 일상생활·하루 일과 | 습관·생활 문제 | 64 | 6 | 0 | 0 | 4 | 46 | model_knowledge |
 | ✅ covered | `education_study` 교육·학교·학습 | 교육·학업 경험 | 16 | 2 | 1 | 0 | 10 | 13 | model_knowledge |
 | ✅ covered | `environment_sustainability` 환경·기후·지속가능성 | 환경(일회용품·분리배출) 기초 | 1 | 1 | 1 | 0 | 0 | 1 | model_knowledge |
 | ✅ covered | `ethics_philosophy_abstract` 윤리·철학·추상적 논쟁 | 개인적 가치·미래 계획(추상 초입) | 10 | 4 | 0 | 0 | 0 | 2 | model_knowledge |
-| ✅ covered | `family_relationships` 가족·인간관계 | 인간관계·감정 확인·관계 갈등 | 165 | 16 | 12 | 0 | 30 | 169 | model_knowledge |
-| ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 감정과 관계 완곡 표현 | 58 | 7 | 6 | 1 | 4 | 5 | model_knowledge |
-| ✅ covered | `health_body` 건강·신체·병원·약국 | 건강관리·보험 청구 | 16 | 2 | 1 | 0 | 6 | 4 | model_knowledge |
+| ✅ covered | `family_relationships` 가족·인간관계 | 인간관계·감정 확인·관계 갈등 | 169 | 17 | 12 | 0 | 30 | 173 | model_knowledge |
+| ✅ covered | `feelings_character` 감정·성격·외모 묘사 | 감정과 관계 완곡 표현 | 74 | 9 | 6 | 1 | 4 | 21 | model_knowledge |
+| ✅ covered | `health_body` 건강·신체·병원·약국 | 건강관리·보험 청구 | 29 | 3 | 1 | 0 | 6 | 17 | model_knowledge |
 | ✅ covered | `house_home` 주거·집 | 주거 계약·수리·하자 | 61 | 6 | 4 | 0 | 3 | 59 | model_knowledge |
 | ✅ covered | `intercultural_globalisation_migration` 문화 차이·세계화·이주 | 문화 차이·한국 생활의 갈등 | 0 | 2 | 0 | 1 | 0 | 0 | model_knowledge |
 | ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어·인터넷·SNS 반응 | 12 | 1 | 5 | 0 | 6 | 0 | model_knowledge |
@@ -573,9 +573,9 @@
 | ✅ optional_covered | `social_etiquette_customs` 예절·관습·명절·호칭 | 폐백 등 의례성 문화어·역사 유적 명칭 | 12 | 2 | 8 | 0 | 16 | 0 | verified_repo |
 | ➕ beyond_matrix | `arts_literature_history` 예술·문학·역사·기억 |  | 0 | 0 | 1 | 0 | 0 | 0 |  |
 | ➕ beyond_matrix | `economy_business_labour` 경제·기업·노동시장 |  | 0 | 0 | 0 | 0 | 4 | 0 |  |
-| ➕ beyond_matrix | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 |  | 7 | 1 | 1 | 0 | 0 | 0 |  |
+| ➕ beyond_matrix | `language_learning_communication_repair` 언어·학습·의사소통 되묻기 |  | 12 | 1 | 1 | 0 | 0 | 5 |  |
 | ➕ beyond_matrix | `numbers_time_dates` 숫자·시간·날짜 |  | 0 | 3 | 4 | 0 | 0 | 0 |  |
-| ➕ beyond_matrix | `personal_identification` 개인 신상·자기소개 |  | 12 | 2 | 0 | 0 | 0 | 1 |  |
+| ➕ beyond_matrix | `personal_identification` 개인 신상·자기소개 |  | 13 | 2 | 0 | 0 | 0 | 2 |  |
 | ➕ beyond_matrix | `weather_nature_climate` 날씨·계절·자연 |  | 0 | 0 | 0 | 0 | 2 | 0 |  |
 
 ### B1 문법 — 국제통용 67항목: match 14 · level_mismatch 9 · missing 44 (앱 B1 문법 38개)
@@ -661,15 +661,15 @@
 | ✅ covered | `public_services_admin_vocab` 행정·공공 서비스 어휘 | 24 |
 | ✅ covered | `media_pop_culture_vocab` 미디어·대중문화 어휘 | 12 |
 | ✅ covered | `society_economy_abstract_nouns` 사회·경제·추상 명사 | 32 |
-| ✅ covered | `feelings_emotions_character` 감정·성격 어휘 | 58 |
-| 🟡 thin | `language_metalanguage` 언어·문법·화법 메타언어 | 7 |
+| ✅ covered | `feelings_emotions_character` 감정·성격 어휘 | 74 |
+| ✅ covered | `language_metalanguage` 언어·문법·화법 메타언어 | 12 |
 | ✅ covered | `technology_devices_internet` 기기·인터넷·디지털 어휘 | 44 |
 | ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 128 |
 | ➕ beyond_matrix | `argumentation_evaluation_lexis` 논증·평가·근거 어휘 | 10 |
-| ➕ beyond_matrix | `body_health_symptoms` 신체·증상·의료 | 16 |
-| ➕ beyond_matrix | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 28 |
+| ➕ beyond_matrix | `body_health_symptoms` 신체·증상·의료 | 29 |
+| ➕ beyond_matrix | `colours_shapes_description` 색·모양·기본 묘사 형용사 | 36 |
 | ➕ beyond_matrix | `etiquette_honorific_lexis` 예절·높임·호칭 어휘 | 12 |
-| ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 165 |
+| ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 169 |
 | ➕ beyond_matrix | `home_objects_furniture` 집·가구·생활용품 | 61 |
 | ➕ beyond_matrix | `leisure_sport_hobbies_vocab` 여가·운동·취미 어휘 | 12 |
 | ➕ beyond_matrix | `places_buildings_city` 장소·건물·도시 | 24 |
@@ -834,17 +834,17 @@
 | 상태 | 주제 | 초점(매트릭스) | 단어 | 팩 | 시나리오 | 유닛 | 스몰토크 | cloze | 근거 출처 |
 |---|---|---|---|---|---|---|---|---|---|
 | ✅ covered | `arts_literature_history` 예술·문학·역사·기억 | 역사·박물관 관점·전통 공연 | 0 | 0 | 3 | 0 | 0 | 0 | model_knowledge |
-| ✅ covered | `economy_business_labour` 경제·기업·노동시장 | 경제·노동시장·플랫폼 노동·임대료 | 48 | 5 | 4 | 1 | 2 | 45 | model_knowledge |
+| ✅ covered | `economy_business_labour` 경제·기업·노동시장 | 경제·노동시장·플랫폼 노동·임대료 | 48 | 6 | 4 | 1 | 2 | 45 | model_knowledge |
 | ✅ covered | `environment_sustainability` 환경·기후·지속가능성 | 지속가능성·폭염·자원 제약 | 24 | 2 | 5 | 2 | 0 | 27 | model_knowledge |
 | ✅ covered | `ethics_philosophy_abstract` 윤리·철학·추상적 논쟁 | 윤리·문화비평·이해관계 공개 | 0 | 0 | 6 | 0 | 0 | 0 | model_knowledge |
 | ✅ covered | `health_body` 건강·신체·병원·약국 | 임상 연구·위험 소통 | 12 | 1 | 1 | 0 | 6 | 12 | model_knowledge |
-| ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어 담론·보도 검증·팬 노동 | 24 | 2 | 9 | 1 | 14 | 27 | model_knowledge |
+| ✅ covered | `media_entertainment_culture_pop` 미디어·대중문화(K-pop·드라마·SNS) | 미디어 담론·보도 검증·팬 노동 | 36 | 3 | 9 | 1 | 14 | 39 | model_knowledge |
 | ✅ covered | `politics_law_institutions` 정치·법·제도·행정 | 사회정책·정치/행정·교육정책·규제 설계 | 48 | 4 | 8 | 1 | 0 | 48 | model_knowledge |
 | ✅ covered | `professional_specialised_fields` 전문 분야·학술·직무 언어 | 전문분야·학술적 논의·임상 동의 | 0 | 0 | 7 | 0 | 0 | 0 | model_knowledge |
-| ✅ covered | `science_research_evidence` 과학·연구·근거·통계 | 과학기술·연구 한계·표본·근거 평가 | 72 | 6 | 9 | 2 | 0 | 79 | model_knowledge |
-| ✅ covered | `society_current_affairs` 사회 문제·시사·공동체 | 세계화·인구·불평등·접근성 | 48 | 5 | 8 | 2 | 0 | 51 | model_knowledge |
+| ✅ covered | `science_research_evidence` 과학·연구·근거·통계 | 과학기술·연구 한계·표본·근거 평가 | 96 | 8 | 9 | 2 | 0 | 103 | model_knowledge |
+| ✅ covered | `society_current_affairs` 사회 문제·시사·공동체 | 세계화·인구·불평등·접근성 | 60 | 6 | 8 | 2 | 0 | 63 | model_knowledge |
 | ✅ covered | `technology_digital_ai` 기술·디지털·AI·데이터 | AI 평가·번역·데이터 출처·자동 필터 | 12 | 1 | 6 | 0 | 0 | 6 | model_knowledge |
-| ✅ covered | `work_career` 직업·직장·취업 | 퇴근 후 연락·보이지 않는 노동·평가 | 12 | 1 | 8 | 1 | 15 | 12 | model_knowledge |
+| ✅ covered | `work_career` 직업·직장·취업 | 퇴근 후 연락·보이지 않는 노동·평가 | 24 | 2 | 8 | 1 | 15 | 24 | model_knowledge |
 | ✅ optional_covered | `education_study` 교육·학교·학습 | 학교 규제 설계 | 0 | 0 | 3 | 0 | 11 | 0 | model_knowledge |
 | ✅ optional_covered | `family_relationships` 가족·인간관계 | 관계 속 경계·달라진 형편 | 36 | 3 | 2 | 0 | 18 | 36 | model_knowledge |
 | ✅ optional_covered | `intercultural_globalisation_migration` 문화 차이·세계화·이주 | 이주·세계화·문화 노동 | 0 | 1 | 2 | 0 | 0 | 0 | model_knowledge |
@@ -932,16 +932,16 @@
 
 | 상태 | 어휘 영역 | 단어 수 |
 |---|---|---|
-| ✅ covered | `argumentation_evaluation_lexis` 논증·평가·근거 어휘 | 72 |
+| ✅ covered | `argumentation_evaluation_lexis` 논증·평가·근거 어휘 | 96 |
 | ✅ covered | `institutional_legal_lexis` 제도·법률·행정 담화 어휘 | 48 |
-| ✅ covered | `society_economy_abstract_nouns` 사회·경제·추상 명사 | 108 |
+| ✅ covered | `society_economy_abstract_nouns` 사회·경제·추상 명사 | 120 |
 | ❌ missing | `arts_history_memory_lexis` 예술·역사·기억 담화 어휘 | 0 |
 | ❌ missing | `language_metalanguage` 언어·문법·화법 메타언어 | 0 |
 | ✅ covered | `fixed_expressions_collocations` 관용 표현·연어·담화 표지(품사=표현) | 98 |
 | ➕ beyond_matrix | `body_health_symptoms` 신체·증상·의료 | 12 |
 | ➕ beyond_matrix | `family_kinship_address_terms` 가족·친족 호칭·관계어 | 36 |
-| ➕ beyond_matrix | `media_pop_culture_vocab` 미디어·대중문화 어휘 | 24 |
-| ➕ beyond_matrix | `professions_workplace` 직업·직장 어휘 | 12 |
+| ➕ beyond_matrix | `media_pop_culture_vocab` 미디어·대중문화 어휘 | 36 |
+| ➕ beyond_matrix | `professions_workplace` 직업·직장 어휘 | 24 |
 | ➕ beyond_matrix | `public_services_admin_vocab` 행정·공공 서비스 어휘 | 48 |
 | ➕ beyond_matrix | `technology_devices_internet` 기기·인터넷·디지털 어휘 | 12 |
 

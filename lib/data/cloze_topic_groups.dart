@@ -57,6 +57,13 @@ final class ClozeTopicGroups {
     'Wohnen & Vertrag': ClozeTopicGroupId.everydayHome,
     'Zahlen': ClozeTopicGroupId.everydayHome,
     'Zeit': ClozeTopicGroupId.everydayHome,
+    // C3-T8 (2026-11-27): Batches 43 (B1) and 44 (C1) reinforcement topics.
+    'Nützliche Verben': ClozeTopicGroupId.everydayHome,
+    'Zeit & Lebenslauf': ClozeTopicGroupId.everydayHome,
+    'Eigenschaften': ClozeTopicGroupId.everydayHome,
+    'Krankenhaus & Apotheke': ClozeTopicGroupId.healthNatureLeisure,
+    'Sprache & Ausdruck': ClozeTopicGroupId.languageMedia,
+    'Arbeit & Wirtschaft': ClozeTopicGroupId.workEducation,
     // C3-T4 (2026-09-16): Batch 29 A1 reinforcement introduces 3 new exact
     // topic strings not previously used by any live cloze item.
     'Zuhause': ClozeTopicGroupId.everydayHome,

@@ -26,7 +26,7 @@
 | 10 | 소 | `a2_nature_2` 4 | 시골에 가니까 소가 풀을 먹고 있었어요. | Als ich aufs Land kam, fraß gerade eine Kuh Gras. | When I went to the countryside, a cow was eating grass. | `소가` | 의자가, 버스가, 치마가 |
 | 11 | 닭 | `a2_nature_2` 5 | 아침마다 닭이 울어서 일찍 일어나요. | Jeden Morgen kräht der Hahn, deshalb stehe ich früh auf. | The rooster crows every morning, so I get up early. | `닭이` | 책이, 물이, 옷이 |
 | 12 | 뱀 | `a2_nature_2` 6 | 산에서 뱀을 보고 깜짝 놀랐어요. | Auf dem Berg habe ich eine Schlange gesehen und mich furchtbar erschrocken. | I saw a snake on the mountain and got a big fright. | `뱀을` | 양말을, 숟가락을, 우산을 |
-| 13 | 강 | `a2_nature_2` 7 | 주말에 강 옆에서 자전거를 탔어요. | Am Wochenende bin ich am Fluss Fahrrad gefahren. | On the weekend I rode my bike by the river. | `강` | 냉장고, 침대, 책상 |
+| 13 | 강 | `a2_nature_2` 7 | 주말에 강에 가서 사진을 찍었어요. | Am Wochenende bin ich zum Fluss gegangen und habe Fotos gemacht. | On the weekend I went to the river and took photos. | `강에` | 냉장고에, 침대에, 책상에 |
 | 14 | 땅 | `a2_nature_2` 8 | 사과가 나무에서 땅으로 떨어졌어요. | Der Apfel fiel vom Baum auf den Boden. | The apple fell from the tree to the ground. | `땅으로` | 하늘로, 학교로, 회사로 |
 | 15 | 돌 | `a2_nature_2` 9 | 길에 큰 돌이 있어서 조심해야 돼요. | Auf dem Weg liegt ein großer Stein, da muss man aufpassen. | There's a big rock on the path, so you have to be careful. | `돌이` | 물이, 책이, 밥이 |
 | 16 | 자연 | `a2_nature_2` 10 | 저는 도시보다 자연 속에서 쉬고 싶어요. | Ich möchte mich lieber in der Natur als in der Stadt erholen. | I'd rather relax in nature than in the city. | `자연` | 냉장고, 가방, 지갑 |

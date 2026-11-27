@@ -57,7 +57,7 @@
 | c2_05_relationship_narratives | c2 | 5 | 기억·관점·관계 서사 조정하기 | Negotiating memory, perspective, and relationship narratives |
 | c2_06_fandom_discourse_power | c2 | 6 | 미디어 프레이밍과 지역 영향 논증하기 | Arguing media framing and local impact |
 
-## 팩 base id -> 코스유닛 매핑 (235개)
+## 팩 base id -> 코스유닛 매핑 (236개)
 
 | pack base id | courseUnitId |
 |---|---|
@@ -274,6 +274,7 @@
 | c1_risk_wording | c1_01_evidence_public_reasoning |
 | c1_survey_design | c1_01_evidence_public_reasoning |
 | c1_sustainable_tradeoffs | c1_02_inclusive_sustainable_systems |
+| c1_work_economy | c1_02_inclusive_sustainable_systems |
 | c2_2026_social_topics | c2_01_interpretation_institutions |
 | c2_appeal_path | c2_02_technology_public_ethics |
 | c2_argument_scope | c2_03_automation_redress |

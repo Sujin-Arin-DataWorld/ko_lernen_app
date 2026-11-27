@@ -642,6 +642,8 @@ class VocabPackService {
       'KI-Transparenz & Kulturarbeit',
       'AI Transparency & Cultural Labor',
     ),
+    // C3-T8 (2026-11-27): Batch 44 C1 reinforcement opens the work/economy base.
+    'c1_work_economy': ('Arbeit und Wirtschaft', 'Work and economy'),
     'c2_demography_accountability_2026': (
       'Demografie, Diskurs & Verantwortung',
       'Demography, Discourse & Accountability',
@@ -881,6 +883,7 @@ class VocabPackService {
     'b2_housing_migration_2026': 47,
     'b2_public_office': 48,
     'c1_ai_culture_labor_2026': 20,
+    'c1_work_economy': 21,
     'c2_demography_accountability_2026': 20,
     'c2_honorific_context': 21,
     'c2_argument_scope': 22,

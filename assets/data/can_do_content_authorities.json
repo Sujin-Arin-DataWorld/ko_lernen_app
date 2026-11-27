@@ -2518,6 +2518,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_vocab_pack_a2_daily_actions_2_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_vocab_pack_a2_descriptions_1_v1",
       "level": "a2"
     },
@@ -2527,6 +2531,10 @@
     },
     {
       "id": "seed_vocab_pack_a2_directions_1_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_vocab_pack_a2_directions_2_v1",
       "level": "a2"
     },
     {
@@ -2563,6 +2571,10 @@
     },
     {
       "id": "seed_vocab_pack_a2_food_3_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_vocab_pack_a2_food_4_v1",
       "level": "a2"
     },
     {
@@ -2607,6 +2619,10 @@
     },
     {
       "id": "seed_vocab_pack_a2_nature_1_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_vocab_pack_a2_nature_2_v1",
       "level": "a2"
     },
     {
@@ -2667,6 +2683,10 @@
     },
     {
       "id": "seed_vocab_pack_a2_time_span_1_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_vocab_pack_a2_time_span_2_v1",
       "level": "a2"
     },
     {
@@ -3782,6 +3802,10 @@
       "level": "b1"
     },
     {
+      "id": "seed_vocab_pack_b1_daily_4_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_vocab_pack_b1_descriptions_1_v1",
       "level": "b1"
     },
@@ -3791,6 +3815,10 @@
     },
     {
       "id": "seed_vocab_pack_b1_descriptions_adj_1_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_vocab_pack_b1_descriptions_adj_2_v1",
       "level": "b1"
     },
     {
@@ -3806,11 +3834,19 @@
       "level": "b1"
     },
     {
+      "id": "seed_vocab_pack_b1_emotions_relations_4_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_vocab_pack_b1_health_education_v1",
       "level": "b1"
     },
     {
       "id": "seed_vocab_pack_b1_health_hospital_1_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_vocab_pack_b1_health_hospital_2_v1",
       "level": "b1"
     },
     {
@@ -3899,6 +3935,10 @@
     },
     {
       "id": "seed_vocab_pack_b1_verbs_daily_1_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_vocab_pack_b1_verbs_daily_2_v1",
       "level": "b1"
     },
     {
@@ -6202,6 +6242,198 @@
       "level": "c1"
     },
     {
+      "id": "seed_cloze_cloze_c1_0251_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0252_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0253_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0254_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0255_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0256_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0257_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0258_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0259_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0260_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0261_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0262_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0263_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0264_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0265_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0266_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0267_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0268_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0269_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0270_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0271_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0272_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0273_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0274_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0275_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0276_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0277_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0278_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0279_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0280_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0281_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0282_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0283_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0284_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0285_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0286_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0287_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0288_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0289_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0290_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0291_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0292_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0293_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0294_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0295_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0296_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0297_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0298_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_grammar_grammar_b2_despite_v1",
       "level": "c1"
     },
@@ -7114,6 +7346,198 @@
       "level": "c1"
     },
     {
+      "id": "seed_satz_satz_c1_0253_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0254_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0255_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0256_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0257_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0258_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0259_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0260_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0261_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0262_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0263_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0264_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0265_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0266_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0267_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0268_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0269_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0270_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0271_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0272_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0273_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0274_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0275_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0276_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0277_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0278_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0279_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0280_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0281_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0282_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0283_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0284_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0285_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0286_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0287_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0288_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0289_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0290_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0291_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0292_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0293_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0294_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0295_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0296_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0297_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0298_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0299_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0300_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_scenario_after_hours_messages_v1",
       "level": "c1"
     },
@@ -7526,6 +7950,10 @@
       "level": "c1"
     },
     {
+      "id": "seed_vocab_pack_c1_2026_social_topics_2_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_vocab_pack_c1_access_cost_1_v1",
       "level": "c1"
     },
@@ -7535,6 +7963,10 @@
     },
     {
       "id": "seed_vocab_pack_c1_evidence_caveat_1_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_vocab_pack_c1_evidence_reasoning_2_v1",
       "level": "c1"
     },
     {
@@ -7555,6 +7987,10 @@
     },
     {
       "id": "seed_vocab_pack_c1_media_evidence_1_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_vocab_pack_c1_media_evidence_2_v1",
       "level": "c1"
     },
     {
@@ -7583,6 +8019,10 @@
     },
     {
       "id": "seed_vocab_pack_c1_survey_design_1_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_vocab_pack_c1_work_economy_1_v1",
       "level": "c1"
     },
     {
@@ -14371,6 +14811,13 @@
     },
     {
       "kind": "vocabPack",
+      "id": "a2_daily_actions_2",
+      "level": "a2",
+      "sourceSeedId": "seed_vocab_pack_a2_daily_actions_2_v1",
+      "courseUnitId": "a2_01_haeyo_transition"
+    },
+    {
+      "kind": "vocabPack",
       "id": "a2_descriptions_1",
       "level": "a2",
       "sourceSeedId": "seed_vocab_pack_a2_descriptions_1_v1",
@@ -14388,6 +14835,13 @@
       "id": "a2_directions_1",
       "level": "a2",
       "sourceSeedId": "seed_vocab_pack_a2_directions_1_v1",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a2_directions_2",
+      "level": "a2",
+      "sourceSeedId": "seed_vocab_pack_a2_directions_2_v1",
       "courseUnitId": "a2_07_travel_repair"
     },
     {
@@ -14451,6 +14905,13 @@
       "id": "a2_food_3",
       "level": "a2",
       "sourceSeedId": "seed_vocab_pack_a2_food_3_v1",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a2_food_4",
+      "level": "a2",
+      "sourceSeedId": "seed_vocab_pack_a2_food_4_v1",
       "courseUnitId": "a2_05_delivery_services"
     },
     {
@@ -14528,6 +14989,13 @@
       "id": "a2_nature_1",
       "level": "a2",
       "sourceSeedId": "seed_vocab_pack_a2_nature_1_v1",
+      "courseUnitId": "a2_03_chat_relationships"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a2_nature_2",
+      "level": "a2",
+      "sourceSeedId": "seed_vocab_pack_a2_nature_2_v1",
       "courseUnitId": "a2_03_chat_relationships"
     },
     {
@@ -14675,6 +15143,13 @@
       "id": "a2_time_span_1",
       "level": "a2",
       "sourceSeedId": "seed_vocab_pack_a2_time_span_1_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a2_time_span_2",
+      "level": "a2",
+      "sourceSeedId": "seed_vocab_pack_a2_time_span_2_v1",
       "courseUnitId": "a2_02_plans_proposals"
     },
     {
@@ -16555,6 +17030,13 @@
     },
     {
       "kind": "vocabPack",
+      "id": "b1_daily_4",
+      "level": "b1",
+      "sourceSeedId": "seed_vocab_pack_b1_daily_4_v1",
+      "courseUnitId": "b1_01_experience_reasons"
+    },
+    {
+      "kind": "vocabPack",
       "id": "b1_descriptions_1",
       "level": "b1",
       "sourceSeedId": "seed_vocab_pack_b1_descriptions_1_v1",
@@ -16572,6 +17054,13 @@
       "id": "b1_descriptions_adj_1",
       "level": "b1",
       "sourceSeedId": "seed_vocab_pack_b1_descriptions_adj_1_v1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "b1_descriptions_adj_2",
+      "level": "b1",
+      "sourceSeedId": "seed_vocab_pack_b1_descriptions_adj_2_v1",
       "courseUnitId": "b1_06_life_capstone"
     },
     {
@@ -16597,6 +17086,13 @@
     },
     {
       "kind": "vocabPack",
+      "id": "b1_emotions_relations_4",
+      "level": "b1",
+      "sourceSeedId": "seed_vocab_pack_b1_emotions_relations_4_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "vocabPack",
       "id": "b1_festival_booth_1",
       "level": "b1",
       "sourceSeedId": "seed_vocab_pack_a2_festival_booth_1_v1",
@@ -16614,6 +17110,13 @@
       "id": "b1_health_hospital_1",
       "level": "b1",
       "sourceSeedId": "seed_vocab_pack_b1_health_hospital_1_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "b1_health_hospital_2",
+      "level": "b1",
+      "sourceSeedId": "seed_vocab_pack_b1_health_hospital_2_v1",
       "courseUnitId": "b1_05_complaint_resolution"
     },
     {
@@ -16838,6 +17341,13 @@
       "id": "b1_verbs_daily_1",
       "level": "b1",
       "sourceSeedId": "seed_vocab_pack_b1_verbs_daily_1_v1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "b1_verbs_daily_2",
+      "level": "b1",
+      "sourceSeedId": "seed_vocab_pack_b1_verbs_daily_2_v1",
       "courseUnitId": "b1_06_life_capstone"
     },
     {
@@ -21174,6 +21684,342 @@
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_c1_0251",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0251_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0252",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0252_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0253",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0253_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0254",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0254_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0255",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0255_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0256",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0256_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0257",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0257_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0258",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0258_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0259",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0259_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0260",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0260_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0261",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0261_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0262",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0262_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0263",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0263_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0264",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0264_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0265",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0265_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0266",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0266_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0267",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0267_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0268",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0268_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0269",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0269_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0270",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0270_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0271",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0271_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0272",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0272_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0273",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0273_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0274",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0274_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0275",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0275_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0276",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0276_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0277",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0277_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0278",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0278_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0279",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0279_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0280",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0280_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0281",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0281_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0282",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0282_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0283",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0283_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0284",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0284_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0285",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0285_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0286",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0286_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0287",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0287_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0288",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0288_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0289",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0289_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0290",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0290_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0291",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0291_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0292",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0292_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0293",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0293_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0294",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0294_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0295",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0295_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0296",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0296_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0297",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0297_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0298",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0298_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_b2_despite",
       "level": "c1",
@@ -23162,6 +24008,342 @@
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
+      "kind": "satz",
+      "id": "satz_c1_0253",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0253_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0254",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0254_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0255",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0255_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0256",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0256_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0257",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0257_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0258",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0258_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0259",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0259_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0260",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0260_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0261",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0261_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0262",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0262_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0263",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0263_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0264",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0264_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0265",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0265_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0266",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0266_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0267",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0267_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0268",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0268_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0269",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0269_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0270",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0270_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0271",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0271_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0272",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0272_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0273",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0273_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0274",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0274_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0275",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0275_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0276",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0276_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0277",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0277_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0278",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0278_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0279",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0279_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0280",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0280_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0281",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0281_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0282",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0282_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0283",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0283_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0284",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0284_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0285",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0285_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0286",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0286_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0287",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0287_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0288",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0288_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0289",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0289_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0290",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0290_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0291",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0291_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0292",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0292_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0293",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0293_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0294",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0294_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0295",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0295_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0296",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0296_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0297",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0297_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0298",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0298_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0299",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0299_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0300",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0300_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
       "kind": "scenario",
       "id": "after_hours_messages",
       "level": "c1",
@@ -23996,6 +25178,13 @@
     },
     {
       "kind": "vocabPack",
+      "id": "c1_2026_social_topics_2",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_2026_social_topics_2_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "vocabPack",
       "id": "c1_access_cost_1",
       "level": "c1",
       "sourceSeedId": "seed_vocab_pack_c1_access_cost_1_v1",
@@ -24031,6 +25220,13 @@
     },
     {
       "kind": "vocabPack",
+      "id": "c1_evidence_reasoning_2",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_evidence_reasoning_2_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "vocabPack",
       "id": "c1_fan_labor_1",
       "level": "c1",
       "sourceSeedId": "seed_vocab_pack_c1_fan_labor_1_v1",
@@ -24062,6 +25258,13 @@
       "id": "c1_media_evidence_1",
       "level": "c1",
       "sourceSeedId": "seed_vocab_pack_c1_media_evidence_1_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c1_media_evidence_2",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_media_evidence_2_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
@@ -24125,6 +25328,13 @@
       "id": "c1_sustainable_tradeoffs_1",
       "level": "c1",
       "sourceSeedId": "seed_batch05_c1_sustainable_tradeoffs_1_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c1_work_economy_1",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_work_economy_1_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
@@ -29219,17 +30429,17 @@
   ],
   "coverage": {
     "directReferenceCounts": {
-      "vocabPack": 271,
+      "vocabPack": 285,
       "grammar": 264,
       "smalltalk": 590,
       "scenario": 220,
-      "cloze": 850,
-      "satz": 540,
+      "cloze": 898,
+      "satz": 588,
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 1721,
-      "satz": 2551
+      "cloze": 1851,
+      "satz": 2681
     },
     "inheritedContentReferences": [
       {
@@ -47647,6 +48857,732 @@
         "courseUnitId": "a2_01_haeyo_transition"
       },
       {
+        "kind": "cloze",
+        "id": "cloze_a2_0581",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0774",
+        "sourceVocabFingerprintSha256": "0922b24559b4baca2de11c790a47de59de7ce1bca42ee06dd3fcb0d37053e0d7",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0582",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0775",
+        "sourceVocabFingerprintSha256": "a3b764b670c0d24f4b2fef0f391a3e20973af531185d8de34b9cd3b9f27e8380",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0583",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0776",
+        "sourceVocabFingerprintSha256": "88c457b952fbb7badf9edfa98085fa68dc84a81b36ef259c444166f5508a6fd2",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0584",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0777",
+        "sourceVocabFingerprintSha256": "285a23d461e0040c7dcc766348dc253eb8f60bab13e90e0bf20f13d63d0be902",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0585",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0778",
+        "sourceVocabFingerprintSha256": "ea8e262ff59fd521c7d4e19783a4b843924b16a0382fb8dd1d51655204b160de",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0586",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0779",
+        "sourceVocabFingerprintSha256": "45b77efd7f8f635639153fe7c678d74303bfcdae229d3c3e85cc480a940ebb26",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0587",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0780",
+        "sourceVocabFingerprintSha256": "c3803b617c143f40737adc4f123b601fa1ffa250d04bff2854232039e3362412",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0588",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0781",
+        "sourceVocabFingerprintSha256": "be9391cc7ffcf3cab4b0cb57bbaae3f5d5c4ca9907c0c8ea1c7914466674c0eb",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0589",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0782",
+        "sourceVocabFingerprintSha256": "704aa81bef4e4c368fe60b65d8009e475c45bd7c04c4d96a598e50f65314e05b",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0590",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0783",
+        "sourceVocabFingerprintSha256": "bd0ba21f6cebaeacb3084226942461531eef8e247d742be78122805b1844dbaf",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0591",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0784",
+        "sourceVocabFingerprintSha256": "9a733e5fa3f5a32bcddde2cbe3ebac2d09749356d7b2c9a51a08ab60a59cb46f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0592",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0785",
+        "sourceVocabFingerprintSha256": "7c1833a8fce1a83abed09b07c3d4ae740df1149b1d1869947fbef7cfcce9c6b0",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0593",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0786",
+        "sourceVocabFingerprintSha256": "dd8566daed3fdaa121d98708ff5d3b9b769022162ecb1f957823ab804c70226a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0594",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0787",
+        "sourceVocabFingerprintSha256": "e19c7a55180b9b54ee80c77a5703e93eaad4c7954e30735b8b7a061f12a5af30",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0595",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0788",
+        "sourceVocabFingerprintSha256": "4f8939502fe8c83afe3be69f79cf76b3db8aa38e996178ee936621e14a6f6719",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0596",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0789",
+        "sourceVocabFingerprintSha256": "00f8948cf19961e98b289d928f0a7041c0aa5593668bdc6f50cecd6cdd34eeeb",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0597",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0790",
+        "sourceVocabFingerprintSha256": "cecf467e15e9772ae6394b9df297bc65c7ada4f5cf0750091f86343cb6b76963",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0598",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0791",
+        "sourceVocabFingerprintSha256": "9b5a7d332829bf55dc58b44a52ee5f85abba957aad3f13161f3ca1cacdf9a3dd",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0599",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0792",
+        "sourceVocabFingerprintSha256": "c74f851da7406fd9de3455e459cbf5b7dcca43a0d04f621072c88cf49b677d6f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0600",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0793",
+        "sourceVocabFingerprintSha256": "94349351f496d00c094b8dfbb8043cf784db734c7f5046a0c28de384c89cf39a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0601",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0794",
+        "sourceVocabFingerprintSha256": "457442f07b37a28f379a7b926dee22f877c4fa959967fbb1ae3218a4abe6eb42",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0602",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0795",
+        "sourceVocabFingerprintSha256": "2e3fbc0dde3aa884ebf01bae7f9a412d6a820ef781afef2fd3d2f76630a6d048",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0603",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0796",
+        "sourceVocabFingerprintSha256": "92141f4bfd560a952f48686dafc7f79292cd6eb04af7e67f93dcf460f0528e43",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0604",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0797",
+        "sourceVocabFingerprintSha256": "7bf13c19e6f65bfd4b0ed88bb5fddb401cd1e248f3335ef17e780a72be571bdd",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0605",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0798",
+        "sourceVocabFingerprintSha256": "3ea3b8b8103c3ee4bc4931402898afad2bff4ca0db1c6a78c06a00a8de89bc31",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0606",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0799",
+        "sourceVocabFingerprintSha256": "bff2b4051294fe58388a058bff8e196586fb5e1e1fd539a267a9aed7b869576c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0607",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0800",
+        "sourceVocabFingerprintSha256": "cdece3afb0d2d449df81cb806b9793f6cc20487568c9699014df9faca2cda35c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0608",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0801",
+        "sourceVocabFingerprintSha256": "ef73f160a288387cf6f3fdc0644df026a34e7c3890586becb2d9eeab427f9cc9",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0609",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0802",
+        "sourceVocabFingerprintSha256": "f023a810cf3d2953cc80cf6c30f5c8a39ca7f51223aef5fb617e33959a21841a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0610",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0803",
+        "sourceVocabFingerprintSha256": "a87184279b64f686b42a00b173c40f45fc18aaebb0438bb3f36108db846f8560",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0611",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0804",
+        "sourceVocabFingerprintSha256": "f77bc5a14649dd090f3ef853cb96d974107a6f48fb3547a3123a1c58c683f244",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0612",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0805",
+        "sourceVocabFingerprintSha256": "f926a17fdc616d4c1d197d734d19d7aae0e09ae6385de7264a9a6bdf27a18b41",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0613",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0806",
+        "sourceVocabFingerprintSha256": "83ed7a210b84b2494f05d887f13a082b2d0573dd8626dd57b106058ceed8c855",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0614",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0807",
+        "sourceVocabFingerprintSha256": "13456794bc99abbf52af59b08f9942cc3b7134ea34647700ce0b87aa8b5430ee",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0615",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0808",
+        "sourceVocabFingerprintSha256": "fad3786c7cd561d4f0530a1631ca1d34f0fc05dace91dcdaa8cafc069d88b505",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0616",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0809",
+        "sourceVocabFingerprintSha256": "b7a0dd77a15fa7175787b2cd33cdf6113c25672b0d960d5c3cd37d469798ec69",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0617",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0810",
+        "sourceVocabFingerprintSha256": "50cde4f6759f7b56d62924397488dd8bd19641e311747e70521e2f938325d2f6",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0618",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0811",
+        "sourceVocabFingerprintSha256": "e160773baa1c721f803bfd8dbe2662061d276a64dcd8e0708e4e837d207c9b2f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0619",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0812",
+        "sourceVocabFingerprintSha256": "f82b08e9c0ad8f1b30d0d5083b7814819f50c26d4a3f08fcccd3f796955efd73",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0620",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0813",
+        "sourceVocabFingerprintSha256": "59a81cbfaf79aa7f6505d9b8d63d76d092c077b7e246ae8266f7fef9f2052910",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0621",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0814",
+        "sourceVocabFingerprintSha256": "8b55825bb5f59259b25e371b77183c936121dcb4b43edacce46e6f10bf4a8c12",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0622",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0815",
+        "sourceVocabFingerprintSha256": "578591252dbb0cb5ccd6b0ff26fe3e38c6f151893541ba65c463ecc00441fe57",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0623",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0816",
+        "sourceVocabFingerprintSha256": "8677b9417a008c03295ed087cfcd5839fe8e4b53ad322b898c27fc5ab8fa8ffc",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0624",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0817",
+        "sourceVocabFingerprintSha256": "79f5abc35d6aacb0ca453db93db457d457591e04916984c67cd34acef2018205",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0625",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0818",
+        "sourceVocabFingerprintSha256": "0da86f944613b44e922f5b016093088584fa0f676f88dab1f7d7e2e2464e5566",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0626",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0819",
+        "sourceVocabFingerprintSha256": "befe258ca7cedd81b7559648829b9a0675100e9628d12e614f14404cb1192a10",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0627",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0820",
+        "sourceVocabFingerprintSha256": "e8104e854cd86e579d70842290ff3117999565c8624d2d48c43bf52c75ae2e10",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0628",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0821",
+        "sourceVocabFingerprintSha256": "e0c4e5182b52c89d665138ac3c5e4666f13a8db538eb3c01c01851bc152bdc05",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0629",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0822",
+        "sourceVocabFingerprintSha256": "9490e692653221fdd1386fd6d7d7d025d9b200f610f3199ae9aae77ad6cb795f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0630",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0823",
+        "sourceVocabFingerprintSha256": "4bf14eca920198213e997a6fe9b124cd7a82c5c73adf96073198f25921757ccd",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0631",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0824",
+        "sourceVocabFingerprintSha256": "2983bc7e913ab8ae3e6c0dd086847d58d4681f4991a6bec1ede596033f369786",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0632",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0825",
+        "sourceVocabFingerprintSha256": "dc0bba7f7a2a6a9ce5ea170c838438fafdcc73ea30cddc4383cdb640a2aab38f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0633",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0826",
+        "sourceVocabFingerprintSha256": "be3eaf4efc1097fcdc0036572be2c8a81b2d92d3affe0c6ef5edc30800feb693",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0634",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0827",
+        "sourceVocabFingerprintSha256": "ed5dadfeb76ca6f6bd266028185d53e9f6d30e783c51e57388675280e72b495c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0635",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0828",
+        "sourceVocabFingerprintSha256": "d92a994937b1ec7023fbb38389133b63bba5414f14177bc77c09fee7ed552de2",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0636",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0829",
+        "sourceVocabFingerprintSha256": "a373a7f4fb7c475dccc7ac56f20c84a4688ca61541d0a2ecab497d03a160e724",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0637",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0830",
+        "sourceVocabFingerprintSha256": "7c45e5fcc2de536e102b478ef36f5903359aeb15f87015f793336ff2c02760d1",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0638",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0831",
+        "sourceVocabFingerprintSha256": "aa05088c0b116420f4c9ca973308e0f2909a7ec1e87f853298c11d6da201bc5a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0639",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0832",
+        "sourceVocabFingerprintSha256": "9b6db862f903ecedd2a465c49dbad7a9101dacd18f21bdef9a0650f9682c523c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0640",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0833",
+        "sourceVocabFingerprintSha256": "cf4e68ee3726241c3680a684f99383d4ea5c068ac96e5e4ca83bbb384925a9d0",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0641",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0834",
+        "sourceVocabFingerprintSha256": "fe3494282ca579a218bf9f280f557b39e032b64bd1b3fe56830bd08e07f336f4",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0642",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0835",
+        "sourceVocabFingerprintSha256": "f462566e7ba62b98a430a163c117aa33b9cfef8d5d8cbb39c6147778c79feb75",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0643",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0836",
+        "sourceVocabFingerprintSha256": "2e97c98bc6c6b81184a9e868dc7031d6ce8a1ce1045f7d4155eed5b50f6a43a3",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0644",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0837",
+        "sourceVocabFingerprintSha256": "d101caae2236e0ac8a6ddc7ea5b68691ca6a60c6fcda770fcab31d242d723641",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0645",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0838",
+        "sourceVocabFingerprintSha256": "0eb2fa4e0cb5d7496d657e3e88dc8d1902408d8cbec3df02537b6c9a5f0d2615",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0646",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0839",
+        "sourceVocabFingerprintSha256": "e83d469f6b1d861c4470babfed82743731b45884e6a6b94201d8d3936f7052a1",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
         "kind": "satz",
         "id": "satz_a1_0088",
         "sourceKind": "vocabPack",
@@ -55556,6 +57492,732 @@
         "courseUnitId": "a2_01_haeyo_transition"
       },
       {
+        "kind": "satz",
+        "id": "satz_a2_0766",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0774",
+        "sourceVocabFingerprintSha256": "0922b24559b4baca2de11c790a47de59de7ce1bca42ee06dd3fcb0d37053e0d7",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0767",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0775",
+        "sourceVocabFingerprintSha256": "a3b764b670c0d24f4b2fef0f391a3e20973af531185d8de34b9cd3b9f27e8380",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0768",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0776",
+        "sourceVocabFingerprintSha256": "88c457b952fbb7badf9edfa98085fa68dc84a81b36ef259c444166f5508a6fd2",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0769",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0777",
+        "sourceVocabFingerprintSha256": "285a23d461e0040c7dcc766348dc253eb8f60bab13e90e0bf20f13d63d0be902",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0770",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0778",
+        "sourceVocabFingerprintSha256": "ea8e262ff59fd521c7d4e19783a4b843924b16a0382fb8dd1d51655204b160de",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0771",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_weather_sky_1",
+        "sourceVocabId": "vocab_a2_0779",
+        "sourceVocabFingerprintSha256": "45b77efd7f8f635639153fe7c678d74303bfcdae229d3c3e85cc480a940ebb26",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0772",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0780",
+        "sourceVocabFingerprintSha256": "c3803b617c143f40737adc4f123b601fa1ffa250d04bff2854232039e3362412",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0773",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0781",
+        "sourceVocabFingerprintSha256": "be9391cc7ffcf3cab4b0cb57bbaae3f5d5c4ca9907c0c8ea1c7914466674c0eb",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0774",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0782",
+        "sourceVocabFingerprintSha256": "704aa81bef4e4c368fe60b65d8009e475c45bd7c04c4d96a598e50f65314e05b",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0775",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0783",
+        "sourceVocabFingerprintSha256": "bd0ba21f6cebaeacb3084226942461531eef8e247d742be78122805b1844dbaf",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0776",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0784",
+        "sourceVocabFingerprintSha256": "9a733e5fa3f5a32bcddde2cbe3ebac2d09749356d7b2c9a51a08ab60a59cb46f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0777",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0785",
+        "sourceVocabFingerprintSha256": "7c1833a8fce1a83abed09b07c3d4ae740df1149b1d1869947fbef7cfcce9c6b0",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0778",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0786",
+        "sourceVocabFingerprintSha256": "dd8566daed3fdaa121d98708ff5d3b9b769022162ecb1f957823ab804c70226a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0779",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0787",
+        "sourceVocabFingerprintSha256": "e19c7a55180b9b54ee80c77a5703e93eaad4c7954e30735b8b7a061f12a5af30",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0780",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0788",
+        "sourceVocabFingerprintSha256": "4f8939502fe8c83afe3be69f79cf76b3db8aa38e996178ee936621e14a6f6719",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0781",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0789",
+        "sourceVocabFingerprintSha256": "00f8948cf19961e98b289d928f0a7041c0aa5593668bdc6f50cecd6cdd34eeeb",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0782",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0790",
+        "sourceVocabFingerprintSha256": "cecf467e15e9772ae6394b9df297bc65c7ada4f5cf0750091f86343cb6b76963",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0783",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_nature_2",
+        "sourceVocabId": "vocab_a2_0791",
+        "sourceVocabFingerprintSha256": "9b5a7d332829bf55dc58b44a52ee5f85abba957aad3f13161f3ca1cacdf9a3dd",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_running_late",
+        "courseUnitId": "a2_03_chat_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0784",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0792",
+        "sourceVocabFingerprintSha256": "c74f851da7406fd9de3455e459cbf5b7dcca43a0d04f621072c88cf49b677d6f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0785",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0793",
+        "sourceVocabFingerprintSha256": "94349351f496d00c094b8dfbb8043cf784db734c7f5046a0c28de384c89cf39a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0786",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0794",
+        "sourceVocabFingerprintSha256": "457442f07b37a28f379a7b926dee22f877c4fa959967fbb1ae3218a4abe6eb42",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0787",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0795",
+        "sourceVocabFingerprintSha256": "2e3fbc0dde3aa884ebf01bae7f9a412d6a820ef781afef2fd3d2f76630a6d048",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0788",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0796",
+        "sourceVocabFingerprintSha256": "92141f4bfd560a952f48686dafc7f79292cd6eb04af7e67f93dcf460f0528e43",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0789",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0797",
+        "sourceVocabFingerprintSha256": "7bf13c19e6f65bfd4b0ed88bb5fddb401cd1e248f3335ef17e780a72be571bdd",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0790",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0798",
+        "sourceVocabFingerprintSha256": "3ea3b8b8103c3ee4bc4931402898afad2bff4ca0db1c6a78c06a00a8de89bc31",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0791",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0799",
+        "sourceVocabFingerprintSha256": "bff2b4051294fe58388a058bff8e196586fb5e1e1fd539a267a9aed7b869576c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0792",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0800",
+        "sourceVocabFingerprintSha256": "cdece3afb0d2d449df81cb806b9793f6cc20487568c9699014df9faca2cda35c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0793",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0801",
+        "sourceVocabFingerprintSha256": "ef73f160a288387cf6f3fdc0644df026a34e7c3890586becb2d9eeab427f9cc9",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0794",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0802",
+        "sourceVocabFingerprintSha256": "f023a810cf3d2953cc80cf6c30f5c8a39ca7f51223aef5fb617e33959a21841a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0795",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_food_4",
+        "sourceVocabId": "vocab_a2_0803",
+        "sourceVocabFingerprintSha256": "a87184279b64f686b42a00b173c40f45fc18aaebb0438bb3f36108db846f8560",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_cafe_starbucks_basic",
+        "courseUnitId": "a2_05_delivery_services"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0796",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0804",
+        "sourceVocabFingerprintSha256": "f77bc5a14649dd090f3ef853cb96d974107a6f48fb3547a3123a1c58c683f244",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0797",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0805",
+        "sourceVocabFingerprintSha256": "f926a17fdc616d4c1d197d734d19d7aae0e09ae6385de7264a9a6bdf27a18b41",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0798",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0806",
+        "sourceVocabFingerprintSha256": "83ed7a210b84b2494f05d887f13a082b2d0573dd8626dd57b106058ceed8c855",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0799",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0807",
+        "sourceVocabFingerprintSha256": "13456794bc99abbf52af59b08f9942cc3b7134ea34647700ce0b87aa8b5430ee",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0800",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0808",
+        "sourceVocabFingerprintSha256": "fad3786c7cd561d4f0530a1631ca1d34f0fc05dace91dcdaa8cafc069d88b505",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0801",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0809",
+        "sourceVocabFingerprintSha256": "b7a0dd77a15fa7175787b2cd33cdf6113c25672b0d960d5c3cd37d469798ec69",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0802",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0810",
+        "sourceVocabFingerprintSha256": "50cde4f6759f7b56d62924397488dd8bd19641e311747e70521e2f938325d2f6",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0803",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0811",
+        "sourceVocabFingerprintSha256": "e160773baa1c721f803bfd8dbe2662061d276a64dcd8e0708e4e837d207c9b2f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0804",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0812",
+        "sourceVocabFingerprintSha256": "f82b08e9c0ad8f1b30d0d5083b7814819f50c26d4a3f08fcccd3f796955efd73",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0805",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0813",
+        "sourceVocabFingerprintSha256": "59a81cbfaf79aa7f6505d9b8d63d76d092c077b7e246ae8266f7fef9f2052910",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0806",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0814",
+        "sourceVocabFingerprintSha256": "8b55825bb5f59259b25e371b77183c936121dcb4b43edacce46e6f10bf4a8c12",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0807",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_time_span_2",
+        "sourceVocabId": "vocab_a2_0815",
+        "sourceVocabFingerprintSha256": "578591252dbb0cb5ccd6b0ff26fe3e38c6f151893541ba65c463ecc00441fe57",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0808",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0816",
+        "sourceVocabFingerprintSha256": "8677b9417a008c03295ed087cfcd5839fe8e4b53ad322b898c27fc5ab8fa8ffc",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0809",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0817",
+        "sourceVocabFingerprintSha256": "79f5abc35d6aacb0ca453db93db457d457591e04916984c67cd34acef2018205",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0810",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0818",
+        "sourceVocabFingerprintSha256": "0da86f944613b44e922f5b016093088584fa0f676f88dab1f7d7e2e2464e5566",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0811",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0819",
+        "sourceVocabFingerprintSha256": "befe258ca7cedd81b7559648829b9a0675100e9628d12e614f14404cb1192a10",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0812",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0820",
+        "sourceVocabFingerprintSha256": "e8104e854cd86e579d70842290ff3117999565c8624d2d48c43bf52c75ae2e10",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0813",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0821",
+        "sourceVocabFingerprintSha256": "e0c4e5182b52c89d665138ac3c5e4666f13a8db538eb3c01c01851bc152bdc05",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0814",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0822",
+        "sourceVocabFingerprintSha256": "9490e692653221fdd1386fd6d7d7d025d9b200f610f3199ae9aae77ad6cb795f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0815",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0823",
+        "sourceVocabFingerprintSha256": "4bf14eca920198213e997a6fe9b124cd7a82c5c73adf96073198f25921757ccd",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0816",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0824",
+        "sourceVocabFingerprintSha256": "2983bc7e913ab8ae3e6c0dd086847d58d4681f4991a6bec1ede596033f369786",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0817",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0825",
+        "sourceVocabFingerprintSha256": "dc0bba7f7a2a6a9ce5ea170c838438fafdcc73ea30cddc4383cdb640a2aab38f",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0818",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0826",
+        "sourceVocabFingerprintSha256": "be3eaf4efc1097fcdc0036572be2c8a81b2d92d3affe0c6ef5edc30800feb693",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0819",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_directions_2",
+        "sourceVocabId": "vocab_a2_0827",
+        "sourceVocabFingerprintSha256": "ed5dadfeb76ca6f6bd266028185d53e9f6d30e783c51e57388675280e72b495c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_subway_directions",
+        "courseUnitId": "a2_07_travel_repair"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0820",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0828",
+        "sourceVocabFingerprintSha256": "d92a994937b1ec7023fbb38389133b63bba5414f14177bc77c09fee7ed552de2",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0821",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0829",
+        "sourceVocabFingerprintSha256": "a373a7f4fb7c475dccc7ac56f20c84a4688ca61541d0a2ecab497d03a160e724",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0822",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0830",
+        "sourceVocabFingerprintSha256": "7c45e5fcc2de536e102b478ef36f5903359aeb15f87015f793336ff2c02760d1",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0823",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0831",
+        "sourceVocabFingerprintSha256": "aa05088c0b116420f4c9ca973308e0f2909a7ec1e87f853298c11d6da201bc5a",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0824",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0832",
+        "sourceVocabFingerprintSha256": "9b6db862f903ecedd2a465c49dbad7a9101dacd18f21bdef9a0650f9682c523c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0825",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0833",
+        "sourceVocabFingerprintSha256": "cf4e68ee3726241c3680a684f99383d4ea5c068ac96e5e4ca83bbb384925a9d0",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0826",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0834",
+        "sourceVocabFingerprintSha256": "fe3494282ca579a218bf9f280f557b39e032b64bd1b3fe56830bd08e07f336f4",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0827",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0835",
+        "sourceVocabFingerprintSha256": "f462566e7ba62b98a430a163c117aa33b9cfef8d5d8cbb39c6147778c79feb75",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0828",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0836",
+        "sourceVocabFingerprintSha256": "2e97c98bc6c6b81184a9e868dc7031d6ce8a1ce1045f7d4155eed5b50f6a43a3",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0829",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0837",
+        "sourceVocabFingerprintSha256": "d101caae2236e0ac8a6ddc7ea5b68691ca6a60c6fcda770fcab31d242d723641",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0830",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0838",
+        "sourceVocabFingerprintSha256": "0eb2fa4e0cb5d7496d657e3e88dc8d1902408d8cbec3df02537b6c9a5f0d2615",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0831",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_daily_actions_2",
+        "sourceVocabId": "vocab_a2_0839",
+        "sourceVocabFingerprintSha256": "e83d469f6b1d861c4470babfed82743731b45884e6a6b94201d8d3936f7052a1",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_haeyo_register_transition",
+        "courseUnitId": "a2_01_haeyo_transition"
+      },
+      {
         "kind": "cloze",
         "id": "cloze_a1_0104",
         "sourceKind": "vocabPack",
@@ -59569,6 +62231,710 @@
         "level": "b1",
         "canDoSegmentId": "segment_b1_intimate_feelings",
         "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0292",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_1",
+        "sourceVocabId": "vocab_b1_0490",
+        "sourceVocabFingerprintSha256": "fc4238224594c879744aaeceec1b5104514608d7d5eda6170fc466318692d45d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0293",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_time_life_1",
+        "sourceVocabId": "vocab_b1_0491",
+        "sourceVocabFingerprintSha256": "68db3bd08e12be3b05e1d5132c11bb5f1344b147911f374125810bb8612a4918",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0294",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_education",
+        "sourceVocabId": "vocab_b1_0492",
+        "sourceVocabFingerprintSha256": "077cd18fe82133102e94a627de6d0ecf274cb9845a0a7b5f781a5400ed45ce51",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_delivery_resolution",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0295",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0493",
+        "sourceVocabFingerprintSha256": "ea9afd1262e1d2c12e14effbb8e948b218eb21f0ddf6a055a6624e15284a64f9",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0296",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0494",
+        "sourceVocabFingerprintSha256": "33d5cbe7b206e0921c841b060ead6ca0de1237f78babbe757ce40e4ac44ff7e5",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0297",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0495",
+        "sourceVocabFingerprintSha256": "7603515b61a0eb6a9bcf4cdce533705682c023a55d51bfc3afa76f21f9ad29a7",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0298",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0496",
+        "sourceVocabFingerprintSha256": "39abb6bd056191b080625fd6fb9222934f19e810d300f8a3484cbe8431636566",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0299",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0497",
+        "sourceVocabFingerprintSha256": "4da6f8f299b6fe5cc356c4282a61ea160211f1f7d758364cd21eb594caa7780c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0300",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0498",
+        "sourceVocabFingerprintSha256": "109cfd03625826af3ca66c9b15683af2aca1d9208f58b560311b2b4ad206d1a1",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0301",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0499",
+        "sourceVocabFingerprintSha256": "b7e903ecb82b5b84ab0515647433b02cd852494117453157a6e81cbb0af0d53b",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0302",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0500",
+        "sourceVocabFingerprintSha256": "da820c4d8d311b9f0db2b11fb30e764510b7722ac3d7bf29e6c3c45c60331715",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0303",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0501",
+        "sourceVocabFingerprintSha256": "e8827b24d1639c6ebad0748410625c4ba432bd9f28eda16af18f741e16eac42d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0304",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0502",
+        "sourceVocabFingerprintSha256": "31187dd106bc6b36c96f5c1d39ebd3f9ca451304005db380b53fc0702e4ff209",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0305",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0503",
+        "sourceVocabFingerprintSha256": "417e6a2f23d95f85f23414b348bf03d19dd392374d8233deb974e81e2b153406",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0306",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0504",
+        "sourceVocabFingerprintSha256": "edfa8d70ba1ce2983b01b984902b0e729c0a64faf4e9adc826e3bc0a1e11a96c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0307",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0505",
+        "sourceVocabFingerprintSha256": "e8b3fe666502c8f7848f913ba86e03de4711b85b1602ca663a52b54c55f76214",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0308",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0506",
+        "sourceVocabFingerprintSha256": "1d2dee2d7c7df9c71ae4aa5c756e74212a6e248223f1a73c374f55c3bff5466c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0309",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0507",
+        "sourceVocabFingerprintSha256": "00bf2f11f2d7998fe1b2136c428a27118cccd87200ef8473ae4acbace7bcd32d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0310",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0508",
+        "sourceVocabFingerprintSha256": "3f6b7a6c3d96aa6026184d07a887b63ef68dbc4848199bc73feda9463ba1b56b",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0311",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0509",
+        "sourceVocabFingerprintSha256": "bdd5333c282eec8efa5d443985da522def74a8ebaf243e8f07b846fd33bc0277",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0312",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0510",
+        "sourceVocabFingerprintSha256": "513dfe85717c3385cf85de772c5bc3bc9b036fee7d9fe16ca9aad1103c6cb0ec",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0313",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0511",
+        "sourceVocabFingerprintSha256": "a8e722c30e4779ff6ba3d1fb6da5384b36968b24ed9adc33a92f3333291e6215",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0314",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0512",
+        "sourceVocabFingerprintSha256": "5a6c078bdfd212f1aa021fbbac80c1033f9d3c4977841a698939b8ace652fef1",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0315",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0513",
+        "sourceVocabFingerprintSha256": "6ac19e40cb5cdb317ef208e48d769e71d15d4785e2e0ec180ecd44aeda63c79d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0316",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0514",
+        "sourceVocabFingerprintSha256": "00a14cde31abcb2f5df9876d9a43a779b476cb9fff36e436ea9f89370e390234",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0317",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0515",
+        "sourceVocabFingerprintSha256": "cfe5585220364d5e481081c5270eee7e8383fb56ff867b56c507cfa4cd33f0d1",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0318",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0516",
+        "sourceVocabFingerprintSha256": "79dcda0d2cbf9829b6cca4be3627a8e197feb5ffc74289639a43ebf4d549449c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0319",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0517",
+        "sourceVocabFingerprintSha256": "7b693e5f219274a7f6f5ff7b5d277b6f4bc687d7a26df4de391c2329d45b27e7",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0320",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0518",
+        "sourceVocabFingerprintSha256": "bd0eb7fb5693158874186f3b70414db2069416bc3c0d4675548946492ee4dff6",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0321",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0519",
+        "sourceVocabFingerprintSha256": "c588f1a7e1e90dc4ef6e77cbf6f44f0eac132b5fd26544b8fb052e46e4093d2b",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0322",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0520",
+        "sourceVocabFingerprintSha256": "85851d21105d7b2e4b6564f576a5356d1a18d63ddae4f9a8ee3bee4069d5f58d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0323",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0521",
+        "sourceVocabFingerprintSha256": "022792a1225d07c81f9e8929e5db37476387d7ef8dac38cc793142be21ed398a",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0324",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0522",
+        "sourceVocabFingerprintSha256": "025095f9d0e7b7ef8bd097542b124ce9d7840458f080d613d7fcd2b4ed695a16",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0325",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0523",
+        "sourceVocabFingerprintSha256": "4f02339c3b15c8da775030b87122ccc5e0ee3a7f9049a5076f2e9c20a88c3cae",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0326",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0524",
+        "sourceVocabFingerprintSha256": "e3f84b2d5dc24f8e0fa48967d8eae28853a67f973ad23e9bee2d1a6094db45e4",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0327",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0525",
+        "sourceVocabFingerprintSha256": "95526943d47fa0ff0cc5e7afcd9aa2340aa72114a21ca2b5ca3dc4069be953c5",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0328",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0526",
+        "sourceVocabFingerprintSha256": "3e6210386f0469b7dd65a95902813c0de292b098615af63a903814abad0c7fdc",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0329",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0527",
+        "sourceVocabFingerprintSha256": "bde9601a566e9478c264f4ffadfba627a4e01dcb928d4de14670410f32779df3",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0330",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0528",
+        "sourceVocabFingerprintSha256": "d329b49bff78921f66305568262bf112db1a07ced0facd0bc73c8a6dcdfbfb5e",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0331",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0529",
+        "sourceVocabFingerprintSha256": "67209d987fc02375127247cc2f309b8659bfd545d115bd00ad02bb662f33a6e6",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0332",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0530",
+        "sourceVocabFingerprintSha256": "289379249a7739754350f5d64f3b390f937dd273969daf11d21ca2677bfa7586",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0333",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0531",
+        "sourceVocabFingerprintSha256": "d18b5bb36defc5374cd8439fd8bfbf745598e01a47e59171c40be7703952f8c6",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0334",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0532",
+        "sourceVocabFingerprintSha256": "c26ae6f5b4159e3bb77bbed863eadad555157486c99dd16937d1f7168564a953",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0335",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0533",
+        "sourceVocabFingerprintSha256": "7176456667770bdae25e39bb6b8310962e539be991c6104864647d9fd54d9e47",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0336",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0534",
+        "sourceVocabFingerprintSha256": "cae89e45004599a4b6065b3dc016662985cf0857ad551ea544b7329b3dbe53ab",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0337",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0535",
+        "sourceVocabFingerprintSha256": "ab34e5bdfebecf3a1699fa02f8a29cd0d8c6f3e3703ef0688664e7a63bcea121",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0338",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0536",
+        "sourceVocabFingerprintSha256": "2826d0ef2e2e7f9a19f400fb3d30438a219c9069c8b9a680bdebdcd33272d881",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0339",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0537",
+        "sourceVocabFingerprintSha256": "deb064f9bb54b9581695955a19cfd144b5e72bee8d6195787ffcf4d56dd80ab5",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0340",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0538",
+        "sourceVocabFingerprintSha256": "84f395b715d03a8d99d57ada1ba8d8ccebb819c94507cee65b59828cc1b85f2f",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0341",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0539",
+        "sourceVocabFingerprintSha256": "852528006e17dec1b8565104a86fbfeb902a9d16e918d070fe05221e89f0b788",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0342",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0540",
+        "sourceVocabFingerprintSha256": "9429a3e1ff94d173b7f2fbd621c386f69623a491f1bfb8e1d001d0a2840b1685",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0343",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0541",
+        "sourceVocabFingerprintSha256": "c8939288f45e61286321127de09409b26fe35956cdffe8ed177e07e47c8e0f08",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0344",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0542",
+        "sourceVocabFingerprintSha256": "350169cb84b71126872ef16e4e2f72e2bd6bc0abcd2f8d5352d14f156fd2eeef",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0345",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0543",
+        "sourceVocabFingerprintSha256": "24fc9d9995abee01c6eefd4a02d5093c2df67432dc21a1602a1ebcb5aeea8690",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0346",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0544",
+        "sourceVocabFingerprintSha256": "bf99704a5566fed9a43662d870220a877983926c5c4d9cc34a105c476f131c49",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0347",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0545",
+        "sourceVocabFingerprintSha256": "59d97889b0df85bd0b564ad92e25a3a716e1c26f4da23a49db75216d85046c82",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0348",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0546",
+        "sourceVocabFingerprintSha256": "2ce3d3410c651aaac2d1c244d317e907d40f14090814056aca3b86d5d1b9fca4",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0349",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0547",
+        "sourceVocabFingerprintSha256": "ddeac6df6cb47f9698d66fdc261f8e75eb727a47d7b19238bcc3769f2044b0ce",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0350",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0548",
+        "sourceVocabFingerprintSha256": "23fdecd0a537d98feb01a0f6a09c00c31d7c1181673869676a62943dedffd4c3",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0351",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0549",
+        "sourceVocabFingerprintSha256": "6b5f21d2d01972ebc0147625b15501b2298da7734a0cd6b0f2b6a3ac27294765",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0352",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0550",
+        "sourceVocabFingerprintSha256": "baca02548aa0b52bfca7d1c27742e9d3b0d6a556d5c8eabc89583084a8c5d823",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0353",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0551",
+        "sourceVocabFingerprintSha256": "4211a89f340f69e18376c91a212609d300e7e21d4304df22f1c5e25968467c3a",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0354",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0552",
+        "sourceVocabFingerprintSha256": "b8578d9040f9be2a01229e4f7dee8215704efe9d24783b185787baac0706ca92",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0355",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0553",
+        "sourceVocabFingerprintSha256": "9b03b25d94a63f64beee3543dbeacf3c3c3003f9053d02c8ec60ba35bcded60c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
       },
       {
         "kind": "satz",
@@ -66433,6 +69799,710 @@
         "level": "b1",
         "canDoSegmentId": "segment_b1_intimate_feelings",
         "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0485",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_1",
+        "sourceVocabId": "vocab_b1_0490",
+        "sourceVocabFingerprintSha256": "fc4238224594c879744aaeceec1b5104514608d7d5eda6170fc466318692d45d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0486",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_time_life_1",
+        "sourceVocabId": "vocab_b1_0491",
+        "sourceVocabFingerprintSha256": "68db3bd08e12be3b05e1d5132c11bb5f1344b147911f374125810bb8612a4918",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0487",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_education",
+        "sourceVocabId": "vocab_b1_0492",
+        "sourceVocabFingerprintSha256": "077cd18fe82133102e94a627de6d0ecf274cb9845a0a7b5f781a5400ed45ce51",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_delivery_resolution",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0488",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0493",
+        "sourceVocabFingerprintSha256": "ea9afd1262e1d2c12e14effbb8e948b218eb21f0ddf6a055a6624e15284a64f9",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0489",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0494",
+        "sourceVocabFingerprintSha256": "33d5cbe7b206e0921c841b060ead6ca0de1237f78babbe757ce40e4ac44ff7e5",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0490",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0495",
+        "sourceVocabFingerprintSha256": "7603515b61a0eb6a9bcf4cdce533705682c023a55d51bfc3afa76f21f9ad29a7",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0491",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0496",
+        "sourceVocabFingerprintSha256": "39abb6bd056191b080625fd6fb9222934f19e810d300f8a3484cbe8431636566",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0492",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_communication_lang_1",
+        "sourceVocabId": "vocab_b1_0497",
+        "sourceVocabFingerprintSha256": "4da6f8f299b6fe5cc356c4282a61ea160211f1f7d758364cd21eb594caa7780c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_relay_social_speech",
+        "courseUnitId": "b1_02_indirect_speech"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0493",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0498",
+        "sourceVocabFingerprintSha256": "109cfd03625826af3ca66c9b15683af2aca1d9208f58b560311b2b4ad206d1a1",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0494",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0499",
+        "sourceVocabFingerprintSha256": "b7e903ecb82b5b84ab0515647433b02cd852494117453157a6e81cbb0af0d53b",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0495",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0500",
+        "sourceVocabFingerprintSha256": "da820c4d8d311b9f0db2b11fb30e764510b7722ac3d7bf29e6c3c45c60331715",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0496",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0501",
+        "sourceVocabFingerprintSha256": "e8827b24d1639c6ebad0748410625c4ba432bd9f28eda16af18f741e16eac42d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0497",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0502",
+        "sourceVocabFingerprintSha256": "31187dd106bc6b36c96f5c1d39ebd3f9ca451304005db380b53fc0702e4ff209",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0498",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0503",
+        "sourceVocabFingerprintSha256": "417e6a2f23d95f85f23414b348bf03d19dd392374d8233deb974e81e2b153406",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0499",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0504",
+        "sourceVocabFingerprintSha256": "edfa8d70ba1ce2983b01b984902b0e729c0a64faf4e9adc826e3bc0a1e11a96c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0500",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0505",
+        "sourceVocabFingerprintSha256": "e8b3fe666502c8f7848f913ba86e03de4711b85b1602ca663a52b54c55f76214",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0501",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0506",
+        "sourceVocabFingerprintSha256": "1d2dee2d7c7df9c71ae4aa5c756e74212a6e248223f1a73c374f55c3bff5466c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0502",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0507",
+        "sourceVocabFingerprintSha256": "00bf2f11f2d7998fe1b2136c428a27118cccd87200ef8473ae4acbace7bcd32d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0503",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0508",
+        "sourceVocabFingerprintSha256": "3f6b7a6c3d96aa6026184d07a887b63ef68dbc4848199bc73feda9463ba1b56b",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0504",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_daily_4",
+        "sourceVocabId": "vocab_b1_0509",
+        "sourceVocabFingerprintSha256": "bdd5333c282eec8efa5d443985da522def74a8ebaf243e8f07b846fd33bc0277",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_plans_with_reasons",
+        "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0505",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0510",
+        "sourceVocabFingerprintSha256": "513dfe85717c3385cf85de772c5bc3bc9b036fee7d9fe16ca9aad1103c6cb0ec",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0506",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0511",
+        "sourceVocabFingerprintSha256": "a8e722c30e4779ff6ba3d1fb6da5384b36968b24ed9adc33a92f3333291e6215",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0507",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0512",
+        "sourceVocabFingerprintSha256": "5a6c078bdfd212f1aa021fbbac80c1033f9d3c4977841a698939b8ace652fef1",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0508",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0513",
+        "sourceVocabFingerprintSha256": "6ac19e40cb5cdb317ef208e48d769e71d15d4785e2e0ec180ecd44aeda63c79d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0509",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0514",
+        "sourceVocabFingerprintSha256": "00a14cde31abcb2f5df9876d9a43a779b476cb9fff36e436ea9f89370e390234",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0510",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0515",
+        "sourceVocabFingerprintSha256": "cfe5585220364d5e481081c5270eee7e8383fb56ff867b56c507cfa4cd33f0d1",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0511",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0516",
+        "sourceVocabFingerprintSha256": "79dcda0d2cbf9829b6cca4be3627a8e197feb5ffc74289639a43ebf4d549449c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0512",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0517",
+        "sourceVocabFingerprintSha256": "7b693e5f219274a7f6f5ff7b5d277b6f4bc687d7a26df4de391c2329d45b27e7",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0513",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0518",
+        "sourceVocabFingerprintSha256": "bd0eb7fb5693158874186f3b70414db2069416bc3c0d4675548946492ee4dff6",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0514",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0519",
+        "sourceVocabFingerprintSha256": "c588f1a7e1e90dc4ef6e77cbf6f44f0eac132b5fd26544b8fb052e46e4093d2b",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0515",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0520",
+        "sourceVocabFingerprintSha256": "85851d21105d7b2e4b6564f576a5356d1a18d63ddae4f9a8ee3bee4069d5f58d",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0516",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_verbs_daily_2",
+        "sourceVocabId": "vocab_b1_0521",
+        "sourceVocabFingerprintSha256": "022792a1225d07c81f9e8929e5db37476387d7ef8dac38cc793142be21ed398a",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0517",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0522",
+        "sourceVocabFingerprintSha256": "025095f9d0e7b7ef8bd097542b124ce9d7840458f080d613d7fcd2b4ed695a16",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0518",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0523",
+        "sourceVocabFingerprintSha256": "4f02339c3b15c8da775030b87122ccc5e0ee3a7f9049a5076f2e9c20a88c3cae",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0519",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0524",
+        "sourceVocabFingerprintSha256": "e3f84b2d5dc24f8e0fa48967d8eae28853a67f973ad23e9bee2d1a6094db45e4",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0520",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0525",
+        "sourceVocabFingerprintSha256": "95526943d47fa0ff0cc5e7afcd9aa2340aa72114a21ca2b5ca3dc4069be953c5",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0521",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0526",
+        "sourceVocabFingerprintSha256": "3e6210386f0469b7dd65a95902813c0de292b098615af63a903814abad0c7fdc",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0522",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0527",
+        "sourceVocabFingerprintSha256": "bde9601a566e9478c264f4ffadfba627a4e01dcb928d4de14670410f32779df3",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0523",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0528",
+        "sourceVocabFingerprintSha256": "d329b49bff78921f66305568262bf112db1a07ced0facd0bc73c8a6dcdfbfb5e",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0524",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0529",
+        "sourceVocabFingerprintSha256": "67209d987fc02375127247cc2f309b8659bfd545d115bd00ad02bb662f33a6e6",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0525",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0530",
+        "sourceVocabFingerprintSha256": "289379249a7739754350f5d64f3b390f937dd273969daf11d21ca2677bfa7586",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0526",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0531",
+        "sourceVocabFingerprintSha256": "d18b5bb36defc5374cd8439fd8bfbf745598e01a47e59171c40be7703952f8c6",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0527",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0532",
+        "sourceVocabFingerprintSha256": "c26ae6f5b4159e3bb77bbed863eadad555157486c99dd16937d1f7168564a953",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0528",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_emotions_relations_4",
+        "sourceVocabId": "vocab_b1_0533",
+        "sourceVocabFingerprintSha256": "7176456667770bdae25e39bb6b8310962e539be991c6104864647d9fd54d9e47",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_intimate_feelings",
+        "courseUnitId": "b1_04_relationships"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0529",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0534",
+        "sourceVocabFingerprintSha256": "cae89e45004599a4b6065b3dc016662985cf0857ad551ea544b7329b3dbe53ab",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0530",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0535",
+        "sourceVocabFingerprintSha256": "ab34e5bdfebecf3a1699fa02f8a29cd0d8c6f3e3703ef0688664e7a63bcea121",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0531",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0536",
+        "sourceVocabFingerprintSha256": "2826d0ef2e2e7f9a19f400fb3d30438a219c9069c8b9a680bdebdcd33272d881",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0532",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0537",
+        "sourceVocabFingerprintSha256": "deb064f9bb54b9581695955a19cfd144b5e72bee8d6195787ffcf4d56dd80ab5",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0533",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0538",
+        "sourceVocabFingerprintSha256": "84f395b715d03a8d99d57ada1ba8d8ccebb819c94507cee65b59828cc1b85f2f",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0534",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0539",
+        "sourceVocabFingerprintSha256": "852528006e17dec1b8565104a86fbfeb902a9d16e918d070fe05221e89f0b788",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0535",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0540",
+        "sourceVocabFingerprintSha256": "9429a3e1ff94d173b7f2fbd621c386f69623a491f1bfb8e1d001d0a2840b1685",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0536",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0541",
+        "sourceVocabFingerprintSha256": "c8939288f45e61286321127de09409b26fe35956cdffe8ed177e07e47c8e0f08",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0537",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0542",
+        "sourceVocabFingerprintSha256": "350169cb84b71126872ef16e4e2f72e2bd6bc0abcd2f8d5352d14f156fd2eeef",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0538",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0543",
+        "sourceVocabFingerprintSha256": "24fc9d9995abee01c6eefd4a02d5093c2df67432dc21a1602a1ebcb5aeea8690",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0539",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0544",
+        "sourceVocabFingerprintSha256": "bf99704a5566fed9a43662d870220a877983926c5c4d9cc34a105c476f131c49",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0540",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_health_hospital_2",
+        "sourceVocabId": "vocab_b1_0545",
+        "sourceVocabFingerprintSha256": "59d97889b0df85bd0b564ad92e25a3a716e1c26f4da23a49db75216d85046c82",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_safety_health_concern",
+        "courseUnitId": "b1_05_complaint_resolution"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0541",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0546",
+        "sourceVocabFingerprintSha256": "2ce3d3410c651aaac2d1c244d317e907d40f14090814056aca3b86d5d1b9fca4",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0542",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0547",
+        "sourceVocabFingerprintSha256": "ddeac6df6cb47f9698d66fdc261f8e75eb727a47d7b19238bcc3769f2044b0ce",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0543",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0548",
+        "sourceVocabFingerprintSha256": "23fdecd0a537d98feb01a0f6a09c00c31d7c1181673869676a62943dedffd4c3",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0544",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0549",
+        "sourceVocabFingerprintSha256": "6b5f21d2d01972ebc0147625b15501b2298da7734a0cd6b0f2b6a3ac27294765",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0545",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0550",
+        "sourceVocabFingerprintSha256": "baca02548aa0b52bfca7d1c27742e9d3b0d6a556d5c8eabc89583084a8c5d823",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0546",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0551",
+        "sourceVocabFingerprintSha256": "4211a89f340f69e18376c91a212609d300e7e21d4304df22f1c5e25968467c3a",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0547",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0552",
+        "sourceVocabFingerprintSha256": "b8578d9040f9be2a01229e4f7dee8215704efe9d24783b185787baac0706ca92",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0548",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_descriptions_adj_2",
+        "sourceVocabId": "vocab_b1_0553",
+        "sourceVocabFingerprintSha256": "9b03b25d94a63f64beee3543dbeacf3c3c3003f9053d02c8ec60ba35bcded60c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_life_course_narrative",
+        "courseUnitId": "b1_06_life_capstone"
       },
       {
         "kind": "cloze",
